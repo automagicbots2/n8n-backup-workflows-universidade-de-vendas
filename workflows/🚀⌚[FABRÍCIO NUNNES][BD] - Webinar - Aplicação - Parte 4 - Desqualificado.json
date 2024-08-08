@@ -1,0 +1,1239 @@
+{
+  "active": false,
+  "connections": {
+    "chega_da_fila": {
+      "main": [
+        [
+          {
+            "node": "segundo_ou_mais_erro3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "segundo_ou_mais_erro3": {
+      "main": [
+        [
+          {
+            "node": "Stop and Error3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pesquisa_lead5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_data_aplicacao": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_data_data_lake": {
+      "main": [
+        [
+          {
+            "node": "nao_encontrou_registro_hj_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_encontrou_registro_hj_data_lake1": {
+      "main": [
+        [
+          {
+            "node": "lead_ja_existia",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "lead_ja_existia1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake": {
+      "main": [
+        [
+          {
+            "node": "dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead_ja_existia": {
+      "main": [
+        [
+          {
+            "node": "insert_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "insert_data_data_lake2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_data_data_lake2": {
+      "main": [
+        [
+          {
+            "node": "dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead_ja_existia1": {
+      "main": [
+        [
+          {
+            "node": "update_data_data_lake2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_data_lake",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake2": {
+      "main": [
+        [
+          {
+            "node": "dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_data_data_lake1": {
+      "main": [
+        [
+          {
+            "node": "dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_lead5": {
+      "main": [
+        [
+          {
+            "node": "insert_data_aplicacao",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "add_id_banco": {
+      "main": [
+        [
+          {
+            "node": "atualizar_campos_deal2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "entra_na_fila": {
+      "main": [
+        [
+          {
+            "node": "atualiza_qualificacao",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados1": {
+      "main": [
+        [
+          {
+            "node": "desqualificado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "desqualificado": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "entra_na_fila1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "entra_na_fila1": {
+      "main": [
+        [
+          {
+            "node": "atualiza_qualificacao1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Listar Campos Personalizados de Contatos da Conta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-14T00:51:56.200Z",
+  "id": "VKB5YMEFcZQbBrYw",
+  "meta": null,
+  "name": "🚀⌚[FABRÍCIO NUNNES][BD] - Webinar - Aplicação - Parte 4 - Desqualificado",
+  "nodes": [
+    {
+      "parameters": {
+        "queue": "Aplicação Gestão Comercial - Parte 4 - Desqualificado",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "acknowledge": "executionFinishesSuccessfully",
+          "jsonParseBody": "={{ true }}",
+          "parallelMessages": 3
+        }
+      },
+      "id": "89489903-543d-4e26-8be4-6b9fdb1427e3",
+      "name": "chega_da_fila",
+      "type": "n8n-nodes-base.rabbitmqTrigger",
+      "typeVersion": 1,
+      "position": [
+        500,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "An error ocurred!"
+      },
+      "id": "60b39bbe-6861-4d61-9aa5-f7575d4c1f8b",
+      "name": "Stop and Error3",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        840,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.fields.redelivered }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "92e67bda-340d-4392-b17e-03fd1d44aa2d",
+      "name": "segundo_ou_mais_erro3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        680,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "aplicacoes_webinario",
+          "mode": "list",
+          "cachedResultName": "aplicacoes_webinario"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_lead",
+              "value": "={{ $node[\"pesquisa_lead5\"].json[\"id_lead\"] }}"
+            },
+            {
+              "column": "nome_da_empresa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome_empresa\"] }}"
+            },
+            {
+              "column": "formato_mentoria",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"formato_mentoria\"] }}"
+            },
+            {
+              "column": "quantos_vendedores_tem_na_empresa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "column": "data_aplicacao",
+              "value": "={{ $now.toFormat('yyyy-MM-dd HH:mm:ss') }}"
+            },
+            {
+              "column": "tem_socio",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tem_socio\"] }}"
+            },
+            {
+              "column": "situacao_atual",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"situacao_atual\"] }}"
+            },
+            {
+              "column": "aceita_investimento_6k",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"concorda_investimento_6k\"] }}"
+            },
+            {
+              "column": "aceita_investimento_30k",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"concorda_investimento_30k\"] }}"
+            },
+            {
+              "column": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "column": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "column": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "column": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "column": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "column": "utm_fun",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"funil\"] }}"
+            },
+            {
+              "column": "utm_var",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "d56b34af-41c0-46cd-ae77-204a0f390fc9",
+      "name": "insert_data_aplicacao",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        1160,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{$now.toFormat('yyyy-MM-dd')}}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "98d9be63-415d-4bad-b615-593eab37403a",
+      "name": "pesquisa_data_data_lake",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        1440,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"pesquisa_data_data_lake\"].json[\"success\"] }}",
+              "value2": true
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "867a00aa-e774-4068-96be-eb9e22015718",
+      "name": "nao_encontrou_registro_hj_data_lake1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1660,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_aplicacoes",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_aplicacoes\"] + 1 }}"
+            },
+            {
+              "column": "qtd_leads",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_leads\"] + 1 }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "77710002-ba05-42a7-8f30-5d8ad73fbbaf",
+      "name": "update_data_data_lake",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        2180,
+        1180
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"verificacao_lead\"] }}"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "61bdd916-3488-4e82-a2be-4acc7d792ad5",
+      "name": "lead_ja_existia",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1960,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{$now.toFormat('yyyy-MM-dd')}}"
+            },
+            {
+              "column": "qtd_aplicacoes",
+              "value": "=1"
+            },
+            {
+              "column": "qtd_leads",
+              "value": "1"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "635c0d8d-5fce-4d49-8540-a069b867bf1b",
+      "name": "insert_data_data_lake2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        2180,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"verificacao_lead\"] }}"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "09143a2a-4043-44c0-a1fb-217c1673bb0a",
+      "name": "lead_ja_existia1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_aplicacoes",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_aplicacoes\"] + 1 }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "045a2114-1b3d-4f8b-a2aa-ab9076527a56",
+      "name": "update_data_data_lake2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        2180,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "aplicacoes_webinario_utms",
+          "mode": "list",
+          "cachedResultName": "aplicacoes_webinario_utms"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_aplicacao",
+              "value": "={{ $node[\"insert_data_aplicacao\"].json[\"data\"][\"insertId\"] }}"
+            },
+            {
+              "column": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "column": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "column": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "column": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "column": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "column": "utm_fun",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"funil\"] }}"
+            },
+            {
+              "column": "utm_var",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "queryBatching": "single",
+          "detailedOutput": true
+        }
+      },
+      "id": "29cf3973-24f5-4e65-a6af-ae5b68843355",
+      "name": "insert_data_utm_aplicacao",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        1160,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{$now.toFormat('yyyy-MM-dd')}}"
+            },
+            {
+              "column": "qtd_aplicacoes",
+              "value": "1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "72698c6c-643e-4666-8bb2-4d8207304827",
+      "name": "insert_data_data_lake1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        2180,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "leads",
+          "mode": "list",
+          "cachedResultName": "leads"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id_lead",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bd\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "8e0edac1-ea6c-4125-8df2-baa7bc1a0775",
+      "name": "pesquisa_lead5",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        900,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "activeCampaignApi",
+        "requestMethod": "PUT",
+        "url": "=https://{{ $node[\"chega_da_fila\"].json[\"content\"][\"url_api_activecampaign\"] }}.api-us1.com/api/3/deals/{{ $node[\"pesquisa_lead5\"].json[\"id_deal_activecampaign\"] }}",
+        "jsonParameters": true,
+        "options": {},
+        "bodyParametersJson": "={\n\"deal\": {\n\"fields\": [\n{\n\"customFieldId\": {{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_id_banco_de_dados_ac\"] }},\n\"fieldValue\": \"{{ $node[\"pesquisa_lead5\"].json[\"id_lead\"] }}\"\n}\n]\n}\n}"
+      },
+      "name": "atualizar_campos_deal2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2580,
+        260
+      ],
+      "id": "3bfdc355-e22b-4284-ae30-b775a96767ec",
+      "disabled": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "email": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}",
+        "updateIfExists": true,
+        "additionalFields": {
+          "fieldValues": {
+            "property": [
+              {
+                "field": "106",
+                "value": "={{ $node[\"pesquisa_lead5\"].json[\"id_lead\"] }}"
+              },
+              {
+                "field": "43",
+                "value": "={{ $node[\"pesquisa_lead5\"].json[\"id_botconversa\"] }}"
+              }
+            ]
+          }
+        }
+      },
+      "id": "73f520c0-753a-4a5d-b5bb-123ef7d2ba08",
+      "name": "add_id_banco",
+      "type": "n8n-nodes-base.activeCampaign",
+      "typeVersion": 1,
+      "position": [
+        2460,
+        260
+      ],
+      "disabled": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "leads",
+          "mode": "list",
+          "cachedResultName": "leads"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_lead",
+        "valueToMatchOn": "={{ $node[\"pesquisa_lead5\"].json[\"id_lead\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "nivel_qualificacao",
+              "value": "Desqualificado"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "38c2fbe3-955e-455b-9eba-8d49bf41e127",
+      "name": "atualiza_qualificacao",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        3060,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "Aplicação Gestão Comercial - Parte 5 - Desqualificado",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "cd15a265-edc1-4f5a-9d86-611551f4fe44",
+      "name": "entra_na_fila",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        2860,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}"
+            },
+            {
+              "name": "id_lead_bd",
+              "value": "={{ $node[\"pesquisa_lead5\"].json[\"id_lead\"] }}"
+            },
+            {
+              "name": "id_lead_bc",
+              "value": "={{ $node[\"pesquisa_lead5\"].json[\"id_botconversa\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"funil\"] }}"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}"
+            },
+            {
+              "name": "quantos_vendedores_possui",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "name": "nome_empresa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome_empresa\"] }}"
+            },
+            {
+              "name": "tem_socio",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tem_socio\"] }}"
+            },
+            {
+              "name": "id_tag_desqualificado_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_tag_desqualificado_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_utm_var_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_utm_var_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_utm_fun_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_utm_fun_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_utm_medium_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_utm_source_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_utm_campaign_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_utm_term_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_utm_content_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_id_banco_de_dados_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_quantos_vendedores_possui_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_quantos_vendedores_possui_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_nome_empresa_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_nome_empresa_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_emailse_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_emailse_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_tem_socio_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_tem_socio_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_fluxo_nao_agendou_10_min",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_fluxo_nao_agendou_10_min\"] }}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            },
+            {
+              "name": "data_ultima_quinzena",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"data_ultima_quinzena\"] }}"
+            },
+            {
+              "name": "formato_mentoria",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"formato_mentoria\"] }}"
+            },
+            {
+              "name": "concorda_investimento_6k",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"concorda_investimento_6k\"] }}"
+            },
+            {
+              "name": "concorda_investimento_30k",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"concorda_investimento_30k\"] }}"
+            },
+            {
+              "name": "situacao_atual",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"situacao_atual\"] }}"
+            },
+            {
+              "name": "Instagram",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Instagram\"] }}"
+            },
+            {
+              "name": "id_campo_instagram_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_instagram_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_formato_mentoria_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_formato_mentoria_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_aceita_6k_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_aceita_6k_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_aceita_30k_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_aceita_30k_bot_conversa\"] }}"
+            },
+            {
+              "name": "id_campo_situacao_atual_bot_conversa",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_situacao_atual_bot_conversa\"] }}"
+            },
+            {
+              "name": "qualificacao",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"qualificacao\"] }}"
+            },
+            {
+              "name": "forma de pagamento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"forma de pagamento\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5beba6d7-b231-4c29-b0d7-4206a216567f",
+      "name": "dados1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        2460,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"qualificacao\"] }}",
+              "value2": "Desqualificado"
+            }
+          ]
+        }
+      },
+      "id": "495fe016-d657-4957-a621-dc60692e85b9",
+      "name": "desqualificado",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2660,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "Aplicação Gestão Comercial - Parte 5 - Qualificado",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "75642f9a-7289-4ddd-a2f1-7fdec3f4f565",
+      "name": "entra_na_fila1",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        2860,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "leads",
+          "mode": "list",
+          "cachedResultName": "leads"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_lead",
+        "valueToMatchOn": "={{ $node[\"pesquisa_lead5\"].json[\"id_lead\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "nivel_qualificacao",
+              "value": "Qualificado"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "ccee605d-1c45-4b1a-8fa3-210f51a467c2",
+      "name": "atualiza_qualificacao1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        3060,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Para consulta\n \nUtilize os Nodes Abaixo para consultar os IDs dos Campos no ActiveCampaign",
+        "height": 407.6377565498652,
+        "width": 607.4629790627448
+      },
+      "id": "80450459-19b1-4890-8930-192a5722ede4",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        480,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://{{ $json[\"url_api_activecampaign\"] }}.api-us1.com/api/3/fields?limit=1000",
+        "options": {},
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "Api-Token",
+              "value": "={{ $node[\"Set\"].json[\"Api-Token\"] }}"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        }
+      },
+      "name": "Listar Campos Personalizados de Contatos da Conta",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        780,
+        280
+      ],
+      "id": "f153e24c-947f-4ffa-b78c-37bb17e083ca",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Api-Token",
+              "value": "f855a9327a9219d27bf8713569e0f7e926110f6bbe180b11ad6c3a9bdb922fd7f05402c9"
+            },
+            {
+              "name": "url_api_activecampaign",
+              "value": "futureminds14016"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c4052ba3-d6b3-46cf-b2e9-4239e4f9c283",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        580,
+        280
+      ]
+    }
+  ],
+  "pinData": {
+    "chega_da_fila": [
+      {
+        "json": {
+          "fields": {
+            "consumerTag": "amq.ctag-RhLtyMeR4FuOP_JR1R_UFA",
+            "deliveryTag": 1,
+            "redelivered": false,
+            "exchange": "",
+            "routingKey": "Aplicação Gestão Comercial - Parte 4 - Desqualificado"
+          },
+          "properties": {
+            "headers": {}
+          },
+          "content": {
+            "verificacao_lead": false,
+            "Nome do Cliente": "Vitor Queiroz",
+            "E-mail do Cliente": "vitorrqueiroztrafego@gmail.com",
+            "Telefone do Cliente - Formato Z-API": "5519984574874",
+            "id_lead_bd": 138,
+            "id_lead_bc": 304484832,
+            "utm_source": "source1",
+            "utm_campaign": "campaign4",
+            "utm_term": "term5",
+            "utm_medium": "medium2",
+            "utm_content": "content3",
+            "funil": "SE",
+            "variacao_do_funil": "webinario",
+            "quantos_vendedores_possui": "Acima de 15 vendedores",
+            "nome_empresa": "Teste Webinario",
+            "tem_socio": "Não",
+            "id_tag_desqualificado_bot_conversa": "5312418",
+            "id_campo_utm_var_bot_conversa": "1472227",
+            "id_campo_utm_fun_bot_conversa": "1472226",
+            "id_campo_utm_medium_bot_conversa": "1472223",
+            "id_campo_utm_source_bot_conversa": "1472224",
+            "id_campo_utm_campaign_bot_conversa": "1472222",
+            "id_campo_utm_term_bot_conversa": "1472225",
+            "id_campo_utm_content_bot_conversa": "1472224",
+            "id_campo_id_banco_de_dados_bot_conversa": "1408048",
+            "id_campo_quantos_vendedores_possui_bot_conversa": "1472212",
+            "id_campo_nome_empresa_bot_conversa": "1472211",
+            "id_campo_emailse_bot_conversa": "1472209",
+            "id_campo_tem_socio_bot_conversa": "1472213",
+            "qualificacao": "Desqualificado",
+            "API-KEY": "a9585685-a8d4-4f70-be7c-44c8dedf905f",
+            "data_ultima_quinzena": "\"2023-10-23\"",
+            "id_tag_qualificado_bot_conversa": "5312415",
+            "formato_mentoria": "Acompanhamento com o time comercial",
+            "concorda_investimento_6k": "Não",
+            "concorda_investimento_30k": "Sim",
+            "situacao_atual": "A empresa está bem e quero ter mais tempo para pensar como empresário",
+            "id_campo_instagram_bot_conversa": "1472210",
+            "id_campo_formato_mentoria_bot_conversa": "1472215",
+            "id_campo_aceita_6k_bot_conversa": "1472216",
+            "id_campo_aceita_30k_bot_conversa": "1472218",
+            "id_campo_situacao_atual_bot_conversa": "1472214",
+            "Instagram": "testewebinario2"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-05-14T00:50:19.022Z",
+      "updatedAt": "2024-05-14T00:50:19.022Z",
+      "id": "XakWPPNalLG5XkNf",
+      "name": "[Webinar]"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-05-14T00:52:08.393Z",
+  "versionId": "83b64009-d2f2-43e2-90c7-768f17f4f4b0"
+}
