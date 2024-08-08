@@ -1,0 +1,1089 @@
+{
+  "active": true,
+  "connections": {
+    "call_realizada": {
+      "main": [
+        [
+          {
+            "node": "CLINT CALL REALIZADA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "no_show": {
+      "main": [
+        [
+          {
+            "node": "CLINT NO SHOW",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call_Agendada": {
+      "main": [
+        [
+          {
+            "node": "CLINT CALL AGENDADA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lead_Ganho": {
+      "main": [
+        [
+          {
+            "node": "CLINT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-14T14:43:48.505Z",
+  "id": "yKQUtrmtKqHHdeF2",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚ [Fabricio Nunnes] Clint | Planilha Sheets",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1e7-lIJxBcfuqXi1WvT6Y98amrIWex_6ftUDhXgX0G-w",
+          "mode": "list",
+          "cachedResultName": "Vendas diárias Closer - Universidade Vendas (respostas)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1e7-lIJxBcfuqXi1WvT6Y98amrIWex_6ftUDhXgX0G-w/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 515667983,
+          "mode": "list",
+          "cachedResultName": "CLINT",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1e7-lIJxBcfuqXi1WvT6Y98amrIWex_6ftUDhXgX0G-w/edit#gid=515667983"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Origem (cadência)": "={{ $json[\"body\"][\"deal_origin\"] }}",
+            "Data da venda": "={{ String($json[\"body\"][\"deal_won_at\"]).slice(0,10) }}",
+            "CNPJ ou CPF": "={{ $json[\"body\"][\"contact_cpfcnpj\"] }}",
+            "Nome do cliente": "={{ $json[\"body\"][\"contact_name\"] }}",
+            "Telefone do cliente": "={{ $json[\"body\"][\"contact_phone\"] }}",
+            "Razão social do cliente": "={{ $json[\"body\"][\"organization_name\"] }}",
+            "E-mail do Cliente": "={{ $json[\"body\"][\"contact_email\"] }}",
+            "Observações de pagamento": "={{ $json[\"body\"][\"organization_documentos_important\"] }}",
+            "Serviço (s)": "={{ $json[\"body\"][\"contact_produto\"] }}",
+            "Qual o valor total do contrato?": "=R$ {{ $json[\"body\"][\"deal_faturamento\"] }}",
+            "Qual o valor total que o cliente já pagou?": "=R$ {{ $json[\"body\"][\"deal_value\"] }}",
+            "Outro telefone do cliente (se houver)": "={{ $json[\"body\"][\"deal_user_phone\"] }}",
+            "Endereço de e-mail": "={{ $json[\"body\"][\"contact_email\"] }}",
+            "Closer": "={{ $json[\"body\"][\"deal_closer\"] }}",
+            "quem qualificou": "={{ $json[\"body\"][\"deal_sdr\"] }}",
+            "Quantidade": "1",
+            "Vigência total (em meses)": "={{ $json[\"body\"][\"deal_meses_de_contrato\"] }}",
+            "CEP do cliente": "={{ $json[\"body\"][\"deal_cep\"] }}",
+            "Rua do cliente": "={{ $json[\"body\"][\"deal_endereco\"] }}",
+            "Dia do vencimento": "={{ $json[\"body\"][\"deal_dia_do_vencimento\"] }}",
+            "Nome fantasia da empresa": "={{ $json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Origem (cadência)",
+              "displayName": "Origem (cadência)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Dia do vencimento",
+              "displayName": "Dia do vencimento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Data da venda",
+              "displayName": "Data da venda",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Vigência total (em meses)",
+              "displayName": "Vigência total (em meses)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nome do cliente",
+              "displayName": "Nome do cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CNPJ ou CPF",
+              "displayName": "CNPJ ou CPF",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Razão social do cliente",
+              "displayName": "Razão social do cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "E-mail do Cliente",
+              "displayName": "E-mail do Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Observações de pagamento",
+              "displayName": "Observações de pagamento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Serviço (s)",
+              "displayName": "Serviço (s)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Qual o valor total do contrato?",
+              "displayName": "Qual o valor total do contrato?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Qual o valor total que o cliente já pagou?",
+              "displayName": "Qual o valor total que o cliente já pagou?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Telefone do cliente",
+              "displayName": "Telefone do cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CEP do cliente",
+              "displayName": "CEP do cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Rua do cliente",
+              "displayName": "Rua do cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Número do endereço do cliente",
+              "displayName": "Número do endereço do cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Bairro do cliente",
+              "displayName": "Bairro do cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Outro telefone do cliente (se houver)",
+              "displayName": "Outro telefone do cliente (se houver)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nome fantasia da empresa",
+              "displayName": "Nome fantasia da empresa",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Endereço de e-mail",
+              "displayName": "Endereço de e-mail",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Closer",
+              "displayName": "Closer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Quantidade",
+              "displayName": "Quantidade",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "quem qualificou",
+              "displayName": "quem qualificou",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a465ed8f-1258-48d5-858e-7764fe920f67",
+      "name": "CLINT",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        940,
+        300
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9VMJ3bREWTIIbmTh",
+          "name": "[Google Sheets] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1e7-lIJxBcfuqXi1WvT6Y98amrIWex_6ftUDhXgX0G-w",
+          "mode": "list",
+          "cachedResultName": "Vendas diárias Closer - Universidade Vendas (respostas)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1e7-lIJxBcfuqXi1WvT6Y98amrIWex_6ftUDhXgX0G-w/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 111290368,
+          "mode": "list",
+          "cachedResultName": "CLINT CALL AGENDADA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1e7-lIJxBcfuqXi1WvT6Y98amrIWex_6ftUDhXgX0G-w/edit#gid=111290368"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Origem (cadência)": "={{ $json[\"body\"][\"deal_origin\"] }}",
+            "Nome": "={{ $json[\"body\"][\"contact_name\"] }}",
+            "Email": "={{ $json[\"body\"][\"contact_email\"] }}",
+            "Telefone": "={{ $json[\"body\"][\"contact_phone\"] }}",
+            "Etapa do Funil": "={{ $json[\"body\"][\"deal_stage\"] }}",
+            "Razão social do cliente": "={{ $json[\"body\"][\"organization_name\"] }}",
+            "Nome fantasia da empresa": "={{ $json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}",
+            "Dono do negocio": "={{ $json[\"body\"][\"deal_user\"] }}",
+            "Status do negocio": "={{ $json[\"body\"][\"deal_status\"] }}",
+            "Data da Reunião": "={{ $json[\"body\"][\"deal_reuniao\"].slice(0,10) }}",
+            "Closer": "={{ $json[\"body\"][\"deal_closer\"] }}",
+            "SDR": "={{ $json[\"body\"][\"deal_sdr\"] }}",
+            "Quantidade": "1"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Origem (cadência)",
+              "displayName": "Origem (cadência)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nome",
+              "displayName": "Nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Telefone",
+              "displayName": "Telefone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Etapa do Funil",
+              "displayName": "Etapa do Funil",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Razão social do cliente",
+              "displayName": "Razão social do cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nome fantasia da empresa",
+              "displayName": "Nome fantasia da empresa",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Dono do negocio",
+              "displayName": "Dono do negocio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status do negocio",
+              "displayName": "Status do negocio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Data da Reunião",
+              "displayName": "Data da Reunião",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Closer",
+              "displayName": "Closer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "SDR",
+              "displayName": "SDR",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Quantidade",
+              "displayName": "Quantidade",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d093502f-9871-413a-8a9a-615d436671e5",
+      "name": "CLINT CALL AGENDADA",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        940,
+        520
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9VMJ3bREWTIIbmTh",
+          "name": "[Google Sheets] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1e7-lIJxBcfuqXi1WvT6Y98amrIWex_6ftUDhXgX0G-w",
+          "mode": "list",
+          "cachedResultName": "Vendas diárias Closer - Universidade Vendas (respostas)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1e7-lIJxBcfuqXi1WvT6Y98amrIWex_6ftUDhXgX0G-w/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1810914043,
+          "mode": "list",
+          "cachedResultName": "CLINT CALL REALIZADA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1e7-lIJxBcfuqXi1WvT6Y98amrIWex_6ftUDhXgX0G-w/edit#gid=1810914043"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Origem (cadência)": "={{ $json[\"body\"][\"deal_origin\"] }}",
+            "Nome": "={{ $json[\"body\"][\"contact_name\"] }}",
+            "Email": "={{ $json[\"body\"][\"contact_email\"] }}",
+            "Telefone": "={{ $json[\"body\"][\"contact_phone\"] }}",
+            "Etapa do Funil": "={{ $json[\"body\"][\"deal_stage\"] }}",
+            "Razão social do cliente": "={{ $json[\"body\"][\"organization_name\"] }}",
+            "Nome fantasia da empresa": "={{ $json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}",
+            "Dono do negocio": "={{ $json[\"body\"][\"deal_user\"] }}",
+            "Status do negocio": "={{ $json[\"body\"][\"deal_status\"] }}",
+            "Data da reunião": "={{ $json[\"body\"][\"deal_reuniao\"].slice(0,10) }}",
+            "Closer": "={{ $json[\"body\"][\"deal_closer\"] }}",
+            "SDR": "={{ $json[\"body\"][\"deal_sdr\"] }}",
+            "Quantidade": "1"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Origem (cadência)",
+              "displayName": "Origem (cadência)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nome",
+              "displayName": "Nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Telefone",
+              "displayName": "Telefone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Etapa do Funil",
+              "displayName": "Etapa do Funil",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Razão social do cliente",
+              "displayName": "Razão social do cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nome fantasia da empresa",
+              "displayName": "Nome fantasia da empresa",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Dono do negocio",
+              "displayName": "Dono do negocio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status do negocio",
+              "displayName": "Status do negocio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Data da reunião",
+              "displayName": "Data da reunião",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Closer",
+              "displayName": "Closer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "SDR",
+              "displayName": "SDR",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Quantidade",
+              "displayName": "Quantidade",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9cd158e9-4868-455a-9e1f-01e64fc710bb",
+      "name": "CLINT CALL REALIZADA",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        940,
+        720
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9VMJ3bREWTIIbmTh",
+          "name": "[Google Sheets] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1e7-lIJxBcfuqXi1WvT6Y98amrIWex_6ftUDhXgX0G-w",
+          "mode": "list",
+          "cachedResultName": "Vendas diárias Closer - Universidade Vendas (respostas)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1e7-lIJxBcfuqXi1WvT6Y98amrIWex_6ftUDhXgX0G-w/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2107555942,
+          "mode": "list",
+          "cachedResultName": "CLINT NO SHOW",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1e7-lIJxBcfuqXi1WvT6Y98amrIWex_6ftUDhXgX0G-w/edit#gid=2107555942"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Origem (cadência)": "={{ $json[\"body\"][\"deal_origin\"] }}",
+            "Nome": "={{ $json[\"body\"][\"contact_name\"] }}",
+            "Email": "={{ $json[\"body\"][\"contact_email\"] }}",
+            "Telefone": "={{ $json[\"body\"][\"contact_phone\"] }}",
+            "Etapa do Funil": "={{ $json[\"body\"][\"deal_stage\"] }}",
+            "Razão social do cliente": "={{ $json[\"body\"][\"organization_name\"] }}",
+            "Nome fantasia da empresa": "={{ $json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}",
+            "Dono do negocio": "={{ $json[\"body\"][\"deal_user\"] }}",
+            "Status do negocio": "={{ $json[\"body\"][\"deal_status\"] }}",
+            "Data da Reunião": "={{ $json[\"body\"][\"deal_reuniao\"].slice(0,10) }}",
+            "Closer": "={{ $json[\"body\"][\"deal_closer\"] }}",
+            "SDR": "={{ $json[\"body\"][\"deal_sdr\"] }}",
+            "Quantidade": "1"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Origem (cadência)",
+              "displayName": "Origem (cadência)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nome",
+              "displayName": "Nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Telefone",
+              "displayName": "Telefone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Etapa do Funil",
+              "displayName": "Etapa do Funil",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Razão social do cliente",
+              "displayName": "Razão social do cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nome fantasia da empresa",
+              "displayName": "Nome fantasia da empresa",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Dono do negocio",
+              "displayName": "Dono do negocio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status do negocio",
+              "displayName": "Status do negocio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Data da Reunião",
+              "displayName": "Data da Reunião",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Closer",
+              "displayName": "Closer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "SDR",
+              "displayName": "SDR",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Quantidade",
+              "displayName": "Quantidade",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cd3f1849-a6f0-41d8-8305-a64bd1b389a8",
+      "name": "CLINT NO SHOW",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        940,
+        920
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9VMJ3bREWTIIbmTh",
+          "name": "[Google Sheets] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "call_realizada-hetzner",
+        "options": {}
+      },
+      "id": "bd7f3a00-c1c3-43a2-9c9b-e8dffa1ba0cf",
+      "name": "call_realizada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        720
+      ],
+      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "no_show-hetzner",
+        "options": {}
+      },
+      "id": "8139dbb5-7280-4ce8-983c-6e16c61258f2",
+      "name": "no_show",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        920
+      ],
+      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "call_agendada-hetzner",
+        "options": {}
+      },
+      "id": "d789d820-9f28-432e-81be-0ea9b4a12a0b",
+      "name": "Call_Agendada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        520
+      ],
+      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ganho-planilha-hetzner",
+        "options": {}
+      },
+      "id": "964519b9-bd7e-4e47-b456-6c1110a1ba35",
+      "name": "Lead_Ganho",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        300
+      ],
+      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
+    }
+  ],
+  "pinData": {
+    "call_realizada": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/0.27.2",
+            "content-length": "374",
+            "accept": "application/json, text/plain, */*",
+            "content-type": "application/json",
+            "x-forwarded-for": "52.200.254.28",
+            "x-forwarded-host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "077bd0aa48be",
+            "x-real-ip": "52.200.254.28",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "contact_name": "Isadora",
+            "contact_email": "isadorarochadebrito@hotmail.com",
+            "contact_phone": "+5541996755364",
+            "deal_stage": "Proposta",
+            "deal_user": "closer1@universidadevendas.com.br",
+            "deal_status": "OPEN",
+            "deal_origin": "Sessão Estratégica",
+            "deal_reuniao": "04/03/2024, 13:00",
+            "organization_name": "",
+            "deal_nome_fantasia_da_emp": "",
+            "deal_closer": "Jonatã Almeida",
+            "deal_sdr": ""
+          }
+        }
+      }
+    ],
+    "no_show": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/0.27.2",
+            "content-length": "373",
+            "accept": "application/json, text/plain, */*",
+            "content-type": "application/json",
+            "x-forwarded-for": "52.200.254.28",
+            "x-forwarded-host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "077bd0aa48be",
+            "x-real-ip": "52.200.254.28",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "contact_name": "Vitor Queiroz",
+            "contact_email": "vitorrqueiroztrafego@gmail.com",
+            "contact_phone": "+5519984574874",
+            "deal_stage": "No-show",
+            "deal_user": "closer1@universidadevendas.com.br",
+            "deal_status": "OPEN",
+            "deal_origin": "Sessão Estratégica",
+            "deal_reuniao": "04/03/2024, 13:00",
+            "organization_name": "",
+            "deal_nome_fantasia_da_emp": "",
+            "deal_closer": "Jonatã Almeida",
+            "deal_sdr": ""
+          }
+        }
+      }
+    ],
+    "Call_Agendada": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/0.27.2",
+            "content-length": "394",
+            "accept": "application/json, text/plain, */*",
+            "content-type": "application/json",
+            "x-forwarded-for": "52.200.254.28",
+            "x-forwarded-host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "077bd0aa48be",
+            "x-real-ip": "52.200.254.28",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "contact_name": "Fábio",
+            "contact_email": "comercial@bigarcondicionado.com.br",
+            "contact_phone": "+5514996064047",
+            "deal_stage": "Reunião",
+            "deal_user": "sunamita.freitas@universidadevendas.com.br",
+            "deal_status": "OPEN",
+            "deal_reuniao": "07/03/2024, 09:00",
+            "deal_closer": "Sunamita Freitas",
+            "deal_sdr": "Não tem",
+            "deal_origin": "Sessão Estratégica",
+            "organization_name": "",
+            "deal_nome_fantasia_da_emp": ""
+          }
+        }
+      }
+    ],
+    "Lead_Ganho": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/0.27.2",
+            "content-length": "1043",
+            "accept": "application/json, text/plain, */*",
+            "content-type": "application/json",
+            "x-forwarded-for": "52.200.254.28",
+            "x-forwarded-host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "077bd0aa48be",
+            "x-real-ip": "52.200.254.28",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "contact_name": "Juliana",
+            "contact_email": "jucassorielo@yahoo.com.br",
+            "contact_phone": "+5511978575338",
+            "deal_stage": "Aguardando fechamento",
+            "deal_user": "closer2@universidadevendas.com.br",
+            "deal_status": "WON",
+            "contact_tag": [
+              "Qualificado",
+              "Popup"
+            ],
+            "contact_vendedores": "",
+            "deal_won_at": "04/03/2024 10:13:49",
+            "contact_numero_de_parcelas": "",
+            "contact_cpfcnpj": "",
+            "organization_name": "Dermalux Estética Laser e Tecnologia",
+            "contact_forma_de_pagamento": "",
+            "contact_status_de_pagamento": "",
+            "contact_produto": "",
+            "deal_faturamento": 32200,
+            "deal_user_phone": "(11) 98217-9242",
+            "organization_city": "",
+            "organization_state": "",
+            "organization_estado_sigla": "",
+            "organization_documentos_important": "",
+            "deal_value": 10000,
+            "deal_origin": "Sessão Estratégica",
+            "deal_meses_de_contrato": "12",
+            "deal_quantidade_de_parcel": "6",
+            "deal_cep": "06454050",
+            "deal_endereco": " Alameda Grajaú, 98, 4 andar Alphaville Barueri-SP",
+            "deal_dia_do_vencimento": "5",
+            "deal_nome_fantasia_da_emp": "Dermalux Estética Laser e Tecnologia",
+            "deal_closer": "Gabriel Borges",
+            "deal_sdr": "Não tem"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 4,
+  "updatedAt": "2024-06-11T11:37:32.630Z",
+  "versionId": "7514c500-50c1-497c-b3e8-add4df2fc705"
+}
