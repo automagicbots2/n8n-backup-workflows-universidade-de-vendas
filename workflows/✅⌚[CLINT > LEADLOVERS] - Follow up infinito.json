@@ -1,0 +1,158 @@
+{
+  "active": true,
+  "connections": {
+    "email-marketing": {
+      "main": [
+        [
+          {
+            "node": "dodos_lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dodos_lead": {
+      "main": [
+        [
+          {
+            "node": "add_lead_leadlovers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-07-18T14:01:36.914Z",
+  "id": "1q4QL845iTq8a8mO",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "✅⌚[CLINT > LEADLOVERS] - Follow up infinito",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://llapi.leadlovers.com/webapi/Lead",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "4EC65C2C218348E182B16D1B9901C60E"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"Name\": \"{{ $json[\"nome\"] }}\",\n  \"Email\": \"{{ $json[\"email\"] }}\",\n  \"MachineCode\": 735671,\n  \"EmailSequenceCode\": 1738367,\n  \"SequenceLevelCode\": 1\n}",
+        "options": {}
+      },
+      "id": "8e050e0d-2e90-4199-89e7-22d153b4ace2",
+      "name": "add_lead_leadlovers",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        900,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "email-marketing",
+        "options": {}
+      },
+      "id": "6f7f489d-a9f4-4240-abe3-b196ee138128",
+      "name": "email-marketing",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e52fdc72-f376-4cdd-b65c-006e340cbb1a",
+              "name": "nome",
+              "value": "={{ $json[\"body\"][\"contact_name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "71b3251f-f563-4fe9-b022-9a5b326038bf",
+              "name": "email",
+              "value": "={{ $json[\"body\"][\"contact_email\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2ad2967c-14e5-4484-bcb4-1982af07e3db",
+      "name": "dodos_lead",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        680,
+        460
+      ]
+    }
+  ],
+  "pinData": {
+    "email-marketing": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/1.7.2",
+            "content-length": "219",
+            "accept": "application/json, text/plain, */*",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "52.200.254.28",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "52.200.254.28"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "contact_name": "Vitor Queiroz de Almeida",
+            "contact_email": "vitorrqueiroztrafego@gmail.com",
+            "contact_phone": "+5519984574874",
+            "deal_stage": "Base",
+            "deal_user": "ana.carvalho@universidadevendas.com.br",
+            "deal_status": "OPEN"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/email-marketing",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-07-18T14:42:12.054Z",
+  "versionId": "f87161df-6082-4cd1-aa01-0031a39db3d3"
+}
