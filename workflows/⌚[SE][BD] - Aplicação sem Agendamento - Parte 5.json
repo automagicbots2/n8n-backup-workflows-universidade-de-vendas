@@ -1,0 +1,2174 @@
+{
+  "active": true,
+  "connections": {
+    "segundo_ou_mais_erro3": {
+      "main": [
+        [
+          {
+            "node": "Stop and Error3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "cria/atualiza_contato_qualificado1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "agendamento_nao_existe": {
+      "main": [
+        [
+          {
+            "node": "notifica_sdr_lead_qualificado1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "nada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_agendamento_menos_de_15d": {
+      "main": [
+        [
+          {
+            "node": "agendamento_nao_existe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "numeros_de_teste1": {
+      "main": [
+        [
+          {
+            "node": "espera_5_segundos",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pesquisa_agendamento_menos_de_15d",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_tag_qualificado": {
+      "main": [
+        [
+          {
+            "node": "e_portugal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_campo_id_banco_de_dados": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_quantos_vendedores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_campo_utm_term": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_utm_campaign",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_campo_utm_campaign": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_utm_source",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_campo_utm_source": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_utm_medium",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_campo_utm_medium": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_utm_fun2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_campo_utm_fun2": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_utm_var2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_campo_utm_var2": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_emailse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_campo_utm_content": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_utm_term",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_campo_emailse": {
+      "main": [
+        [
+          {
+            "node": "envia_tag_qualificado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "espera_5_segundos": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_agendamento_menos_de_15d",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_campo_quantos_vendedores": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_conhece_mentoria",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_campo_conhece_mentoria": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_tem_socio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_campo_tem_socio": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_utm_content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria/atualiza_contato_qualificado": {
+      "main": [
+        [
+          {
+            "node": "create/update clint",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create/update clint": {
+      "main": [
+        [
+          {
+            "node": "atualiza_vez",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "e_portugal": {
+      "main": [
+        [
+          {
+            "node": "envia_tag_portugal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "numeros_de_teste1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "emails_sdr1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "emails_sdr",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "divide_a_cada_10min": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "cria/atualiza_contato_qualificado",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria/atualiza_contato_qualificado1": {
+      "main": [
+        [
+          {
+            "node": "Retorna Output Aleatorio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create/update clint1": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_id_banco_de_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_colaborador": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chega_da_fila": {
+      "main": [
+        [
+          {
+            "node": "segundo_ou_mais_erro3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retorna Output Aleatorio": {
+      "main": [
+        [
+          {
+            "node": "divide_sdr",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "divide_sdr": {
+      "main": [
+        [
+          {
+            "node": "create/update clint1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "create/update clint2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create/update clint2": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_id_banco_de_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "espera_30_minutos": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_agendamento_menos_de_15d",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-14T01:01:13.991Z",
+  "id": "xbDepedMAq3r6yWM",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚[SE][BD] - Aplicação sem Agendamento - Parte 5",
+  "nodes": [
+    {
+      "parameters": {
+        "errorMessage": "An error ocurred!"
+      },
+      "id": "a408bcf4-9a4b-4ce5-8cc5-660bcdfcd623",
+      "name": "Stop and Error3",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        320,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.fields.redelivered }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "1ba20c8c-805a-4895-b96d-a78740f32768",
+      "name": "segundo_ou_mais_erro3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        140,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"pesquisa_agendamento_menos_de_15d\"].json[\"data\"] }}",
+              "operation": "isEmpty"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "b2c23ad4-d320-495a-bc53-50cd4e06ca4e",
+      "name": "agendamento_nao_existe",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2680,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT *\nFROM agendamentos\nWHERE id_lead = {{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bd\"] }}\nAND data_de_inicio > {{ $node[\"chega_da_fila\"].json[\"content\"][\"data_ultima_quinzena\"] }}\nAND data_de_inicio <> CURDATE();\n",
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "0be5b86b-0a42-44de-85d4-4318215025e8",
+      "name": "pesquisa_agendamento_menos_de_15d",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        2480,
+        800
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}",
+              "value2": "5519984574874"
+            },
+            {
+              "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}",
+              "value2": "553184939743"
+            },
+            {
+              "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}",
+              "value2": "557181606543"
+            },
+            {
+              "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}",
+              "value2": "5514991588346"
+            },
+            {
+              "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}",
+              "value2": "5531999580682"
+            },
+            {
+              "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}",
+              "value2": "557192594557"
+            },
+            {
+              "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}",
+              "value2": "553185711260"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "2c0ac437-70b8-4697-9072-916e17966af2",
+      "name": "numeros_de_teste1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2080,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/tags/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_tag_qualificado_bot_conversa\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d8cb117e-cb90-4ede-b9ec-61b96a5dd7e0",
+      "name": "envia_tag_qualificado",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1600,
+        740
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {},
+      "id": "a2273150-7c72-480c-bd78-572f82ec3295",
+      "name": "nada",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2960,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/send_flow/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_fluxo_nao_agendou_10_min\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0e429743-9f9f-45ae-bdce-6e4f00794124",
+      "name": "envia_fluxo_de_nao_agendou_10_min",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3400,
+        500
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_id_banco_de_dados_bot_conversa\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bd\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "41f298fb-747e-48a0-a4df-63e9f3b88f97",
+      "name": "envia_campo_id_banco_de_dados",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1120,
+        400
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_utm_term_bot_conversa\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bbbe3f7a-c051-463d-9710-7cecc1335519",
+      "name": "envia_campo_utm_term",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2160,
+        400
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_utm_campaign_bot_conversa\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f121a196-81f9-45af-9610-f78f918970f8",
+      "name": "envia_campo_utm_campaign",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2360,
+        400
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_utm_source_bot_conversa\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3eb46cd5-0324-4ac3-aaf0-7b8b85db68eb",
+      "name": "envia_campo_utm_source",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        580,
+        740
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_utm_medium_bot_conversa\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c37e03a7-0ee8-44bd-a20f-372b699aadf9",
+      "name": "envia_campo_utm_medium",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        760,
+        740
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_utm_fun_bot_conversa\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"funil\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "34b55e9a-d66a-4e5f-b79c-1ac882790fce",
+      "name": "envia_campo_utm_fun2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        960,
+        740
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_utm_var_bot_conversa\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "154e7d38-63f9-4bd8-a5f2-2aa2249a40a4",
+      "name": "envia_campo_utm_var2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1160,
+        740
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_utm_content_bot_conversa\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8319bece-09fd-42c4-808c-716a7a0a4aa1",
+      "name": "envia_campo_utm_content",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1960,
+        400
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_emailse_bot_conversa\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8444dc1e-a992-4fb8-82e8-8109397c4c4f",
+      "name": "envia_campo_emailse",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1380,
+        740
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "id": "003cd483-e921-4c52-8021-86a01d4716c4",
+      "name": "espera_5_segundos",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2280,
+        700
+      ],
+      "webhookId": "1873c56d-272d-4c44-b479-e1b527e5a0bd"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_quantos_vendedores_possui_bot_conversa\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "113cdd0c-45a0-4928-a7c7-d3b40b2c3d79",
+      "name": "envia_campo_quantos_vendedores",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1340,
+        400
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_conhece_mentoria_bot_conversa\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"conhece_mentoria\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c7168dff-4055-416e-9483-983c606ebe92",
+      "name": "envia_campo_conhece_mentoria",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1560,
+        400
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_tem_socio_bot_conversa\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tem_socio\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "973e8f79-4fad-4afe-95f5-1d160580d27f",
+      "name": "envia_campo_tem_socio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1760,
+        400
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "queue": "Sem Agendamentos - Parte 5",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "acknowledge": "executionFinishesSuccessfully",
+          "jsonParseBody": "={{ true }}",
+          "parallelMessages": 3
+        }
+      },
+      "id": "d1acdef9-fd2b-4238-9619-18f83f4f6d0e",
+      "name": "chega_da_fila",
+      "type": "n8n-nodes-base.rabbitmqTrigger",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        380
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/14e33fc1-94ba-44b7-9360-b4e03f6a9b2f",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"E-mail do Cliente\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "df26d5c0-0b34-4fb2-b9a3-5348573927ea",
+      "name": "cria/atualiza_contato_qualificado",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1380,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/send_flow/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "flow",
+              "value": "4110103"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "aa2e1f4b-570d-4aff-b490-5a5c1573b852",
+      "name": "notifica_sdr_lead_qualificado1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2960,
+        720
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/cfcdb58e-74b1-42c6-bf26-30d36ca9a869",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "número de funcionários",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "name": "possui sócio?",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tem_socio\"] }}"
+            },
+            {
+              "name": "vendedores",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "name": "Já conhece o negócio?",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"conhece_mentoria\"] }}"
+            },
+            {
+              "name": "dono_negocio",
+              "value": "laiane@universidadevendas.com.br"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"funil\"] }}"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}"
+            },
+            {
+              "name": "pais",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"pais\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "70624204-6678-4a60-8cfe-8247b69581cf",
+      "name": "create/update clint",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1580,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/tags/7200846/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "54bdb98b-ffd8-47e9-a503-5d1a208e419a",
+      "name": "envia_tag_portugal",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2000,
+        600
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"pais\"] }}",
+              "value2": "Portugal"
+            }
+          ]
+        }
+      },
+      "id": "03734003-86b7-4a7e-8ae4-d7757cdcad74",
+      "name": "e_portugal",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1800,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "email1",
+              "stringValue": "ana.carvalho@universidadevendas.com.br"
+            }
+          ]
+        },
+        "include": "selected",
+        "options": {}
+      },
+      "id": "682755c1-bacb-466b-812a-1edae7c7ebed",
+      "name": "emails_sdr1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        660,
+        1180
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "d7fa5fd0-332c-45d0-95a4-5ccd2f54a5a2",
+              "leftValue": "={{ $json[\"value\"] }}",
+              "rightValue": 1,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "d9b79f32-c826-41f6-8e32-90b02bf3da7a",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        440,
+        1280
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "function randomizar() {\n    const currentDate = new Date();\n    const currentHour = currentDate.getHours();\n    const currentMinute = currentDate.getMinutes();\n\n    // Calcula o número total de minutos desde meia-noite\n    const totalMinutes = currentHour * 60 + currentMinute;\n\n    // Divide o número total de minutos por 10 e verifica se é par ou ímpar\n    const isEven = Math.floor(totalMinutes / 10) % 2 === 0;\n\n    // Retorna 0 se for par, 1 se for ímpar\n    const resultado = isEven ? 0 : 1;\n\n    return [{ value: resultado }];\n}\n\n// Exemplo de uso\nreturn randomizar();\n"
+      },
+      "id": "08b4fc54-f796-4194-ac88-cce66c3503fd",
+      "name": "divide_a_cada_10min",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        260,
+        1280
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "email1",
+              "stringValue": "laiane@universidadevendas.com.br"
+            }
+          ]
+        },
+        "include": "selected",
+        "options": {}
+      },
+      "id": "26c63ce3-28c1-480c-a8df-5f1807da45cb",
+      "name": "emails_sdr",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        660,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "441be0fb-56db-41d7-90a5-ccb7f5d74621",
+              "leftValue": "={{ $json[\"em_uso\"] }}",
+              "rightValue": 1,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "b08835e9-46d8-4b0a-a232-69063f6c4118",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 1 = Laiane 0 = Ana"
+      },
+      "id": "181790ab-82c1-4ba9-968f-a90a6db91bf2",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        960,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "441be0fb-56db-41d7-90a5-ccb7f5d74621",
+              "leftValue": "={{ $json[\"em_uso\"] }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "7630c80a-02b7-4bd5-80be-d8b778f222d3",
+      "name": "If2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1240,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/a9d480c4-24be-4e9c-9ee5-4855b5d7435e",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"E-mail do Cliente\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0e0fdb91-0832-448e-8777-42bcb342a8d9",
+      "name": "cria/atualiza_contato_qualificado1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        340,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/06fd8a6e-b208-4d0a-98f7-1be475c611a4",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "número de funcionários",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "name": "possui sócio?",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tem_socio\"] }}"
+            },
+            {
+              "name": "vendedores",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "name": "Já conhece o negócio?",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"conhece_mentoria\"] }}"
+            },
+            {
+              "name": "dono_negocio",
+              "value": "laiane@universidadevendas.com.br"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"funil\"] }}"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}"
+            },
+            {
+              "name": "instagram",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}"
+            },
+            {
+              "name": "faturamento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"faturamento\"] }}"
+            },
+            {
+              "name": "porque_a_mentoria",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"porque_a_mentoria\"] }}"
+            },
+            {
+              "name": "desafio",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"maior_problema\"] }}"
+            },
+            {
+              "name": "porque_voce",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"porque_voce\"] }}"
+            },
+            {
+              "name": "etapa_funil",
+              "value": "Preencheu aplicação"
+            },
+            {
+              "name": "status",
+              "value": "Aberto"
+            },
+            {
+              "name": "segmento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nicho\"] }}"
+            },
+            {
+              "name": "situacao_atual",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"situacao_atual\"] }}"
+            },
+            {
+              "name": "estrategias",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"estrategias\"] }}"
+            },
+            {
+              "name": "metodologia",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"metodologia\"] }}"
+            },
+            {
+              "name": "comeca_quando",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"comeca_quando\"] }}"
+            },
+            {
+              "name": "vendedor",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "name": "faturamento_mensal",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "664fc1aa-3467-447d-8449-948de0050d95",
+      "name": "create/update clint1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        900,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores",
+          "mode": "list",
+          "cachedResultName": "colaboradores"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "email",
+              "value": "vitorrqueiroztrafego@gmail.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "519b4ed9-e20d-4db2-8282-5ebc90c0b04b",
+      "name": "pesquisa_colaborador",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        900,
+        1240
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores",
+          "mode": "list",
+          "cachedResultName": "colaboradores"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "email",
+        "valueToMatchOn": "vitorrqueiroztrafego@gmail.com",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "em_uso",
+              "value": "0"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "105cd0b3-ad7b-4036-9bee-67c1a092b50e",
+      "name": "atualiza_vez",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1720,
+        1120
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores",
+          "mode": "list",
+          "cachedResultName": "colaboradores"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "email",
+        "valueToMatchOn": "vitorrqueiroztrafego@gmail.com",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "em_uso",
+              "value": "1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "561fe436-2058-41a5-83cc-3161184e9cf8",
+      "name": "atualiza_vez1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1720,
+        1360
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 87008126,
+          "mode": "list",
+          "cachedResultName": "Aplicações",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M/edit#gid=87008126"
+        },
+        "columnToMatchOn": "EMAIL",
+        "valueToMatchOn": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "DATA",
+              "fieldValue": "={{$now.toFormat('dd/MM/yyyy HH:mm').split(' ')[0]}}"
+            },
+            {
+              "column": "HORA",
+              "fieldValue": "={{$now.toFormat('dd/MM/yyyy HH:mm').split(' ')[1]}}"
+            },
+            {
+              "column": "ID DA RESPOSTA",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"fields\"][\"consumerTag\"] }}"
+            },
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Nome do Cliente\"] }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}"
+            },
+            {
+              "column": "N° DE FÚNCIONÁRIOS",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "column": "POSSUI SÓCIO?",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tem_socio\"] }}"
+            },
+            {
+              "column": "VENDEDORES",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "column": "JÁ CONHECE O NEGÓCIO?",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"conhece_mentoria\"] }}"
+            },
+            {
+              "column": "QUALIFICAÇÃO",
+              "fieldValue": "Qualificado"
+            },
+            {
+              "column": "UTM_SOURCE",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "column": "UTM_CAMPAIGN",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "column": "UTM_TERM",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "column": "UTM_MEDIUM",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "column": "UTM_CONTENT",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "column": "INSTAGRAM",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}"
+            },
+            {
+              "column": "FATURAMENTO MENSAL",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"faturamento\"] }}"
+            },
+            {
+              "column": "SITUAÇÃO ATUAL",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"desafio\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED"
+        }
+      },
+      "id": "9aee9aff-f368-408c-8ed8-41835cc8d988",
+      "name": "preenche_planilha_leads1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        2640,
+        500
+      ],
+      "alwaysOutputData": false,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9VMJ3bREWTIIbmTh",
+          "name": "[Google Sheets] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ String($node[\"Retorna Output Aleatorio\"].json[\"result\"]) }}",
+              "value2": "1"
+            }
+          ]
+        }
+      },
+      "id": "8e200831-ffd1-4991-bfa0-118069be6712",
+      "name": "divide_sdr",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        680,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Gere um número aleatório entre 0 e 1\nconst randomValue = Math.random();\n\n// Arredonde o número para 1 ou 2\nconst result = Math.round(randomValue) + 1;\n\nreturn [{ result }];\n"
+      },
+      "id": "fe647bf2-a81a-4e2a-8e80-c1a767ea9085",
+      "name": "Retorna Output Aleatorio",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        520,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/06fd8a6e-b208-4d0a-98f7-1be475c611a4",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "número de funcionários",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "name": "possui sócio?",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tem_socio\"] }}"
+            },
+            {
+              "name": "vendedores",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "name": "Já conhece o negócio?",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"conhece_mentoria\"] }}"
+            },
+            {
+              "name": "dono_negocio",
+              "value": "ana.carvalho@universidadevendas.com.br"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"funil\"] }}"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}"
+            },
+            {
+              "name": "instagram",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}"
+            },
+            {
+              "name": "faturamento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"faturamento\"] }}"
+            },
+            {
+              "name": "porque_a_mentoria",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"porque_a_mentoria\"] }}"
+            },
+            {
+              "name": "desafio",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"maior_problema\"] }}"
+            },
+            {
+              "name": "porque_voce",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"porque_voce\"] }}"
+            },
+            {
+              "name": "etapa_funil",
+              "value": "Preencheu aplicação"
+            },
+            {
+              "name": "status",
+              "value": "Aberto"
+            },
+            {
+              "name": "segmento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nicho\"] }}"
+            },
+            {
+              "name": "situacao_atual",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"situacao_atual\"] }}"
+            },
+            {
+              "name": "estrategias",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"estrategias\"] }}"
+            },
+            {
+              "name": "metodologia",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"metodologia\"] }}"
+            },
+            {
+              "name": "comeca_quando",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"comeca_quando\"] }}"
+            },
+            {
+              "name": "vendedor",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "name": "faturamento_mensal",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7469db08-9572-4861-9c71-afb559ef8abe",
+      "name": "create/update clint2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        900,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "unit": "seconds"
+      },
+      "id": "0838c3bd-dff7-48b9-84f4-5d881d8a8637",
+      "name": "espera_30_minutos",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2280,
+        900
+      ],
+      "webhookId": "3effcfd4-11ef-4831-b1f3-e57ead46e452"
+    }
+  ],
+  "pinData": {
+    "chega_da_fila": [
+      {
+        "json": {
+          "fields": {
+            "consumerTag": "amq.ctag-0pFobTqy11EIZHakk4B8Mw",
+            "deliveryTag": 1,
+            "redelivered": false,
+            "exchange": "",
+            "routingKey": "Sem Agendamentos - Parte 5"
+          },
+          "properties": {
+            "headers": {
+              "x-delivery-count": 5087
+            }
+          },
+          "content": {
+            "Nome do Cliente": "Rodrigo",
+            "E-mail do Cliente": "rrgomes5000@gmqil.com",
+            "Telefone do Cliente - Formato Z-API": "556183366138",
+            "id_lead_bd": 3612,
+            "id_lead_bc": 481927127,
+            "utm_source": "ig",
+            "utm_campaign": "[NR] [SE] [CAPTAÇÃO] [CADASTRO] [AUTO] [F] Públicos Frios - Type novo",
+            "utm_term": "SE_AD031",
+            "utm_medium": "Instagram_Feed",
+            "utm_content": "LAL 2% Engajamento Perfis",
+            "funil": "Sem_Agendamento",
+            "variacao_do_funil": "SE-V2",
+            "quantos_vendedores_possui": "De 1 a 5 vendedores",
+            "conhece_mentoria": "Não",
+            "tem_socio": "Sim",
+            "id_tag_desqualificado_bot_conversa": "5073673",
+            "id_campo_utm_var_bot_conversa": "1408045",
+            "id_campo_utm_fun_bot_conversa": "1408044",
+            "id_campo_utm_medium_bot_conversa": "1408043",
+            "id_campo_utm_source_bot_conversa": "1408038",
+            "id_campo_utm_campaign_bot_conversa": "1408041",
+            "id_campo_utm_term_bot_conversa": "1408042",
+            "id_campo_utm_content_bot_conversa": "1408040",
+            "id_campo_id_banco_de_dados_bot_conversa": "1408048",
+            "id_campo_quantos_vendedores_possui_bot_conversa": "1408034",
+            "id_campo_conhece_mentoria_bot_conversa": "1408035",
+            "id_campo_emailse_bot_conversa": "1045671",
+            "id_campo_tem_socio_bot_conversa": "1408036",
+            "id_fluxo_nao_agendou_10_min": "",
+            "API-KEY": "a9585685-a8d4-4f70-be7c-44c8dedf905f",
+            "data_ultima_quinzena": "\"2024-06-07\"",
+            "id_tag_qualificado_bot_conversa": "4891806",
+            "instagram": "Shamballaspa",
+            "faturamento": "Entre R$ 70 e R$ 100 mil reais",
+            "maior_problema": "Vendas",
+            "porque_a_mentoria": "Porque já não aguento mais dar murro em ponta de faca",
+            "porque_voce": "Porque eu realmente preciso. Tenho 7 anos de empresa e agora minha empresa estagnou",
+            "estrategias": "Tráfego, grupo vip, zap",
+            "nicho": "Estética e spa",
+            "situacao_atual": "Quero ter a Universidade Vendas atuando diretamente na gestão comercial do meu time de vendedores",
+            "metodologia": "Quero a equipe do Fabrício Nunnes como diretor comercial da minha empresa atuando diretamente com meus vendedores",
+            "comeca_quando": "Pra ontem"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-05-14T14:14:07.752Z",
+      "updatedAt": "2024-05-14T14:14:07.752Z",
+      "id": "X8oLlxNlti847OWk",
+      "name": "[SEM AGENDAMENTO]"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-06-22T14:56:37.211Z",
+  "versionId": "5f1b720e-89bc-4df8-bb09-c470646ea394"
+}
