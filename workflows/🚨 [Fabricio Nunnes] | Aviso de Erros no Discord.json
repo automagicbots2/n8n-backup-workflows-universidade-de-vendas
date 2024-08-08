@@ -1,0 +1,59 @@
+{
+  "active": false,
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Discord",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-13T20:17:35.236Z",
+  "id": "Q8rgTKWALfDjS7MZ",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "🚨 [Fabricio Nunnes] | Aviso de Erros no Discord",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "dae7f68e-644b-41c2-ae0d-e6a4e0632fb4",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        640,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "webhookUri": "https://discord.com/api/webhooks/1051557732941058118/bR9saqZ3PRvvbYzTDR9odD1sIKwiWkTnK_hx84LUjs2_wgbDThYfwaxIO4EoU-o-yzRU",
+        "text": "=🚨 **Workflow com erro no N8N novo do Fabricio Nunnes**\n\nO Workflow **{{ $json[\"workflow\"][\"name\"] }}**, do **ID {{ $json[\"workflow\"][\"id\"] }}**, acabou de apresentar um erro.\n\nAssim que puder, dê uma conferida e ajuste o erro apresentado.",
+        "options": {}
+      },
+      "id": "24fad665-992a-4dac-b6e7-f59e2149a6f3",
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 1,
+      "position": [
+        860,
+        220
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-05-13T20:17:45.394Z",
+  "versionId": "1f89540e-3c71-4dec-bed4-434f1fd38c26"
+}
