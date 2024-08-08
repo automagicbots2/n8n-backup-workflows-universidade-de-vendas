@@ -1,0 +1,185 @@
+{
+  "active": true,
+  "connections": {
+    "Nova_venda_registrada": {
+      "main": [
+        [
+          {
+            "node": "existe_email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe_email": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-22T21:16:39.009Z",
+  "id": "KJFnsybgYboOJhzj",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[FABRICIO NUNNES] - Venda Sheets | Ranking",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1ZggnPE_qDhG2sbaRjBBzH51wBIX32TB09HDOb775LLg",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 574974954,
+          "mode": "list",
+          "cachedResultName": "Respostas ao formulário 3",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ZggnPE_qDhG2sbaRjBBzH51wBIX32TB09HDOb775LLg/edit#gid=574974954"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "id": "aa9cfcbb-b569-4c50-a211-e97ccdb837db",
+      "name": "Nova_venda_registrada",
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        540,
+        200
+      ],
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "aE7P9umpcidpVkMH",
+          "name": "[Google Sheets] - Automagic Bots"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "fe918833-8ff4-46d4-8b8d-2ea498c3192b",
+              "leftValue": "={{ $json[\"Endereço de e-mail\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "7c08e379-ca36-412d-b4be-57d1935e37cb",
+      "name": "existe_email",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        760,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.rankingdevendas.com.br/v1/webhooks/edit/total",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "authorization",
+              "value": "5FC74A4YL0PNVCEHC0VXHU3H0ZFQL7"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $json[\"Endereço de e-mail\"] }}"
+            },
+            {
+              "name": "type",
+              "value": "ADD"
+            },
+            {
+              "name": "reason"
+            },
+            {
+              "name": "value",
+              "value": "={{ $json[\"Vendas\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "15aa4454-33e7-4617-86c1-8dcc2bbd23da",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1000,
+        120
+      ]
+    }
+  ],
+  "pinData": {
+    "Nova_venda_registrada": [
+      {
+        "json": {
+          "Carimbo de data/hora": "29/05/2024 10:28:57",
+          "Endereço de e-mail": "fabricio@universidadevendas.com.br",
+          "Vendas": 10000
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": {
+    "node:Nova_venda_registrada": {
+      "documentId": "1ZggnPE_qDhG2sbaRjBBzH51wBIX32TB09HDOb775LLg",
+      "sheetId": 574974954,
+      "lastIndexChecked": 42
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-07-17T22:40:40.644Z",
+  "versionId": "6fdd92f1-e4f3-49ef-9ef6-985cf7eec2f3"
+}
