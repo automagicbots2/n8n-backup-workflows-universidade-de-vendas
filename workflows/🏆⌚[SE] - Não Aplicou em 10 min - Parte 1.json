@@ -1,0 +1,1362 @@
+{
+  "active": true,
+  "connections": {
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "dados_do_lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Listar Campos Personalizados de Deals da Conta3": {
+      "main": [
+        [
+          {
+            "node": "Listar Pipelines e Status da Conta3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Listar Pipelines e Status da Conta3": {
+      "main": [
+        [
+          {
+            "node": "Consulta Users da Conta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Listar Campos Personalizados de Deals da Conta3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados2": {
+      "main": [
+        [
+          {
+            "node": "dados_do_lead1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados3": {
+      "main": [
+        [
+          {
+            "node": "dados_do_lead2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "preencheu_pre_forms1": {
+      "main": [
+        [
+          {
+            "node": "formata_dados2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados1": {
+      "main": [
+        [
+          {
+            "node": "dados_do_lead3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "preencheu_pre_forms2": {
+      "main": [
+        [
+          {
+            "node": "formata_dados3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_do_lead2": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_do_lead": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_do_lead1": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_do_lead3": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "preencheu_pre_forms3": {
+      "main": [
+        [
+          {
+            "node": "formata_dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "preencheu_pre_forms": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-13T19:27:32.781Z",
+  "id": "crmtGtdesmrJ0RfO",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "🏆⌚[SE] - Não Aplicou em 10 min - Parte 1",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"preencheu_pre_forms\"].json.body[\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"preencheu_pre_forms\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"preencheu_pre_forms\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"preencheu_pre_forms\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"preencheu_pre_forms\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"preencheu_pre_forms\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"preencheu_pre_forms\"].json.body[\"utm_content\"];\nconst nome = $node[\"preencheu_pre_forms\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
+      },
+      "id": "cc471095-46af-4b77-ab47-43f0fc7fb505",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "Não Aplicou - Sessão",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "a46a08aa-2720-46d2-89a1-0589f46a729f",
+      "name": "entra_na_fila",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        1220
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] }}"
+            },
+            {
+              "name": "Data do Evento",
+              "value": "={{$now.toFormat('dd/MM/yyyy')}}"
+            },
+            {
+              "name": "Hora do Evento",
+              "value": "={{$now.toFormat('dd/MM/yyyy HH:mm').split(' ')[1]}}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "id_campo_emailse",
+              "value": "1045671"
+            },
+            {
+              "name": "valor_mentoria_centavos"
+            },
+            {
+              "name": "id_fluxo_nap01",
+              "value": "2445393"
+            },
+            {
+              "name": "API-KEY",
+              "value": "a9585685-a8d4-4f70-be7c-44c8dedf905f"
+            },
+            {
+              "name": "id_pipeline_se"
+            },
+            {
+              "name": "id_stage_iniciou_aplicacao"
+            },
+            {
+              "name": "id_campo_deal_utm_source"
+            },
+            {
+              "name": "id_campo_deal_utm_campaign"
+            },
+            {
+              "name": "id_campo_deal_utm_term"
+            },
+            {
+              "name": "id_campo_deal_utm_medium"
+            },
+            {
+              "name": "id_campo_deal_utm_content"
+            },
+            {
+              "name": "id_sdr"
+            },
+            {
+              "name": "funil",
+              "value": "sessao_estrategica"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "={{ $node[\"preencheu_pre_forms\"].json[\"body\"][\"form_id\"] === '88889e3' ? 'funil_head_comercial' : 'v1' }}"
+            },
+            {
+              "name": "url_api_activecampaign"
+            },
+            {
+              "name": "id_campo_deal_utm_fun"
+            },
+            {
+              "name": "id_campo_deal_utm_var"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1408040"
+            },
+            {
+              "name": "id_campo_utm_fun_bot_conversa",
+              "value": "1408044"
+            },
+            {
+              "name": "id_campo_utm_var_bot_conversa",
+              "value": "1408045"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1408043"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1408042"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1408041"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1408038"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1408048"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_ac"
+            },
+            {
+              "name": "id_campo_iddealac_bot_conversa"
+            },
+            {
+              "name": "id_campo_idleadac_bot_conversa"
+            },
+            {
+              "name": "data_ultima_quinzena",
+              "value": "=\"{{ $node[\"formata_dados\"].json[\"dataFormatada\"] }}\""
+            },
+            {
+              "name": "id_fluxo_notifica_sdr_pop_up",
+              "value": "2215208"
+            },
+            {
+              "name": "funil_lead_loves",
+              "value": "com agendamento"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "399a2390-cace-4b01-a80a-3f6c0b3ed84c",
+      "name": "dados_do_lead",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Para consulta\n\nUtilize estes Nodes para Consultar o ID dos Campos do Deal e o ID das Pipelines e Stages no ActiveCampaign",
+        "height": 494.4652796495957,
+        "width": 933.7183320937115
+      },
+      "id": "b2bc283a-f89b-4698-b521-bdaf3f208960",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://{{ $node[\"Set\"].json[\"url_api_activecampaign\"] }}.api-us1.com/api/3/dealCustomFieldMeta",
+        "options": {},
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "Api-Token",
+              "value": "={{ $node[\"Set\"].json[\"Api-Token\"] }}"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        }
+      },
+      "name": "Listar Campos Personalizados de Deals da Conta3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1420,
+        380
+      ],
+      "id": "f56ede7f-fe82-4f6b-b50c-4228b498c215"
+    },
+    {
+      "parameters": {
+        "url": "=https://{{ $node[\"Set\"].json[\"url_api_activecampaign\"] }}.api-us1.com/api/3/dealGroups",
+        "options": {},
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "Api-Token",
+              "value": "={{ $node[\"Set\"].json[\"Api-Token\"] }}"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        }
+      },
+      "name": "Listar Pipelines e Status da Conta3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        380
+      ],
+      "id": "78e6e2b4-6b89-4356-b06a-dc08fb65b12d"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Api-Token",
+              "value": "f855a9327a9219d27bf8713569e0f7e926110f6bbe180b11ad6c3a9bdb922fd7f05402c9"
+            },
+            {
+              "name": "url_api_activecampaign",
+              "value": "futureminds14016"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1294de54-4a8e-44c1-b668-52c045cd38e3",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1220,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://{{ $node[\"Set\"].json[\"url_api_activecampaign\"] }}.api-us1.com/api/3/users",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Api-Token",
+              "value": "={{ $node[\"Set\"].json[\"Api-Token\"] }}"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "65bebacb-bcbf-44a6-96ad-1d97ce53b5e5",
+      "name": "Consulta Users da Conta",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1860,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Função para obter a data e hora atual de Portugal\nfunction getDataHoraPortugal() {\n  const dataAtual = new Date();\n  // Ajustar o fuso horário para Portugal (GMT+0)\n  const fusoHorarioPortugal = 0;\n  const horaAtualPortugal = new Date(dataAtual.getTime() + (fusoHorarioPortugal * 60 * 60 * 1000));\n  return horaAtualPortugal;\n}\n\n// Função para obter a data da última quinzena\nfunction getDataUltimaQuinzena() {\n  const dataAtual = new Date();\n  // Subtrair 15 dias\n  dataAtual.setDate(dataAtual.getDate() - 15);\n  // Formatar a data para YYYY-MM-DD\n  const ano = dataAtual.getFullYear();\n  const mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\n  const dia = String(dataAtual.getDate()).padStart(2, '0');\n  return `${ano}-${mes}-${dia}`;\n}\n\n// Formatar o número de telefone\nconst telefone = $node[\"preencheu_pre_forms1\"].json.body[\"WhatsApp com DDD\"] || '';\n\nlet telefoneLimpo = telefone.replace(/[^\\d]/g, ''); // Alterando para 'let'\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data e hora atual de Portugal\nconst dataHoraPortugal = getDataHoraPortugal();\n// Formatar a data para YYYY-MM-DD HH:MM:SS\nconst anoPortugal = dataHoraPortugal.getFullYear();\nconst mesPortugal = String(dataHoraPortugal.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst diaPortugal = String(dataHoraPortugal.getDate()).padStart(2, '0');\nconst horaPortugal = String(dataHoraPortugal.getHours()).padStart(2, '0');\nconst minutoPortugal = String(dataHoraPortugal.getMinutes()).padStart(2, '0');\nconst segundoPortugal = String(dataHoraPortugal.getSeconds()).padStart(2, '0');\n\nconst dataHoraFormatadaPortugal = `${anoPortugal}-${mesPortugal}-${diaPortugal} ${horaPortugal}:${minutoPortugal}:${segundoPortugal}`;\n\nconsole.log(dataHoraFormatadaPortugal); // Saída no formato YYYY-MM-DD HH:MM:SS\n\n// Obter a data da última quinzena\nconst dataUltimaQuinzena = getDataUltimaQuinzena();\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else if (telefoneLimpo.startsWith('351')) { // Adicionar verificação para números iniciados com \"358\"\n  // Remover caracteres não numéricos e espaços\n  telefoneLimpo = telefoneLimpo.replace(/\\D/g, ''); \n  telefoneFormatado = telefoneLimpo;\n} else {\n  // Se o DDI for diferente de 55 e não iniciar com \"358\", manter o número como está\n  telefoneFormatado = telefoneLimpo;\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"preencheu_pre_forms1\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"preencheu_pre_forms1\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"preencheu_pre_forms1\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"preencheu_pre_forms1\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"preencheu_pre_forms1\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"preencheu_pre_forms1\"].json.body[\"utm_content\"];\nconst nome = $node[\"preencheu_pre_forms1\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataHoraFormatadaPortugal,\n  dataUltimaQuinzena\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
+      },
+      "id": "3d38dd6c-3d33-481e-9f5f-9752096c4d17",
+      "name": "formata_dados2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        1220
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"formata_dados2\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ $node[\"formata_dados2\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"formata_dados2\"].json[\"email\"] }}"
+            },
+            {
+              "name": "Data do Evento",
+              "value": "={{$now.toFormat('dd/MM/yyyy')}}"
+            },
+            {
+              "name": "Hora do Evento",
+              "value": "={{$now.toFormat('dd/MM/yyyy HH:mm').split(' ')[1]}}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados2\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados2\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados2\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados2\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados2\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "id_campo_emailse",
+              "value": "1045671"
+            },
+            {
+              "name": "valor_mentoria_centavos"
+            },
+            {
+              "name": "id_fluxo_nap01",
+              "value": "2445393"
+            },
+            {
+              "name": "API-KEY",
+              "value": "a9585685-a8d4-4f70-be7c-44c8dedf905f"
+            },
+            {
+              "name": "id_pipeline_se"
+            },
+            {
+              "name": "id_stage_iniciou_aplicacao"
+            },
+            {
+              "name": "id_campo_deal_utm_source"
+            },
+            {
+              "name": "id_campo_deal_utm_campaign"
+            },
+            {
+              "name": "id_campo_deal_utm_term"
+            },
+            {
+              "name": "id_campo_deal_utm_medium"
+            },
+            {
+              "name": "id_campo_deal_utm_content"
+            },
+            {
+              "name": "id_sdr"
+            },
+            {
+              "name": "funil",
+              "value": "PT"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "SE_Portugal"
+            },
+            {
+              "name": "url_api_activecampaign"
+            },
+            {
+              "name": "id_campo_deal_utm_fun"
+            },
+            {
+              "name": "id_campo_deal_utm_var"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1408040"
+            },
+            {
+              "name": "id_campo_utm_fun_bot_conversa",
+              "value": "1408044"
+            },
+            {
+              "name": "id_campo_utm_var_bot_conversa",
+              "value": "1408045"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1408043"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1408042"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1408041"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1408038"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1408048"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_ac"
+            },
+            {
+              "name": "id_campo_iddealac_bot_conversa"
+            },
+            {
+              "name": "id_campo_idleadac_bot_conversa"
+            },
+            {
+              "name": "data_ultima_quinzena",
+              "value": "={{ $node[\"formata_dados2\"].json[\"dataUltimaQuinzena\"] }}"
+            },
+            {
+              "name": "id_fluxo_notifica_sdr_pop_up",
+              "value": "2215208"
+            },
+            {
+              "name": "data_atual_portugal",
+              "value": "={{ $node[\"formata_dados2\"].json[\"dataHoraFormatadaPortugal\"] }}"
+            },
+            {
+              "name": "Pais",
+              "value": "Portugal"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e228eac6-d08e-4705-b44c-24842555f84a",
+      "name": "dados_do_lead1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        1220
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"preencheu_pre_forms2\"].json[\"body\"][\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"preencheu_pre_forms2\"].json[\"body\"][\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"preencheu_pre_forms2\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"preencheu_pre_forms2\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"preencheu_pre_forms2\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"preencheu_pre_forms2\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"preencheu_pre_forms2\"].json.body[\"utm_content\"];\nconst nome = $node[\"preencheu_pre_forms2\"].json[\"body\"][\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
+      },
+      "id": "59897760-db61-4c32-bb1f-953092418351",
+      "name": "formata_dados3",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        1400
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"formata_dados3\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ $node[\"formata_dados3\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"formata_dados3\"].json[\"email\"] }}"
+            },
+            {
+              "name": "Data do Evento",
+              "value": "={{$now.toFormat('dd/MM/yyyy')}}"
+            },
+            {
+              "name": "Hora do Evento",
+              "value": "={{$now.toFormat('dd/MM/yyyy HH:mm').split(' ')[1]}}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados3\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados3\"].json[\"utm_medium\"] || null }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados3\"].json[\"utm_campaign\"] || null }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados3\"].json[\"utm_source\"] || null }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados3\"].json[\"utm_content\"] || null }}"
+            },
+            {
+              "name": "id_campo_emailse",
+              "value": "1045671"
+            },
+            {
+              "name": "valor_mentoria_centavos"
+            },
+            {
+              "name": "id_fluxo_nap01",
+              "value": "2445393"
+            },
+            {
+              "name": "API-KEY",
+              "value": "a9585685-a8d4-4f70-be7c-44c8dedf905f"
+            },
+            {
+              "name": "id_pipeline_se"
+            },
+            {
+              "name": "id_stage_iniciou_aplicacao"
+            },
+            {
+              "name": "id_campo_deal_utm_source"
+            },
+            {
+              "name": "id_campo_deal_utm_campaign"
+            },
+            {
+              "name": "id_campo_deal_utm_term"
+            },
+            {
+              "name": "id_campo_deal_utm_medium"
+            },
+            {
+              "name": "id_campo_deal_utm_content"
+            },
+            {
+              "name": "id_sdr"
+            },
+            {
+              "name": "funil",
+              "value": "sessao_estrategica"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "v2"
+            },
+            {
+              "name": "url_api_activecampaign"
+            },
+            {
+              "name": "id_campo_deal_utm_fun"
+            },
+            {
+              "name": "id_campo_deal_utm_var"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1408040"
+            },
+            {
+              "name": "id_campo_utm_fun_bot_conversa",
+              "value": "1408044"
+            },
+            {
+              "name": "id_campo_utm_var_bot_conversa",
+              "value": "1408045"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1408043"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1408042"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1408041"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1408038"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1408048"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_ac"
+            },
+            {
+              "name": "id_campo_iddealac_bot_conversa"
+            },
+            {
+              "name": "id_campo_idleadac_bot_conversa"
+            },
+            {
+              "name": "data_ultima_quinzena",
+              "value": "={{ $node[\"formata_dados3\"].json[\"dataFormatada\"] }}"
+            },
+            {
+              "name": "id_fluxo_notifica_sdr_pop_up",
+              "value": "2215208"
+            },
+            {
+              "name": "funil_lead_loves",
+              "value": "sem agendamento"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6e7c5538-612e-4ada-acf6-f8ae54353186",
+      "name": "dados_do_lead2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        1400
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aplicacao-preenchida-elementor-pt-hatzner",
+        "options": {}
+      },
+      "id": "fd200daf-c213-43bf-bcad-3e11806227c3",
+      "name": "preencheu_pre_forms1",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        1220
+      ],
+      "webhookId": "b9467ba7-123c-4619-84a8-95c3e6c5808f"
+    },
+    {
+      "parameters": {
+        "queue": "Não Aplicou - Sessão Estratégica Atualizado",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "84ca380b-a920-42ab-810d-ecc4756cf23e",
+      "name": "entra_na_fila1",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        860
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Os dados estão sendo enviados para outra fila, porque está sendo usado o novo templete com as referências atualizadas.",
+        "height": 184.28098611889857,
+        "width": 423.2978783534468
+      },
+      "id": "a5946fe9-7465-4af7-b2e1-85765ed06624",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"preencheu_pre_forms3\"].json.body[\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"preencheu_pre_forms3\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"preencheu_pre_forms3\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"preencheu_pre_forms3\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"preencheu_pre_forms3\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"preencheu_pre_forms3\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"preencheu_pre_forms3\"].json.body[\"utm_content\"];\nconst nome = $node[\"preencheu_pre_forms3\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
+      },
+      "id": "4f1b0a3b-15b3-4b5b-b0f8-71b6d8ca5c2c",
+      "name": "formata_dados1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "=Nome do Cliente",
+              "value": "={{ $node[\"formata_dados1\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ $node[\"formata_dados1\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"formata_dados1\"].json[\"email\"] }}"
+            },
+            {
+              "name": "Data do Evento",
+              "value": "={{$now.toFormat('dd/MM/yyyy')}}"
+            },
+            {
+              "name": "Hora do Evento",
+              "value": "={{$now.toFormat('dd/MM/yyyy HH:mm').split(' ')[1]}}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "id_campo_emailse",
+              "value": "1045671"
+            },
+            {
+              "name": "valor_mentoria_centavos"
+            },
+            {
+              "name": "id_fluxo_nap01",
+              "value": "2445393"
+            },
+            {
+              "name": "API-KEY",
+              "value": "a9585685-a8d4-4f70-be7c-44c8dedf905f"
+            },
+            {
+              "name": "id_pipeline_se"
+            },
+            {
+              "name": "id_stage_iniciou_aplicacao"
+            },
+            {
+              "name": "id_campo_deal_utm_source"
+            },
+            {
+              "name": "id_campo_deal_utm_campaign"
+            },
+            {
+              "name": "id_campo_deal_utm_term"
+            },
+            {
+              "name": "id_campo_deal_utm_medium"
+            },
+            {
+              "name": "id_campo_deal_utm_content"
+            },
+            {
+              "name": "id_sdr"
+            },
+            {
+              "name": "funil",
+              "value": "sessao_estrategica"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "={{ $node[\"preencheu_pre_forms3\"].json[\"body\"][\"form_id\"] === '88889e3' ? 'funil_head_comercial' : 'v1' }}"
+            },
+            {
+              "name": "url_api_activecampaign"
+            },
+            {
+              "name": "id_campo_deal_utm_fun"
+            },
+            {
+              "name": "id_campo_deal_utm_var"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1408040"
+            },
+            {
+              "name": "id_campo_utm_fun_bot_conversa",
+              "value": "1408044"
+            },
+            {
+              "name": "id_campo_utm_var_bot_conversa",
+              "value": "1408045"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1408043"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1408042"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1408041"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1408038"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1408048"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_ac"
+            },
+            {
+              "name": "id_campo_iddealac_bot_conversa"
+            },
+            {
+              "name": "id_campo_idleadac_bot_conversa"
+            },
+            {
+              "name": "data_ultima_quinzena",
+              "value": "=\"{{ $node[\"formata_dados1\"].json[\"dataFormatada\"] }}\""
+            },
+            {
+              "name": "id_fluxo_notifica_sdr_pop_up",
+              "value": "2215208"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dcf28bde-bdd1-4193-9f65-7e4ccfcd3402",
+      "name": "dados_do_lead3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## COM AGENDAMENTO",
+        "height": 87.0992634010781,
+        "width": 341.4892607553618
+      },
+      "id": "4be5efc1-eb0b-4885-a439-4161a34b8ede",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        820,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## SEM AGENDAMENTO",
+        "height": 87.0992634010781,
+        "width": 341.4892607553618
+      },
+      "id": "f19c3feb-c7d0-41ac-9aa5-f0929e3b783e",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        820,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aplicacao-preenchida-typebot-nap",
+        "options": {}
+      },
+      "id": "06829cf9-198e-46db-8c36-55d5b6925d5e",
+      "name": "preencheu_pre_forms2",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        1400
+      ],
+      "webhookId": "b9467ba7-123c-4619-84a8-95c3e6c5808f"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "pop-up-head-comercial",
+        "options": {}
+      },
+      "id": "052abd30-819f-4d08-974c-d00b9512c165",
+      "name": "preencheu_pre_forms3",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        860
+      ],
+      "webhookId": "b9467ba7-123c-4619-84a8-95c3e6c5808f"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aplicacao-preenchida-elementor-hatzner",
+        "options": {}
+      },
+      "id": "39e8f79e-d753-48cd-8ca4-2621c5041fae",
+      "name": "preencheu_pre_forms",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        1040
+      ],
+      "webhookId": "b9467ba7-123c-4619-84a8-95c3e6c5808f"
+    }
+  ],
+  "pinData": {
+    "preencheu_pre_forms1": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "WordPress/6.5.3; https://universidadevendas.com.br",
+            "content-length": "193",
+            "accept": "*/*",
+            "accept-encoding": "deflate, gzip, br, zstd",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-forwarded-for": "45.8.227.175",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "45.8.227.175"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Nome": "Teste PY",
+            "WhatsApp com DDD": "351963840378",
+            "E-mail": "vitorrqueiroztrafego@gmail.com",
+            "utm_source": "",
+            "utm_content": "",
+            "utm_campaign": "",
+            "utm_medium": "",
+            "utm_term": "",
+            "form_id": "88889e3",
+            "form_name": "Aplicação-pt"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-preenchida-elementor-pt-hatzner",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "preencheu_pre_forms2": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "WordPress/6.5.5; https://universidadevendas.com.br",
+            "content-length": "213",
+            "accept": "*/*",
+            "accept-encoding": "deflate, gzip, br, zstd",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-forwarded-for": "45.8.227.175",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "45.8.227.175"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Nome": "Vitor Queiroz de Almeida",
+            "WhatsApp com DDD": "(19) 98457-4874",
+            "E-mail": "vitorrqueiroztrafego@gmail.com",
+            "utm_source": "",
+            "utm_content": "",
+            "utm_campaign": "",
+            "utm_medium": "",
+            "utm_term": "",
+            "form_id": "88889e3",
+            "form_name": "Aplicação"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-preenchida-typebot-nap",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "preencheu_pre_forms3": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "WordPress/6.5.3; https://universidadevendas.com.br",
+            "content-length": "249",
+            "accept": "*/*",
+            "accept-encoding": "deflate, gzip, br, zstd",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-forwarded-for": "45.8.227.175",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "45.8.227.175"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Nome": "Vitor Queiroz de Almeida",
+            "WhatsApp com DDD": "(19) 98457-4874",
+            "E-mail": "vitorrqueiroztrafego@gmail.com",
+            "utm_source": "source1",
+            "utm_content": "content3",
+            "utm_campaign": "campaign2",
+            "utm_medium": "medium4",
+            "utm_term": "term5",
+            "form_id": "88889e3",
+            "form_name": "Aplicação"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/pop-up-head-comercial",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "preencheu_pre_forms": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "WordPress/6.5.5; https://universidadevendas.com.br",
+            "content-length": "221",
+            "accept": "*/*",
+            "accept-encoding": "deflate, gzip, br, zstd",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-forwarded-for": "45.8.227.175",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "45.8.227.175"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Nome": "Vitor Queiroz de Almeida",
+            "WhatsApp com DDD": "(19) 98202-2213",
+            "E-mail": "vitorrqueiroztrafego@gmail.com",
+            "utm_source": "organico",
+            "utm_content": "",
+            "utm_campaign": "",
+            "utm_medium": "",
+            "utm_term": "",
+            "form_id": "88889e3",
+            "form_name": "Aplicação"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-preenchida-elementor-hatzner",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-05-13T19:27:32.381Z",
+      "updatedAt": "2024-05-13T19:27:32.381Z",
+      "id": "d8guY4oNbv53fjEq",
+      "name": "[NAP]"
+    }
+  ],
+  "triggerCount": 4,
+  "updatedAt": "2024-07-02T13:26:18.714Z",
+  "versionId": "f42fe1ab-45b8-4538-a088-461a90b6d645"
+}
