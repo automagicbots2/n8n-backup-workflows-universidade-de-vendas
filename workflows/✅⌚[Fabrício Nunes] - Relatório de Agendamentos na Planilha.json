@@ -1,0 +1,786 @@
+{
+  "active": false,
+  "connections": {
+    "mudou_etapa_na_clint": {
+      "main": [
+        [
+          {
+            "node": "novos_ou_pre_aplicacao",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "novos_ou_pre_aplicacao": {
+      "main": [
+        [
+          {
+            "node": "nada",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "aguarda_3s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "aguarda_3s": {
+      "main": [
+        [
+          {
+            "node": "trata_telefone",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "trata_telefone": {
+      "main": [
+        [
+          {
+            "node": "cadastrar_contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastrar_contato": {
+      "main": [
+        [
+          {
+            "node": "Preenche Planilha de Agendamentos1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "mudou_tag_bc_via_fluxo": {
+      "main": [
+        [
+          {
+            "node": "aguarda_3s1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "aguarda_3s1": {
+      "main": [
+        [
+          {
+            "node": "Preenche Planilha de Agendamentos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "aguarda_3s2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastrar_contato1": {
+      "main": [
+        [
+          {
+            "node": "Preenche Planilha de Agendamentos2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "aguarda_3s2": {
+      "main": [
+        [
+          {
+            "node": "cadastrar_contato2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preenche Planilha de Agendamentos3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastrar_contato2": {
+      "main": [
+        [
+          {
+            "node": "Preenche Planilha de Agendamentos3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-14T14:48:41.691Z",
+  "id": "KPLoAsxLYujxZmZm",
+  "meta": null,
+  "name": "✅⌚[Fabrício Nunes] - Relatório de Agendamentos na Planilha",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "mudou-etapa-na-clint",
+        "options": {}
+      },
+      "id": "cc4d2858-c685-4226-9fab-ee1d4c8fc65e",
+      "name": "mudou_etapa_na_clint",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        760,
+        700
+      ],
+      "webhookId": "cc05918c-e13e-4fb3-8616-03e29c2c8a60"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M",
+          "mode": "list",
+          "cachedResultName": "[Fabrício] [HT] | Planilha Geral",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 938588697,
+          "mode": "list",
+          "cachedResultName": "Relatório de Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M/edit#gid=938588697"
+        },
+        "columnToMatchOn": "EMAIL",
+        "valueToMatchOn": "={{ $node[\"mudou_etapa_na_clint\"].json[\"body\"][\"contact_email\"] }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $node[\"mudou_etapa_na_clint\"].json[\"body\"][\"contact_name\"] }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ $node[\"trata_telefone\"].json[\"telefone\"] }}"
+            },
+            {
+              "column": "ÚLTIMA ETAPA NA CLINT",
+              "fieldValue": "={{ $node[\"mudou_etapa_na_clint\"].json[\"body\"][\"deal_stage\"] }}"
+            },
+            {
+              "column": "AGENDOU?",
+              "fieldValue": "Sim"
+            },
+            {
+              "column": "DATA DO ÚLTIMO EVENTO",
+              "fieldValue": "={{$now.toFormat('dd/MM/yyyy HH:mm')}}"
+            },
+            {
+              "column": "CLOSER ATUAL",
+              "fieldValue": "={{ $node[\"mudou_etapa_na_clint\"].json[\"body\"][\"deal_user\"].replace('closer1@universidadevendas.com.br','Jonatã dos Santos Almeida').replace('closer2@universidadevendas.com.br','Gabriel Borges').replace('fabricio@universidadevendas.com.br','Fabrício Augusto Nunes Oliveira').replace('sunamita.freitas@universidadevendas.com.br','Sunamita Freitas').replace('laiane@universidadevendas.com.br','SDR') }}"
+            },
+            {
+              "column": "POSSUI TAG SDR NO BOTCONVERSA?",
+              "fieldValue": "={{$node[\"cadastrar_contato\"].json[\"tags\"].includes(\"LAIANE\") ? \"Sim\" : \"Não\"}}"
+            }
+          ]
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED"
+        }
+      },
+      "id": "73e3a387-7a68-4c93-b6b1-80c58e1cb20f",
+      "name": "Preenche Planilha de Agendamentos1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1740,
+        820
+      ],
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"mudou_etapa_na_clint\"].json[\"body\"][\"deal_stage\"] }}",
+              "value2": "Novos"
+            },
+            {
+              "value1": "={{ $node[\"mudou_etapa_na_clint\"].json[\"body\"][\"deal_stage\"] }}",
+              "value2": "Pré-qualificação"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "f82da310-8602-47a6-9a13-582f3f790c81",
+      "name": "novos_ou_pre_aplicacao",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        960,
+        700
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "6d2e5fcf-f806-4f01-bd09-7908465ef400",
+      "name": "nada",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "efed879b-d95f-4586-8c87-ea5d60b2be82",
+      "name": "aguarda_3s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        820
+      ],
+      "webhookId": "d38e048b-de8b-4b6f-867f-e74f2b064d5e"
+    },
+    {
+      "parameters": {
+        "jsCode": "function formatarTelefone(telefone) {\n  const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\n  let ddi;\n  let ddd;\n  let telefoneFormatado;\n\n  // Verificar se o telefone começa com \"55\" antes de formatá-lo\n  if (telefoneLimpo.startsWith('55')) {\n    ddi = telefoneLimpo.slice(0, 2);\n    ddd = telefoneLimpo.slice(2, 4);\n    if (parseInt(ddd, 10) > 28) {\n      telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n    } else {\n      telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n    }\n  } else {\n    ddi = '55';\n    ddd = telefoneLimpo.slice(0, 2);\n    if (parseInt(ddd, 10) > 28) {\n      telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n    } else {\n      telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n    }\n  }\n\n  return telefoneFormatado;\n}\n\nconst telefone = formatarTelefone($node[\"mudou_etapa_na_clint\"].json[\"body\"][\"contact_phone\"]) || '';\n\n\nreturn {\n  telefone\n}"
+      },
+      "id": "96380ff7-168c-4f40-a959-3fb009bc8b31",
+      "name": "trata_telefone",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1340,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "=+{{ $node[\"trata_telefone\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"mudou_etapa_na_clint\"].json[\"body\"][\"contact_name\"].split(' ')[0] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{$node[\"mudou_etapa_na_clint\"].json[\"body\"][\"contact_name\"].split(' ')[1] ? $node[\"mudou_etapa_na_clint\"].json[\"body\"][\"contact_name\"].split(' ').slice(1).join(\" \") : \".\"}}"
+            }
+          ]
+        }
+      },
+      "name": "cadastrar_contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1540,
+        820
+      ],
+      "id": "95136e53-c0ad-444e-9bd4-736f00e3685c",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "tag-sdr",
+        "options": {}
+      },
+      "id": "5cc6109d-313a-4358-bea0-ae2c60328ad8",
+      "name": "mudou_tag_bc_via_fluxo",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        780,
+        360
+      ],
+      "webhookId": "c8a5cde9-f982-4f37-8ad8-db0bf1afcf09"
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "4192aa22-2424-461e-9ec9-b35c374565af",
+      "name": "aguarda_3s1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        960,
+        360
+      ],
+      "webhookId": "d38e048b-de8b-4b6f-867f-e74f2b064d5e"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M",
+          "mode": "list",
+          "cachedResultName": "[Fabrício] [HT] | Planilha Geral",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 938588697,
+          "mode": "list",
+          "cachedResultName": "Relatório de Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M/edit#gid=938588697"
+        },
+        "columnToMatchOn": "EMAIL",
+        "valueToMatchOn": "={{ $node[\"mudou_tag_bc_via_fluxo\"].json[\"body\"][\"email\"] }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $node[\"mudou_tag_bc_via_fluxo\"].json[\"body\"][\"nome\"] }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ $node[\"mudou_tag_bc_via_fluxo\"].json[\"body\"][\"telefone\"].replace('+','') }}"
+            },
+            {
+              "column": "AGENDOU?",
+              "fieldValue": "Sim"
+            },
+            {
+              "column": "DATA DO ÚLTIMO EVENTO",
+              "fieldValue": "={{$now.toFormat('dd/MM/yyyy HH:mm')}}"
+            },
+            {
+              "column": "CLOSER ATUAL",
+              "fieldValue": "={{ $node[\"mudou_tag_bc_via_fluxo\"].json[\"body\"][\"closer\"].replace('closer1@universidadevendas.com.br','Jonatã dos Santos Almeida').replace('closer2@universidadevendas.com.br','Gabriel Borges').replace('fabricio@universidadevendas.com.br','Fabrício Augusto Nunes Oliveira').replace('sunamita.freitas@universidadevendas.com.br','Sunamita Freitas').replace('laiane@universidadevendas.com.br','SDR') }}"
+            }
+          ]
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED"
+        }
+      },
+      "id": "758e48de-614e-4db8-8fff-cb0de86a15cd",
+      "name": "Preenche Planilha de Agendamentos",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1140,
+        360
+      ],
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {},
+      "id": "3949a795-c13d-4fe0-959a-042db3590f38",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        780,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M",
+          "mode": "list",
+          "cachedResultName": "[Fabrício] [HT] | Planilha Geral",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 938588697,
+          "mode": "list",
+          "cachedResultName": "Relatório de Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M/edit#gid=938588697"
+        },
+        "options": {}
+      },
+      "id": "70d5430b-98eb-4e27-b976-b0b1123b094e",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.1,
+      "position": [
+        1000,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json[\"CLOSER ATUAL\"] }}",
+              "operation": "isEmpty"
+            }
+          ]
+        }
+      },
+      "id": "65346ca8-1b9e-4f1e-ba49-ff63a422b205",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "e1b7f415-81c5-4631-a08b-a03af236e421",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1460,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M",
+          "mode": "list",
+          "cachedResultName": "[Fabrício] [HT] | Planilha Geral",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 938588697,
+          "mode": "list",
+          "cachedResultName": "Relatório de Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M/edit#gid=938588697"
+        },
+        "columnToMatchOn": "EMAIL",
+        "valueToMatchOn": "={{ $node[\"Loop Over Items\"].json[\"EMAIL\"] }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $node[\"Loop Over Items\"].json[\"NOME\"] }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ String($node[\"Loop Over Items\"].json[\"TELEFONE\"]).replace('+','') }}"
+            },
+            {
+              "column": "AGENDOU?",
+              "fieldValue": "✅"
+            },
+            {
+              "column": "DATA DO ÚLTIMO EVENTO",
+              "fieldValue": "={{ $json[\"created_at\"].slice(8,10) }}/{{ $json[\"created_at\"].slice(5,7) }}/{{ $json[\"created_at\"].slice(0,4) }} {{ $json[\"created_at\"].slice(11,16) }}"
+            },
+            {
+              "column": "CLOSER ATUAL",
+              "fieldValue": "={{ $json[\"variables\"][\"CloserResponsável\"].replace('closer1@universidadevendas.com.br','Jonatã dos Santos Almeida').replace('closer2@universidadevendas.com.br','Gabriel Borges').replace('fabricio@universidadevendas.com.br','Fabrício Augusto Nunes Oliveira').replace('sunamita.freitas@universidadevendas.com.br','Sunamita Freitas').replace('laiane@universidadevendas.com.br','SDR') }}"
+            },
+            {
+              "column": "POSSUI TAG SDR NO BOTCONVERSA?",
+              "fieldValue": "={{$node[\"cadastrar_contato1\"].json[\"tags\"].includes(\"LAIANE\") ? \"✅\" : \"❌\"}}"
+            }
+          ]
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED"
+        }
+      },
+      "id": "595cb312-fcf4-4ced-957b-a12feec7c241",
+      "name": "Preenche Planilha de Agendamentos2",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        2180,
+        1060
+      ],
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "=+{{ $node[\"Loop Over Items\"].json[\"TELEFONE\"] }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"Loop Over Items\"].json[\"NOME\"].split(' ')[0] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{$node[\"Loop Over Items\"].json[\"NOME\"].split(' ')[1] ? $node[\"Loop Over Items\"].json[\"NOME\"].split(' ').slice(1).join(\" \") : \".\"}}"
+            }
+          ]
+        }
+      },
+      "name": "cadastrar_contato1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1960,
+        1060
+      ],
+      "id": "d0b794dd-3acb-4abe-bbad-db360006c17f",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "c5b05b8a-e311-4e6a-b543-fa150deeb68a",
+      "name": "aguarda_3s2",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1700,
+        1080
+      ],
+      "webhookId": "091dd6d0-e077-4c5e-9a68-edbd3aef08cb"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M",
+          "mode": "list",
+          "cachedResultName": "[Fabrício] [HT] | Planilha Geral",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 938588697,
+          "mode": "list",
+          "cachedResultName": "Relatório de Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aw5PK4ebPb9ZPpeh_6SuowrM1v8yv-e4UmxESBC5Y4M/edit#gid=938588697"
+        },
+        "columnToMatchOn": "EMAIL",
+        "valueToMatchOn": "={{ $node[\"Loop Over Items\"].json[\"EMAIL\"] }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "DATA DE ENTRADA (CADASTRO NO BC",
+              "fieldValue": "={{ $json[\"created_at\"].slice(8,10) }}/{{ $json[\"created_at\"].slice(5,7) }}/{{ $json[\"created_at\"].slice(0,4) }} {{ $json[\"created_at\"].slice(11,16) }}"
+            }
+          ]
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED"
+        }
+      },
+      "id": "6e17fe28-8aef-4967-ac7b-1c3a12d8b3cc",
+      "name": "Preenche Planilha de Agendamentos3",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        2200,
+        1280
+      ],
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "=+{{ $node[\"Loop Over Items\"].json[\"TELEFONE\"] }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"Loop Over Items\"].json[\"NOME\"].split(' ')[0] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{$node[\"Loop Over Items\"].json[\"NOME\"].split(' ')[1] ? $node[\"Loop Over Items\"].json[\"NOME\"].split(' ').slice(1).join(\" \") : \".\"}}"
+            }
+          ]
+        }
+      },
+      "name": "cadastrar_contato2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1980,
+        1240
+      ],
+      "id": "374dba4e-39ab-4315-b070-678a719942da",
+      "continueOnFail": true
+    }
+  ],
+  "pinData": {
+    "mudou_etapa_na_clint": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/0.27.2",
+            "content-length": "220",
+            "accept": "application/json, text/plain, */*",
+            "content-type": "application/json",
+            "x-forwarded-for": "52.200.254.28",
+            "x-forwarded-host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "077bd0aa48be",
+            "x-real-ip": "52.200.254.28",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "contact_name": "Luciana",
+            "contact_email": "lucianabatistapessoa@gmail.com",
+            "contact_phone": "+5593991939676",
+            "deal_stage": "Follow up infinito",
+            "deal_user": "sunamita.freitas@universidadevendas.com.br",
+            "deal_status": "OPEN"
+          }
+        }
+      }
+    ],
+    "mudou_tag_bc_via_fluxo": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "user-agent": "python-requests/2.26.0",
+            "content-length": "157",
+            "accept": "*/*",
+            "accept-encoding": "gzip, deflate",
+            "content-type": "application/json",
+            "sentry-trace": "b85c667d333649e7ad9811627eef0ab3-966fdc4f4c66fced-0",
+            "x-forwarded-for": "18.228.140.63",
+            "x-forwarded-host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "077bd0aa48be",
+            "x-real-ip": "18.228.140.63"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "nome": "Jailson Teste Automação",
+            "email": "testeautomacao@auto.com",
+            "closer": "closer1@universidadevendas.com.br",
+            "telefone": "+557192594557"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-05-14T14:48:42.552Z",
+  "versionId": "4bebedb6-cdea-4555-aa24-67b97ad40f2f"
+}
