@@ -1,0 +1,3236 @@
+{
+  "active": true,
+  "connections": {
+    "variaveis": {
+      "main": [
+        []
+      ]
+    },
+    "dados_validados": {
+      "main": [
+        [
+          {
+            "node": "platinum",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "duplica_contrato_platinum": {
+      "main": [
+        [
+          {
+            "node": "formata_contrato_platinum",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "duplica_contrato_diamond": {
+      "main": [
+        [
+          {
+            "node": "formata_contrato_diamond",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "notifica_time": {
+      "main": [
+        [
+          {
+            "node": "loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "loop": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "notifica_time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "numeros_a_notificar": {
+      "main": [
+        [
+          {
+            "node": "loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_group_link": {
+      "main": [
+        [
+          {
+            "node": "numeros_a_notificar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create_group1": {
+      "main": [
+        [
+          {
+            "node": "imagem1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "imagem1": {
+      "main": [
+        [
+          {
+            "node": "privar_grupo1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "privar_grupo1": {
+      "main": [
+        [
+          {
+            "node": "envia_briefing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create_group2": {
+      "main": [
+        [
+          {
+            "node": "imagem3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "imagem3": {
+      "main": [
+        [
+          {
+            "node": "privar_grupo3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "privar_grupo3": {
+      "main": [
+        [
+          {
+            "node": "envia_briefing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "converte_to_PDF": {
+      "main": [
+        [
+          {
+            "node": "SendEmail_para_assinatura",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SendEmail_para_assinatura": {
+      "main": [
+        [
+          {
+            "node": "avisa_conclusao",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tratamento_de_dados": {
+      "main": [
+        [
+          {
+            "node": "dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_no_banco1": {
+      "main": [
+        [
+          {
+            "node": "nao_existe1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_existe1": {
+      "main": [
+        [
+          {
+            "node": "baixa_pdf1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "platinum1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "baixa_pdf": {
+      "main": [
+        [
+          {
+            "node": "upa_o_novo_no_drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tratamento": {
+      "main": [
+        [
+          {
+            "node": "dados_validados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "platinum": {
+      "main": [
+        [
+          {
+            "node": "duplica_contrato_platinum",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "duplica_contrato_diamond",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_bd": {
+      "main": [
+        [
+          {
+            "node": "nao_existe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_existe": {
+      "main": [
+        [
+          {
+            "node": "insere3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "insere2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_contrato_platinum": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_bd",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere3": {
+      "main": [
+        [
+          {
+            "node": "converte_to_PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere2": {
+      "main": [
+        [
+          {
+            "node": "converte_to_PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "converte_to_PDF1": {
+      "main": [
+        [
+          {
+            "node": "SendEmail_para_assinatura1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SendEmail_para_assinatura1": {
+      "main": [
+        [
+          {
+            "node": "avisa_conclusao1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_existe2": {
+      "main": [
+        [
+          {
+            "node": "insere5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "insere4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_bd1": {
+      "main": [
+        [
+          {
+            "node": "nao_existe2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere4": {
+      "main": [
+        [
+          {
+            "node": "converte_to_PDF1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere5": {
+      "main": [
+        [
+          {
+            "node": "converte_to_PDF1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_contrato_diamond": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_bd1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ganho_na_clint": {
+      "main": [
+        [
+          {
+            "node": "variaveis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cliente_assinou": {
+      "main": [
+        [
+          {
+            "node": "tratamento_de_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_fabricio": {
+      "main": [
+        [
+          {
+            "node": "insere1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "upa_o_novo_no_drive": {
+      "main": [
+        [
+          {
+            "node": "avisa_fabricio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "baixa_pdf1": {
+      "main": [
+        [
+          {
+            "node": "upa_o_novo_no_drive1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "upa_o_novo_no_drive1": {
+      "main": [
+        [
+          {
+            "node": "avisa_fabricio2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_fabricio2": {
+      "main": [
+        [
+          {
+            "node": "insere6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "platinum1": {
+      "main": [
+        [
+          {
+            "node": "create_group1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "create_group2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_no_banco1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_briefing": {
+      "main": [
+        [
+          {
+            "node": "baixa_pdf",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_briefing2": {
+      "main": [
+        [
+          {
+            "node": "baixa_pdf",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-05T20:02:42.722Z",
+  "id": "NtuKqLpoW5sNgvff",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "✅⌚[FABRÍCIO][PERFEX] - AUTOMAÇÃO DE CONTRATOS",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9837d4be-2500-4ea3-a9e1-56ad12540868",
+              "name": "nome_do_cliente",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "b2238ac5-669f-43d5-8cb9-f3b9db1c801b",
+              "name": "email_do_cliente",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_email\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "2d5897ba-eecb-43b2-a633-f32fdc200f8d",
+              "name": "telefone_do_cliente",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_phone\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "f9d30e5f-7a92-4697-8144-095f16c1d111",
+              "name": "responsavel",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"deal_user\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "b845d08d-fed1-4a2f-898e-bcf335984871",
+              "name": "cargo_do_cliente",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_role\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "685c256c-149d-4d56-b11a-03d1e526eb74",
+              "name": "razao_social",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"organization_name\"] || $node[\"ganho_na_clint\"].json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "5d7fdee1-8791-4d8f-b672-768850454afa",
+              "name": "cnpj",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"organization_cnpj\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "cfcc1518-8343-47a1-8709-793d8b26df56",
+              "name": "nacionalidade_do_cliente",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_nacionalidade_ex_bra\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "dae35b9c-4875-4e5a-867a-2e5549852ff1",
+              "name": "qnt_parcelas",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_quantidade_de_parcel\"] || $node[\"ganho_na_clint\"].json[\"body\"][\"contact_numero_de_parcelas\"]}}",
+              "type": "string"
+            },
+            {
+              "id": "30abcf4f-2e05-4180-bdef-1315d66d8c2a",
+              "name": "valor_total_contrato",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_total_do_contrato_em\"] || $node[\"ganho_na_clint\"].json[\"body\"][\"deal_value\"]}}",
+              "type": "string"
+            },
+            {
+              "id": "3bf6998c-49c9-411e-9976-924a226edba3",
+              "name": "valor_parcelas_contrato",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_valor_das_parcelas_e\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "828133ef-af88-49c4-a169-7d2cdfb3b55f",
+              "name": "rg_do_cliente",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_rg\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a81ba6fa-b6e3-48cc-aa06-0eb58c3ca5a4",
+              "name": "duracao_meses",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_duracao_em_meses\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "ecb19da6-a7b4-4f10-8f87-959196195ce6",
+              "name": "estado_civil_cliente",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_estado_civil\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "07c1fe3d-de07-4a8e-aa12-e95325112f05",
+              "name": "cpf_do_cliente",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_cpfcnpj\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "bf3f8de2-0420-4e96-a8f4-090fd60075d2",
+              "name": "id_pasta_drive",
+              "value": "1Qj0anqumWD7nE9AYRJH4pvBHlA0UAeIk",
+              "type": "string"
+            },
+            {
+              "id": "11f5a5d9-47d9-43c6-8241-714f8b621801",
+              "name": "id_contrato_platinum",
+              "value": "1VzSxyF_oE_afQ_dDag3bVZf9n9X7JUMY9ryC21Hfr88",
+              "type": "string"
+            },
+            {
+              "id": "6b421bee-8430-45be-a3ca-34c571689a32",
+              "name": "id_contrato_diamond",
+              "value": "1VVLS71sz9-NyL2IL6z07NugnP_nuRMmP1vCAwt5k_cQ",
+              "type": "string"
+            },
+            {
+              "id": "74533d0b-3821-4340-98dd-8ce1fd0a6db5",
+              "name": "url_base",
+              "value": "https://evolutionapi.automagicbots.com.br/",
+              "type": "string"
+            },
+            {
+              "id": "16af0d1f-a08f-4870-8ab4-a3ae285664c0",
+              "name": "apikey_produto",
+              "value": "51bb9ba9-d0cf-4ba1-9a99-f9c5d3b5b18e",
+              "type": "string"
+            },
+            {
+              "id": "4b20f8eb-a628-4df3-813d-5772ada8e0cd",
+              "name": "instancia_produto",
+              "value": "FabricioProduto",
+              "type": "string"
+            },
+            {
+              "id": "9cb6bb91-8ca1-4fcf-afa7-96713459be07",
+              "name": "apikey_integracao",
+              "value": "5b3c8f77-3546-4f28-842e-1ab6106de775",
+              "type": "string"
+            },
+            {
+              "id": "a69fc7a1-0902-481b-958f-e511d59af406",
+              "name": "instancia_integracao",
+              "value": "FabricioIntegracao",
+              "type": "string"
+            },
+            {
+              "id": "12a81149-7b6b-4177-9cec-f716bde0e117",
+              "name": "nome_grupos",
+              "value": "=UV - {{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_name\"].split(' ').slice(0, 2).join(' ') }}",
+              "type": "string"
+            },
+            {
+              "id": "951aa192-c8ce-4fd6-9a73-8be102c06cd5",
+              "name": "descricao_grupos",
+              "value": "=📌 Bem-vindo(a) ao grupo de clientes da Universidade de Vendas!\n\nAqui você encontrará:\n\n- Atualizações sobre o contrato\n- Suporte e assistência\n- Informações importantes e novidades\n- Estamos aqui para garantir que você tenha a melhor experiência possível. 🚀",
+              "type": "string"
+            },
+            {
+              "id": "2f27c9e7-f302-419c-828b-14f29cee4c9c",
+              "name": "imagem_grupos",
+              "value": "https://universidadevendas.com.br/wp-content/uploads/2022/05/ICONE-COLORIDO.png",
+              "type": "string"
+            },
+            {
+              "id": "f90c3f70-c8a0-48fd-8c0b-6941b4194a56",
+              "name": "mensagem_boas_vindas",
+              "value": "=🎉 Bem-vindo ao Grupo *{{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_name\"].split(' ')[0] }}*!\n\nParabéns pela assinatura do contrato com a *Universidade de Vendas*! 🎉\n\nEste grupo foi criado para facilitar a comunicação e garantir que você tenha todas as informações necessárias sobre nosso serviço.\n\nO que você pode esperar:\n\n- *Atualizações e Informações:* Notícias e atualizações importantes sobre o seu contrato e nossos serviços.\n- *Suporte e Dúvidas:* Ajuda rápida e eficiente para qualquer dúvida ou necessidade.\n\nCaso precise de assistência imediata ou tenha alguma dúvida específica, não hesite em nos contatar diretamente.",
+              "type": "string"
+            },
+            {
+              "id": "d89334b9-d256-445c-98bf-6f2d03dc4669",
+              "name": "token_autentique",
+              "value": "a7ff48673aef5a911e08d1ce4a6db1a6c1ed0576e11278c6a790cc1782408361",
+              "type": "string"
+            },
+            {
+              "id": "aaae081c-dbd9-4a56-9fba-ba669b65ebdd",
+              "name": "API-KEY",
+              "value": "a9585685-a8d4-4f70-be7c-44c8dedf905f",
+              "type": "string"
+            },
+            {
+              "id": "14245124-2337-4d30-a4ea-0554ce402ae6",
+              "name": "id_fabricio_bc",
+              "value": "524872888",
+              "type": "string"
+            },
+            {
+              "id": "90fce71b-1105-40ff-a5b7-57c41388e459",
+              "name": "tipo_contrato",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"contact_tipo_de_contrato\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "73a42027-43da-4f28-8b5f-83d671993bac",
+              "name": "endereco_completo",
+              "value": "={{ $node[\"ganho_na_clint\"].json[\"body\"][\"deal_endereco\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c44cc501-4565-434a-a71e-8a30a8b2e105",
+      "name": "variaveis",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        300,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "function formatarTelefone(telefone) {\n  const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\n  let ddi;\n  let ddd;\n  let telefoneFormatado;\n\n  // Verificar se o telefone começa com \"55\" antes de formatá-lo\n  if (telefoneLimpo.startsWith('55')) {\n    ddi = telefoneLimpo.slice(0, 2);\n    ddd = telefoneLimpo.slice(2, 4);\n    if (parseInt(ddd, 10) > 28) {\n      telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n    } else {\n      telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n    }\n  } else {\n    ddi = '55';\n    ddd = telefoneLimpo.slice(0, 2);\n    if (parseInt(ddd, 10) > 28) {\n      telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n    } else {\n      telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n    }\n  }\n\n  return telefoneFormatado;\n}\n\nfunction obterDiaSemanaAtual() {\n  const diasDaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];\n  \n  const dataAtual = new Date(); // Obtém a data atual\n  const indiceDia = dataAtual.getDay(); // Usa getDay() para considerar o fuso horário local\n\n  return diasDaSemana[indiceDia];\n}\n\n// Exemplo de uso\nconst diaSemanaAtual = obterDiaSemanaAtual();\n\nconsole.log(diaSemanaAtual); // Imprime o dia da semana atual\n\n\nfunction formatarNome(nome) {\n  if (nome) {\n    const palavras = nome.trim().split(/\\s+/);\n\n    const palavrasMinusculas = ['de', 'dos', 'da', 'e', 'do', 'das', 'di', 'du', 'o', 'a', 'u'];\n\n    for (let i = 0; i < palavras.length; i++) {\n      const palavraAtual = palavras[i].toLowerCase();\n      if (i === 0 || i === palavras.length - 1 || !palavrasMinusculas.includes(palavraAtual)) {\n        palavras[i] = palavraAtual.charAt(0).toUpperCase() + palavraAtual.slice(1);\n      } else {\n        palavras[i] = palavraAtual;\n      }\n    }\n\n    return palavras.join(\" \");\n  }\n  return '';\n}\n\nfunction formatarCPFCNPJ(valor) {\n  if (!valor) {\n    return \"\"; // Retorna uma string vazia se o campo estiver vazio\n  }\n\n  valor = valor.toString().replace(/[^\\d]/g, ''); // Certifica-se de que o valor seja uma string e remove caracteres não numéricos\n\n  if (valor.length === 11) {\n    // Se o tamanho for 11, assume que é CPF e formata como CPF\n    return valor.replace(/(\\d{3})(\\d{3})(\\d{3})(\\d{2})/, '$1.$2.$3-$4');\n  } else if (valor.length === 14) {\n    // Se o tamanho for 14, assume que é CNPJ e formata como CNPJ\n    return valor.replace(/(\\d{2})(\\d{3})(\\d{3})(\\d{4})(\\d{2})/, '$1.$2.$3/$4-$5');\n  } else {\n    // Caso contrário, retorna o valor original sem formatação\n    return valor;\n  }\n}\n\nfunction formatarCEP(valor) {\n  if (!valor) {\n    return \"\"; // Retorna uma string vazia se o campo estiver vazio\n  }\n\n  valor = valor.toString().replace(/[^\\d]/g, ''); // Certifica-se de que o valor seja uma string e remove caracteres não numéricos\n\n  if (valor.length === 8) {\n    // Se o tamanho for 8, formata como CEP\n    return valor.replace(/(\\d{5})(\\d{3})/, '$1-$2');\n  } else {\n    // Caso contrário, retorna o valor original sem formatação\n    return valor;\n  }\n}\n\nfunction formatarReal(valor) {\n  if (typeof valor === 'string') {\n    valor = parseFloat(valor.replace(',', '.')); // Converte string para número, substituindo a vírgula por ponto se necessário\n  }\n\n  if (isNaN(valor)) {\n    return \"\"; // Retorna uma string vazia se o valor não for um número válido\n  }\n\n  return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });\n}\n\nconst nome_do_cliente = formatarNome($node[\"variaveis\"].json[\"nome_do_cliente\"]) || '';\nconst email_do_cliente = $node[\"variaveis\"].json[\"email_do_cliente\"] || ''; \nconst telefone_do_cliente = formatarTelefone($node[\"variaveis\"].json[\"telefone_do_cliente\"]) || '';\nconst cpf = formatarCPFCNPJ($node[\"variaveis\"].json[\"cpf_do_cliente\"]) || '';\nconst responsavel = $node[\"variaveis\"].json[\"responsavel\"] || ''; \nconst cargo_do_cliente = $node[\"variaveis\"].json[\"cargo_do_cliente\"] || ''; \nconst razao_social = $node[\"variaveis\"].json[\"razao_social\"] || '';\nconst cnpj = formatarCPFCNPJ($node[\"variaveis\"].json[\"cnpj\"]) || ''; \nconst nacionalidade_do_cliente = $node[\"variaveis\"].json[\"nacionalidade_do_cliente\"] || '';\nconst qnt_parcelas = $node[\"variaveis\"].json[\"qnt_parcelas\"] || '';\nconst valor_total_contrato = formatarReal($node[\"variaveis\"].json[\"valor_total_contrato\"]) || '';\nconst valor_parcelas_contrato = formatarReal($node[\"variaveis\"].json[\"valor_parcelas_contrato\"]) || ''; \nconst rg_do_cliente = formatarRG($node[\"variaveis\"].json[\"rg_do_cliente\"]) || '';\nconst duracao_meses = $node[\"variaveis\"].json[\"duracao_meses\"] || ''; \nconst estado_civil_cliente = $node[\"variaveis\"].json[\"estado_civil_cliente\"] || '';\nconst endereco_completo = $node[\"variaveis\"].json[\"endereco_completo\"] || ''; \nconst tipo_contrato = $node[\"variaveis\"].json[\"tipo_contrato\"] || '';\n\nreturn {\nnome_do_cliente,\nemail_do_cliente,\ntelefone_do_cliente, cpf,\nresponsavel,\ncargo_do_cliente,\nrazao_social,\ncnpj,\nnacionalidade_do_cliente,\nqnt_parcelas,\nvalor_total_contrato,\nvalor_parcelas_contrato,\nrg_do_cliente,\nduracao_meses,\nestado_civil_cliente,\ndiaSemanaAtual,\nendereco_completo,\ntipo_contrato\n}\n\nfunction formatarRG(valor) {\n  if (!valor) {\n    return \"\"; // Retorna uma string vazia se o campo estiver vazio\n  }\n\n  valor = valor.toString().replace(/[^\\d]/g, ''); // Certifica-se de que o valor seja uma string e remove caracteres não numéricos\n\n  if (valor.length === 9) {\n    // Se o tamanho for 9, assume que é RG e formata como RG\n    return valor.replace(/(\\d{2})(\\d{3})(\\d{3})(\\d{1})/, '$1.$2.$3-$4');\n  } else {\n    // Caso contrário, retorna o valor original sem formatação\n    return valor;\n  }\n}"
+      },
+      "id": "7e745e73-f4f1-412f-8acb-51f8c3ca4461",
+      "name": "tratamento",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0277340d-3c67-474d-85e3-a0e34dfa3c55",
+              "name": "nome_do_cliente",
+              "value": "={{ $node[\"tratamento\"].json[\"nome_do_cliente\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "82d79d6e-abb7-4ec0-9ac5-d73e8a346670",
+              "name": "email_do_cliente",
+              "value": "={{ $node[\"tratamento\"].json[\"email_do_cliente\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "2073a204-f593-443e-abe5-aeb3cabce1e5",
+              "name": "telefone_do_cliente",
+              "value": "={{ $node[\"tratamento\"].json[\"telefone_do_cliente\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "0b272ce3-921f-463e-b489-7c604a419503",
+              "name": "cpf",
+              "value": "={{$node[\"tratamento\"].json[\"cpf\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "b1f1568d-17fe-46dd-88d6-3ec3462bac65",
+              "name": "responsavel",
+              "value": "={{ $node[\"tratamento\"].json[\"responsavel\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "07e59e8b-06b7-4ec8-9f80-578fc31d2448",
+              "name": "cargo_do_cliente",
+              "value": "={{ $node[\"tratamento\"].json[\"cargo_do_cliente\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a77950f2-24b1-48a1-94f8-67b7bcd5f986",
+              "name": "razao_social",
+              "value": "={{ $node[\"tratamento\"].json[\"razao_social\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "9e33cdae-8266-4d06-a4b7-0f36d252bf80",
+              "name": "cnpj",
+              "value": "={{ $node[\"tratamento\"].json[\"cnpj\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "ee4122e3-5146-4d65-b8e3-4547ae850143",
+              "name": "nacionalidade_do_cliente",
+              "value": "={{$node[\"tratamento\"].json[\"nacionalidade_do_cliente\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "32f99261-3285-42ee-8c28-258f9465e64e",
+              "name": "qnt_parcelas",
+              "value": "={{ $node[\"tratamento\"].json[\"qnt_parcelas\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "2c7d58ba-c0ea-4b40-bb63-120280dec33f",
+              "name": "valor_total_contrato",
+              "value": "={{ $node[\"tratamento\"].json[\"valor_total_contrato\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "659fbdbf-95b7-42a0-88a7-8690d2c5c295",
+              "name": "valor_parcelas_contrato",
+              "value": "={{ $node[\"tratamento\"].json[\"valor_parcelas_contrato\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "ebac471b-cade-47c0-9228-27978e71783b",
+              "name": "rg_do_cliente",
+              "value": "={{ $node[\"tratamento\"].json[\"rg_do_cliente\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "6586e59e-b351-4607-8595-dcadb24560d8",
+              "name": "duracao_meses",
+              "value": "={{ $node[\"tratamento\"].json[\"duracao_meses\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "9d9f0ee0-5c2a-467c-86d2-39489a83b87b",
+              "name": "estado_civil_cliente",
+              "value": "={{ $node[\"tratamento\"].json[\"estado_civil_cliente\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "66436be0-4235-4e19-87d9-9b8547e1a29c",
+              "name": "=dia_extenso",
+              "value": "={{ $node[\"tratamento\"].json[\"diaSemanaAtual\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "c8e44592-e781-43cf-b7c8-75fa2dbb25ff",
+              "name": "dia_atual",
+              "value": "={{ $now.toFormat('dd') }}",
+              "type": "string"
+            },
+            {
+              "id": "4811baf4-5879-4a90-84c8-dc5b7606e097",
+              "name": "mes_corrente_extenso",
+              "value": "={{ \n  (() => {\n    const meses = [\n      'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',\n      'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'\n    ];\n  \n    const dataAtual = new Date();\n    const indiceMes = dataAtual.getMonth();\n  \n    return meses[indiceMes];\n  })()\n}}",
+              "type": "string"
+            },
+            {
+              "id": "9c052b70-95f5-49f1-9959-abd611f75b27",
+              "name": "mes_atual",
+              "value": "={{ $now.toFormat('MM') }}",
+              "type": "string"
+            },
+            {
+              "id": "1095134e-9f62-4ae5-8208-5d604b301ea5",
+              "name": "ano_corrente_2digitos",
+              "value": "={{ $now.toFormat('yyyy').slice(2,4) }}",
+              "type": "string"
+            },
+            {
+              "id": "0a6b2fb1-255e-42af-b0c1-a518d12080a3",
+              "name": "tipo_contrato",
+              "value": "={{ $node[\"tratamento\"].json[\"tipo_contrato\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "1ac26eea-cc3d-40a2-823d-76f6f89c24a4",
+              "name": "endereco",
+              "value": "={{ $node[\"tratamento\"].json[\"endereco_completo\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d01fc020-9df1-4ab8-8458-cf424939bd80",
+      "name": "dados_validados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        660,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $node[\"variaveis\"].json[\"id_contrato_platinum\"] }}",
+          "mode": "id"
+        },
+        "options": {
+          "name": "=Contrato PLANTINUM - {{ $node[\"dados_validados\"].json[\"nome_do_cliente\"] }}",
+          "parents": [
+            "={{ $node[\"variaveis\"].json[\"id_pasta_drive\"] }}"
+          ]
+        }
+      },
+      "name": "duplica_contrato_platinum",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        280
+      ],
+      "id": "1ec866a3-ceaf-4bc5-b2e3-37ebe5079774",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dVIE5cPXbra2r4AL",
+          "name": "[Google Drive] - Auth2 Automagic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "update",
+        "documentURL": "={{ $node[\"duplica_contrato_platinum\"].json[\"id\"] }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{NOMECOMPLETO}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"nome_do_cliente\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CPF}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"cpf\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENDEREÇO}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"endereco\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RG}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"rg_do_cliente\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PROFISSAO}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"cargo_do_cliente\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{EMAIL}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"email_do_cliente\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DIA}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"dia_atual\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{MESEXTENSO}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"mes_corrente_extenso\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{FIMDOANO}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"ano_corrente_2digitos\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CNPJ}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"cnpj\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RAZAO}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"razao_social\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ESTADO_CIVIL}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"estado_civil_cliente\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NACIONALIDADE}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"nacionalidade_do_cliente\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{TOTAL}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"valor_total_contrato\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{QTE}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"qnt_parcelas\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PARCELA}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"valor_parcelas_contrato\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DURACAO}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"duracao_meses\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "formata_contrato_platinum",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        280
+      ],
+      "id": "a3b59a6d-e611-4e00-8f8d-e08fa827d0c7",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "yBmHn0l9vU6LQnx0",
+          "name": " [Google Docs] - Automagic Bots Auth2"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $node[\"variaveis\"].json[\"id_contrato_diamond\"] }}",
+          "mode": "id"
+        },
+        "options": {
+          "name": "=Contrato DIAMOND - {{ $node[\"dados_validados\"].json[\"nome_do_cliente\"] }}",
+          "parents": [
+            "={{ $node[\"variaveis\"].json[\"id_pasta_drive\"] }}"
+          ]
+        }
+      },
+      "name": "duplica_contrato_diamond",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        680
+      ],
+      "id": "9c649cc0-5334-414e-adf5-948401a1a5e1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dVIE5cPXbra2r4AL",
+          "name": "[Google Drive] - Auth2 Automagic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $node[\"variaveis_evolution1\"].json[\"url_base\"] }}/group/updateParticipant/{{ $node[\"variaveis_evolution1\"].json[\"nome_da_instancia\"] }}?groupJid={{ $node[\"grupo_citado_no_forms1\"].json[\"id\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"variaveis_evolution1\"].json[\"apikey\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"action\": \"{{ $node[\"variaveis_evolution1\"].json[\"acao\"].replace('Adicionar','add').replace('Remover','remove').replace('Promover','promote').replace('Rebaixar','demote')}}\",\n  \"participants\": [\n    \"{{ $node[\"variaveis_evolution1\"].json[\"Telefone do Cliente - Formato BC\"] }}\"\n  ]\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "3be9ef16-8e8c-45aa-a750-bdfedd1c39f8",
+      "name": "remove_ou_adiciona_promove_rebaixa",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        440,
+        -100
+      ],
+      "typeVersion": 4,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"dados\"].json[\"url_base\"] }}/message/sendText/{{ $node[\"dados\"].json[\"nome_da_instancia\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados\"].json[\"apikey\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $node[\"loop\"].json[\"numero\"] }}"
+            },
+            {
+              "name": "textMessage.text",
+              "value": "=🔔 *NOTIFICAÇÃO DE FECHAMENTO*\n\nOlá equipe,\n\nGostaria de informar que o fechamento foi realizado com sucesso!\n\nℹ️ Detalhes do Fechamento:\n- 🗓️ Data: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n- 🔗 Link do Grupo no WhatsApp: {{ $node[\"get_group_link\"].json[\"inviteUrl\"] }}\n- 👤 Cliente: {{ $node[\"dados\"].json[\"Nome do Cliente\"] }}\n- 📞 Telefone: {{ $node[\"dados\"].json[\"Telefone do Cliente - Formato Z-API\"] }}\n- 📱 WhatsApp: wa.me/{{ $node[\"dados\"].json[\"Telefone do Cliente - Formato Z-API\"] }}\n- ✉️ E-mail: {{ $node[\"dados\"].json[\"E-mail do Cliente\"] }}\n- 📱 Instagram: {{ $node[\"dados\"].json[\"Instagram\"] }}"
+            },
+            {
+              "name": "options.delay",
+              "value": "={{ 1200 }}"
+            },
+            {
+              "name": "options.presence",
+              "value": "composing"
+            },
+            {
+              "name": "options.linkPreview",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "=options.mentions.everyOne",
+              "value": "={{ true }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "9a0f213a-d00b-4490-acb1-191ae2105d6e",
+      "name": "notifica_time",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1220,
+        0
+      ],
+      "typeVersion": 4,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "1e6c1d38-1b3a-4512-aaa6-dc4f969bc433",
+      "name": "loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1000,
+        -100
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extrair a variável contendo os números de telefone\nconst numerosTelefone = $node[\"dados\"].json[\"time_notificado_entre_virgulas_e_sem_espacos\"] || '';\n\n// Separar os números de telefone usando a vírgula como separador\nconst numerosArray = numerosTelefone.split(',');\n\n// Inicializar o array de retorno\nconst retorno = [];\n\n// Verificar se há números de telefone\nif (numerosArray.length > 0) {\n    // Iterar sobre cada número de telefone\n    numerosArray.forEach(numero => {\n        // Remover espaços em branco do número\n        const numeroLimpo = numero.trim();\n        \n        // Adicionar o número ao array de retorno\n        retorno.push({ numero: numeroLimpo });\n    });\n}\n\n// Retornar o array com os números de telefone\nreturn retorno;\n"
+      },
+      "id": "8b7ce341-6d61-4126-b088-9da3f3470850",
+      "name": "numeros_a_notificar",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        -100
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "id": "04cde6ef-7940-44dc-a93e-e669f135433d",
+      "name": "Limit",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        -160
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"dados\"].json[\"url_base\"] }}/group/inviteCode/{{ $node[\"dados\"].json[\"nome_da_instancia\"] }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "groupJid",
+              "value": "={{ $node[\"create_group1\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados\"].json[\"apikey\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "2ed0000e-917e-4214-9b31-6c2a117f1312",
+      "name": "get_group_link",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        620,
+        -100
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"dados\"].json[\"url_base\"] }}message/sendText/{{ $node[\"dados\"].json[\"instancia_produto\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados\"].json[\"apikey_produto\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $node[\"create_group1\"].json[\"id\"] }}"
+            },
+            {
+              "name": "textMessage.text",
+              "value": "={{ $node[\"dados\"].json[\"mensagem_boas_vindas\"] }}"
+            },
+            {
+              "name": "options.delay",
+              "value": "={{ 1200 }}"
+            },
+            {
+              "name": "options.presence",
+              "value": "composing"
+            },
+            {
+              "name": "options.linkPreview",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "=options.mentions.everyOne",
+              "value": "={{ true }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "c4da9d57-aab4-4ff9-9a5e-c6ae7b107e1a",
+      "name": "envia_briefing",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        2020,
+        1160
+      ],
+      "typeVersion": 4
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"dados\"].json[\"url_base\"] }}group/create/{{ $node[\"dados\"].json[\"instancia_produto\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados\"].json[\"apikey_produto\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"subject\":\"{{ $node[\"dados\"].json[\"nome_grupos\"] }}\",\"description\":\"{{ $node[\"dados\"].json[\"descricao_grupos\"] }}\",\"participants\":[{{ $node[\"pesquisa_no_banco1\"].json[\"telefone\"] }}]}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "96764f88-02b8-4b8c-b2dd-da851cb6f176",
+      "name": "create_group1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1420,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $node[\"dados\"].json[\"url_base\"] }}group/updateGroupPicture/{{ $node[\"dados\"].json[\"instancia_produto\"] }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "groupJid",
+              "value": "={{ $node[\"create_group1\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados\"].json[\"apikey_produto\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image",
+              "value": "={{ $node[\"dados\"].json[\"imagem_grupos\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "4a63feab-9de6-4f67-a614-9f4dc541e76b",
+      "name": "imagem1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1620,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $node[\"dados\"].json[\"url_base\"] }}group/updateSetting/{{ $node[\"dados\"].json[\"instancia_produto\"] }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "groupJid",
+              "value": "={{ $node[\"create_group1\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados\"].json[\"apikey_produto\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "action",
+              "value": "not_announcement"
+            },
+            {
+              "name": "action",
+              "value": "locked"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "c87fbe8c-2517-403e-8e11-9ea4f34f7178",
+      "name": "privar_grupo1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1820,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json[\"url_base\"] }}/group/findGroupInfos/{{ $json[\"nome_da_instancia\"] }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "groupJid",
+              "value": "120363048213452975@g.us"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $json[\"apikey\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "5d3d612a-a857-4f43-8ede-ff6fd61725e4",
+      "name": "busca_descrição",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        260,
+        -100
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"dados\"].json[\"url_base\"] }}message/sendText/{{ $node[\"dados\"].json[\"instancia_integracao\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados\"].json[\"apikey_integracao\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $node[\"create_group2\"].json[\"id\"] }}"
+            },
+            {
+              "name": "textMessage.text",
+              "value": "={{ $node[\"dados\"].json[\"mensagem_boas_vindas\"] }}"
+            },
+            {
+              "name": "options.delay",
+              "value": "={{ 1200 }}"
+            },
+            {
+              "name": "options.presence",
+              "value": "composing"
+            },
+            {
+              "name": "options.linkPreview",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "=options.mentions.everyOne",
+              "value": "={{ true }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "3b83171e-63a1-4189-ada3-391e72e01088",
+      "name": "envia_briefing2",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        2020,
+        1360
+      ],
+      "typeVersion": 4
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"dados\"].json[\"url_base\"] }}group/create/{{ $node[\"dados\"].json[\"instancia_integracao\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados\"].json[\"apikey_integracao\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"subject\":\"{{ $node[\"dados\"].json[\"nome_grupos\"] }}\",\"description\":\"{{ $node[\"dados\"].json[\"descricao_grupos\"] }}\",\"participants\":[{{ $node[\"pesquisa_no_banco1\"].json[\"telefone\"] }}]}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "8d8bc0ad-0933-46fc-bed3-47719c117269",
+      "name": "create_group2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1420,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $node[\"dados\"].json[\"url_base\"] }}group/updateGroupPicture/{{ $node[\"dados\"].json[\"instancia_integracao\"] }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "groupJid",
+              "value": "={{ $node[\"create_group2\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados\"].json[\"apikey_integracao\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image",
+              "value": "={{ $node[\"dados\"].json[\"imagem_grupos\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "6bf71e98-1c97-43d8-ab0e-28fc08cb8640",
+      "name": "imagem3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1620,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $node[\"dados\"].json[\"url_base\"] }}group/updateSetting/{{ $node[\"dados\"].json[\"instancia_integracao\"] }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "groupJid",
+              "value": "={{ $node[\"create_group2\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados\"].json[\"apikey_integracao\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "action",
+              "value": "not_announcement"
+            },
+            {
+              "name": "action",
+              "value": "locked"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "c4097104-30cb-4191-998f-fdaaa30c72eb",
+      "name": "privar_grupo3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1820,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://universidadevendas.net.br/api/customers",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "authtoken",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiZmFicmljaW9AdW5pdmVyc2lkYWRldmVuZGFzLmNvbS5iciIsIm5hbWUiOiJGYWJyaWNpbyBOdW5uZXMiLCJBUElfVElNRSI6MTcyMjk0ODk3M30.GYOWhFjunCjIfGGgVx-5nUoiA1aHgGYVgtmxyb624XA\t"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e334154d-7008-47ab-a5d1-0997678b3bbc",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1420,
+        -160
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $node[\"formata_contrato_platinum\"].json[\"documentId\"] }}",
+          "mode": "id"
+        },
+        "options": {
+          "googleFileConversion": {
+            "conversion": {
+              "docsToFormat": "application/pdf",
+              "drawingsToFormat": "application/pdf",
+              "slidesToFormat": "application/pdf",
+              "sheetsToFormat": "application/pdf"
+            }
+          },
+          "fileName": "=Contrato PLANTINUM - {{ $node[\"dados_validados\"].json[\"nome_do_cliente\"] }}.pdf"
+        }
+      },
+      "name": "converte_to_PDF",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        2100,
+        280
+      ],
+      "id": "8c515538-ed6f-4fc3-bb20-0dff1adf39ae",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dVIE5cPXbra2r4AL",
+          "name": "[Google Drive] - Auth2 Automagic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "contratos_prestadores",
+          "mode": "list",
+          "cachedResultName": "contratos_prestadores"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "email_do_prestador",
+        "valueToMatchOn": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "link_arquivo",
+              "value": "=https://docs.google.com/document/d/{{ $node[\"duplica_contrato\"].json[\"id\"] }}/edit"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9e775114-9431-4e61-a7dc-c0f544716c95",
+      "name": "insere",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1400,
+        0
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"variaveis\"].json[\"id_fabricio_bc\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=📄 *NOVO CONTRATO GERADO*\n\n📌 Platinum\nO contrato  do(a) Cliente {{ $node[\"dados_validados\"].json[\"nome_do_cliente\"] }}{{ $node[\"dados_validados\"].json[\"razao_social\"] ? ',' + ' ' + 'da empresa: ' +  $node[\"dados_validados\"].json[\"razao_social\"] : '' }}, acabou de ficar pronto e a automação já enviou no email dele(a) para assinatura. \n\n----------------------------\nAguardando a assinatura de {{ $node[\"dados_validados\"].json[\"nome_do_cliente\"].split(' ')[0] }} no documento. Após isso, a automação criará o grupo com o cliente.\n\n🔗 Para visualizar o arquivo gerado, basta acessar o seguinte link https://docs.google.com/document/d/{{ $node[\"formata_contrato_platinum\"].json[\"documentId\"] }}/edit"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"variaveis\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_conclusao",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2500,
+        280
+      ],
+      "id": "50d97812-4f68-4e26-8e7b-3df340f9fe48",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.autentique.com.br/v2/graphql",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"variaveis\"].json[\"token_autentique\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "operations",
+              "value": "={\"query\":\"mutation CreateDocumentMutation($document: DocumentInput!, $signers: [SignerInput!]!, $file: Upload!) {createDocument(sandbox: false, document: $document, signers: $signers, file: $file) {id name refusable sortable created_at signatures { public_id name email created_at action { name } link { short_link } user { id name email }}}}\", \"variables\":{\"document\": {\"name\": \"Contrato PLANTINUM - {{ $node[\"dados_validados\"].json[\"nome_do_cliente\"] }}\"},\"signers\": [{\"email\": \"{{ $node[\"dados_validados\"].json[\"email_do_cliente\"] }}\",\"action\": \"SIGN\"}],\"file\":null}}"
+            },
+            {
+              "name": "map",
+              "value": "{\"file\": [\"variables.file\"]}"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "ab635cb3-17aa-4326-98ca-042373069d4f",
+      "name": "SendEmail_para_assinatura",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2300,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "function formatarNome(nome) {\n  if (nome) {\n    const palavras = nome.trim().split(/\\s+/);\n\n    const palavrasMinusculas = ['de', 'dos', 'da', 'e', 'do', 'das', 'di', 'du', 'o', 'a', 'u'];\n\n    for (let i = 0; i < palavras.length; i++) {\n      const palavraAtual = palavras[i].toLowerCase();\n      if (i === 0 || i === palavras.length - 1 || !palavrasMinusculas.includes(palavraAtual)) {\n        palavras[i] = palavraAtual.charAt(0).toUpperCase() + palavraAtual.slice(1);\n      } else {\n        palavras[i] = palavraAtual;\n      }\n    }\n\n    return palavras.join(\" \");\n  }\n  return '';\n}\n\nconst email = $node[\"cliente_assinou\"].json[\"body\"][\"partes\"][\"0\"][\"email\"] || '';\nconst nome = $node[\"cliente_assinou\"].json[\"body\"][\"partes\"][\"0\"][\"nome\"] || '';\nconst cpf = $node[\"cliente_assinou\"].json[\"body\"][\"partes\"][\"0\"][\"cpf\"] || '';\nconst nascimento = $node[\"cliente_assinou\"].json[\"body\"][\"partes\"][\"0\"][\"nascimento\"] || '';\nconst data_assinatura = $node[\"cliente_assinou\"].json[\"body\"][\"partes\"][\"0\"][\"assinado\"][\"created\"] || '';\nconst assinado_em = $node[\"cliente_assinou\"].json[\"body\"][\"partes\"][\"0\"][\"assinado\"][\"geotrack\"][\"city\"] || '' + ','+ ' '+ $node[\"cliente_assinou\"].json[\"body\"][\"partes\"][\"0\"][\"assinado\"][\"geotrack\"][\"state\"] || '' + ','+ ' '+ $node[\"cliente_assinou\"].json[\"body\"][\"partes\"][\"0\"][\"assinado\"][\"geotrack\"][\"country\"].replace('Brazil','Brasil') || '';\nconst nome_do_documento = $node[\"cliente_assinou\"].json[\"body\"][\"documento\"][\"nome\"]  || '';\nconst link_do_arquivo = $node[\"cliente_assinou\"].json[\"body\"][\"arquivo\"][\"assinado\"]  || '';\n\nreturn {\n  nome: nome,\n  cpf: cpf,\n  email: email,\n  nascimento: nascimento,\n  data_assinatura: data_assinatura,\n  assinado_em: assinado_em,\n  nome_do_documento: nome_do_documento,\n  link_do_arquivo: link_do_arquivo\n}"
+      },
+      "id": "9645cb24-13af-45d8-bf92-06e0f1f02c26",
+      "name": "tratamento_de_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        280,
+        1060
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "contratos",
+          "mode": "list",
+          "cachedResultName": "contratos"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "email",
+              "value": "={{ $node[\"dados\"].json[\"email\"] || '-----------------------' }}"
+            },
+            {
+              "column": "cpf",
+              "value": "={{ $node[\"dados\"].json[\"cpf\"] || '-----------------------' }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "7a77a813-92bf-45b2-b8bc-4c6ba50e25e1",
+      "name": "pesquisa_no_banco1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        640,
+        1060
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"pesquisa_no_banco1\"].json[\"success\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "b60e5ab2-b189-4c23-96ea-eb3735631a8a",
+      "name": "nao_existe1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        820,
+        1060
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"dados\"].json[\"link_do_arquivo_assinado\"] }}",
+        "options": {}
+      },
+      "id": "94ec4bfe-5c77-4382-bec0-bd8976bb4bff",
+      "name": "baixa_pdf",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2300,
+        1260
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "delete",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $node[\"pesquisa_no_banco1\"].json[\"link_arquivo\"].split('/')[5] }}",
+          "mode": "id"
+        }
+      },
+      "name": "deleta_arquivo_antigo",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        100,
+        -100
+      ],
+      "id": "9fdc204b-453e-436c-9b07-2d4682d59ac0",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "AmpEsbQdrWA4ngam",
+          "name": "[Google Drive] - Fabricio Novo"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "binaryData": true,
+        "name": "={{ $node[\"dados\"].json[\"nome_do_documento\"] }}.pdf",
+        "parents": [
+          "={{ $node[\"dados\"].json[\"id_pasta_contratos_assinados\"] }}"
+        ],
+        "options": {}
+      },
+      "name": "upa_o_novo_no_drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        2500,
+        1260
+      ],
+      "id": "876c3804-0228-49cb-9f4d-049f2b86fd19",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dVIE5cPXbra2r4AL",
+          "name": "[Google Drive] - Auth2 Automagic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "contratos",
+          "mode": "list",
+          "cachedResultName": "contratos"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_prestador",
+        "valueToMatchOn": "={{ $node[\"pesquisa_no_banco1\"].json[\"id_prestador\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "link_arquivo",
+              "value": "=https://drive.google.com/file/d/{{ $node[\"upa_o_novo_no_drive\"].json[\"id\"] }}/view"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a58228fb-b808-4efd-b35a-5eae761bbe6e",
+      "name": "insere1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        2860,
+        1260
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "8679f8bd-f2a7-43d5-b1ce-a366ffed9e5e",
+              "leftValue": "={{ $node[\"dados_validados\"].json[\"tipo_contrato\"].toLowerCase() }}",
+              "rightValue": "platinum",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e29cfa29-9315-44d6-860d-f8aa340247d8",
+      "name": "platinum",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        860,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"pesquisa_bd\"].json[\"success\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "605441e7-bc32-4afe-a892-3852038cc1b5",
+      "name": "nao_existe",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1660,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "contratos",
+          "mode": "list",
+          "cachedResultName": "contratos"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"dados_validados\"].json[\"telefone_do_cliente\"] || '-----------------------' }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"dados_validados\"].json[\"email_do_cliente\"]  || '-----------------------'}}"
+            },
+            {
+              "column": "cpf",
+              "value": "={{ $node[\"dados_validados\"].json[\"cpf\"]  || '-----------------------'}}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "2b26718d-baeb-44c8-a2c8-e204a30895d8",
+      "name": "pesquisa_bd",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        1480,
+        280
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "contratos",
+          "mode": "list",
+          "cachedResultName": "contratos"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_prestador",
+        "valueToMatchOn": "={{ $node[\"pesquisa_bd\"].json[\"id_prestador\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "link_arquivo",
+              "value": "=https://docs.google.com/document/d/{{ $node[\"duplica_contrato_platinum\"].json[\"id\"] }}/edit"
+            },
+            {
+              "column": "funcao",
+              "value": "={{ $node[\"dados_validados\"].json[\"cargo_do_cliente\"] }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"dados_validados\"].json[\"telefone_do_cliente\"] }}"
+            },
+            {
+              "column": "nome_completo",
+              "value": "={{ $node[\"dados_validados\"].json[\"nome_do_cliente\"] }}"
+            },
+            {
+              "column": "cpf",
+              "value": "={{ $node[\"dados_validados\"].json[\"cpf\"] }}"
+            },
+            {
+              "column": "cnpj",
+              "value": "={{ $node[\"dados_validados\"].json[\"cnpj\"] }}"
+            },
+            {
+              "column": "endereco_completo",
+              "value": "={{ $node[\"dados_validados\"].json[\"endereco\"] }}"
+            },
+            {
+              "column": "tipo_contrato",
+              "value": "={{ $node[\"dados_validados\"].json[\"tipo_contrato\"] }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"dados_validados\"].json[\"email_do_cliente\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9c542f6a-51c2-4312-8f07-f730bfb83d0e",
+      "name": "insere2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1860,
+        400
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "contratos",
+          "mode": "list",
+          "cachedResultName": "contratos"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "link_arquivo",
+              "value": "=https://docs.google.com/document/d/{{ $node[\"duplica_contrato_platinum\"].json[\"id\"] }}/edit"
+            },
+            {
+              "column": "funcao",
+              "value": "={{ $node[\"dados_validados\"].json[\"cargo_do_cliente\"] }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"dados_validados\"].json[\"telefone_do_cliente\"] }}"
+            },
+            {
+              "column": "nome_completo",
+              "value": "={{ $node[\"dados_validados\"].json[\"nome_do_cliente\"] }}"
+            },
+            {
+              "column": "cpf",
+              "value": "={{ $node[\"dados_validados\"].json[\"cpf\"] }}"
+            },
+            {
+              "column": "cnpj",
+              "value": "={{ $node[\"dados_validados\"].json[\"cnpj\"] }}"
+            },
+            {
+              "column": "endereco_completo",
+              "value": "={{ $node[\"dados_validados\"].json[\"endereco\"] }}"
+            },
+            {
+              "column": "tipo_contrato",
+              "value": "={{ $node[\"dados_validados\"].json[\"tipo_contrato\"] }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"dados_validados\"].json[\"email_do_cliente\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "68b98ac1-e046-47eb-a9ba-ffecaf4cceb2",
+      "name": "insere3",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1860,
+        160
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $node[\"formata_contrato_diamond\"].json[\"documentId\"] }}",
+          "mode": "id"
+        },
+        "options": {
+          "googleFileConversion": {
+            "conversion": {
+              "docsToFormat": "application/pdf",
+              "drawingsToFormat": "application/pdf",
+              "slidesToFormat": "application/pdf",
+              "sheetsToFormat": "application/pdf"
+            }
+          },
+          "fileName": "=Contrato.pdf"
+        }
+      },
+      "name": "converte_to_PDF1",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        2100,
+        680
+      ],
+      "id": "3dcd8154-ed33-4f31-9e51-6ed5e2128dba",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dVIE5cPXbra2r4AL",
+          "name": "[Google Drive] - Auth2 Automagic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"variaveis\"].json[\"id_fabricio_bc\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=📄 *NOVO CONTRATO GERADO*\n\n📌 Diamond\nO contrato  do(a) Cliente {{ $node[\"dados_validados\"].json[\"nome_do_cliente\"] }}{{ $node[\"dados_validados\"].json[\"razao_social\"] ? ',' + ' ' + 'da empresa: ' +  $node[\"dados_validados\"].json[\"razao_social\"] : '' }}, acabou de ficar pronto e a automação já enviou no email dele(a) para assinatura. \n\n----------------------------\nAguardando a assinatura de {{ $node[\"dados_validados\"].json[\"nome_do_cliente\"].split(' ')[0] }} no documento. Após isso, a automação criará o grupo com o cliente.\n\n🔗 Para visualizar o arquivo gerado, basta acessar o seguinte link https://docs.google.com/document/d/{{ $node[\"formata_contrato_diamond\"].json[\"documentId\"] }}/edit"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"variaveis\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_conclusao1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2500,
+        680
+      ],
+      "id": "9a812980-6eaa-4f1e-9d27-28155d8ffcf3",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.autentique.com.br/v2/graphql",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"variaveis\"].json[\"token_autentique\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "operations",
+              "value": "={\"query\":\"mutation CreateDocumentMutation($document: DocumentInput!, $signers: [SignerInput!]!, $file: Upload!) {createDocument(sandbox: false, document: $document, signers: $signers, file: $file) {id name refusable sortable created_at signatures { public_id name email created_at action { name } link { short_link } user { id name email }}}}\", \"variables\":{\"document\": {\"name\": \"Contrato DIAMOND - {{ $node[\"dados_validados\"].json[\"nome_do_cliente\"] }}\"},\"signers\": [{\"email\": \"{{ $node[\"dados_validados\"].json[\"email_do_cliente\"] }}\",\"action\": \"SIGN\"}],\"file\":null}}"
+            },
+            {
+              "name": "map",
+              "value": "{\"file\": [\"variables.file\"]}"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "6e6fc68d-2465-47ff-98f9-5bdd6647bda8",
+      "name": "SendEmail_para_assinatura1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2300,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"pesquisa_bd1\"].json[\"success\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "3149c157-a8ba-469f-88b0-3ab5f99cfbe7",
+      "name": "nao_existe2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1660,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "contratos",
+          "mode": "list",
+          "cachedResultName": "contratos"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"dados_validados\"].json[\"telefone_do_cliente\"] || '-----------------------' }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"dados_validados\"].json[\"email_do_cliente\"]  || '-----------------------'}}"
+            },
+            {
+              "column": "cpf",
+              "value": "={{ $node[\"dados_validados\"].json[\"cpf\"]  || '-----------------------'}}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "c34b416a-20fd-45ff-a286-dde71cb6c608",
+      "name": "pesquisa_bd1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        1480,
+        680
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "contratos",
+          "mode": "list",
+          "cachedResultName": "contratos"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_prestador",
+        "valueToMatchOn": "={{ $node[\"pesquisa_bd1\"].json[\"id_prestador\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "link_arquivo",
+              "value": "=https://docs.google.com/document/d/{{ $node[\"duplica_contrato_diamond\"].json[\"id\"] }}/edit"
+            },
+            {
+              "column": "funcao",
+              "value": "={{ $node[\"dados_validados\"].json[\"cargo_do_cliente\"] }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"dados_validados\"].json[\"telefone_do_cliente\"] }}"
+            },
+            {
+              "column": "nome_completo",
+              "value": "={{ $node[\"dados_validados\"].json[\"nome_do_cliente\"] }}"
+            },
+            {
+              "column": "cpf",
+              "value": "={{ $node[\"dados_validados\"].json[\"cpf\"] }}"
+            },
+            {
+              "column": "cnpj",
+              "value": "={{ $node[\"dados_validados\"].json[\"cnpj\"] }}"
+            },
+            {
+              "column": "endereco_completo",
+              "value": "={{ $node[\"dados_validados\"].json[\"endereco\"] }}"
+            },
+            {
+              "column": "tipo_contrato",
+              "value": "={{ $node[\"dados_validados\"].json[\"tipo_contrato\"] }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"dados_validados\"].json[\"email_do_cliente\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a03e620e-3dc4-4084-b96d-526da45584d5",
+      "name": "insere4",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1860,
+        800
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "contratos",
+          "mode": "list",
+          "cachedResultName": "contratos"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "link_arquivo",
+              "value": "=https://docs.google.com/document/d/{{ $node[\"duplica_contrato_diamond\"].json[\"id\"] }}/edit"
+            },
+            {
+              "column": "funcao",
+              "value": "={{ $node[\"dados_validados\"].json[\"cargo_do_cliente\"] }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"dados_validados\"].json[\"telefone_do_cliente\"] }}"
+            },
+            {
+              "column": "nome_completo",
+              "value": "={{ $node[\"dados_validados\"].json[\"nome_do_cliente\"] }}"
+            },
+            {
+              "column": "cpf",
+              "value": "={{ $node[\"dados_validados\"].json[\"cpf\"] }}"
+            },
+            {
+              "column": "cnpj",
+              "value": "={{ $node[\"dados_validados\"].json[\"cnpj\"] }}"
+            },
+            {
+              "column": "endereco_completo",
+              "value": "={{ $node[\"dados_validados\"].json[\"endereco\"] }}"
+            },
+            {
+              "column": "tipo_contrato",
+              "value": "={{ $node[\"dados_validados\"].json[\"tipo_contrato\"] }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"dados_validados\"].json[\"email_do_cliente\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2696037d-a0aa-485c-aa10-8e834987aaea",
+      "name": "insere5",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1860,
+        560
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "update",
+        "documentURL": "={{ $node[\"duplica_contrato_diamond\"].json[\"id\"] }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{NOMECOMPLETO}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"nome_do_cliente\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CPF}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"cpf\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENDEREÇO}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"endereco\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RG}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"rg_do_cliente\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PROFISSAO}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"cargo_do_cliente\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{EMAIL}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"email_do_cliente\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DIA}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"dia_atual\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{MESEXTENSO}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"mes_corrente_extenso\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{FIMDOANO}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"ano_corrente_2digitos\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CNPJ}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"cnpj\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RAZAO}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"razao_social\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ESTADO_CIVIL}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"estado_civil_cliente\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NACIONALIDADE}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"nacionalidade_do_cliente\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{TOTAL}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"valor_total_contrato\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{QTE}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"qnt_parcelas\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PARCELA}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"valor_parcelas_contrato\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DURACAO}}",
+              "replaceText": "={{ $node[\"dados_validados\"].json[\"duracao_meses\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "formata_contrato_diamond",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        680
+      ],
+      "id": "07b74583-1554-4ae7-8670-700af33b27c6",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "yBmHn0l9vU6LQnx0",
+          "name": " [Google Docs] - Automagic Bots Auth2"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "geracao-de-contrato",
+        "options": {}
+      },
+      "id": "5c33b855-1ef5-4460-b759-34d903693d2f",
+      "name": "ganho_na_clint",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        100,
+        500
+      ],
+      "webhookId": "7be2dd97-3859-43c9-9e88-ea23ef060560"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "cliente-assinou",
+        "options": {}
+      },
+      "id": "e18edcfb-8f16-4045-90b1-a695a48d2f8a",
+      "name": "cliente_assinou",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        100,
+        1060
+      ],
+      "webhookId": "bbe6dd1d-8597-40da-ad53-252028f37679"
+    },
+    {
+      "parameters": {
+        "operation": "deleteFile",
+        "fileId": {
+          "__rl": true,
+          "value": "10qOHcDx6JuWpmiVUr7MLHmTewZ4loasYYJfvBs3rtak",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "7510a2ff-dd11-4e8e-ad47-191a35969602",
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1560,
+        -160
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dVIE5cPXbra2r4AL",
+          "name": "[Google Drive] - Auth2 Automagic"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"dados\"].json[\"id_fabricio\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🚨 *NOVO CONTRATO ASSINADO*\n\nO(A) Cliente {{ $node[\"dados\"].json[\"nome\"] }}, acabou de assinar o contrato por meio do Autentique.\n\n.................................\n🔗 *{{ $node[\"dados\"].json[\"nome_do_documento\"] }}:* {{ $node[\"tratamento_de_dados\"].json[\"link_do_arquivo\"] }}\n🔗 *Link do documento no Drive:* https://drive.google.com/file/d/{{ $node[\"upa_o_novo_no_drive\"].json[\"id\"] }}/view\n\n👉 *ASSINADO EM:* {{ $node[\"dados\"].json[\"data_assinatura\"].slice(8,10) }}/{{ $node[\"dados\"].json[\"data_assinatura\"].slice(5,7) }}/{{ $node[\"dados\"].json[\"data_assinatura\"].slice(0,4) }} às {{ $node[\"dados\"].json[\"data_assinatura\"].slice(11,16) }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"dados\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_fabricio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2680,
+        1260
+      ],
+      "id": "85b5c133-e33d-4271-a170-e6abd7b9623d",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"dados\"].json[\"link_do_arquivo_assinado\"] }}",
+        "options": {}
+      },
+      "id": "a9d14206-8b91-4662-bdb3-11d3afd53108",
+      "name": "baixa_pdf1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1040,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "binaryData": true,
+        "name": "={{ $node[\"dados\"].json[\"nome_do_documento\"] }}.pdf",
+        "parents": [
+          "={{ $node[\"dados\"].json[\"id_pasta_contratos_assinados\"] }}"
+        ],
+        "options": {}
+      },
+      "name": "upa_o_novo_no_drive1",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        980
+      ],
+      "id": "27053dd8-bd2f-4915-8608-3ad4fda17707",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dVIE5cPXbra2r4AL",
+          "name": "[Google Drive] - Auth2 Automagic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "contratos",
+          "mode": "list",
+          "cachedResultName": "contratos"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_prestador",
+        "valueToMatchOn": "={{ $node[\"pesquisa_no_banco1\"].json[\"id_prestador\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "link_arquivo",
+              "value": "=https://drive.google.com/file/d/{{ $node[\"upa_o_novo_no_drive1\"].json[\"id\"] }}/view"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8dcedeee-1b3c-4623-b68b-adf75fe1a3bc",
+      "name": "insere6",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1600,
+        980
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"dados\"].json[\"id_fabricio\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🚨 *NOVO CONTRATO ASSINADO*\n\nO(A) Cliente {{ $node[\"dados\"].json[\"nome\"] }}, acabou de assinar o contrato por meio do Autentique.\n\n.................................\n🔗 *{{ $node[\"dados\"].json[\"nome_do_documento\"] }}:* {{ $node[\"tratamento_de_dados\"].json[\"link_do_arquivo\"] }}\n🔗 *Link do documento no Drive:* https://drive.google.com/file/d/{{ $node[\"upa_o_novo_no_drive1\"].json[\"id\"] }}/view\n\n👉 *ASSINADO EM:* {{ $node[\"dados\"].json[\"data_assinatura\"].slice(8,10) }}/{{ $node[\"dados\"].json[\"data_assinatura\"].slice(5,7) }}/{{ $node[\"dados\"].json[\"data_assinatura\"].slice(0,4) }} às {{ $node[\"dados\"].json[\"data_assinatura\"].slice(11,16) }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"dados\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_fabricio2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1420,
+        980
+      ],
+      "id": "b2d8d5a7-9f50-4ce4-b6bf-010ab7274db0",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "8c7b58a7-d3fe-46f5-ac73-2fe18351f675",
+              "leftValue": "={{ $node[\"dados\"].json[\"nome_do_documento\"].toLowerCase() }}",
+              "rightValue": "platinum",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "03ce0fa4-c4e4-49cc-915a-c6f6904357cc",
+      "name": "platinum1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1160,
+        1280
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "API-KEY",
+              "stringValue": "a9585685-a8d4-4f70-be7c-44c8dedf905f"
+            },
+            {
+              "name": "id_viviane_closer"
+            },
+            {
+              "name": "id_amanda_closer"
+            },
+            {
+              "name": "id_fabricio",
+              "stringValue": "524872888"
+            },
+            {
+              "name": "id_pasta_contratos_assinados",
+              "stringValue": "1aLBWfmFQd1SyUT9aEUT0GE66ky_VZ5_L"
+            },
+            {
+              "name": "nome",
+              "stringValue": "={{  $node[\"tratamento_de_dados\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "cpf",
+              "stringValue": "={{  $node[\"tratamento_de_dados\"].json[\"cpf\"] }}"
+            },
+            {
+              "name": "email",
+              "stringValue": "={{ $node[\"tratamento_de_dados\"].json[\"email\"] }}"
+            },
+            {
+              "name": "nascimento",
+              "stringValue": "={{  $node[\"tratamento_de_dados\"].json[\"nascimento\"] }}"
+            },
+            {
+              "name": "data_assinatura",
+              "stringValue": "={{  $node[\"tratamento_de_dados\"].json[\"data_assinatura\"] }}"
+            },
+            {
+              "name": "assinado_em",
+              "stringValue": "={{  $node[\"tratamento_de_dados\"].json[\"assinado_em\"] }}"
+            },
+            {
+              "name": "nome_do_documento",
+              "stringValue": "={{  $node[\"tratamento_de_dados\"].json[\"nome_do_documento\"] }}"
+            },
+            {
+              "name": "link_do_arquivo_assinado",
+              "stringValue": "={{ $node[\"tratamento_de_dados\"].json[\"link_do_arquivo\"] }}"
+            },
+            {
+              "name": "url_base",
+              "stringValue": "https://evolutionapi.automagicbots.com.br/"
+            },
+            {
+              "name": "apikey_produto",
+              "stringValue": "51bb9ba9-d0cf-4ba1-9a99-f9c5d3b5b18e"
+            },
+            {
+              "name": "instancia_produto",
+              "stringValue": "FabricioProduto"
+            },
+            {
+              "name": "apikey_integracao",
+              "stringValue": "5b3c8f77-3546-4f28-842e-1ab6106de775"
+            },
+            {
+              "name": "instancia_integracao",
+              "stringValue": "FabricioIntegracao"
+            },
+            {
+              "name": "nome_grupos",
+              "stringValue": "=UV - {{ $node[\"tratamento_de_dados\"].json[\"nome\"].split(' ').slice(0, 2).join(' ') }}"
+            },
+            {
+              "name": "descricao_grupos",
+              "stringValue": "📌 Bem-vindo(a) ao grupo de clientes da Universidade de Vendas!\n\nAqui você encontrará:\n\n- Atualizações sobre o contrato\n- Suporte e assistência\n- Informações importantes e novidades\n- Estamos aqui para garantir que você tenha a melhor experiência possível. 🚀"
+            },
+            {
+              "name": "imagem_grupos",
+              "stringValue": "https://universidadevendas.com.br/wp-content/uploads/2022/05/ICONE-COLORIDO.png"
+            },
+            {
+              "name": "mensagem_boas_vindas",
+              "stringValue": "=🎉 Bem-vindo ao Grupo *{{ $node[\"tratamento_de_dados\"].json[\"nome\"].split(' ')[0] }}*!\n\nParabéns pela assinatura do contrato com a *Universidade de Vendas*! 🎉\n\nEste grupo foi criado para facilitar a comunicação e garantir que você tenha todas as informações necessárias sobre nosso serviço.\n\nO que você pode esperar:\n\n- *Atualizações e Informações:* Notícias e atualizações importantes sobre o seu contrato e nossos serviços.\n- *Suporte e Dúvidas:* Ajuda rápida e eficiente para qualquer dúvida ou necessidade.\n\nCaso precise de assistência imediata ou tenha alguma dúvida específica, não hesite em nos contatar diretamente."
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "229c1531-bbdf-4f42-996b-cef26b568120",
+      "name": "dados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        460,
+        1060
+      ]
+    }
+  ],
+  "pinData": {
+    "get_group_link": [
+      {
+        "json": {
+          "inviteUrl": "https://chat.whatsapp.com/Ew6jF9DBOoJ1dqd11lGJ88",
+          "inviteCode": "Ew6jF9DBOoJ1dqd11lGJ88"
+        }
+      }
+    ],
+    "ganho_na_clint": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/1.7.2",
+            "content-length": "762",
+            "accept": "application/json, text/plain, */*",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "52.200.254.28",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "52.200.254.28"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "contact_name": "Jailson Testes",
+            "contact_email": "jailson_tm2016@outlook.com",
+            "contact_phone": "+5571992594557",
+            "deal_stage": "Novos",
+            "deal_user": "fabricio@universidadevendas.com.br",
+            "deal_status": "WON",
+            "contact_role": "Gerente",
+            "deal_nome_fantasia_da_emp": "",
+            "organization_name": "Empresa XYZ",
+            "contact_cpfcnpj": "111.111.111-14",
+            "organization_cnpj": "456645645654",
+            "contact_nacionalidade_ex_bra": "Brasileiro(a)",
+            "contact_quantidade_de_parcel": "06",
+            "contact_numero_de_parcelas": 12,
+            "contact_total_do_contrato_em": 10000,
+            "contact_valor_das_parcelas_e": 1000,
+            "deal_value": 100,
+            "deal_faturamento": "",
+            "contact_rg": "1234567891",
+            "contact_duracao_em_meses": "06",
+            "contact_estado_civil": "Solteiro(a)",
+            "contact_tipo_de_contrato": "Diamond",
+            "deal_endereco": "Decio Celso Campanari, 1815"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/geracao-de-contrato",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "cliente_assinou": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "1844",
+            "content-type": "application/json",
+            "x-forwarded-for": "34.34.233.233",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "34.34.233.233",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "partes": [
+              {
+                "0": true,
+                "uuid": "fe106406543e11efa9b542010a2b60e0",
+                "nome": "Jailson Teste",
+                "email": "jailson_tm2016@outlook.com",
+                "celular": null,
+                "cpf": "85452397000",
+                "nascimento": "2000-01-01",
+                "empresa": null,
+                "escavador": null,
+                "ordem": 1,
+                "posicao": null,
+                "assinatura": {
+                  "formato": "s",
+                  "imagem": ""
+                },
+                "funcao": "assinar",
+                "created": "2024-08-06 18:58:19",
+                "visualizado": {
+                  "created": "2024-08-06 19:01:56",
+                  "motivo": null,
+                  "ipv4": "179.108.11.130",
+                  "geotrack": {
+                    "country": "Brazil",
+                    "countryISO": "BR",
+                    "state": "São Paulo",
+                    "stateISO": "SP",
+                    "city": "Lençóis Paulista",
+                    "zipcode": "18680",
+                    "latitude": -22.674,
+                    "longitude": -48.8273
+                  }
+                },
+                "assinado": {
+                  "created": "2024-08-06 19:02:22",
+                  "motivo": null,
+                  "ipv4": "179.108.11.130",
+                  "geotrack": {
+                    "country": "Brazil",
+                    "countryISO": "BR",
+                    "state": "São Paulo",
+                    "stateISO": "SP",
+                    "city": "Lençóis Paulista",
+                    "zipcode": "18680",
+                    "latitude": -22.674,
+                    "longitude": -48.8273
+                  }
+                },
+                "rejeitado": {},
+                "mail": {
+                  "sent": "2024-08-06 18:58:22",
+                  "opened": "2024-08-06 19:01:42",
+                  "refused": null,
+                  "delivered": "2024-08-06 18:58:35",
+                  "reason": null
+                },
+                "anterior": null
+              }
+            ],
+            "documento": {
+              "uuid": "d172ce9261ac4319be90b0a98f2263488d2554046acdc676f",
+              "nome": "Contrato DIAMOND - Jailson Testes",
+              "rejeitavel": false,
+              "ordenavel": false,
+              "created": "2024-08-06 18:58:14",
+              "updated": "2024-08-06 19:02:22",
+              "excluido": null,
+              "transacao": false,
+              "funcao": null,
+              "pendente": 0,
+              "assinatura": null,
+              "publicado": "2024-08-06 18:58:19",
+              "disponivel": true
+            },
+            "organizacao": true,
+            "remetente": {
+              "nome": "Fabrício Augusto Nunes Oliveira",
+              "empresa": null,
+              "email": "fabricio@universidadevendas.com.br",
+              "cpf": "07810271601",
+              "nascimento": "1985-05-30"
+            },
+            "arquivo": {
+              "original": "https://storage.googleapis.com/d6e/3dd5df6ec1b2d7eb59b259519aa63888/qi4vyb7HTwT1yAlgOyaXDSlciF5EsC3t8FaWZSko.original.pdf",
+              "assinado": "https://api.autentique.com.br/documentos/d172ce9261ac4319be90b0a98f2263488d2554046acdc676f/assinado.pdf"
+            }
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/cliente-assinou",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2024-08-07T00:11:00.790Z",
+  "versionId": "98a53b36-342a-42a5-a715-9230e37d9cfd"
+}
