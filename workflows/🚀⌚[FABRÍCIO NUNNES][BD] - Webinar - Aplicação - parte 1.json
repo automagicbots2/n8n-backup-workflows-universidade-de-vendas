@@ -1,0 +1,652 @@
+{
+  "active": false,
+  "connections": {
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "aplicacao_preenchida": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "dados_validados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_validados1": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila_bd",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-14T00:50:07.989Z",
+  "id": "UETHKlZ9k4SZfJh7",
+  "meta": null,
+  "name": "🚀⌚[FABRÍCIO NUNNES][BD] - Webinar - Aplicação - parte 1",
+  "nodes": [
+    {
+      "parameters": {
+        "queue": "Aplicação Gestão Comercial - Parte 2",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "859d4e9d-820d-4b5f-a20c-2f8fcef8b446",
+      "name": "entra_na_fila_bd",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Código padrão para typeform via ref\n\n// Extrair informações do input\nconst inputData = items[0].json;\nconst respostas = inputData.body.form_response.answers;\n\n// Função para extrair o DDD e formatar o telefone\nfunction extrairDddETelefone(telefone) {\n  if (!telefone) return \"\";\n\n  const telefoneLimpo = telefone.replace(/\\D/g, \"\");\n  const ddd = telefoneLimpo.slice(2, 4);\n  const ddi = '55';\n\n  let telefoneFormatado;\n  if (parseInt(ddd) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n\n  return telefoneFormatado;\n}\n\n// Função para formatar a primeira letra de cada palavra em maiúsculo\nfunction formatarPrimeiraLetraMaiuscula(str) {\n  if (!str) return \"\"; // Verifique se a string é nula ou indefinida\n  const palavras = str.toLowerCase().split(\" \");\n\n  for (let i = 0; i < palavras.length; i++) {\n    palavras[i] = palavras[i].charAt(0).toUpperCase() + palavras[i].slice(1);\n  }\n\n  return palavras.join(\" \");\n}\n\n// Função para extrair as UTMs do objeto JSON\nfunction extractUTMs(json) {\n  const utmParams = {};\n\n  function searchUTMs(obj) {\n    for (const key in obj) {\n      if (key.startsWith('utm_')) {\n        utmParams[key] = obj[key];\n      } else if (typeof obj[key] === 'object') {\n        searchUTMs(obj[key]);\n      }\n    }\n  }\n\n  searchUTMs(json);\n\n  return utmParams;\n}\n\n// Função para traduzir booleanos para Português\nfunction traduzirBooleano(valor) {\n  return valor ? \"Sim\" : \"Não\";\n}\n\n// Função para converter número em reais\nfunction formatarValorEmReal(valor) {\n  if (valor === null || valor === undefined) return \"\";\n  return `R$ ${valor.toFixed(2)}`;\n}\n\n// Extrair as UTMs do objeto JSON de entrada\nconst utms = extractUTMs(inputData);\n\n// Atribuir os valores das UTMs às variáveis correspondentes\nconst utmContent = utms.utm_content || '';\nconst utmSource = utms.utm_source || '';\nconst utmCampaign = utms.utm_campaign || '';\nconst utmMedium = utms.utm_medium || '';\nconst utmTerm = utms.utm_term || '';\n\n\n// Extrair o telefone e formatá-lo\nconst telefoneAnswer = $node[\"aplicacao_preenchida\"].json[\"body\"][\"form_response\"][\"answers\"][\"1\"][\"phone_number\"] || \"\";\nconst telefoneFormatado = telefoneAnswer;\n const Ending = $node[\"aplicacao_preenchida\"].json.body.form_response.ending.ref || '';\nconst forma_de_pagamento = $node[\"aplicacao_preenchida\"].json[\"body\"][\"form_response\"][\"answers\"][\"9\"][\"choice\"][\"label\"] ;\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Montar o objeto de output\nconst output = {\n  nome: formatarPrimeiraLetraMaiuscula(respostas.find(answer => answer.field.ref === \"9cf1bb7f-45e0-4ecc-aba6-03a647c13fe7\")?.text) || \"\",\n  \n  telefone: extrairDddETelefone(telefoneFormatado),\n  \n  email: respostas.find(answer => answer.field.ref === \"01d90125-226b-4af5-ac1e-f5ae9e39e576\")?.email || $node[\"aplicacao_preenchida\"].json[\"body\"][\"form_response\"][\"hidden\"][\"email\"] || '',\n  \n  instagram: respostas.find(answer => answer.field.ref === \"7cddf9bd-7c7e-44b1-9955-1284de07e60a\")?.text.replace('@','').toLowerCase() || \"\",\n\n  nome_empresa: respostas.find(answer => answer.field.ref === \"4e1852cd-cd0c-4db6-ac75-15b46d04a663\")?.text || '',\n  \n  'quantos_vendedores_possui': (respostas.find(answer => answer.field.ref === \"fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed\")?.choice.label) || '',\n  \n  \n  'situacao_atual': (respostas.find(answer => answer.field.ref === \"d4cd221d-2d02-48bf-bc5a-ecf3ee45d472\")?.choice.label) || '',\n  \n  'tem_socio?': traduzirBooleano(respostas.find(answer => answer.field.ref === \"06045517-dab6-4de5-bc9e-ae1cdde3d0d3\")?.boolean) || '',\n\n  'formato_mentoria': (respostas.find(answer => answer.field.ref === \"9d39abaf-43b5-45e9-8b6e-be6bec180b8f\")?.choice.label) || '',\n\n  'concorda_investimento_20k?': traduzirBooleano(respostas.find(answer => answer.field.ref === \"c3302c32-ec8a-4ff3-87f4-ae22b48ddcd7\")?.boolean) || '',\n\n   'concorda_investimento_30k': traduzirBooleano(respostas.find(answer => answer.field.ref === \"b68ec86d-146e-4ce3-b76b-89ccaa411839\")?.boolean) || '',\n  forma_de_pagamento: forma_de_pagamento,\n\n\n  \n  \n  data_ultima_quinzena: dataFormatada,  \n  utm_content: utmContent || \"\",\n  utm_source: utmSource || \"\",\n  utm_campaign: utmCampaign || \"\",\n  utm_medium: utmMedium || \"\",\n  utm_term: utmTerm || \"\",\n  Ending: Ending || \"\"\n};\n\nreturn [output];\n"
+      },
+      "id": "20d1de99-9e5a-47ba-b98c-e006b7c3c705",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        500,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webnar-aplicacao-preenchida",
+        "options": {}
+      },
+      "id": "16fe1f08-caa0-4644-949e-2d4a8040893b",
+      "name": "aplicacao_preenchida",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        320,
+        140
+      ],
+      "webhookId": "5bdf934f-0aed-4149-8d26-7b60df290e50"
+    },
+    {
+      "parameters": {},
+      "id": "1fefdb69-5090-4e31-b02c-1305591f95c4",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        700,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "=+{{ $node[\"formata_dados\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "instagram",
+              "value": "={{ $node[\"formata_dados\"].json[\"instagram\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "a9585685-a8d4-4f70-be7c-44c8dedf905f"
+            },
+            {
+              "name": "quantos_vendedores_possui",
+              "value": "={{ $node[\"formata_dados\"].json[\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "name": "nome_empresa",
+              "value": "={{ $node[\"formata_dados\"].json[\"nome_empresa\"] }}"
+            },
+            {
+              "name": "tem_socio",
+              "value": "={{ $node[\"formata_dados\"].json[\"tem_socio?\"] }}"
+            },
+            {
+              "name": "id_ending_typeform",
+              "value": "={{ $node[\"aplicacao_preenchida\"].json[\"body\"][\"form_response\"][\"ending\"][\"ref\"] }}"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1408048"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1472224"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1472222"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1472225"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1472223"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1472224"
+            },
+            {
+              "name": "id_campo_utm_fun_bot_conversa",
+              "value": "1472226"
+            },
+            {
+              "name": "id_campo_utm_var_bot_conversa",
+              "value": "1472227"
+            },
+            {
+              "name": "id_campo_quantos_vendedores_possui_bot_conversa",
+              "value": "1472212"
+            },
+            {
+              "name": "id_campo_nome_empresa_bot_conversa",
+              "value": "1472211"
+            },
+            {
+              "name": "id_campo_tem_socio_bot_conversa",
+              "value": "1472213"
+            },
+            {
+              "name": "funil",
+              "value": "SE"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "webinario"
+            },
+            {
+              "name": "data_ultima_quinzena",
+              "value": "=\"{{ $node[\"formata_dados\"].json[\"data_ultima_quinzena\"] }}\""
+            },
+            {
+              "name": "id_campo_emailse_bot_conversa",
+              "value": "1472209"
+            },
+            {
+              "name": "id_tag_desqualificado_bot_conversa",
+              "value": "5312418"
+            },
+            {
+              "name": "id_tag_qualificado_bot_conversa",
+              "value": "5312415"
+            },
+            {
+              "name": "formato_mentoria",
+              "value": "={{ $node[\"formata_dados\"].json[\"formato_mentoria\"] }}"
+            },
+            {
+              "name": "concorda_investimento_20k",
+              "value": "={{ $node[\"formata_dados\"].json[\"concorda_investimento_20k?\"] }}"
+            },
+            {
+              "name": "concorda_investimento_30k",
+              "value": "={{ $node[\"formata_dados\"].json[\"concorda_investimento_30k\"] }}"
+            },
+            {
+              "name": "situacao_atual",
+              "value": "={{ $node[\"formata_dados\"].json[\"situacao_atual\"] }}"
+            },
+            {
+              "name": "id_campo_instagram_bot_conversa",
+              "value": "1472210"
+            },
+            {
+              "name": "id_campo_formato_mentoria_bot_conversa",
+              "value": "1472215"
+            },
+            {
+              "name": "id_campo_aceita_6k_bot_conversa",
+              "value": "1472216"
+            },
+            {
+              "name": "id_campo_aceita_30k_bot_conversa",
+              "value": "1472218"
+            },
+            {
+              "name": "id_campo_situacao_atual_bot_conversa",
+              "value": "1472214"
+            },
+            {
+              "name": "forma de pagamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"forma_de_pagamento\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "42ff4604-bcff-4bbb-a096-3ee37d8f2f80",
+      "name": "dados_validados1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        900,
+        140
+      ]
+    }
+  ],
+  "pinData": {
+    "aplicacao_preenchida": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "user-agent": "Typeform Webhooks",
+            "content-length": "6256",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "traceparent": "00-5214439c33d2a30325e110562a1efe95-4bf760abcbc99293-01",
+            "x-forwarded-for": "18.210.136.162",
+            "x-forwarded-host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "077bd0aa48be",
+            "x-real-ip": "18.210.136.162"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event_id": "01HW5MFMXHH68X9HM45G59SS5G",
+            "event_type": "form_response",
+            "form_response": {
+              "form_id": "AsnREQ0O",
+              "token": "6ofr4cagu0jlvlnd3b9l6ofr4cas8qhg",
+              "landed_at": "2024-04-23T14:04:59Z",
+              "submitted_at": "2024-04-23T14:06:47Z",
+              "hidden": {
+                "email": "xxxxx",
+                "name": "xxxxx",
+                "phone": "xxxxx",
+                "utm_campaign": "xxxxx",
+                "utm_content": "xxxxx",
+                "utm_id": "xxxxx",
+                "utm_medium": "xxxxx",
+                "utm_source": "xxxxx",
+                "utm_term": "xxxxx"
+              },
+              "definition": {
+                "id": "AsnREQ0O",
+                "title": "Sessão Estratégica - Webinário",
+                "fields": [
+                  {
+                    "id": "52dkiC7Ptwr9",
+                    "ref": "9cf1bb7f-45e0-4ecc-aba6-03a647c13fe7",
+                    "type": "short_text",
+                    "title": "Qual o seu nome?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "CGtGD4AUJhDX",
+                    "ref": "f68f2462-3d08-44f4-a39f-cb0156a2c8f8",
+                    "type": "phone_number",
+                    "title": "Qual seu WhatsApp",
+                    "properties": {}
+                  },
+                  {
+                    "id": "4yz0o9LrJSh4",
+                    "ref": "01d90125-226b-4af5-ac1e-f5ae9e39e576",
+                    "type": "email",
+                    "title": "Qual o seu melhor e-mail?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "Aj2MmlZbQltY",
+                    "ref": "4e1852cd-cd0c-4db6-ac75-15b46d04a663",
+                    "type": "short_text",
+                    "title": "Qual o nome da sua empresa?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "bzKl5tIdK82K",
+                    "ref": "7cddf9bd-7c7e-44b1-9955-1284de07e60a",
+                    "type": "short_text",
+                    "title": "Qual o Instagram da sua empresa?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "0mj0KZUh3ZYy",
+                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed",
+                    "type": "multiple_choice",
+                    "title": "{{hidden:name}} quantos vendedores tem na sua empresa hoje?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "HimQbftn5tUV",
+                        "ref": "699fb225-0c8f-4b12-9e00-904c1634f953",
+                        "label": "Não tenho vendedores"
+                      },
+                      {
+                        "id": "UHWbFRo4Bt4M",
+                        "ref": "7e019f18-8e58-495d-b48e-6bddb50979e9",
+                        "label": "De 1 a 5 vendedores"
+                      },
+                      {
+                        "id": "GfP3k4I3Yxm4",
+                        "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59",
+                        "label": "De 6 a 8 vendedores"
+                      },
+                      {
+                        "id": "8n4fackvDRQ7",
+                        "ref": "f272caf5-c0b8-4f15-adb5-70e6cb8a1421",
+                        "label": "De 9 a 15 vendedores"
+                      },
+                      {
+                        "id": "gP5LNVoqG9Z5",
+                        "ref": "9ada87ee-4773-4496-a28c-fb1235fdeca7",
+                        "label": "Acima de 15 vendedores"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "rkxoeXsO2f3g",
+                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3",
+                    "type": "yes_no",
+                    "title": "Você tem algum sócio ou parceiro de negócios que toma decisão junto com você?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "6FsnZt63OOVD",
+                    "ref": "d4cd221d-2d02-48bf-bc5a-ecf3ee45d472",
+                    "type": "multiple_choice",
+                    "title": "Qual a situação da sua empresa hoje?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "xc9c8lIENL26",
+                        "ref": "85b5d616-01ea-4fb4-b311-8fa70cd9cc08",
+                        "label": "Estou desesperado quase quebrando"
+                      },
+                      {
+                        "id": "FeVxSKFChiHz",
+                        "ref": "fdf2b0b3-95b4-42d0-906d-2440cca29858",
+                        "label": "Empresa está instável, porém sei que se eu investir agora posso melhorar"
+                      },
+                      {
+                        "id": "heUoOE9fsRbt",
+                        "ref": "2f53c9f2-4316-4c49-8981-f146ec60b1b6",
+                        "label": "Empresa em crescimento e quero investir para melhorar o resultado atual"
+                      },
+                      {
+                        "id": "2IwGH3fQt6F5",
+                        "ref": "9692d537-1aa4-4875-9e4c-7971b254e80f",
+                        "label": "A empresa está indo muito bem, porém quero aprimorar processos"
+                      },
+                      {
+                        "id": "7hSpa7tMNAk0",
+                        "ref": "565260d8-5a37-4fb4-abf2-b8db0505efd7",
+                        "label": "A empresa está bem e quero ter mais tempo para pensar como empresário"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "wbusECTVkaFn",
+                    "ref": "c3302c32-ec8a-4ff3-87f4-ae22b48ddcd7",
+                    "type": "yes_no",
+                    "title": "Este projeto Diamond tem o valor de R$ 10.000,00 à vista, podendo ser parcelado em 12x de R$ 1.250,00 no pix ou 12x de R$ 1.000,00 no cartão. Você tem este valor para investir?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "uhdC7HwUpOiX",
+                    "ref": "15e45112-0ec8-44d7-902c-cfc554e6dfa9",
+                    "type": "multiple_choice",
+                    "title": "Qual a melhor forma de pagamento pra você?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "IKFFDxyKP0cb",
+                        "ref": "5162cf86-0fe6-49ce-9e01-12e435d1e56f",
+                        "label": "R$ 10.000,00 à vista"
+                      },
+                      {
+                        "id": "YD0jzuIZgQ7I",
+                        "ref": "6e509f78-31a8-428e-b787-f79ad8d111fb",
+                        "label": "R$ 12.000,00 no cartão em 12x R$ 1.000,00"
+                      },
+                      {
+                        "id": "5hrnxQ6bRi3w",
+                        "ref": "716b37ab-47f9-41af-849f-3e2d40740784",
+                        "label": "R$ 15.000,00 no pix em 12x R$ 1.250,00"
+                      },
+                      {
+                        "id": "hcA6bAyIeQF6",
+                        "ref": "aad33e31-d49d-4ef0-b599-fa6308044d9f",
+                        "label": "Outra"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "rYZ8hNJL1iZq",
+                    "ref": "4a24df2f-68e5-4a4a-879e-3bea405df148",
+                    "type": "calendly",
+                    "title": "Muito bem  agora agende a data da Sessão Estratégica",
+                    "properties": {}
+                  }
+                ],
+                "endings": [
+                  {
+                    "id": "UEh3aGW5wPjp",
+                    "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90",
+                    "title": "https://universidadevendas.com.br/parabens_sessao_estrategica/",
+                    "type": "url_redirect",
+                    "properties": {
+                      "redirect_url": "https://universidadevendas.com.br/parabens_sessao_estrategica/"
+                    }
+                  }
+                ]
+              },
+              "answers": [
+                {
+                  "type": "text",
+                  "text": "Mateus Diniz",
+                  "field": {
+                    "id": "52dkiC7Ptwr9",
+                    "type": "short_text",
+                    "ref": "9cf1bb7f-45e0-4ecc-aba6-03a647c13fe7"
+                  }
+                },
+                {
+                  "type": "phone_number",
+                  "phone_number": "+5562981196678",
+                  "field": {
+                    "id": "CGtGD4AUJhDX",
+                    "type": "phone_number",
+                    "ref": "f68f2462-3d08-44f4-a39f-cb0156a2c8f8"
+                  }
+                },
+                {
+                  "type": "email",
+                  "email": "mateusdiniz@automagicbots.com.br",
+                  "field": {
+                    "id": "4yz0o9LrJSh4",
+                    "type": "email",
+                    "ref": "01d90125-226b-4af5-ac1e-f5ae9e39e576"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "automagic bots",
+                  "field": {
+                    "id": "Aj2MmlZbQltY",
+                    "type": "short_text",
+                    "ref": "4e1852cd-cd0c-4db6-ac75-15b46d04a663"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "prmateusdiniz",
+                  "field": {
+                    "id": "bzKl5tIdK82K",
+                    "type": "short_text",
+                    "ref": "7cddf9bd-7c7e-44b1-9955-1284de07e60a"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "UHWbFRo4Bt4M",
+                    "label": "De 1 a 5 vendedores",
+                    "ref": "7e019f18-8e58-495d-b48e-6bddb50979e9"
+                  },
+                  "field": {
+                    "id": "0mj0KZUh3ZYy",
+                    "type": "multiple_choice",
+                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed"
+                  }
+                },
+                {
+                  "type": "boolean",
+                  "boolean": false,
+                  "field": {
+                    "id": "rkxoeXsO2f3g",
+                    "type": "yes_no",
+                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "2IwGH3fQt6F5",
+                    "label": "A empresa está indo muito bem, porém quero aprimorar processos",
+                    "ref": "9692d537-1aa4-4875-9e4c-7971b254e80f"
+                  },
+                  "field": {
+                    "id": "6FsnZt63OOVD",
+                    "type": "multiple_choice",
+                    "ref": "d4cd221d-2d02-48bf-bc5a-ecf3ee45d472"
+                  }
+                },
+                {
+                  "type": "boolean",
+                  "boolean": true,
+                  "field": {
+                    "id": "wbusECTVkaFn",
+                    "type": "yes_no",
+                    "ref": "c3302c32-ec8a-4ff3-87f4-ae22b48ddcd7"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "5hrnxQ6bRi3w",
+                    "label": "R$ 15.000,00 no pix em 12x R$ 1.250,00",
+                    "ref": "716b37ab-47f9-41af-849f-3e2d40740784"
+                  },
+                  "field": {
+                    "id": "uhdC7HwUpOiX",
+                    "type": "multiple_choice",
+                    "ref": "15e45112-0ec8-44d7-902c-cfc554e6dfa9"
+                  }
+                },
+                {
+                  "type": "url",
+                  "url": "https://calendly.com/scheduled_events/b6e11975-fb95-49f3-b4e5-78c87cf9bc1d/invitees/ba642733-fc44-44f5-a973-504e58b6ae11",
+                  "field": {
+                    "id": "rYZ8hNJL1iZq",
+                    "type": "calendly",
+                    "ref": "4a24df2f-68e5-4a4a-879e-3bea405df148"
+                  }
+                }
+              ],
+              "ending": {
+                "id": "UEh3aGW5wPjp",
+                "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-05-14T00:50:19.022Z",
+      "updatedAt": "2024-05-14T00:50:19.022Z",
+      "id": "XakWPPNalLG5XkNf",
+      "name": "[Webinar]"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-05-14T00:50:19.888Z",
+  "versionId": "4a079351-21ba-4748-a4e3-63924b2da3dc"
+}
