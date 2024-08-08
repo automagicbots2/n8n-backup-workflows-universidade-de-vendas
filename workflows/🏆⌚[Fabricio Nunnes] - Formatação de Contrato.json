@@ -1,0 +1,3862 @@
+{
+  "active": true,
+  "connections": {
+    "dados_do_contrato": {
+      "main": [
+        [
+          {
+            "node": "cria/atualiza_clint",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "infos_bc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tratar_dados": {
+      "main": [
+        [
+          {
+            "node": "dados_do_contrato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos_bc": {
+      "main": [
+        [
+          {
+            "node": "duplica_contrato_IMPERIUM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_do_contrato1": {
+      "main": [
+        [
+          {
+            "node": "infos_bc1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "cria/atualiza_clint1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tratar_dados1": {
+      "main": [
+        [
+          {
+            "node": "dados_do_contrato1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos_bc1": {
+      "main": [
+        [
+          {
+            "node": "duplica_contrato_PLANTINUM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "duplica_contrato_IMPERIUM": {
+      "main": [
+        [
+          {
+            "node": "formata_contrato_IMPERIUM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "duplica_contrato_PLANTINUM": {
+      "main": [
+        [
+          {
+            "node": "formata_contrato_PLATINUM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_contrato_PLATINUM": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer1_Jonatã1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer3_Sunamita": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer4_Silas1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer3_sunamita": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer4_silas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_do_contrato2": {
+      "main": [
+        [
+          {
+            "node": "infos_bc2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "cria/atualiza_clint2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tratar_dados2": {
+      "main": [
+        [
+          {
+            "node": "dados_do_contrato2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos_bc2": {
+      "main": [
+        [
+          {
+            "node": "duplica_contrato_DIAMOND",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_contrato_PLATINUM1": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer1_Jonatã2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer3_sunamita1": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer4_silas2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "duplica_contrato_DIAMOND": {
+      "main": [
+        [
+          {
+            "node": "formata_contrato_PLATINUM1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Imperium": {
+      "main": [
+        [
+          {
+            "node": "tratar_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_contrato_IMPERIUM": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer1_Jonatã",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer2_Mayara": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer3_Sunamita",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer2_Mayara1": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer3_sunamita",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer2_Mayara2": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer3_sunamita1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "duplica_contrato_PLANTINUM2": {
+      "main": [
+        [
+          {
+            "node": "formata_contrato_PLATINUM4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "duplica_contrato_DIAMOND2": {
+      "main": [
+        [
+          {
+            "node": "formata_contrato_PLATINUM5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Platinum": {
+      "main": [
+        [
+          {
+            "node": "tratar_dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DIAMOND": {
+      "main": [
+        [
+          {
+            "node": "tratar_dados2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer1_Jonatã2": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer2_Mayara2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer1_Jonatã1": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer2_Mayara1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer1_Jonatã": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer2_Mayara",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-14T17:20:50.250Z",
+  "id": "9Qq0Qx3JBEuvt1sx",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "🏆⌚[Fabricio Nunnes] - Formatação de Contrato",
+  "nodes": [
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "ferramenta_contrato",
+              "value": "Click Sign"
+            },
+            {
+              "name": "ID FORMS",
+              "value": "={{ $node[\"tratar_dados\"].json[\"IDform\"] }}"
+            },
+            {
+              "name": "DIA ",
+              "value": "={{ $now.toFormat('dd/MM/yyyy').slice(0,2)}}"
+            },
+            {
+              "name": "MÊS",
+              "value": "={{ $now.toFormat('dd/MM/yyyy').slice(3,5) }}"
+            },
+            {
+              "name": "ANO (DOIS DIGITOS)",
+              "value": "={{ $now.toFormat('dd/MM/yyyy').slice(-2)}}"
+            },
+            {
+              "name": "Razão Social",
+              "value": "={{ $node[\"tratar_dados\"].json[\"Razão Social\"] }}"
+            },
+            {
+              "name": "CNPJ",
+              "value": "={{ $node[\"tratar_dados\"].json[\"CNPJ\"] }}"
+            },
+            {
+              "name": "Endereço",
+              "value": "={{ $node[\"tratar_dados\"].json[\"Endereço completo\"] }}"
+            },
+            {
+              "name": "E-mail",
+              "value": "={{ $node[\"tratar_dados\"].json[\"email\"] }}"
+            },
+            {
+              "name": "Nome Completo do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados\"].json[\"Nome Completo do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "Nacionalidade do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados\"].json[\"Nacionalidade do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "Estado Civil do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados\"].json[\"Estado Civil do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "Profissão do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados\"].json[\"Profissão do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "RG do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados\"].json[\"RG do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "CPF do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados\"].json[\"CPF do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "Telefone do(a) Representante Legal",
+              "value": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"5\"][\"phone_number\"] }}"
+            },
+            {
+              "name": "Valor Já Pago",
+              "value": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"13\"][\"text\"] }}"
+            },
+            {
+              "name": "Data de vencimento",
+              "value": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"16\"][\"number\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": false
+        }
+      },
+      "name": "dados_do_contrato",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        440,
+        480
+      ],
+      "retryOnFail": true,
+      "id": "c23c5c45-4d96-4928-add5-47d504a56e61"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Pegar o objeto JSON de entrada\nconst inputJSON = $node[\"Imperium\"].json;\n\n// Função para extrair as UTMs do objeto JSON\nfunction extractUTMs(json) {\n  const utmParams = {};\n\n  function searchUTMs(obj) {\n    for (const key in obj) {\n      if (key.startsWith('utm_')) {\n        utmParams[key] = obj[key];\n      } else if (typeof obj[key] === 'object') {\n        searchUTMs(obj[key]);\n      }\n    }\n  }\n\n  searchUTMs(json);\n\n  return utmParams;\n}\n\n// Verifica se existem respostas\nif (items.length > 0) {\n  const response = items[0].json.body.form_response;\n\n  // Verifica se existem respostas no objeto form_response\n  if (response.answers && response.answers.length > 0) {\n    const answers = response.answers;\n    const questions = response.definition.fields;\n    const output = {};\n\n    // Itera sobre as respostas\n    for (let i = 0; i < answers.length; i++) {\n      const answer = answers[i];\n\n      // Verifica se o tipo de resposta é 'choice'\n      if (answer.type === 'choice') {\n        const question = questions[i];\n\n        // Extrai o texto da pergunta e o valor do campo 'label'\n        const questionText = question.title;\n        const answerLabel = answer.choice.label;\n\n        // Define o texto da pergunta como nome do campo no objeto de saída\n        output[questionText] = answerLabel;\n      } else if (answer.type === 'url') {\n        const question = questions[i];\n\n        // Extrai o texto da pergunta e o valor do campo 'url'\n        const questionText = question.title;\n        const answerUrl = answer.url;\n\n        // Define o texto da pergunta como nome do campo no objeto de saída\n        output[questionText] = answerUrl;\n      } else if (answer.type === 'text') {\n        const question = questions[i];\n\n        // Extrai o texto da pergunta e o valor do campo 'text'\n        const questionText = question.title;\n        const answerText = answer.text;\n\n        // Define o texto da pergunta como nome do campo no objeto de saída\n        output[questionText] = answerText;\n      }\n    }\n\n    // Extrair as UTMs do objeto JSON de entrada\n    const utms = extractUTMs(inputJSON);\n\n\n    // Extrair o email usando a referência correta\n    const email = $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"3\"][\"email\"]\n\n    // Função para formatar a primeira letra de cada palavra em maiúsculo\n    function formatarPrimeiraLetraMaiuscula(str) {\n      if (str) {\n        const palavras = str.toLowerCase().split(\" \");\n\n        for (let i = 0; i < palavras.length; i++) {\n          palavras[i] = palavras[i].charAt(0).toUpperCase() + palavras[i].slice(1);\n        }\n\n        return palavras.join(\" \");\n      }\n      return '';\n    }\n\n    // Extrair o nome usando a referência correta\n    const nome = answers.find(\n      answer => answer.field.ref === \"01H8Z7RCMED4A0R07Z01KZVQ12\"\n    )?.text;\n\n// Extrair a escolaridade usando a referência correta\nconst Rg = answers.find(\n  answer => answer.field.ref === \"5f7392a1-159c-48f5-a2fc-579272cd8df4\"\n)?.text;\n\nconst Endereço = answers.find(\n  answer => answer.field.ref === \"c5876eb6-82be-4ef1-9ef8-4cd170c3cdc3\"\n)?.text;\nconst enderecoFormatado = formatarPrimeiraLetraMaiuscula(Endereço);\n            // Extrair o nome usando a referência correta\n    const CPF = answers.find(\n      answer => answer.field.ref === \"7d9dc7b0-8d5a-4182-a59e-eb42672d76ae\"\n    )?.text;\n\n        const CEP = answers.find(\n      answer => answer.field.ref === \"08c8d1f3-5cb1-40bd-8dda-2fe5cd5e0ccf\"\n    )?.text;\n    // Pegar o valor \"Qual o Instagram da sua loja de iPhones?\"\n  //  const instagram = inputJSON.body.form_response.answers[3]?.text?.replace('@', '').toLowerCase();\n\n    // Resultado final\n    const resultado = {\n      IDform: \"Imperium\",\n      nome: nome,\n      email: email,\n\n     // instagram: instagram,\n      utms: utms,\n      RG: Rg,\n     // PorqueTeEscolher: PorqueTeEscolher,\n      CPF: CPF,\n      CEP: CEP,\n      ...output,\n    };\n\n    return [resultado];\n  }\n}\n\n// Caso não haja respostas ou respostas de escolha, retorna vazio\nreturn [];"
+      },
+      "id": "a16a9c00-dc8f-4e83-b888-12b7d0f8f0b6",
+      "name": "tratar_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        240,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID Jonatã BC Closer 1",
+              "value": "342800505"
+            },
+            {
+              "name": "API-KEY",
+              "value": "a9585685-a8d4-4f70-be7c-44c8dedf905f"
+            },
+            {
+              "name": "ID Fabricio BC",
+              "value": "271368625"
+            },
+            {
+              "name": "ID Gabriel BC Closer 2",
+              "value": "342799217"
+            },
+            {
+              "name": "ID Sunamita BC Closer 3",
+              "value": "387179683"
+            },
+            {
+              "name": "ID Silas BC Closer 4",
+              "value": "362405084"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9b04754c-1673-4251-b8b2-b19d133e775f",
+      "name": "infos_bc",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        640,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Fabricio BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}. \n{{ $node[\"dados_do_contrato\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_IMPERIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n*Nome do Cliente:* {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato\"].json[\"Razão Social\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Fabricio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2180,
+        480
+      ],
+      "id": "220759c9-50e1-4d7c-af37-10412ab241ec",
+      "disabled": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "ferramenta_contrato",
+              "value": "Click Sign"
+            },
+            {
+              "name": "ID FORMS",
+              "value": "={{ $node[\"tratar_dados1\"].json[\"IDform\"] }}"
+            },
+            {
+              "name": "DIA ",
+              "value": "={{ $now.toFormat('dd/MM/yyyy').slice(0,2)}}"
+            },
+            {
+              "name": "MÊS",
+              "value": "={{ $now.toFormat('dd/MM/yyyy').slice(3,5) }}"
+            },
+            {
+              "name": "ANO (DOIS DIGITOS)",
+              "value": "={{ $now.toFormat('dd/MM/yyyy').slice(-2)}}"
+            },
+            {
+              "name": "Razão Social",
+              "value": "={{ $node[\"tratar_dados1\"].json[\"Razão Social\"] }}"
+            },
+            {
+              "name": "CNPJ",
+              "value": "={{ $node[\"tratar_dados1\"].json[\"CNPJ\"] }}"
+            },
+            {
+              "name": "Endereço",
+              "value": "={{ $node[\"tratar_dados1\"].json[\"Endereço completo\"] }}"
+            },
+            {
+              "name": "E-mail",
+              "value": "={{ $node[\"tratar_dados1\"].json[\"email\"] }}"
+            },
+            {
+              "name": "Nome Completo do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados1\"].json[\"Nome Completo do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "Nacionalidade do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados1\"].json[\"Nacionalidade do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "Estado Civil do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados1\"].json[\"Estado Civil do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "Profissão do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados1\"].json[\"Profissão do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "RG do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados1\"].json[\"RG do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "CPF do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados1\"].json[\"CPF do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "Telefone do(a) Representante Legal",
+              "value": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"5\"][\"phone_number\"] }}"
+            },
+            {
+              "name": "Valor Já Pago",
+              "value": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"13\"][\"text\"] }}"
+            },
+            {
+              "name": "Data de vencimento",
+              "value": "={{ $json[\"Data de vencimento das parcelas?\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": false
+        }
+      },
+      "name": "dados_do_contrato1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        440,
+        740
+      ],
+      "retryOnFail": true,
+      "id": "9a624ce1-5a16-4b0f-8d7c-acc5c9c3b73a"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Pegar o objeto JSON de entrada\nconst inputJSON = $node[\"Platinum\"].json;\n\n// Função para extrair as UTMs do objeto JSON\nfunction extractUTMs(json) {\n  const utmParams = {};\n\n  function searchUTMs(obj) {\n    for (const key in obj) {\n      if (key.startsWith('utm_')) {\n        utmParams[key] = obj[key];\n      } else if (typeof obj[key] === 'object') {\n        searchUTMs(obj[key]);\n      }\n    }\n  }\n\n  searchUTMs(json);\n\n  return utmParams;\n}\n\n// Verifica se existem respostas\nif (items.length > 0) {\n  const response = items[0].json.body.form_response;\n\n  // Verifica se existem respostas no objeto form_response\n  if (response.answers && response.answers.length > 0) {\n    const answers = response.answers;\n    const questions = response.definition.fields;\n    const output = {};\n\n    // Itera sobre as respostas\n    for (let i = 0; i < answers.length; i++) {\n      const answer = answers[i];\n\n      // Verifica se o tipo de resposta é 'choice'\n      if (answer.type === 'choice') {\n        const question = questions[i];\n\n        // Extrai o texto da pergunta e o valor do campo 'label'\n        const questionText = question.title;\n        const answerLabel = answer.choice.label;\n\n        // Define o texto da pergunta como nome do campo no objeto de saída\n        output[questionText] = answerLabel;\n      } else if (answer.type === 'url') {\n        const question = questions[i];\n\n        // Extrai o texto da pergunta e o valor do campo 'url'\n        const questionText = question.title;\n        const answerUrl = answer.url;\n\n        // Define o texto da pergunta como nome do campo no objeto de saída\n        output[questionText] = answerUrl;\n      } else if (answer.type === 'text') {\n        const question = questions[i];\n\n        // Extrai o texto da pergunta e o valor do campo 'text'\n        const questionText = question.title;\n        const answerText = answer.text;\n\n        // Define o texto da pergunta como nome do campo no objeto de saída\n        output[questionText] = answerText;\n      }\n    }\n\n    // Extrair as UTMs do objeto JSON de entrada\n    const utms = extractUTMs(inputJSON);\n\n\n    // Extrair o email usando a referência correta\n    const email = $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"3\"][\"email\"]\n\n    // Função para formatar a primeira letra de cada palavra em maiúsculo\n    function formatarPrimeiraLetraMaiuscula(str) {\n      if (str) {\n        const palavras = str.toLowerCase().split(\" \");\n\n        for (let i = 0; i < palavras.length; i++) {\n          palavras[i] = palavras[i].charAt(0).toUpperCase() + palavras[i].slice(1);\n        }\n\n        return palavras.join(\" \");\n      }\n      return '';\n    }\n\n    // Extrair o nome usando a referência correta\n    const nome = answers.find(\n      answer => answer.field.ref === \"01H8Z7RCMED4A0R07Z01KZVQ12\"\n    )?.text;\n\n// Extrair a escolaridade usando a referência correta\nconst Rg = answers.find(\n  answer => answer.field.ref === \"5f7392a1-159c-48f5-a2fc-579272cd8df4\"\n)?.text;\n\nconst Endereço = answers.find(\n  answer => answer.field.ref === \"c5876eb6-82be-4ef1-9ef8-4cd170c3cdc3\"\n)?.text;\nconst enderecoFormatado = formatarPrimeiraLetraMaiuscula(Endereço);\n            // Extrair o nome usando a referência correta\n    const CPF = answers.find(\n      answer => answer.field.ref === \"7d9dc7b0-8d5a-4182-a59e-eb42672d76ae\"\n    )?.text;\n\n        const CEP = answers.find(\n      answer => answer.field.ref === \"08c8d1f3-5cb1-40bd-8dda-2fe5cd5e0ccf\"\n    )?.text;\n    // Pegar o valor \"Qual o Instagram da sua loja de iPhones?\"\n  //  const instagram = inputJSON.body.form_response.answers[3]?.text?.replace('@', '').toLowerCase();\n\n    // Resultado final\n    const resultado = {\n      IDform: \"Platinum\",\n      nome: nome,\n      email: email,\n\n     // instagram: instagram,\n      utms: utms,\n      RG: Rg,\n     // PorqueTeEscolher: PorqueTeEscolher,\n      CPF: CPF,\n      CEP: CEP,\n      ...output,\n    };\n\n    return [resultado];\n  }\n}\n\n// Caso não haja respostas ou respostas de escolha, retorna vazio\nreturn [];"
+      },
+      "id": "b0c08240-dbb7-4d46-8099-54af929a5a8b",
+      "name": "tratar_dados1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        240,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID Jonatã BC Closer 1",
+              "value": "342800505"
+            },
+            {
+              "name": "API-KEY",
+              "value": "a9585685-a8d4-4f70-be7c-44c8dedf905f"
+            },
+            {
+              "name": "ID Fabricio BC",
+              "value": "271368625"
+            },
+            {
+              "name": "ID Gabriel BC Closer 2",
+              "value": "342799217"
+            },
+            {
+              "name": "ID Michel BC Closer 3",
+              "value": "362405084"
+            },
+            {
+              "name": "ID Sunamita BC Closer 3",
+              "value": "387179683"
+            },
+            {
+              "name": "ID Silas BC Closer 4",
+              "value": "362405084"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "78f728de-cf1c-4381-9010-bf7a39bc4743",
+      "name": "infos_bc1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        640,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}. \n{{ $node[\"dados_do_contrato\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_IMPERIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato\"].json[\"Data de vencimento\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer1_Jonatã",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1240,
+        480
+      ],
+      "id": "c51d81cb-06be-4c38-b1b7-1c3a6bb27e60",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Fabricio BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}. \n{{ $node[\"dados_do_contrato\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_IMPERIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n*Nome do Cliente:* {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato\"].json[\"Razão Social\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Fabricio1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2180,
+        740
+      ],
+      "id": "431d53cc-d722-4892-90a1-faa22165586e",
+      "disabled": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc1\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato1\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato1\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato1\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato1\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_PLANTINUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato1\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato1\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato1\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato1\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato1\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados1\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato1\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados1\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados1\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato1\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados1\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados1\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato1\"].json[\"Data de vencimento\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer1_Jonatã1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1240,
+        740
+      ],
+      "id": "bc37f273-7edf-4870-aacb-cc530e977f97",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1pWJct9z1jy-Dgyst8OlMqqXMd0iKEL2PQ1izCn-FMtE",
+          "mode": "id"
+        },
+        "options": {
+          "name": "=CONTRATO IMPERIUM - {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}",
+          "parents": [
+            "1I9TAfDVSBIt-vvD8ISQLC5mqbDHUe8Mf"
+          ]
+        }
+      },
+      "name": "duplica_contrato_IMPERIUM",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        820,
+        480
+      ],
+      "id": "8bc655f7-b466-415a-bec4-337f7a2c09fd",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "PH9A5KTqwdimKgDV",
+          "name": "[Google Drive] - Automagic Bots Auth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "update",
+        "documentURL": "={{ $node[\"duplica_contrato_IMPERIUM\"].json[\"id\"] }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{NOMECOMPLETO}}",
+              "replaceText": "={{ $node[\"tratar_dados\"].json[\"Nome Completo do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CPF}}",
+              "replaceText": "={{ $node[\"tratar_dados\"].json[\"CPF do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENDEREÇO}}",
+              "replaceText": "={{ $node[\"tratar_dados\"].json[\"Endereço completo\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RG}}",
+              "replaceText": "={{ $node[\"tratar_dados\"].json[\"RG do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PROFISSAO}}",
+              "replaceText": "={{ $node[\"tratar_dados\"].json[\"Profissão do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{EMAIL}}",
+              "replaceText": "={{ $node[\"tratar_dados\"].json[\"email\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DIA}}",
+              "replaceText": "={{ $node[\"dados_do_contrato\"].json[\"DIA \"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{MESEXTENSO}}",
+              "replaceText": "={{ $node[\"dados_do_contrato\"].json[\"MÊS\"].replace('01','Janeiro').replace('02','Fevereiro').replace('03','Março').replace('04','Abril').replace('05','Maio').replace('06','Junho').replace('07','Julho').replace('08','Agosto').replace('09','Setembro').replace('10','Outubro').replace('11','Novembro').replace('12','Dezembro') }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{FIMDOANO}}",
+              "replaceText": "={{ $node[\"dados_do_contrato\"].json[\"ANO (DOIS DIGITOS)\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CNPJ}}",
+              "replaceText": "={{ $node[\"tratar_dados\"].json[\"CNPJ\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RAZAO}}",
+              "replaceText": "={{ $node[\"tratar_dados\"].json[\"Razão Social\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ESTADO_CIVIL}}",
+              "replaceText": "={{ $node[\"tratar_dados\"].json[\"Estado Civil do(a) Representante Legal\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NACIONALIDADE}}",
+              "replaceText": "={{ $node[\"tratar_dados\"].json[\"Nacionalidade do(a) Representante Legal\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{TOTAL}}",
+              "replaceText": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"12\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{QTE}}",
+              "replaceText": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"14\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PARCELA}}",
+              "replaceText": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DURACAO}}",
+              "replaceText": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"11\"][\"text\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "formata_contrato_IMPERIUM",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 1,
+      "position": [
+        1020,
+        480
+      ],
+      "id": "d28cf0d6-6f9b-42f9-bf6b-e24dcd5aefc0",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "6WWZ9NfJ9MlhFLD2",
+          "name": "[Automagic Bots] -  Drive"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1F0E_78S3u3WGRz_ENcDltKgFY2CuEFfTp7KXdoB3Lkw",
+          "mode": "id"
+        },
+        "options": {
+          "name": "=Contrato PLANTINUM - {{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}",
+          "parents": [
+            "1kU1mhj1qgsZkjTIZhIyBuxh49cMOrqtD"
+          ]
+        }
+      },
+      "name": "duplica_contrato_PLANTINUM",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        840,
+        740
+      ],
+      "id": "de4029f0-c405-4d55-a59d-f347e52f207b",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dVIE5cPXbra2r4AL",
+          "name": "[Google Drive] - Auth2 Automagic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "update",
+        "documentURL": "={{ $node[\"duplica_contrato_PLANTINUM\"].json[\"id\"] }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{NOMECOMPLETO}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"Nome Completo do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CPF}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"CPF do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENDEREÇO}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"Endereço completo\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RG}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"RG do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PROFISSAO}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"Profissão do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{EMAIL}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"email\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DIA}}",
+              "replaceText": "={{ $node[\"dados_do_contrato1\"].json[\"DIA \"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{MESEXTENSO}}",
+              "replaceText": "={{ $node[\"dados_do_contrato1\"].json[\"MÊS\"].replace('01','Janeiro').replace('02','Fevereiro').replace('03','Março').replace('04','Abril').replace('05','Maio').replace('06','Junho').replace('07','Julho').replace('08','Agosto').replace('09','Setembro').replace('10','Outubro').replace('11','Novembro').replace('12','Dezembro') }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{FIMDOANO}}",
+              "replaceText": "={{ $node[\"dados_do_contrato1\"].json[\"ANO (DOIS DIGITOS)\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CNPJ}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"CNPJ\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RAZAO}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"Razão Social\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ESTADO_CIVIL}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"Estado Civil do(a) Representante Legal\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NACIONALIDADE}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"Nacionalidade do(a) Representante Legal\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{TOTAL}}",
+              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"12\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{QTE}}",
+              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"14\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PARCELA}}",
+              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DURACAO}}",
+              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"11\"][\"text\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "formata_contrato_PLATINUM",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        740
+      ],
+      "id": "0a079dcb-f550-4765-977b-86b71212a927",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "yBmHn0l9vU6LQnx0",
+          "name": " [Google Docs] - Automagic Bots Auth2"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Sunamita BC Closer 3\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}. \n{{ $node[\"dados_do_contrato\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_IMPERIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato\"].json[\"Data de vencimento\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer3_Sunamita",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        480
+      ],
+      "id": "b2fb8b58-5a17-4d78-8c28-353bfe281f31",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc1\"].json[\"ID Sunamita BC Closer 3\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato1\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato1\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato1\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato1\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_PLANTINUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato1\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato1\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato1\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato1\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato1\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados1\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato1\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados1\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados1\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato1\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados1\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados1\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato1\"].json[\"Data de vencimento\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer3_sunamita",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        740
+      ],
+      "id": "c95012fa-1f98-487f-9711-63821778f588",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/02f720c5-7074-4c4f-8726-c8b20a3de9ad",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "contact_name",
+              "value": "={{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "contact_cpfcnpj",
+              "value": "={{ $node[\"dados_do_contrato\"].json[\"CNPJ\"] }}"
+            },
+            {
+              "name": "organization_name",
+              "value": "={{ $node[\"dados_do_contrato\"].json[\"Razão Social\"] }}"
+            },
+            {
+              "name": "contact_email",
+              "value": "={{ $node[\"dados_do_contrato\"].json[\"E-mail\"] }}"
+            },
+            {
+              "name": "contact_produto",
+              "value": "={{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"] }}"
+            },
+            {
+              "name": "deal_value",
+              "value": "={{ $node[\"dados_do_contrato\"].json[\"Valor Já Pago\"] }}"
+            },
+            {
+              "name": "deal_dia_do_vencimento",
+              "value": "={{ $node[\"dados_do_contrato\"].json[\"Data de vencimento\"] }}"
+            },
+            {
+              "name": "deal_user_phone",
+              "value": "={{ $node[\"dados_do_contrato\"].json[\"Telefone do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "deal_won_at",
+              "value": "={{ $node[\"dados_do_contrato\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato\"].json[\"MÊS\"] }}/20{{ $node[\"dados_do_contrato\"].json[\"ANO (DOIS DIGITOS)\"] }}"
+            },
+            {
+              "name": "deal_endereco",
+              "value": "={{ $node[\"dados_do_contrato\"].json[\"Endereço\"] }}"
+            },
+            {
+              "name": "CPF",
+              "value": "={{ $node[\"dados_do_contrato\"].json[\"CPF do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "deal_user_phone",
+              "value": "={{ $node[\"dados_do_contrato\"].json[\"Telefone do(a) Representante Legal\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0ee2a357-895a-4433-8cca-bd9bfd3d33c4",
+      "name": "cria/atualiza_clint",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        640,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/02f720c5-7074-4c4f-8726-c8b20a3de9ad",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "contact_name",
+              "value": "={{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "contact_cpfcnpj",
+              "value": "={{ $node[\"dados_do_contrato1\"].json[\"CNPJ\"] }}"
+            },
+            {
+              "name": "organization_name",
+              "value": "={{ $node[\"dados_do_contrato1\"].json[\"Razão Social\"] }}"
+            },
+            {
+              "name": "contact_email",
+              "value": "={{ $node[\"dados_do_contrato1\"].json[\"E-mail\"] }}"
+            },
+            {
+              "name": "contact_produto",
+              "value": "={{ $node[\"dados_do_contrato1\"].json[\"ID FORMS\"] }}"
+            },
+            {
+              "name": "deal_value",
+              "value": "={{ $node[\"dados_do_contrato1\"].json[\"Valor Já Pago\"] }}"
+            },
+            {
+              "name": "deal_dia_do_vencimento",
+              "value": "={{ $node[\"dados_do_contrato1\"].json[\"Data de vencimento\"] }}"
+            },
+            {
+              "name": "deal_user_phone",
+              "value": "={{ $node[\"dados_do_contrato1\"].json[\"Telefone do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "deal_won_at",
+              "value": "={{ $node[\"dados_do_contrato1\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato1\"].json[\"MÊS\"] }}/20{{ $node[\"dados_do_contrato1\"].json[\"ANO (DOIS DIGITOS)\"] }}"
+            },
+            {
+              "name": "deal_endereco",
+              "value": "={{ $node[\"dados_do_contrato1\"].json[\"Endereço\"] }}"
+            },
+            {
+              "name": "CPF",
+              "value": "={{ $node[\"dados_do_contrato1\"].json[\"CPF do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "deal_user_phone",
+              "value": "={{ $node[\"dados_do_contrato1\"].json[\"Telefone do(a) Representante Legal\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3ed80602-8d6f-460b-97f4-59c67a4eef38",
+      "name": "cria/atualiza_clint1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        640,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "ferramenta_contrato",
+              "value": "Click Sign"
+            },
+            {
+              "name": "ID FORMS",
+              "value": "={{ $node[\"tratar_dados2\"].json[\"IDform\"] }}"
+            },
+            {
+              "name": "DIA ",
+              "value": "={{ $now.toFormat('dd/MM/yyyy').slice(0,2)}}"
+            },
+            {
+              "name": "MÊS",
+              "value": "={{ $now.toFormat('dd/MM/yyyy').slice(3,5) }}"
+            },
+            {
+              "name": "ANO (DOIS DIGITOS)",
+              "value": "={{ $now.toFormat('dd/MM/yyyy').slice(-2)}}"
+            },
+            {
+              "name": "Razão Social",
+              "value": "={{ $node[\"tratar_dados2\"].json[\"Razão Social\"] }}"
+            },
+            {
+              "name": "CNPJ",
+              "value": "={{ $node[\"tratar_dados2\"].json[\"CNPJ\"] }}"
+            },
+            {
+              "name": "Endereço",
+              "value": "={{ $node[\"tratar_dados2\"].json[\"Endereço completo\"] }}"
+            },
+            {
+              "name": "E-mail",
+              "value": "={{ $node[\"tratar_dados2\"].json[\"email\"] }}"
+            },
+            {
+              "name": "Nome Completo do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados2\"].json[\"Nome Completo do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "Nacionalidade do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados2\"].json[\"Nacionalidade do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "Estado Civil do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados2\"].json[\"Estado Civil do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "Profissão do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados2\"].json[\"Profissão do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "RG do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados2\"].json[\"RG do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "CPF do(a) Representante Legal",
+              "value": "={{ $node[\"tratar_dados2\"].json[\"CPF do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "Telefone do(a) Representante Legal",
+              "value": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"5\"][\"phone_number\"] }}"
+            },
+            {
+              "name": "Valor Já Pago",
+              "value": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"13\"][\"text\"] }}"
+            },
+            {
+              "name": "Data de vencimento",
+              "value": "={{ $json[\"Data de vencimento das parcelas?\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": false
+        }
+      },
+      "name": "dados_do_contrato2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        440,
+        1140
+      ],
+      "retryOnFail": true,
+      "id": "2bd9d804-7714-4b14-a099-96a5ebca0df9"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Pegar o objeto JSON de entrada\nconst inputJSON = $node[\"DIAMOND\"].json;\n\n// Função para extrair as UTMs do objeto JSON\nfunction extractUTMs(json) {\n  const utmParams = {};\n\n  function searchUTMs(obj) {\n    for (const key in obj) {\n      if (key.startsWith('utm_')) {\n        utmParams[key] = obj[key];\n      } else if (typeof obj[key] === 'object') {\n        searchUTMs(obj[key]);\n      }\n    }\n  }\n\n  searchUTMs(json);\n\n  return utmParams;\n}\n\n// Verifica se existem respostas\nif (items.length > 0) {\n  const response = items[0].json.body.form_response;\n\n  // Verifica se existem respostas no objeto form_response\n  if (response.answers && response.answers.length > 0) {\n    const answers = response.answers;\n    const questions = response.definition.fields;\n    const output = {};\n\n    // Itera sobre as respostas\n    for (let i = 0; i < answers.length; i++) {\n      const answer = answers[i];\n\n      // Verifica se o tipo de resposta é 'choice'\n      if (answer.type === 'choice') {\n        const question = questions[i];\n\n        // Extrai o texto da pergunta e o valor do campo 'label'\n        const questionText = question.title;\n        const answerLabel = answer.choice.label;\n\n        // Define o texto da pergunta como nome do campo no objeto de saída\n        output[questionText] = answerLabel;\n      } else if (answer.type === 'url') {\n        const question = questions[i];\n\n        // Extrai o texto da pergunta e o valor do campo 'url'\n        const questionText = question.title;\n        const answerUrl = answer.url;\n\n        // Define o texto da pergunta como nome do campo no objeto de saída\n        output[questionText] = answerUrl;\n      } else if (answer.type === 'text') {\n        const question = questions[i];\n\n        // Extrai o texto da pergunta e o valor do campo 'text'\n        const questionText = question.title;\n        const answerText = answer.text;\n\n        // Define o texto da pergunta como nome do campo no objeto de saída\n        output[questionText] = answerText;\n      }\n    }\n\n    // Extrair as UTMs do objeto JSON de entrada\n    const utms = extractUTMs(inputJSON);\n\n\n    // Extrair o email usando a referência correta\n    const email = $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"3\"][\"email\"]\n\n    // Função para formatar a primeira letra de cada palavra em maiúsculo\n    function formatarPrimeiraLetraMaiuscula(str) {\n      if (str) {\n        const palavras = str.toLowerCase().split(\" \");\n\n        for (let i = 0; i < palavras.length; i++) {\n          palavras[i] = palavras[i].charAt(0).toUpperCase() + palavras[i].slice(1);\n        }\n\n        return palavras.join(\" \");\n      }\n      return '';\n    }\n\n    // Extrair o nome usando a referência correta\n    const nome = answers.find(\n      answer => answer.field.ref === \"01H8Z7RCMED4A0R07Z01KZVQ12\"\n    )?.text;\n\n// Extrair a escolaridade usando a referência correta\nconst Rg = answers.find(\n  answer => answer.field.ref === \"5f7392a1-159c-48f5-a2fc-579272cd8df4\"\n)?.text;\n\nconst Endereço = answers.find(\n  answer => answer.field.ref === \"c5876eb6-82be-4ef1-9ef8-4cd170c3cdc3\"\n)?.text;\nconst enderecoFormatado = formatarPrimeiraLetraMaiuscula(Endereço);\n            // Extrair o nome usando a referência correta\n    const CPF = answers.find(\n      answer => answer.field.ref === \"7d9dc7b0-8d5a-4182-a59e-eb42672d76ae\"\n    )?.text;\n\n        const CEP = answers.find(\n      answer => answer.field.ref === \"08c8d1f3-5cb1-40bd-8dda-2fe5cd5e0ccf\"\n    )?.text;\n    // Pegar o valor \"Qual o Instagram da sua loja de iPhones?\"\n  //  const instagram = inputJSON.body.form_response.answers[3]?.text?.replace('@', '').toLowerCase();\n\n    // Resultado final\n    const resultado = {\n      IDform: \"Diamond\",\n      nome: nome,\n      email: email,\n\n     // instagram: instagram,\n      utms: utms,\n      RG: Rg,\n     // PorqueTeEscolher: PorqueTeEscolher,\n      CPF: CPF,\n      CEP: CEP,\n      ...output,\n    };\n\n    return [resultado];\n  }\n}\n\n// Caso não haja respostas ou respostas de escolha, retorna vazio\nreturn [];"
+      },
+      "id": "020c7df5-6d3b-4b4d-9fdf-6c9e16dcaecf",
+      "name": "tratar_dados2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        240,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID Jonatã BC Closer 1",
+              "value": "342800505"
+            },
+            {
+              "name": "API-KEY",
+              "value": "a9585685-a8d4-4f70-be7c-44c8dedf905f"
+            },
+            {
+              "name": "ID Fabricio BC",
+              "value": "271368625"
+            },
+            {
+              "name": "ID Gabriel BC Closer 2",
+              "value": "342799217"
+            },
+            {
+              "name": "ID Michel BC Closer 3",
+              "value": "362405084"
+            },
+            {
+              "name": "ID Sunamita BC Closer 3",
+              "value": "387179683"
+            },
+            {
+              "name": "ID Silas BC Closer 4",
+              "value": "362405084"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4629b647-92a8-4edc-81bf-9231d79b10f8",
+      "name": "infos_bc2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        640,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc2\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato2\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato2\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato2\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato2\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_DIAMOND\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato2\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato2\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato2\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato2\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato2\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados2\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato2\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados2\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados2\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato2\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados2\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados2\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato2\"].json[\"Data de vencimento\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc2\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer1_Jonatã2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1240,
+        1140
+      ],
+      "id": "0d5de5aa-1b90-4628-8902-8cb1ed2122c4",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "update",
+        "documentURL": "={{ $node[\"duplica_contrato_DIAMOND\"].json[\"id\"] }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{NOMECOMPLETO}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"Nome Completo do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CPF}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"CPF do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENDEREÇO}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"Endereço completo\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RG}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"RG do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PROFISSAO}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"Profissão do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{EMAIL}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"email\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DIA}}",
+              "replaceText": "={{ $node[\"dados_do_contrato2\"].json[\"DIA \"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{MESEXTENSO}}",
+              "replaceText": "={{ $node[\"dados_do_contrato2\"].json[\"MÊS\"].replace('01','Janeiro').replace('02','Fevereiro').replace('03','Março').replace('04','Abril').replace('05','Maio').replace('06','Junho').replace('07','Julho').replace('08','Agosto').replace('09','Setembro').replace('10','Outubro').replace('11','Novembro').replace('12','Dezembro') }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{FIMDOANO}}",
+              "replaceText": "={{ $node[\"dados_do_contrato2\"].json[\"ANO (DOIS DIGITOS)\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CNPJ}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"CNPJ\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RAZAO}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"Razão Social\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ESTADO_CIVIL}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"Estado Civil do(a) Representante Legal\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NACIONALIDADE}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"Nacionalidade do(a) Representante Legal\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{TOTAL}}",
+              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"12\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{QTE}}",
+              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"14\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PARCELA}}",
+              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DURACAO}}",
+              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"11\"][\"text\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "formata_contrato_PLATINUM1",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        1140
+      ],
+      "id": "eb5986ff-1e53-4029-8e9a-cbf0e7f7f97b",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "yBmHn0l9vU6LQnx0",
+          "name": " [Google Docs] - Automagic Bots Auth2"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc2\"].json[\"ID Sunamita BC Closer 3\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato2\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato2\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato2\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato2\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_DIAMOND\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato2\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato2\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato2\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato2\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato2\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados2\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato2\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados2\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados2\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato2\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados2\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados2\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato2\"].json[\"Data de vencimento\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc2\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer3_sunamita1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        1140
+      ],
+      "id": "2da1e98c-1122-42df-ac06-44fa5142140c",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/02f720c5-7074-4c4f-8726-c8b20a3de9ad",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "contact_name",
+              "value": "={{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "contact_cpfcnpj",
+              "value": "={{ $node[\"dados_do_contrato2\"].json[\"CNPJ\"] }}"
+            },
+            {
+              "name": "organization_name",
+              "value": "={{ $node[\"dados_do_contrato2\"].json[\"Razão Social\"] }}"
+            },
+            {
+              "name": "contact_email",
+              "value": "={{ $node[\"dados_do_contrato2\"].json[\"E-mail\"] }}"
+            },
+            {
+              "name": "contact_produto",
+              "value": "={{ $node[\"dados_do_contrato2\"].json[\"ID FORMS\"] }}"
+            },
+            {
+              "name": "deal_value",
+              "value": "={{ $node[\"dados_do_contrato2\"].json[\"Valor Já Pago\"] }}"
+            },
+            {
+              "name": "deal_dia_do_vencimento",
+              "value": "={{ $node[\"dados_do_contrato2\"].json[\"Data de vencimento\"] }}"
+            },
+            {
+              "name": "deal_user_phone",
+              "value": "={{ $node[\"dados_do_contrato2\"].json[\"Telefone do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "deal_won_at",
+              "value": "={{ $node[\"dados_do_contrato2\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato2\"].json[\"MÊS\"] }}/20{{ $node[\"dados_do_contrato2\"].json[\"ANO (DOIS DIGITOS)\"] }}"
+            },
+            {
+              "name": "deal_endereco",
+              "value": "={{ $node[\"dados_do_contrato2\"].json[\"Endereço\"] }}"
+            },
+            {
+              "name": "CPF",
+              "value": "={{ $node[\"dados_do_contrato2\"].json[\"CPF do(a) Representante Legal\"] }}"
+            },
+            {
+              "name": "deal_user_phone",
+              "value": "={{ $node[\"dados_do_contrato2\"].json[\"Telefone do(a) Representante Legal\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1611154a-b1fd-4ccc-b4f9-2b5b759c933f",
+      "name": "cria/atualiza_clint2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        640,
+        1320
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc2\"].json[\"ID Silas BC Closer 4\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato2\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato2\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato2\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato2\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_DIAMOND\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato2\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato2\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato2\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato2\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato2\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados2\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato2\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados2\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados2\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato2\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados2\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados2\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato2\"].json[\"Data de vencimento\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc2\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer4_silas2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1980,
+        1140
+      ],
+      "id": "a6702ed2-a4d0-4d2c-aca6-5e56e86cca6a",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc1\"].json[\"ID Silas BC Closer 4\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato1\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato1\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato1\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato1\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_PLANTINUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato1\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato1\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato1\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato1\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato1\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados1\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato1\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados1\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados1\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato1\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados1\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados1\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato1\"].json[\"Data de vencimento\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer4_silas",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1980,
+        740
+      ],
+      "id": "d524fd99-65ff-4005-9834-3166da4ebf66",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Silas BC Closer 4\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}. \n{{ $node[\"dados_do_contrato\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_IMPERIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato\"].json[\"Data de vencimento\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer4_Silas1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1960,
+        480
+      ],
+      "id": "e4806228-475c-4527-9608-3458d7d913da",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "231ae653-35b4-4ced-91c1-8f0d56ce5801",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -220,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1QBTSqqD2tGwiZaJNvd-QVKO4d7qR5_2dm25m2RIl0Yk",
+          "mode": "id"
+        },
+        "options": {
+          "name": "=Contrato DIAMOND - {{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}",
+          "parents": [
+            "1kU1mhj1qgsZkjTIZhIyBuxh49cMOrqtD"
+          ]
+        }
+      },
+      "name": "duplica_contrato_DIAMOND",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        840,
+        1140
+      ],
+      "id": "23cb7082-7273-456e-83f5-4ba03d3f0652",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dVIE5cPXbra2r4AL",
+          "name": "[Google Drive] - Auth2 Automagic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "preencher-contrato-imperium-hetzner",
+        "options": {}
+      },
+      "id": "9c626aeb-895e-41aa-8ddb-01be5a6896a3",
+      "name": "Imperium",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        40,
+        480
+      ],
+      "webhookId": "c1751a5b-f78f-419f-be85-b895f944204e",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Gabriel BC Closer 2\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}. \n{{ $node[\"dados_do_contrato\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_IMPERIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato\"].json[\"Data de vencimento\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer2_Mayara",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1580,
+        480
+      ],
+      "id": "f6f0b104-ed6c-4cd6-b749-008428d191cf",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc1\"].json[\"ID Gabriel BC Closer 2\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato1\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato1\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato1\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato1\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_PLANTINUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato1\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato1\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato1\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato1\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato1\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados1\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato1\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados1\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados1\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato1\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados1\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados1\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato1\"].json[\"Data de vencimento\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer2_Mayara1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1580,
+        740
+      ],
+      "id": "059bb55d-2d74-400a-9985-8ce3fb5d5bfb",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc2\"].json[\"ID Gabriel BC Closer 2\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato2\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato2\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato2\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato2\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_DIAMOND\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato2\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato2\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato2\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato2\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato2\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados2\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato2\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados2\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados2\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato2\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados2\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados2\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato2\"].json[\"Data de vencimento\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc2\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer2_Mayara2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1580,
+        1140
+      ],
+      "id": "154db602-0246-4491-af49-3e124ff66d57",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1O8rb-Rvp30p1gfAxgDF5l0J12Gmcg8g9a-W0yDVfF5Y",
+          "mode": "id"
+        },
+        "options": {
+          "name": "=Contrato PLANTINUM - {{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}",
+          "parents": [
+            "1I9TAfDVSBIt-vvD8ISQLC5mqbDHUe8Mf"
+          ]
+        }
+      },
+      "name": "duplica_contrato_PLANTINUM2",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        -740,
+        780
+      ],
+      "id": "4de73d3b-0fd5-4e7f-ba1f-e31c8d21a972",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "PH9A5KTqwdimKgDV",
+          "name": "[Google Drive] - Automagic Bots Auth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "update",
+        "documentURL": "={{ $node[\"duplica_contrato_PLANTINUM2\"].json[\"id\"] }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{NOMECOMPLETO}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"Nome Completo do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CPF}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"CPF do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENDEREÇO}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"Endereço completo\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RG}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"RG do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PROFISSAO}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"Profissão do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{EMAIL}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"email\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DIA}}",
+              "replaceText": "={{ $node[\"dados_do_contrato1\"].json[\"DIA \"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{MESEXTENSO}}",
+              "replaceText": "={{ $node[\"dados_do_contrato1\"].json[\"MÊS\"].replace('01','Janeiro').replace('02','Fevereiro').replace('03','Março').replace('04','Abril').replace('05','Maio').replace('06','Junho').replace('07','Julho').replace('08','Agosto').replace('09','Setembro').replace('10','Outubro').replace('11','Novembro').replace('12','Dezembro') }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{FIMDOANO}}",
+              "replaceText": "={{ $node[\"dados_do_contrato1\"].json[\"ANO (DOIS DIGITOS)\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CNPJ}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"CNPJ\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RAZAO}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"Razão Social\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ESTADO_CIVIL}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"Estado Civil do(a) Representante Legal\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NACIONALIDADE}}",
+              "replaceText": "={{ $node[\"tratar_dados1\"].json[\"Nacionalidade do(a) Representante Legal\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{TOTAL}}",
+              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"12\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{QTE}}",
+              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"14\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PARCELA}}",
+              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DURACAO}}",
+              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"11\"][\"text\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "formata_contrato_PLATINUM4",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 1,
+      "position": [
+        -540,
+        780
+      ],
+      "id": "b39d840d-2960-4211-b5df-ce53f3a96ee3",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "6WWZ9NfJ9MlhFLD2",
+          "name": "[Automagic Bots] -  Drive"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "content": "## Configuração antiga - Ninguém tem acesso a pasta que contem esse contratos",
+        "height": 295.78020998315856,
+        "width": 596.8582441865065
+      },
+      "id": "9b257362-5c77-4c00-bb4d-036e4337168d",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -880,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Configuração antiga - Ninguém tem acesso a pasta que contem esse contratos",
+        "height": 295.78020998315856,
+        "width": 596.8582441865065
+      },
+      "id": "dc8ae72e-1f33-427d-8711-fe9674354d8f",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -880,
+        1060
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "update",
+        "documentURL": "={{ $node[\"duplica_contrato_DIAMOND2\"].json[\"id\"] }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{NOMECOMPLETO}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"Nome Completo do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CPF}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"CPF do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENDEREÇO}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"Endereço completo\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RG}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"RG do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PROFISSAO}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"Profissão do(a) Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{EMAIL}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"email\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DIA}}",
+              "replaceText": "={{ $node[\"dados_do_contrato2\"].json[\"DIA \"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{MESEXTENSO}}",
+              "replaceText": "={{ $node[\"dados_do_contrato2\"].json[\"MÊS\"].replace('01','Janeiro').replace('02','Fevereiro').replace('03','Março').replace('04','Abril').replace('05','Maio').replace('06','Junho').replace('07','Julho').replace('08','Agosto').replace('09','Setembro').replace('10','Outubro').replace('11','Novembro').replace('12','Dezembro') }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{FIMDOANO}}",
+              "replaceText": "={{ $node[\"dados_do_contrato2\"].json[\"ANO (DOIS DIGITOS)\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CNPJ}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"CNPJ\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RAZAO}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"Razão Social\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ESTADO_CIVIL}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"Estado Civil do(a) Representante Legal\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NACIONALIDADE}}",
+              "replaceText": "={{ $node[\"tratar_dados2\"].json[\"Nacionalidade do(a) Representante Legal\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{TOTAL}}",
+              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"12\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{QTE}}",
+              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"14\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PARCELA}}",
+              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DURACAO}}",
+              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"11\"][\"text\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "formata_contrato_PLATINUM5",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 1,
+      "position": [
+        -540,
+        1180
+      ],
+      "id": "a1297290-7c9d-4529-8b84-13b6f04773e4",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "6WWZ9NfJ9MlhFLD2",
+          "name": "[Automagic Bots] -  Drive"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1H6cnBQDHNxtG0Fp4WKJQN9fbTMLyK7AKCi27PByaJ9c",
+          "mode": "id"
+        },
+        "options": {
+          "name": "=Contrato DIAMOND - {{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}",
+          "parents": [
+            "1I9TAfDVSBIt-vvD8ISQLC5mqbDHUe8Mf"
+          ]
+        }
+      },
+      "name": "duplica_contrato_DIAMOND2",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        -740,
+        1180
+      ],
+      "id": "4cdb46b8-d04d-4cd1-98ca-810cd5de7aae",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "PH9A5KTqwdimKgDV",
+          "name": "[Google Drive] - Automagic Bots Auth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "preencher-contrato-platinum-hetzner",
+        "options": {}
+      },
+      "id": "907df2e6-608e-48bb-88df-1485cf5803bb",
+      "name": "Platinum",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        40,
+        740
+      ],
+      "webhookId": "986ab2b5-d42e-4c09-9503-fea259da8e35"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "preencher-contrato-diamond-hetzner",
+        "options": {}
+      },
+      "id": "41703b80-fa54-484f-bf6c-f0ddbde6ec42",
+      "name": "DIAMOND",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        40,
+        1140
+      ],
+      "webhookId": "986ab2b5-d42e-4c09-9503-fea259da8e35"
+    }
+  ],
+  "pinData": {
+    "Edit Fields": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "user-agent": "Typeform Webhooks",
+            "content-length": "5961",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "traceparent": "00-e678d652ac9e750ce4f793e160ad727b-b60159d01d888796-01",
+            "x-forwarded-for": "18.204.78.134",
+            "x-forwarded-host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "077bd0aa48be",
+            "x-real-ip": "18.204.78.134"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event_id": "01HSY5J38ZBDJXH2RKC1G9CRV0",
+            "event_type": "form_response",
+            "form_response": {
+              "form_id": "rrAlxYUt",
+              "token": "a852zl6mnpy5orta852zo474xsh3qxya",
+              "landed_at": "2024-03-26T19:58:03Z",
+              "submitted_at": "2024-03-26T19:59:54Z",
+              "definition": {
+                "id": "rrAlxYUt",
+                "title": "Dados de Contrato - Diamond",
+                "fields": [
+                  {
+                    "id": "m5ug7mipRJnQ",
+                    "ref": "01HGTHHWB5CMX0GSKQGEQYJWDM",
+                    "type": "short_text",
+                    "title": "Razão Social",
+                    "properties": {}
+                  },
+                  {
+                    "id": "nqf0CuH1WECv",
+                    "ref": "4cd51945-70e3-49fc-970e-971a79aebe28",
+                    "type": "short_text",
+                    "title": "CNPJ",
+                    "properties": {}
+                  },
+                  {
+                    "id": "35CcSPBRNHk4",
+                    "ref": "17047ead-3fa1-414d-994e-5eba2fce2911",
+                    "type": "long_text",
+                    "title": "Endereço completo",
+                    "properties": {}
+                  },
+                  {
+                    "id": "LDHpdBftOGrM",
+                    "ref": "33794eda-ae27-4309-bbe3-2f356c811767",
+                    "type": "email",
+                    "title": "E-mail",
+                    "properties": {}
+                  },
+                  {
+                    "id": "nRtQB8pVks8P",
+                    "ref": "fe6340b7-0990-4454-892b-d972c2217d10",
+                    "type": "short_text",
+                    "title": "Nome Completo do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "B4eRuNpSvsmE",
+                    "ref": "d3f07191-ff2c-4627-b0bb-12d094016e94",
+                    "type": "phone_number",
+                    "title": "Telefone do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "ZTJ3WZXD8yfx",
+                    "ref": "5d381b76-7a0f-4e5c-a6a6-27c5c7c0e778",
+                    "type": "short_text",
+                    "title": "Nacionalidade do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "FZJPPyrlhZmT",
+                    "ref": "fbbd857e-bea9-425a-a4ac-2d94f39bea62",
+                    "type": "multiple_choice",
+                    "title": "Estado Civil do(a) Representante Legal",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "uTqbYBAFHwFE",
+                        "ref": "add5021b-0a23-424d-8392-7848757a3870",
+                        "label": "Solteiro(a)"
+                      },
+                      {
+                        "id": "zC73Pd2YzLUl",
+                        "ref": "a6906318-0081-4e73-a573-d5a17123592b",
+                        "label": "Casado(a)"
+                      },
+                      {
+                        "id": "VrKtEJCo1E5N",
+                        "ref": "191e1f38-fb52-4fb4-a2aa-a060fa0be49e",
+                        "label": "Divorciado(a)"
+                      },
+                      {
+                        "id": "q3QRUfHkcrgH",
+                        "ref": "6bd84340-4a27-4458-98aa-8b23494de5fa",
+                        "label": "Viúvo(a)"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "v5Z4mvRyVK7W",
+                    "ref": "d3676ca0-5857-4d29-8f3a-35a663aeba42",
+                    "type": "short_text",
+                    "title": "Profissão do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "AUZaPUgZuYbP",
+                    "ref": "1e90c2db-4940-4d5a-be4a-20d524e72252",
+                    "type": "short_text",
+                    "title": "RG do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "Sf5W77MCCjhl",
+                    "ref": "e3afd3a6-f908-49e6-ba3c-b45a0111a2d4",
+                    "type": "short_text",
+                    "title": "CPF do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "4dpUdlKOtZhV",
+                    "ref": "f45d62a8-2194-4ba4-ada7-92663156164e",
+                    "type": "short_text",
+                    "title": "Qual a duração da mentoria em meses?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "zVtehhMYeYCt",
+                    "ref": "35f67a37-0f29-4364-932d-6c4d8a0475e4",
+                    "type": "short_text",
+                    "title": "Valor total da mentoria?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "PfIAWLDVX4yb",
+                    "ref": "03fba88b-c00a-47d8-a379-e8edada52e0b",
+                    "type": "short_text",
+                    "title": "Valor já pago pelo cliente?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "Rt5l3eZdMmnZ",
+                    "ref": "fc863560-9ae5-48c5-93ba-539459177a60",
+                    "type": "short_text",
+                    "title": "Quantidade de parcelas?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "mYyqbyt5xXbw",
+                    "ref": "e4b7e1c2-fc6c-43c6-ba2c-680b44063f6a",
+                    "type": "short_text",
+                    "title": "Valor de cada parcela?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "ftkm8xxQSfF4",
+                    "ref": "8512597c-c5f2-4477-aeb0-36a81892c9ff",
+                    "type": "number",
+                    "title": "Data de vencimento das parcelas?",
+                    "properties": {}
+                  }
+                ],
+                "endings": [
+                  {
+                    "id": "dSQfPA2Bf73n",
+                    "ref": "01HGTHHWB54PNM987ANFGAW3NY",
+                    "title": "Obrigado por completar o formulário.",
+                    "type": "thankyou_screen",
+                    "properties": {
+                      "description": "Estamos gerando seu contrato, e logo logo iniciaremos a Mentoria!",
+                      "button_text": "again",
+                      "show_button": false,
+                      "share_icons": false,
+                      "button_mode": "default_redirect"
+                    }
+                  }
+                ]
+              },
+              "answers": [
+                {
+                  "type": "text",
+                  "text": "Automagic Bots",
+                  "field": {
+                    "id": "m5ug7mipRJnQ",
+                    "type": "short_text",
+                    "ref": "01HGTHHWB5CMX0GSKQGEQYJWDM"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "24589598676959",
+                  "field": {
+                    "id": "nqf0CuH1WECv",
+                    "type": "short_text",
+                    "ref": "4cd51945-70e3-49fc-970e-971a79aebe28"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Rua Julio Bento Cardoso, 135, Vila Zuleima, Criciúma-SC, CEP 88817-250",
+                  "field": {
+                    "id": "35CcSPBRNHk4",
+                    "type": "long_text",
+                    "ref": "17047ead-3fa1-414d-994e-5eba2fce2911"
+                  }
+                },
+                {
+                  "type": "email",
+                  "email": "mateusdiniz@automagicbots.com.br",
+                  "field": {
+                    "id": "LDHpdBftOGrM",
+                    "type": "email",
+                    "ref": "33794eda-ae27-4309-bbe3-2f356c811767"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Mateus Soares Diniz",
+                  "field": {
+                    "id": "nRtQB8pVks8P",
+                    "type": "short_text",
+                    "ref": "fe6340b7-0990-4454-892b-d972c2217d10"
+                  }
+                },
+                {
+                  "type": "phone_number",
+                  "phone_number": "+5562981196678",
+                  "field": {
+                    "id": "B4eRuNpSvsmE",
+                    "type": "phone_number",
+                    "ref": "d3f07191-ff2c-4627-b0bb-12d094016e94"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "brasileiro",
+                  "field": {
+                    "id": "ZTJ3WZXD8yfx",
+                    "type": "short_text",
+                    "ref": "5d381b76-7a0f-4e5c-a6a6-27c5c7c0e778"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "zC73Pd2YzLUl",
+                    "label": "Casado(a)",
+                    "ref": "a6906318-0081-4e73-a573-d5a17123592b"
+                  },
+                  "field": {
+                    "id": "FZJPPyrlhZmT",
+                    "type": "multiple_choice",
+                    "ref": "fbbd857e-bea9-425a-a4ac-2d94f39bea62"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Gestor de Automações Sênior",
+                  "field": {
+                    "id": "v5Z4mvRyVK7W",
+                    "type": "short_text",
+                    "ref": "d3676ca0-5857-4d29-8f3a-35a663aeba42"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "41285767",
+                  "field": {
+                    "id": "AUZaPUgZuYbP",
+                    "type": "short_text",
+                    "ref": "1e90c2db-4940-4d5a-be4a-20d524e72252"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "00887761233",
+                  "field": {
+                    "id": "Sf5W77MCCjhl",
+                    "type": "short_text",
+                    "ref": "e3afd3a6-f908-49e6-ba3c-b45a0111a2d4"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "12 (doze)",
+                  "field": {
+                    "id": "4dpUdlKOtZhV",
+                    "type": "short_text",
+                    "ref": "f45d62a8-2194-4ba4-ada7-92663156164e"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "R$ 30.000,00 (trinta mil reais)",
+                  "field": {
+                    "id": "zVtehhMYeYCt",
+                    "type": "short_text",
+                    "ref": "35f67a37-0f29-4364-932d-6c4d8a0475e4"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "R$ 2.500,00 (dois mil e quinhentos reais)",
+                  "field": {
+                    "id": "PfIAWLDVX4yb",
+                    "type": "short_text",
+                    "ref": "03fba88b-c00a-47d8-a379-e8edada52e0b"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "12",
+                  "field": {
+                    "id": "Rt5l3eZdMmnZ",
+                    "type": "short_text",
+                    "ref": "fc863560-9ae5-48c5-93ba-539459177a60"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "R$ 2.500,00 (dois mil e quinhentos reais)",
+                  "field": {
+                    "id": "mYyqbyt5xXbw",
+                    "type": "short_text",
+                    "ref": "e4b7e1c2-fc6c-43c6-ba2c-680b44063f6a"
+                  }
+                },
+                {
+                  "type": "number",
+                  "number": 10,
+                  "field": {
+                    "id": "ftkm8xxQSfF4",
+                    "type": "number",
+                    "ref": "8512597c-c5f2-4477-aeb0-36a81892c9ff"
+                  }
+                }
+              ],
+              "ending": {
+                "id": "dSQfPA2Bf73n",
+                "ref": "01HGTHHWB54PNM987ANFGAW3NY"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "Imperium": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "user-agent": "Typeform Webhooks",
+            "content-length": "5926",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "traceparent": "00-3da0b072ff5d5e3fcc069cd632a5ede1-331f98f962ed3c63-01",
+            "x-forwarded-for": "18.210.136.162",
+            "x-forwarded-host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "db7a465c4dc8",
+            "x-real-ip": "18.210.136.162"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event_id": "01HM77SF1SXJ0FFDKZGEYAJBD3",
+            "event_type": "form_response",
+            "form_response": {
+              "form_id": "NNs1sLir",
+              "token": "jg80ekxb6xapbahw20jg80ehzf1nce6u",
+              "landed_at": "2024-01-15T18:55:26Z",
+              "submitted_at": "2024-01-15T18:57:52Z",
+              "definition": {
+                "id": "NNs1sLir",
+                "title": "Dados de Contrato - Imperium",
+                "fields": [
+                  {
+                    "id": "WJVfqdSWWDjN",
+                    "ref": "01HGTHHWB5CMX0GSKQGEQYJWDM",
+                    "type": "short_text",
+                    "title": "Razão Social",
+                    "properties": {}
+                  },
+                  {
+                    "id": "0FUW8xhdcV8H",
+                    "ref": "4cd51945-70e3-49fc-970e-971a79aebe28",
+                    "type": "short_text",
+                    "title": "CNPJ",
+                    "properties": {}
+                  },
+                  {
+                    "id": "mPxZtuMBoqpB",
+                    "ref": "17047ead-3fa1-414d-994e-5eba2fce2911",
+                    "type": "long_text",
+                    "title": "Endereço completo",
+                    "properties": {}
+                  },
+                  {
+                    "id": "QyQNIrua9Z3F",
+                    "ref": "33794eda-ae27-4309-bbe3-2f356c811767",
+                    "type": "email",
+                    "title": "E-mail",
+                    "properties": {}
+                  },
+                  {
+                    "id": "cE0tw6f38aUn",
+                    "ref": "fe6340b7-0990-4454-892b-d972c2217d10",
+                    "type": "short_text",
+                    "title": "Nome Completo do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "3yRCF3nEv9zh",
+                    "ref": "b24d538a-89ba-401e-8417-b928f406d4a8",
+                    "type": "phone_number",
+                    "title": "Telefone do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "w4nidXyYafBt",
+                    "ref": "5d381b76-7a0f-4e5c-a6a6-27c5c7c0e778",
+                    "type": "short_text",
+                    "title": "Nacionalidade do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "48UyA9L56zO5",
+                    "ref": "fbbd857e-bea9-425a-a4ac-2d94f39bea62",
+                    "type": "multiple_choice",
+                    "title": "Estado Civil do(a) Representante Legal",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "umF5w57CpbXW",
+                        "ref": "add5021b-0a23-424d-8392-7848757a3870",
+                        "label": "Solteiro(a)"
+                      },
+                      {
+                        "id": "eObG6UboLURw",
+                        "ref": "a6906318-0081-4e73-a573-d5a17123592b",
+                        "label": "Casado(a)"
+                      },
+                      {
+                        "id": "DlBGE17xOlpc",
+                        "ref": "191e1f38-fb52-4fb4-a2aa-a060fa0be49e",
+                        "label": "Divorciado(a)"
+                      },
+                      {
+                        "id": "c8JqpIekxiJo",
+                        "ref": "6bd84340-4a27-4458-98aa-8b23494de5fa",
+                        "label": "Viúvo(a)"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "T9nFt6a9AYXT",
+                    "ref": "d3676ca0-5857-4d29-8f3a-35a663aeba42",
+                    "type": "short_text",
+                    "title": "Profissão do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "IBgQ9x6hllu4",
+                    "ref": "1e90c2db-4940-4d5a-be4a-20d524e72252",
+                    "type": "short_text",
+                    "title": "RG do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "Z4VCGo6epGaB",
+                    "ref": "e3afd3a6-f908-49e6-ba3c-b45a0111a2d4",
+                    "type": "short_text",
+                    "title": "CPF do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "MAPc2sfqbKmd",
+                    "ref": "6dfb2b1f-6ead-4fbc-bcba-c71f34eef818",
+                    "type": "short_text",
+                    "title": "Qual a duração da mentoria em meses?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "USxhb1LgKsab",
+                    "ref": "ed8807c6-6e7d-4141-8b85-e058c301bc0f",
+                    "type": "short_text",
+                    "title": "Valor total da mentoria?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "xob0FIG9bazt",
+                    "ref": "b3f36c19-f819-443d-83d2-e0119bc37cae",
+                    "type": "short_text",
+                    "title": "Valor já pago pelo cliente?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "FSbYMTfFw8P0",
+                    "ref": "cac42993-c372-46fd-8be8-ef0557ad9207",
+                    "type": "short_text",
+                    "title": "Quantidade de parcelas?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "ZPRLHKDQ5fB6",
+                    "ref": "e75f594f-23f8-4d93-905c-f6671863d460",
+                    "type": "short_text",
+                    "title": "Valor de cada parcela?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "0pYicsbn1ssy",
+                    "ref": "1e41824a-dd94-4226-bdf8-0c72f9d48025",
+                    "type": "number",
+                    "title": "Data de vencimento das parcelas?",
+                    "properties": {}
+                  }
+                ],
+                "endings": [
+                  {
+                    "id": "3WwzSbBnaFuG",
+                    "ref": "01HGTHHWB54PNM987ANFGAW3NY",
+                    "title": "Obrigado por completar o formulário.",
+                    "type": "thankyou_screen",
+                    "properties": {
+                      "description": "Estamos gerando seu contrato, e logo logo iniciaremos a Mentoria!",
+                      "button_text": "again",
+                      "show_button": false,
+                      "share_icons": false,
+                      "button_mode": "default_redirect"
+                    }
+                  }
+                ]
+              },
+              "answers": [
+                {
+                  "type": "text",
+                  "text": "Automagic Bots",
+                  "field": {
+                    "id": "WJVfqdSWWDjN",
+                    "type": "short_text",
+                    "ref": "01HGTHHWB5CMX0GSKQGEQYJWDM"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "82923892340934",
+                  "field": {
+                    "id": "0FUW8xhdcV8H",
+                    "type": "short_text",
+                    "ref": "4cd51945-70e3-49fc-970e-971a79aebe28"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Av Vereador Ivan Lopes, São João de Meriti-RJ",
+                  "field": {
+                    "id": "mPxZtuMBoqpB",
+                    "type": "long_text",
+                    "ref": "17047ead-3fa1-414d-994e-5eba2fce2911"
+                  }
+                },
+                {
+                  "type": "email",
+                  "email": "mateus@automagicbots.com.br",
+                  "field": {
+                    "id": "QyQNIrua9Z3F",
+                    "type": "email",
+                    "ref": "33794eda-ae27-4309-bbe3-2f356c811767"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Mateus Diniz",
+                  "field": {
+                    "id": "cE0tw6f38aUn",
+                    "type": "short_text",
+                    "ref": "fe6340b7-0990-4454-892b-d972c2217d10"
+                  }
+                },
+                {
+                  "type": "phone_number",
+                  "phone_number": "+5562981196678",
+                  "field": {
+                    "id": "3yRCF3nEv9zh",
+                    "type": "phone_number",
+                    "ref": "b24d538a-89ba-401e-8417-b928f406d4a8"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "brasileiro(a)",
+                  "field": {
+                    "id": "w4nidXyYafBt",
+                    "type": "short_text",
+                    "ref": "5d381b76-7a0f-4e5c-a6a6-27c5c7c0e778"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "eObG6UboLURw",
+                    "label": "Casado(a)",
+                    "ref": "a6906318-0081-4e73-a573-d5a17123592b"
+                  },
+                  "field": {
+                    "id": "48UyA9L56zO5",
+                    "type": "multiple_choice",
+                    "ref": "fbbd857e-bea9-425a-a4ac-2d94f39bea62"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Gestor de Automações",
+                  "field": {
+                    "id": "T9nFt6a9AYXT",
+                    "type": "short_text",
+                    "ref": "d3676ca0-5857-4d29-8f3a-35a663aeba42"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "4187654884",
+                  "field": {
+                    "id": "IBgQ9x6hllu4",
+                    "type": "short_text",
+                    "ref": "1e90c2db-4940-4d5a-be4a-20d524e72252"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "09872887868",
+                  "field": {
+                    "id": "Z4VCGo6epGaB",
+                    "type": "short_text",
+                    "ref": "e3afd3a6-f908-49e6-ba3c-b45a0111a2d4"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "6 (seis)",
+                  "field": {
+                    "id": "MAPc2sfqbKmd",
+                    "type": "short_text",
+                    "ref": "6dfb2b1f-6ead-4fbc-bcba-c71f34eef818"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "R$ 30.000,00 (trinta mil reais)",
+                  "field": {
+                    "id": "USxhb1LgKsab",
+                    "type": "short_text",
+                    "ref": "ed8807c6-6e7d-4141-8b85-e058c301bc0f"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "R$ 2.500,00 (dois mil e quinhentos reais)",
+                  "field": {
+                    "id": "xob0FIG9bazt",
+                    "type": "short_text",
+                    "ref": "b3f36c19-f819-443d-83d2-e0119bc37cae"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "12",
+                  "field": {
+                    "id": "FSbYMTfFw8P0",
+                    "type": "short_text",
+                    "ref": "cac42993-c372-46fd-8be8-ef0557ad9207"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "R$ 2.500,00 (dois mil e quinhentos reais)",
+                  "field": {
+                    "id": "ZPRLHKDQ5fB6",
+                    "type": "short_text",
+                    "ref": "e75f594f-23f8-4d93-905c-f6671863d460"
+                  }
+                },
+                {
+                  "type": "number",
+                  "number": 1,
+                  "field": {
+                    "id": "0pYicsbn1ssy",
+                    "type": "number",
+                    "ref": "1e41824a-dd94-4226-bdf8-0c72f9d48025"
+                  }
+                }
+              ],
+              "ending": {
+                "id": "3WwzSbBnaFuG",
+                "ref": "01HGTHHWB54PNM987ANFGAW3NY"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "Platinum": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "Typeform Webhooks",
+            "content-length": "6316",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "traceparent": "00-0f34e106400bff7af749db580a3e04e7-df7b526a7554cd1a-01",
+            "x-forwarded-for": "18.204.78.134",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "18.204.78.134"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event_id": "01J2YE2GGNTTYAKNJS24JNY2C8",
+            "event_type": "form_response",
+            "form_response": {
+              "form_id": "QEOvajau",
+              "token": "lhx0wdpuy6ko9yxiilhxcapvwxo900hi",
+              "landed_at": "2024-07-16T18:47:24Z",
+              "submitted_at": "2024-07-16T18:49:57Z",
+              "definition": {
+                "id": "QEOvajau",
+                "title": "Dados de Contrato - Platinum",
+                "fields": [
+                  {
+                    "id": "ONLLy0YVrKvM",
+                    "ref": "01HGTHHWB5CMX0GSKQGEQYJWDM",
+                    "type": "short_text",
+                    "title": "Razão Social",
+                    "properties": {}
+                  },
+                  {
+                    "id": "nOFJkim56iMB",
+                    "ref": "4cd51945-70e3-49fc-970e-971a79aebe28",
+                    "type": "short_text",
+                    "title": "CNPJ",
+                    "properties": {}
+                  },
+                  {
+                    "id": "7JmppVJaTyZK",
+                    "ref": "17047ead-3fa1-414d-994e-5eba2fce2911",
+                    "type": "long_text",
+                    "title": "Endereço completo",
+                    "properties": {}
+                  },
+                  {
+                    "id": "HOQZNePXcp4X",
+                    "ref": "33794eda-ae27-4309-bbe3-2f356c811767",
+                    "type": "email",
+                    "title": "E-mail",
+                    "properties": {}
+                  },
+                  {
+                    "id": "tOzRJl1otyfL",
+                    "ref": "fe6340b7-0990-4454-892b-d972c2217d10",
+                    "type": "short_text",
+                    "title": "Nome Completo do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "cxn5o14wVP62",
+                    "ref": "d3f07191-ff2c-4627-b0bb-12d094016e94",
+                    "type": "phone_number",
+                    "title": "Telefone do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "p9dEZGgIbEB0",
+                    "ref": "5d381b76-7a0f-4e5c-a6a6-27c5c7c0e778",
+                    "type": "short_text",
+                    "title": "Nacionalidade do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "IMBlBZ3x31H0",
+                    "ref": "fbbd857e-bea9-425a-a4ac-2d94f39bea62",
+                    "type": "multiple_choice",
+                    "title": "Estado Civil do(a) Representante Legal",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "6BHsnKeY21vz",
+                        "ref": "add5021b-0a23-424d-8392-7848757a3870",
+                        "label": "Solteiro(a)"
+                      },
+                      {
+                        "id": "M2mia9vXDYNd",
+                        "ref": "a6906318-0081-4e73-a573-d5a17123592b",
+                        "label": "Casado(a)"
+                      },
+                      {
+                        "id": "OToQCXVM244y",
+                        "ref": "191e1f38-fb52-4fb4-a2aa-a060fa0be49e",
+                        "label": "Divorciado(a)"
+                      },
+                      {
+                        "id": "rN9cWnc7t6Uw",
+                        "ref": "6bd84340-4a27-4458-98aa-8b23494de5fa",
+                        "label": "Viúvo(a)"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "ZVlgJh3oYijw",
+                    "ref": "d3676ca0-5857-4d29-8f3a-35a663aeba42",
+                    "type": "short_text",
+                    "title": "Profissão do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "ou2JMkrn6DWX",
+                    "ref": "1e90c2db-4940-4d5a-be4a-20d524e72252",
+                    "type": "short_text",
+                    "title": "RG do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "W9lTtxKgPU6X",
+                    "ref": "e3afd3a6-f908-49e6-ba3c-b45a0111a2d4",
+                    "type": "short_text",
+                    "title": "CPF do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "91liYy82bE8L",
+                    "ref": "f45d62a8-2194-4ba4-ada7-92663156164e",
+                    "type": "short_text",
+                    "title": "Qual a duração da mentoria em meses?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "Qlyhfpt5MGIT",
+                    "ref": "35f67a37-0f29-4364-932d-6c4d8a0475e4",
+                    "type": "short_text",
+                    "title": "Valor total da mentoria?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "54TL1xOyXDFw",
+                    "ref": "03fba88b-c00a-47d8-a379-e8edada52e0b",
+                    "type": "short_text",
+                    "title": "Valor já pago pelo cliente?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "dNYH0CVWjwpg",
+                    "ref": "fc863560-9ae5-48c5-93ba-539459177a60",
+                    "type": "short_text",
+                    "title": "Quantidade de parcelas?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "yOkeTZESkC8s",
+                    "ref": "e4b7e1c2-fc6c-43c6-ba2c-680b44063f6a",
+                    "type": "short_text",
+                    "title": "Valor de cada parcela?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "2Hx9mrucm4vv",
+                    "ref": "8512597c-c5f2-4477-aeb0-36a81892c9ff",
+                    "type": "multiple_choice",
+                    "title": "Data de vencimento das parcelas?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "zOAvMA9zLYaA",
+                        "ref": "6a00eae2-469f-4dab-818d-9de803f097bf",
+                        "label": "1"
+                      },
+                      {
+                        "id": "7nDHfmjlLwQo",
+                        "ref": "0f32e603-18b5-422f-b56d-0d89fd9f18ab",
+                        "label": "5"
+                      },
+                      {
+                        "id": "QfraL4dgGcNq",
+                        "ref": "e31c675f-7195-4d67-a236-7eda555a3113",
+                        "label": "10"
+                      },
+                      {
+                        "id": "6Sob0f0ejvvP",
+                        "ref": "3bcc48b7-cea8-429d-aed3-b8520a02786c",
+                        "label": "15"
+                      },
+                      {
+                        "id": "8DEkc6DjmZEg",
+                        "ref": "00e49f14-959b-4f96-b89d-d8efc4328037",
+                        "label": "20"
+                      }
+                    ]
+                  }
+                ],
+                "endings": [
+                  {
+                    "id": "ct5NvM0HIsD8",
+                    "ref": "01HGTHHWB54PNM987ANFGAW3NY",
+                    "title": "Obrigado por completar o formulário.",
+                    "type": "thankyou_screen",
+                    "properties": {
+                      "description": "Estamos gerando seu contrato, e logo logo iniciaremos a Mentoria!",
+                      "button_text": "again",
+                      "show_button": false,
+                      "share_icons": false,
+                      "button_mode": "default_redirect"
+                    }
+                  }
+                ]
+              },
+              "answers": [
+                {
+                  "type": "text",
+                  "text": "Automagic Bots",
+                  "field": {
+                    "id": "ONLLy0YVrKvM",
+                    "type": "short_text",
+                    "ref": "01HGTHHWB5CMX0GSKQGEQYJWDM"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "15488548000125",
+                  "field": {
+                    "id": "nOFJkim56iMB",
+                    "type": "short_text",
+                    "ref": "4cd51945-70e3-49fc-970e-971a79aebe28"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Teste, nº23, teste, campainhas",
+                  "field": {
+                    "id": "7JmppVJaTyZK",
+                    "type": "long_text",
+                    "ref": "17047ead-3fa1-414d-994e-5eba2fce2911"
+                  }
+                },
+                {
+                  "type": "email",
+                  "email": "vitorrqueiroztrafego@gmail.com",
+                  "field": {
+                    "id": "HOQZNePXcp4X",
+                    "type": "email",
+                    "ref": "33794eda-ae27-4309-bbe3-2f356c811767"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Vitor Queiroz de Almeida",
+                  "field": {
+                    "id": "tOzRJl1otyfL",
+                    "type": "short_text",
+                    "ref": "fe6340b7-0990-4454-892b-d972c2217d10"
+                  }
+                },
+                {
+                  "type": "phone_number",
+                  "phone_number": "+5519984574874",
+                  "field": {
+                    "id": "cxn5o14wVP62",
+                    "type": "phone_number",
+                    "ref": "d3f07191-ff2c-4627-b0bb-12d094016e94"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Brasileiro",
+                  "field": {
+                    "id": "p9dEZGgIbEB0",
+                    "type": "short_text",
+                    "ref": "5d381b76-7a0f-4e5c-a6a6-27c5c7c0e778"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "6BHsnKeY21vz",
+                    "label": "Solteiro(a)",
+                    "ref": "add5021b-0a23-424d-8392-7848757a3870"
+                  },
+                  "field": {
+                    "id": "IMBlBZ3x31H0",
+                    "type": "multiple_choice",
+                    "ref": "fbbd857e-bea9-425a-a4ac-2d94f39bea62"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Autonomo",
+                  "field": {
+                    "id": "ZVlgJh3oYijw",
+                    "type": "short_text",
+                    "ref": "d3676ca0-5857-4d29-8f3a-35a663aeba42"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "58595462X",
+                  "field": {
+                    "id": "ou2JMkrn6DWX",
+                    "type": "short_text",
+                    "ref": "1e90c2db-4940-4d5a-be4a-20d524e72252"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "48755423652",
+                  "field": {
+                    "id": "W9lTtxKgPU6X",
+                    "type": "short_text",
+                    "ref": "e3afd3a6-f908-49e6-ba3c-b45a0111a2d4"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "12",
+                  "field": {
+                    "id": "91liYy82bE8L",
+                    "type": "short_text",
+                    "ref": "f45d62a8-2194-4ba4-ada7-92663156164e"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "30.000,00",
+                  "field": {
+                    "id": "Qlyhfpt5MGIT",
+                    "type": "short_text",
+                    "ref": "35f67a37-0f29-4364-932d-6c4d8a0475e4"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "2.500,00",
+                  "field": {
+                    "id": "54TL1xOyXDFw",
+                    "type": "short_text",
+                    "ref": "03fba88b-c00a-47d8-a379-e8edada52e0b"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "12",
+                  "field": {
+                    "id": "dNYH0CVWjwpg",
+                    "type": "short_text",
+                    "ref": "fc863560-9ae5-48c5-93ba-539459177a60"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "2.500,00",
+                  "field": {
+                    "id": "yOkeTZESkC8s",
+                    "type": "short_text",
+                    "ref": "e4b7e1c2-fc6c-43c6-ba2c-680b44063f6a"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "6Sob0f0ejvvP",
+                    "label": "15",
+                    "ref": "3bcc48b7-cea8-429d-aed3-b8520a02786c"
+                  },
+                  "field": {
+                    "id": "2Hx9mrucm4vv",
+                    "type": "multiple_choice",
+                    "ref": "8512597c-c5f2-4477-aeb0-36a81892c9ff"
+                  }
+                }
+              ],
+              "ending": {
+                "id": "ct5NvM0HIsD8",
+                "ref": "01HGTHHWB54PNM987ANFGAW3NY"
+              }
+            }
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/preencher-contrato-platinum-hetzner",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "DIAMOND": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "Typeform Webhooks",
+            "content-length": "6392",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "traceparent": "00-d8e377571b38066b9e964c9447112f14-43591686bfc2a9cc-01",
+            "x-forwarded-for": "18.210.136.162",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "18.210.136.162"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event_id": "01J2YEE03DFW41AK6WJPZCCWFD",
+            "event_type": "form_response",
+            "form_response": {
+              "form_id": "rrAlxYUt",
+              "token": "w203rs0j7zuydm3ymppbqw203rsnwdnr",
+              "landed_at": "2024-07-16T18:54:31Z",
+              "submitted_at": "2024-07-16T18:56:13Z",
+              "definition": {
+                "id": "rrAlxYUt",
+                "title": "Dados de Contrato - Diamond",
+                "fields": [
+                  {
+                    "id": "m5ug7mipRJnQ",
+                    "ref": "01HGTHHWB5CMX0GSKQGEQYJWDM",
+                    "type": "short_text",
+                    "title": "Razão Social",
+                    "properties": {}
+                  },
+                  {
+                    "id": "nqf0CuH1WECv",
+                    "ref": "4cd51945-70e3-49fc-970e-971a79aebe28",
+                    "type": "short_text",
+                    "title": "CNPJ",
+                    "properties": {}
+                  },
+                  {
+                    "id": "35CcSPBRNHk4",
+                    "ref": "17047ead-3fa1-414d-994e-5eba2fce2911",
+                    "type": "long_text",
+                    "title": "Endereço completo",
+                    "properties": {}
+                  },
+                  {
+                    "id": "LDHpdBftOGrM",
+                    "ref": "33794eda-ae27-4309-bbe3-2f356c811767",
+                    "type": "email",
+                    "title": "E-mail",
+                    "properties": {}
+                  },
+                  {
+                    "id": "nRtQB8pVks8P",
+                    "ref": "fe6340b7-0990-4454-892b-d972c2217d10",
+                    "type": "short_text",
+                    "title": "Nome Completo do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "B4eRuNpSvsmE",
+                    "ref": "d3f07191-ff2c-4627-b0bb-12d094016e94",
+                    "type": "phone_number",
+                    "title": "Telefone do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "ZTJ3WZXD8yfx",
+                    "ref": "5d381b76-7a0f-4e5c-a6a6-27c5c7c0e778",
+                    "type": "short_text",
+                    "title": "Nacionalidade do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "FZJPPyrlhZmT",
+                    "ref": "fbbd857e-bea9-425a-a4ac-2d94f39bea62",
+                    "type": "multiple_choice",
+                    "title": "Estado Civil do(a) Representante Legal",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "uTqbYBAFHwFE",
+                        "ref": "add5021b-0a23-424d-8392-7848757a3870",
+                        "label": "Solteiro(a)"
+                      },
+                      {
+                        "id": "zC73Pd2YzLUl",
+                        "ref": "a6906318-0081-4e73-a573-d5a17123592b",
+                        "label": "Casado(a)"
+                      },
+                      {
+                        "id": "VrKtEJCo1E5N",
+                        "ref": "191e1f38-fb52-4fb4-a2aa-a060fa0be49e",
+                        "label": "Divorciado(a)"
+                      },
+                      {
+                        "id": "q3QRUfHkcrgH",
+                        "ref": "6bd84340-4a27-4458-98aa-8b23494de5fa",
+                        "label": "Viúvo(a)"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "v5Z4mvRyVK7W",
+                    "ref": "d3676ca0-5857-4d29-8f3a-35a663aeba42",
+                    "type": "short_text",
+                    "title": "Profissão do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "AUZaPUgZuYbP",
+                    "ref": "1e90c2db-4940-4d5a-be4a-20d524e72252",
+                    "type": "short_text",
+                    "title": "RG do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "Sf5W77MCCjhl",
+                    "ref": "e3afd3a6-f908-49e6-ba3c-b45a0111a2d4",
+                    "type": "short_text",
+                    "title": "CPF do(a) Representante Legal",
+                    "properties": {}
+                  },
+                  {
+                    "id": "4dpUdlKOtZhV",
+                    "ref": "f45d62a8-2194-4ba4-ada7-92663156164e",
+                    "type": "short_text",
+                    "title": "Qual a duração da mentoria em meses?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "zVtehhMYeYCt",
+                    "ref": "35f67a37-0f29-4364-932d-6c4d8a0475e4",
+                    "type": "short_text",
+                    "title": "Valor total da mentoria?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "PfIAWLDVX4yb",
+                    "ref": "03fba88b-c00a-47d8-a379-e8edada52e0b",
+                    "type": "short_text",
+                    "title": "Valor já pago pelo cliente?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "Rt5l3eZdMmnZ",
+                    "ref": "fc863560-9ae5-48c5-93ba-539459177a60",
+                    "type": "short_text",
+                    "title": "Quantidade de parcelas?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "mYyqbyt5xXbw",
+                    "ref": "e4b7e1c2-fc6c-43c6-ba2c-680b44063f6a",
+                    "type": "short_text",
+                    "title": "Valor de cada parcela?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "SapWFud42nGE",
+                    "ref": "8512597c-c5f2-4477-aeb0-36a81892c9ff",
+                    "type": "multiple_choice",
+                    "title": "Data de vencimento das parcelas?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "Yd377JGXWWk4",
+                        "ref": "ef2e27fd-d4d0-4f3e-a8ac-0449c4a8f727",
+                        "label": "1"
+                      },
+                      {
+                        "id": "vICcqKL7LwXZ",
+                        "ref": "42010a36-a45b-4eb2-bc50-9f7cd1a5bd68",
+                        "label": "5"
+                      },
+                      {
+                        "id": "PYxqykf8bKDj",
+                        "ref": "5f856161-22a3-42bc-b359-9b626d417471",
+                        "label": "10"
+                      },
+                      {
+                        "id": "T4boghIwYntW",
+                        "ref": "6ac64f5a-2ed3-4300-b831-c7b2535d27b1",
+                        "label": "15"
+                      },
+                      {
+                        "id": "7GX4mpl2bt0e",
+                        "ref": "c7a94e53-6a3d-4318-aa05-120ebcbd7afb",
+                        "label": "20"
+                      }
+                    ]
+                  }
+                ],
+                "endings": [
+                  {
+                    "id": "dSQfPA2Bf73n",
+                    "ref": "01HGTHHWB54PNM987ANFGAW3NY",
+                    "title": "Obrigado por completar o formulário.",
+                    "type": "thankyou_screen",
+                    "properties": {
+                      "description": "Estamos gerando seu contrato, e logo logo iniciaremos a Mentoria!",
+                      "button_text": "again",
+                      "show_button": false,
+                      "share_icons": false,
+                      "button_mode": "default_redirect"
+                    }
+                  }
+                ]
+              },
+              "answers": [
+                {
+                  "type": "text",
+                  "text": "Automagic Bots 2",
+                  "field": {
+                    "id": "m5ug7mipRJnQ",
+                    "type": "short_text",
+                    "ref": "01HGTHHWB5CMX0GSKQGEQYJWDM"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "47599876000148",
+                  "field": {
+                    "id": "nqf0CuH1WECv",
+                    "type": "short_text",
+                    "ref": "4cd51945-70e3-49fc-970e-971a79aebe28"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Teste, nº23, teste",
+                  "field": {
+                    "id": "35CcSPBRNHk4",
+                    "type": "long_text",
+                    "ref": "17047ead-3fa1-414d-994e-5eba2fce2911"
+                  }
+                },
+                {
+                  "type": "email",
+                  "email": "vitorrqueiroztrafego@gmail.com",
+                  "field": {
+                    "id": "LDHpdBftOGrM",
+                    "type": "email",
+                    "ref": "33794eda-ae27-4309-bbe3-2f356c811767"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Vitor Queiroz de Almeida",
+                  "field": {
+                    "id": "nRtQB8pVks8P",
+                    "type": "short_text",
+                    "ref": "fe6340b7-0990-4454-892b-d972c2217d10"
+                  }
+                },
+                {
+                  "type": "phone_number",
+                  "phone_number": "+5519982022213",
+                  "field": {
+                    "id": "B4eRuNpSvsmE",
+                    "type": "phone_number",
+                    "ref": "d3f07191-ff2c-4627-b0bb-12d094016e94"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Brasileiro",
+                  "field": {
+                    "id": "ZTJ3WZXD8yfx",
+                    "type": "short_text",
+                    "ref": "5d381b76-7a0f-4e5c-a6a6-27c5c7c0e778"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "zC73Pd2YzLUl",
+                    "label": "Casado(a)",
+                    "ref": "a6906318-0081-4e73-a573-d5a17123592b"
+                  },
+                  "field": {
+                    "id": "FZJPPyrlhZmT",
+                    "type": "multiple_choice",
+                    "ref": "fbbd857e-bea9-425a-a4ac-2d94f39bea62"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Autonomo 2",
+                  "field": {
+                    "id": "v5Z4mvRyVK7W",
+                    "type": "short_text",
+                    "ref": "d3676ca0-5857-4d29-8f3a-35a663aeba42"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "4598123648",
+                  "field": {
+                    "id": "AUZaPUgZuYbP",
+                    "type": "short_text",
+                    "ref": "1e90c2db-4940-4d5a-be4a-20d524e72252"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "45888231682",
+                  "field": {
+                    "id": "Sf5W77MCCjhl",
+                    "type": "short_text",
+                    "ref": "e3afd3a6-f908-49e6-ba3c-b45a0111a2d4"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "6",
+                  "field": {
+                    "id": "4dpUdlKOtZhV",
+                    "type": "short_text",
+                    "ref": "f45d62a8-2194-4ba4-ada7-92663156164e"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "R$ 30.000,00 (trinta mil reais)",
+                  "field": {
+                    "id": "zVtehhMYeYCt",
+                    "type": "short_text",
+                    "ref": "35f67a37-0f29-4364-932d-6c4d8a0475e4"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "R$ 2.500,00 (dois mil e quinhentos reais)",
+                  "field": {
+                    "id": "PfIAWLDVX4yb",
+                    "type": "short_text",
+                    "ref": "03fba88b-c00a-47d8-a379-e8edada52e0b"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "12",
+                  "field": {
+                    "id": "Rt5l3eZdMmnZ",
+                    "type": "short_text",
+                    "ref": "fc863560-9ae5-48c5-93ba-539459177a60"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "R$ 2.500,00 (dois mil e quinhentos reais)",
+                  "field": {
+                    "id": "mYyqbyt5xXbw",
+                    "type": "short_text",
+                    "ref": "e4b7e1c2-fc6c-43c6-ba2c-680b44063f6a"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "vICcqKL7LwXZ",
+                    "label": "5",
+                    "ref": "42010a36-a45b-4eb2-bc50-9f7cd1a5bd68"
+                  },
+                  "field": {
+                    "id": "SapWFud42nGE",
+                    "type": "multiple_choice",
+                    "ref": "8512597c-c5f2-4477-aeb0-36a81892c9ff"
+                  }
+                }
+              ],
+              "ending": {
+                "id": "dSQfPA2Bf73n",
+                "ref": "01HGTHHWB54PNM987ANFGAW3NY"
+              }
+            }
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/preencher-contrato-diamond-hetzner",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2024-07-16T18:58:36.139Z",
+  "versionId": "40e190d8-271a-486c-aa78-d962be0696f8"
+}
