@@ -1,0 +1,4723 @@
+{
+  "active": true,
+  "connections": {
+    "formata_dados1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_closer1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_closer1": {
+      "main": [
+        [
+          {
+            "node": "nao_existe3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_existe3": {
+      "main": [
+        [
+          {
+            "node": "insert_data_colaborador1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_colaborador1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_data_colaborador1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_colaborador1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_data_data_lake2": {
+      "main": [
+        [
+          {
+            "node": "nao_encontrou_registro_hj_data_lake2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_encontrou_registro_hj_data_lake2": {
+      "main": [
+        [
+          {
+            "node": "insert_data_data_lake6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "formata_calls_realizadas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_data_data_lake6": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake12": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_calls_realizadas": {
+      "main": [
+        [
+          {
+            "node": "update_data_data_lake12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_data_data_lake3": {
+      "main": [
+        [
+          {
+            "node": "nao_encontrou_registro_hj_data_lake3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_encontrou_registro_hj_data_lake3": {
+      "main": [
+        [
+          {
+            "node": "insert_data_data_lake7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_data_lake13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_agendamento": {
+      "main": [
+        [
+          {
+            "node": "update_agendamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados3": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_lead2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_lead2": {
+      "main": [
+        [
+          {
+            "node": "nao_existe4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_existe4": {
+      "main": [
+        [
+          {
+            "node": "insere_dados1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pesquisa_agendamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_dados1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_agendamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_closer": {
+      "main": [
+        [
+          {
+            "node": "nao_existe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_existe": {
+      "main": [
+        [
+          {
+            "node": "insert_data_colaborador",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_colaborador",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_data_colaborador": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_produto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_colaborador": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_produto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_data_data_lake": {
+      "main": [
+        [
+          {
+            "node": "nao_encontrou_registro_hj_data_lake",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_encontrou_registro_hj_data_lake": {
+      "main": [
+        [
+          {
+            "node": "lead_ja_existia",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "formata_faturamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_lead": {
+      "main": [
+        [
+          {
+            "node": "nao_existe1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_existe1": {
+      "main": [
+        [
+          {
+            "node": "insere_dados",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pesquisa_closer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_dados": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_closer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead_ja_existia": {
+      "main": [
+        [
+          {
+            "node": "n_teve_entrada",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "n_teve_entrada1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead_ja_existia1": {
+      "main": [
+        [
+          {
+            "node": "produto1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "produto2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_data_data_lake": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_data_data_lake2": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_data_data_lake1": {
+      "main": [
+        [
+          {
+            "node": "nao_encontrou_registro_hj_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_encontrou_registro_hj_data_lake1": {
+      "main": [
+        [
+          {
+            "node": "n_teve_entrada6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "formata_faturamento1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_faturamento": {
+      "main": [
+        [
+          {
+            "node": "lead_ja_existia1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_data_data_lake3": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_data_data_lake4": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake6": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake7": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_faturamento1": {
+      "main": [
+        [
+          {
+            "node": "produto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_utm_lead": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_lead1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_conversao2": {
+      "main": [
+        [
+          {
+            "node": "cria_utm_conversao1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_utm_conversao1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_produto": {
+      "main": [
+        [
+          {
+            "node": "nao_existe2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_data_produto": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_utm_lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_existe2": {
+      "main": [
+        [
+          {
+            "node": "insert_data_produto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pesquisa_utm_lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_lead1": {
+      "main": [
+        [
+          {
+            "node": "dias_para_conversao",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dias_para_conversao": {
+      "main": [
+        [
+          {
+            "node": "n_teve_entrada9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_teve_entrada9": {
+      "main": [
+        [
+          {
+            "node": "n_foi_a_vista9",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "cria_conversao2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_conversao": {
+      "main": [
+        [
+          {
+            "node": "cria_utm_conversao1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "forms_preenchido": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_teve_entrada": {
+      "main": [
+        [
+          {
+            "node": "n_foi_a_vista",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "insert_data_data_lake3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_foi_a_vista": {
+      "main": [
+        [
+          {
+            "node": "insert_data_data_lake",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "insert_data_data_lake8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_data_data_lake8": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_teve_entrada1": {
+      "main": [
+        [
+          {
+            "node": "n_foi_a_vista1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "insert_data_data_lake4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_foi_a_vista1": {
+      "main": [
+        [
+          {
+            "node": "insert_data_data_lake2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "insert_data_data_lake9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_data_data_lake9": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_teve_entrada2": {
+      "main": [
+        [
+          {
+            "node": "n_foi_a_vista2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_data_lake14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_foi_a_vista2": {
+      "main": [
+        [
+          {
+            "node": "update_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_data_lake6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake14": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_teve_entrada3": {
+      "main": [
+        [
+          {
+            "node": "n_foi_a_vista3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_data_lake15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_foi_a_vista3": {
+      "main": [
+        [
+          {
+            "node": "update_data_data_lake",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_data_lake7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake15": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_teve_entrada6": {
+      "main": [
+        [
+          {
+            "node": "n_foi_a_vista6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "insert_data_data_lake10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_foi_a_vista6": {
+      "main": [
+        [
+          {
+            "node": "insert_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "insert_data_data_lake5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_teve_entrada7": {
+      "main": [
+        [
+          {
+            "node": "n_foi_a_vista7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_data_lake18",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_foi_a_vista7": {
+      "main": [
+        [
+          {
+            "node": "update_data_data_lake4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_data_lake10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_teve_entrada8": {
+      "main": [
+        [
+          {
+            "node": "n_foi_a_vista8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_data_lake19",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_foi_a_vista8": {
+      "main": [
+        [
+          {
+            "node": "update_data_data_lake5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_data_lake11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_foi_a_vista9": {
+      "main": [
+        [
+          {
+            "node": "cria_conversao",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "cria_conversao1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_conversao1": {
+      "main": [
+        [
+          {
+            "node": "cria_utm_conversao1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "forms_preenchido1": {
+      "main": [
+        [
+          {
+            "node": "formata_dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "forms_preenchido2": {
+      "main": [
+        [
+          {
+            "node": "formata_dados3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake20": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake21": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake22": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake23": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_teve_entrada10": {
+      "main": [
+        [
+          {
+            "node": "n_foi_a_vista10",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_data_lake24",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_foi_a_vista10": {
+      "main": [
+        [
+          {
+            "node": "update_data_data_lake20",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_data_lake22",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake24": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_teve_entrada11": {
+      "main": [
+        [
+          {
+            "node": "n_foi_a_vista11",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_data_lake25",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n_foi_a_vista11": {
+      "main": [
+        [
+          {
+            "node": "update_data_data_lake21",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_data_data_lake23",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_data_data_lake25": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "produto1": {
+      "main": [
+        [
+          {
+            "node": "n_teve_entrada2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "n_teve_entrada3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "produto2": {
+      "main": [
+        [
+          {
+            "node": "n_teve_entrada10",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "n_teve_entrada11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "produto": {
+      "main": [
+        [
+          {
+            "node": "n_teve_entrada7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "n_teve_entrada8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-14T00:53:48.913Z",
+  "id": "kVFnJ8V75ghJapuC",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚ [FABRICIO NUNNES] - Metrificação Comercial por Forms",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// Função para formatar a primeira letra de cada palavra em maiúsculo\nfunction formatarPrimeiraLetraMaiuscula(str) {\n  if (!str) {\n    return \"\"; // Retorna uma string vazia se o campo estiver vazio\n  }\n\n  const palavras = str.toLowerCase().split(\" \");\n\n  for (let i = 0; i < palavras.length; i++) {\n    palavras[i] = palavras[i].charAt(0).toUpperCase() + palavras[i].slice(1);\n  }\n\n  return palavras.join(\" \");\n}\n\n\nconst vendedor = formatarPrimeiraLetraMaiuscula($node[\"forms_preenchido1\"].json[\"body\"][\"Qual é o seu nome?\"]) || '';\nconst calls_agendadas = parseFloat($node[\"forms_preenchido1\"].json[\"body\"][\"Quantas calls você tinha marcadas na sua agenda para hoje?\"].replace(',','.'));\nconst calls_realizadas = parseFloat($node[\"forms_preenchido1\"].json[\"body\"][\"Quantas calls você fez hoje? \"].replace(',','.'));\nconst noshow = parseFloat($node[\"forms_preenchido1\"].json[\"body\"][\"Quantos no-shows você teve hoje? \"].replace(',','.'));\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  vendedor,\n  calls_agendadas,\n  calls_realizadas,\n  noshow\n  };\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;"
+      },
+      "id": "833984c1-07b2-4baf-ac14-390512f989d2",
+      "name": "formata_dados1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        -3380,
+        2100
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores",
+          "mode": "list",
+          "cachedResultName": "colaboradores"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome",
+              "value": "={{ $node[\"formata_dados1\"].json[\"vendedor\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "45293fea-7db6-4f64-b823-714246af50ab",
+      "name": "pesquisa_closer1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -3200,
+        2100
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"pesquisa_closer1\"].json[\"success\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "03b3bac7-1f9e-4baa-92f6-dc51915da3c1",
+      "name": "nao_existe3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -2980,
+        2100
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "colaboradores",
+          "mode": "list",
+          "cachedResultName": "colaboradores"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "funcao",
+              "value": "=Closer"
+            },
+            {
+              "column": "nome",
+              "value": "={{ $node[\"forms_preenchido1\"].json[\"body\"][\"Qual é o seu nome?\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "6065ee21-843d-4b14-bfbd-317d46e5f0f7",
+      "name": "insert_data_colaborador1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -2820,
+        1960
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores",
+          "mode": "list",
+          "cachedResultName": "colaboradores"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_colaborador",
+        "valueToMatchOn": "={{ $node[\"pesquisa_closer1\"].json[\"id_colaborador\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "funcao",
+              "value": "=Closer"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "ff722afb-594d-4e32-b581-da037bbf168a",
+      "name": "update_data_colaborador1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -2820,
+        2160
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "129c67f5-9b42-4db0-b75e-01bfa4ab2181",
+      "name": "pesquisa_data_data_lake2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -2600,
+        2060
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"success\"] }}",
+              "value2": true
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "fe02c7bd-1ed2-4b73-9269-e43c39a819bc",
+      "name": "nao_encontrou_registro_hj_data_lake2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -2380,
+        2060
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            },
+            {
+              "column": "qtd_calls_realizadas",
+              "value": "={{ $node[\"forms_preenchido1\"].json[\"body\"][\"Quantas calls você fez hoje? \"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "74e33978-99bb-4eca-a16e-99e1b10d3613",
+      "name": "insert_data_data_lake6",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -2180,
+        1940
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake2\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_calls_realizadas",
+              "value": "={{ $node[\"formata_calls_realizadas\"].json[\"qtd_calls_realizadas\"] + $node[\"formata_dados1\"].json[\"calls_realizadas\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "a912da86-dadf-49b5-bed8-cbf0e8f61cfb",
+      "name": "update_data_data_lake12",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -1960,
+        2120
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Verifica se o valor de faturamento é nulo e, se for, define como 0\nif (items[0].json.qtd_calls_realizadas === null) {\n    items[0].json.qtd_calls_realizadas = 0;\n} else {\n    // Caso o valor não seja nulo, converte para um número\n    items[0].json.qtd_calls_realizadas = parseFloat(items[0].json.qtd_calls_realizadas);\n}\n\nreturn items;\n"
+      },
+      "id": "815356ab-c8cc-4513-8a45-c7f5b1d7e195",
+      "name": "formata_calls_realizadas",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        -2180,
+        2120
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_comercial",
+          "mode": "list",
+          "cachedResultName": "data_lake_comercial"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            },
+            {
+              "column": "closer",
+              "value": "={{ $node[\"insert_data_colaborador1\"].runIndex >= 0 ? $node[\"insert_data_colaborador1\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_closer1\"].json[\"id_colaborador\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "fa63b46d-8fc6-43e1-98c9-e5afe78ac48d",
+      "name": "pesquisa_data_data_lake3",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -1800,
+        1940
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"success\"] }}",
+              "value2": true
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "772dd00d-d99e-4ec5-8be7-68ef9df4d5f0",
+      "name": "nao_encontrou_registro_hj_data_lake3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -1600,
+        1940
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "data_lake_comercial",
+          "mode": "list",
+          "cachedResultName": "data_lake_comercial"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            },
+            {
+              "column": "closer",
+              "value": "={{ $node[\"insert_data_colaborador1\"].runIndex >= 0 ? $node[\"insert_data_colaborador1\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_closer1\"].json[\"id_colaborador\"] }}"
+            },
+            {
+              "column": "qtd_calls_agendadas",
+              "value": "={{ $node[\"forms_preenchido1\"].json[\"body\"][\"Quantas calls você tinha marcadas na sua agenda para hoje?\"] }}"
+            },
+            {
+              "column": "qtd_calls_realizadas",
+              "value": "={{ $node[\"forms_preenchido1\"].json[\"body\"][\"Quantas calls você fez hoje? \"] }}"
+            },
+            {
+              "column": "qtd_noshow",
+              "value": "={{ $node[\"forms_preenchido1\"].json[\"body\"][\"Quantos no-shows você teve hoje? \"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "1ffac634-67b8-4de1-8e36-08ff30a932c0",
+      "name": "insert_data_data_lake7",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -1400,
+        1840
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_comercial",
+          "mode": "list",
+          "cachedResultName": "data_lake_comercial"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake3\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_calls_agendadas",
+              "value": "={{ $node[\"pesquisa_data_data_lake3\"].json[\"qtd_calls_agendadas\"] + $node[\"formata_dados1\"].json[\"calls_agendadas\"] }}"
+            },
+            {
+              "column": "qtd_calls_realizadas",
+              "value": "={{ $node[\"pesquisa_data_data_lake3\"].json[\"qtd_calls_realizadas\"] + $node[\"formata_dados1\"].json[\"calls_realizadas\"] }}"
+            },
+            {
+              "column": "qtd_noshow",
+              "value": "={{ $node[\"pesquisa_data_data_lake3\"].json[\"qtd_noshow\"] + $node[\"formata_dados1\"].json[\"noshow\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "651873bd-c0b6-4f43-add8-ca49eee0a35e",
+      "name": "update_data_data_lake13",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -1400,
+        2020
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "agendamentos",
+          "mode": "list",
+          "cachedResultName": "agendamentos"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id_lead",
+              "value": "={{ $node[\"pesquisa_lead2\"].json[\"id_lead\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "sort": {
+          "values": [
+            {
+              "column": "id_agendamento",
+              "direction": "DESC"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "28be2a16-c3cb-4266-85c8-090e5ed720d2",
+      "name": "pesquisa_agendamento",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -2700,
+        2580
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "agendamentos",
+          "mode": "list",
+          "cachedResultName": "agendamentos"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_agendamento",
+        "valueToMatchOn": "={{ $node[\"pesquisa_agendamento\"].json[\"id_agendamento\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "status_evento",
+              "value": "={{ $node[\"formata_dados3\"].json[\"status\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "6b08ca5f-7d86-4a5a-8a49-b51e1bb002a9",
+      "name": "update_agendamento",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -2500,
+        2580
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const lead = $node[\"forms_preenchido2\"].json[\"body\"][\"Qual é o e-mail do lead referente a esta call?\"];\nconst status = $node[\"forms_preenchido2\"].json[\"body\"][\"Qual é o status desta call?\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  lead,\n  status\n  };\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;"
+      },
+      "id": "bf6ea09a-dc58-48b8-98d5-88a2a4f03c12",
+      "name": "formata_dados3",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        -3380,
+        2580
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "leads",
+          "mode": "list",
+          "cachedResultName": "leads"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "email",
+              "value": "={{ $node[\"formata_dados3\"].json[\"lead\"] }}"
+            },
+            {
+              "column": "email2",
+              "value": "={{ $node[\"formata_dados3\"].json[\"lead\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "f38ea8a6-36a1-46bf-9b43-14d78d48a47f",
+      "name": "pesquisa_lead2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -3200,
+        2580
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"pesquisa_lead2\"].json[\"success\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "5c7a93da-c6f8-467d-ad86-f24e55531447",
+      "name": "nao_existe4",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -3020,
+        2580
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "leads",
+          "mode": "list",
+          "cachedResultName": "leads"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "email",
+              "value": "={{ $node[\"formata_dados3\"].json[\"lead\"] }}"
+            },
+            {
+              "column": "update_time",
+              "value": "={{ $now.toFormat('yyyy-MM-dd HH:mm:ss') }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "513c9de2-1cb2-474d-883d-20e1c69e538c",
+      "name": "insere_dados1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -2860,
+        2380
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Função para formatar a primeira letra de cada palavra em maiúsculo\nfunction formatarPrimeiraLetraMaiuscula(str) {\n  if (!str) {\n    return \"\"; // Retorna uma string vazia se o campo estiver vazio\n  }\n\n  const palavras = str.toLowerCase().split(\" \");\n\n  for (let i = 0; i < palavras.length; i++) {\n    palavras[i] = palavras[i].charAt(0).toUpperCase() + palavras[i].slice(1);\n  }\n\n  return palavras.join(\" \");\n}\n\nconst faturamento = parseFloat($node[\"forms_preenchido\"].json[\"body\"][\"Valor total da venda\"].replace(',','.'));\nconst vendedor = formatarPrimeiraLetraMaiuscula($node[\"forms_preenchido\"].json[\"body\"][\"Qual é o seu nome?\"]) || '';\nconst cliente = formatarPrimeiraLetraMaiuscula($node[\"forms_preenchido\"].json[\"body\"][\"Nome do comprador \"]) || '';\nconst email = $node[\"forms_preenchido\"].json[\"body\"][\"E-mail do comprador \"];\nconst telefone = $node[\"forms_preenchido\"].json[\"body\"][\"Telefone do comprador \"] || '';\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nconst ddi = '55';\nconst ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n\nconst produto = $node[\"forms_preenchido\"].json[\"body\"][\"Produto Comprado\"];\nconst forma_de_pagamento = $node[\"forms_preenchido\"].json[\"body\"][\"Forma de Pagamento\"];\nconst parcelas = $node[\"forms_preenchido\"].json[\"body\"][\"Parcelas\"];\nconst entrada = parseFloat($node[\"forms_preenchido\"].json[\"body\"][\"Valor de entrada\"].replace(',','.'));\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  vendedor,\n  telefone: telefoneFormatado,\n  cliente,\n  email,\n  faturamento,\n  produto,\n  forma_de_pagamento,\n  parcelas,\n  entrada  \n  };\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;"
+      },
+      "id": "be3243a6-ee67-4279-9e08-1785629bae5d",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        -3380,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores",
+          "mode": "list",
+          "cachedResultName": "colaboradores"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome",
+              "value": "={{ $node[\"formata_dados\"].json[\"vendedor\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "9433c409-f7e4-4b07-b3c6-67a37708ae59",
+      "name": "pesquisa_closer",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -2720,
+        1300
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"pesquisa_closer\"].json[\"success\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "da3f51d1-9d12-4567-b2d0-49d59dc5390a",
+      "name": "nao_existe",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -2500,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "colaboradores",
+          "mode": "list",
+          "cachedResultName": "colaboradores"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "funcao",
+              "value": "=Closer"
+            },
+            {
+              "column": "nome",
+              "value": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Qual é o seu nome?\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "747fe124-d474-4fb6-9772-71f09142dfb4",
+      "name": "insert_data_colaborador",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -2340,
+        1160
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores",
+          "mode": "list",
+          "cachedResultName": "colaboradores"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_colaborador",
+        "valueToMatchOn": "={{ $node[\"pesquisa_closer\"].json[\"id_colaborador\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "funcao",
+              "value": "=Closer"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "16cc2eb9-e02d-4f22-9cf1-2537b2f3014a",
+      "name": "update_data_colaborador",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -2340,
+        1360
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "c7a0eec9-833e-4c9e-81a9-4a669fe55d98",
+      "name": "pesquisa_data_data_lake",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -580,
+        1300
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"success\"] }}",
+              "value2": true
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "b14cb59b-a0e8-4030-b805-e3de317927e1",
+      "name": "nao_encontrou_registro_hj_data_lake",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -360,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "leads",
+          "mode": "list",
+          "cachedResultName": "leads"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefone\"] }}"
+            },
+            {
+              "column": "telefone_empresa",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefone\"] }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] }}"
+            },
+            {
+              "column": "email2",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "4fa90d56-4c25-4065-ab4a-8bf881f39a6f",
+      "name": "pesquisa_lead",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -3200,
+        1300
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"pesquisa_lead\"].json[\"success\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "c0427e25-5f89-48ba-872a-737dc5be09ef",
+      "name": "nao_existe1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -3040,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "leads",
+          "mode": "list",
+          "cachedResultName": "leads"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "nome",
+              "value": "={{ $node[\"formata_dados\"].json[\"cliente\"].split(' ')[0] }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefone\"] }}"
+            },
+            {
+              "column": "sobrenome",
+              "value": "={{ $node[\"formata_dados\"].json[\"cliente\"].split(\" \").slice(1).join(\" \") }}"
+            },
+            {
+              "column": "update_time",
+              "value": "={{ $now.toFormat('yyyy-MM-dd HH:mm:ss') }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "4e4ee0ac-67e8-4d8e-bd1d-9c820517124c",
+      "name": "insere_dados",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -2880,
+        1100
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_imperium",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_vendas_imperium\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"faturamento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "2839e57a-7d33-4913-9ed1-b92d5cb28b39",
+      "name": "update_data_data_lake1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        1400
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $node[\"pesquisa_lead\"].json[\"id_lead\"] }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "ff3e099e-86fe-4f6f-8611-9d9b8aedb151",
+      "name": "lead_ja_existia",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -100,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $node[\"pesquisa_lead\"].json[\"id_lead\"] }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "37721cf5-30b6-4c54-8554-6ab77fae5787",
+      "name": "lead_ja_existia1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        20,
+        1820
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            },
+            {
+              "column": "={{ $node[\"formata_dados\"].json[\"produto\"].replace('Mentoria Imperium','qtd_vendas_imperium').replace('Mentoria Platinum','qtd_vendas_platinum')  }}",
+              "value": "=1"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "912159fa-8086-467b-8d5e-dabfe821c9e7",
+      "name": "insert_data_data_lake",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        460,
+        460
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "name"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            },
+            {
+              "column": "={{ $node[\"formata_dados\"].json[\"produto\"].replace('Mentoria Imperium','qtd_vendas_imperium').replace('Mentoria Platinum','qtd_vendas_platinum')  }}",
+              "value": "=1"
+            },
+            {
+              "column": "qtd_leads",
+              "value": "1"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "03f52d7e-7b8f-4e8a-be85-7093beb763b7",
+      "name": "insert_data_data_lake2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        460,
+        940
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_platinum",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_vendas_platinum\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"faturamento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "8a57daea-3274-41bf-a03d-ad328b341a4b",
+      "name": "update_data_data_lake",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        1840
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_comercial",
+          "mode": "list",
+          "cachedResultName": "data_lake_comercial"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            },
+            {
+              "column": "closer",
+              "value": "={{ $node[\"insert_data_colaborador\"].runIndex >= 0 ? $node[\"insert_data_colaborador\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_closer\"].json[\"id_colaborador\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "718f981e-3329-4ccb-9c92-e22054f7766b",
+      "name": "pesquisa_data_data_lake1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        1040,
+        1300
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"success\"] }}",
+              "value2": true
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "3d37d89f-e0ab-43c5-a038-d382ce85898d",
+      "name": "nao_encontrou_registro_hj_data_lake1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Verifica se o valor de faturamento é nulo e, se for, define como 0\nif (items[0].json.faturamento === null) {\n    items[0].json.faturamento = 0;\n} else {\n    // Caso o valor não seja nulo, converte para um número\n    items[0].json.faturamento = parseFloat(items[0].json.faturamento);\n}\n\n// Verifica se o valor de comissao_gateway é nulo e, se for, define como 0\nif (items[0].json.recebimento === null) {\n    items[0].json.recebimento = 0;\n} else {\n    // Caso o valor não seja nulo, converte para um número\n    items[0].json.recebimento = parseFloat(items[0].json.recebimento);\n}\n\nreturn items;\n"
+      },
+      "id": "e9f87604-9425-4c64-acaf-df02f4acf832",
+      "name": "formata_faturamento",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        1400
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "data_lake_comercial",
+          "mode": "list",
+          "cachedResultName": "data_lake_comercial"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            },
+            {
+              "column": "={{ $node[\"formata_dados\"].json[\"produto\"].replace('Mentoria Imperium','qtd_vendas_imperium').replace('Mentoria Platinum','qtd_vendas_platinum')  }}",
+              "value": "=1"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "closer",
+              "value": "={{ $node[\"insert_data_colaborador\"].runIndex >= 0 ? $node[\"insert_data_colaborador\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_closer\"].json[\"id_colaborador\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "211efcab-723c-401d-8c44-1ce0375a4449",
+      "name": "insert_data_data_lake1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        1800,
+        800
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_comercial",
+          "mode": "list",
+          "cachedResultName": "data_lake_comercial"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake1\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_imperium",
+              "value": "={{ $node[\"pesquisa_data_data_lake1\"].json[\"qtd_vendas_imperium\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ parseFloat($node[\"formata_faturamento1\"].json[\"faturamento\"]) + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "dcd0a831-a325-407d-96c5-fd84621ab3dd",
+      "name": "update_data_data_lake4",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        2180,
+        1080
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_comercial",
+          "mode": "list",
+          "cachedResultName": "data_lake_comercial"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake1\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_platinum",
+              "value": "={{ $node[\"pesquisa_data_data_lake1\"].json[\"qtd_vendas_platinum\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ parseFloat($node[\"formata_faturamento1\"].json[\"faturamento\"]) + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "254f171e-bab3-43d7-b426-0e566005a071",
+      "name": "update_data_data_lake5",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        2240,
+        1580
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            },
+            {
+              "column": "={{ $node[\"formata_dados\"].json[\"produto\"].replace('Mentoria Imperium','qtd_vendas_imperium').replace('Mentoria Platinum','qtd_vendas_platinum')  }}",
+              "value": "=1"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ $node[\"formata_dados\"].json[\"entrada\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "d140c236-d279-49c6-a823-df90df06f005",
+      "name": "insert_data_data_lake3",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        460,
+        780
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            },
+            {
+              "column": "={{ $node[\"formata_dados\"].json[\"produto\"].replace('Mentoria Imperium','qtd_vendas_imperium').replace('Mentoria Platinum','qtd_vendas_platinum')  }}",
+              "value": "=1"
+            },
+            {
+              "column": "qtd_leads",
+              "value": "1"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ $node[\"formata_dados\"].json[\"entrada\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "078fd179-8e91-48e2-8477-42a09e441730",
+      "name": "insert_data_data_lake4",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        460,
+        1280
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_imperium",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_vendas_imperium\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"faturamento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"recebimento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "3540608c-720c-4cdf-9237-0cd81ea58d4b",
+      "name": "update_data_data_lake6",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        1580
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_platinum",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_vendas_platinum\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"faturamento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"recebimento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "e6a16d76-93aa-43b8-b5bf-7af0ce282785",
+      "name": "update_data_data_lake7",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        2000
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "data_lake_comercial",
+          "mode": "list",
+          "cachedResultName": "data_lake_comercial"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            },
+            {
+              "column": "={{ $node[\"formata_dados\"].json[\"produto\"].replace('Mentoria Imperium','qtd_vendas_imperium').replace('Mentoria Platinum','qtd_vendas_platinum')  }}",
+              "value": "=1"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "closer",
+              "value": "={{ $node[\"insert_data_colaborador\"].runIndex >= 0 ? $node[\"insert_data_colaborador\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_closer\"].json[\"id_colaborador\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "bc33ace2-7573-411b-9170-64b78e15f796",
+      "name": "insert_data_data_lake5",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        1800,
+        980
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_comercial",
+          "mode": "list",
+          "cachedResultName": "data_lake_comercial"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake1\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_imperium",
+              "value": "={{ $node[\"pesquisa_data_data_lake1\"].json[\"qtd_vendas_imperium\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ parseFloat($node[\"formata_faturamento1\"].json[\"faturamento\"]) + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ parseFloat($node[\"formata_faturamento1\"].json[\"recebimento\"]) + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "2cde4a5e-3a82-4f24-8034-164e20ddd78d",
+      "name": "update_data_data_lake10",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        2180,
+        1280
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_comercial",
+          "mode": "list",
+          "cachedResultName": "data_lake_comercial"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake1\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_platinum",
+              "value": "={{ $node[\"pesquisa_data_data_lake1\"].json[\"qtd_vendas_platinum\"] + 1 }}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ parseFloat($node[\"formata_faturamento1\"].json[\"faturamento\"]) + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ parseFloat($node[\"formata_faturamento1\"].json[\"recebimento\"]) + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "45059ee9-a65f-4227-aba4-e6154dd736ba",
+      "name": "update_data_data_lake11",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        2240,
+        1780
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Verifica se o valor de faturamento é nulo e, se for, define como 0\nif (items[0].json.faturamento === null) {\n    items[0].json.faturamento = 0;\n} else {\n    // Caso o valor não seja nulo, converte para um número\n    items[0].json.faturamento = parseFloat(items[0].json.faturamento);\n}\n\n// Verifica se o valor de comissao_gateway é nulo e, se for, define como 0\nif (items[0].json.recebimento === null) {\n    items[0].json.recebimento = 0;\n} else {\n    // Caso o valor não seja nulo, converte para um número\n    items[0].json.recebimento = parseFloat(items[0].json.recebimento);\n}\n\nreturn items;\n"
+      },
+      "id": "2e7e0573-6368-4405-a6d1-8cb7fd4e4aa6",
+      "name": "formata_faturamento1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        1480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "leads_2_utms",
+          "mode": "list",
+          "cachedResultName": "leads_2_utms"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id_lead",
+              "value": "={{ $node[\"insere_dados\"].runIndex >= 0 ? $node[\"insere_dados\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_lead\"].json[\"id_lead\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "777a0f97-5146-4686-9d3a-3da3e0c87f6a",
+      "name": "pesquisa_utm_lead",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -1700,
+        1300
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "conversions",
+          "mode": "list",
+          "cachedResultName": "conversions"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_lead",
+              "value": "={{ $node[\"insere_dados\"].runIndex >= 0 ? $node[\"insere_dados\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_lead\"].json[\"id_lead\"] }}"
+            },
+            {
+              "column": "product_id",
+              "value": "={{ $node[\"insert_data_produto\"].runIndex >= 0 ? $node[\"insert_data_produto\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_produto\"].json[\"id_produto\"] }}"
+            },
+            {
+              "column": "value",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "installments",
+              "value": "={{ $node[\"formata_dados\"].json[\"parcelas\"].replace('À vista','1') }}"
+            },
+            {
+              "column": "currency",
+              "value": "=BRL"
+            },
+            {
+              "column": "payment_method",
+              "value": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Forma de Pagamento\"] }}"
+            },
+            {
+              "column": "trans_status",
+              "value": "=Compra Aprovada"
+            },
+            {
+              "column": "dias_para_conversao",
+              "value": "={{ $node[\"dias_para_conversao\"].json[\"diffEmDias\"] }}"
+            },
+            {
+              "column": "warranty_date",
+              "value": "={{new Date(new Date().setDate(new Date().getDate() + 7)).toISOString().split('T')[0]}}"
+            },
+            {
+              "column": "conversion_date",
+              "value": "={{ $now.toFormat('yyyy-MM-dd HH:mm:ss') }}"
+            },
+            {
+              "column": "vendedor",
+              "value": "={{ $node[\"insert_data_colaborador\"].runIndex >= 0 ? $node[\"insert_data_colaborador\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_closer\"].json[\"id_colaborador\"] }}"
+            },
+            {
+              "column": "entrada",
+              "value": "={{ $node[\"formata_dados\"].json[\"entrada\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "8f9900e6-4249-401a-876b-5503889884cf",
+      "name": "cria_conversao2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -1000,
+        1320
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "conversion_2_utms",
+          "mode": "list",
+          "cachedResultName": "conversion_2_utms"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_conversion",
+              "value": "={{ $json[\"data\"][\"insertId\"] }}"
+            },
+            {
+              "column": "utm_source",
+              "value": "={{ $node[\"pesquisa_utm_lead\"].json[\"utm_source\"] }}"
+            },
+            {
+              "column": "utm_campaign",
+              "value": "={{ $node[\"pesquisa_utm_lead\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "column": "utm_term",
+              "value": "={{ $node[\"pesquisa_utm_lead\"].json[\"utm_term\"] }}"
+            },
+            {
+              "column": "utm_medium",
+              "value": "={{ $node[\"pesquisa_utm_lead\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "column": "utm_content",
+              "value": "={{ $node[\"pesquisa_utm_lead\"].json[\"utm_content\"] }}"
+            },
+            {
+              "column": "utm_fun",
+              "value": "={{ $node[\"pesquisa_utm_lead\"].json[\"utm_fun\"] }}"
+            },
+            {
+              "column": "utm_var",
+              "value": "={{ $node[\"pesquisa_utm_lead\"].json[\"utm_var\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "834dc28a-eaee-4fbf-97e6-42a6b3438e7e",
+      "name": "cria_utm_conversao1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -760,
+        1300
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "produtos",
+          "mode": "list",
+          "cachedResultName": "produtos"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_produto",
+              "condition": "LIKE",
+              "value": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Produto Comprado\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "03219861-7462-416a-961e-f9646030eac8",
+      "name": "pesquisa_produto",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -2140,
+        1300
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "produtos",
+          "mode": "list",
+          "cachedResultName": "produtos"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "nome_produto",
+              "value": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Produto Comprado\"] }}"
+            },
+            {
+              "column": "valor_produto",
+              "value": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Valor total da venda\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "81e6091b-53c1-4bf7-bf16-151d9e3ad113",
+      "name": "insert_data_produto",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -1840,
+        1100
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"pesquisa_produto\"].json[\"success\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "557f98fe-5a8c-43dc-853b-6a0a8d4cd803",
+      "name": "nao_existe2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -1980,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "leads",
+          "mode": "list",
+          "cachedResultName": "leads"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id_lead",
+              "value": "={{ $node[\"insere_dados\"].runIndex >= 0 ? $node[\"insere_dados\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_lead\"].json[\"id_lead\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "f860c28d-0c0f-41cc-9f50-91530b7d7dc4",
+      "name": "pesquisa_lead1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -1540,
+        1300
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let dataEntradaLead = $node[\"pesquisa_lead1\"].json[\"data_de_entrada\"]; // Data de entrada da lead (no formato YYYY-MM-DD HH:mm:ss)\nlet dataCompra = new Date().toISOString().replace('T', ' ').substring(0, 19);\n\n\n// Converter as datas para objetos Date\nlet dataEntradaLeadObj = new Date(dataEntradaLead);\nlet dataCompraObj = new Date(dataCompra);\n\n// Calcular a diferença em milissegundos entre as datas\nlet diff = dataCompraObj - dataEntradaLeadObj;\n\n// Calcular o valor absoluto da diferença em dias\nlet diffEmDias = Math.abs(Math.floor(diff / (1000 * 60 * 60 * 24)));\n\nreturn [{ diffEmDias }];\n"
+      },
+      "id": "ffce774d-5413-475b-8392-438a56fb009c",
+      "name": "dias_para_conversao",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1380,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Valor de entrada\"] }}",
+              "value2": "Não teve entrada"
+            }
+          ]
+        }
+      },
+      "id": "a888d3a7-1195-4ca7-b6ee-5d6c6ae8afd5",
+      "name": "n_teve_entrada9",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -1200,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "conversions",
+          "mode": "list",
+          "cachedResultName": "conversions"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_lead",
+              "value": "={{ $node[\"insere_dados\"].runIndex >= 0 ? $node[\"insere_dados\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_lead\"].json[\"id_lead\"] }}"
+            },
+            {
+              "column": "product_id",
+              "value": "={{ $node[\"insert_data_produto\"].runIndex >= 0 ? $node[\"insert_data_produto\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_produto\"].json[\"id_produto\"] }}"
+            },
+            {
+              "column": "value",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "installments",
+              "value": "={{ $node[\"formata_dados\"].json[\"parcelas\"].replace('À vista','1') }}"
+            },
+            {
+              "column": "currency",
+              "value": "=BRL"
+            },
+            {
+              "column": "payment_method",
+              "value": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Forma de Pagamento\"] }}"
+            },
+            {
+              "column": "trans_status",
+              "value": "=Compra Aprovada"
+            },
+            {
+              "column": "dias_para_conversao",
+              "value": "={{ $node[\"dias_para_conversao\"].json[\"diffEmDias\"] }}"
+            },
+            {
+              "column": "warranty_date",
+              "value": "={{new Date(new Date().setDate(new Date().getDate() + 7)).toISOString().split('T')[0]}}"
+            },
+            {
+              "column": "conversion_date",
+              "value": "={{ $now.toFormat('yyyy-MM-dd HH:mm:ss') }}"
+            },
+            {
+              "column": "vendedor",
+              "value": "={{ $node[\"insert_data_colaborador\"].runIndex >= 0 ? $node[\"insert_data_colaborador\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_closer\"].json[\"id_colaborador\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "e86b9166-0d5c-442e-8045-b056e06f350c",
+      "name": "cria_conversao",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -920,
+        880
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "forms-venda-preenchidos",
+        "options": {}
+      },
+      "id": "87f48367-ef64-4195-9093-45b9cb10c1bf",
+      "name": "forms_preenchido",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -3560,
+        1300
+      ],
+      "webhookId": "88ba9327-1473-4cec-878c-4140e07ea2cc"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Valor de entrada\"] }}",
+              "value2": "Não teve entrada"
+            }
+          ]
+        }
+      },
+      "id": "36f59205-3b59-4a9c-83cc-6d7b826e5c06",
+      "name": "n_teve_entrada",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        80,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"formata_dados\"].json[\"parcelas\"] }}",
+              "operation": "notEqual",
+              "value2": "À vista"
+            }
+          ]
+        }
+      },
+      "id": "c4cba5f6-7e4a-41df-a17a-258b2947449d",
+      "name": "n_foi_a_vista",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        260,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            },
+            {
+              "column": "={{ $node[\"formata_dados\"].json[\"produto\"].replace('Mentoria Imperium','qtd_vendas_imperium').replace('Mentoria Platinum','qtd_vendas_platinum')  }}",
+              "value": "=1"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "1e132fe8-8e09-46b5-915c-03f4b05fdfaf",
+      "name": "insert_data_data_lake8",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        460,
+        620
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Valor de entrada\"] }}",
+              "value2": "Não teve entrada"
+            }
+          ]
+        }
+      },
+      "id": "d0a8f779-2cc1-4e7c-8752-d1ecd6126c98",
+      "name": "n_teve_entrada1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        80,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"formata_dados\"].json[\"parcelas\"] }}",
+              "operation": "notEqual",
+              "value2": "À vista"
+            }
+          ]
+        }
+      },
+      "id": "ebb2e941-6c4d-4930-ad1a-1391941761ca",
+      "name": "n_foi_a_vista1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        260,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            },
+            {
+              "column": "={{ $node[\"formata_dados\"].json[\"produto\"].replace('Mentoria Imperium','qtd_vendas_imperium').replace('Mentoria Platinum','qtd_vendas_platinum')  }}",
+              "value": "=1"
+            },
+            {
+              "column": "qtd_leads",
+              "value": "1"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "2ff27392-0f80-4284-98db-5551155ce59a",
+      "name": "insert_data_data_lake9",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        460,
+        1100
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Valor de entrada\"] }}",
+              "value2": "Não teve entrada"
+            }
+          ]
+        }
+      },
+      "id": "70d2981e-b2d9-4fd8-a40b-7771900fccd2",
+      "name": "n_teve_entrada2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        360,
+        1620
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"formata_dados\"].json[\"parcelas\"] }}",
+              "operation": "notEqual",
+              "value2": "À vista"
+            }
+          ]
+        }
+      },
+      "id": "ac492b58-6723-48a9-8257-23c5a9414b15",
+      "name": "n_foi_a_vista2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        520,
+        1480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_imperium",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_vendas_imperium\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"faturamento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"recebimento\"] +  $node[\"formata_dados\"].json[\"entrada\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "92c6dfc8-85ab-46e4-9513-56c9d1f7958c",
+      "name": "update_data_data_lake14",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        520,
+        1700
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Valor de entrada\"] }}",
+              "value2": "Não teve entrada"
+            }
+          ]
+        }
+      },
+      "id": "3b1db32a-65bb-45ef-b290-ce6c930cf60e",
+      "name": "n_teve_entrada3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        340,
+        1940
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"formata_dados\"].json[\"parcelas\"] }}",
+              "operation": "notEqual",
+              "value2": "À vista"
+            }
+          ]
+        }
+      },
+      "id": "964f06cc-e030-45bb-a392-5d00a15930c5",
+      "name": "n_foi_a_vista3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        520,
+        1880
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_platinum",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_vendas_platinum\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"faturamento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"recebimento\"] + $node[\"formata_dados\"].json[\"entrada\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "5cc220d2-2b56-47fd-a053-96aa8e5ebcac",
+      "name": "update_data_data_lake15",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        520,
+        2080
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Valor de entrada\"] }}",
+              "value2": "Não teve entrada"
+            }
+          ]
+        }
+      },
+      "id": "5a17c6d7-00b0-4c3a-90a2-fc7304891e3d",
+      "name": "n_teve_entrada6",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"formata_dados\"].json[\"parcelas\"] }}",
+              "operation": "notEqual",
+              "value2": "À vista"
+            }
+          ]
+        }
+      },
+      "id": "0b30f785-cf36-4ad8-a221-c6025221ea40",
+      "name": "n_foi_a_vista6",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "data_lake_comercial",
+          "mode": "list",
+          "cachedResultName": "data_lake_comercial"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data",
+              "value": "={{ $now.toFormat('yyyy-MM-dd') }}"
+            },
+            {
+              "column": "={{ $node[\"formata_dados\"].json[\"produto\"].replace('Mentoria Imperium','qtd_vendas_imperium').replace('Mentoria Platinum','qtd_vendas_platinum')  }}",
+              "value": "=1"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ $node[\"formata_dados\"].json[\"entrada\"] }}"
+            },
+            {
+              "column": "closer",
+              "value": "={{ $node[\"insert_data_colaborador\"].runIndex >= 0 ? $node[\"insert_data_colaborador\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_closer\"].json[\"id_colaborador\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "414cb877-0649-462e-8002-3e6275bb510a",
+      "name": "insert_data_data_lake10",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        1600,
+        1120
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Valor de entrada\"] }}",
+              "value2": "Não teve entrada"
+            }
+          ]
+        }
+      },
+      "id": "0aab5438-9869-453d-8988-df048917180d",
+      "name": "n_teve_entrada7",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"formata_dados\"].json[\"parcelas\"] }}",
+              "operation": "notEqual",
+              "value2": "À vista"
+            }
+          ]
+        }
+      },
+      "id": "61300674-ca2f-4004-a90e-1eea1386a600",
+      "name": "n_foi_a_vista7",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        1220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_comercial",
+          "mode": "list",
+          "cachedResultName": "data_lake_comercial"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake1\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_imperium",
+              "value": "={{ $node[\"pesquisa_data_data_lake1\"].json[\"qtd_vendas_imperium\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ parseFloat($node[\"formata_faturamento1\"].json[\"faturamento\"]) + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ parseFloat($node[\"formata_faturamento1\"].json[\"recebimento\"]) + $node[\"formata_dados\"].json[\"entrada\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "36ac9504-9a1a-4891-851a-516a8c65d62d",
+      "name": "update_data_data_lake18",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        2000,
+        1420
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Valor de entrada\"] }}",
+              "value2": "Não teve entrada"
+            }
+          ]
+        }
+      },
+      "id": "b69a48ba-31f6-452f-be85-ac2edb3eb3fb",
+      "name": "n_teve_entrada8",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        1820
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"formata_dados\"].json[\"parcelas\"] }}",
+              "operation": "notEqual",
+              "value2": "À vista"
+            }
+          ]
+        }
+      },
+      "id": "9bd767af-fd9d-4671-a838-1601dfff8dcd",
+      "name": "n_foi_a_vista8",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        1680
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_comercial",
+          "mode": "list",
+          "cachedResultName": "data_lake_comercial"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake1\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_platinum",
+              "value": "={{ $node[\"pesquisa_data_data_lake1\"].json[\"qtd_vendas_platinum\"] + 1 }}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ parseFloat($node[\"formata_faturamento1\"].json[\"faturamento\"]) + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ parseFloat($node[\"formata_faturamento1\"].json[\"recebimento\"]) + $node[\"formata_dados\"].json[\"entrada\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "0b3c778c-66f7-41c2-abab-e463f4f7cedb",
+      "name": "update_data_data_lake19",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        2040,
+        1940
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"formata_dados\"].json[\"parcelas\"] }}",
+              "operation": "notEqual",
+              "value2": "À vista"
+            }
+          ]
+        }
+      },
+      "id": "7bb4f041-5ea2-455b-83a5-d9eca0731c3e",
+      "name": "n_foi_a_vista9",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -1080,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "conversions",
+          "mode": "list",
+          "cachedResultName": "conversions"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_lead",
+              "value": "={{ $node[\"insere_dados\"].runIndex >= 0 ? $node[\"insere_dados\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_lead\"].json[\"id_lead\"] }}"
+            },
+            {
+              "column": "product_id",
+              "value": "={{ $node[\"insert_data_produto\"].runIndex >= 0 ? $node[\"insert_data_produto\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_produto\"].json[\"id_produto\"] }}"
+            },
+            {
+              "column": "value",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "installments",
+              "value": "={{ $node[\"formata_dados\"].json[\"parcelas\"].replace('À vista','1') }}"
+            },
+            {
+              "column": "currency",
+              "value": "=BRL"
+            },
+            {
+              "column": "payment_method",
+              "value": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Forma de Pagamento\"] }}"
+            },
+            {
+              "column": "trans_status",
+              "value": "=Compra Aprovada"
+            },
+            {
+              "column": "dias_para_conversao",
+              "value": "={{ $node[\"dias_para_conversao\"].json[\"diffEmDias\"] }}"
+            },
+            {
+              "column": "warranty_date",
+              "value": "={{new Date(new Date().setDate(new Date().getDate() + 7)).toISOString().split('T')[0]}}"
+            },
+            {
+              "column": "conversion_date",
+              "value": "={{ $now.toFormat('yyyy-MM-dd HH:mm:ss') }}"
+            },
+            {
+              "column": "vendedor",
+              "value": "={{ $node[\"insert_data_colaborador\"].runIndex >= 0 ? $node[\"insert_data_colaborador\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_closer\"].json[\"id_colaborador\"] }}"
+            },
+            {
+              "column": "entrada",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "b78d5e1e-e8d2-42f4-8bdf-ca8d20bae483",
+      "name": "cria_conversao1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -920,
+        1040
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "forms-diario-preenchido",
+        "options": {}
+      },
+      "id": "b81d68b6-d965-42d9-abd7-f0aae4353cd9",
+      "name": "forms_preenchido1",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -3560,
+        2100
+      ],
+      "webhookId": "88ba9327-1473-4cec-878c-4140e07ea2cc"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "forms-agendamentos-preenchido",
+        "options": {}
+      },
+      "id": "ab2999b0-0cc8-43cb-aa7a-41d829566c61",
+      "name": "forms_preenchido2",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -3560,
+        2580
+      ],
+      "webhookId": "88ba9327-1473-4cec-878c-4140e07ea2cc"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_imperium",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_vendas_imperium\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"faturamento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "22c1cec8-1f2b-4031-bc06-a5c01199d72e",
+      "name": "update_data_data_lake20",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        2180
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_platinum",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_vendas_platinum\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"faturamento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "8e3033f1-d9e5-41b3-953a-d8e2fa023e19",
+      "name": "update_data_data_lake21",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        2620
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_imperium",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_vendas_imperium\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"faturamento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"recebimento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "e008ef78-2a4b-4bd4-b1ac-40b37931d9f3",
+      "name": "update_data_data_lake22",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        2360
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_platinum",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_vendas_platinum\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"faturamento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"recebimento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "c8d8cd8b-0879-45fc-afec-dc9c753510c0",
+      "name": "update_data_data_lake23",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        2780
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Valor de entrada\"] }}",
+              "value2": "Não teve entrada"
+            }
+          ]
+        }
+      },
+      "id": "f3d6baf2-e237-488b-9073-d89b94101542",
+      "name": "n_teve_entrada10",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        360,
+        2400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"formata_dados\"].json[\"parcelas\"] }}",
+              "operation": "notEqual",
+              "value2": "À vista"
+            }
+          ]
+        }
+      },
+      "id": "0a73a95d-5ad0-4baa-835f-8c4129f33968",
+      "name": "n_foi_a_vista10",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        520,
+        2260
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_imperium",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_vendas_imperium\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"faturamento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"recebimento\"] +  $node[\"formata_dados\"].json[\"entrada\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "9e8fa5e9-3399-477c-ab98-014183059e02",
+      "name": "update_data_data_lake24",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        520,
+        2480
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"forms_preenchido\"].json[\"body\"][\"Valor de entrada\"] }}",
+              "value2": "Não teve entrada"
+            }
+          ]
+        }
+      },
+      "id": "1f7c297b-1c0c-4e9b-b401-74bc6d4a59ee",
+      "name": "n_teve_entrada11",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        340,
+        2720
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"formata_dados\"].json[\"parcelas\"] }}",
+              "operation": "notEqual",
+              "value2": "À vista"
+            }
+          ]
+        }
+      },
+      "id": "44d8e638-e3dd-4485-ac42-8df16c84c8e9",
+      "name": "n_foi_a_vista11",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        520,
+        2660
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "data_lake_ht",
+          "mode": "list",
+          "cachedResultName": "data_lake_ht"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_data",
+        "valueToMatchOn": "={{ $node[\"pesquisa_data_data_lake\"].json[\"id_data\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "qtd_vendas_platinum",
+              "value": "={{ $node[\"pesquisa_data_data_lake\"].json[\"qtd_vendas_platinum\"] + 1}}"
+            },
+            {
+              "column": "faturamento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"faturamento\"] + $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "column": "recebimento",
+              "value": "={{ $node[\"formata_faturamento\"].json[\"recebimento\"] + $node[\"formata_dados\"].json[\"entrada\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "37b21d02-cbba-418b-bf79-1113ae4b6096",
+      "name": "update_data_data_lake25",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        520,
+        2860
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $node[\"formata_dados\"].json[\"produto\"] }}",
+                    "rightValue": "Mentoria Imperium",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "6fdda21a-a246-4088-a743-72ef3f5b1fd9",
+                    "leftValue": "={{ $node[\"formata_dados\"].json[\"produto\"] }}",
+                    "rightValue": "Mentoria Imperium",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "4e57ce08-4993-4e34-b210-e0777b00c54d",
+      "name": "produto1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        180,
+        1680
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $node[\"formata_dados\"].json[\"produto\"] }}",
+                    "rightValue": "Mentoria Imperium",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "6fdda21a-a246-4088-a743-72ef3f5b1fd9",
+                    "leftValue": "={{ $node[\"formata_dados\"].json[\"produto\"] }}",
+                    "rightValue": "Mentoria Platinum",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "e79aaae2-866c-4a99-8cfa-f4c50af4a7a1",
+      "name": "produto2",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        200,
+        2260
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $node[\"formata_dados\"].json[\"produto\"] }}",
+                    "rightValue": "Mentoria Imperium",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "6fdda21a-a246-4088-a743-72ef3f5b1fd9",
+                    "leftValue": "={{ $node[\"formata_dados\"].json[\"produto\"] }}",
+                    "rightValue": "Mentoria Platinum",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "f9674cbf-ed65-4860-a324-e3c622c15be7",
+      "name": "produto",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        1580,
+        1480
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 3,
+  "updatedAt": "2024-05-14T00:59:16.093Z",
+  "versionId": "d075ec11-8030-46c5-a5df-a6e1542549a7"
+}
