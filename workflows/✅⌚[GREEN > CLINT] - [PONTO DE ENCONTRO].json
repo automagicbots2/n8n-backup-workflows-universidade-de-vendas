@@ -1,0 +1,3704 @@
+{
+  "active": true,
+  "connections": {
+    "dados_da_compra1": {
+      "main": [
+        [
+          {
+            "node": "cria_ou_atualiza_contato_na_clint6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_da_compra": {
+      "main": [
+        [
+          {
+            "node": "cria_ou_atualiza_contato_na_clint",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_da_compra2": {
+      "main": [
+        [
+          {
+            "node": "cria_ou_atualiza_contato_na_clint1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_da_compra3": {
+      "main": [
+        [
+          {
+            "node": "cria_ou_atualiza_contato_na_clint3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_da_compra4": {
+      "main": [
+        [
+          {
+            "node": "cria_ou_atualiza_contato_na_clint7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_da_compra5": {
+      "main": [
+        [
+          {
+            "node": "cria_ou_atualiza_contato_na_clint2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_da_compra6": {
+      "main": [
+        [
+          {
+            "node": "cria_ou_atualiza_contato_na_clint4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_da_compra7": {
+      "main": [
+        [
+          {
+            "node": "cria_ou_atualiza_contato_na_clint5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "compra-cancelada": {
+      "main": [
+        [
+          {
+            "node": "dados_da_compra",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "venda-nao-paga": {
+      "main": [
+        [
+          {
+            "node": "dados_da_compra1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "aguardando_pagamento": {
+      "main": [
+        [
+          {
+            "node": "dados_da_compra2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "venda-recusada": {
+      "main": [
+        [
+          {
+            "node": "dados_da_compra3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chargeback-realizado": {
+      "main": [
+        [
+          {
+            "node": "dados_da_compra4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "compra_aprovada": {
+      "main": [
+        [
+          {
+            "node": "dados_da_compra7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Venda-Reembolsada": {
+      "main": [
+        [
+          {
+            "node": "dados_da_compra5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "assinatura-finalizada": {
+      "main": [
+        [
+          {
+            "node": "dados_da_compra6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-27T13:06:27.643Z",
+  "id": "4NEyk8jY5ZS0sHWw",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "✅⌚[GREEN > CLINT] - [PONTO DE ENCONTRO]",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/23425f04-6b20-47c1-83e8-ce530e860ed1",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $json[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $json[\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"cpf/cnpj\"] }}"
+            },
+            {
+              "name": "produto",
+              "value": "={{ $json[\"nome_produto\"] }}"
+            },
+            {
+              "name": "metodo_pagamento",
+              "value": "={{ $json[\"payment_method\"] }}"
+            },
+            {
+              "name": "parcelas",
+              "value": "={{ $json[\"installments\"] }}"
+            },
+            {
+              "name": "valor",
+              "value": "={{ $json[\"value\"] }}"
+            },
+            {
+              "name": "Plataforma",
+              "value": "Green"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "de556f68-2640-4845-b862-326d98685229",
+      "name": "cria_ou_atualiza_contato_na_clint",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        460,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/11670076-3490-41b9-9736-f79d0c54b5d7",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $json[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $json[\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"cpf/cnpj\"] }}"
+            },
+            {
+              "name": "produto",
+              "value": "={{ $json[\"nome_produto\"] }}"
+            },
+            {
+              "name": "metodo_pagamento",
+              "value": "={{ $json[\"payment_method\"] }}"
+            },
+            {
+              "name": "parcelas",
+              "value": "={{ $json[\"installments\"] }}"
+            },
+            {
+              "name": "valor",
+              "value": "={{ $json[\"value\"] }}"
+            },
+            {
+              "name": "Plataforma",
+              "value": "Green"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3fa6296c-a01a-4ba3-bbcc-330fd2358259",
+      "name": "cria_ou_atualiza_contato_na_clint1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        460,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/3229369f-e5c1-4527-a67e-f7913229c88a",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $json[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $json[\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"cpf/cnpj\"] }}"
+            },
+            {
+              "name": "produto",
+              "value": "={{ $json[\"nome_produto\"] }}"
+            },
+            {
+              "name": "metodo_pagamento",
+              "value": "={{ $json[\"payment_method\"] }}"
+            },
+            {
+              "name": "parcelas",
+              "value": "={{ $json[\"installments\"] }}"
+            },
+            {
+              "name": "valor",
+              "value": "={{ $json[\"value\"] }}"
+            },
+            {
+              "name": "Plataforma",
+              "value": "Green"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e6ed835c-dfaf-47d6-af74-6c87f0edfcc3",
+      "name": "cria_ou_atualiza_contato_na_clint2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        460,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/11670076-3490-41b9-9736-f79d0c54b5d7",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $json[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $json[\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"cpf/cnpj\"] }}"
+            },
+            {
+              "name": "produto",
+              "value": "={{ $json[\"nome_produto\"] }}"
+            },
+            {
+              "name": "metodo_pagamento",
+              "value": "={{ $json[\"payment_method\"] }}"
+            },
+            {
+              "name": "parcelas",
+              "value": "={{ $json[\"installments\"] }}"
+            },
+            {
+              "name": "valor",
+              "value": "={{ $json[\"value\"] }}"
+            },
+            {
+              "name": "Plataforma",
+              "value": "Green"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f34b05df-2818-4817-a7f1-2df0b9e5bf78",
+      "name": "cria_ou_atualiza_contato_na_clint3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        460,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/972f32b4-5d6f-4756-a193-afa9cda34836",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $json[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $json[\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"cpf/cnpj\"] }}"
+            },
+            {
+              "name": "produto",
+              "value": "={{ $json[\"nome_produto\"] }}"
+            },
+            {
+              "name": "metodo_pagamento",
+              "value": "={{ $json[\"payment_method\"] }}"
+            },
+            {
+              "name": "parcelas",
+              "value": "={{ $json[\"installments\"] }}"
+            },
+            {
+              "name": "valor",
+              "value": "={{ $json[\"value\"] }}"
+            },
+            {
+              "name": "Plataforma",
+              "value": "Green"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ef76fd20-3ddb-403b-8297-4411da7af373",
+      "name": "cria_ou_atualiza_contato_na_clint4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        460,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/972f32b4-5d6f-4756-a193-afa9cda34836",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $json[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $json[\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"cpf/cnpj\"] }}"
+            },
+            {
+              "name": "produto",
+              "value": "={{ $json[\"nome_produto\"] }}"
+            },
+            {
+              "name": "metodo_pagamento",
+              "value": "={{ $json[\"payment_method\"] }}"
+            },
+            {
+              "name": "parcelas",
+              "value": "={{ $json[\"installments\"] }}"
+            },
+            {
+              "name": "valor",
+              "value": "={{ $json[\"value\"] }}"
+            },
+            {
+              "name": "Plataforma",
+              "value": "Green"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fd9ecea7-0b8b-4588-9187-bd3ef72982c0",
+      "name": "cria_ou_atualiza_contato_na_clint5",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        460,
+        1600
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/11670076-3490-41b9-9736-f79d0c54b5d7",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $json[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $json[\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"cpf/cnpj\"] }}"
+            },
+            {
+              "name": "produto",
+              "value": "={{ $json[\"nome_produto\"] }}"
+            },
+            {
+              "name": "metodo_pagamento",
+              "value": "={{ $json[\"payment_method\"] }}"
+            },
+            {
+              "name": "parcelas",
+              "value": "={{ $json[\"installments\"] }}"
+            },
+            {
+              "name": "valor",
+              "value": "={{ $json[\"value\"] }}"
+            },
+            {
+              "name": "Plataforma",
+              "value": "Green"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b66243b2-77a5-494b-ae55-46f4745c9768",
+      "name": "cria_ou_atualiza_contato_na_clint6",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        460,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/3229369f-e5c1-4527-a67e-f7913229c88a",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $json[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $json[\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"cpf/cnpj\"] }}"
+            },
+            {
+              "name": "produto",
+              "value": "={{ $json[\"nome_produto\"] }}"
+            },
+            {
+              "name": "metodo_pagamento",
+              "value": "={{ $json[\"payment_method\"] }}"
+            },
+            {
+              "name": "parcelas",
+              "value": "={{ $json[\"installments\"] }}"
+            },
+            {
+              "name": "valor",
+              "value": "={{ $json[\"value\"] }}"
+            },
+            {
+              "name": "Plataforma",
+              "value": "Green"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6169d82b-a884-4441-9256-944c7d81340a",
+      "name": "cria_ou_atualiza_contato_na_clint7",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        460,
+        1060
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"name\"]\n  .split(\" \")\n  .map(name => {\n    const lowercaseWords = [\"de\", \"dos\", \"da\", \"das\", \"do\", \"ao\", \"aos\"];\n    return lowercaseWords.includes(name.toLowerCase()) ? name.toLowerCase() : name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();\n  })\n  .join(\" \")}}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return '+' + telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "nome_produto",
+              "value": "={{ $json[\"body\"][\"product\"][\"name\"] }}"
+            },
+            {
+              "name": "transaction_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"id\"] }}"
+            },
+            {
+              "name": "product_id",
+              "value": "={{ $json[\"body\"][\"product\"][\"id\"] }}"
+            },
+            {
+              "name": "value",
+              "value": "={{ $json[\"body\"][\"product\"][\"amount\"] }}"
+            },
+            {
+              "name": "offer_code",
+              "value": "={{ $json[\"body\"][\"offer\"][\"hash\"] }}"
+            },
+            {
+              "name": "payment_method",
+              "value": "={{ $json[\"body\"][\"sale\"][\"method\"] }}"
+            },
+            {
+              "name": "trans_status",
+              "value": "={{ $json[\"body\"][\"sale\"][\"status\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"created_at\"].slice (0,10) }}"
+            },
+            {
+              "name": "warranty_date",
+              "value": "={{ $json[\"body\"][\"product\"][\"period\"] }}"
+            },
+            {
+              "name": "installments",
+              "value": "={{ $json[\"body\"][\"sale\"][\"installments\"] }}"
+            },
+            {
+              "name": "ddd",
+              "value": "={{ $json[\"body\"][\"client\"][\"cellphone\"].slice (3,5) }}"
+            },
+            {
+              "name": "cep",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "="
+            },
+            {
+              "name": "utm_campaign",
+              "value": "="
+            },
+            {
+              "name": "utm_medium",
+              "value": "="
+            },
+            {
+              "name": "utm_content",
+              "value": "="
+            },
+            {
+              "name": "utm_term",
+              "value": "="
+            },
+            {
+              "name": "gateway_comission",
+              "value": "={{ $json[\"body\"][\"sale\"][\"fee\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"updated_at\"] ? $json[\"body\"][\"sale\"][\"updated_at\"].slice(8,10) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(5,7) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(0,4) + ' ' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(11,16) : ''}}"
+            },
+            {
+              "name": "client_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"client_id\"] }}"
+            },
+            {
+              "name": "seller_balance",
+              "value": "={{ $json[\"body\"][\"sale\"][\"seller_balance\"] }}"
+            },
+            {
+              "name": "warrant_date",
+              "value": "={{ \n  (() => {\n    const updatedAt = $json[\"body\"][\"sale\"][\"updated_at\"];\n    if (!updatedAt) {\n      return '';\n    }\n    \n    const dateObj = new Date(updatedAt);\n    const daysToAdd = 7; // ou -7 para subtrair\n    const newDate = new Date(dateObj);\n    newDate.setDate(newDate.getDate() + daysToAdd);\n    return newDate.toLocaleDateString('pt-BR');\n  })() \n}}"
+            },
+            {
+              "name": "code_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "qrcode_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"imgQrcode\"] }}"
+            },
+            {
+              "name": "zipcode",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "street",
+              "value": "={{ $json[\"body\"][\"client\"][\"street\"] }}"
+            },
+            {
+              "name": "number",
+              "value": "={{ $json[\"body\"][\"client\"][\"number\"] }}"
+            },
+            {
+              "name": "complement",
+              "value": "={{ $json[\"body\"][\"client\"][\"complement\"] }}"
+            },
+            {
+              "name": "neighborhood",
+              "value": "={{ $json[\"body\"][\"client\"][\"neighborhood\"] }}"
+            },
+            {
+              "name": "city",
+              "value": "={{ $json[\"body\"][\"client\"][\"city\"] }}"
+            },
+            {
+              "name": "uf",
+              "value": "={{ $json[\"body\"][\"client\"][\"uf\"] }}"
+            },
+            {
+              "name": "cpf_cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "082a2a5d-d695-4550-8b86-a9d9b703e248"
+            },
+            {
+              "name": "id_campo_email_da_compra_bot_conversa",
+              "value": "1079928"
+            },
+            {
+              "name": "id_campo_cpf_cnpj_bot_conversa",
+              "value": "976438"
+            },
+            {
+              "name": "id_campo_id_da_transacao_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "id_fluxo_compra_aprovada"
+            },
+            {
+              "name": "id_campo_link_pagamento_pix_bot_conversa",
+              "value": "976440"
+            },
+            {
+              "name": "id_campo_link_pagamento_boleto_bot_conversa",
+              "value": "976442"
+            },
+            {
+              "name": "id_campo_linha_digitavel_boleto_bot_conversa",
+              "value": "976443"
+            },
+            {
+              "name": "id_campo_linha_digitavel_pix_bot_conversa",
+              "value": "976441"
+            },
+            {
+              "name": "currency",
+              "value": "BRL"
+            },
+            {
+              "name": "id_campo_id_da_compra_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "link_pagamento_boleto",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_url\"] }}"
+            },
+            {
+              "name": "link_pagamento_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1375549"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1146799"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1146796"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1146800"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1146795"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1146797"
+            },
+            {
+              "name": "linha_digitavel_boleto_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_barcode\"] }}"
+            },
+            {
+              "name": "linha_digitavel_pix_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "322255f9-12fc-4901-b1a8-49fd1325acb7",
+      "name": "dados_da_compra1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        240,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"name\"]\n  .split(\" \")\n  .map(name => {\n    const lowercaseWords = [\"de\", \"dos\", \"da\", \"das\", \"do\", \"ao\", \"aos\"];\n    return lowercaseWords.includes(name.toLowerCase()) ? name.toLowerCase() : name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();\n  })\n  .join(\" \")}}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return '+' + telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "nome_produto",
+              "value": "={{ $json[\"body\"][\"product\"][\"name\"] }}"
+            },
+            {
+              "name": "transaction_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"id\"] }}"
+            },
+            {
+              "name": "product_id",
+              "value": "={{ $json[\"body\"][\"product\"][\"id\"] }}"
+            },
+            {
+              "name": "value",
+              "value": "={{ $json[\"body\"][\"product\"][\"amount\"] }}"
+            },
+            {
+              "name": "offer_code",
+              "value": "={{ $json[\"body\"][\"offer\"][\"hash\"] }}"
+            },
+            {
+              "name": "payment_method",
+              "value": "={{ $json[\"body\"][\"sale\"][\"method\"] }}"
+            },
+            {
+              "name": "trans_status",
+              "value": "={{ $json[\"body\"][\"sale\"][\"status\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"created_at\"].slice (0,10) }}"
+            },
+            {
+              "name": "warranty_date",
+              "value": "={{ $json[\"body\"][\"product\"][\"period\"] }}"
+            },
+            {
+              "name": "installments",
+              "value": "={{ $json[\"body\"][\"sale\"][\"installments\"] }}"
+            },
+            {
+              "name": "ddd",
+              "value": "={{ $json[\"body\"][\"client\"][\"cellphone\"].slice (3,5) }}"
+            },
+            {
+              "name": "cep",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "="
+            },
+            {
+              "name": "utm_campaign",
+              "value": "="
+            },
+            {
+              "name": "utm_medium",
+              "value": "="
+            },
+            {
+              "name": "utm_content",
+              "value": "="
+            },
+            {
+              "name": "utm_term",
+              "value": "="
+            },
+            {
+              "name": "gateway_comission",
+              "value": "={{ $json[\"body\"][\"sale\"][\"fee\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"updated_at\"] ? $json[\"body\"][\"sale\"][\"updated_at\"].slice(8,10) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(5,7) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(0,4) + ' ' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(11,16) : ''}}"
+            },
+            {
+              "name": "client_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"client_id\"] }}"
+            },
+            {
+              "name": "seller_balance",
+              "value": "={{ $json[\"body\"][\"sale\"][\"seller_balance\"] }}"
+            },
+            {
+              "name": "warrant_date",
+              "value": "={{ \n  (() => {\n    const updatedAt = $json[\"body\"][\"sale\"][\"updated_at\"];\n    if (!updatedAt) {\n      return '';\n    }\n    \n    const dateObj = new Date(updatedAt);\n    const daysToAdd = 7; // ou -7 para subtrair\n    const newDate = new Date(dateObj);\n    newDate.setDate(newDate.getDate() + daysToAdd);\n    return newDate.toLocaleDateString('pt-BR');\n  })() \n}}"
+            },
+            {
+              "name": "code_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "qrcode_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"imgQrcode\"] }}"
+            },
+            {
+              "name": "zipcode",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "street",
+              "value": "={{ $json[\"body\"][\"client\"][\"street\"] }}"
+            },
+            {
+              "name": "number",
+              "value": "={{ $json[\"body\"][\"client\"][\"number\"] }}"
+            },
+            {
+              "name": "complement",
+              "value": "={{ $json[\"body\"][\"client\"][\"complement\"] }}"
+            },
+            {
+              "name": "neighborhood",
+              "value": "={{ $json[\"body\"][\"client\"][\"neighborhood\"] }}"
+            },
+            {
+              "name": "city",
+              "value": "={{ $json[\"body\"][\"client\"][\"city\"] }}"
+            },
+            {
+              "name": "uf",
+              "value": "={{ $json[\"body\"][\"client\"][\"uf\"] }}"
+            },
+            {
+              "name": "cpf_cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "082a2a5d-d695-4550-8b86-a9d9b703e248"
+            },
+            {
+              "name": "id_campo_email_da_compra_bot_conversa",
+              "value": "1079928"
+            },
+            {
+              "name": "id_campo_cpf_cnpj_bot_conversa",
+              "value": "976438"
+            },
+            {
+              "name": "id_campo_id_da_transacao_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "id_fluxo_compra_aprovada"
+            },
+            {
+              "name": "id_campo_link_pagamento_pix_bot_conversa",
+              "value": "976440"
+            },
+            {
+              "name": "id_campo_link_pagamento_boleto_bot_conversa",
+              "value": "976442"
+            },
+            {
+              "name": "id_campo_linha_digitavel_boleto_bot_conversa",
+              "value": "976443"
+            },
+            {
+              "name": "id_campo_linha_digitavel_pix_bot_conversa",
+              "value": "976441"
+            },
+            {
+              "name": "currency",
+              "value": "BRL"
+            },
+            {
+              "name": "id_campo_id_da_compra_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "link_pagamento_boleto",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_url\"] }}"
+            },
+            {
+              "name": "link_pagamento_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1375549"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1146799"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1146796"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1146800"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1146795"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1146797"
+            },
+            {
+              "name": "linha_digitavel_boleto_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_barcode\"] }}"
+            },
+            {
+              "name": "linha_digitavel_pix_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7ab47cd3-51a8-4f35-901e-12ed06708ef3",
+      "name": "dados_da_compra",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        240,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"name\"]\n  .split(\" \")\n  .map(name => {\n    const lowercaseWords = [\"de\", \"dos\", \"da\", \"das\", \"do\", \"ao\", \"aos\"];\n    return lowercaseWords.includes(name.toLowerCase()) ? name.toLowerCase() : name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();\n  })\n  .join(\" \")}}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return '+' + telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "nome_produto",
+              "value": "={{ $json[\"body\"][\"product\"][\"name\"] }}"
+            },
+            {
+              "name": "transaction_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"id\"] }}"
+            },
+            {
+              "name": "product_id",
+              "value": "={{ $json[\"body\"][\"product\"][\"id\"] }}"
+            },
+            {
+              "name": "value",
+              "value": "={{ $json[\"body\"][\"product\"][\"amount\"] }}"
+            },
+            {
+              "name": "offer_code",
+              "value": "={{ $json[\"body\"][\"offer\"][\"hash\"] }}"
+            },
+            {
+              "name": "payment_method",
+              "value": "={{ $json[\"body\"][\"sale\"][\"method\"] }}"
+            },
+            {
+              "name": "trans_status",
+              "value": "={{ $json[\"body\"][\"sale\"][\"status\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"created_at\"].slice (0,10) }}"
+            },
+            {
+              "name": "warranty_date",
+              "value": "={{ $json[\"body\"][\"product\"][\"period\"] }}"
+            },
+            {
+              "name": "installments",
+              "value": "={{ $json[\"body\"][\"sale\"][\"installments\"] }}"
+            },
+            {
+              "name": "ddd",
+              "value": "={{ $json[\"body\"][\"client\"][\"cellphone\"].slice (3,5) }}"
+            },
+            {
+              "name": "cep",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "="
+            },
+            {
+              "name": "utm_campaign",
+              "value": "="
+            },
+            {
+              "name": "utm_medium",
+              "value": "="
+            },
+            {
+              "name": "utm_content",
+              "value": "="
+            },
+            {
+              "name": "utm_term",
+              "value": "="
+            },
+            {
+              "name": "gateway_comission",
+              "value": "={{ $json[\"body\"][\"sale\"][\"fee\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"updated_at\"] ? $json[\"body\"][\"sale\"][\"updated_at\"].slice(8,10) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(5,7) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(0,4) + ' ' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(11,16) : ''}}"
+            },
+            {
+              "name": "client_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"client_id\"] }}"
+            },
+            {
+              "name": "seller_balance",
+              "value": "={{ $json[\"body\"][\"sale\"][\"seller_balance\"] }}"
+            },
+            {
+              "name": "warrant_date",
+              "value": "={{ \n  (() => {\n    const updatedAt = $json[\"body\"][\"sale\"][\"updated_at\"];\n    if (!updatedAt) {\n      return '';\n    }\n    \n    const dateObj = new Date(updatedAt);\n    const daysToAdd = 7; // ou -7 para subtrair\n    const newDate = new Date(dateObj);\n    newDate.setDate(newDate.getDate() + daysToAdd);\n    return newDate.toLocaleDateString('pt-BR');\n  })() \n}}"
+            },
+            {
+              "name": "code_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "qrcode_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"imgQrcode\"] }}"
+            },
+            {
+              "name": "zipcode",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "street",
+              "value": "={{ $json[\"body\"][\"client\"][\"street\"] }}"
+            },
+            {
+              "name": "number",
+              "value": "={{ $json[\"body\"][\"client\"][\"number\"] }}"
+            },
+            {
+              "name": "complement",
+              "value": "={{ $json[\"body\"][\"client\"][\"complement\"] }}"
+            },
+            {
+              "name": "neighborhood",
+              "value": "={{ $json[\"body\"][\"client\"][\"neighborhood\"] }}"
+            },
+            {
+              "name": "city",
+              "value": "={{ $json[\"body\"][\"client\"][\"city\"] }}"
+            },
+            {
+              "name": "uf",
+              "value": "={{ $json[\"body\"][\"client\"][\"uf\"] }}"
+            },
+            {
+              "name": "cpf_cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "082a2a5d-d695-4550-8b86-a9d9b703e248"
+            },
+            {
+              "name": "id_campo_email_da_compra_bot_conversa",
+              "value": "1079928"
+            },
+            {
+              "name": "id_campo_cpf_cnpj_bot_conversa",
+              "value": "976438"
+            },
+            {
+              "name": "id_campo_id_da_transacao_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "id_fluxo_compra_aprovada"
+            },
+            {
+              "name": "id_campo_link_pagamento_pix_bot_conversa",
+              "value": "976440"
+            },
+            {
+              "name": "id_campo_link_pagamento_boleto_bot_conversa",
+              "value": "976442"
+            },
+            {
+              "name": "id_campo_linha_digitavel_boleto_bot_conversa",
+              "value": "976443"
+            },
+            {
+              "name": "id_campo_linha_digitavel_pix_bot_conversa",
+              "value": "976441"
+            },
+            {
+              "name": "currency",
+              "value": "BRL"
+            },
+            {
+              "name": "id_campo_id_da_compra_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "link_pagamento_boleto",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_url\"] }}"
+            },
+            {
+              "name": "link_pagamento_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1375549"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1146799"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1146796"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1146800"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1146795"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1146797"
+            },
+            {
+              "name": "linha_digitavel_boleto_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_barcode\"] }}"
+            },
+            {
+              "name": "linha_digitavel_pix_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "061888d5-e42a-47b4-9845-40a43c338305",
+      "name": "dados_da_compra2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        240,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"name\"]\n  .split(\" \")\n  .map(name => {\n    const lowercaseWords = [\"de\", \"dos\", \"da\", \"das\", \"do\", \"ao\", \"aos\"];\n    return lowercaseWords.includes(name.toLowerCase()) ? name.toLowerCase() : name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();\n  })\n  .join(\" \")}}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return '+' + telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "nome_produto",
+              "value": "={{ $json[\"body\"][\"product\"][\"name\"] }}"
+            },
+            {
+              "name": "transaction_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"id\"] }}"
+            },
+            {
+              "name": "product_id",
+              "value": "={{ $json[\"body\"][\"product\"][\"id\"] }}"
+            },
+            {
+              "name": "value",
+              "value": "={{ $json[\"body\"][\"product\"][\"amount\"] }}"
+            },
+            {
+              "name": "offer_code",
+              "value": "={{ $json[\"body\"][\"offer\"][\"hash\"] }}"
+            },
+            {
+              "name": "payment_method",
+              "value": "={{ $json[\"body\"][\"sale\"][\"method\"] }}"
+            },
+            {
+              "name": "trans_status",
+              "value": "={{ $json[\"body\"][\"sale\"][\"status\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"created_at\"].slice (0,10) }}"
+            },
+            {
+              "name": "warranty_date",
+              "value": "={{ $json[\"body\"][\"product\"][\"period\"] }}"
+            },
+            {
+              "name": "installments",
+              "value": "={{ $json[\"body\"][\"sale\"][\"installments\"] }}"
+            },
+            {
+              "name": "ddd",
+              "value": "={{ $json[\"body\"][\"client\"][\"cellphone\"].slice (3,5) }}"
+            },
+            {
+              "name": "cep",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "="
+            },
+            {
+              "name": "utm_campaign",
+              "value": "="
+            },
+            {
+              "name": "utm_medium",
+              "value": "="
+            },
+            {
+              "name": "utm_content",
+              "value": "="
+            },
+            {
+              "name": "utm_term",
+              "value": "="
+            },
+            {
+              "name": "gateway_comission",
+              "value": "={{ $json[\"body\"][\"sale\"][\"fee\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"updated_at\"] ? $json[\"body\"][\"sale\"][\"updated_at\"].slice(8,10) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(5,7) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(0,4) + ' ' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(11,16) : ''}}"
+            },
+            {
+              "name": "client_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"client_id\"] }}"
+            },
+            {
+              "name": "seller_balance",
+              "value": "={{ $json[\"body\"][\"sale\"][\"seller_balance\"] }}"
+            },
+            {
+              "name": "warrant_date",
+              "value": "={{ \n  (() => {\n    const updatedAt = $json[\"body\"][\"sale\"][\"updated_at\"];\n    if (!updatedAt) {\n      return '';\n    }\n    \n    const dateObj = new Date(updatedAt);\n    const daysToAdd = 7; // ou -7 para subtrair\n    const newDate = new Date(dateObj);\n    newDate.setDate(newDate.getDate() + daysToAdd);\n    return newDate.toLocaleDateString('pt-BR');\n  })() \n}}"
+            },
+            {
+              "name": "code_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "qrcode_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"imgQrcode\"] }}"
+            },
+            {
+              "name": "zipcode",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "street",
+              "value": "={{ $json[\"body\"][\"client\"][\"street\"] }}"
+            },
+            {
+              "name": "number",
+              "value": "={{ $json[\"body\"][\"client\"][\"number\"] }}"
+            },
+            {
+              "name": "complement",
+              "value": "={{ $json[\"body\"][\"client\"][\"complement\"] }}"
+            },
+            {
+              "name": "neighborhood",
+              "value": "={{ $json[\"body\"][\"client\"][\"neighborhood\"] }}"
+            },
+            {
+              "name": "city",
+              "value": "={{ $json[\"body\"][\"client\"][\"city\"] }}"
+            },
+            {
+              "name": "uf",
+              "value": "={{ $json[\"body\"][\"client\"][\"uf\"] }}"
+            },
+            {
+              "name": "cpf_cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "082a2a5d-d695-4550-8b86-a9d9b703e248"
+            },
+            {
+              "name": "id_campo_email_da_compra_bot_conversa",
+              "value": "1079928"
+            },
+            {
+              "name": "id_campo_cpf_cnpj_bot_conversa",
+              "value": "976438"
+            },
+            {
+              "name": "id_campo_id_da_transacao_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "id_fluxo_compra_aprovada"
+            },
+            {
+              "name": "id_campo_link_pagamento_pix_bot_conversa",
+              "value": "976440"
+            },
+            {
+              "name": "id_campo_link_pagamento_boleto_bot_conversa",
+              "value": "976442"
+            },
+            {
+              "name": "id_campo_linha_digitavel_boleto_bot_conversa",
+              "value": "976443"
+            },
+            {
+              "name": "id_campo_linha_digitavel_pix_bot_conversa",
+              "value": "976441"
+            },
+            {
+              "name": "currency",
+              "value": "BRL"
+            },
+            {
+              "name": "id_campo_id_da_compra_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "link_pagamento_boleto",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_url\"] }}"
+            },
+            {
+              "name": "link_pagamento_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1375549"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1146799"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1146796"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1146800"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1146795"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1146797"
+            },
+            {
+              "name": "linha_digitavel_boleto_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_barcode\"] }}"
+            },
+            {
+              "name": "linha_digitavel_pix_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ee568199-b139-40e6-bdf0-af339f9f7ad3",
+      "name": "dados_da_compra3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        240,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"name\"]\n  .split(\" \")\n  .map(name => {\n    const lowercaseWords = [\"de\", \"dos\", \"da\", \"das\", \"do\", \"ao\", \"aos\"];\n    return lowercaseWords.includes(name.toLowerCase()) ? name.toLowerCase() : name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();\n  })\n  .join(\" \")}}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return '+' + telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "nome_produto",
+              "value": "={{ $json[\"body\"][\"product\"][\"name\"] }}"
+            },
+            {
+              "name": "transaction_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"id\"] }}"
+            },
+            {
+              "name": "product_id",
+              "value": "={{ $json[\"body\"][\"product\"][\"id\"] }}"
+            },
+            {
+              "name": "value",
+              "value": "={{ $json[\"body\"][\"product\"][\"amount\"] }}"
+            },
+            {
+              "name": "offer_code",
+              "value": "={{ $json[\"body\"][\"offer\"][\"hash\"] }}"
+            },
+            {
+              "name": "payment_method",
+              "value": "={{ $json[\"body\"][\"sale\"][\"method\"] }}"
+            },
+            {
+              "name": "trans_status",
+              "value": "={{ $json[\"body\"][\"sale\"][\"status\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"created_at\"].slice (0,10) }}"
+            },
+            {
+              "name": "warranty_date",
+              "value": "={{ $json[\"body\"][\"product\"][\"period\"] }}"
+            },
+            {
+              "name": "installments",
+              "value": "={{ $json[\"body\"][\"sale\"][\"installments\"] }}"
+            },
+            {
+              "name": "ddd",
+              "value": "={{ $json[\"body\"][\"client\"][\"cellphone\"].slice (3,5) }}"
+            },
+            {
+              "name": "cep",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "="
+            },
+            {
+              "name": "utm_campaign",
+              "value": "="
+            },
+            {
+              "name": "utm_medium",
+              "value": "="
+            },
+            {
+              "name": "utm_content",
+              "value": "="
+            },
+            {
+              "name": "utm_term",
+              "value": "="
+            },
+            {
+              "name": "gateway_comission",
+              "value": "={{ $json[\"body\"][\"sale\"][\"fee\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"updated_at\"] ? $json[\"body\"][\"sale\"][\"updated_at\"].slice(8,10) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(5,7) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(0,4) + ' ' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(11,16) : ''}}"
+            },
+            {
+              "name": "client_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"client_id\"] }}"
+            },
+            {
+              "name": "seller_balance",
+              "value": "={{ $json[\"body\"][\"sale\"][\"seller_balance\"] }}"
+            },
+            {
+              "name": "warrant_date",
+              "value": "={{ \n  (() => {\n    const updatedAt = $json[\"body\"][\"sale\"][\"updated_at\"];\n    if (!updatedAt) {\n      return '';\n    }\n    \n    const dateObj = new Date(updatedAt);\n    const daysToAdd = 7; // ou -7 para subtrair\n    const newDate = new Date(dateObj);\n    newDate.setDate(newDate.getDate() + daysToAdd);\n    return newDate.toLocaleDateString('pt-BR');\n  })() \n}}"
+            },
+            {
+              "name": "code_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "qrcode_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"imgQrcode\"] }}"
+            },
+            {
+              "name": "zipcode",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "street",
+              "value": "={{ $json[\"body\"][\"client\"][\"street\"] }}"
+            },
+            {
+              "name": "number",
+              "value": "={{ $json[\"body\"][\"client\"][\"number\"] }}"
+            },
+            {
+              "name": "complement",
+              "value": "={{ $json[\"body\"][\"client\"][\"complement\"] }}"
+            },
+            {
+              "name": "neighborhood",
+              "value": "={{ $json[\"body\"][\"client\"][\"neighborhood\"] }}"
+            },
+            {
+              "name": "city",
+              "value": "={{ $json[\"body\"][\"client\"][\"city\"] }}"
+            },
+            {
+              "name": "uf",
+              "value": "={{ $json[\"body\"][\"client\"][\"uf\"] }}"
+            },
+            {
+              "name": "cpf_cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "082a2a5d-d695-4550-8b86-a9d9b703e248"
+            },
+            {
+              "name": "id_campo_email_da_compra_bot_conversa",
+              "value": "1079928"
+            },
+            {
+              "name": "id_campo_cpf_cnpj_bot_conversa",
+              "value": "976438"
+            },
+            {
+              "name": "id_campo_id_da_transacao_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "id_fluxo_compra_aprovada"
+            },
+            {
+              "name": "id_campo_link_pagamento_pix_bot_conversa",
+              "value": "976440"
+            },
+            {
+              "name": "id_campo_link_pagamento_boleto_bot_conversa",
+              "value": "976442"
+            },
+            {
+              "name": "id_campo_linha_digitavel_boleto_bot_conversa",
+              "value": "976443"
+            },
+            {
+              "name": "id_campo_linha_digitavel_pix_bot_conversa",
+              "value": "976441"
+            },
+            {
+              "name": "currency",
+              "value": "BRL"
+            },
+            {
+              "name": "id_campo_id_da_compra_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "link_pagamento_boleto",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_url\"] }}"
+            },
+            {
+              "name": "link_pagamento_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1375549"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1146799"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1146796"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1146800"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1146795"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1146797"
+            },
+            {
+              "name": "linha_digitavel_boleto_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_barcode\"] }}"
+            },
+            {
+              "name": "linha_digitavel_pix_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e0fbd6a2-571c-4944-990b-40a4b576aab7",
+      "name": "dados_da_compra4",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        240,
+        1060
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"name\"]\n  .split(\" \")\n  .map(name => {\n    const lowercaseWords = [\"de\", \"dos\", \"da\", \"das\", \"do\", \"ao\", \"aos\"];\n    return lowercaseWords.includes(name.toLowerCase()) ? name.toLowerCase() : name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();\n  })\n  .join(\" \")}}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return '+' + telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "nome_produto",
+              "value": "={{ $json[\"body\"][\"product\"][\"name\"] }}"
+            },
+            {
+              "name": "transaction_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"id\"] }}"
+            },
+            {
+              "name": "product_id",
+              "value": "={{ $json[\"body\"][\"product\"][\"id\"] }}"
+            },
+            {
+              "name": "value",
+              "value": "={{ $json[\"body\"][\"product\"][\"amount\"] }}"
+            },
+            {
+              "name": "offer_code",
+              "value": "={{ $json[\"body\"][\"offer\"][\"hash\"] }}"
+            },
+            {
+              "name": "payment_method",
+              "value": "={{ $json[\"body\"][\"sale\"][\"method\"] }}"
+            },
+            {
+              "name": "trans_status",
+              "value": "={{ $json[\"body\"][\"sale\"][\"status\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"created_at\"].slice (0,10) }}"
+            },
+            {
+              "name": "warranty_date",
+              "value": "={{ $json[\"body\"][\"product\"][\"period\"] }}"
+            },
+            {
+              "name": "installments",
+              "value": "={{ $json[\"body\"][\"sale\"][\"installments\"] }}"
+            },
+            {
+              "name": "ddd",
+              "value": "={{ $json[\"body\"][\"client\"][\"cellphone\"].slice (3,5) }}"
+            },
+            {
+              "name": "cep",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "="
+            },
+            {
+              "name": "utm_campaign",
+              "value": "="
+            },
+            {
+              "name": "utm_medium",
+              "value": "="
+            },
+            {
+              "name": "utm_content",
+              "value": "="
+            },
+            {
+              "name": "utm_term",
+              "value": "="
+            },
+            {
+              "name": "gateway_comission",
+              "value": "={{ $json[\"body\"][\"sale\"][\"fee\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"updated_at\"] ? $json[\"body\"][\"sale\"][\"updated_at\"].slice(8,10) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(5,7) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(0,4) + ' ' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(11,16) : ''}}"
+            },
+            {
+              "name": "client_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"client_id\"] }}"
+            },
+            {
+              "name": "seller_balance",
+              "value": "={{ $json[\"body\"][\"sale\"][\"seller_balance\"] }}"
+            },
+            {
+              "name": "warrant_date",
+              "value": "={{ \n  (() => {\n    const updatedAt = $json[\"body\"][\"sale\"][\"updated_at\"];\n    if (!updatedAt) {\n      return '';\n    }\n    \n    const dateObj = new Date(updatedAt);\n    const daysToAdd = 7; // ou -7 para subtrair\n    const newDate = new Date(dateObj);\n    newDate.setDate(newDate.getDate() + daysToAdd);\n    return newDate.toLocaleDateString('pt-BR');\n  })() \n}}"
+            },
+            {
+              "name": "code_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "qrcode_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"imgQrcode\"] }}"
+            },
+            {
+              "name": "zipcode",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "street",
+              "value": "={{ $json[\"body\"][\"client\"][\"street\"] }}"
+            },
+            {
+              "name": "number",
+              "value": "={{ $json[\"body\"][\"client\"][\"number\"] }}"
+            },
+            {
+              "name": "complement",
+              "value": "={{ $json[\"body\"][\"client\"][\"complement\"] }}"
+            },
+            {
+              "name": "neighborhood",
+              "value": "={{ $json[\"body\"][\"client\"][\"neighborhood\"] }}"
+            },
+            {
+              "name": "city",
+              "value": "={{ $json[\"body\"][\"client\"][\"city\"] }}"
+            },
+            {
+              "name": "uf",
+              "value": "={{ $json[\"body\"][\"client\"][\"uf\"] }}"
+            },
+            {
+              "name": "cpf_cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "082a2a5d-d695-4550-8b86-a9d9b703e248"
+            },
+            {
+              "name": "id_campo_email_da_compra_bot_conversa",
+              "value": "1079928"
+            },
+            {
+              "name": "id_campo_cpf_cnpj_bot_conversa",
+              "value": "976438"
+            },
+            {
+              "name": "id_campo_id_da_transacao_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "id_fluxo_compra_aprovada"
+            },
+            {
+              "name": "id_campo_link_pagamento_pix_bot_conversa",
+              "value": "976440"
+            },
+            {
+              "name": "id_campo_link_pagamento_boleto_bot_conversa",
+              "value": "976442"
+            },
+            {
+              "name": "id_campo_linha_digitavel_boleto_bot_conversa",
+              "value": "976443"
+            },
+            {
+              "name": "id_campo_linha_digitavel_pix_bot_conversa",
+              "value": "976441"
+            },
+            {
+              "name": "currency",
+              "value": "BRL"
+            },
+            {
+              "name": "id_campo_id_da_compra_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "link_pagamento_boleto",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_url\"] }}"
+            },
+            {
+              "name": "link_pagamento_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1375549"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1146799"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1146796"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1146800"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1146795"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1146797"
+            },
+            {
+              "name": "linha_digitavel_boleto_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_barcode\"] }}"
+            },
+            {
+              "name": "linha_digitavel_pix_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cb88787d-8c05-478d-9863-5ba0ada2d25b",
+      "name": "dados_da_compra5",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        240,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"name\"]\n  .split(\" \")\n  .map(name => {\n    const lowercaseWords = [\"de\", \"dos\", \"da\", \"das\", \"do\", \"ao\", \"aos\"];\n    return lowercaseWords.includes(name.toLowerCase()) ? name.toLowerCase() : name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();\n  })\n  .join(\" \")}}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return '+' + telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "nome_produto",
+              "value": "={{ $json[\"body\"][\"product\"][\"name\"] }}"
+            },
+            {
+              "name": "transaction_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"id\"] }}"
+            },
+            {
+              "name": "product_id",
+              "value": "={{ $json[\"body\"][\"product\"][\"id\"] }}"
+            },
+            {
+              "name": "value",
+              "value": "={{ $json[\"body\"][\"product\"][\"amount\"] }}"
+            },
+            {
+              "name": "offer_code",
+              "value": "={{ $json[\"body\"][\"offer\"][\"hash\"] }}"
+            },
+            {
+              "name": "payment_method",
+              "value": "={{ $json[\"body\"][\"sale\"][\"method\"] }}"
+            },
+            {
+              "name": "trans_status",
+              "value": "={{ $json[\"body\"][\"sale\"][\"status\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"created_at\"].slice (0,10) }}"
+            },
+            {
+              "name": "warranty_date",
+              "value": "={{ $json[\"body\"][\"product\"][\"period\"] }}"
+            },
+            {
+              "name": "installments",
+              "value": "={{ $json[\"body\"][\"sale\"][\"installments\"] }}"
+            },
+            {
+              "name": "ddd",
+              "value": "={{ $json[\"body\"][\"client\"][\"cellphone\"].slice (3,5) }}"
+            },
+            {
+              "name": "cep",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "="
+            },
+            {
+              "name": "utm_campaign",
+              "value": "="
+            },
+            {
+              "name": "utm_medium",
+              "value": "="
+            },
+            {
+              "name": "utm_content",
+              "value": "="
+            },
+            {
+              "name": "utm_term",
+              "value": "="
+            },
+            {
+              "name": "gateway_comission",
+              "value": "={{ $json[\"body\"][\"sale\"][\"fee\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"updated_at\"] ? $json[\"body\"][\"sale\"][\"updated_at\"].slice(8,10) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(5,7) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(0,4) + ' ' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(11,16) : ''}}"
+            },
+            {
+              "name": "client_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"client_id\"] }}"
+            },
+            {
+              "name": "seller_balance",
+              "value": "={{ $json[\"body\"][\"sale\"][\"seller_balance\"] }}"
+            },
+            {
+              "name": "warrant_date",
+              "value": "={{ \n  (() => {\n    const updatedAt = $json[\"body\"][\"sale\"][\"updated_at\"];\n    if (!updatedAt) {\n      return '';\n    }\n    \n    const dateObj = new Date(updatedAt);\n    const daysToAdd = 7; // ou -7 para subtrair\n    const newDate = new Date(dateObj);\n    newDate.setDate(newDate.getDate() + daysToAdd);\n    return newDate.toLocaleDateString('pt-BR');\n  })() \n}}"
+            },
+            {
+              "name": "code_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "qrcode_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"imgQrcode\"] }}"
+            },
+            {
+              "name": "zipcode",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "street",
+              "value": "={{ $json[\"body\"][\"client\"][\"street\"] }}"
+            },
+            {
+              "name": "number",
+              "value": "={{ $json[\"body\"][\"client\"][\"number\"] }}"
+            },
+            {
+              "name": "complement",
+              "value": "={{ $json[\"body\"][\"client\"][\"complement\"] }}"
+            },
+            {
+              "name": "neighborhood",
+              "value": "={{ $json[\"body\"][\"client\"][\"neighborhood\"] }}"
+            },
+            {
+              "name": "city",
+              "value": "={{ $json[\"body\"][\"client\"][\"city\"] }}"
+            },
+            {
+              "name": "uf",
+              "value": "={{ $json[\"body\"][\"client\"][\"uf\"] }}"
+            },
+            {
+              "name": "cpf_cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "082a2a5d-d695-4550-8b86-a9d9b703e248"
+            },
+            {
+              "name": "id_campo_email_da_compra_bot_conversa",
+              "value": "1079928"
+            },
+            {
+              "name": "id_campo_cpf_cnpj_bot_conversa",
+              "value": "976438"
+            },
+            {
+              "name": "id_campo_id_da_transacao_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "id_fluxo_compra_aprovada"
+            },
+            {
+              "name": "id_campo_link_pagamento_pix_bot_conversa",
+              "value": "976440"
+            },
+            {
+              "name": "id_campo_link_pagamento_boleto_bot_conversa",
+              "value": "976442"
+            },
+            {
+              "name": "id_campo_linha_digitavel_boleto_bot_conversa",
+              "value": "976443"
+            },
+            {
+              "name": "id_campo_linha_digitavel_pix_bot_conversa",
+              "value": "976441"
+            },
+            {
+              "name": "currency",
+              "value": "BRL"
+            },
+            {
+              "name": "id_campo_id_da_compra_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "link_pagamento_boleto",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_url\"] }}"
+            },
+            {
+              "name": "link_pagamento_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1375549"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1146799"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1146796"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1146800"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1146795"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1146797"
+            },
+            {
+              "name": "linha_digitavel_boleto_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_barcode\"] }}"
+            },
+            {
+              "name": "linha_digitavel_pix_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "35dbee63-5718-437e-ae5f-1ea965d77ad6",
+      "name": "dados_da_compra6",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        240,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"name\"]\n  .split(\" \")\n  .map(name => {\n    const lowercaseWords = [\"de\", \"dos\", \"da\", \"das\", \"do\", \"ao\", \"aos\"];\n    return lowercaseWords.includes(name.toLowerCase()) ? name.toLowerCase() : name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();\n  })\n  .join(\" \")}}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $json[\"body\"][\"client\"][\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return '+' + telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "nome_produto",
+              "value": "={{ $json[\"body\"][\"product\"][\"name\"] }}"
+            },
+            {
+              "name": "transaction_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"id\"] }}"
+            },
+            {
+              "name": "product_id",
+              "value": "={{ $json[\"body\"][\"product\"][\"id\"] }}"
+            },
+            {
+              "name": "value",
+              "value": "={{ $json[\"body\"][\"product\"][\"amount\"] }}"
+            },
+            {
+              "name": "offer_code",
+              "value": "={{ $json[\"body\"][\"offer\"][\"hash\"] }}"
+            },
+            {
+              "name": "payment_method",
+              "value": "={{ $json[\"body\"][\"sale\"][\"method\"] }}"
+            },
+            {
+              "name": "trans_status",
+              "value": "={{ $json[\"body\"][\"sale\"][\"status\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"created_at\"].slice (0,10) }}"
+            },
+            {
+              "name": "warranty_date",
+              "value": "={{ $json[\"body\"][\"product\"][\"period\"] }}"
+            },
+            {
+              "name": "installments",
+              "value": "={{ $json[\"body\"][\"sale\"][\"installments\"] }}"
+            },
+            {
+              "name": "ddd",
+              "value": "={{ $json[\"body\"][\"client\"][\"cellphone\"].slice (3,5) }}"
+            },
+            {
+              "name": "cep",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "="
+            },
+            {
+              "name": "utm_campaign",
+              "value": "="
+            },
+            {
+              "name": "utm_medium",
+              "value": "="
+            },
+            {
+              "name": "utm_content",
+              "value": "="
+            },
+            {
+              "name": "utm_term",
+              "value": "="
+            },
+            {
+              "name": "gateway_comission",
+              "value": "={{ $json[\"body\"][\"sale\"][\"fee\"] }}"
+            },
+            {
+              "name": "conversion_date",
+              "value": "={{ $json[\"body\"][\"sale\"][\"updated_at\"] ? $json[\"body\"][\"sale\"][\"updated_at\"].slice(8,10) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(5,7) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(0,4) + ' ' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(11,16) : ''}}"
+            },
+            {
+              "name": "client_id",
+              "value": "={{ $json[\"body\"][\"sale\"][\"client_id\"] }}"
+            },
+            {
+              "name": "seller_balance",
+              "value": "={{ $json[\"body\"][\"sale\"][\"seller_balance\"] }}"
+            },
+            {
+              "name": "warrant_date",
+              "value": "={{ \n  (() => {\n    const updatedAt = $json[\"body\"][\"sale\"][\"updated_at\"];\n    if (!updatedAt) {\n      return '';\n    }\n    \n    const dateObj = new Date(updatedAt);\n    const daysToAdd = 7; // ou -7 para subtrair\n    const newDate = new Date(dateObj);\n    newDate.setDate(newDate.getDate() + daysToAdd);\n    return newDate.toLocaleDateString('pt-BR');\n  })() \n}}"
+            },
+            {
+              "name": "code_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "qrcode_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"imgQrcode\"] }}"
+            },
+            {
+              "name": "zipcode",
+              "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
+            },
+            {
+              "name": "street",
+              "value": "={{ $json[\"body\"][\"client\"][\"street\"] }}"
+            },
+            {
+              "name": "number",
+              "value": "={{ $json[\"body\"][\"client\"][\"number\"] }}"
+            },
+            {
+              "name": "complement",
+              "value": "={{ $json[\"body\"][\"client\"][\"complement\"] }}"
+            },
+            {
+              "name": "neighborhood",
+              "value": "={{ $json[\"body\"][\"client\"][\"neighborhood\"] }}"
+            },
+            {
+              "name": "city",
+              "value": "={{ $json[\"body\"][\"client\"][\"city\"] }}"
+            },
+            {
+              "name": "uf",
+              "value": "={{ $json[\"body\"][\"client\"][\"uf\"] }}"
+            },
+            {
+              "name": "cpf_cnpj",
+              "value": "={{ $json[\"body\"][\"client\"][\"cpf_cnpj\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return telefoneFormatado;\n  })() \n}}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "082a2a5d-d695-4550-8b86-a9d9b703e248"
+            },
+            {
+              "name": "id_campo_email_da_compra_bot_conversa",
+              "value": "1079928"
+            },
+            {
+              "name": "id_campo_cpf_cnpj_bot_conversa",
+              "value": "976438"
+            },
+            {
+              "name": "id_campo_id_da_transacao_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "id_fluxo_compra_aprovada"
+            },
+            {
+              "name": "id_campo_link_pagamento_pix_bot_conversa",
+              "value": "976440"
+            },
+            {
+              "name": "id_campo_link_pagamento_boleto_bot_conversa",
+              "value": "976442"
+            },
+            {
+              "name": "id_campo_linha_digitavel_boleto_bot_conversa",
+              "value": "976443"
+            },
+            {
+              "name": "id_campo_linha_digitavel_pix_bot_conversa",
+              "value": "976441"
+            },
+            {
+              "name": "currency",
+              "value": "BRL"
+            },
+            {
+              "name": "id_campo_id_da_compra_bot_conversa",
+              "value": "1079931"
+            },
+            {
+              "name": "link_pagamento_boleto",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_url\"] }}"
+            },
+            {
+              "name": "link_pagamento_pix",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1375549"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1146799"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1146796"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1146800"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1146795"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1146797"
+            },
+            {
+              "name": "linha_digitavel_boleto_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"boleto_barcode\"] }}"
+            },
+            {
+              "name": "linha_digitavel_pix_bot_conversa",
+              "value": "={{ $json[\"body\"][\"sale\"][\"qrcode\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a80b9e55-cf95-462f-9234-c25a1f5eefa2",
+      "name": "dados_da_compra7",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        240,
+        1600
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "compra-cancelada",
+        "options": {}
+      },
+      "id": "08e8b35c-7334-4e0d-a796-850dfd11bf74",
+      "name": "compra-cancelada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        40,
+        340
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "venda-nao-paga",
+        "options": {}
+      },
+      "id": "5df719c7-406e-46bc-8926-68f1bc118805",
+      "name": "venda-nao-paga",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        40,
+        520
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aguardando_pagamento",
+        "options": {}
+      },
+      "id": "5f2b1f49-82a0-45fd-98ad-db78ca902ad6",
+      "name": "aguardando_pagamento",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        40,
+        700
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "venda-recusada",
+        "options": {}
+      },
+      "id": "f78d1352-b89f-4bc0-8a4a-3d90b93f8829",
+      "name": "venda-recusada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        40,
+        880
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "Chargeback-realizado",
+        "options": {}
+      },
+      "id": "96fcfb21-1cda-460c-b790-7d9e4db0f417",
+      "name": "Chargeback-realizado",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        40,
+        1060
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "compra-aprovada",
+        "options": {}
+      },
+      "id": "d70261f1-3ca6-423b-b524-293c9254e422",
+      "name": "compra_aprovada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        40,
+        1600
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "Venda-Reembolsada",
+        "options": {}
+      },
+      "id": "32fdd3fb-8d56-46e2-adde-5581f656e22d",
+      "name": "Venda-Reembolsada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        40,
+        1240
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "assinatura-finalizada",
+        "options": {}
+      },
+      "id": "3a6b3fd0-a249-435a-bd7a-371c208d42c2",
+      "name": "assinatura-finalizada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        40,
+        1420
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+    }
+  ],
+  "pinData": {
+    "venda-nao-paga": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookactionexperts.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "8586",
+            "content-type": "application/json",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "n8nwebhookactionexperts.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "51eebaed8393",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$YkzSpsQgoK5vza1DJbBAie0UYMhPINVKWRB3rvl8R/cCVt5MR9OSa",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "sale",
+            "event": "saleUpdated",
+            "oldStatus": "paid",
+            "currentStatus": "paid",
+            "sale": {
+              "id": 2653277,
+              "type": "TRANSACTION",
+              "status": "paid",
+              "created_at": "2024-06-05T21:54:53.000000Z",
+              "updated_at": "2024-06-05T21:59:14.000000Z",
+              "seller_id": 165027,
+              "installments": 1,
+              "method": "PIX",
+              "client_id": 1707108,
+              "fee": 228.31,
+              "seller_balance": 4921.82,
+              "total": 5697,
+              "amount": 5697,
+              "proposal_id": null,
+              "subscription_id": null,
+              "boleto_url": null,
+              "boleto_barcode": null,
+              "boleto_expiration_date": null,
+              "qrcode": "00020126580014br.gov.bcb.pix013633d77803-b7c5-4afa-b373-2cfea60f3c9d52040000530398654075697.005802BR5918GDGD202207181520456009Sao Paulo62240520mpqrinter798717867126304AC33",
+              "imgQrcode": "data:image/png;base64,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",
+              "paid_at": "2024-06-05T21:59:01.000000Z",
+              "bump_id": null,
+              "is_smart_sale": 0,
+              "shipping_amount": null,
+              "shipping_selected": null,
+              "coupon": null
+            },
+            "client": {
+              "id": 1707108,
+              "name": "Diego Ferreira Pacatuba",
+              "email": "diegopacatuba@hotmail.com",
+              "cellphone": "+5521979949009",
+              "document": "107.810.477-81",
+              "zipcode": "29173-025",
+              "street": "Rua Jacarandá",
+              "number": "75",
+              "complement": "Casa",
+              "neighborhood": "Manguinhos",
+              "city": "Serra",
+              "uf": "ES",
+              "created_at": "2024-06-05T21:54:53.000000Z",
+              "updated_at": "2024-06-05T21:54:53.000000Z",
+              "document_type": "cpf",
+              "cpf_cnpj": "107.810.477-81"
+            },
+            "product": {
+              "id": 13109,
+              "name": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+              "description": "NOS PRÓXIMOS 4 MESES, IREI TE AJUDAR A CONSTRUIR UMA OPERAÇÃO DE DROPSHIPPING QUE FATURA 7 DÍGITOS POR MÊS, COM UMA ALTA MARGEM DE LUCRO!\n\nNÃO EXISTE NENHUMA MENTORIA QUE ENTREGUE TANTO COMO A HACKEANDO O DROP!\nEsse não é mais um dos cursos que você compra e depois não tem suporte… essa é uma Mentoria de acompanhamento contínuo e de perto, diretamente comigo e com a minha equipe.\n\nNós estamos 100% comprometidos a pegar na sua mão e levar o seu negócio aos 7 dígitos de faturamento/ mês!\n\nE o investimento para ingressar nessa mentoria é totalmente irrisório, perto do retorno em DINHEIRO que entrará no seu bolso, TODO MÊS!\n\nJá pensou ter uma operação que fatura 1 milhão de reais mensalmente?\n\nE ter de 25% a 40% de LUCRO LÍQUIDO no seu BOLSO - Ou seja, de R$250.000,00 a R$400.000,00 limpo na sua conta!",
+              "type": "TRANSACTION",
+              "amount": 5697,
+              "period": 30,
+              "thank_you_page": null,
+              "created_at": "2024-04-22T14:48:14.000000Z",
+              "updated_at": "2024-04-22T14:48:14.000000Z",
+              "method": "CREDIT_CARD,TWO_CREDIT_CARDS,PIX",
+              "url_callback": null,
+              "trial": null,
+              "proposal_minimum": 0,
+              "allow_proposal": 1,
+              "affiliation_approbation": 0,
+              "affiliation_public": 1,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 0,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null
+            },
+            "oferta": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+            "offer": {
+              "hash": "kMM11C",
+              "amount": 5697,
+              "method": "CREDIT_CARD,TWO_CREDIT_CARDS,PIX",
+              "name": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+              "created_at": "2024-04-22T14:48:14.000000Z"
+            },
+            "seller": {
+              "id": 165027,
+              "name": "Renato Brzozowski ",
+              "email": "mentoreiagora@gmail.com",
+              "cellphone": "(45) 99851-6767"
+            },
+            "affiliate": {
+              "id": 543180,
+              "name": "Pedro Henrique Da Silva Harmel",
+              "email": "pedronegociosdigital@gmail.com",
+              "cellphone": "+554196013799"
+            },
+            "productMetas": [],
+            "proposalMetas": [],
+            "saleMetas": [
+              {
+                "id": 6973238,
+                "sale_id": 2653277,
+                "meta_key": "a_id",
+                "meta_value": "543180",
+                "created_at": "2024-06-05T21:54:53.000000Z",
+                "updated_at": "2024-06-05T21:54:53.000000Z"
+              }
+            ],
+            "sf_trk": null,
+            "client_has_contract_id": null
+          },
+          "webhookUrl": "https://n8nwebhookactionexperts.automagicbots.com.br/webhook/compra-aprovada-HD-4meses",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "aguardando_pagamento": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookactionexperts.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "8586",
+            "content-type": "application/json",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "n8nwebhookactionexperts.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "51eebaed8393",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$YkzSpsQgoK5vza1DJbBAie0UYMhPINVKWRB3rvl8R/cCVt5MR9OSa",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "sale",
+            "event": "saleUpdated",
+            "oldStatus": "paid",
+            "currentStatus": "paid",
+            "sale": {
+              "id": 2653277,
+              "type": "TRANSACTION",
+              "status": "paid",
+              "created_at": "2024-06-05T21:54:53.000000Z",
+              "updated_at": "2024-06-05T21:59:14.000000Z",
+              "seller_id": 165027,
+              "installments": 1,
+              "method": "PIX",
+              "client_id": 1707108,
+              "fee": 228.31,
+              "seller_balance": 4921.82,
+              "total": 5697,
+              "amount": 5697,
+              "proposal_id": null,
+              "subscription_id": null,
+              "boleto_url": null,
+              "boleto_barcode": null,
+              "boleto_expiration_date": null,
+              "qrcode": "00020126580014br.gov.bcb.pix013633d77803-b7c5-4afa-b373-2cfea60f3c9d52040000530398654075697.005802BR5918GDGD202207181520456009Sao Paulo62240520mpqrinter798717867126304AC33",
+              "imgQrcode": "data:image/png;base64,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",
+              "paid_at": "2024-06-05T21:59:01.000000Z",
+              "bump_id": null,
+              "is_smart_sale": 0,
+              "shipping_amount": null,
+              "shipping_selected": null,
+              "coupon": null
+            },
+            "client": {
+              "id": 1707108,
+              "name": "Diego Ferreira Pacatuba",
+              "email": "diegopacatuba@hotmail.com",
+              "cellphone": "+5521979949009",
+              "document": "107.810.477-81",
+              "zipcode": "29173-025",
+              "street": "Rua Jacarandá",
+              "number": "75",
+              "complement": "Casa",
+              "neighborhood": "Manguinhos",
+              "city": "Serra",
+              "uf": "ES",
+              "created_at": "2024-06-05T21:54:53.000000Z",
+              "updated_at": "2024-06-05T21:54:53.000000Z",
+              "document_type": "cpf",
+              "cpf_cnpj": "107.810.477-81"
+            },
+            "product": {
+              "id": 13109,
+              "name": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+              "description": "NOS PRÓXIMOS 4 MESES, IREI TE AJUDAR A CONSTRUIR UMA OPERAÇÃO DE DROPSHIPPING QUE FATURA 7 DÍGITOS POR MÊS, COM UMA ALTA MARGEM DE LUCRO!\n\nNÃO EXISTE NENHUMA MENTORIA QUE ENTREGUE TANTO COMO A HACKEANDO O DROP!\nEsse não é mais um dos cursos que você compra e depois não tem suporte… essa é uma Mentoria de acompanhamento contínuo e de perto, diretamente comigo e com a minha equipe.\n\nNós estamos 100% comprometidos a pegar na sua mão e levar o seu negócio aos 7 dígitos de faturamento/ mês!\n\nE o investimento para ingressar nessa mentoria é totalmente irrisório, perto do retorno em DINHEIRO que entrará no seu bolso, TODO MÊS!\n\nJá pensou ter uma operação que fatura 1 milhão de reais mensalmente?\n\nE ter de 25% a 40% de LUCRO LÍQUIDO no seu BOLSO - Ou seja, de R$250.000,00 a R$400.000,00 limpo na sua conta!",
+              "type": "TRANSACTION",
+              "amount": 5697,
+              "period": 30,
+              "thank_you_page": null,
+              "created_at": "2024-04-22T14:48:14.000000Z",
+              "updated_at": "2024-04-22T14:48:14.000000Z",
+              "method": "CREDIT_CARD,TWO_CREDIT_CARDS,PIX",
+              "url_callback": null,
+              "trial": null,
+              "proposal_minimum": 0,
+              "allow_proposal": 1,
+              "affiliation_approbation": 0,
+              "affiliation_public": 1,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 0,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null
+            },
+            "oferta": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+            "offer": {
+              "hash": "kMM11C",
+              "amount": 5697,
+              "method": "CREDIT_CARD,TWO_CREDIT_CARDS,PIX",
+              "name": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+              "created_at": "2024-04-22T14:48:14.000000Z"
+            },
+            "seller": {
+              "id": 165027,
+              "name": "Renato Brzozowski ",
+              "email": "mentoreiagora@gmail.com",
+              "cellphone": "(45) 99851-6767"
+            },
+            "affiliate": {
+              "id": 543180,
+              "name": "Pedro Henrique Da Silva Harmel",
+              "email": "pedronegociosdigital@gmail.com",
+              "cellphone": "+554196013799"
+            },
+            "productMetas": [],
+            "proposalMetas": [],
+            "saleMetas": [
+              {
+                "id": 6973238,
+                "sale_id": 2653277,
+                "meta_key": "a_id",
+                "meta_value": "543180",
+                "created_at": "2024-06-05T21:54:53.000000Z",
+                "updated_at": "2024-06-05T21:54:53.000000Z"
+              }
+            ],
+            "sf_trk": null,
+            "client_has_contract_id": null
+          },
+          "webhookUrl": "https://n8nwebhookactionexperts.automagicbots.com.br/webhook/compra-aprovada-HD-4meses",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "venda-recusada": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookactionexperts.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "8586",
+            "content-type": "application/json",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "n8nwebhookactionexperts.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "51eebaed8393",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$YkzSpsQgoK5vza1DJbBAie0UYMhPINVKWRB3rvl8R/cCVt5MR9OSa",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "sale",
+            "event": "saleUpdated",
+            "oldStatus": "paid",
+            "currentStatus": "paid",
+            "sale": {
+              "id": 2653277,
+              "type": "TRANSACTION",
+              "status": "paid",
+              "created_at": "2024-06-05T21:54:53.000000Z",
+              "updated_at": "2024-06-05T21:59:14.000000Z",
+              "seller_id": 165027,
+              "installments": 1,
+              "method": "PIX",
+              "client_id": 1707108,
+              "fee": 228.31,
+              "seller_balance": 4921.82,
+              "total": 5697,
+              "amount": 5697,
+              "proposal_id": null,
+              "subscription_id": null,
+              "boleto_url": null,
+              "boleto_barcode": null,
+              "boleto_expiration_date": null,
+              "qrcode": "00020126580014br.gov.bcb.pix013633d77803-b7c5-4afa-b373-2cfea60f3c9d52040000530398654075697.005802BR5918GDGD202207181520456009Sao Paulo62240520mpqrinter798717867126304AC33",
+              "imgQrcode": "data:image/png;base64,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",
+              "paid_at": "2024-06-05T21:59:01.000000Z",
+              "bump_id": null,
+              "is_smart_sale": 0,
+              "shipping_amount": null,
+              "shipping_selected": null,
+              "coupon": null
+            },
+            "client": {
+              "id": 1707108,
+              "name": "Diego Ferreira Pacatuba",
+              "email": "diegopacatuba@hotmail.com",
+              "cellphone": "+5521979949009",
+              "document": "107.810.477-81",
+              "zipcode": "29173-025",
+              "street": "Rua Jacarandá",
+              "number": "75",
+              "complement": "Casa",
+              "neighborhood": "Manguinhos",
+              "city": "Serra",
+              "uf": "ES",
+              "created_at": "2024-06-05T21:54:53.000000Z",
+              "updated_at": "2024-06-05T21:54:53.000000Z",
+              "document_type": "cpf",
+              "cpf_cnpj": "107.810.477-81"
+            },
+            "product": {
+              "id": 13109,
+              "name": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+              "description": "NOS PRÓXIMOS 4 MESES, IREI TE AJUDAR A CONSTRUIR UMA OPERAÇÃO DE DROPSHIPPING QUE FATURA 7 DÍGITOS POR MÊS, COM UMA ALTA MARGEM DE LUCRO!\n\nNÃO EXISTE NENHUMA MENTORIA QUE ENTREGUE TANTO COMO A HACKEANDO O DROP!\nEsse não é mais um dos cursos que você compra e depois não tem suporte… essa é uma Mentoria de acompanhamento contínuo e de perto, diretamente comigo e com a minha equipe.\n\nNós estamos 100% comprometidos a pegar na sua mão e levar o seu negócio aos 7 dígitos de faturamento/ mês!\n\nE o investimento para ingressar nessa mentoria é totalmente irrisório, perto do retorno em DINHEIRO que entrará no seu bolso, TODO MÊS!\n\nJá pensou ter uma operação que fatura 1 milhão de reais mensalmente?\n\nE ter de 25% a 40% de LUCRO LÍQUIDO no seu BOLSO - Ou seja, de R$250.000,00 a R$400.000,00 limpo na sua conta!",
+              "type": "TRANSACTION",
+              "amount": 5697,
+              "period": 30,
+              "thank_you_page": null,
+              "created_at": "2024-04-22T14:48:14.000000Z",
+              "updated_at": "2024-04-22T14:48:14.000000Z",
+              "method": "CREDIT_CARD,TWO_CREDIT_CARDS,PIX",
+              "url_callback": null,
+              "trial": null,
+              "proposal_minimum": 0,
+              "allow_proposal": 1,
+              "affiliation_approbation": 0,
+              "affiliation_public": 1,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 0,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null
+            },
+            "oferta": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+            "offer": {
+              "hash": "kMM11C",
+              "amount": 5697,
+              "method": "CREDIT_CARD,TWO_CREDIT_CARDS,PIX",
+              "name": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+              "created_at": "2024-04-22T14:48:14.000000Z"
+            },
+            "seller": {
+              "id": 165027,
+              "name": "Renato Brzozowski ",
+              "email": "mentoreiagora@gmail.com",
+              "cellphone": "(45) 99851-6767"
+            },
+            "affiliate": {
+              "id": 543180,
+              "name": "Pedro Henrique Da Silva Harmel",
+              "email": "pedronegociosdigital@gmail.com",
+              "cellphone": "+554196013799"
+            },
+            "productMetas": [],
+            "proposalMetas": [],
+            "saleMetas": [
+              {
+                "id": 6973238,
+                "sale_id": 2653277,
+                "meta_key": "a_id",
+                "meta_value": "543180",
+                "created_at": "2024-06-05T21:54:53.000000Z",
+                "updated_at": "2024-06-05T21:54:53.000000Z"
+              }
+            ],
+            "sf_trk": null,
+            "client_has_contract_id": null
+          },
+          "webhookUrl": "https://n8nwebhookactionexperts.automagicbots.com.br/webhook/compra-aprovada-HD-4meses",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "Chargeback-realizado": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookactionexperts.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "8586",
+            "content-type": "application/json",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "n8nwebhookactionexperts.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "51eebaed8393",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$YkzSpsQgoK5vza1DJbBAie0UYMhPINVKWRB3rvl8R/cCVt5MR9OSa",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "sale",
+            "event": "saleUpdated",
+            "oldStatus": "paid",
+            "currentStatus": "paid",
+            "sale": {
+              "id": 2653277,
+              "type": "TRANSACTION",
+              "status": "paid",
+              "created_at": "2024-06-05T21:54:53.000000Z",
+              "updated_at": "2024-06-05T21:59:14.000000Z",
+              "seller_id": 165027,
+              "installments": 1,
+              "method": "PIX",
+              "client_id": 1707108,
+              "fee": 228.31,
+              "seller_balance": 4921.82,
+              "total": 5697,
+              "amount": 5697,
+              "proposal_id": null,
+              "subscription_id": null,
+              "boleto_url": null,
+              "boleto_barcode": null,
+              "boleto_expiration_date": null,
+              "qrcode": "00020126580014br.gov.bcb.pix013633d77803-b7c5-4afa-b373-2cfea60f3c9d52040000530398654075697.005802BR5918GDGD202207181520456009Sao Paulo62240520mpqrinter798717867126304AC33",
+              "imgQrcode": "data:image/png;base64,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",
+              "paid_at": "2024-06-05T21:59:01.000000Z",
+              "bump_id": null,
+              "is_smart_sale": 0,
+              "shipping_amount": null,
+              "shipping_selected": null,
+              "coupon": null
+            },
+            "client": {
+              "id": 1707108,
+              "name": "Diego Ferreira Pacatuba",
+              "email": "diegopacatuba@hotmail.com",
+              "cellphone": "+5521979949009",
+              "document": "107.810.477-81",
+              "zipcode": "29173-025",
+              "street": "Rua Jacarandá",
+              "number": "75",
+              "complement": "Casa",
+              "neighborhood": "Manguinhos",
+              "city": "Serra",
+              "uf": "ES",
+              "created_at": "2024-06-05T21:54:53.000000Z",
+              "updated_at": "2024-06-05T21:54:53.000000Z",
+              "document_type": "cpf",
+              "cpf_cnpj": "107.810.477-81"
+            },
+            "product": {
+              "id": 13109,
+              "name": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+              "description": "NOS PRÓXIMOS 4 MESES, IREI TE AJUDAR A CONSTRUIR UMA OPERAÇÃO DE DROPSHIPPING QUE FATURA 7 DÍGITOS POR MÊS, COM UMA ALTA MARGEM DE LUCRO!\n\nNÃO EXISTE NENHUMA MENTORIA QUE ENTREGUE TANTO COMO A HACKEANDO O DROP!\nEsse não é mais um dos cursos que você compra e depois não tem suporte… essa é uma Mentoria de acompanhamento contínuo e de perto, diretamente comigo e com a minha equipe.\n\nNós estamos 100% comprometidos a pegar na sua mão e levar o seu negócio aos 7 dígitos de faturamento/ mês!\n\nE o investimento para ingressar nessa mentoria é totalmente irrisório, perto do retorno em DINHEIRO que entrará no seu bolso, TODO MÊS!\n\nJá pensou ter uma operação que fatura 1 milhão de reais mensalmente?\n\nE ter de 25% a 40% de LUCRO LÍQUIDO no seu BOLSO - Ou seja, de R$250.000,00 a R$400.000,00 limpo na sua conta!",
+              "type": "TRANSACTION",
+              "amount": 5697,
+              "period": 30,
+              "thank_you_page": null,
+              "created_at": "2024-04-22T14:48:14.000000Z",
+              "updated_at": "2024-04-22T14:48:14.000000Z",
+              "method": "CREDIT_CARD,TWO_CREDIT_CARDS,PIX",
+              "url_callback": null,
+              "trial": null,
+              "proposal_minimum": 0,
+              "allow_proposal": 1,
+              "affiliation_approbation": 0,
+              "affiliation_public": 1,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 0,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null
+            },
+            "oferta": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+            "offer": {
+              "hash": "kMM11C",
+              "amount": 5697,
+              "method": "CREDIT_CARD,TWO_CREDIT_CARDS,PIX",
+              "name": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+              "created_at": "2024-04-22T14:48:14.000000Z"
+            },
+            "seller": {
+              "id": 165027,
+              "name": "Renato Brzozowski ",
+              "email": "mentoreiagora@gmail.com",
+              "cellphone": "(45) 99851-6767"
+            },
+            "affiliate": {
+              "id": 543180,
+              "name": "Pedro Henrique Da Silva Harmel",
+              "email": "pedronegociosdigital@gmail.com",
+              "cellphone": "+554196013799"
+            },
+            "productMetas": [],
+            "proposalMetas": [],
+            "saleMetas": [
+              {
+                "id": 6973238,
+                "sale_id": 2653277,
+                "meta_key": "a_id",
+                "meta_value": "543180",
+                "created_at": "2024-06-05T21:54:53.000000Z",
+                "updated_at": "2024-06-05T21:54:53.000000Z"
+              }
+            ],
+            "sf_trk": null,
+            "client_has_contract_id": null
+          },
+          "webhookUrl": "https://n8nwebhookactionexperts.automagicbots.com.br/webhook/compra-aprovada-HD-4meses",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "compra_aprovada": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookactionexperts.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "8586",
+            "content-type": "application/json",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "n8nwebhookactionexperts.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "51eebaed8393",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$YkzSpsQgoK5vza1DJbBAie0UYMhPINVKWRB3rvl8R/cCVt5MR9OSa",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "sale",
+            "event": "saleUpdated",
+            "oldStatus": "paid",
+            "currentStatus": "paid",
+            "sale": {
+              "id": 2653277,
+              "type": "TRANSACTION",
+              "status": "paid",
+              "created_at": "2024-06-05T21:54:53.000000Z",
+              "updated_at": "2024-06-05T21:59:14.000000Z",
+              "seller_id": 165027,
+              "installments": 1,
+              "method": "PIX",
+              "client_id": 1707108,
+              "fee": 228.31,
+              "seller_balance": 4921.82,
+              "total": 5697,
+              "amount": 5697,
+              "proposal_id": null,
+              "subscription_id": null,
+              "boleto_url": null,
+              "boleto_barcode": null,
+              "boleto_expiration_date": null,
+              "qrcode": "00020126580014br.gov.bcb.pix013633d77803-b7c5-4afa-b373-2cfea60f3c9d52040000530398654075697.005802BR5918GDGD202207181520456009Sao Paulo62240520mpqrinter798717867126304AC33",
+              "imgQrcode": "data:image/png;base64,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",
+              "paid_at": "2024-06-05T21:59:01.000000Z",
+              "bump_id": null,
+              "is_smart_sale": 0,
+              "shipping_amount": null,
+              "shipping_selected": null,
+              "coupon": null
+            },
+            "client": {
+              "id": 1707108,
+              "name": "Diego Ferreira Pacatuba",
+              "email": "diegopacatuba@hotmail.com",
+              "cellphone": "+5521979949009",
+              "document": "107.810.477-81",
+              "zipcode": "29173-025",
+              "street": "Rua Jacarandá",
+              "number": "75",
+              "complement": "Casa",
+              "neighborhood": "Manguinhos",
+              "city": "Serra",
+              "uf": "ES",
+              "created_at": "2024-06-05T21:54:53.000000Z",
+              "updated_at": "2024-06-05T21:54:53.000000Z",
+              "document_type": "cpf",
+              "cpf_cnpj": "107.810.477-81"
+            },
+            "product": {
+              "id": 13109,
+              "name": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+              "description": "NOS PRÓXIMOS 4 MESES, IREI TE AJUDAR A CONSTRUIR UMA OPERAÇÃO DE DROPSHIPPING QUE FATURA 7 DÍGITOS POR MÊS, COM UMA ALTA MARGEM DE LUCRO!\n\nNÃO EXISTE NENHUMA MENTORIA QUE ENTREGUE TANTO COMO A HACKEANDO O DROP!\nEsse não é mais um dos cursos que você compra e depois não tem suporte… essa é uma Mentoria de acompanhamento contínuo e de perto, diretamente comigo e com a minha equipe.\n\nNós estamos 100% comprometidos a pegar na sua mão e levar o seu negócio aos 7 dígitos de faturamento/ mês!\n\nE o investimento para ingressar nessa mentoria é totalmente irrisório, perto do retorno em DINHEIRO que entrará no seu bolso, TODO MÊS!\n\nJá pensou ter uma operação que fatura 1 milhão de reais mensalmente?\n\nE ter de 25% a 40% de LUCRO LÍQUIDO no seu BOLSO - Ou seja, de R$250.000,00 a R$400.000,00 limpo na sua conta!",
+              "type": "TRANSACTION",
+              "amount": 5697,
+              "period": 30,
+              "thank_you_page": null,
+              "created_at": "2024-04-22T14:48:14.000000Z",
+              "updated_at": "2024-04-22T14:48:14.000000Z",
+              "method": "CREDIT_CARD,TWO_CREDIT_CARDS,PIX",
+              "url_callback": null,
+              "trial": null,
+              "proposal_minimum": 0,
+              "allow_proposal": 1,
+              "affiliation_approbation": 0,
+              "affiliation_public": 1,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 0,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null
+            },
+            "oferta": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+            "offer": {
+              "hash": "kMM11C",
+              "amount": 5697,
+              "method": "CREDIT_CARD,TWO_CREDIT_CARDS,PIX",
+              "name": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+              "created_at": "2024-04-22T14:48:14.000000Z"
+            },
+            "seller": {
+              "id": 165027,
+              "name": "Renato Brzozowski ",
+              "email": "mentoreiagora@gmail.com",
+              "cellphone": "(45) 99851-6767"
+            },
+            "affiliate": {
+              "id": 543180,
+              "name": "Pedro Henrique Da Silva Harmel",
+              "email": "pedronegociosdigital@gmail.com",
+              "cellphone": "+554196013799"
+            },
+            "productMetas": [],
+            "proposalMetas": [],
+            "saleMetas": [
+              {
+                "id": 6973238,
+                "sale_id": 2653277,
+                "meta_key": "a_id",
+                "meta_value": "543180",
+                "created_at": "2024-06-05T21:54:53.000000Z",
+                "updated_at": "2024-06-05T21:54:53.000000Z"
+              }
+            ],
+            "sf_trk": null,
+            "client_has_contract_id": null
+          },
+          "webhookUrl": "https://n8nwebhookactionexperts.automagicbots.com.br/webhook/compra-aprovada-HD-4meses",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "Venda-Reembolsada": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookactionexperts.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "8586",
+            "content-type": "application/json",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "n8nwebhookactionexperts.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "51eebaed8393",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$YkzSpsQgoK5vza1DJbBAie0UYMhPINVKWRB3rvl8R/cCVt5MR9OSa",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "sale",
+            "event": "saleUpdated",
+            "oldStatus": "paid",
+            "currentStatus": "paid",
+            "sale": {
+              "id": 2653277,
+              "type": "TRANSACTION",
+              "status": "paid",
+              "created_at": "2024-06-05T21:54:53.000000Z",
+              "updated_at": "2024-06-05T21:59:14.000000Z",
+              "seller_id": 165027,
+              "installments": 1,
+              "method": "PIX",
+              "client_id": 1707108,
+              "fee": 228.31,
+              "seller_balance": 4921.82,
+              "total": 5697,
+              "amount": 5697,
+              "proposal_id": null,
+              "subscription_id": null,
+              "boleto_url": null,
+              "boleto_barcode": null,
+              "boleto_expiration_date": null,
+              "qrcode": "00020126580014br.gov.bcb.pix013633d77803-b7c5-4afa-b373-2cfea60f3c9d52040000530398654075697.005802BR5918GDGD202207181520456009Sao Paulo62240520mpqrinter798717867126304AC33",
+              "imgQrcode": "data:image/png;base64,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",
+              "paid_at": "2024-06-05T21:59:01.000000Z",
+              "bump_id": null,
+              "is_smart_sale": 0,
+              "shipping_amount": null,
+              "shipping_selected": null,
+              "coupon": null
+            },
+            "client": {
+              "id": 1707108,
+              "name": "Diego Ferreira Pacatuba",
+              "email": "diegopacatuba@hotmail.com",
+              "cellphone": "+5521979949009",
+              "document": "107.810.477-81",
+              "zipcode": "29173-025",
+              "street": "Rua Jacarandá",
+              "number": "75",
+              "complement": "Casa",
+              "neighborhood": "Manguinhos",
+              "city": "Serra",
+              "uf": "ES",
+              "created_at": "2024-06-05T21:54:53.000000Z",
+              "updated_at": "2024-06-05T21:54:53.000000Z",
+              "document_type": "cpf",
+              "cpf_cnpj": "107.810.477-81"
+            },
+            "product": {
+              "id": 13109,
+              "name": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+              "description": "NOS PRÓXIMOS 4 MESES, IREI TE AJUDAR A CONSTRUIR UMA OPERAÇÃO DE DROPSHIPPING QUE FATURA 7 DÍGITOS POR MÊS, COM UMA ALTA MARGEM DE LUCRO!\n\nNÃO EXISTE NENHUMA MENTORIA QUE ENTREGUE TANTO COMO A HACKEANDO O DROP!\nEsse não é mais um dos cursos que você compra e depois não tem suporte… essa é uma Mentoria de acompanhamento contínuo e de perto, diretamente comigo e com a minha equipe.\n\nNós estamos 100% comprometidos a pegar na sua mão e levar o seu negócio aos 7 dígitos de faturamento/ mês!\n\nE o investimento para ingressar nessa mentoria é totalmente irrisório, perto do retorno em DINHEIRO que entrará no seu bolso, TODO MÊS!\n\nJá pensou ter uma operação que fatura 1 milhão de reais mensalmente?\n\nE ter de 25% a 40% de LUCRO LÍQUIDO no seu BOLSO - Ou seja, de R$250.000,00 a R$400.000,00 limpo na sua conta!",
+              "type": "TRANSACTION",
+              "amount": 5697,
+              "period": 30,
+              "thank_you_page": null,
+              "created_at": "2024-04-22T14:48:14.000000Z",
+              "updated_at": "2024-04-22T14:48:14.000000Z",
+              "method": "CREDIT_CARD,TWO_CREDIT_CARDS,PIX",
+              "url_callback": null,
+              "trial": null,
+              "proposal_minimum": 0,
+              "allow_proposal": 1,
+              "affiliation_approbation": 0,
+              "affiliation_public": 1,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 0,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null
+            },
+            "oferta": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+            "offer": {
+              "hash": "kMM11C",
+              "amount": 5697,
+              "method": "CREDIT_CARD,TWO_CREDIT_CARDS,PIX",
+              "name": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+              "created_at": "2024-04-22T14:48:14.000000Z"
+            },
+            "seller": {
+              "id": 165027,
+              "name": "Renato Brzozowski ",
+              "email": "mentoreiagora@gmail.com",
+              "cellphone": "(45) 99851-6767"
+            },
+            "affiliate": {
+              "id": 543180,
+              "name": "Pedro Henrique Da Silva Harmel",
+              "email": "pedronegociosdigital@gmail.com",
+              "cellphone": "+554196013799"
+            },
+            "productMetas": [],
+            "proposalMetas": [],
+            "saleMetas": [
+              {
+                "id": 6973238,
+                "sale_id": 2653277,
+                "meta_key": "a_id",
+                "meta_value": "543180",
+                "created_at": "2024-06-05T21:54:53.000000Z",
+                "updated_at": "2024-06-05T21:54:53.000000Z"
+              }
+            ],
+            "sf_trk": null,
+            "client_has_contract_id": null
+          },
+          "webhookUrl": "https://n8nwebhookactionexperts.automagicbots.com.br/webhook/compra-aprovada-HD-4meses",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "assinatura-finalizada": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookactionexperts.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "8586",
+            "content-type": "application/json",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "n8nwebhookactionexperts.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "51eebaed8393",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$YkzSpsQgoK5vza1DJbBAie0UYMhPINVKWRB3rvl8R/cCVt5MR9OSa",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "sale",
+            "event": "saleUpdated",
+            "oldStatus": "paid",
+            "currentStatus": "paid",
+            "sale": {
+              "id": 2653277,
+              "type": "TRANSACTION",
+              "status": "paid",
+              "created_at": "2024-06-05T21:54:53.000000Z",
+              "updated_at": "2024-06-05T21:59:14.000000Z",
+              "seller_id": 165027,
+              "installments": 1,
+              "method": "PIX",
+              "client_id": 1707108,
+              "fee": 228.31,
+              "seller_balance": 4921.82,
+              "total": 5697,
+              "amount": 5697,
+              "proposal_id": null,
+              "subscription_id": null,
+              "boleto_url": null,
+              "boleto_barcode": null,
+              "boleto_expiration_date": null,
+              "qrcode": "00020126580014br.gov.bcb.pix013633d77803-b7c5-4afa-b373-2cfea60f3c9d52040000530398654075697.005802BR5918GDGD202207181520456009Sao Paulo62240520mpqrinter798717867126304AC33",
+              "imgQrcode": "data:image/png;base64,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",
+              "paid_at": "2024-06-05T21:59:01.000000Z",
+              "bump_id": null,
+              "is_smart_sale": 0,
+              "shipping_amount": null,
+              "shipping_selected": null,
+              "coupon": null
+            },
+            "client": {
+              "id": 1707108,
+              "name": "Diego Ferreira Pacatuba",
+              "email": "diegopacatuba@hotmail.com",
+              "cellphone": "+5521979949009",
+              "document": "107.810.477-81",
+              "zipcode": "29173-025",
+              "street": "Rua Jacarandá",
+              "number": "75",
+              "complement": "Casa",
+              "neighborhood": "Manguinhos",
+              "city": "Serra",
+              "uf": "ES",
+              "created_at": "2024-06-05T21:54:53.000000Z",
+              "updated_at": "2024-06-05T21:54:53.000000Z",
+              "document_type": "cpf",
+              "cpf_cnpj": "107.810.477-81"
+            },
+            "product": {
+              "id": 13109,
+              "name": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+              "description": "NOS PRÓXIMOS 4 MESES, IREI TE AJUDAR A CONSTRUIR UMA OPERAÇÃO DE DROPSHIPPING QUE FATURA 7 DÍGITOS POR MÊS, COM UMA ALTA MARGEM DE LUCRO!\n\nNÃO EXISTE NENHUMA MENTORIA QUE ENTREGUE TANTO COMO A HACKEANDO O DROP!\nEsse não é mais um dos cursos que você compra e depois não tem suporte… essa é uma Mentoria de acompanhamento contínuo e de perto, diretamente comigo e com a minha equipe.\n\nNós estamos 100% comprometidos a pegar na sua mão e levar o seu negócio aos 7 dígitos de faturamento/ mês!\n\nE o investimento para ingressar nessa mentoria é totalmente irrisório, perto do retorno em DINHEIRO que entrará no seu bolso, TODO MÊS!\n\nJá pensou ter uma operação que fatura 1 milhão de reais mensalmente?\n\nE ter de 25% a 40% de LUCRO LÍQUIDO no seu BOLSO - Ou seja, de R$250.000,00 a R$400.000,00 limpo na sua conta!",
+              "type": "TRANSACTION",
+              "amount": 5697,
+              "period": 30,
+              "thank_you_page": null,
+              "created_at": "2024-04-22T14:48:14.000000Z",
+              "updated_at": "2024-04-22T14:48:14.000000Z",
+              "method": "CREDIT_CARD,TWO_CREDIT_CARDS,PIX",
+              "url_callback": null,
+              "trial": null,
+              "proposal_minimum": 0,
+              "allow_proposal": 1,
+              "affiliation_approbation": 0,
+              "affiliation_public": 1,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 0,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null
+            },
+            "oferta": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+            "offer": {
+              "hash": "kMM11C",
+              "amount": 5697,
+              "method": "CREDIT_CARD,TWO_CREDIT_CARDS,PIX",
+              "name": "Hackeando o Drop - 4 Meses + loja R$ 5697,00",
+              "created_at": "2024-04-22T14:48:14.000000Z"
+            },
+            "seller": {
+              "id": 165027,
+              "name": "Renato Brzozowski ",
+              "email": "mentoreiagora@gmail.com",
+              "cellphone": "(45) 99851-6767"
+            },
+            "affiliate": {
+              "id": 543180,
+              "name": "Pedro Henrique Da Silva Harmel",
+              "email": "pedronegociosdigital@gmail.com",
+              "cellphone": "+554196013799"
+            },
+            "productMetas": [],
+            "proposalMetas": [],
+            "saleMetas": [
+              {
+                "id": 6973238,
+                "sale_id": 2653277,
+                "meta_key": "a_id",
+                "meta_value": "543180",
+                "created_at": "2024-06-05T21:54:53.000000Z",
+                "updated_at": "2024-06-05T21:54:53.000000Z"
+              }
+            ],
+            "sf_trk": null,
+            "client_has_contract_id": null
+          },
+          "webhookUrl": "https://n8nwebhookactionexperts.automagicbots.com.br/webhook/compra-aprovada-HD-4meses",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 8,
+  "updatedAt": "2024-06-27T13:32:20.366Z",
+  "versionId": "81949a7f-81af-4623-9770-dcf976deb202"
+}
