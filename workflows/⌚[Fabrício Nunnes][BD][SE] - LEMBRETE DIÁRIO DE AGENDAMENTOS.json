@@ -1,0 +1,1974 @@
+{
+  "active": false,
+  "connections": {
+    "infos_bot_conversa": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_agendamentos_do_dia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastrar_contato": {
+      "main": [
+        [
+          {
+            "node": "sessao_estrategica1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cancelado": {
+      "main": [
+        [
+          {
+            "node": "sem_acao",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "separa_em_linhas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "todo_dia_7:30am": {
+      "main": [
+        [
+          {
+            "node": "infos_bot_conversa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_agendamentos_do_dia": {
+      "main": [
+        [
+          {
+            "node": "inexistente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "separa_em_linhas": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_lead_via_id",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "fim",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_lead_via_id": {
+      "main": [
+        [
+          {
+            "node": "inexistente1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_lembrete_se": {
+      "main": [
+        [
+          {
+            "node": "espera_3_segundos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sessao_estrategica": {
+      "main": [
+        [
+          {
+            "node": "envia_lembrete_se",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "envia_lembrete_app",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_lembrete_app": {
+      "main": [
+        [
+          {
+            "node": "espera_3_segundos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id_bc_existe": {
+      "main": [
+        [
+          {
+            "node": "sessao_estrategica",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "cadastrar_contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_lembrete_se1": {
+      "main": [
+        [
+          {
+            "node": "espera_3_segundos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_lembrete_app1": {
+      "main": [
+        [
+          {
+            "node": "espera_3_segundos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "espera_3_segundos": {
+      "main": [
+        [
+          {
+            "node": "separa_em_linhas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "inexistente": {
+      "main": [
+        [
+          {
+            "node": "sem_acao",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "cancelado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "inexistente1": {
+      "main": [
+        [
+          {
+            "node": "separa_em_linhas",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "item_unico",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sessao_estrategica1": {
+      "main": [
+        [
+          {
+            "node": "envia_lembrete_se1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "envia_lembrete_app1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "item_unico": {
+      "main": [
+        [
+          {
+            "node": "e_ddd_55",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "e_ddd_55": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_responsavel",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "fim",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos_bot_conversa1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_agendamentos_do_dia1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastrar_contato1": {
+      "main": [
+        [
+          {
+            "node": "envia_tag_portugal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cancelado1": {
+      "main": [
+        [
+          {
+            "node": "sem_acao1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "separa_em_linhas1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_agendamentos_do_dia1": {
+      "main": [
+        [
+          {
+            "node": "inexistente2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "separa_em_linhas1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_lead_via_id1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "fim1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_lead_via_id1": {
+      "main": [
+        [
+          {
+            "node": "inexistente3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_lembrete_se2": {
+      "main": [
+        [
+          {
+            "node": "espera_3_segundos1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sessao_estrategica2": {
+      "main": [
+        [
+          {
+            "node": "envia_lembrete_se2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "envia_lembrete_app2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_lembrete_app2": {
+      "main": [
+        [
+          {
+            "node": "espera_3_segundos1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id_bc_existe1": {
+      "main": [
+        [
+          {
+            "node": "sessao_estrategica2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "cadastrar_contato1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_lembrete_se3": {
+      "main": [
+        [
+          {
+            "node": "espera_3_segundos1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_lembrete_app3": {
+      "main": [
+        [
+          {
+            "node": "espera_3_segundos1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "espera_3_segundos1": {
+      "main": [
+        [
+          {
+            "node": "separa_em_linhas1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "inexistente2": {
+      "main": [
+        [
+          {
+            "node": "sem_acao1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "cancelado1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "inexistente3": {
+      "main": [
+        [
+          {
+            "node": "separa_em_linhas1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "item_unico1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sessao_estrategica3": {
+      "main": [
+        [
+          {
+            "node": "envia_lembrete_se3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "envia_lembrete_app3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "item_unico1": {
+      "main": [
+        [
+          {
+            "node": "nao_e_ddd_br",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "todo_dia_4:30am_portugal": {
+      "main": [
+        [
+          {
+            "node": "infos_bot_conversa1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_e_ddd_br": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_responsavel1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "fim1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_tag_portugal": {
+      "main": [
+        [
+          {
+            "node": "sessao_estrategica3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clint_donodonegocio": {
+      "main": [
+        [
+          {
+            "node": "id_bc_existe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_responsavel": {
+      "main": [
+        [
+          {
+            "node": "cria/atualiza_contato_qualificado1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clint_donodonegocio1": {
+      "main": [
+        [
+          {
+            "node": "id_bc_existe1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_responsavel1": {
+      "main": [
+        [
+          {
+            "node": "cria/atualiza_contato_qualificado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria/atualiza_contato_qualificado1": {
+      "main": [
+        [
+          {
+            "node": "Clint_donodonegocio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria/atualiza_contato_qualificado": {
+      "main": [
+        [
+          {
+            "node": "Clint_donodonegocio1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-14T00:39:40.462Z",
+  "id": "6MRV6ls6125aoIEB",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚[Fabrício Nunnes][BD][SE] - LEMBRETE DIÁRIO DE AGENDAMENTOS",
+  "nodes": [
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "API-KEY",
+              "value": "a9585685-a8d4-4f70-be7c-44c8dedf905f"
+            },
+            {
+              "name": "flow_de_lembrete_diario_se",
+              "value": "1757667"
+            },
+            {
+              "name": "flow_de_lembrete_diario_app"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "29ebd98a-9f77-4757-8a97-da91862944e3",
+      "name": "infos_bot_conversa",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -1840,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "=+{{ $node[\"pesquisa_lead_via_id\"].json[\"telefone\"].replace('+','') }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"pesquisa_lead_via_id\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"pesquisa_lead_via_id\"].json[\"sobrenome\"] }}."
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bot_conversa\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "cadastrar_contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        720,
+        700
+      ],
+      "id": "065205b5-8836-4a4f-b6d1-fec679c91f99",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"pesquisa_agendamentos_do_dia\"].json[\"status_evento\"] }}",
+              "operation": "contains",
+              "value2": "Cancelado"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "6c884822-3826-4c0b-8b49-50a1254ca9df",
+      "name": "cancelado",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -1220,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7,
+              "triggerAtMinute": 30
+            }
+          ]
+        }
+      },
+      "id": "22073c10-ba87-40e1-9a18-9b6bc636830e",
+      "name": "todo_dia_7:30am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2040,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "agendamentos",
+          "mode": "list",
+          "cachedResultName": "agendamentos"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "data_de_inicio",
+              "value": "={{ $now.toFormat('dd/MM/yyyy').slice(6,10) }}-{{ $now.toFormat('dd/MM/yyyy').slice(3,5) }}-{{ $now.toFormat('dd/MM/yyyy').slice(0,2) }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "3e70e95a-e894-4878-836a-ac0c95ccc588",
+      "name": "pesquisa_agendamentos_do_dia",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -1640,
+        420
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "6aef5222-67a6-479a-b0a0-693dc6a97bdf",
+      "name": "separa_em_linhas",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 2,
+      "position": [
+        -1020,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "leads",
+          "mode": "list",
+          "cachedResultName": "leads"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id_lead",
+              "value": "={{ $node[\"separa_em_linhas\"].json[\"id_lead\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "91134222-a9e7-4741-9028-8caa454bdd3c",
+      "name": "pesquisa_lead_via_id",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -820,
+        460
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"pesquisa_lead_via_id\"].json[\"id_botconversa\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"infos_bot_conversa\"].json[\"flow_de_lembrete_diario_se\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bot_conversa\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "envia_lembrete_se",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        240
+      ],
+      "id": "44ca069f-9a44-47e7-bfec-051529b156b8",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"separa_em_linhas\"].json[\"servico\"] }}",
+              "operation": "contains",
+              "value2": "Sessão Estratégica Comercial"
+            },
+            {
+              "value1": "={{ $node[\"separa_em_linhas\"].json[\"servico\"] }}",
+              "operation": "contains",
+              "value2": "Sessão Estratégica Comercial"
+            },
+            {
+              "value1": "={{ $node[\"separa_em_linhas\"].json[\"servico\"] }}",
+              "operation": "contains",
+              "value2": "Sessão Estratégica Comercial"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "1f859cd3-63ea-4a6a-b33b-f9bf08c2d888",
+      "name": "sessao_estrategica",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        880,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"pesquisa_lead_via_id\"].json[\"id_botconversa\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"infos_bot_conversa\"].json[\"flow_de_lembrete_diario_app\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bot_conversa\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "envia_lembrete_app",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        440
+      ],
+      "id": "aef74c23-74b8-4711-b2c4-49a0e932b2ee",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"pesquisa_lead_via_id\"].json[\"id_botconversa\"] }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "0131b7bc-6241-475e-88d4-7971f783b03b",
+      "name": "id_bc_existe",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        540,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"infos_bot_conversa\"].json[\"flow_de_lembrete_diario_se\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bot_conversa\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "envia_lembrete_se1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        620
+      ],
+      "id": "d8d37c57-60fa-4464-94dc-09c6ace1c52e",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"infos_bot_conversa\"].json[\"flow_de_lembrete_diario_app\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bot_conversa\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "envia_lembrete_app1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        800
+      ],
+      "id": "31cc06b0-1b32-405b-ae65-7cffb35b23d9",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "seconds"
+      },
+      "id": "fdd40213-485d-4214-ad3f-334ade17da64",
+      "name": "espera_3_segundos",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        860
+      ],
+      "webhookId": "3f04edd2-2f7d-4b98-9635-32d743824e37"
+    },
+    {
+      "parameters": {},
+      "id": "6b9ac48b-7481-417e-8c9b-dd1cb02f92b3",
+      "name": "fim",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        760
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "067399a2-596c-4207-aea2-6bf8f7a3ae69",
+      "name": "sem_acao",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1020,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"pesquisa_agendamentos_do_dia\"].json[\"success\"] }}",
+              "operation": "contains",
+              "value2": "true"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "bfae4da3-3cae-418d-89b5-fdc09ccb5e88",
+      "name": "inexistente",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -1440,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"pesquisa_lead_via_id\"].json[\"success\"] }}",
+              "operation": "contains",
+              "value2": "true"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "b770768c-e81d-4771-ac5d-139daceb6a34",
+      "name": "inexistente1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -660,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"separa_em_linhas\"].json[\"servico\"] }}",
+              "operation": "contains",
+              "value2": "Sessão Estratégica Comercial"
+            },
+            {
+              "value1": "={{ $node[\"separa_em_linhas\"].json[\"servico\"] }}",
+              "operation": "contains",
+              "value2": "Sessão Estratégica Comercial"
+            },
+            {
+              "value1": "={{ $node[\"separa_em_linhas\"].json[\"servico\"] }}",
+              "operation": "contains",
+              "value2": "Sessão Estratégica Comercial"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "ffb52542-602f-4fa0-a527-58e360ea43d6",
+      "name": "sessao_estrategica1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        900,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "limit",
+        "keep": "lastItems"
+      },
+      "id": "96bd1d58-2876-45bc-a0ff-4dff99f39304",
+      "name": "item_unico",
+      "type": "n8n-nodes-base.itemLists",
+      "typeVersion": 3,
+      "position": [
+        -460,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"pesquisa_lead_via_id\"].json[\"telefone\"].slice(0,2) }}",
+              "operation": "contains",
+              "value2": "55"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "bfe55644-d70c-4708-8985-ec4c076c0790",
+      "name": "e_ddd_55",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -300,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "API-KEY",
+              "value": "a9585685-a8d4-4f70-be7c-44c8dedf905f"
+            },
+            {
+              "name": "flow_de_lembrete_diario_se",
+              "value": "1757667"
+            },
+            {
+              "name": "flow_de_lembrete_diario_app"
+            },
+            {
+              "name": "id_tag_portugal_bc",
+              "value": "7200846"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "168681f8-6602-4111-a7b5-edb091e18062",
+      "name": "infos_bot_conversa1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -1860,
+        1280
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "=+{{ $node[\"pesquisa_lead_via_id1\"].json[\"telefone\"].replace('+','') }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"pesquisa_lead_via_id1\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"pesquisa_lead_via_id1\"].json[\"sobrenome\"] }}."
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bot_conversa1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "cadastrar_contato1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        740,
+        1540
+      ],
+      "id": "f9814008-0ba3-4b9b-9998-9f12927fe636",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"pesquisa_agendamentos_do_dia1\"].json[\"status_evento\"] }}",
+              "operation": "contains",
+              "value2": "Cancelado"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "f2e64bf1-2586-454a-92da-d6768df1eb6a",
+      "name": "cancelado1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -1240,
+        1340
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "agendamentos",
+          "mode": "list",
+          "cachedResultName": "agendamentos"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "data_de_inicio",
+              "value": "={{ $now.toFormat('dd/MM/yyyy').slice(6,10) }}-{{ $now.toFormat('dd/MM/yyyy').slice(3,5) }}-{{ $now.toFormat('dd/MM/yyyy').slice(0,2) }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "f20198c9-aaf3-4253-ad79-70d86812d232",
+      "name": "pesquisa_agendamentos_do_dia1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -1660,
+        1280
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "756f95ce-1459-4d25-91f3-ee604aeaeee8",
+      "name": "separa_em_linhas1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 2,
+      "position": [
+        -1040,
+        1340
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "leads",
+          "mode": "list",
+          "cachedResultName": "leads"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id_lead",
+              "value": "={{ $node[\"separa_em_linhas1\"].json[\"id_lead\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "c83416c2-d141-4cba-887d-5e5515090fd7",
+      "name": "pesquisa_lead_via_id1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -840,
+        1320
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"pesquisa_lead_via_id1\"].json[\"id_botconversa\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"infos_bot_conversa1\"].json[\"flow_de_lembrete_diario_se\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bot_conversa1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "envia_lembrete_se2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1320,
+        1080
+      ],
+      "id": "6c1500b2-4863-4e64-9bb7-ea74cef183e2",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"separa_em_linhas1\"].json[\"servico\"] }}",
+              "operation": "contains",
+              "value2": "Sessão Estratégica Comercial"
+            },
+            {
+              "value1": "={{ $node[\"separa_em_linhas1\"].json[\"servico\"] }}",
+              "operation": "contains",
+              "value2": "Sessão Estratégica Comercial"
+            },
+            {
+              "value1": "={{ $node[\"separa_em_linhas1\"].json[\"servico\"] }}",
+              "operation": "contains",
+              "value2": "Sessão Estratégica Comercial"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "03687358-a007-4d21-8f0a-d296ac332345",
+      "name": "sessao_estrategica2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"pesquisa_lead_via_id1\"].json[\"id_botconversa\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"infos_bot_conversa1\"].json[\"flow_de_lembrete_diario_app\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bot_conversa1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "envia_lembrete_app2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1320,
+        1280
+      ],
+      "id": "0c095bd6-e3e2-4e1f-946f-eef1b989b3b6",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"pesquisa_lead_via_id1\"].json[\"id_botconversa\"] }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "81931f4f-f0ad-45b8-a2d9-18fc7336af4b",
+      "name": "id_bc_existe1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        580,
+        1320
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato1\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"infos_bot_conversa1\"].json[\"flow_de_lembrete_diario_se\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bot_conversa1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "envia_lembrete_se3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1340,
+        1460
+      ],
+      "id": "79334c0a-a2a7-4795-a8f1-3382402c1afb",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato1\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"infos_bot_conversa1\"].json[\"flow_de_lembrete_diario_app\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bot_conversa1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "envia_lembrete_app3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1340,
+        1640
+      ],
+      "id": "64804302-0509-4bfe-8834-df54fce19aa7",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "seconds"
+      },
+      "id": "618058f6-b1e0-46e2-aa5e-d27f0114d646",
+      "name": "espera_3_segundos1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        1700
+      ],
+      "webhookId": "3f04edd2-2f7d-4b98-9635-32d743824e37"
+    },
+    {
+      "parameters": {},
+      "id": "b88ca2e0-3e8c-4906-b8f9-c50b533c5f1f",
+      "name": "fim1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        1620
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "3a81bcee-e5a3-482a-948d-a9d96901c1b9",
+      "name": "sem_acao1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1040,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"pesquisa_agendamentos_do_dia1\"].json[\"success\"] }}",
+              "operation": "contains",
+              "value2": "true"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "bc889d35-143e-43fc-8e07-ff87ea37e370",
+      "name": "inexistente2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -1460,
+        1280
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"pesquisa_lead_via_id1\"].json[\"success\"] }}",
+              "operation": "contains",
+              "value2": "true"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "722251dd-8a00-41fe-ab1f-ec9c45cdf485",
+      "name": "inexistente3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -680,
+        1320
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"separa_em_linhas1\"].json[\"servico\"] }}",
+              "operation": "contains",
+              "value2": "Sessão Estratégica Comercial"
+            },
+            {
+              "value1": "={{ $node[\"separa_em_linhas1\"].json[\"servico\"] }}",
+              "operation": "contains",
+              "value2": "Sessão Estratégica Comercial"
+            },
+            {
+              "value1": "={{ $node[\"separa_em_linhas1\"].json[\"servico\"] }}",
+              "operation": "contains",
+              "value2": "Sessão Estratégica Comercial"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "1b9b1fa4-5280-430d-9cf2-9598dff61dde",
+      "name": "sessao_estrategica3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        1540
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "limit",
+        "keep": "lastItems"
+      },
+      "id": "a18a4755-30cc-41be-a9e9-d005f5d992f0",
+      "name": "item_unico1",
+      "type": "n8n-nodes-base.itemLists",
+      "typeVersion": 3,
+      "position": [
+        -480,
+        1340
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 4,
+              "triggerAtMinute": 30
+            }
+          ]
+        }
+      },
+      "id": "8b9ff826-6227-4803-bf24-f7a5ba67ea85",
+      "name": "todo_dia_4:30am_portugal",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2060,
+        1280
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"pesquisa_lead_via_id1\"].json[\"telefone\"].slice(0,2) }}",
+              "operation": "notContains",
+              "value2": "55"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "1c37f3c7-8c96-4503-91df-57cefc5241ec",
+      "name": "nao_e_ddd_br",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -280,
+        1340
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato1\"].json[\"id\"] }}/tags/{{ $node[\"infos_bot_conversa1\"].json[\"id_tag_portugal_bc\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bot_conversa1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0c040c3b-7ba6-4aaa-9e93-ee71036bec3e",
+      "name": "envia_tag_portugal",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        900,
+        1540
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/5ce68176-7425-47ae-8821-86ca1f2ad8ad",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"pesquisa_lead_via_id\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "=+{{ $node[\"pesquisa_lead_via_id\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"pesquisa_lead_via_id\"].json[\"email\"].trim() }}"
+            },
+            {
+              "name": "etapa_funil",
+              "value": "3"
+            },
+            {
+              "name": "dono_negocio",
+              "value": "={{ $node[\"pesquisa_responsavel\"].json[\"email\"].trim() }}"
+            },
+            {
+              "name": "etapa_funil",
+              "value": "Reunião"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d0e45b39-602c-44e1-86bc-ed290a5c1d63",
+      "name": "Clint_donodonegocio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        380,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores",
+          "mode": "list",
+          "cachedResultName": "colaboradores"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id_colaborador",
+              "value": "={{ $node[\"separa_em_linhas\"].json[\"id_responsavel\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "6dcdde98-76f1-4a7a-b8e1-c4ad7f99e5d6",
+      "name": "pesquisa_responsavel",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -80,
+        480
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/5ce68176-7425-47ae-8821-86ca1f2ad8ad",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"pesquisa_lead_via_id1\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "=+{{ $node[\"pesquisa_lead_via_id1\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"pesquisa_lead_via_id1\"].json[\"email\"].trim() }}"
+            },
+            {
+              "name": "etapa_funil",
+              "value": "3"
+            },
+            {
+              "name": "dono_negocio",
+              "value": "={{ $node[\"pesquisa_responsavel1\"].json[\"email\"] }}"
+            },
+            {
+              "name": "etapa_funil",
+              "value": "Reunião"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1a1a2fc9-ec90-4da0-9d26-c92f3996df79",
+      "name": "Clint_donodonegocio1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        380,
+        1320
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores",
+          "mode": "list",
+          "cachedResultName": "colaboradores"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id_colaborador",
+              "value": "={{ $node[\"separa_em_linhas1\"].json[\"id_responsavel\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "7eaa467c-e371-441d-9b36-de2ec8aa76a9",
+      "name": "pesquisa_responsavel1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [
+        -60,
+        1320
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/14e33fc1-94ba-44b7-9360-b4e03f6a9b2f",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"pesquisa_lead_via_id\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"pesquisa_lead_via_id\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"pesquisa_lead_via_id\"].json[\"email\"].trim() }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "488ca587-7347-4a0d-802f-25f61dd5488d",
+      "name": "cria/atualiza_contato_qualificado1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        180,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/14e33fc1-94ba-44b7-9360-b4e03f6a9b2f",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"pesquisa_lead_via_id\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"pesquisa_lead_via_id\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"pesquisa_lead_via_id\"].json[\"email\"].trim() }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "66596c20-0cd1-4b23-a440-3771f2ed5040",
+      "name": "cria/atualiza_contato_qualificado",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        180,
+        1320
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": {
+    "node:todo_dia_7:30am": {
+      "recurrencyRules": []
+    },
+    "node:todo_dia_4:30am_portugal": {
+      "recurrencyRules": []
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2024-05-14T00:40:11.886Z",
+      "updatedAt": "2024-05-14T00:40:11.886Z",
+      "id": "0latNaRGmb3Byif6",
+      "name": "[LEMBRETE]"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2024-05-28T14:25:25.438Z",
+  "versionId": "ae156288-2cb9-4220-877b-e387d5ee75ec"
+}
