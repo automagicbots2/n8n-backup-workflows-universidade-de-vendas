@@ -1,0 +1,213 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados": {
+      "main": [
+        [
+          {
+            "node": "levels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "levels": {
+      "main": [
+        [
+          {
+            "node": "sequencia_de_emails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sequencia_de_emails": {
+      "main": [
+        [
+          {
+            "node": "busca_produtos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "add_lead": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2024-06-24T19:40:03.917Z",
+  "id": "WKFhcGlfNMrDfT0e",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "teste leadlovers",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "950801dc-a52a-47a6-a6b9-6364c3e39537",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        660,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "db082ee8-3200-4e82-9ef6-f8ea1fee4e7d",
+              "name": "Query_token",
+              "value": "4EC65C2C218348E182B16D1B9901C60E",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4b6f8b66-dd4f-4be6-9f19-46f1e2ec4b9f",
+      "name": "dados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        880,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://llapi.leadlovers.com/webapi/Levels?token={{ $node[\"dados\"].json[\"Query_token\"] }}&machineCode=735671&sequenceCode=1731364",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a7611d72-94b1-4725-826c-077fd92fcf8e",
+      "name": "levels",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://llapi.leadlovers.com/webapi/EmailSequences?token={{ $node[\"dados\"].json[\"Query_token\"] }}&machineCode=735671",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d5e29d75-e78a-4771-aee3-e7fd1ad46a47",
+      "name": "sequencia_de_emails",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1300,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://llapi.leadlovers.com/webapi/Lead",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "4EC65C2C218348E182B16D1B9901C60E"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"Name\": \"Vitor\",\n  \"Email\": \"vitorrqueiroztrafego@gmail.com\",\n  \"MachineCode\": 735671,\n  \"EmailSequenceCode\": 1731364,\n  \"SequenceLevelCode\": 1\n}",
+        "options": {}
+      },
+      "id": "a56d94ca-0944-4a4d-8e32-86b4ef40b800",
+      "name": "add_lead",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1460,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://llapi.leadlovers.com/webapi/Products?token={{ $node[\"dados\"].json[\"Query_token\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"Name\": \"vitor\",\n  \"Email\": \"vitorrqueiroztrafego@gmail.com\",\n  \"Phone\": \"5519982022213\",\n  \"Document\": \"string\",\n  \"ProductId\": 0\n}",
+        "options": {}
+      },
+      "id": "7f7a03f0-8836-4ecb-8a3d-2ca821d0b483",
+      "name": "busca_produtos",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        340
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-18T14:21:14.932Z",
+  "versionId": "880d69a6-8428-4229-b604-24d4ca808bf4"
+}
