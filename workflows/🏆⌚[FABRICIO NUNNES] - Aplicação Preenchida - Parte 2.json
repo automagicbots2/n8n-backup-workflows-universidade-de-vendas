@@ -3354,7 +3354,7 @@
             },
             {
               "name": "instagram",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Instagram\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Instagram\"].toLowerCase().replaceAll('@','')}}"
             }
           ]
         },
@@ -3454,7 +3454,7 @@
             },
             {
               "name": "instagram",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Instagram\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Instagram\"].toLowerCase().replaceAll('@','')}}"
             }
           ]
         },
@@ -3576,6 +3576,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-08-13T14:34:48.948Z",
-  "versionId": "cd51a53b-1fab-4ce5-9ee6-3e56ffd36487"
+  "updatedAt": "2024-08-14T00:16:48.547Z",
+  "versionId": "60e78bcf-2493-4384-b39e-b502c3a922a5"
 }
