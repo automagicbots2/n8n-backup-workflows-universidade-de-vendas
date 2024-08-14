@@ -1799,7 +1799,7 @@
             },
             {
               "name": "instagram",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"].toLowerCase().replaceAll('@','')}}"
             }
           ]
         },
@@ -2028,7 +2028,7 @@
             },
             {
               "name": "instagram",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"].toLowerCase().replaceAll('@','')}}"
             }
           ]
         },
@@ -2151,7 +2151,7 @@
             },
             {
               "name": "instagram",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"].toLowerCase().replaceAll('@','')}}"
             }
           ]
         },
@@ -2272,7 +2272,7 @@
             },
             {
               "name": "instagram",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"].toLowerCase().replaceAll('@','')}}"
             }
           ]
         },
@@ -2293,8 +2293,8 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-QyyvF-HwJCJfmeuWoGerFg",
-            "deliveryTag": 111,
+            "consumerTag": "amq.ctag-lJ015JzmcEca4eEo8gFzmg",
+            "deliveryTag": 312,
             "redelivered": false,
             "exchange": "",
             "routingKey": "Não Agendamentos - Parte 5 - Qualificado"
@@ -2303,20 +2303,20 @@
             "headers": {}
           },
           "content": {
-            "Nome do Cliente": "Vitor Queiroz de Almeida",
-            "E-mail do Cliente": "vitorrqueiroztrafego@gmail.com",
-            "Telefone do Cliente - Formato Z-API": "5519984574874",
-            "id_lead_bd": 3380,
-            "id_lead_bc": 464754282,
-            "utm_source": "",
-            "utm_campaign": "",
-            "utm_term": "",
-            "utm_medium": "",
-            "utm_content": "",
+            "Nome do Cliente": "Mateus Guzatti",
+            "E-mail do Cliente": "mcguzatti@gmail.com",
+            "Telefone do Cliente - Formato Z-API": "554299472290",
+            "id_lead_bd": 4240,
+            "id_lead_bc": 532010390,
+            "utm_source": "ig",
+            "utm_campaign": "[LF] [SE] [CAPTAÇÃO] [CADASTRO] [AUTO] [F] Públicos Frios ABO",
+            "utm_term": "SE_AD031",
+            "utm_medium": "Instagram_Feed",
+            "utm_content": "00 - [AUTO] [F] EMPRESÁRIOS BRASIL",
             "funil": "Sessao_Estrategica",
             "variacao_do_funil": "v1",
-            "quantos_vendedores_possui": "De 1 a 5 vendedores",
-            "conhece_mentoria": "Sim",
+            "quantos_vendedores_possui": "De 6 a 8 vendedores",
+            "conhece_mentoria": "Não",
             "tem_socio": "Sim\n",
             "id_tag_desqualificado_bot_conversa": "5073673",
             "id_campo_utm_var_bot_conversa": "1408045",
@@ -2333,8 +2333,8 @@
             "id_campo_tem_socio_bot_conversa": "1408036",
             "id_fluxo_nao_agendou_10_min": "",
             "API-KEY": "a9585685-a8d4-4f70-be7c-44c8dedf905f",
-            "data_ultima_quinzena": "\"2024-06-25\"",
-            "instagram": null
+            "data_ultima_quinzena": "\"2024-07-29\"",
+            "instagram": "@mg.energiasolar"
           }
         }
       }
@@ -2356,6 +2356,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-07-10T20:44:02.290Z",
-  "versionId": "8cad84f5-1705-46ac-872a-122911e47a9d"
+  "updatedAt": "2024-08-14T00:05:28.319Z",
+  "versionId": "cf05a9ed-3709-45a7-ab77-b80f0663c2d4"
 }
