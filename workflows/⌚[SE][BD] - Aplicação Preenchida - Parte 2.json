@@ -1435,7 +1435,7 @@
             },
             {
               "name": "Instagram",
-              "value": "={{ $node[\"pesquisa_lead1\"].json[\"instagram\"] }}"
+              "value": "={{ $node[\"chega_da_fila1\"].json[\"content\"][\"instagram\"] }}"
             },
             {
               "name": "id_fluxo_nao_agendou_10_min",
@@ -2155,7 +2155,7 @@
             },
             {
               "name": "Instagram",
-              "value": "={{ $node[\"pesquisa_lead\"].json[\"instagram\"] }}"
+              "value": "={{ $node[\"chega_da_fila1\"].json[\"content\"][\"instagram\"] }}"
             },
             {
               "name": "id_fluxo_nao_agendou_10_min",
@@ -2670,7 +2670,7 @@
             },
             {
               "name": "instagram",
-              "value": "={{ $node[\"pesquisa_lead\"].json[\"instagram\"] }}"
+              "value": "={{ $node[\"chega_da_fila1\"].json[\"content\"][\"instagram\"] }}"
             },
             {
               "name": "id_lead_bd",
@@ -3314,7 +3314,7 @@
             },
             {
               "name": "instagram",
-              "value": "={{ $node[\"pesquisa_lead3\"].json[\"instagram\"] }}"
+              "value": "={{ $node[\"chega_da_fila1\"].json[\"content\"][\"instagram\"] }}"
             },
             {
               "name": "id_lead_bd",
@@ -3735,6 +3735,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-06-06T17:49:53.404Z",
-  "versionId": "27d04ba4-75e3-422f-9f20-536f2938b605"
+  "updatedAt": "2024-08-13T23:34:24.259Z",
+  "versionId": "0bdecd56-cff5-4e2a-962a-68ad67d8ef16"
 }
