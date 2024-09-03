@@ -44,6 +44,28 @@
           }
         ]
       ]
+    },
+    "CLINT": {
+      "main": [
+        [
+          {
+            "node": "infos_bc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos_bc": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer1_Jonatã",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-14T14:43:48.505Z",
@@ -902,6 +924,83 @@
         300
       ],
       "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID Jonatã BC Closer 1",
+              "value": "342800505"
+            },
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "ID Fabricio BC",
+              "value": "271368625"
+            },
+            {
+              "name": "ID Gabriel BC Closer 2",
+              "value": "342799217"
+            },
+            {
+              "name": "ID Sunamita BC Closer 3",
+              "value": "387179683"
+            },
+            {
+              "name": "ID Silas BC Closer 4",
+              "value": "362405084"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b486dc0d-91b0-4d35-8b42-f22540c82e16",
+      "name": "infos_bc",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVA VENDA - Ganho na Clint* 🔔\n\nDados do Cliente\n\n*Nome do Cliente:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }}\n*Telefone:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Empresa:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*Endereço:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_endereco\"] }}\n*Situação:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_stage\"] }}\n*Plano:* Mentoria {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}.\n*Prazo:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_meses_de_contrato\"] }}\n*Valor do contrato:\" {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Quantidade de parcelas?:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Dia de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer1_Jonatã",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1320,
+        300
+      ],
+      "id": "9610ee9a-8dc9-4cad-8e0b-0ae06b2fd5d9",
+      "continueOnFail": true
     }
   ],
   "pinData": {
@@ -1084,6 +1183,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2024-06-11T11:37:32.630Z",
-  "versionId": "7514c500-50c1-497c-b3e8-add4df2fc705"
+  "updatedAt": "2024-09-03T14:32:20.275Z",
+  "versionId": "8a7b3f3f-7c96-44b4-8517-8492e813df11"
 }
