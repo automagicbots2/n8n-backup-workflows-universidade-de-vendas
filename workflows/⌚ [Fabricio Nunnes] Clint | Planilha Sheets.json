@@ -66,6 +66,17 @@
           }
         ]
       ]
+    },
+    "avisa_Closer1_Jonatã": {
+      "main": [
+        [
+          {
+            "node": "avisa_Fabricio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-14T14:43:48.505Z",
@@ -1001,6 +1012,42 @@
       ],
       "id": "9610ee9a-8dc9-4cad-8e0b-0ae06b2fd5d9",
       "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Fabricio BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVA VENDA - Ganho na Clint* 🔔\n\nDados do Cliente\n\n*Nome do Cliente:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }}\n*Telefone:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Empresa:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*Endereço:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_endereco\"] }}\n*Situação:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_stage\"] }}\n*Plano:* Mentoria {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}.\n*Prazo:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_meses_de_contrato\"] }}\n*Valor do contrato:\" {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Quantidade de parcelas?:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Dia de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Fabricio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1520,
+        300
+      ],
+      "id": "1818815f-bd8e-4274-9602-f349e061d4b9",
+      "continueOnFail": true
     }
   ],
   "pinData": {
@@ -1183,6 +1230,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2024-09-03T14:32:20.275Z",
-  "versionId": "8a7b3f3f-7c96-44b4-8517-8492e813df11"
+  "updatedAt": "2024-09-03T20:07:02.050Z",
+  "versionId": "25585567-ddae-4943-8b2a-7fdad37cbc8e"
 }
