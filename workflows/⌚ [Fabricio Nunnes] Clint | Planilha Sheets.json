@@ -34,17 +34,6 @@
         ]
       ]
     },
-    "Lead_Ganho": {
-      "main": [
-        [
-          {
-            "node": "CLINT",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "CLINT": {
       "main": [
         [
@@ -72,6 +61,17 @@
         [
           {
             "node": "avisa_Fabricio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lead_Ganho": {
+      "main": [
+        [
+          {
+            "node": "CLINT",
             "type": "main",
             "index": 0
           }
@@ -922,22 +922,6 @@
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "ganho-planilha-hetzner",
-        "options": {}
-      },
-      "id": "964519b9-bd7e-4e47-b456-6c1110a1ba35",
-      "name": "Lead_Ganho",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1.1,
-      "position": [
-        720,
-        300
-      ],
-      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
-    },
-    {
-      "parameters": {
         "values": {
           "string": [
             {
@@ -950,7 +934,7 @@
             },
             {
               "name": "ID Fabricio BC",
-              "value": "271368625"
+              "value": "214311872"
             },
             {
               "name": "ID Gabriel BC Closer 2",
@@ -1048,6 +1032,22 @@
       ],
       "id": "1818815f-bd8e-4274-9602-f349e061d4b9",
       "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ganho-planilha-hetzner",
+        "options": {}
+      },
+      "id": "964519b9-bd7e-4e47-b456-6c1110a1ba35",
+      "name": "Lead_Ganho",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        300
+      ],
+      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
     }
   ],
   "pinData": {
@@ -1163,57 +1163,61 @@
       {
         "json": {
           "headers": {
-            "host": "n8nwebhookfabricionunnes.automagicbots.com.br",
-            "user-agent": "axios/0.27.2",
-            "content-length": "1043",
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/1.7.2",
+            "content-length": "899",
             "accept": "application/json, text/plain, */*",
+            "accept-encoding": "gzip, compress, deflate, br",
             "content-type": "application/json",
+            "newrelic": "eyJ2IjpbMCwxXSwiZCI6eyJ0eSI6IkFwcCIsImFjIjoiNDQ0OTI2MyIsImFwIjoiVW5rbm93biIsInR4IjoiOTg3ZjEyYjZiMDhkYjNiMCIsInRyIjoiOTgxMGM1NDkzNzg5MjNiYWZmY2RmYWYzZGIyZTQ2MjQiLCJwciI6MC40MTUwNTksInNhIjpmYWxzZSwidGkiOjE3MjU1NjU1OTkzMDB9fQ==",
+            "traceparent": "00-9810c549378923baffcdfaf3db2e4624-6fd2290f4c346b36-00",
+            "tracestate": "4449263@nr=0-0-4449263-Unknown-6fd2290f4c346b36-987f12b6b08db3b0-0-0.415059-1725565599300",
             "x-forwarded-for": "52.200.254.28",
-            "x-forwarded-host": "n8nwebhookfabricionunnes.automagicbots.com.br",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "x-forwarded-port": "443",
             "x-forwarded-proto": "https",
-            "x-forwarded-server": "077bd0aa48be",
-            "x-real-ip": "52.200.254.28",
-            "accept-encoding": "gzip"
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "52.200.254.28"
           },
           "params": {},
           "query": {},
           "body": {
-            "contact_name": "Juliana",
-            "contact_email": "jucassorielo@yahoo.com.br",
-            "contact_phone": "+5511978575338",
+            "contact_name": "Fernanda",
+            "contact_email": "fernandagomescarvalho@hotmail.com",
+            "contact_phone": "+5531997063817",
             "deal_stage": "Aguardando fechamento",
-            "deal_user": "closer2@universidadevendas.com.br",
+            "deal_user": "closer1@universidadevendas.com.br",
             "deal_status": "WON",
             "contact_tag": [
+              "Popup",
               "Qualificado",
-              "Popup"
+              "Funil SE1"
             ],
             "contact_vendedores": "",
-            "deal_won_at": "04/03/2024 10:13:49",
+            "deal_won_at": "05/09/2024 16:46:38",
             "contact_numero_de_parcelas": "",
+            "deal_quantidade_de_parcel": "",
             "contact_cpfcnpj": "",
-            "organization_name": "Dermalux Estética Laser e Tecnologia",
+            "organization_name": "Posto de Molas e Soldas Elshaday LTDA",
             "contact_forma_de_pagamento": "",
             "contact_status_de_pagamento": "",
             "contact_produto": "",
-            "deal_faturamento": 32200,
-            "deal_user_phone": "(11) 98217-9242",
+            "deal_value": 1700,
+            "deal_faturamento": 20400,
+            "deal_user_phone": "(11) 98429-2699",
+            "deal_endereco": "",
             "organization_city": "",
             "organization_state": "",
             "organization_estado_sigla": "",
             "organization_documentos_important": "",
-            "deal_value": 10000,
-            "deal_origin": "Sessão Estratégica",
-            "deal_meses_de_contrato": "12",
-            "deal_quantidade_de_parcel": "6",
-            "deal_cep": "06454050",
-            "deal_endereco": " Alameda Grajaú, 98, 4 andar Alphaville Barueri-SP",
-            "deal_dia_do_vencimento": "5",
-            "deal_nome_fantasia_da_emp": "Dermalux Estética Laser e Tecnologia",
-            "deal_closer": "Gabriel Borges",
-            "deal_sdr": "Não tem"
-          }
+            "deal_origin": "Funil SE",
+            "deal_meses_de_contrato": "",
+            "deal_dia_do_vencimento": "",
+            "deal_closer": "Mayra Santos",
+            "deal_sdr": "Ana"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/ganho-planilha-hetzner",
+          "executionMode": "production"
         }
       }
     ]
@@ -1230,6 +1234,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2024-09-03T20:07:02.050Z",
-  "versionId": "25585567-ddae-4943-8b2a-7fdad37cbc8e"
+  "updatedAt": "2024-09-06T12:27:54.214Z",
+  "versionId": "1673af78-56d3-44ca-bee5-bcebe55f59fc"
 }
