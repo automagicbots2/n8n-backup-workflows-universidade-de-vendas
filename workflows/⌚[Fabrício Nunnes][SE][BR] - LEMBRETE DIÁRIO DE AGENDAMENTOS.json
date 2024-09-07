@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "infos_bot_conversa": {
       "main": [
@@ -300,8 +300,8 @@
       ]
     }
   },
-  "createdAt": "2024-05-29T12:24:43.618Z",
-  "id": "4R95rLCwpZ9JoTXQ",
+  "createdAt": "2024-05-28T14:24:55.627Z",
+  "id": "wyE7eoZ5MJQOCcB5",
   "meta": {
     "templateCredsSetupCompleted": true
   },
@@ -309,11 +309,31 @@
   "nodes": [
     {
       "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7,
+              "triggerAtMinute": 30
+            }
+          ]
+        }
+      },
+      "id": "81140442-76bc-46a6-80af-0775b67fceb0",
+      "name": "todo_dia_7:30am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        600,
+        200
+      ]
+    },
+    {
+      "parameters": {
         "values": {
           "string": [
             {
               "name": "API-KEY",
-              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+              "value": "a9585685-a8d4-4f70-be7c-44c8dedf905f"
             },
             {
               "name": "flow_de_lembrete_diario_se",
@@ -326,13 +346,13 @@
         },
         "options": {}
       },
-      "id": "addfaa6c-e4d3-4a97-9218-899531367885",
+      "id": "918b1e0d-df11-432b-9d32-89e4974a57e6",
       "name": "infos_bot_conversa",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        -2540,
-        420
+        780,
+        200
       ]
     },
     {
@@ -369,10 +389,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        20,
-        700
+        3340,
+        480
       ],
-      "id": "a99da16b-d0dd-44ab-beaf-1bb2da6a6ea5",
+      "id": "af660032-effd-4e6a-b3df-00444ed2c5d5",
       "continueOnFail": true
     },
     {
@@ -388,13 +408,13 @@
         },
         "combineOperation": "any"
       },
-      "id": "800a08fc-d32d-496a-8ab3-d69605e4d53c",
+      "id": "390d1296-d859-4ec0-8adc-4d83159cc165",
       "name": "cancelado",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -1920,
-        480
+        1400,
+        260
       ]
     },
     {
@@ -418,13 +438,13 @@
           "detailedOutput": false
         }
       },
-      "id": "c57416e9-ab1a-48ea-afb1-6a55aee47239",
+      "id": "e6231146-1aef-4db4-95cb-06b92cfc0579",
       "name": "pesquisa_agendamentos_do_dia",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        -2340,
-        420
+        980,
+        200
       ],
       "credentials": {
         "mySql": {
@@ -438,13 +458,13 @@
         "batchSize": 1,
         "options": {}
       },
-      "id": "49363757-1feb-458d-83a1-ffb2e2c9b113",
+      "id": "3f6950d6-aebf-41bf-aa5e-1b705c665bc4",
       "name": "separa_em_linhas",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 2,
       "position": [
-        -1720,
-        480
+        1600,
+        260
       ]
     },
     {
@@ -469,13 +489,13 @@
           "detailedOutput": false
         }
       },
-      "id": "729fa65a-970f-4ea5-a4b6-586300fe20b7",
+      "id": "abc2e98f-b234-4b8e-b06c-67027252ea0f",
       "name": "pesquisa_lead_via_id",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        -1520,
-        460
+        1800,
+        240
       ],
       "credentials": {
         "mySql": {
@@ -510,10 +530,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        420,
-        240
+        3740,
+        20
       ],
-      "id": "030e6002-004f-465a-ba83-e3eee81860e2",
+      "id": "9a67d93b-1d2f-42c5-9f3e-cf8250095612",
       "retryOnFail": true,
       "waitBetweenTries": 5000,
       "continueOnFail": true
@@ -541,13 +561,13 @@
         },
         "combineOperation": "any"
       },
-      "id": "a2e026df-8a77-417b-b48f-2dcbee0370d4",
+      "id": "dc6b6391-1cf7-4ad1-b5eb-686cbfceb414",
       "name": "sessao_estrategica",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        180,
-        320
+        3500,
+        100
       ]
     },
     {
@@ -576,10 +596,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        420,
-        440
+        3740,
+        220
       ],
-      "id": "88dbfff2-644b-4f46-b25d-1aab4740e8b6",
+      "id": "d377c72d-f027-4a6e-ba2b-5df2c35b780f",
       "retryOnFail": true,
       "waitBetweenTries": 5000,
       "continueOnFail": true
@@ -596,13 +616,13 @@
         },
         "combineOperation": "any"
       },
-      "id": "bc558ade-8572-46aa-92aa-e35374769bfa",
+      "id": "e3b8f9a5-092a-4331-a350-0ec4bb0a7281",
       "name": "id_bc_existe",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -160,
-        480
+        3160,
+        260
       ]
     },
     {
@@ -631,10 +651,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        440,
-        620
+        3760,
+        400
       ],
-      "id": "51d75a9a-050c-403c-8f00-44fff496cd6f",
+      "id": "9f880295-4908-4ee8-a0db-293df9457584",
       "retryOnFail": true,
       "waitBetweenTries": 5000,
       "continueOnFail": true
@@ -665,10 +685,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        440,
-        800
+        3760,
+        580
       ],
-      "id": "19a2f49e-c2e0-4ee5-9634-c2a1625e9ba5",
+      "id": "8c1c825a-506a-4bc3-b3b5-db7b75417807",
       "retryOnFail": true,
       "waitBetweenTries": 5000,
       "continueOnFail": true
@@ -678,36 +698,36 @@
         "amount": 2,
         "unit": "seconds"
       },
-      "id": "5f79f2bc-c2fc-4923-825b-9263924ee24a",
+      "id": "9c7e9b67-703f-43fc-b498-1251821a93fc",
       "name": "espera_3_segundos",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        780,
-        860
+        4100,
+        640
       ],
       "webhookId": "3f04edd2-2f7d-4b98-9635-32d743824e37"
     },
     {
       "parameters": {},
-      "id": "80398b74-8f23-4dd7-a1bf-5f69ff4f2881",
+      "id": "fb2b799b-346e-4066-9298-3547fb152cba",
       "name": "fim",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -840,
-        760
+        2480,
+        540
       ]
     },
     {
       "parameters": {},
-      "id": "206f2f22-a3a3-4031-b36a-7aceb6cb2f02",
+      "id": "64a05163-c24c-4b58-b55b-5ad918a5d5fa",
       "name": "sem_acao",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -1720,
-        260
+        1600,
+        40
       ]
     },
     {
@@ -723,13 +743,13 @@
         },
         "combineOperation": "any"
       },
-      "id": "76f21bd5-e9d3-4da3-8931-1ea4ba936366",
+      "id": "f00338c4-095d-4521-8391-8e9f9873438f",
       "name": "inexistente",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -2140,
-        420
+        1180,
+        200
       ]
     },
     {
@@ -745,13 +765,13 @@
         },
         "combineOperation": "any"
       },
-      "id": "ddf2cefc-0cd4-4997-8615-b56d4a752565",
+      "id": "be246a1d-6bec-4615-ac65-85238cc970ec",
       "name": "inexistente1",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -1360,
-        460
+        1960,
+        240
       ]
     },
     {
@@ -777,13 +797,13 @@
         },
         "combineOperation": "any"
       },
-      "id": "fe2b9053-2498-42ea-8898-1ed9d36c6779",
+      "id": "f2acd4b2-e2a6-4b18-a2a8-4ed235a37de7",
       "name": "sessao_estrategica1",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        200,
-        700
+        3520,
+        480
       ]
     },
     {
@@ -791,13 +811,13 @@
         "operation": "limit",
         "keep": "lastItems"
       },
-      "id": "7ebb656c-1f09-45f9-9b76-2844c7ba92bf",
+      "id": "9b0b7211-626b-4561-8e27-542e67b03e6e",
       "name": "item_unico",
       "type": "n8n-nodes-base.itemLists",
       "typeVersion": 3,
       "position": [
-        -1160,
-        480
+        2160,
+        260
       ]
     },
     {
@@ -813,13 +833,13 @@
         },
         "combineOperation": "any"
       },
-      "id": "eb9856f4-576c-4979-94b0-8125e01d5393",
+      "id": "c8a28d34-efc6-452f-b32c-a3c9c81f0fd7",
       "name": "e_ddd_55",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -1000,
-        480
+        2320,
+        260
       ]
     },
     {
@@ -857,13 +877,13 @@
         },
         "options": {}
       },
-      "id": "7062b167-56be-4664-a644-47f59871c059",
+      "id": "327a095f-3557-40f5-800f-d3af041b9246",
       "name": "Clint_donodonegocio",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        -320,
-        480
+        3000,
+        260
       ]
     },
     {
@@ -888,13 +908,13 @@
           "detailedOutput": false
         }
       },
-      "id": "f56e8a73-d593-4457-a590-a7f71ba51cd6",
+      "id": "56173a09-96e9-48c0-b3b7-319727f3b3a0",
       "name": "pesquisa_responsavel",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        -780,
-        480
+        2540,
+        260
       ],
       "credentials": {
         "mySql": {
@@ -926,33 +946,13 @@
         },
         "options": {}
       },
-      "id": "68e68fd8-882d-4842-87e1-10a8149466bf",
+      "id": "240e1f59-b59d-4252-89ba-8cc991673585",
       "name": "cria/atualiza_contato_qualificado1",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        -520,
-        480
-      ]
-    },
-    {
-      "parameters": {
-        "rule": {
-          "interval": [
-            {
-              "triggerAtHour": 7,
-              "triggerAtMinute": 30
-            }
-          ]
-        }
-      },
-      "id": "ac1d7eb9-6a4a-44b7-a9d6-028d5fb49596",
-      "name": "todo_dia_7:30am",
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.2,
-      "position": [
-        -2720,
-        420
+        2800,
+        260
       ]
     }
   ],
@@ -961,13 +961,13 @@
     "executionOrder": "v1",
     "saveManualExecutions": true,
     "callerPolicy": "workflowsFromSameOwner",
-    "errorWorkflow": "Q8rgTKWALfDjS7MZ",
-    "saveDataErrorExecution": "all",
-    "saveDataSuccessExecution": "all",
-    "saveExecutionProgress": true
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
   },
   "staticData": {
     "node:todo_dia_7:30am": {
+      "recurrencyRules": []
+    },
+    "node:todo_dia_4:30am_portugal": {
       "recurrencyRules": []
     }
   },
@@ -980,6 +980,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-08-30T18:47:11.408Z",
-  "versionId": "c2d071f0-c3d9-4d6c-bd88-875317704fee"
+  "updatedAt": "2024-05-29T12:24:40.589Z",
+  "versionId": "e0d26e24-6b00-4f5b-8855-c66d3fac401e"
 }
