@@ -1,0 +1,2247 @@
+{
+  "active": true,
+  "connections": {
+    "Evento Criado": {
+      "main": [
+        [
+          {
+            "node": "É Reagendamento1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "cancelamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "É Reagendamento": {
+      "main": [
+        [
+          {
+            "node": "reagendamento",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Evento Criado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "É Reagendamento1": {
+      "main": [
+        [
+          {
+            "node": "Não faça nada1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cancelamento": {
+      "main": [
+        [
+          {
+            "node": "formata_dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "reagendamento": {
+      "main": [
+        [
+          {
+            "node": "formata_dados2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "pt_1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados1": {
+      "main": [
+        [
+          {
+            "node": "dados_do_cancelamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados2": {
+      "main": [
+        [
+          {
+            "node": "pt_",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sessao_estrategica": {
+      "main": [
+        [
+          {
+            "node": "É Reagendamento",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SE-webinario",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evento Criado1": {
+      "main": [
+        [
+          {
+            "node": "É Reagendamento3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "cancelamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "É Reagendamento2": {
+      "main": [
+        [
+          {
+            "node": "reagendamento",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Evento Criado1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "É Reagendamento3": {
+      "main": [
+        [
+          {
+            "node": "Não faça nada",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "formata_dados3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados3": {
+      "main": [
+        [
+          {
+            "node": "dados_do_agendamento1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_fuso_portugal": {
+      "main": [
+        [
+          {
+            "node": "dados_do_agendamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pt_1": {
+      "main": [
+        [
+          {
+            "node": "formata_fuso_portugal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_fuso_portugal1": {
+      "main": [
+        [
+          {
+            "node": "dados_do_reagendamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pt_": {
+      "main": [
+        [
+          {
+            "node": "formata_fuso_portugal1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SE-webinario": {
+      "main": [
+        [
+          {
+            "node": "É Reagendamento",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "nada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evento": {
+      "main": [
+        [
+          {
+            "node": "sessao_estrategica",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reagendamento1": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2024-09-09T13:49:36.835Z",
+  "id": "gPlszPC59HNT6fNO",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚[FABRÍCIO NUNNES][BD][SE] - Calendly - Parte 1 - Ana Carvalho",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"Evento\"].json[\"event\"] }}",
+              "value2": "invitee.created"
+            }
+          ]
+        }
+      },
+      "id": "bc797090-7a8b-4dbc-b52a-3c15a9f95f01",
+      "name": "Evento Criado",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"is_reschedule\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "3f792ea6-38be-45a5-8ace-5f0016a8a5d6",
+      "name": "É Reagendamento",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        1280
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"Evento\"].json[\"payload\"][\"old_invitee\"][\"is_reschedule\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "faa63d92-f9d7-4a61-9db7-7cefe9ef7eef",
+      "name": "É Reagendamento1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        1400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "fcdea3eb-2a94-46f7-b34c-3ae4cddaa7d4",
+      "name": "Não faça nada1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1780,
+        1300
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "0611a217-42d1-4853-910c-01444f69e441",
+      "name": "cancelamento",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        1720
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "b24e9e17-5c3f-4fc6-b1ae-d3514ac51b82",
+      "name": "reagendamento",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "Calendly - Sessão Estratégica",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "df25d1d9-6b2c-41e2-8db8-cdb847ea236b",
+      "name": "entra_na_fila",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        2480,
+        1420
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = items[0].json.payload;\n\n// Pegar o parâmetro \"created_at\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst createdAt = new Date(payload.event.created_at);\nconst dataAgendamento = createdAt.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Pegar o parâmetro \"start_time\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst startTime = new Date(payload.event.start_time);\nconst dataInicio = startTime.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Subtrair 24 horas do \"start_time\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst lembrete24h = new Date(startTime.getTime() - 24 * 60 * 60 * 1000);\nconst dataLembrete24h = lembrete24h.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Subtrair 2 horas do \"start_time\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst lembrete2h = new Date(startTime.getTime() - 2 * 60 * 60 * 1000);\nconst dataLembrete2h = lembrete2h.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Pegar o parâmetro \"end_time\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst endTime = new Date(payload.event.end_time);\nconst dataTermino = endTime.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Buscar o telefone nos campos do array \"questions_and_answers\" no objeto \"invitee\" e formatá-lo\nlet telefone = '';\nconst questionsAndAnswers = payload.questions_and_answers;\nfor (let i = 0; i < questionsAndAnswers.length; i++) {\n  const answer = questionsAndAnswers[i].answer;\n  if (/^[\\+\\s\\d-]+$/.test(answer)) {\n    telefone = answer.replace(/[\\+\\s-]/g, '');\n    break;\n  }\n}\n\n// Extrair o DDI a partir do telefone limpo\nconst ddi = telefone.slice(0, 2);\n\n// Verificar se o DDI é igual a 55\nif (ddi === '55') {\n  const ddd = telefone.slice(2, 4);\n  if (Number(ddd) > 28) {\n    telefone = '55' + telefone.slice(2, 4) + telefone.slice(-8).replace(/\\s/g, '');\n  } else {\n    telefone = '55' + telefone.slice(2, 4) + telefone.slice(-9).replace(/\\s/g, '');\n  }\n} else {\n  telefone = telefone.replace(/[\\+\\s-]/g, ''); // Tratar como número internacional\n}\n\n// Função para formatar a primeira letra de cada palavra em maiúsculo\nfunction formatarPrimeiraLetraMaiuscula(str) {\n  const palavras = str.toLowerCase().split(\" \");\n\n  for (let i = 0; i < palavras.length; i++) {\n    palavras[i] = palavras[i].charAt(0).toUpperCase() + palavras[i].slice(1);\n  }\n\n  return palavras.join(\" \");\n}\n\n// Formatar o parâmetro \"name\" do objeto \"invitee\" com a primeira letra de cada palavra em maiúsculo\nconst name = formatarPrimeiraLetraMaiuscula(payload.invitee.name);\n\n// Validar se o parâmetro \"email\" é um email válido e colocar todas as letras em minúsculo\nconst email = payload.invitee.email.toLowerCase();\nconst isEmailValid = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);\n\n// Verificar se o telefone começa com 351 para identificar Portugal\nif (telefone.startsWith('351')) {\n  return {\n    'Data em que foi feito o Agendamento': dataAgendamento,\n    'Data de Início': dataInicio,\n    'Lembrete 24h': dataLembrete24h,\n    'Lembrete 2h': dataLembrete2h,\n    'Data de Término': dataTermino,\n    'Telefone': telefone,\n    'Nome': name,\n    'Email válido': isEmailValid,\n    'Email': email,\n    'País': 'Portugal' // Adicionar o parâmetro País se o telefone for de Portugal\n  };\n} else {\n  // Continuar com o código existente\n  // Formatar outros campos e retornar o objeto sem o parâmetro \"País\"\n  return {\n    'Data em que foi feito o Agendamento': dataAgendamento,\n    'Data de Início': dataInicio,\n    'Lembrete 24h': dataLembrete24h,\n    'Lembrete 2h': dataLembrete2h,\n    'Data de Término': dataTermino,\n    'Telefone': telefone,\n    'Nome': name,\n    'Email válido': isEmailValid,\n    'Email': email\n  };\n}\n"
+      },
+      "id": "044d7f27-d21f-46ab-a953-cd71ea729b36",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1780,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = items[0].json.payload;\n\n// Acesse a data do JSON\nconst canceledAt = payload.event.canceled_at;\n\n// Crie um objeto de data a partir da string\nconst data = new Date(canceledAt);\n\n// Extraia o ano, mês e dia\nconst ano = data.getFullYear();\nconst mes = String(data.getMonth() + 1).padStart(2, '0'); // Adiciona zero à esquerda, se necessário\nconst dia = String(data.getDate()).padStart(2, '0');\n\n// Crie a string formatada no formato YYYY-MM-DD\nconst dataCancelamento = `${ano}-${mes}-${dia}`;\n\n// Buscar o telefone nos campos do array \"questions_and_answers\" no objeto \"invitee\" e formatá-lo\nlet telefone = '';\nconst questionsAndAnswers = payload.questions_and_answers;\nfor (let i = 0; i < questionsAndAnswers.length; i++) {\n  const answer = questionsAndAnswers[i].answer;\n  if (/^[\\+\\s\\d-]+$/.test(answer)) {\n    telefone = answer.replace(/[\\+\\s-]/g, '');\n    break;\n  }\n}\n\n// Extrair o DDI a partir do telefone limpo\nconst ddi = telefone.slice(0, 2);\n\n// Verificar se o DDI é igual a 55\nif (ddi === '55') {\n  const ddd = telefone.slice(2, 4);\n  if (Number(ddd) > 28) {\n    telefone = '55' + telefone.slice(2, 4) + telefone.slice(-8).replace(/\\s/g, '');\n  } else {\n    telefone = '55' + telefone.slice(2, 4) + telefone.slice(-9).replace(/\\s/g, '');\n  }\n} else {\n  telefone = telefone.replace(/[\\+\\s-]/g, ''); // Tratar como número internacional\n}\n\n// Função para formatar a primeira letra de cada palavra em maiúsculo\nfunction formatarPrimeiraLetraMaiuscula(str) {\n  const palavras = str.toLowerCase().split(\" \");\n\n  for (let i = 0; i < palavras.length; i++) {\n    palavras[i] = palavras[i].charAt(0).toUpperCase() + palavras[i].slice(1);\n  }\n\n  return palavras.join(\" \");\n}\n\n// Formatar o parâmetro \"name\" do objeto \"invitee\" com a primeira letra de cada palavra em maiúsculo\nconst name = formatarPrimeiraLetraMaiuscula(payload.invitee.name);\n\n// Retornar os resultados\nreturn {\n  'Telefone': telefone,\n  'Nome': name,\n  'Data do Cancelamento': dataCancelamento\n};\n"
+      },
+      "id": "46ac8942-78fa-4231-a1b7-3f55557ae1c5",
+      "name": "formata_dados1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1660,
+        1720
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = items[0].json.payload;\n\n// Pegar o parâmetro \"created_at\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst createdAt = new Date(payload.new_event.created_at);\nconst dataAgendamento = createdAt.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Acesse a data do JSON\nconst canceledAt = payload.invitee.canceled_at;\n\n// Crie um objeto de data a partir da string\nconst data = new Date(canceledAt);\n\n// Extraia o ano, mês e dia\nconst ano = data.getFullYear();\nconst mes = String(data.getMonth() + 1).padStart(2, '0'); // Adiciona zero à esquerda, se necessário\nconst dia = String(data.getDate()).padStart(2, '0');\n\n// Crie a string formatada no formato YYYY-MM-DD\nconst dataReagendamento = `${ano}-${mes}-${dia}`;\n\n\n// Pegar o parâmetro \"start_time\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst startTime = new Date(payload.new_event.start_time);\nconst dataInicio = startTime.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Subtrair 24 horas do \"start_time\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst lembrete24h = new Date(startTime.getTime() - 24 * 60 * 60 * 1000);\nconst dataLembrete24h = lembrete24h.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Subtrair 2 horas do \"start_time\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst lembrete2h = new Date(startTime.getTime() - 2 * 60 * 60 * 1000);\nconst dataLembrete2h = lembrete2h.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Pegar o parâmetro \"end_time\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst endTime = new Date(payload.new_event.end_time);\nconst dataTermino = endTime.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Buscar o telefone nos campos do array \"questions_and_answers\" no objeto \"invitee\" e formatá-lo\nlet telefone = '';\nlet pais = ''; // Variável para armazenar o país\nconst questionsAndAnswers = payload.questions_and_answers;\nfor (let i = 0; i < questionsAndAnswers.length; i++) {\n  const answer = questionsAndAnswers[i].answer;\n  if (/^[\\+\\s\\d-]+$/.test(answer)) {\n    telefone = answer.replace(/[\\+\\s-]/g, '');\n    // Verificar se o telefone começa com \"351\" (código do país para Portugal)\n    if (telefone.startsWith('351')) {\n      pais = 'Portugal';\n    }\n    break;\n  }\n}\n\n// Extrair o DDI a partir do telefone limpo\nconst ddi = telefone.slice(0, 2);\n\n// Verificar se o DDI é igual a 55 ou 351\nif (ddi === '55') {\n  const ddd = telefone.slice(2, 4);\n  if (Number(ddd) > 28) {\n    telefone = '55' + telefone.slice(2, 4) + telefone.slice(-8).replace(/\\s/g, '');\n  } else {\n    telefone = '55' + telefone.slice(2, 4) + telefone.slice(-9).replace(/\\s/g, '');\n  }\n} else if (ddi === '351') {\n  telefone = '351' + telefone.slice(2); // Manter o formato para Portugal\n}\n\n// Função para formatar o nome com a primeira letra de cada palavra em maiúsculo,\n// levando em consideração as letras com acentos\nfunction formatarNome(nome) {\n  return nome\n    .toLowerCase()\n    .replace(/(?:^|\\s|[-'’])(\\S)/g, (match) => match.toUpperCase());\n}\n\n// Usar a função formatarNome para formatar o nome\nconst name = formatarNome(payload.new_invitee.name);\n// Validar se o parâmetro \"email\" é um email válido e colocar todas as letras em minúsculo\nconst email = payload.new_invitee.email.toLowerCase();\nconst isEmailValid = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);\n\n\n// Pegar o parâmetro \"created_at\" e converter para o formato YYYY-MM-DD\nconst newCreatedAt = new Date(payload.new_event.created_at);\nconst newDataAgendamento = newCreatedAt.toISOString().slice(0, 10);\n\n// Pegar o parâmetro \"start_time\" e converter para o formato YYYY-MM-DD\nconst newStartTime = new Date(payload.new_event.start_time);\nconst newDataInicio = newStartTime.toISOString().split('T')[0];\n\n// Retornar os resultados\nreturn {\n  'Data em que foi feito o Reagendamento': dataReagendamento,\n  'Data de Início': dataInicio,\n  'Lembrete 24h': dataLembrete24h,\n  'Lembrete 2h': dataLembrete2h,\n  'Data de Término': dataTermino,\n  'Telefone': telefone,\n  'País': pais, // Adicionando o país ao output\n  'Nome': name,\n  'Email válido': isEmailValid,\n  'Email': email,\n  'data_inicio_evento_novo': newDataInicio,\n  'data_agendamento_evento_novo': newDataAgendamento\n};\n"
+      },
+      "id": "e264099f-8bcd-4015-9d9c-ff94452a5b2b",
+      "name": "formata_dados2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"formata_dados2\"].json[\"Nome\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"formata_dados2\"].json[\"Email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "=+{{ $node[\"formata_dados2\"].json[\"Telefone\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ $node[\"formata_dados2\"].json[\"Telefone\"] }}"
+            },
+            {
+              "name": "ID do Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"new_event\"][\"uuid\"] }}"
+            },
+            {
+              "name": "Responsável pelo Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"new_event\"][\"extended_assigned_to\"][\"0\"][\"name\"] }}"
+            },
+            {
+              "name": "E-mail do Responsável",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"new_event\"][\"extended_assigned_to\"][\"0\"][\"email\"] }}"
+            },
+            {
+              "name": "Data de Início",
+              "value": "={{ $node[\"formata_dados2\"].json[\"Data de Início\"].split('T')[0] }}"
+            },
+            {
+              "name": "Data em que foi feito o Reagendamento",
+              "value": "={{ $node[\"formata_dados2\"].json[\"Data em que foi feito o Reagendamento\"] }}"
+            },
+            {
+              "name": "Data de Término",
+              "value": "={{ $node[\"formata_dados2\"].json[\"Data de Término\"] }}"
+            },
+            {
+              "name": "Dia da Semana de Início do Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"new_event\"][\"start_time_pretty\"].split(',')[0].split('- ')[1].replace('Monday','Segunda').replace('Tuesday','Terça').replace('Wednesday','Quarta').replace('Thursday','Quinta').replace('Friday','Sexta').replace('Saturday','Sábado').replace('Sunday','Domingo') }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "Motivo do Reagendamento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"cancel_reason\"] }}"
+            },
+            {
+              "name": "ID do Cliente",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"new_invitee\"][\"uuid\"] }}"
+            },
+            {
+              "name": "ID do Evento Antigo",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"uuid\"] }}"
+            },
+            {
+              "name": "Tipo de Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"name\"] }}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "id_do_campo_id_do_agendamento_bot_conversa",
+              "value": "1045673"
+            },
+            {
+              "name": "id_do_campo_inviteeid_bot_conversa",
+              "value": "1045675"
+            },
+            {
+              "name": "id_do_campo_horario_agendado_bot_conversa",
+              "value": "1045669"
+            },
+            {
+              "name": "id_do_campo_data_do_agendamento_bot_conversa",
+              "value": "1045668"
+            },
+            {
+              "name": "id_do_campo_dia_da_semana_do_agendamento_bot_conversa",
+              "value": "1045528"
+            },
+            {
+              "name": "fluxo_de_confirmacao_de_reagendamento",
+              "value": "1769147"
+            },
+            {
+              "name": "Link da Reunião",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"new_event\"][\"location\"] }}"
+            },
+            {
+              "name": "ID do Cliente Antigo",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"uuid\"] }}"
+            },
+            {
+              "name": "data_de_inicio_antigo",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[0] }}"
+            },
+            {
+              "name": "hora_de_inicio_antigo",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[1].split('-')[0] }}"
+            },
+            {
+              "name": "Link da Reunião Antigo",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"location\"] }}"
+            },
+            {
+              "name": "Dia da Semana de Início do Evento Antigo",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time_pretty\"].split(',')[0].split('- ')[1].replace('Monday','Segunda').replace('Tuesday','Terça').replace('Wednesday','Quarta').replace('Thursday','Quinta').replace('Friday','Sexta').replace('Saturday','Sábado').replace('Sunday','Domingo') }}"
+            },
+            {
+              "name": "Data do Agendamento Antigo",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"created_at\"].split('T')[0] }} {{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"created_at\"].split('T')[1].split('-')[0] }}"
+            },
+            {
+              "name": "Responsável pelo Evento Antigo",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"extended_assigned_to\"][\"0\"][\"name\"] }}"
+            },
+            {
+              "name": "E-mail do Responsável Antigo",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"extended_assigned_to\"][\"0\"][\"email\"] }}"
+            },
+            {
+              "name": "data_de_inicio_novo",
+              "value": "={{ $node[\"formata_dados2\"].json[\"data_inicio_evento_novo\"] }}"
+            },
+            {
+              "name": "data_agendamento_novo",
+              "value": "={{ $node[\"formata_dados2\"].json[\"data_agendamento_evento_novo\"] }} {{ $node[\"Evento\"].json[\"payload\"][\"new_event\"][\"created_at\"].split('T')[1].split('-')[0] }}"
+            },
+            {
+              "name": "hora_de_inicio_novo",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"new_event\"][\"start_time\"].split('T')[1].split('-')[0] }}"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1408048"
+            },
+            {
+              "name": "funil",
+              "value": "sessao_estrategica"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "v1"
+            },
+            {
+              "name": "id_do_campo_link_da_reuniao_bot_conversa",
+              "value": "1045679"
+            },
+            {
+              "name": "id_do_campo_dia_da_semana_do_agendamento_bot_conversa_pt",
+              "value": "1853088"
+            },
+            {
+              "name": "id_do_campo_horario_agendado_bot_conversa_pt",
+              "value": "1853084"
+            },
+            {
+              "name": "id_do_campo_data_do_agendamento_bot_conversa_pt",
+              "value": "1852850"
+            },
+            {
+              "name": "Data de Início com Reagendamento - PT",
+              "value": "={{ $node[\"formata_fuso_portugal1\"].json[\"Data de Início com Adiantamento\"] }}"
+            },
+            {
+              "name": "Data de Término com Adiantamento - PT",
+              "value": "={{ $node[\"formata_fuso_portugal1\"].json[\"Data de Término com Adiantamento\"] }}"
+            },
+            {
+              "name": "País",
+              "value": "={{ $node[\"formata_dados2\"].json[\"País\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "551c2dd0-7176-4e1c-86c4-2932fa302683",
+      "name": "dados_do_reagendamento",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        2120,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "scope": "organization",
+        "events": [
+          "invitee.created",
+          "invitee.canceled"
+        ]
+      },
+      "id": "d7da84df-0d20-46f9-932a-457981122d25",
+      "name": "Evento",
+      "type": "n8n-nodes-base.calendlyTrigger",
+      "typeVersion": 1,
+      "position": [
+        380,
+        1280
+      ],
+      "webhookId": "ba73ab41-7508-4c6e-821c-e7f311550c14",
+      "credentials": {
+        "calendlyApi": {
+          "id": "Pi3N54FgGuIedU49",
+          "name": "[Calendly] - Ana Carvalho"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"name\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "=+{{ $node.formata_dados1.json.Telefone }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ $node.formata_dados1.json.Telefone }}"
+            },
+            {
+              "name": "ID do Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"uuid\"] }}"
+            },
+            {
+              "name": "Data do Cancelamento",
+              "value": "={{ $node[\"formata_dados1\"].json[\"Data do Cancelamento\"] }}"
+            },
+            {
+              "name": "ID do Cliente",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"uuid\"] }}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "id_do_campo_id_do_agendamento_bot_conversa",
+              "value": "1045673"
+            },
+            {
+              "name": "id_do_campo_inviteeid_bot_conversa",
+              "value": "1045675"
+            },
+            {
+              "name": "id_do_campo_horario_agendado_bot_conversa",
+              "value": "1045669"
+            },
+            {
+              "name": "id_do_campo_data_do_agendamento_bot_conversa",
+              "value": "1045668"
+            },
+            {
+              "name": "id_do_campo_dia_da_semana_do_agendamento_bot_conversa",
+              "value": "1045528"
+            },
+            {
+              "name": "fluxo_de_confirmacao_de_cancelamento",
+              "value": "1769093"
+            },
+            {
+              "name": "id_do_campo_motivo_do_cancelamento_bot_conversa",
+              "value": "1045683"
+            },
+            {
+              "name": "Motivo do Cancelamento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"cancel_reason\"] }}"
+            },
+            {
+              "name": "Data de Início",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[0] }}"
+            },
+            {
+              "name": "Hora de Início",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[1].split('-')[0] }}"
+            },
+            {
+              "name": "Link da Reunião",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"location\"] }}"
+            },
+            {
+              "name": "Tipo de Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"name\"] }}"
+            },
+            {
+              "name": "Dia da Semana do Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time_pretty\"].split(',')[0].split('- ')[1].replace('Monday','Segunda').replace('Tuesday','Terça').replace('Wednesday','Quarta').replace('Thursday','Quinta').replace('Friday','Sexta').replace('Saturday','Sábado').replace('Sunday','Domingo') }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "data_agendamento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"created_at\"].split('T')[0] }} {{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"created_at\"].split('T')[1].split('-')[0] }}"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1408048"
+            },
+            {
+              "name": "data_termino_ac",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[0] }}"
+            },
+            {
+              "name": "data_e_hora_de_termino",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[0].split('-')[2] }}/{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[0].split('-')[1] }}/{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[0].split('-')[0] }} {{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[1].split('-')[0].split(':')[0] }}:{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[1].split('-')[0].split(':')[1] }}"
+            },
+            {
+              "name": "data_e_hora_de_inicio",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[0].split('-')[2] }}/{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[0].split('-')[1] }}/{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[0].split('-')[0] }} {{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[1].split('-')[0].split(':')[0] }}:{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[1].split('-')[0].split(':')[1] }}"
+            },
+            {
+              "name": "funil",
+              "value": "sessao_estrategica"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "v1"
+            },
+            {
+              "name": "E-mail do Responsável",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"extended_assigned_to\"][\"0\"][\"email\"] }}"
+            },
+            {
+              "name": "Nome do Responsável",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"extended_assigned_to\"][\"0\"][\"name\"] }}"
+            },
+            {
+              "name": "id_campo_data_cancelamento_bot_conversa",
+              "value": "1057942"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": false
+        }
+      },
+      "id": "0044c20d-f1fa-4243-a5a6-9e13c8a46ab6",
+      "name": "dados_do_cancelamento",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        1720
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"name\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "=+{{ $node[\"formata_dados\"].json[\"Telefone\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ $node[\"formata_dados\"].json[\"Telefone\"] }}"
+            },
+            {
+              "name": "Tipo de Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"name\"] }}"
+            },
+            {
+              "name": "ID do Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"uuid\"] }}"
+            },
+            {
+              "name": "Responsável pelo Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"extended_assigned_to\"][\"0\"][\"name\"] }}"
+            },
+            {
+              "name": "E-mail do Responsável",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"extended_assigned_to\"][\"0\"][\"email\"] }}"
+            },
+            {
+              "name": "Data de Início",
+              "value": "={{ $node[\"formata_dados\"].json[\"Data de Início\"] }}"
+            },
+            {
+              "name": "Data em que foi feito o Agendamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"Data em que foi feito o Agendamento\"] }}"
+            },
+            {
+              "name": "Data de Término",
+              "value": "={{ $node[\"formata_dados\"].json[\"Data de Término\"] }}"
+            },
+            {
+              "name": "Dia da Semana de Início do Evento",
+              "value": "={{                $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time_pretty\"].split(',')[0].split('- ')[1].replace('Monday','Segunda').replace('Tuesday','Terça').replace('Wednesday','Quarta').replace('Thursday','Quinta').replace('Friday','Sexta').replace('Saturday','Sábado').replace('Sunday','Domingo')                  }}"
+            },
+            {
+              "name": "Link da Reunião",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"location\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "ID do Cliente",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"uuid\"] }}"
+            },
+            {
+              "name": "id_do_campo_id_do_agendamento_bot_conversa",
+              "value": "1045673"
+            },
+            {
+              "name": "fluxo_de_confirmacao_de_agendamento",
+              "value": "4496635"
+            },
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "id_do_campo_link_da_reuniao_bot_conversa",
+              "value": "1045679"
+            },
+            {
+              "name": "id_do_campo_dia_da_semana_do_agendamento_bot_conversa",
+              "value": "1045528"
+            },
+            {
+              "name": "id_do_campo_data_do_agendamento_bot_conversa",
+              "value": "1045668"
+            },
+            {
+              "name": "id_do_campo_horario_agendado_bot_conversa",
+              "value": "1045669"
+            },
+            {
+              "name": "id_do_campo_id_banco_de_dados_bot_conversa",
+              "value": "1408048"
+            },
+            {
+              "name": "funil",
+              "value": "sessao_estrategica"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "v1"
+            },
+            {
+              "name": "id_do_campo_id_do_cliente_bot_conversa",
+              "value": "1045675"
+            },
+            {
+              "name": "id_do_campo_id_closer_responsavel_bot_conversa",
+              "value": "1045682"
+            },
+            {
+              "name": "id_do_campo_tipo_de_servico_bot_conversa",
+              "value": "1050125"
+            },
+            {
+              "name": "id_do_campo_email_se_bot_conversa",
+              "value": "1045671"
+            },
+            {
+              "name": "id_do_campo_quantos_vendedores_bot_conversa",
+              "value": "1051569"
+            },
+            {
+              "name": "id_do_campo_faturamento_mensal_bot_conversa",
+              "value": "1051567"
+            },
+            {
+              "name": "id_campo_tem_socio_bot_conversa",
+              "value": "1408036"
+            },
+            {
+              "name": "id_campo_nome_closer_responsavel_bot_conversa",
+              "value": "1459264"
+            },
+            {
+              "name": "Data em que foi feito o Agendamento - PT",
+              "value": "={{ $node[\"pt_1\"].json[\"Data em que foi feito o Agendamento\"] }}"
+            },
+            {
+              "name": "Data de Início - PT",
+              "value": "={{ $node[\"formata_fuso_portugal\"].json[\"Nova Hora de Início\"] || \"\" }}"
+            },
+            {
+              "name": "Data de Término - PT",
+              "value": "={{ $node[\"formata_fuso_portugal\"].json[\"Nova Hora de Término\"] || \"\"}}"
+            },
+            {
+              "name": "id_do_campo_dia_da_semana_do_agendamento_bot_conversa_pt",
+              "value": "1853088"
+            },
+            {
+              "name": "id_do_campo_horario_agendado_bot_conversa_pt",
+              "value": "1853084"
+            },
+            {
+              "name": "id_do_campo_data_do_agendamento_bot_conversa_pt",
+              "value": "1852850"
+            },
+            {
+              "name": "pais",
+              "value": "={{ $node[\"formata_dados\"].json[\"País\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3779bfee-1ab9-4b42-8548-460d80b92633",
+      "name": "dados_do_agendamento",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        2300,
+        1420
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"slug\"] }}",
+              "operation": "contains",
+              "value2": "sessao-estrategica"
+            },
+            {
+              "value1": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"slug\"] }}",
+              "operation": "contains",
+              "value2": "Sessão Estratégica Comercial"
+            },
+            {
+              "value1": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"slug\"] }}",
+              "value2": "30min"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "a87a17a6-709d-4f96-967e-b7e331f259ef",
+      "name": "sessao_estrategica",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        580,
+        1280
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "Calendly - Reagendamentos",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "ae2af623-f763-4f7b-bb70-5829171e5f70",
+      "name": "entra_na_fila1",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        2360,
+        1140
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "queue": "Calendly - Cancelamentos",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "7512315b-2b20-4b44-a944-f45d34dd3363",
+      "name": "entra_na_fila2",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        1720
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "fbb89d94-35cc-4105-b3b7-7394bdf944d1",
+      "name": "nada",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        940,
+        1720
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"Evento\"].json[\"event\"] }}",
+              "value2": "invitee.created"
+            }
+          ]
+        }
+      },
+      "id": "cb9290c4-c05a-445e-82b1-32827f707991",
+      "name": "Evento Criado1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        1820
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"is_reschedule\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "de2f43e2-f4a5-4434-82a3-3ea720dd1fe2",
+      "name": "É Reagendamento2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"Evento\"].json[\"payload\"][\"old_invitee\"][\"is_reschedule\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "9577e3d9-7b3c-4972-971d-2490689b6393",
+      "name": "É Reagendamento3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        1980
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "f2c71585-7fd5-47b2-81e8-4622ff938c8f",
+      "name": "Não faça nada",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1640,
+        1880
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "Calendly - Aplicação",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "e6544183-fe44-42e5-8052-ff17751e2a7c",
+      "name": "entra_na_fila3",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        2060
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = items[0].json.payload;\n\n// Pegar o parâmetro \"created_at\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst createdAt = new Date(payload.event.created_at);\nconst dataAgendamento = createdAt.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Pegar o parâmetro \"start_time\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst startTime = new Date(payload.event.start_time);\nconst dataInicio = startTime.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Subtrair 24 horas do \"start_time\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst lembrete24h = new Date(startTime.getTime() - 24 * 60 * 60 * 1000);\nconst dataLembrete24h = lembrete24h.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Subtrair 2 horas do \"start_time\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst lembrete2h = new Date(startTime.getTime() - 2 * 60 * 60 * 1000);\nconst dataLembrete2h = lembrete2h.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Pegar o parâmetro \"end_time\" e converter para o formato DD/MM/YYYY HH:mm no fuso horário de São Paulo\nconst endTime = new Date(payload.event.end_time);\nconst dataTermino = endTime.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\n// Buscar o telefone nos campos do array \"questions_and_answers\" no objeto \"invitee\" e formatá-lo\nlet telefone = '';\nconst questionsAndAnswers = payload.questions_and_answers;\nfor (let i = 0; i < questionsAndAnswers.length; i++) {\n  const answer = questionsAndAnswers[i].answer;\n  if (/^[\\+\\s\\d-]+$/.test(answer)) {\n    telefone = answer.replace(/[\\+\\s-]/g, '');\n    break;\n  }\n}\n\n// Extrair o DDI a partir do telefone limpo\nconst ddi = telefone.slice(0, 2);\n\n// Verificar se o DDI é igual a 55\nif (ddi === '55') {\n  const ddd = telefone.slice(2, 4);\n  if (Number(ddd) > 28) {\n    telefone = '55' + telefone.slice(2, 4) + telefone.slice(-8).replace(/\\s/g, '');\n  } else {\n    telefone = '55' + telefone.slice(2, 4) + telefone.slice(-9).replace(/\\s/g, '');\n  }\n} else {\n  telefone = telefone.replace(/[\\+\\s-]/g, ''); // Tratar como número internacional\n}\n\n\n// Função para formatar a primeira letra de cada palavra em maiúsculo\nfunction formatarPrimeiraLetraMaiuscula(str) {\n  const palavras = str.toLowerCase().split(\" \");\n\n  for (let i = 0; i < palavras.length; i++) {\n    palavras[i] = palavras[i].charAt(0).toUpperCase() + palavras[i].slice(1);\n  }\n\n  return palavras.join(\" \");\n}\n\n// ...\n\n// Formatar o parâmetro \"name\" do objeto \"invitee\" com a primeira letra de cada palavra em maiúsculo\nconst name = formatarPrimeiraLetraMaiuscula(payload.invitee.name);\n\n// Validar se o parâmetro \"email\" é um email válido e colocar todas as letras em minúsculo\nconst email = payload.invitee.email.toLowerCase();\nconst isEmailValid = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);\n\n// Retornar os resultados\nreturn {\n  'Data em que foi feito o Agendamento': dataAgendamento,\n  'Data de Início': dataInicio,\n  'Lembrete 24h': dataLembrete24h,\n  'Lembrete 2h': dataLembrete2h,\n  'Data de Término': dataTermino,\n  'Telefone': telefone,\n  'Nome': name,\n  'Email válido': isEmailValid,\n  'Email': email\n};\n"
+      },
+      "id": "8aae1391-8eec-4907-8b0f-f9238d6d4213",
+      "name": "formata_dados3",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1640,
+        2060
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"name\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "=+{{ $node[\"formata_dados3\"].json[\"Telefone\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ $node[\"formata_dados3\"].json[\"Telefone\"] }}"
+            },
+            {
+              "name": "Tipo de Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"name\"] }}"
+            },
+            {
+              "name": "ID do Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"uuid\"] }}"
+            },
+            {
+              "name": "Responsável pelo Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"extended_assigned_to\"][\"0\"][\"name\"] }}"
+            },
+            {
+              "name": "E-mail do Responsável",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"extended_assigned_to\"][\"0\"][\"email\"] }}"
+            },
+            {
+              "name": "Data de Início",
+              "value": "={{ $node[\"formata_dados3\"].json[\"Data de Início\"] }}"
+            },
+            {
+              "name": "Data em que foi feito o Agendamento",
+              "value": "={{ $node[\"formata_dados3\"].json[\"Data em que foi feito o Agendamento\"] }}"
+            },
+            {
+              "name": "Data de Término",
+              "value": "={{ $node[\"formata_dados3\"].json[\"Data de Término\"] }}"
+            },
+            {
+              "name": "Dia da Semana de Início do Evento",
+              "value": "={{                $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time_pretty\"].split(',')[0].split('- ')[1].replace('Monday','Segunda').replace('Tuesday','Terça').replace('Wednesday','Quarta').replace('Thursday','Quinta').replace('Friday','Sexta').replace('Saturday','Sábado').replace('Sunday','Domingo')                  }}"
+            },
+            {
+              "name": "Link da Reunião",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"location\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "ID do Cliente",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"uuid\"] }}"
+            },
+            {
+              "name": "id_do_campo_id_do_agendamento_bot_conversa",
+              "value": "1206236"
+            },
+            {
+              "name": "fluxo_de_confirmacao_de_agendamento",
+              "value": "2154265"
+            },
+            {
+              "name": "API-KEY",
+              "value": "75a53707-f01a-4637-b12b-123aed6631f6"
+            },
+            {
+              "name": "id_do_campo_link_da_reuniao_bot_conversa",
+              "value": "1206244"
+            },
+            {
+              "name": "id_do_campo_dia_da_semana_do_agendamento_bot_conversa",
+              "value": "1206199"
+            },
+            {
+              "name": "id_do_campo_data_do_agendamento_bot_conversa",
+              "value": "1206195"
+            },
+            {
+              "name": "id_do_campo_horario_agendado_bot_conversa",
+              "value": "1206206"
+            },
+            {
+              "name": "id_do_campo_id_banco_de_dados_bot_conversa",
+              "value": "1353478"
+            },
+            {
+              "name": "id_do_campo_idleadac_bot_conversa",
+              "value": "1353476"
+            },
+            {
+              "name": "id_do_campo_iddealac_bot_conversa",
+              "value": "1353477"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_ac",
+              "value": "48"
+            },
+            {
+              "name": "valor_produto_principal_em_centavos",
+              "value": "1300000"
+            },
+            {
+              "name": "id_stage_agendou_reuniao_ac",
+              "value": "40"
+            },
+            {
+              "name": "funil",
+              "value": "aplicacao_direta"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "v1"
+            },
+            {
+              "name": "id_pipeline_se_ac",
+              "value": "7"
+            },
+            {
+              "name": "id_sdr",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"extended_assigned_to\"][\"0\"][\"email\"].replace('ceo@andressascherer.com.br','1').replace('comercial@andressascherer.com.br','8') }}"
+            },
+            {
+              "name": "url_api_activecampaign",
+              "value": "andressascherer"
+            },
+            {
+              "name": "id_campo_link_de_cancelamento_ac",
+              "value": "63"
+            },
+            {
+              "name": "id_campo_link_de_reagendamento_ac",
+              "value": "62"
+            },
+            {
+              "name": "id_campo_id_do_cliente_ac",
+              "value": "64"
+            },
+            {
+              "name": "id_campo_dia_semana_agendamento_ac",
+              "value": "54"
+            },
+            {
+              "name": "id_campo_data_de_inicio_ac",
+              "value": "56"
+            },
+            {
+              "name": "id_campo_data_e_hora_de_inicio_ac",
+              "value": "55"
+            },
+            {
+              "name": "id_campo_data_e_hora_de_termino_ac",
+              "value": "65"
+            },
+            {
+              "name": "id_campo_data_de_termino_ac",
+              "value": "59"
+            },
+            {
+              "name": "id_campo_email_do_responsavel_ac",
+              "value": "58"
+            },
+            {
+              "name": "id_campo_data_do_agendamento_ac",
+              "value": "57"
+            },
+            {
+              "name": "id_campo_link_da_reuniao_ac",
+              "value": "60"
+            },
+            {
+              "name": "id_campo_tipo_de_evento_ac",
+              "value": "61"
+            },
+            {
+              "name": "id_campo_id_do_evento_ac",
+              "value": "53"
+            },
+            {
+              "name": "id_campo_utm_source_ac",
+              "value": "67"
+            },
+            {
+              "name": "id_campo_utm_campaign_ac",
+              "value": "68"
+            },
+            {
+              "name": "id_campo_utm_term_ac",
+              "value": "69"
+            },
+            {
+              "name": "id_campo_utm_medium_ac",
+              "value": "70"
+            },
+            {
+              "name": "id_campo_utm_content_ac",
+              "value": "71"
+            },
+            {
+              "name": "id_campo_utm_fun_ac",
+              "value": "72"
+            },
+            {
+              "name": "id_campo_utm_var_ac",
+              "value": "73"
+            },
+            {
+              "name": "id_do_campo_id_do_cliente_bot_conversa",
+              "value": "1206238"
+            },
+            {
+              "name": "id_task_reuniao_ac",
+              "value": "4"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "05c55673-7b48-4907-9f6f-bd86378ab565",
+      "name": "dados_do_agendamento1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        2060
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Função para ajustar a hora\nfunction ajustarHora(hora) {\n    // Se a hora for indefinida, retorna uma string vazia\n    if (!hora) return \"\";\n\n    // Divide a hora em horas e minutos\n    let [horas, minutos] = hora.split(':').map(Number);\n    \n    // Adiciona 3 horas\n    horas += 3;\n    \n    // Se ultrapassar 24 horas, ajusta para o dia seguinte\n    if (horas >= 24) {\n        horas -= 24;\n    }\n    \n    // Retorna a nova hora formatada\n    return `${horas}:${minutos < 10 ? '0' : ''}${minutos}`;\n}\n\n// Obtenha as horas de início e término\nlet horaInicio = $node[\"pt_1\"].json[\"Data de Início\"];\nlet horaTermino = $node[\"pt_1\"].json[\"Data de Término\"];\n\n// Ajuste as horas\nlet novaHoraInicio = ajustarHora(horaInicio);\nlet novaHoraTermino = ajustarHora(horaTermino);\n\n// Retorne um único objeto contendo ambas as novas horas\nreturn [{ \"Nova Hora de Início\": novaHoraInicio, \"Nova Hora de Término\": novaHoraTermino }];\n"
+      },
+      "id": "99a6db76-cfc6-4a2b-b58a-10759f4a1402",
+      "name": "formata_fuso_portugal",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2100,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "Data em que foi feito o Agendamento",
+              "stringValue": "={{ $node[\"formata_dados\"].json[\"Data em que foi feito o Agendamento\"].split(' ')[0].replace(',','') }}"
+            },
+            {
+              "name": "Data de Início",
+              "stringValue": "={{ $node[\"formata_dados\"].json[\"Data de Início\"].split(' ')[1] }}"
+            },
+            {
+              "name": "Data de Término",
+              "stringValue": "={{ $node[\"formata_dados\"].json[\"Data de Término\"].split(' ')[1] }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "d6fc4b6f-e6a7-4472-9007-d24e09bfecdd",
+      "name": "pt_1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1940,
+        1420
+      ],
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obter os valores das datas fornecidas\nconst dataAgendamento = new Date($node[\"pt_\"].json[\"Data em que foi feito o Reagendamento\"]);\n\nconst convertStringToDate = (dateString) => {\n  const [dayMonthYear, time] = dateString.split(',');\n  const [day, month, year] = dayMonthYear.trim().split('/');\n  const [hour, minute] = time.trim().split(':');\n  return new Date(year, month - 1, day, hour, minute);\n};\n\n\nconst dataInicioString = $node[\"pt_\"].json[\"Data de Início\"];\nconst dataTerminoString = $node[\"pt_\"].json[\"Data de Término\"];\n\n// Converter as strings de data para objetos Date\nconst dataInicio = convertStringToDate(dataInicioString);\nconst dataTermino = convertStringToDate(dataTerminoString);\n\n// Adicionar 3 horas às datas\ndataAgendamento.setHours(dataAgendamento.getHours() + 3);\ndataInicio.setHours(dataInicio.getHours() + 3);\ndataTermino.setHours(dataTermino.getHours() + 3);\n\n// Converter as datas para o formato de string desejado (por exemplo, \"YYYY-MM-DD HH:mm:ss\")\nconst formatDate = (date) => {\n  const year = date.getFullYear();\n  const month = String(date.getMonth() + 1).padStart(2, '0');\n  const day = String(date.getDate()).padStart(2, '0');\n  const hours = String(date.getHours()).padStart(2, '0');\n  const minutes = String(date.getMinutes()).padStart(2, '0');\n  const seconds = String(date.getSeconds()).padStart(2, '0');\n  \n  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\n};\n\n// Retornar as datas formatadas\nreturn {\n  \"Data em que foi feito o Agendamento com Reagendamento\": formatDate(dataAgendamento),\n  \"Data de Início com Adiantamento\": formatDate(dataInicio),\n  \"Data de Término com Adiantamento\": formatDate(dataTermino)\n};\n"
+      },
+      "id": "6bcab5f6-c19c-4b20-882d-75c7f3297c42",
+      "name": "formata_fuso_portugal1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1900,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "Data em que foi feito o Reagendamento",
+              "stringValue": "={{ $node[\"formata_dados2\"].json[\"Data em que foi feito o Reagendamento\"].split('-')[2] }}/{{ $node[\"formata_dados2\"].json[\"Data em que foi feito o Reagendamento\"].split('-')[1] }}/{{ $node[\"formata_dados2\"].json[\"Data em que foi feito o Reagendamento\"].split('-')[0] }}"
+            },
+            {
+              "name": "Data de Início",
+              "stringValue": "={{ $node[\"formata_dados2\"].json[\"Data de Início\"] }}"
+            },
+            {
+              "name": "Data de Término",
+              "stringValue": "={{ $node[\"formata_dados2\"].json[\"Data de Término\"] }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "565961e4-fb3d-4e9c-8780-7547d39f934b",
+      "name": "pt_",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1720,
+        1140
+      ],
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"slug\"] }}",
+              "operation": "contains",
+              "value2": "webinario-gestao-comercial"
+            }
+          ]
+        }
+      },
+      "id": "119bacfa-f00a-4480-b6ba-ebb22edddffb",
+      "name": "SE-webinario",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        800,
+        1460
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "f32a4650-b7e8-4148-94fe-2d3750f3eee7",
+      "name": "Agendamento",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -60,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "686ebe35-62db-46ef-8a7d-f14bf36761fb",
+      "name": "Reagendamento",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -160,
+        1400
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "fbfeaa34-c225-490a-b3eb-c2e75b0873e2",
+      "name": "Reagendamento1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        40,
+        1400
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "57bc2349-4a51-488b-86a5-6a9d396475f8",
+      "name": "Cancelamento",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -60,
+        1580
+      ]
+    }
+  ],
+  "pinData": {
+    "Evento": [
+      {
+        "json": {
+          "event": "invitee.created",
+          "payload": {
+            "event_type": {
+              "uuid": "287b5cd2-2e58-4f4a-a877-c80d450099e7",
+              "kind": "Round Robin",
+              "slug": "sessao-estrategica-comercial-manual-clone",
+              "name": "Sessão Estratégica Comercial - Funil SS",
+              "duration": 45,
+              "owner": {
+                "type": "teams",
+                "uuid": "5cd25daf-bf05-457d-92c5-2721ece75eee"
+              }
+            },
+            "event": {
+              "uuid": "add91227-b814-4607-a2d7-c1a7716ab0a3",
+              "assigned_to": [
+                "Mayra Santos"
+              ],
+              "extended_assigned_to": [
+                {
+                  "name": "Mayra Santos",
+                  "email": "mayra.santos@universidadevendas.com.br",
+                  "primary": true
+                }
+              ],
+              "start_time": "2024-06-26T11:00:00-03:00",
+              "start_time_pretty": "11:00am - Wednesday, June 26, 2024",
+              "invitee_start_time": "2024-06-26T11:00:00-03:00",
+              "invitee_start_time_pretty": "11:00am - Wednesday, June 26, 2024",
+              "end_time": "2024-06-26T11:45:00-03:00",
+              "end_time_pretty": "11:45am - Wednesday, June 26, 2024",
+              "invitee_end_time": "2024-06-26T11:45:00-03:00",
+              "invitee_end_time_pretty": "11:45am - Wednesday, June 26, 2024",
+              "created_at": "2024-06-25T15:17:29-03:00",
+              "location": "https://calendly.com/events/add91227-b814-4607-a2d7-c1a7716ab0a3/google_meet",
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
+            },
+            "invitee": {
+              "uuid": "9a4d1613-82ce-40e4-918d-8f05631be22e",
+              "first_name": null,
+              "last_name": null,
+              "name": "Vitor Queiroz de Almeida",
+              "email": "vitorrqueiroztrafego@gmail.com",
+              "text_reminder_number": null,
+              "timezone": "America/Sao_Paulo",
+              "created_at": "2024-06-25T15:17:29-03:00",
+              "is_reschedule": false,
+              "payments": [],
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
+            },
+            "questions_and_answers": [
+              {
+                "question": "Qual seu telefone?",
+                "answer": "+55 19 98202-2213"
+              }
+            ],
+            "questions_and_responses": {
+              "1_question": "Qual seu telefone?",
+              "1_response": "+55 19 98202-2213"
+            },
+            "tracking": {
+              "utm_campaign": null,
+              "utm_source": null,
+              "utm_medium": null,
+              "utm_content": null,
+              "utm_term": null,
+              "salesforce_uuid": null
+            },
+            "old_event": null,
+            "old_invitee": null,
+            "new_event": null,
+            "new_invitee": null
+          },
+          "time": "2024-06-25T18:17:30Z"
+        }
+      }
+    ],
+    "Agendamento": [
+      {
+        "json": {
+          "event": "invitee.created",
+          "payload": {
+            "event_type": {
+              "uuid": "d7dc002f-8251-4e6f-84d8-7e582f22abed",
+              "kind": "One-on-One",
+              "slug": "se-ana",
+              "name": "Sessão estratégica",
+              "duration": 45,
+              "owner": {
+                "type": "users",
+                "uuid": "8a0d12cc-289c-4111-b197-29361937dc8a"
+              }
+            },
+            "event": {
+              "uuid": "1bd03dae-41cd-4a26-b36f-946684355b11",
+              "assigned_to": [
+                "Ana Carvalho"
+              ],
+              "extended_assigned_to": [
+                {
+                  "name": "Ana Carvalho",
+                  "email": "ana.carvalho@universidadevendas.com.br",
+                  "primary": true
+                }
+              ],
+              "start_time": "2024-09-09T11:00:00-03:00",
+              "start_time_pretty": "11:00am - Monday, September 9, 2024",
+              "invitee_start_time": "2024-09-09T11:00:00-03:00",
+              "invitee_start_time_pretty": "11:00am - Monday, September 9, 2024",
+              "end_time": "2024-09-09T11:45:00-03:00",
+              "end_time_pretty": "11:45am - Monday, September 9, 2024",
+              "invitee_end_time": "2024-09-09T11:45:00-03:00",
+              "invitee_end_time_pretty": "11:45am - Monday, September 9, 2024",
+              "created_at": "2024-09-09T10:52:01-03:00",
+              "location": "https://calendly.com/events/1bd03dae-41cd-4a26-b36f-946684355b11/google_meet",
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
+            },
+            "invitee": {
+              "uuid": "e75ed798-282f-42d5-8b49-83f488ae4ffc",
+              "first_name": null,
+              "last_name": null,
+              "name": "vitor queiroz de almeida",
+              "email": "vitorrqueiroztrafego@gmail.com",
+              "text_reminder_number": null,
+              "timezone": "America/Sao_Paulo",
+              "created_at": "2024-09-09T10:52:01-03:00",
+              "is_reschedule": false,
+              "payments": [],
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
+            },
+            "questions_and_answers": [
+              {
+                "question": "Telefone",
+                "answer": "+55 19 98457-4874"
+              }
+            ],
+            "questions_and_responses": {
+              "1_question": "Telefone",
+              "1_response": "+55 19 98457-4874"
+            },
+            "tracking": {
+              "utm_campaign": "campaign2",
+              "utm_source": "source1",
+              "utm_medium": "medium4",
+              "utm_content": "content3",
+              "utm_term": "term5",
+              "salesforce_uuid": null
+            },
+            "old_event": null,
+            "old_invitee": null,
+            "new_event": null,
+            "new_invitee": null
+          },
+          "time": "2024-09-09T13:52:02Z"
+        }
+      }
+    ],
+    "Reagendamento": [
+      {
+        "json": {
+          "event": "invitee.canceled",
+          "payload": {
+            "event_type": {
+              "uuid": "d7dc002f-8251-4e6f-84d8-7e582f22abed",
+              "kind": "One-on-One",
+              "slug": "se-ana",
+              "name": "Sessão estratégica",
+              "duration": 45,
+              "owner": {
+                "type": "users",
+                "uuid": "8a0d12cc-289c-4111-b197-29361937dc8a"
+              }
+            },
+            "event": {
+              "uuid": "1bd03dae-41cd-4a26-b36f-946684355b11",
+              "assigned_to": [
+                "Ana Carvalho"
+              ],
+              "extended_assigned_to": [
+                {
+                  "name": "Ana Carvalho",
+                  "email": "ana.carvalho@universidadevendas.com.br",
+                  "primary": true
+                }
+              ],
+              "start_time": "2024-09-09T11:00:00-03:00",
+              "start_time_pretty": "11:00am - Monday, September 9, 2024",
+              "invitee_start_time": "2024-09-09T11:00:00-03:00",
+              "invitee_start_time_pretty": "11:00am - Monday, September 9, 2024",
+              "end_time": "2024-09-09T11:45:00-03:00",
+              "end_time_pretty": "11:45am - Monday, September 9, 2024",
+              "invitee_end_time": "2024-09-09T11:45:00-03:00",
+              "invitee_end_time_pretty": "11:45am - Monday, September 9, 2024",
+              "created_at": "2024-09-09T10:52:01-03:00",
+              "location": "https://calendly.com/events/1bd03dae-41cd-4a26-b36f-946684355b11/google_meet",
+              "canceled": true,
+              "canceler_name": "vitor queiroz de almeida",
+              "cancel_reason": "Teste Reagendamento Automagic Bots",
+              "canceled_at": "2024-09-09T10:53:57-03:00"
+            },
+            "invitee": {
+              "uuid": "e75ed798-282f-42d5-8b49-83f488ae4ffc",
+              "first_name": null,
+              "last_name": null,
+              "name": "vitor queiroz de almeida",
+              "email": "vitorrqueiroztrafego@gmail.com",
+              "text_reminder_number": null,
+              "timezone": "America/Sao_Paulo",
+              "created_at": "2024-09-09T10:52:01-03:00",
+              "is_reschedule": true,
+              "payments": [],
+              "canceled": true,
+              "canceler_name": "vitor queiroz de almeida",
+              "cancel_reason": "Teste Reagendamento Automagic Bots",
+              "canceled_at": "2024-09-09T10:53:57-03:00"
+            },
+            "questions_and_answers": [
+              {
+                "question": "Telefone",
+                "answer": "+55 19 98457-4874"
+              }
+            ],
+            "questions_and_responses": {
+              "1_question": "Telefone",
+              "1_response": "+55 19 98457-4874"
+            },
+            "tracking": {
+              "utm_campaign": "campaign2",
+              "utm_source": "source1",
+              "utm_medium": "medium4",
+              "utm_content": "content3",
+              "utm_term": "term5",
+              "salesforce_uuid": null
+            },
+            "old_event": null,
+            "old_invitee": null,
+            "new_event": {
+              "uuid": "9e775e47-4025-43c0-9bbc-aefbbfb65f33",
+              "assigned_to": [
+                "Ana Carvalho"
+              ],
+              "extended_assigned_to": [
+                {
+                  "name": "Ana Carvalho",
+                  "email": "ana.carvalho@universidadevendas.com.br",
+                  "primary": true
+                }
+              ],
+              "start_time": "2024-09-10T15:00:00-03:00",
+              "start_time_pretty": "03:00pm - Tuesday, September 10, 2024",
+              "invitee_start_time": "2024-09-10T15:00:00-03:00",
+              "invitee_start_time_pretty": "03:00pm - Tuesday, September 10, 2024",
+              "end_time": "2024-09-10T15:45:00-03:00",
+              "end_time_pretty": "03:45pm - Tuesday, September 10, 2024",
+              "invitee_end_time": "2024-09-10T15:45:00-03:00",
+              "invitee_end_time_pretty": "03:45pm - Tuesday, September 10, 2024",
+              "created_at": "2024-09-09T10:53:57-03:00",
+              "location": "https://calendly.com/events/9e775e47-4025-43c0-9bbc-aefbbfb65f33/google_meet",
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
+            },
+            "new_invitee": {
+              "uuid": "92d738f5-4a0c-478e-8b2f-3d9c9cf11c62",
+              "first_name": null,
+              "last_name": null,
+              "name": "vitor queiroz de almeida",
+              "email": "vitorrqueiroztrafego@gmail.com",
+              "text_reminder_number": null,
+              "timezone": "America/Sao_Paulo",
+              "created_at": "2024-09-09T10:53:57-03:00",
+              "is_reschedule": false,
+              "payments": [],
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
+            }
+          },
+          "time": "2024-09-09T13:53:58Z"
+        }
+      }
+    ],
+    "Reagendamento1": [
+      {
+        "json": {
+          "event": "invitee.created",
+          "payload": {
+            "event_type": {
+              "uuid": "d7dc002f-8251-4e6f-84d8-7e582f22abed",
+              "kind": "One-on-One",
+              "slug": "se-ana",
+              "name": "Sessão estratégica",
+              "duration": 45,
+              "owner": {
+                "type": "users",
+                "uuid": "8a0d12cc-289c-4111-b197-29361937dc8a"
+              }
+            },
+            "event": {
+              "uuid": "9e775e47-4025-43c0-9bbc-aefbbfb65f33",
+              "assigned_to": [
+                "Ana Carvalho"
+              ],
+              "extended_assigned_to": [
+                {
+                  "name": "Ana Carvalho",
+                  "email": "ana.carvalho@universidadevendas.com.br",
+                  "primary": true
+                }
+              ],
+              "start_time": "2024-09-10T15:00:00-03:00",
+              "start_time_pretty": "03:00pm - Tuesday, September 10, 2024",
+              "invitee_start_time": "2024-09-10T15:00:00-03:00",
+              "invitee_start_time_pretty": "03:00pm - Tuesday, September 10, 2024",
+              "end_time": "2024-09-10T15:45:00-03:00",
+              "end_time_pretty": "03:45pm - Tuesday, September 10, 2024",
+              "invitee_end_time": "2024-09-10T15:45:00-03:00",
+              "invitee_end_time_pretty": "03:45pm - Tuesday, September 10, 2024",
+              "created_at": "2024-09-09T10:53:57-03:00",
+              "location": "https://calendly.com/events/9e775e47-4025-43c0-9bbc-aefbbfb65f33/google_meet",
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
+            },
+            "invitee": {
+              "uuid": "92d738f5-4a0c-478e-8b2f-3d9c9cf11c62",
+              "first_name": null,
+              "last_name": null,
+              "name": "vitor queiroz de almeida",
+              "email": "vitorrqueiroztrafego@gmail.com",
+              "text_reminder_number": null,
+              "timezone": "America/Sao_Paulo",
+              "created_at": "2024-09-09T10:53:57-03:00",
+              "is_reschedule": false,
+              "payments": [],
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
+            },
+            "questions_and_answers": [
+              {
+                "question": "Telefone",
+                "answer": "+55 19 98457-4874"
+              }
+            ],
+            "questions_and_responses": {
+              "1_question": "Telefone",
+              "1_response": "+55 19 98457-4874"
+            },
+            "tracking": {
+              "utm_campaign": "campaign2",
+              "utm_source": "source1",
+              "utm_medium": "medium4",
+              "utm_content": "content3",
+              "utm_term": "term5",
+              "salesforce_uuid": null
+            },
+            "old_event": {
+              "uuid": "1bd03dae-41cd-4a26-b36f-946684355b11",
+              "assigned_to": [
+                "Ana Carvalho"
+              ],
+              "extended_assigned_to": [
+                {
+                  "name": "Ana Carvalho",
+                  "email": "ana.carvalho@universidadevendas.com.br",
+                  "primary": true
+                }
+              ],
+              "start_time": "2024-09-09T11:00:00-03:00",
+              "start_time_pretty": "11:00am - Monday, September 9, 2024",
+              "invitee_start_time": "2024-09-09T11:00:00-03:00",
+              "invitee_start_time_pretty": "11:00am - Monday, September 9, 2024",
+              "end_time": "2024-09-09T11:45:00-03:00",
+              "end_time_pretty": "11:45am - Monday, September 9, 2024",
+              "invitee_end_time": "2024-09-09T11:45:00-03:00",
+              "invitee_end_time_pretty": "11:45am - Monday, September 9, 2024",
+              "created_at": "2024-09-09T10:52:01-03:00",
+              "location": "https://calendly.com/events/1bd03dae-41cd-4a26-b36f-946684355b11/google_meet",
+              "canceled": true,
+              "canceler_name": "vitor queiroz de almeida",
+              "cancel_reason": "Teste Reagendamento Automagic Bots",
+              "canceled_at": "2024-09-09T10:53:57-03:00"
+            },
+            "old_invitee": {
+              "uuid": "e75ed798-282f-42d5-8b49-83f488ae4ffc",
+              "first_name": null,
+              "last_name": null,
+              "name": "vitor queiroz de almeida",
+              "email": "vitorrqueiroztrafego@gmail.com",
+              "text_reminder_number": null,
+              "timezone": "America/Sao_Paulo",
+              "created_at": "2024-09-09T10:52:01-03:00",
+              "is_reschedule": true,
+              "payments": [],
+              "canceled": true,
+              "canceler_name": "vitor queiroz de almeida",
+              "cancel_reason": "Teste Reagendamento Automagic Bots",
+              "canceled_at": "2024-09-09T10:53:57-03:00"
+            },
+            "new_event": null,
+            "new_invitee": null
+          },
+          "time": "2024-09-09T13:53:59Z"
+        }
+      }
+    ],
+    "Cancelamento": [
+      {
+        "json": {
+          "event": "invitee.canceled",
+          "payload": {
+            "event_type": {
+              "uuid": "d7dc002f-8251-4e6f-84d8-7e582f22abed",
+              "kind": "One-on-One",
+              "slug": "se-ana",
+              "name": "Sessão estratégica",
+              "duration": 45,
+              "owner": {
+                "type": "users",
+                "uuid": "8a0d12cc-289c-4111-b197-29361937dc8a"
+              }
+            },
+            "event": {
+              "uuid": "9e775e47-4025-43c0-9bbc-aefbbfb65f33",
+              "assigned_to": [
+                "Ana Carvalho"
+              ],
+              "extended_assigned_to": [
+                {
+                  "name": "Ana Carvalho",
+                  "email": "ana.carvalho@universidadevendas.com.br",
+                  "primary": true
+                }
+              ],
+              "start_time": "2024-09-10T15:00:00-03:00",
+              "start_time_pretty": "03:00pm - Tuesday, September 10, 2024",
+              "invitee_start_time": "2024-09-10T15:00:00-03:00",
+              "invitee_start_time_pretty": "03:00pm - Tuesday, September 10, 2024",
+              "end_time": "2024-09-10T15:45:00-03:00",
+              "end_time_pretty": "03:45pm - Tuesday, September 10, 2024",
+              "invitee_end_time": "2024-09-10T15:45:00-03:00",
+              "invitee_end_time_pretty": "03:45pm - Tuesday, September 10, 2024",
+              "created_at": "2024-09-09T10:53:57-03:00",
+              "location": "https://calendly.com/events/9e775e47-4025-43c0-9bbc-aefbbfb65f33/google_meet",
+              "canceled": true,
+              "canceler_name": "vitor queiroz de almeida",
+              "cancel_reason": "Teste Cancelamento Automagic Bots",
+              "canceled_at": "2024-09-09T10:56:56-03:00"
+            },
+            "invitee": {
+              "uuid": "92d738f5-4a0c-478e-8b2f-3d9c9cf11c62",
+              "first_name": null,
+              "last_name": null,
+              "name": "vitor queiroz de almeida",
+              "email": "vitorrqueiroztrafego@gmail.com",
+              "text_reminder_number": null,
+              "timezone": "America/Sao_Paulo",
+              "created_at": "2024-09-09T10:53:57-03:00",
+              "is_reschedule": false,
+              "payments": [],
+              "canceled": true,
+              "canceler_name": "vitor queiroz de almeida",
+              "cancel_reason": "Teste Cancelamento Automagic Bots",
+              "canceled_at": "2024-09-09T10:56:56-03:00"
+            },
+            "questions_and_answers": [
+              {
+                "question": "Telefone",
+                "answer": "+55 19 98457-4874"
+              }
+            ],
+            "questions_and_responses": {
+              "1_question": "Telefone",
+              "1_response": "+55 19 98457-4874"
+            },
+            "tracking": {
+              "utm_campaign": "campaign2",
+              "utm_source": "source1",
+              "utm_medium": "medium4",
+              "utm_content": "content3",
+              "utm_term": "term5",
+              "salesforce_uuid": null
+            },
+            "old_event": {
+              "uuid": "1bd03dae-41cd-4a26-b36f-946684355b11",
+              "assigned_to": [
+                "Ana Carvalho"
+              ],
+              "extended_assigned_to": [
+                {
+                  "name": "Ana Carvalho",
+                  "email": "ana.carvalho@universidadevendas.com.br",
+                  "primary": true
+                }
+              ],
+              "start_time": "2024-09-09T11:00:00-03:00",
+              "start_time_pretty": "11:00am - Monday, September 9, 2024",
+              "invitee_start_time": "2024-09-09T11:00:00-03:00",
+              "invitee_start_time_pretty": "11:00am - Monday, September 9, 2024",
+              "end_time": "2024-09-09T11:45:00-03:00",
+              "end_time_pretty": "11:45am - Monday, September 9, 2024",
+              "invitee_end_time": "2024-09-09T11:45:00-03:00",
+              "invitee_end_time_pretty": "11:45am - Monday, September 9, 2024",
+              "created_at": "2024-09-09T10:52:01-03:00",
+              "location": "https://calendly.com/events/1bd03dae-41cd-4a26-b36f-946684355b11/google_meet",
+              "canceled": true,
+              "canceler_name": "vitor queiroz de almeida",
+              "cancel_reason": "Teste Reagendamento Automagic Bots",
+              "canceled_at": "2024-09-09T10:53:57-03:00"
+            },
+            "old_invitee": {
+              "uuid": "e75ed798-282f-42d5-8b49-83f488ae4ffc",
+              "first_name": null,
+              "last_name": null,
+              "name": "vitor queiroz de almeida",
+              "email": "vitorrqueiroztrafego@gmail.com",
+              "text_reminder_number": null,
+              "timezone": "America/Sao_Paulo",
+              "created_at": "2024-09-09T10:52:01-03:00",
+              "is_reschedule": true,
+              "payments": [],
+              "canceled": true,
+              "canceler_name": "vitor queiroz de almeida",
+              "cancel_reason": "Teste Reagendamento Automagic Bots",
+              "canceled_at": "2024-09-09T10:53:57-03:00"
+            },
+            "new_event": null,
+            "new_invitee": null
+          },
+          "time": "2024-09-09T13:56:56Z"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Evento": {
+      "webhookId": 5063622
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2024-05-14T15:06:28.872Z",
+      "updatedAt": "2024-05-14T15:06:28.872Z",
+      "id": "nzGANUfak2QAGAAC",
+      "name": "[Calendly]"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-09-09T13:57:23.406Z",
+  "versionId": "93b4391e-1249-4b4e-81f3-cdff310a1c45"
+}
