@@ -88,17 +88,6 @@
         ]
       ]
     },
-    "formata_dados1": {
-      "main": [
-        [
-          {
-            "node": "dados_do_cancelamento",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "formata_dados2": {
       "main": [
         [
@@ -193,50 +182,6 @@
         ]
       ]
     },
-    "formata_fuso_portugal": {
-      "main": [
-        [
-          {
-            "node": "dados_do_agendamento",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "pt_1": {
-      "main": [
-        [
-          {
-            "node": "formata_fuso_portugal",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "formata_fuso_portugal1": {
-      "main": [
-        [
-          {
-            "node": "dados_do_reagendamento",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "pt_": {
-      "main": [
-        [
-          {
-            "node": "formata_fuso_portugal1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "SE-webinario": {
       "main": [
         [
@@ -266,7 +211,72 @@
         ]
       ]
     },
-    "Reagendamento1": {
+    "formata_dados1": {
+      "main": [
+        [
+          {
+            "node": "dados_do_cancelamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_fuso_portugal1": {
+      "main": [
+        [
+          {
+            "node": "dados_do_reagendamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pt_": {
+      "main": [
+        [
+          {
+            "node": "formata_fuso_portugal1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_fuso_portugal": {
+      "main": [
+        [
+          {
+            "node": "dados_do_agendamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pt_1": {
+      "main": [
+        [
+          {
+            "node": "formata_fuso_portugal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_do_agendamento": {
+      "main": [
+        []
+      ]
+    },
+    "dados_do_reagendamento": {
+      "main": [
+        []
+      ]
+    },
+    "dados_do_cancelamento": {
       "main": [
         []
       ]
@@ -413,19 +423,6 @@
       "position": [
         1780,
         1420
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "const payload = items[0].json.payload;\n\n// Acesse a data do JSON\nconst canceledAt = payload.event.canceled_at;\n\n// Crie um objeto de data a partir da string\nconst data = new Date(canceledAt);\n\n// Extraia o ano, mês e dia\nconst ano = data.getFullYear();\nconst mes = String(data.getMonth() + 1).padStart(2, '0'); // Adiciona zero à esquerda, se necessário\nconst dia = String(data.getDate()).padStart(2, '0');\n\n// Crie a string formatada no formato YYYY-MM-DD\nconst dataCancelamento = `${ano}-${mes}-${dia}`;\n\n// Buscar o telefone nos campos do array \"questions_and_answers\" no objeto \"invitee\" e formatá-lo\nlet telefone = '';\nconst questionsAndAnswers = payload.questions_and_answers;\nfor (let i = 0; i < questionsAndAnswers.length; i++) {\n  const answer = questionsAndAnswers[i].answer;\n  if (/^[\\+\\s\\d-]+$/.test(answer)) {\n    telefone = answer.replace(/[\\+\\s-]/g, '');\n    break;\n  }\n}\n\n// Extrair o DDI a partir do telefone limpo\nconst ddi = telefone.slice(0, 2);\n\n// Verificar se o DDI é igual a 55\nif (ddi === '55') {\n  const ddd = telefone.slice(2, 4);\n  if (Number(ddd) > 28) {\n    telefone = '55' + telefone.slice(2, 4) + telefone.slice(-8).replace(/\\s/g, '');\n  } else {\n    telefone = '55' + telefone.slice(2, 4) + telefone.slice(-9).replace(/\\s/g, '');\n  }\n} else {\n  telefone = telefone.replace(/[\\+\\s-]/g, ''); // Tratar como número internacional\n}\n\n// Função para formatar a primeira letra de cada palavra em maiúsculo\nfunction formatarPrimeiraLetraMaiuscula(str) {\n  const palavras = str.toLowerCase().split(\" \");\n\n  for (let i = 0; i < palavras.length; i++) {\n    palavras[i] = palavras[i].charAt(0).toUpperCase() + palavras[i].slice(1);\n  }\n\n  return palavras.join(\" \");\n}\n\n// Formatar o parâmetro \"name\" do objeto \"invitee\" com a primeira letra de cada palavra em maiúsculo\nconst name = formatarPrimeiraLetraMaiuscula(payload.invitee.name);\n\n// Retornar os resultados\nreturn {\n  'Telefone': telefone,\n  'Nome': name,\n  'Data do Cancelamento': dataCancelamento\n};\n"
-      },
-      "id": "46ac8942-78fa-4231-a1b7-3f55557ae1c5",
-      "name": "formata_dados1",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        1660,
-        1720
       ]
     },
     {
@@ -694,170 +691,6 @@
             },
             {
               "name": "Telefone do Cliente - Formato BC",
-              "value": "=+{{ $node.formata_dados1.json.Telefone }}"
-            },
-            {
-              "name": "Telefone do Cliente - Formato Z-API",
-              "value": "={{ $node.formata_dados1.json.Telefone }}"
-            },
-            {
-              "name": "ID do Evento",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"uuid\"] }}"
-            },
-            {
-              "name": "Data do Cancelamento",
-              "value": "={{ $node[\"formata_dados1\"].json[\"Data do Cancelamento\"] }}"
-            },
-            {
-              "name": "ID do Cliente",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"uuid\"] }}"
-            },
-            {
-              "name": "API-KEY",
-              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
-            },
-            {
-              "name": "id_do_campo_id_do_agendamento_bot_conversa",
-              "value": "1045673"
-            },
-            {
-              "name": "id_do_campo_inviteeid_bot_conversa",
-              "value": "1045675"
-            },
-            {
-              "name": "id_do_campo_horario_agendado_bot_conversa",
-              "value": "1045669"
-            },
-            {
-              "name": "id_do_campo_data_do_agendamento_bot_conversa",
-              "value": "1045668"
-            },
-            {
-              "name": "id_do_campo_dia_da_semana_do_agendamento_bot_conversa",
-              "value": "1045528"
-            },
-            {
-              "name": "fluxo_de_confirmacao_de_cancelamento",
-              "value": "1769093"
-            },
-            {
-              "name": "id_do_campo_motivo_do_cancelamento_bot_conversa",
-              "value": "1045683"
-            },
-            {
-              "name": "Motivo do Cancelamento",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"cancel_reason\"] }}"
-            },
-            {
-              "name": "Data de Início",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[0] }}"
-            },
-            {
-              "name": "Hora de Início",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[1].split('-')[0] }}"
-            },
-            {
-              "name": "Link da Reunião",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"location\"] }}"
-            },
-            {
-              "name": "Tipo de Evento",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"name\"] }}"
-            },
-            {
-              "name": "Dia da Semana do Evento",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time_pretty\"].split(',')[0].split('- ')[1].replace('Monday','Segunda').replace('Tuesday','Terça').replace('Wednesday','Quarta').replace('Thursday','Quinta').replace('Friday','Sexta').replace('Saturday','Sábado').replace('Sunday','Domingo') }}"
-            },
-            {
-              "name": "utm_source",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_source\"] }}"
-            },
-            {
-              "name": "utm_campaign",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_campaign\"] }}"
-            },
-            {
-              "name": "utm_term",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_term\"] }}"
-            },
-            {
-              "name": "utm_medium",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_medium\"] }}"
-            },
-            {
-              "name": "utm_content",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_content\"] }}"
-            },
-            {
-              "name": "data_agendamento",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"created_at\"].split('T')[0] }} {{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"created_at\"].split('T')[1].split('-')[0] }}"
-            },
-            {
-              "name": "id_campo_id_banco_de_dados_bot_conversa",
-              "value": "1408048"
-            },
-            {
-              "name": "data_termino_ac",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[0] }}"
-            },
-            {
-              "name": "data_e_hora_de_termino",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[0].split('-')[2] }}/{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[0].split('-')[1] }}/{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[0].split('-')[0] }} {{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[1].split('-')[0].split(':')[0] }}:{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[1].split('-')[0].split(':')[1] }}"
-            },
-            {
-              "name": "data_e_hora_de_inicio",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[0].split('-')[2] }}/{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[0].split('-')[1] }}/{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[0].split('-')[0] }} {{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[1].split('-')[0].split(':')[0] }}:{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[1].split('-')[0].split(':')[1] }}"
-            },
-            {
-              "name": "funil",
-              "value": "sessao_estrategica"
-            },
-            {
-              "name": "variacao_do_funil",
-              "value": "v1"
-            },
-            {
-              "name": "E-mail do Responsável",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"extended_assigned_to\"][\"0\"][\"email\"] }}"
-            },
-            {
-              "name": "Nome do Responsável",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"extended_assigned_to\"][\"0\"][\"name\"] }}"
-            },
-            {
-              "name": "id_campo_data_cancelamento_bot_conversa",
-              "value": "1057942"
-            }
-          ]
-        },
-        "options": {
-          "dotNotation": false
-        }
-      },
-      "id": "0044c20d-f1fa-4243-a5a6-9e13c8a46ab6",
-      "name": "dados_do_cancelamento",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 1,
-      "position": [
-        1820,
-        1720
-      ]
-    },
-    {
-      "parameters": {
-        "keepOnlySet": true,
-        "values": {
-          "string": [
-            {
-              "name": "Nome do Cliente",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"name\"] }}"
-            },
-            {
-              "name": "E-mail do Cliente",
-              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"email\"] }}"
-            },
-            {
-              "name": "Telefone do Cliente - Formato BC",
               "value": "=+{{ $node[\"formata_dados\"].json[\"Telefone\"] }}"
             },
             {
@@ -1044,17 +877,7 @@
           "string": [
             {
               "value1": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"slug\"] }}",
-              "operation": "contains",
-              "value2": "sessao-estrategica"
-            },
-            {
-              "value1": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"slug\"] }}",
-              "operation": "contains",
-              "value2": "Sessão Estratégica Comercial"
-            },
-            {
-              "value1": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"slug\"] }}",
-              "value2": "30min"
+              "operation": "isNotEmpty"
             }
           ]
         },
@@ -1510,94 +1333,6 @@
     },
     {
       "parameters": {
-        "jsCode": "// Função para ajustar a hora\nfunction ajustarHora(hora) {\n    // Se a hora for indefinida, retorna uma string vazia\n    if (!hora) return \"\";\n\n    // Divide a hora em horas e minutos\n    let [horas, minutos] = hora.split(':').map(Number);\n    \n    // Adiciona 3 horas\n    horas += 3;\n    \n    // Se ultrapassar 24 horas, ajusta para o dia seguinte\n    if (horas >= 24) {\n        horas -= 24;\n    }\n    \n    // Retorna a nova hora formatada\n    return `${horas}:${minutos < 10 ? '0' : ''}${minutos}`;\n}\n\n// Obtenha as horas de início e término\nlet horaInicio = $node[\"pt_1\"].json[\"Data de Início\"];\nlet horaTermino = $node[\"pt_1\"].json[\"Data de Término\"];\n\n// Ajuste as horas\nlet novaHoraInicio = ajustarHora(horaInicio);\nlet novaHoraTermino = ajustarHora(horaTermino);\n\n// Retorne um único objeto contendo ambas as novas horas\nreturn [{ \"Nova Hora de Início\": novaHoraInicio, \"Nova Hora de Término\": novaHoraTermino }];\n"
-      },
-      "id": "99a6db76-cfc6-4a2b-b58a-10759f4a1402",
-      "name": "formata_fuso_portugal",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2100,
-        1420
-      ]
-    },
-    {
-      "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "Data em que foi feito o Agendamento",
-              "stringValue": "={{ $node[\"formata_dados\"].json[\"Data em que foi feito o Agendamento\"].split(' ')[0].replace(',','') }}"
-            },
-            {
-              "name": "Data de Início",
-              "stringValue": "={{ $node[\"formata_dados\"].json[\"Data de Início\"].split(' ')[1] }}"
-            },
-            {
-              "name": "Data de Término",
-              "stringValue": "={{ $node[\"formata_dados\"].json[\"Data de Término\"].split(' ')[1] }}"
-            }
-          ]
-        },
-        "include": "none",
-        "options": {}
-      },
-      "id": "d6fc4b6f-e6a7-4472-9007-d24e09bfecdd",
-      "name": "pt_1",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        1940,
-        1420
-      ],
-      "alwaysOutputData": false
-    },
-    {
-      "parameters": {
-        "jsCode": "// Obter os valores das datas fornecidas\nconst dataAgendamento = new Date($node[\"pt_\"].json[\"Data em que foi feito o Reagendamento\"]);\n\nconst convertStringToDate = (dateString) => {\n  const [dayMonthYear, time] = dateString.split(',');\n  const [day, month, year] = dayMonthYear.trim().split('/');\n  const [hour, minute] = time.trim().split(':');\n  return new Date(year, month - 1, day, hour, minute);\n};\n\n\nconst dataInicioString = $node[\"pt_\"].json[\"Data de Início\"];\nconst dataTerminoString = $node[\"pt_\"].json[\"Data de Término\"];\n\n// Converter as strings de data para objetos Date\nconst dataInicio = convertStringToDate(dataInicioString);\nconst dataTermino = convertStringToDate(dataTerminoString);\n\n// Adicionar 3 horas às datas\ndataAgendamento.setHours(dataAgendamento.getHours() + 3);\ndataInicio.setHours(dataInicio.getHours() + 3);\ndataTermino.setHours(dataTermino.getHours() + 3);\n\n// Converter as datas para o formato de string desejado (por exemplo, \"YYYY-MM-DD HH:mm:ss\")\nconst formatDate = (date) => {\n  const year = date.getFullYear();\n  const month = String(date.getMonth() + 1).padStart(2, '0');\n  const day = String(date.getDate()).padStart(2, '0');\n  const hours = String(date.getHours()).padStart(2, '0');\n  const minutes = String(date.getMinutes()).padStart(2, '0');\n  const seconds = String(date.getSeconds()).padStart(2, '0');\n  \n  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\n};\n\n// Retornar as datas formatadas\nreturn {\n  \"Data em que foi feito o Agendamento com Reagendamento\": formatDate(dataAgendamento),\n  \"Data de Início com Adiantamento\": formatDate(dataInicio),\n  \"Data de Término com Adiantamento\": formatDate(dataTermino)\n};\n"
-      },
-      "id": "6bcab5f6-c19c-4b20-882d-75c7f3297c42",
-      "name": "formata_fuso_portugal1",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        1900,
-        1140
-      ]
-    },
-    {
-      "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "Data em que foi feito o Reagendamento",
-              "stringValue": "={{ $node[\"formata_dados2\"].json[\"Data em que foi feito o Reagendamento\"].split('-')[2] }}/{{ $node[\"formata_dados2\"].json[\"Data em que foi feito o Reagendamento\"].split('-')[1] }}/{{ $node[\"formata_dados2\"].json[\"Data em que foi feito o Reagendamento\"].split('-')[0] }}"
-            },
-            {
-              "name": "Data de Início",
-              "stringValue": "={{ $node[\"formata_dados2\"].json[\"Data de Início\"] }}"
-            },
-            {
-              "name": "Data de Término",
-              "stringValue": "={{ $node[\"formata_dados2\"].json[\"Data de Término\"] }}"
-            }
-          ]
-        },
-        "include": "none",
-        "options": {}
-      },
-      "id": "565961e4-fb3d-4e9c-8780-7547d39f934b",
-      "name": "pt_",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        1720,
-        1140
-      ],
-      "alwaysOutputData": false
-    },
-    {
-      "parameters": {
         "conditions": {
           "string": [
             {
@@ -1668,6 +1403,271 @@
         -60,
         1580
       ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"name\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "=+{{ $node.formata_dados1.json.Telefone }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ $node.formata_dados1.json.Telefone }}"
+            },
+            {
+              "name": "ID do Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"uuid\"] }}"
+            },
+            {
+              "name": "Data do Cancelamento",
+              "value": "={{ $node[\"formata_dados1\"].json[\"Data do Cancelamento\"] }}"
+            },
+            {
+              "name": "ID do Cliente",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"invitee\"][\"uuid\"] }}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "id_do_campo_id_do_agendamento_bot_conversa",
+              "value": "1045673"
+            },
+            {
+              "name": "id_do_campo_inviteeid_bot_conversa",
+              "value": "1045675"
+            },
+            {
+              "name": "id_do_campo_horario_agendado_bot_conversa",
+              "value": "1045669"
+            },
+            {
+              "name": "id_do_campo_data_do_agendamento_bot_conversa",
+              "value": "1045668"
+            },
+            {
+              "name": "id_do_campo_dia_da_semana_do_agendamento_bot_conversa",
+              "value": "1045528"
+            },
+            {
+              "name": "fluxo_de_confirmacao_de_cancelamento",
+              "value": "1769093"
+            },
+            {
+              "name": "id_do_campo_motivo_do_cancelamento_bot_conversa",
+              "value": "1045683"
+            },
+            {
+              "name": "Motivo do Cancelamento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"cancel_reason\"] }}"
+            },
+            {
+              "name": "Data de Início",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[0] }}"
+            },
+            {
+              "name": "Hora de Início",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[1].split('-')[0] }}"
+            },
+            {
+              "name": "Link da Reunião",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"location\"] }}"
+            },
+            {
+              "name": "Tipo de Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"name\"] }}"
+            },
+            {
+              "name": "Dia da Semana do Evento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time_pretty\"].split(',')[0].split('- ')[1].replace('Monday','Segunda').replace('Tuesday','Terça').replace('Wednesday','Quarta').replace('Thursday','Quinta').replace('Friday','Sexta').replace('Saturday','Sábado').replace('Sunday','Domingo') }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"tracking\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "data_agendamento",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"created_at\"].split('T')[0] }} {{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"created_at\"].split('T')[1].split('-')[0] }}"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1408048"
+            },
+            {
+              "name": "data_termino_ac",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[0] }}"
+            },
+            {
+              "name": "data_e_hora_de_termino",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[0].split('-')[2] }}/{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[0].split('-')[1] }}/{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[0].split('-')[0] }} {{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[1].split('-')[0].split(':')[0] }}:{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"end_time\"].split('T')[1].split('-')[0].split(':')[1] }}"
+            },
+            {
+              "name": "data_e_hora_de_inicio",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[0].split('-')[2] }}/{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[0].split('-')[1] }}/{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[0].split('-')[0] }} {{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[1].split('-')[0].split(':')[0] }}:{{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"start_time\"].split('T')[1].split('-')[0].split(':')[1] }}"
+            },
+            {
+              "name": "funil",
+              "value": "sessao_estrategica"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "v1"
+            },
+            {
+              "name": "E-mail do Responsável",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"extended_assigned_to\"][\"0\"][\"email\"] }}"
+            },
+            {
+              "name": "Nome do Responsável",
+              "value": "={{ $node[\"Evento\"].json[\"payload\"][\"event\"][\"extended_assigned_to\"][\"0\"][\"name\"] }}"
+            },
+            {
+              "name": "id_campo_data_cancelamento_bot_conversa",
+              "value": "1057942"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": false
+        }
+      },
+      "id": "43e11c79-87cb-4fac-8d69-3df538f3860a",
+      "name": "dados_do_cancelamento",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        1720
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = items[0].json.payload;\n\n// Acesse a data do JSON\nconst canceledAt = payload.event.canceled_at;\n\n// Crie um objeto de data a partir da string\nconst data = new Date(canceledAt);\n\n// Extraia o ano, mês e dia\nconst ano = data.getFullYear();\nconst mes = String(data.getMonth() + 1).padStart(2, '0'); // Adiciona zero à esquerda, se necessário\nconst dia = String(data.getDate()).padStart(2, '0');\n\n// Crie a string formatada no formato YYYY-MM-DD\nconst dataCancelamento = `${ano}-${mes}-${dia}`;\n\n// Buscar o telefone nos campos do array \"questions_and_answers\" no objeto \"invitee\" e formatá-lo\nlet telefone = '';\nconst questionsAndAnswers = payload.questions_and_answers;\nfor (let i = 0; i < questionsAndAnswers.length; i++) {\n  const answer = questionsAndAnswers[i].answer;\n  if (/^[\\+\\s\\d-]+$/.test(answer)) {\n    telefone = answer.replace(/[\\+\\s-]/g, '');\n    break;\n  }\n}\n\n// Extrair o DDI a partir do telefone limpo\nconst ddi = telefone.slice(0, 2);\n\n// Verificar se o DDI é igual a 55\nif (ddi === '55') {\n  const ddd = telefone.slice(2, 4);\n  if (Number(ddd) > 28) {\n    telefone = '55' + telefone.slice(2, 4) + telefone.slice(-8).replace(/\\s/g, '');\n  } else {\n    telefone = '55' + telefone.slice(2, 4) + telefone.slice(-9).replace(/\\s/g, '');\n  }\n} else {\n  telefone = telefone.replace(/[\\+\\s-]/g, ''); // Tratar como número internacional\n}\n\n// Função para formatar a primeira letra de cada palavra em maiúsculo\nfunction formatarPrimeiraLetraMaiuscula(str) {\n  const palavras = str.toLowerCase().split(\" \");\n\n  for (let i = 0; i < palavras.length; i++) {\n    palavras[i] = palavras[i].charAt(0).toUpperCase() + palavras[i].slice(1);\n  }\n\n  return palavras.join(\" \");\n}\n\n// Formatar o parâmetro \"name\" do objeto \"invitee\" com a primeira letra de cada palavra em maiúsculo\nconst name = formatarPrimeiraLetraMaiuscula(payload.invitee.name);\n\n// Retornar os resultados\nreturn {\n  'Telefone': telefone,\n  'Nome': name,\n  'Data do Cancelamento': dataCancelamento\n};\n"
+      },
+      "id": "aa16c84a-98f3-4d29-ba3f-ab0efc395d48",
+      "name": "formata_dados1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1660,
+        1720
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obter os valores das datas fornecidas\nconst dataAgendamento = new Date($node[\"pt_\"].json[\"Data em que foi feito o Reagendamento\"]);\n\nconst convertStringToDate = (dateString) => {\n  const [dayMonthYear, time] = dateString.split(',');\n  const [day, month, year] = dayMonthYear.trim().split('/');\n  const [hour, minute] = time.trim().split(':');\n  return new Date(year, month - 1, day, hour, minute);\n};\n\n\nconst dataInicioString = $node[\"pt_\"].json[\"Data de Início\"];\nconst dataTerminoString = $node[\"pt_\"].json[\"Data de Término\"];\n\n// Converter as strings de data para objetos Date\nconst dataInicio = convertStringToDate(dataInicioString);\nconst dataTermino = convertStringToDate(dataTerminoString);\n\n// Adicionar 3 horas às datas\ndataAgendamento.setHours(dataAgendamento.getHours() + 3);\ndataInicio.setHours(dataInicio.getHours() + 3);\ndataTermino.setHours(dataTermino.getHours() + 3);\n\n// Converter as datas para o formato de string desejado (por exemplo, \"YYYY-MM-DD HH:mm:ss\")\nconst formatDate = (date) => {\n  const year = date.getFullYear();\n  const month = String(date.getMonth() + 1).padStart(2, '0');\n  const day = String(date.getDate()).padStart(2, '0');\n  const hours = String(date.getHours()).padStart(2, '0');\n  const minutes = String(date.getMinutes()).padStart(2, '0');\n  const seconds = String(date.getSeconds()).padStart(2, '0');\n  \n  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\n};\n\n// Retornar as datas formatadas\nreturn {\n  \"Data em que foi feito o Agendamento com Reagendamento\": formatDate(dataAgendamento),\n  \"Data de Início com Adiantamento\": formatDate(dataInicio),\n  \"Data de Término com Adiantamento\": formatDate(dataTermino)\n};\n"
+      },
+      "id": "2b24abbd-748c-4661-bf40-2bb71d6d9a8d",
+      "name": "formata_fuso_portugal1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1900,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "Data em que foi feito o Reagendamento",
+              "stringValue": "={{ $node[\"formata_dados2\"].json[\"Data em que foi feito o Reagendamento\"].split('-')[2] }}/{{ $node[\"formata_dados2\"].json[\"Data em que foi feito o Reagendamento\"].split('-')[1] }}/{{ $node[\"formata_dados2\"].json[\"Data em que foi feito o Reagendamento\"].split('-')[0] }}"
+            },
+            {
+              "name": "Data de Início",
+              "stringValue": "={{ $node[\"formata_dados2\"].json[\"Data de Início\"] }}"
+            },
+            {
+              "name": "Data de Término",
+              "stringValue": "={{ $node[\"formata_dados2\"].json[\"Data de Término\"] }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "e22f3d64-a648-4981-bbc1-bdb01a5eb391",
+      "name": "pt_",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1720,
+        1140
+      ],
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "jsCode": "// Função para ajustar a hora\nfunction ajustarHora(hora) {\n    // Se a hora for indefinida, retorna uma string vazia\n    if (!hora) return \"\";\n\n    // Divide a hora em horas e minutos\n    let [horas, minutos] = hora.split(':').map(Number);\n    \n    // Adiciona 3 horas\n    horas += 3;\n    \n    // Se ultrapassar 24 horas, ajusta para o dia seguinte\n    if (horas >= 24) {\n        horas -= 24;\n    }\n    \n    // Retorna a nova hora formatada\n    return `${horas}:${minutos < 10 ? '0' : ''}${minutos}`;\n}\n\n// Obtenha as horas de início e término\nlet horaInicio = $node[\"pt_1\"].json[\"Data de Início\"];\nlet horaTermino = $node[\"pt_1\"].json[\"Data de Término\"];\n\n// Ajuste as horas\nlet novaHoraInicio = ajustarHora(horaInicio);\nlet novaHoraTermino = ajustarHora(horaTermino);\n\n// Retorne um único objeto contendo ambas as novas horas\nreturn [{ \"Nova Hora de Início\": novaHoraInicio, \"Nova Hora de Término\": novaHoraTermino }];\n"
+      },
+      "id": "5e31b4be-eb4e-4bdf-852a-15c8f25a512f",
+      "name": "formata_fuso_portugal",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2100,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "Data em que foi feito o Agendamento",
+              "stringValue": "={{ $node[\"formata_dados\"].json[\"Data em que foi feito o Agendamento\"].split(' ')[0].replace(',','') }}"
+            },
+            {
+              "name": "Data de Início",
+              "stringValue": "={{ $node[\"formata_dados\"].json[\"Data de Início\"].split(' ')[1] }}"
+            },
+            {
+              "name": "Data de Término",
+              "stringValue": "={{ $node[\"formata_dados\"].json[\"Data de Término\"].split(' ')[1] }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "5139c6ea-67d5-4141-9e83-21881bf829e0",
+      "name": "pt_1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1940,
+        1420
+      ],
+      "alwaysOutputData": false
     }
   ],
   "pinData": {
@@ -1677,52 +1677,52 @@
           "event": "invitee.created",
           "payload": {
             "event_type": {
-              "uuid": "287b5cd2-2e58-4f4a-a877-c80d450099e7",
-              "kind": "Round Robin",
-              "slug": "sessao-estrategica-comercial-manual-clone",
-              "name": "Sessão Estratégica Comercial - Funil SS",
+              "uuid": "d7dc002f-8251-4e6f-84d8-7e582f22abed",
+              "kind": "One-on-One",
+              "slug": "se-ana",
+              "name": "Sessão estratégica",
               "duration": 45,
               "owner": {
-                "type": "teams",
-                "uuid": "5cd25daf-bf05-457d-92c5-2721ece75eee"
+                "type": "users",
+                "uuid": "8a0d12cc-289c-4111-b197-29361937dc8a"
               }
             },
             "event": {
-              "uuid": "add91227-b814-4607-a2d7-c1a7716ab0a3",
+              "uuid": "1bd03dae-41cd-4a26-b36f-946684355b11",
               "assigned_to": [
-                "Mayra Santos"
+                "Ana Carvalho"
               ],
               "extended_assigned_to": [
                 {
-                  "name": "Mayra Santos",
-                  "email": "mayra.santos@universidadevendas.com.br",
+                  "name": "Ana Carvalho",
+                  "email": "ana.carvalho@universidadevendas.com.br",
                   "primary": true
                 }
               ],
-              "start_time": "2024-06-26T11:00:00-03:00",
-              "start_time_pretty": "11:00am - Wednesday, June 26, 2024",
-              "invitee_start_time": "2024-06-26T11:00:00-03:00",
-              "invitee_start_time_pretty": "11:00am - Wednesday, June 26, 2024",
-              "end_time": "2024-06-26T11:45:00-03:00",
-              "end_time_pretty": "11:45am - Wednesday, June 26, 2024",
-              "invitee_end_time": "2024-06-26T11:45:00-03:00",
-              "invitee_end_time_pretty": "11:45am - Wednesday, June 26, 2024",
-              "created_at": "2024-06-25T15:17:29-03:00",
-              "location": "https://calendly.com/events/add91227-b814-4607-a2d7-c1a7716ab0a3/google_meet",
+              "start_time": "2024-09-09T11:00:00-03:00",
+              "start_time_pretty": "11:00am - Monday, September 9, 2024",
+              "invitee_start_time": "2024-09-09T11:00:00-03:00",
+              "invitee_start_time_pretty": "11:00am - Monday, September 9, 2024",
+              "end_time": "2024-09-09T11:45:00-03:00",
+              "end_time_pretty": "11:45am - Monday, September 9, 2024",
+              "invitee_end_time": "2024-09-09T11:45:00-03:00",
+              "invitee_end_time_pretty": "11:45am - Monday, September 9, 2024",
+              "created_at": "2024-09-09T10:52:01-03:00",
+              "location": "https://calendly.com/events/1bd03dae-41cd-4a26-b36f-946684355b11/google_meet",
               "canceled": false,
               "canceler_name": null,
               "cancel_reason": null,
               "canceled_at": null
             },
             "invitee": {
-              "uuid": "9a4d1613-82ce-40e4-918d-8f05631be22e",
+              "uuid": "e75ed798-282f-42d5-8b49-83f488ae4ffc",
               "first_name": null,
               "last_name": null,
-              "name": "Vitor Queiroz de Almeida",
+              "name": "vitor queiroz de almeida",
               "email": "vitorrqueiroztrafego@gmail.com",
               "text_reminder_number": null,
               "timezone": "America/Sao_Paulo",
-              "created_at": "2024-06-25T15:17:29-03:00",
+              "created_at": "2024-09-09T10:52:01-03:00",
               "is_reschedule": false,
               "payments": [],
               "canceled": false,
@@ -1732,20 +1732,20 @@
             },
             "questions_and_answers": [
               {
-                "question": "Qual seu telefone?",
-                "answer": "+55 19 98202-2213"
+                "question": "Telefone",
+                "answer": "+55 19 98457-4874"
               }
             ],
             "questions_and_responses": {
-              "1_question": "Qual seu telefone?",
-              "1_response": "+55 19 98202-2213"
+              "1_question": "Telefone",
+              "1_response": "+55 19 98457-4874"
             },
             "tracking": {
-              "utm_campaign": null,
-              "utm_source": null,
-              "utm_medium": null,
-              "utm_content": null,
-              "utm_term": null,
+              "utm_campaign": "campaign2",
+              "utm_source": "source1",
+              "utm_medium": "medium4",
+              "utm_content": "content3",
+              "utm_term": "term5",
               "salesforce_uuid": null
             },
             "old_event": null,
@@ -1753,7 +1753,7 @@
             "new_event": null,
             "new_invitee": null
           },
-          "time": "2024-06-25T18:17:30Z"
+          "time": "2024-09-09T13:52:02Z"
         }
       }
     ],
@@ -2230,7 +2230,7 @@
   },
   "staticData": {
     "node:Evento": {
-      "webhookId": 5063622
+      "webhookId": 5064447
     }
   },
   "tags": [
@@ -2242,6 +2242,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-09-09T13:57:23.406Z",
-  "versionId": "93b4391e-1249-4b4e-81f3-cdff310a1c45"
+  "updatedAt": "2024-09-09T19:27:38.392Z",
+  "versionId": "c51053c4-7a5f-416f-95a7-daf30e9aec67"
 }
