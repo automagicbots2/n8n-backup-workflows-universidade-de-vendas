@@ -2166,6 +2166,19 @@
         -740,
         1720
       ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "8cdcd54d-f6f5-49f6-bf9e-d5676797df18",
+      "name": "Jessica",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        320,
+        1580
+      ]
     }
   ],
   "pinData": {
@@ -2991,6 +3004,133 @@
           "time": "2024-05-31T18:28:59Z"
         }
       }
+    ],
+    "Jessica": [
+      {
+        "json": {
+          "event": "invitee.canceled",
+          "payload": {
+            "event_type": {
+              "uuid": "9a89c12e-b4b7-45b6-b462-5ffb9c869d80",
+              "kind": "Round Robin",
+              "slug": "sessao-estrategica",
+              "name": "Sessão Estratégica Comercial",
+              "duration": 45,
+              "owner": {
+                "type": "teams",
+                "uuid": "5cd25daf-bf05-457d-92c5-2721ece75eee"
+              }
+            },
+            "event": {
+              "uuid": "836b04cc-11cf-4eae-9972-04d7edff32ed",
+              "assigned_to": [
+                "Jonatã Almeida"
+              ],
+              "extended_assigned_to": [
+                {
+                  "name": "Jonatã Almeida",
+                  "email": "closer1@universidadevendas.com.br",
+                  "primary": true
+                }
+              ],
+              "start_time": "2024-09-09T20:00:00-03:00",
+              "start_time_pretty": "08:00pm - Monday, September 9, 2024",
+              "invitee_start_time": "2024-09-09T20:00:00-03:00",
+              "invitee_start_time_pretty": "08:00pm - Monday, September 9, 2024",
+              "end_time": "2024-09-09T20:45:00-03:00",
+              "end_time_pretty": "08:45pm - Monday, September 9, 2024",
+              "invitee_end_time": "2024-09-09T20:45:00-03:00",
+              "invitee_end_time_pretty": "08:45pm - Monday, September 9, 2024",
+              "created_at": "2024-09-06T01:39:40-03:00",
+              "location": "https://calendly.com/events/836b04cc-11cf-4eae-9972-04d7edff32ed/google_meet",
+              "canceled": true,
+              "canceler_name": "Alexandre",
+              "cancel_reason": null,
+              "canceled_at": "2024-09-09T15:13:12-03:00"
+            },
+            "invitee": {
+              "uuid": "85de5638-616b-49f5-a7c1-1df90bc58d5d",
+              "first_name": null,
+              "last_name": null,
+              "name": "Alexandre",
+              "email": "alexandrecsn@icloud.com",
+              "text_reminder_number": null,
+              "timezone": "America/Sao_Paulo",
+              "created_at": "2024-09-06T01:39:40-03:00",
+              "is_reschedule": true,
+              "payments": [],
+              "canceled": true,
+              "canceler_name": "Alexandre",
+              "cancel_reason": null,
+              "canceled_at": "2024-09-09T15:13:12-03:00"
+            },
+            "questions_and_answers": [
+              {
+                "question": "Qual seu telefone?",
+                "answer": "+55 88 98819-5975"
+              }
+            ],
+            "questions_and_responses": {
+              "1_question": "Qual seu telefone?",
+              "1_response": "+55 88 98819-5975"
+            },
+            "tracking": {
+              "utm_campaign": "[RL] [SE] [CAPTAÇÃO] [CADASTRO] [AUTO] [F] Públicos Frios - Evento Novo (SE_AD031)",
+              "utm_source": "ig",
+              "utm_medium": "Instagram_Feed",
+              "utm_content": "01 - [AUTO] [F] Empresários",
+              "utm_term": "SE_AD031",
+              "salesforce_uuid": null
+            },
+            "old_event": null,
+            "old_invitee": null,
+            "new_event": {
+              "uuid": "a3f29271-8705-482d-8c8a-2db61d77eb79",
+              "assigned_to": [
+                "Jessica Melo"
+              ],
+              "extended_assigned_to": [
+                {
+                  "name": "Jessica Melo",
+                  "email": "jessica.melo@universidadevendas.com.br",
+                  "primary": true
+                }
+              ],
+              "start_time": "2024-09-10T21:00:00-03:00",
+              "start_time_pretty": "09:00pm - Tuesday, September 10, 2024",
+              "invitee_start_time": "2024-09-10T21:00:00-03:00",
+              "invitee_start_time_pretty": "09:00pm - Tuesday, September 10, 2024",
+              "end_time": "2024-09-10T21:45:00-03:00",
+              "end_time_pretty": "09:45pm - Tuesday, September 10, 2024",
+              "invitee_end_time": "2024-09-10T21:45:00-03:00",
+              "invitee_end_time_pretty": "09:45pm - Tuesday, September 10, 2024",
+              "created_at": "2024-09-09T15:13:12-03:00",
+              "location": "https://calendly.com/events/a3f29271-8705-482d-8c8a-2db61d77eb79/google_meet",
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
+            },
+            "new_invitee": {
+              "uuid": "d9f8e661-dc17-4e13-b828-9200a96e72c2",
+              "first_name": null,
+              "last_name": null,
+              "name": "Alexandre",
+              "email": "alexandrecsn@icloud.com",
+              "text_reminder_number": null,
+              "timezone": "America/Sao_Paulo",
+              "created_at": "2024-09-09T15:13:12-03:00",
+              "is_reschedule": false,
+              "payments": [],
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
+            }
+          },
+          "time": "2024-09-09T18:13:12Z"
+        }
+      }
     ]
   },
   "settings": {
@@ -2998,7 +3138,7 @@
   },
   "staticData": {
     "node:Evento": {
-      "webhookId": 5063589
+      "webhookId": 5064458
     }
   },
   "tags": [
@@ -3010,6 +3150,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-09-09T13:48:56.383Z",
-  "versionId": "66f63e23-bb53-4df2-9f9f-1020a5794534"
+  "updatedAt": "2024-09-09T19:30:06.669Z",
+  "versionId": "477dc93b-dfcc-4d80-90cb-9bf76bfdda61"
 }
