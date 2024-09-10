@@ -596,43 +596,6 @@
     },
     {
       "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Fabricio BC\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}. \n{{ $node[\"dados_do_contrato\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_IMPERIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n*Nome do Cliente:* {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato\"].json[\"Razão Social\"] }}"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Fabricio",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        2180,
-        480
-      ],
-      "id": "220759c9-50e1-4d7c-af37-10412ab241ec",
-      "disabled": true,
-      "continueOnFail": true
-    },
-    {
-      "parameters": {
         "keepOnlySet": true,
         "values": {
           "string": [
@@ -816,43 +779,6 @@
         480
       ],
       "id": "c51d81cb-06be-4c38-b1b7-1c3a6bb27e60",
-      "continueOnFail": true
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Fabricio BC\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}. \n{{ $node[\"dados_do_contrato\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_IMPERIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n*Nome do Cliente:* {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato\"].json[\"Razão Social\"] }}"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Fabricio1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        2180,
-        740
-      ],
-      "id": "431d53cc-d722-4892-90a1-faa22165586e",
-      "disabled": true,
       "continueOnFail": true
     },
     {
@@ -1225,7 +1151,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1760,
+        1640,
         480
       ],
       "id": "b2fb8b58-5a17-4d78-8c28-353bfe281f31",
@@ -1261,7 +1187,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1780,
+        1640,
         740
       ],
       "id": "c95012fa-1f98-487f-9711-63821778f588",
@@ -1741,7 +1667,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1780,
+        1640,
         1140
       ],
       "id": "2da1e98c-1122-42df-ac06-44fa5142140c",
@@ -1845,7 +1771,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1980,
+        1840,
         1140
       ],
       "id": "a6702ed2-a4d0-4d2c-aca6-5e56e86cca6a",
@@ -1881,7 +1807,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1980,
+        1840,
         740
       ],
       "id": "d524fd99-65ff-4005-9834-3166da4ebf66",
@@ -1917,7 +1843,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1960,
+        1840,
         480
       ],
       "id": "e4806228-475c-4527-9608-3458d7d913da",
@@ -2014,7 +1940,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1580,
+        1460,
         480
       ],
       "id": "f6f0b104-ed6c-4cd6-b749-008428d191cf",
@@ -2050,7 +1976,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1580,
+        1440,
         740
       ],
       "id": "059bb55d-2d74-400a-9985-8ce3fb5d5bfb",
@@ -2086,7 +2012,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1580,
+        1440,
         1140
       ],
       "id": "154db602-0246-4491-af49-3e124ff66d57",
@@ -4882,6 +4808,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 3,
-  "updatedAt": "2024-09-06T12:25:59.393Z",
-  "versionId": "5acb5957-17db-4db7-a0e7-4adfd6f33059"
+  "updatedAt": "2024-09-09T19:16:54.662Z",
+  "versionId": "c7faaeb6-a025-4f86-afa8-f2ce4d92b918"
 }
