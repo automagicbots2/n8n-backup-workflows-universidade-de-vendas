@@ -4589,6 +4589,10 @@
             {
               "value1": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Tipo de Evento\"] }}",
               "value2": "Sessão Estratégica Head Comercial"
+            },
+            {
+              "value1": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Tipo de Evento\"] }}",
+              "value2": "Sessão estratégica"
             }
           ]
         },
@@ -6143,7 +6147,7 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-jW_wS2ivoBNsjVZv1q4DxA",
+            "consumerTag": "amq.ctag-0rQIksVs21XwrRdleBMw6w",
             "deliveryTag": 1,
             "redelivered": false,
             "exchange": "",
@@ -6153,45 +6157,45 @@
             "headers": {}
           },
           "content": {
-            "Nome do Cliente": "Vitor Queiroz",
+            "Nome do Cliente": "Vitor Queiroz De Almeida",
             "E-mail do Cliente": "vitorrqueiroztrafego@gmail.com",
             "Telefone do Cliente - Formato BC": "+5519984574874",
             "Telefone do Cliente - Formato Z-API": "5519984574874",
-            "ID do Evento": "6bdf9445-16ad-4a01-a02b-cabd3d70da29",
-            "Responsável pelo Evento": "Sessão Estratégica Comercial",
-            "E-mail do Responsável": "tais.suportee@gmail.com",
-            "Data de Início": "06/11/2023, 16:00",
-            "Data em que foi feito o Reagendamento": "2023-11-03",
-            "Data de Término": "06/11/2023, 17:00",
-            "Dia da Semana de Início do Evento": "Segunda",
-            "utm_source": "meta",
-            "utm_campaign": "sessao_estrategica",
-            "utm_term": "magento",
-            "utm_medium": "cpc",
-            "utm_content": "ad34",
-            "Motivo do Reagendamento": null,
-            "ID do Cliente": "0adaee2c-db50-487b-b552-cbacb3b597bc",
-            "ID do Evento Antigo": "9790b2b5-2457-4c88-afda-f2501ec17bde",
-            "Tipo de Evento": "Sessão Estratégica Comercial",
-            "API-KEY": "a9585685-a8d4-4f70-be7c-44c8dedf905f",
+            "ID do Evento": "9e775e47-4025-43c0-9bbc-aefbbfb65f33",
+            "Responsável pelo Evento": "Ana Carvalho",
+            "E-mail do Responsável": "ana.carvalho@universidadevendas.com.br",
+            "Data de Início": "10/09/2024, 15:00",
+            "Data em que foi feito o Reagendamento": "2024-09-09",
+            "Data de Término": "10/09/2024, 15:45",
+            "Dia da Semana de Início do Evento": "Terça",
+            "utm_source": "source1",
+            "utm_campaign": "campaign2",
+            "utm_term": "term5",
+            "utm_medium": "medium4",
+            "utm_content": "content3",
+            "Motivo do Reagendamento": "Teste Reagendamento Automagic Bots",
+            "ID do Cliente": "92d738f5-4a0c-478e-8b2f-3d9c9cf11c62",
+            "ID do Evento Antigo": "1bd03dae-41cd-4a26-b36f-946684355b11",
+            "Tipo de Evento": "Sessão estratégica",
+            "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
             "id_do_campo_id_do_agendamento_bot_conversa": "1045673",
             "id_do_campo_inviteeid_bot_conversa": "1045675",
             "id_do_campo_horario_agendado_bot_conversa": "1045669",
             "id_do_campo_data_do_agendamento_bot_conversa": "1045668",
             "id_do_campo_dia_da_semana_do_agendamento_bot_conversa": "1045528",
             "fluxo_de_confirmacao_de_reagendamento": "1769147",
-            "Link da Reunião": "https://calendly.com/events/6bdf9445-16ad-4a01-a02b-cabd3d70da29/google_meet",
-            "ID do Cliente Antigo": "b9c587b3-71b5-4a50-b6f9-6ec00c30cec9",
-            "data_de_inicio_antigo": "2023-11-03",
-            "hora_de_inicio_antigo": "17:00:00",
-            "Link da Reunião Antigo": "https://calendly.com/events/9790b2b5-2457-4c88-afda-f2501ec17bde/google_meet",
-            "Dia da Semana de Início do Evento Antigo": "Sexta",
-            "Data do Agendamento Antigo": "2023-10-31 14:47:03",
-            "Responsável pelo Evento Antigo": "[T] Renato Gonçalves",
-            "E-mail do Responsável Antigo": "tais.suportee@gmail.com",
-            "data_de_inicio_novo": "2023-11-06",
-            "data_agendamento_novo": "2023-11-03 17:36:24",
-            "hora_de_inicio_novo": "16:00:00",
+            "Link da Reunião": "https://calendly.com/events/9e775e47-4025-43c0-9bbc-aefbbfb65f33/google_meet",
+            "ID do Cliente Antigo": "e75ed798-282f-42d5-8b49-83f488ae4ffc",
+            "data_de_inicio_antigo": "2024-09-09",
+            "hora_de_inicio_antigo": "11:00:00",
+            "Link da Reunião Antigo": "https://calendly.com/events/1bd03dae-41cd-4a26-b36f-946684355b11/google_meet",
+            "Dia da Semana de Início do Evento Antigo": "Segunda",
+            "Data do Agendamento Antigo": "2024-09-09 10:52:01",
+            "Responsável pelo Evento Antigo": "Ana Carvalho",
+            "E-mail do Responsável Antigo": "ana.carvalho@universidadevendas.com.br",
+            "data_de_inicio_novo": "2024-09-10",
+            "data_agendamento_novo": "2024-09-09 10:53:57",
+            "hora_de_inicio_novo": "15:00:00",
             "id_campo_id_banco_de_dados_bot_conversa": "1408048",
             "funil": "sessao_estrategica",
             "variacao_do_funil": "v1",
@@ -6199,8 +6203,8 @@
             "id_do_campo_dia_da_semana_do_agendamento_bot_conversa_pt": "1853088",
             "id_do_campo_horario_agendado_bot_conversa_pt": "1853084",
             "id_do_campo_data_do_agendamento_bot_conversa_pt": "1852850",
-            "Data de Início com Reagendamento - PT": "2023-11-06 19:00:00",
-            "Data de Término com Adiantamento - PT": "2023-11-06 20:00:00",
+            "Data de Início com Reagendamento - PT": "2024-09-10 18:00:00",
+            "Data de Término com Adiantamento - PT": "2024-09-10 18:45:00",
             "País": ""
           }
         }
@@ -6220,6 +6224,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-09-10T13:46:45.751Z",
-  "versionId": "fed177ef-d918-4713-8e4b-d4f2e3b1e639"
+  "updatedAt": "2024-09-11T13:07:07.678Z",
+  "versionId": "34f2ad20-e1a4-4b6a-8e6d-46274285fd6a"
 }
