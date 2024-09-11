@@ -266,19 +266,37 @@
         ]
       ]
     },
-    "dados_do_agendamento": {
-      "main": [
-        []
-      ]
-    },
     "dados_do_reagendamento": {
       "main": [
-        []
+        [
+          {
+            "node": "entra_na_fila1",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "dados_do_cancelamento": {
       "main": [
-        []
+        [
+          {
+            "node": "entra_na_fila2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_do_agendamento": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -1674,7 +1692,7 @@
     "Evento": [
       {
         "json": {
-          "event": "invitee.created",
+          "event": "invitee.canceled",
           "payload": {
             "event_type": {
               "uuid": "d7dc002f-8251-4e6f-84d8-7e582f22abed",
@@ -1688,6 +1706,67 @@
               }
             },
             "event": {
+              "uuid": "9e775e47-4025-43c0-9bbc-aefbbfb65f33",
+              "assigned_to": [
+                "Ana Carvalho"
+              ],
+              "extended_assigned_to": [
+                {
+                  "name": "Ana Carvalho",
+                  "email": "ana.carvalho@universidadevendas.com.br",
+                  "primary": true
+                }
+              ],
+              "start_time": "2024-09-10T15:00:00-03:00",
+              "start_time_pretty": "03:00pm - Tuesday, September 10, 2024",
+              "invitee_start_time": "2024-09-10T15:00:00-03:00",
+              "invitee_start_time_pretty": "03:00pm - Tuesday, September 10, 2024",
+              "end_time": "2024-09-10T15:45:00-03:00",
+              "end_time_pretty": "03:45pm - Tuesday, September 10, 2024",
+              "invitee_end_time": "2024-09-10T15:45:00-03:00",
+              "invitee_end_time_pretty": "03:45pm - Tuesday, September 10, 2024",
+              "created_at": "2024-09-09T10:53:57-03:00",
+              "location": "https://calendly.com/events/9e775e47-4025-43c0-9bbc-aefbbfb65f33/google_meet",
+              "canceled": true,
+              "canceler_name": "vitor queiroz de almeida",
+              "cancel_reason": "Teste Cancelamento Automagic Bots",
+              "canceled_at": "2024-09-09T10:56:56-03:00"
+            },
+            "invitee": {
+              "uuid": "92d738f5-4a0c-478e-8b2f-3d9c9cf11c62",
+              "first_name": null,
+              "last_name": null,
+              "name": "vitor queiroz de almeida",
+              "email": "vitorrqueiroztrafego@gmail.com",
+              "text_reminder_number": null,
+              "timezone": "America/Sao_Paulo",
+              "created_at": "2024-09-09T10:53:57-03:00",
+              "is_reschedule": false,
+              "payments": [],
+              "canceled": true,
+              "canceler_name": "vitor queiroz de almeida",
+              "cancel_reason": "Teste Cancelamento Automagic Bots",
+              "canceled_at": "2024-09-09T10:56:56-03:00"
+            },
+            "questions_and_answers": [
+              {
+                "question": "Telefone",
+                "answer": "+55 19 98457-4874"
+              }
+            ],
+            "questions_and_responses": {
+              "1_question": "Telefone",
+              "1_response": "+55 19 98457-4874"
+            },
+            "tracking": {
+              "utm_campaign": "campaign2",
+              "utm_source": "source1",
+              "utm_medium": "medium4",
+              "utm_content": "content3",
+              "utm_term": "term5",
+              "salesforce_uuid": null
+            },
+            "old_event": {
               "uuid": "1bd03dae-41cd-4a26-b36f-946684355b11",
               "assigned_to": [
                 "Ana Carvalho"
@@ -1709,12 +1788,12 @@
               "invitee_end_time_pretty": "11:45am - Monday, September 9, 2024",
               "created_at": "2024-09-09T10:52:01-03:00",
               "location": "https://calendly.com/events/1bd03dae-41cd-4a26-b36f-946684355b11/google_meet",
-              "canceled": false,
-              "canceler_name": null,
-              "cancel_reason": null,
-              "canceled_at": null
+              "canceled": true,
+              "canceler_name": "vitor queiroz de almeida",
+              "cancel_reason": "Teste Reagendamento Automagic Bots",
+              "canceled_at": "2024-09-09T10:53:57-03:00"
             },
-            "invitee": {
+            "old_invitee": {
               "uuid": "e75ed798-282f-42d5-8b49-83f488ae4ffc",
               "first_name": null,
               "last_name": null,
@@ -1723,37 +1802,17 @@
               "text_reminder_number": null,
               "timezone": "America/Sao_Paulo",
               "created_at": "2024-09-09T10:52:01-03:00",
-              "is_reschedule": false,
+              "is_reschedule": true,
               "payments": [],
-              "canceled": false,
-              "canceler_name": null,
-              "cancel_reason": null,
-              "canceled_at": null
+              "canceled": true,
+              "canceler_name": "vitor queiroz de almeida",
+              "cancel_reason": "Teste Reagendamento Automagic Bots",
+              "canceled_at": "2024-09-09T10:53:57-03:00"
             },
-            "questions_and_answers": [
-              {
-                "question": "Telefone",
-                "answer": "+55 19 98457-4874"
-              }
-            ],
-            "questions_and_responses": {
-              "1_question": "Telefone",
-              "1_response": "+55 19 98457-4874"
-            },
-            "tracking": {
-              "utm_campaign": "campaign2",
-              "utm_source": "source1",
-              "utm_medium": "medium4",
-              "utm_content": "content3",
-              "utm_term": "term5",
-              "salesforce_uuid": null
-            },
-            "old_event": null,
-            "old_invitee": null,
             "new_event": null,
             "new_invitee": null
           },
-          "time": "2024-09-09T13:52:02Z"
+          "time": "2024-09-09T13:56:56Z"
         }
       }
     ],
@@ -2230,7 +2289,7 @@
   },
   "staticData": {
     "node:Evento": {
-      "webhookId": 5064447
+      "webhookId": 5068708
     }
   },
   "tags": [
@@ -2242,6 +2301,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-09-09T19:27:38.392Z",
-  "versionId": "c51053c4-7a5f-416f-95a7-daf30e9aec67"
+  "updatedAt": "2024-09-11T13:10:04.346Z",
+  "versionId": "fb362445-4eee-4127-96b6-92f439419b61"
 }
