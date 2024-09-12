@@ -1409,7 +1409,7 @@
         ],
         [
           {
-            "node": "3-1",
+            "node": "funil_imperio_ana",
             "type": "main",
             "index": 0
           }
@@ -1421,6 +1421,46 @@
         [
           {
             "node": "segundo_ou_mais_erro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "3-4": {
+      "main": [
+        [
+          {
+            "node": "atualiza_negocio_clint_imperio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "funil_imperio_ana": {
+      "main": [
+        [
+          {
+            "node": "3-4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "3-1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_negocio_clint_imperio": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_agendamento",
             "type": "main",
             "index": 0
           }
@@ -1445,8 +1485,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        4860,
-        740
+        4720,
+        680
       ],
       "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
     },
@@ -1530,7 +1570,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1120,
+        880,
         920
       ]
     },
@@ -1543,7 +1583,7 @@
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        1320,
+        1080,
         780
       ]
     },
@@ -1563,7 +1603,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2660,
+        2420,
         940
       ]
     },
@@ -1594,7 +1634,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        4133,
+        3893,
         780
       ],
       "credentials": {
@@ -1620,7 +1660,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3073,
+        2833,
         1160
       ]
     },
@@ -1640,7 +1680,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2873,
+        2633,
         1200
       ]
     },
@@ -1699,7 +1739,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3033,
+        2793,
         780
       ],
       "credentials": {
@@ -1725,7 +1765,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3413,
+        3173,
         980
       ]
     },
@@ -1745,7 +1785,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3253,
+        3013,
         1060
       ]
     },
@@ -1765,7 +1805,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3233,
+        2993,
         1540
       ]
     },
@@ -1785,7 +1825,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3433,
+        3193,
         1460
       ]
     },
@@ -1806,7 +1846,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        3933,
+        3693,
         900
       ]
     },
@@ -1827,7 +1867,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        3193,
+        2953,
         780
       ]
     },
@@ -1877,7 +1917,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        2853,
+        2613,
         780
       ],
       "credentials": {
@@ -1926,7 +1966,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        2320,
+        2080,
         940
       ],
       "credentials": {
@@ -1981,7 +2021,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3613,
+        3373,
         1060
       ],
       "credentials": {
@@ -2032,7 +2072,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3613,
+        3373,
         900
       ],
       "credentials": {
@@ -2087,7 +2127,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3413,
+        3173,
         1220
       ],
       "credentials": {
@@ -2142,7 +2182,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3633,
+        3393,
         1380
       ],
       "credentials": {
@@ -2201,7 +2241,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3633,
+        3393,
         1560
       ],
       "credentials": {
@@ -2260,7 +2300,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3433,
+        3193,
         1680
       ],
       "credentials": {
@@ -2286,7 +2326,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3273,
+        3033,
         1920
       ]
     },
@@ -2306,7 +2346,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3113,
+        2873,
         2000
       ]
     },
@@ -2359,7 +2399,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3273,
+        3173,
         2160
       ],
       "credentials": {
@@ -2414,7 +2454,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3473,
+        3233,
         1840
       ],
       "credentials": {
@@ -2473,7 +2513,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3473,
+        3233,
         2000
       ],
       "credentials": {
@@ -2517,7 +2557,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1700,
+        1460,
         960
       ],
       "id": "0155bcf2-b7e6-44ed-96cc-18e790c99261",
@@ -4049,7 +4089,7 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        940,
+        700,
         920
       ],
       "credentials": {
@@ -4084,7 +4124,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1960,
+        1820,
         360
       ],
       "id": "8f1b5890-7760-4e11-80eb-ffc3097a39e6"
@@ -4100,7 +4140,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1460,
+        1320,
         200
       ]
     },
@@ -4129,7 +4169,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1760,
+        1620,
         360
       ],
       "id": "cc6cef83-2bc7-4659-9459-7fb64aa4e0ef"
@@ -4159,7 +4199,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        1560,
+        1420,
         360
       ]
     },
@@ -4190,7 +4230,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1873,
+        1633,
         960
       ]
     },
@@ -4201,7 +4241,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2113,
+        1873,
         1100
       ]
     },
@@ -4571,7 +4611,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        4300,
+        4060,
         780
       ],
       "credentials": {
@@ -4637,7 +4677,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        2113,
+        1873,
         940
       ]
     },
@@ -4801,8 +4841,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        4860,
-        1380
+        4880,
+        1440
       ],
       "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
     },
@@ -4968,7 +5008,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.2,
       "position": [
-        4500,
+        4360,
         500
       ],
       "credentials": {
@@ -5051,7 +5091,7 @@
             },
             {
               "name": "closer",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo') }}"
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo').replace('ana.carvalho@universidadevendas.com.br','Ana Carvalho') }}"
             }
           ]
         },
@@ -5063,7 +5103,7 @@
       "typeVersion": 4.1,
       "position": [
         5040,
-        1380
+        1440
       ]
     },
     {
@@ -5095,7 +5135,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        4480,
+        4240,
         780
       ]
     },
@@ -5191,8 +5231,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        5040,
-        740
+        4900,
+        680
       ]
     },
     {
@@ -5265,7 +5305,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        1320,
+        1080,
         940
       ]
     },
@@ -5301,7 +5341,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1500,
+        1260,
         860
       ]
     },
@@ -5315,8 +5355,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        4860,
-        940
+        4720,
+        860
       ],
       "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
     },
@@ -5412,8 +5452,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        5040,
-        940
+        4900,
+        860
       ]
     },
     {
@@ -5445,7 +5485,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        4620,
+        4400,
         900
       ]
     },
@@ -5459,7 +5499,7 @@
       "type": "n8n-nodes-base.itemLists",
       "typeVersion": 3,
       "position": [
-        2500,
+        2260,
         940
       ]
     },
@@ -5473,8 +5513,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        4860,
-        1160
+        4720,
+        1040
       ],
       "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
     },
@@ -5551,7 +5591,7 @@
             },
             {
               "name": "closer",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo') }}"
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo').replace('ana.carvalho@universidadevendas.com.br','Ana Carvalho') }}"
             }
           ]
         },
@@ -5562,8 +5602,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        5040,
-        1160
+        4900,
+        1040
       ]
     },
     {
@@ -5595,8 +5635,144 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        4660,
-        1200
+        4560,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7a91e12d-29cb-4fdd-99a7-88b0ee99c735",
+              "leftValue": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"] }}",
+              "rightValue": "ana.carvalho@universidadevendas.com.br",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9c2d78db-aa21-4a66-aa92-4ef74bbdef6e",
+      "name": "funil_imperio_ana",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        4700,
+        1320
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "477e3422-2d34-497f-b437-9c19f747a739",
+      "name": "3-4",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        4840,
+        1220
+      ],
+      "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/cb91f78b-59f3-41bc-bba7-d35f560d2d69",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "dono_negocio",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"] }}"
+            },
+            {
+              "name": "reunião",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"] }}"
+            },
+            {
+              "name": "link_reuniao",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}"
+            },
+            {
+              "name": "link_cancelamento",
+              "value": "=https://calendly.com/cancellations/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
+            },
+            {
+              "name": "link_reagendamento",
+              "value": "=https://calendly.com/reschedullings/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "pais",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"pais\"] }}"
+            },
+            {
+              "name": "data_de_inicio_portugal",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início - PT\"] }}"
+            },
+            {
+              "name": "data_de_termino_portugal",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Término - PT\"] }}"
+            },
+            {
+              "name": "closer",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo').replace('ana.carvalho@universidadevendas.com.br','Ana Carvalho') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "18b99bdf-d704-4453-bb5a-b62ee1fdb7e4",
+      "name": "atualiza_negocio_clint_imperio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        5000,
+        1220
       ]
     }
   ],
@@ -5676,6 +5852,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-09-11T13:03:03.891Z",
-  "versionId": "e509460c-bfc8-46db-b1db-0df7ee9fb4f0"
+  "updatedAt": "2024-09-11T19:27:24.921Z",
+  "versionId": "81e05a58-94c8-425c-a2a2-385f70665b5a"
 }
