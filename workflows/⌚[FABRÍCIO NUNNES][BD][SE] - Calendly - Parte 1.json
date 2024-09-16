@@ -122,28 +122,6 @@
         ]
       ]
     },
-    "dados_do_reagendamento": {
-      "main": [
-        [
-          {
-            "node": "entra_na_fila1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "dados_do_cancelamento": {
-      "main": [
-        [
-          {
-            "node": "entra_na_fila2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Listar Campos Personalizados de Deals da Conta3": {
       "main": [
         [
@@ -371,6 +349,28 @@
         [
           {
             "node": "entra_na_fila",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_do_reagendamento": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_do_cancelamento": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila2",
             "type": "main",
             "index": 0
           }
@@ -2172,12 +2172,25 @@
         "options": {}
       },
       "id": "8cdcd54d-f6f5-49f6-bf9e-d5676797df18",
-      "name": "Jessica",
+      "name": "agendamento_leo",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
         320,
         1580
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "fc8e1967-1196-4fb6-a0c7-14dcca8190a5",
+      "name": "reagendamento_ana",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        320,
+        1760
       ]
     }
   ],
@@ -2410,13 +2423,13 @@
     "Evento": [
       {
         "json": {
-          "event": "invitee.created",
+          "event": "invitee.canceled",
           "payload": {
             "event_type": {
-              "uuid": "287b5cd2-2e58-4f4a-a877-c80d450099e7",
+              "uuid": "9a89c12e-b4b7-45b6-b462-5ffb9c869d80",
               "kind": "Round Robin",
-              "slug": "sessao-estrategica-comercial-manual-clone",
-              "name": "Sessão Estratégica Comercial - Funil SS",
+              "slug": "sessao-estrategica",
+              "name": "Sessão Estratégica Comercial",
               "duration": 45,
               "owner": {
                 "type": "teams",
@@ -2424,57 +2437,57 @@
               }
             },
             "event": {
-              "uuid": "add91227-b814-4607-a2d7-c1a7716ab0a3",
+              "uuid": "c905c93b-e06f-497c-a3cf-f2561230f2cc",
               "assigned_to": [
-                "Mayra Santos"
+                "Leonardo Barroso"
               ],
               "extended_assigned_to": [
                 {
-                  "name": "Mayra Santos",
-                  "email": "mayra.santos@universidadevendas.com.br",
+                  "name": "Leonardo Barroso",
+                  "email": "leonardo.barroso@universidadevendas.com.br",
                   "primary": true
                 }
               ],
-              "start_time": "2024-06-26T11:00:00-03:00",
-              "start_time_pretty": "11:00am - Wednesday, June 26, 2024",
-              "invitee_start_time": "2024-06-26T11:00:00-03:00",
-              "invitee_start_time_pretty": "11:00am - Wednesday, June 26, 2024",
-              "end_time": "2024-06-26T11:45:00-03:00",
-              "end_time_pretty": "11:45am - Wednesday, June 26, 2024",
-              "invitee_end_time": "2024-06-26T11:45:00-03:00",
-              "invitee_end_time_pretty": "11:45am - Wednesday, June 26, 2024",
-              "created_at": "2024-06-25T15:17:29-03:00",
-              "location": "https://calendly.com/events/add91227-b814-4607-a2d7-c1a7716ab0a3/google_meet",
-              "canceled": false,
-              "canceler_name": null,
-              "cancel_reason": null,
-              "canceled_at": null
+              "start_time": "2024-09-18T13:00:00-03:00",
+              "start_time_pretty": "01:00pm - Wednesday, September 18, 2024",
+              "invitee_start_time": "2024-09-18T13:00:00-03:00",
+              "invitee_start_time_pretty": "01:00pm - Wednesday, September 18, 2024",
+              "end_time": "2024-09-18T13:45:00-03:00",
+              "end_time_pretty": "01:45pm - Wednesday, September 18, 2024",
+              "invitee_end_time": "2024-09-18T13:45:00-03:00",
+              "invitee_end_time_pretty": "01:45pm - Wednesday, September 18, 2024",
+              "created_at": "2024-09-16T10:28:15-03:00",
+              "location": "https://calendly.com/events/c905c93b-e06f-497c-a3cf-f2561230f2cc/google_meet",
+              "canceled": true,
+              "canceler_name": "Fabricio Nunnes",
+              "cancel_reason": "Teste",
+              "canceled_at": "2024-09-16T10:29:37-03:00"
             },
             "invitee": {
-              "uuid": "9a4d1613-82ce-40e4-918d-8f05631be22e",
+              "uuid": "18229abe-7099-48b2-ac10-20007077f6bd",
               "first_name": null,
               "last_name": null,
               "name": "Vitor Queiroz de Almeida",
               "email": "vitorrqueiroztrafego@gmail.com",
               "text_reminder_number": null,
               "timezone": "America/Sao_Paulo",
-              "created_at": "2024-06-25T15:17:29-03:00",
-              "is_reschedule": false,
+              "created_at": "2024-09-16T10:28:16-03:00",
+              "is_reschedule": true,
               "payments": [],
-              "canceled": false,
-              "canceler_name": null,
-              "cancel_reason": null,
-              "canceled_at": null
+              "canceled": true,
+              "canceler_name": "Fabricio Nunnes",
+              "cancel_reason": "Teste",
+              "canceled_at": "2024-09-16T10:29:37-03:00"
             },
             "questions_and_answers": [
               {
                 "question": "Qual seu telefone?",
-                "answer": "+55 19 98202-2213"
+                "answer": "+55 19 98457-4874"
               }
             ],
             "questions_and_responses": {
               "1_question": "Qual seu telefone?",
-              "1_response": "+55 19 98202-2213"
+              "1_response": "+55 19 98457-4874"
             },
             "tracking": {
               "utm_campaign": null,
@@ -2486,10 +2499,51 @@
             },
             "old_event": null,
             "old_invitee": null,
-            "new_event": null,
-            "new_invitee": null
+            "new_event": {
+              "uuid": "b83a4bf4-bc11-441d-b497-d2c6f851ba10",
+              "assigned_to": [
+                "Ana Carvalho"
+              ],
+              "extended_assigned_to": [
+                {
+                  "name": "Ana Carvalho",
+                  "email": "ana.carvalho@universidadevendas.com.br",
+                  "primary": true
+                }
+              ],
+              "start_time": "2024-09-18T15:00:00-03:00",
+              "start_time_pretty": "03:00pm - Wednesday, September 18, 2024",
+              "invitee_start_time": "2024-09-18T15:00:00-03:00",
+              "invitee_start_time_pretty": "03:00pm - Wednesday, September 18, 2024",
+              "end_time": "2024-09-18T15:45:00-03:00",
+              "end_time_pretty": "03:45pm - Wednesday, September 18, 2024",
+              "invitee_end_time": "2024-09-18T15:45:00-03:00",
+              "invitee_end_time_pretty": "03:45pm - Wednesday, September 18, 2024",
+              "created_at": "2024-09-16T10:29:37-03:00",
+              "location": "https://calendly.com/events/b83a4bf4-bc11-441d-b497-d2c6f851ba10/google_meet",
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
+            },
+            "new_invitee": {
+              "uuid": "b840900f-3815-4220-b5be-e811aaca5a09",
+              "first_name": null,
+              "last_name": null,
+              "name": "Vitor Queiroz de Almeida",
+              "email": "vitorrqueiroztrafego@gmail.com",
+              "text_reminder_number": null,
+              "timezone": "America/Sao_Paulo",
+              "created_at": "2024-09-16T10:29:37-03:00",
+              "is_reschedule": false,
+              "payments": [],
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
+            }
           },
-          "time": "2024-06-25T18:17:30Z"
+          "time": "2024-09-16T13:29:37Z"
         }
       }
     ],
@@ -3005,7 +3059,93 @@
         }
       }
     ],
-    "Jessica": [
+    "agendamento_leo": [
+      {
+        "json": {
+          "event": "invitee.created",
+          "payload": {
+            "event_type": {
+              "uuid": "9a89c12e-b4b7-45b6-b462-5ffb9c869d80",
+              "kind": "Round Robin",
+              "slug": "sessao-estrategica",
+              "name": "Sessão Estratégica Comercial",
+              "duration": 45,
+              "owner": {
+                "type": "teams",
+                "uuid": "5cd25daf-bf05-457d-92c5-2721ece75eee"
+              }
+            },
+            "event": {
+              "uuid": "c905c93b-e06f-497c-a3cf-f2561230f2cc",
+              "assigned_to": [
+                "Leonardo Barroso"
+              ],
+              "extended_assigned_to": [
+                {
+                  "name": "Leonardo Barroso",
+                  "email": "leonardo.barroso@universidadevendas.com.br",
+                  "primary": true
+                }
+              ],
+              "start_time": "2024-09-18T13:00:00-03:00",
+              "start_time_pretty": "01:00pm - Wednesday, September 18, 2024",
+              "invitee_start_time": "2024-09-18T13:00:00-03:00",
+              "invitee_start_time_pretty": "01:00pm - Wednesday, September 18, 2024",
+              "end_time": "2024-09-18T13:45:00-03:00",
+              "end_time_pretty": "01:45pm - Wednesday, September 18, 2024",
+              "invitee_end_time": "2024-09-18T13:45:00-03:00",
+              "invitee_end_time_pretty": "01:45pm - Wednesday, September 18, 2024",
+              "created_at": "2024-09-16T10:28:15-03:00",
+              "location": "https://calendly.com/events/c905c93b-e06f-497c-a3cf-f2561230f2cc/google_meet",
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
+            },
+            "invitee": {
+              "uuid": "18229abe-7099-48b2-ac10-20007077f6bd",
+              "first_name": null,
+              "last_name": null,
+              "name": "Vitor Queiroz de Almeida",
+              "email": "vitorrqueiroztrafego@gmail.com",
+              "text_reminder_number": null,
+              "timezone": "America/Sao_Paulo",
+              "created_at": "2024-09-16T10:28:16-03:00",
+              "is_reschedule": false,
+              "payments": [],
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
+            },
+            "questions_and_answers": [
+              {
+                "question": "Qual seu telefone?",
+                "answer": "+55 19 98457-4874"
+              }
+            ],
+            "questions_and_responses": {
+              "1_question": "Qual seu telefone?",
+              "1_response": "+55 19 98457-4874"
+            },
+            "tracking": {
+              "utm_campaign": null,
+              "utm_source": null,
+              "utm_medium": null,
+              "utm_content": null,
+              "utm_term": null,
+              "salesforce_uuid": null
+            },
+            "old_event": null,
+            "old_invitee": null,
+            "new_event": null,
+            "new_invitee": null
+          },
+          "time": "2024-09-16T13:28:17Z"
+        }
+      }
+    ],
+    "reagendamento_ana": [
       {
         "json": {
           "event": "invitee.canceled",
@@ -3022,104 +3162,104 @@
               }
             },
             "event": {
-              "uuid": "836b04cc-11cf-4eae-9972-04d7edff32ed",
+              "uuid": "c905c93b-e06f-497c-a3cf-f2561230f2cc",
               "assigned_to": [
-                "Jonatã Almeida"
+                "Leonardo Barroso"
               ],
               "extended_assigned_to": [
                 {
-                  "name": "Jonatã Almeida",
-                  "email": "closer1@universidadevendas.com.br",
+                  "name": "Leonardo Barroso",
+                  "email": "leonardo.barroso@universidadevendas.com.br",
                   "primary": true
                 }
               ],
-              "start_time": "2024-09-09T20:00:00-03:00",
-              "start_time_pretty": "08:00pm - Monday, September 9, 2024",
-              "invitee_start_time": "2024-09-09T20:00:00-03:00",
-              "invitee_start_time_pretty": "08:00pm - Monday, September 9, 2024",
-              "end_time": "2024-09-09T20:45:00-03:00",
-              "end_time_pretty": "08:45pm - Monday, September 9, 2024",
-              "invitee_end_time": "2024-09-09T20:45:00-03:00",
-              "invitee_end_time_pretty": "08:45pm - Monday, September 9, 2024",
-              "created_at": "2024-09-06T01:39:40-03:00",
-              "location": "https://calendly.com/events/836b04cc-11cf-4eae-9972-04d7edff32ed/google_meet",
+              "start_time": "2024-09-18T13:00:00-03:00",
+              "start_time_pretty": "01:00pm - Wednesday, September 18, 2024",
+              "invitee_start_time": "2024-09-18T13:00:00-03:00",
+              "invitee_start_time_pretty": "01:00pm - Wednesday, September 18, 2024",
+              "end_time": "2024-09-18T13:45:00-03:00",
+              "end_time_pretty": "01:45pm - Wednesday, September 18, 2024",
+              "invitee_end_time": "2024-09-18T13:45:00-03:00",
+              "invitee_end_time_pretty": "01:45pm - Wednesday, September 18, 2024",
+              "created_at": "2024-09-16T10:28:15-03:00",
+              "location": "https://calendly.com/events/c905c93b-e06f-497c-a3cf-f2561230f2cc/google_meet",
               "canceled": true,
-              "canceler_name": "Alexandre",
-              "cancel_reason": null,
-              "canceled_at": "2024-09-09T15:13:12-03:00"
+              "canceler_name": "Fabricio Nunnes",
+              "cancel_reason": "Teste",
+              "canceled_at": "2024-09-16T10:29:37-03:00"
             },
             "invitee": {
-              "uuid": "85de5638-616b-49f5-a7c1-1df90bc58d5d",
+              "uuid": "18229abe-7099-48b2-ac10-20007077f6bd",
               "first_name": null,
               "last_name": null,
-              "name": "Alexandre",
-              "email": "alexandrecsn@icloud.com",
+              "name": "Vitor Queiroz de Almeida",
+              "email": "vitorrqueiroztrafego@gmail.com",
               "text_reminder_number": null,
               "timezone": "America/Sao_Paulo",
-              "created_at": "2024-09-06T01:39:40-03:00",
+              "created_at": "2024-09-16T10:28:16-03:00",
               "is_reschedule": true,
               "payments": [],
               "canceled": true,
-              "canceler_name": "Alexandre",
-              "cancel_reason": null,
-              "canceled_at": "2024-09-09T15:13:12-03:00"
+              "canceler_name": "Fabricio Nunnes",
+              "cancel_reason": "Teste",
+              "canceled_at": "2024-09-16T10:29:37-03:00"
             },
             "questions_and_answers": [
               {
                 "question": "Qual seu telefone?",
-                "answer": "+55 88 98819-5975"
+                "answer": "+55 19 98457-4874"
               }
             ],
             "questions_and_responses": {
               "1_question": "Qual seu telefone?",
-              "1_response": "+55 88 98819-5975"
+              "1_response": "+55 19 98457-4874"
             },
             "tracking": {
-              "utm_campaign": "[RL] [SE] [CAPTAÇÃO] [CADASTRO] [AUTO] [F] Públicos Frios - Evento Novo (SE_AD031)",
-              "utm_source": "ig",
-              "utm_medium": "Instagram_Feed",
-              "utm_content": "01 - [AUTO] [F] Empresários",
-              "utm_term": "SE_AD031",
+              "utm_campaign": null,
+              "utm_source": null,
+              "utm_medium": null,
+              "utm_content": null,
+              "utm_term": null,
               "salesforce_uuid": null
             },
             "old_event": null,
             "old_invitee": null,
             "new_event": {
-              "uuid": "a3f29271-8705-482d-8c8a-2db61d77eb79",
+              "uuid": "b83a4bf4-bc11-441d-b497-d2c6f851ba10",
               "assigned_to": [
-                "Jessica Melo"
+                "Ana Carvalho"
               ],
               "extended_assigned_to": [
                 {
-                  "name": "Jessica Melo",
-                  "email": "jessica.melo@universidadevendas.com.br",
+                  "name": "Ana Carvalho",
+                  "email": "ana.carvalho@universidadevendas.com.br",
                   "primary": true
                 }
               ],
-              "start_time": "2024-09-10T21:00:00-03:00",
-              "start_time_pretty": "09:00pm - Tuesday, September 10, 2024",
-              "invitee_start_time": "2024-09-10T21:00:00-03:00",
-              "invitee_start_time_pretty": "09:00pm - Tuesday, September 10, 2024",
-              "end_time": "2024-09-10T21:45:00-03:00",
-              "end_time_pretty": "09:45pm - Tuesday, September 10, 2024",
-              "invitee_end_time": "2024-09-10T21:45:00-03:00",
-              "invitee_end_time_pretty": "09:45pm - Tuesday, September 10, 2024",
-              "created_at": "2024-09-09T15:13:12-03:00",
-              "location": "https://calendly.com/events/a3f29271-8705-482d-8c8a-2db61d77eb79/google_meet",
+              "start_time": "2024-09-18T15:00:00-03:00",
+              "start_time_pretty": "03:00pm - Wednesday, September 18, 2024",
+              "invitee_start_time": "2024-09-18T15:00:00-03:00",
+              "invitee_start_time_pretty": "03:00pm - Wednesday, September 18, 2024",
+              "end_time": "2024-09-18T15:45:00-03:00",
+              "end_time_pretty": "03:45pm - Wednesday, September 18, 2024",
+              "invitee_end_time": "2024-09-18T15:45:00-03:00",
+              "invitee_end_time_pretty": "03:45pm - Wednesday, September 18, 2024",
+              "created_at": "2024-09-16T10:29:37-03:00",
+              "location": "https://calendly.com/events/b83a4bf4-bc11-441d-b497-d2c6f851ba10/google_meet",
               "canceled": false,
               "canceler_name": null,
               "cancel_reason": null,
               "canceled_at": null
             },
             "new_invitee": {
-              "uuid": "d9f8e661-dc17-4e13-b828-9200a96e72c2",
+              "uuid": "b840900f-3815-4220-b5be-e811aaca5a09",
               "first_name": null,
               "last_name": null,
-              "name": "Alexandre",
-              "email": "alexandrecsn@icloud.com",
+              "name": "Vitor Queiroz de Almeida",
+              "email": "vitorrqueiroztrafego@gmail.com",
               "text_reminder_number": null,
               "timezone": "America/Sao_Paulo",
-              "created_at": "2024-09-09T15:13:12-03:00",
+              "created_at": "2024-09-16T10:29:37-03:00",
               "is_reschedule": false,
               "payments": [],
               "canceled": false,
@@ -3128,7 +3268,7 @@
               "canceled_at": null
             }
           },
-          "time": "2024-09-09T18:13:12Z"
+          "time": "2024-09-16T13:29:37Z"
         }
       }
     ]
@@ -3138,7 +3278,7 @@
   },
   "staticData": {
     "node:Evento": {
-      "webhookId": 5064458
+      "webhookId": 5079661
     }
   },
   "tags": [
@@ -3150,6 +3290,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-09-09T19:30:06.669Z",
-  "versionId": "477dc93b-dfcc-4d80-90cb-9bf76bfdda61"
+  "updatedAt": "2024-09-16T13:46:52.596Z",
+  "versionId": "ecdb60ca-24cc-471b-98ce-6da97087e533"
 }
