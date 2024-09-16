@@ -1287,13 +1287,7 @@
     },
     "envia_tipo_serviço": {
       "main": [
-        [
-          {
-            "node": "numeros_de_teste",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "If": {
@@ -1416,17 +1410,6 @@
         ]
       ]
     },
-    "entra_na_fila": {
-      "main": [
-        [
-          {
-            "node": "segundo_ou_mais_erro",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "3-4": {
       "main": [
         [
@@ -1461,6 +1444,17 @@
         [
           {
             "node": "pesquisa_agendamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "entra_na_fila": {
+      "main": [
+        [
+          {
+            "node": "segundo_ou_mais_erro",
             "type": "main",
             "index": 0
           }
@@ -5781,35 +5775,37 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-6Hj1XICNB2ghK1diIj8smw",
-            "deliveryTag": 975104,
+            "consumerTag": "amq.ctag-2aBAyYMjcKdN8EGQAGe5Rg",
+            "deliveryTag": 1,
             "redelivered": false,
             "exchange": "",
             "routingKey": "Calendly - Sessão Estratégica"
           },
           "properties": {
-            "headers": {}
+            "headers": {
+              "x-delivery-count": 698108
+            }
           },
           "content": {
-            "Nome do Cliente": "vitor queiroz de almeida",
-            "E-mail do Cliente": "vitorrqueiroztrafego@gmail.com",
-            "Telefone do Cliente - Formato BC": "+5519984574874",
-            "Telefone do Cliente - Formato Z-API": "5519984574874",
-            "Tipo de Evento": "Sessão estratégica",
-            "ID do Evento": "1bd03dae-41cd-4a26-b36f-946684355b11",
-            "Responsável pelo Evento": "Ana Carvalho",
-            "E-mail do Responsável": "ana.carvalho@universidadevendas.com.br",
-            "Data de Início": "09/09/2024, 11:00",
-            "Data em que foi feito o Agendamento": "09/09/2024, 10:52",
-            "Data de Término": "09/09/2024, 11:45",
+            "Nome do Cliente": "Vanessa tozzato",
+            "E-mail do Cliente": "vanessatozzato@b2gomarketing.com.br",
+            "Telefone do Cliente - Formato BC": "+5511947589643",
+            "Telefone do Cliente - Formato Z-API": "5511947589643",
+            "Tipo de Evento": "Sessão Estratégica Comercial",
+            "ID do Evento": "84b4e3d0-f594-4773-b245-d300fc96c760",
+            "Responsável pelo Evento": "Jonatã Almeida",
+            "E-mail do Responsável": "closer1@universidadevendas.com.br",
+            "Data de Início": "16/09/2024, 18:00",
+            "Data em que foi feito o Agendamento": "12/09/2024, 06:47",
+            "Data de Término": "16/09/2024, 18:45",
             "Dia da Semana de Início do Evento": "Segunda",
-            "Link da Reunião": "https://calendly.com/events/1bd03dae-41cd-4a26-b36f-946684355b11/google_meet",
-            "utm_source": "source1",
-            "utm_campaign": "campaign2",
-            "utm_term": "term5",
-            "utm_medium": "medium4",
-            "utm_content": "content3",
-            "ID do Cliente": "e75ed798-282f-42d5-8b49-83f488ae4ffc",
+            "Link da Reunião": "https://calendly.com/events/84b4e3d0-f594-4773-b245-d300fc96c760/google_meet",
+            "utm_source": "ig",
+            "utm_campaign": "[HBN] [SE] [CAPTAÇÃO] [CADASTROS] [AUTO] [F] Públicos Frios - Evento Novo",
+            "utm_term": "SE_AD031",
+            "utm_medium": "Instagram_Reels",
+            "utm_content": "Tomadores de decisões empresariais",
+            "ID do Cliente": "3021e90a-72f9-40fb-9e0c-0e198cf25454",
             "id_do_campo_id_do_agendamento_bot_conversa": "1045673",
             "fluxo_de_confirmacao_de_agendamento": "4496635",
             "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
@@ -5828,9 +5824,9 @@
             "id_do_campo_faturamento_mensal_bot_conversa": "1051567",
             "id_campo_tem_socio_bot_conversa": "1408036",
             "id_campo_nome_closer_responsavel_bot_conversa": "1459264",
-            "Data em que foi feito o Agendamento - PT": "09/09/2024",
-            "Data de Início - PT": "14:00",
-            "Data de Término - PT": "14:45",
+            "Data em que foi feito o Agendamento - PT": "12/09/2024",
+            "Data de Início - PT": "21:00",
+            "Data de Término - PT": "21:45",
             "id_do_campo_dia_da_semana_do_agendamento_bot_conversa_pt": "1853088",
             "id_do_campo_horario_agendado_bot_conversa_pt": "1853084",
             "id_do_campo_data_do_agendamento_bot_conversa_pt": "1852850"
@@ -5852,6 +5848,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-09-11T19:27:24.921Z",
-  "versionId": "81e05a58-94c8-425c-a2a2-385f70665b5a"
+  "updatedAt": "2024-09-16T13:43:09.038Z",
+  "versionId": "79bb5fe1-d8a3-482a-91da-7685a32d1f5f"
 }
