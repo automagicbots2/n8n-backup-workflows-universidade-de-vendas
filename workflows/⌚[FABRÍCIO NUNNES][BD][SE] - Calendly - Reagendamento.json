@@ -1455,6 +1455,28 @@
           }
         ]
       ]
+    },
+    "envia_campo_link_do_agendamento": {
+      "main": [
+        [
+          {
+            "node": "envia_email_do_closer_responsavel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_email_do_closer_responsavel": {
+      "main": [
+        [
+          {
+            "node": "envia_nome_do_closer_responsavel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-14T15:12:36.824Z",
@@ -5392,7 +5414,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
       "position": [
-        11500,
+        12060,
         1680
       ],
       "alwaysOutputData": true,
@@ -5415,7 +5437,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        11700,
+        12260,
         1680
       ],
       "webhookId": "d38e048b-de8b-4b6f-867f-e74f2b064d5e"
@@ -5524,7 +5546,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
       "position": [
-        11140,
+        11700,
         1680
       ],
       "alwaysOutputData": true,
@@ -5547,7 +5569,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        11320,
+        11880,
         1680
       ],
       "webhookId": "d38e048b-de8b-4b6f-867f-e74f2b064d5e"
@@ -6316,6 +6338,88 @@
         2300
       ],
       "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato1\"].json[\"id\"] }}/custom_fields/1045682/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node.entra_na_fila.json.content[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "74a74cd7-a4af-486b-b9ee-2dae49dc3693",
+      "name": "envia_email_do_closer_responsavel",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        11140,
+        1680
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato1\"].json[\"id\"] }}/custom_fields/1459264/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node.entra_na_fila.json.content[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Responsável pelo Evento\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "559da79b-9734-4401-8dda-ba4252bced1e",
+      "name": "envia_nome_do_closer_responsavel",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        11340,
+        1680
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
     }
   ],
   "pinData": {
@@ -6323,8 +6427,8 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-0rQIksVs21XwrRdleBMw6w",
-            "deliveryTag": 1,
+            "consumerTag": "amq.ctag-mjCq_bu-iMSlRe-zPNGtkQ",
+            "deliveryTag": 3,
             "redelivered": false,
             "exchange": "",
             "routingKey": "Calendly - Reagendamentos"
@@ -6337,22 +6441,22 @@
             "E-mail do Cliente": "vitorrqueiroztrafego@gmail.com",
             "Telefone do Cliente - Formato BC": "+5519984574874",
             "Telefone do Cliente - Formato Z-API": "5519984574874",
-            "ID do Evento": "9e775e47-4025-43c0-9bbc-aefbbfb65f33",
+            "ID do Evento": "b83a4bf4-bc11-441d-b497-d2c6f851ba10",
             "Responsável pelo Evento": "Ana Carvalho",
             "E-mail do Responsável": "ana.carvalho@universidadevendas.com.br",
-            "Data de Início": "10/09/2024, 15:00",
-            "Data em que foi feito o Reagendamento": "2024-09-09",
-            "Data de Término": "10/09/2024, 15:45",
-            "Dia da Semana de Início do Evento": "Terça",
-            "utm_source": "source1",
-            "utm_campaign": "campaign2",
-            "utm_term": "term5",
-            "utm_medium": "medium4",
-            "utm_content": "content3",
-            "Motivo do Reagendamento": "Teste Reagendamento Automagic Bots",
-            "ID do Cliente": "92d738f5-4a0c-478e-8b2f-3d9c9cf11c62",
-            "ID do Evento Antigo": "1bd03dae-41cd-4a26-b36f-946684355b11",
-            "Tipo de Evento": "Sessão estratégica",
+            "Data de Início": "18/09/2024, 15:00",
+            "Data em que foi feito o Reagendamento": "2024-09-16",
+            "Data de Término": "18/09/2024, 15:45",
+            "Dia da Semana de Início do Evento": "Quarta",
+            "utm_source": null,
+            "utm_campaign": null,
+            "utm_term": null,
+            "utm_medium": null,
+            "utm_content": null,
+            "Motivo do Reagendamento": "Teste",
+            "ID do Cliente": "b840900f-3815-4220-b5be-e811aaca5a09",
+            "ID do Evento Antigo": "c905c93b-e06f-497c-a3cf-f2561230f2cc",
+            "Tipo de Evento": "Sessão Estratégica Comercial",
             "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
             "id_do_campo_id_do_agendamento_bot_conversa": "1045673",
             "id_do_campo_inviteeid_bot_conversa": "1045675",
@@ -6360,17 +6464,17 @@
             "id_do_campo_data_do_agendamento_bot_conversa": "1045668",
             "id_do_campo_dia_da_semana_do_agendamento_bot_conversa": "1045528",
             "fluxo_de_confirmacao_de_reagendamento": "1769147",
-            "Link da Reunião": "https://calendly.com/events/9e775e47-4025-43c0-9bbc-aefbbfb65f33/google_meet",
-            "ID do Cliente Antigo": "e75ed798-282f-42d5-8b49-83f488ae4ffc",
-            "data_de_inicio_antigo": "2024-09-09",
-            "hora_de_inicio_antigo": "11:00:00",
-            "Link da Reunião Antigo": "https://calendly.com/events/1bd03dae-41cd-4a26-b36f-946684355b11/google_meet",
-            "Dia da Semana de Início do Evento Antigo": "Segunda",
-            "Data do Agendamento Antigo": "2024-09-09 10:52:01",
-            "Responsável pelo Evento Antigo": "Ana Carvalho",
-            "E-mail do Responsável Antigo": "ana.carvalho@universidadevendas.com.br",
-            "data_de_inicio_novo": "2024-09-10",
-            "data_agendamento_novo": "2024-09-09 10:53:57",
+            "Link da Reunião": "https://calendly.com/events/b83a4bf4-bc11-441d-b497-d2c6f851ba10/google_meet",
+            "ID do Cliente Antigo": "18229abe-7099-48b2-ac10-20007077f6bd",
+            "data_de_inicio_antigo": "2024-09-18",
+            "hora_de_inicio_antigo": "13:00:00",
+            "Link da Reunião Antigo": "https://calendly.com/events/c905c93b-e06f-497c-a3cf-f2561230f2cc/google_meet",
+            "Dia da Semana de Início do Evento Antigo": "Quarta",
+            "Data do Agendamento Antigo": "2024-09-16 10:28:15",
+            "Responsável pelo Evento Antigo": "Leonardo Barroso",
+            "E-mail do Responsável Antigo": "leonardo.barroso@universidadevendas.com.br",
+            "data_de_inicio_novo": "2024-09-18",
+            "data_agendamento_novo": "2024-09-16 10:29:37",
             "hora_de_inicio_novo": "15:00:00",
             "id_campo_id_banco_de_dados_bot_conversa": "1408048",
             "funil": "sessao_estrategica",
@@ -6379,8 +6483,8 @@
             "id_do_campo_dia_da_semana_do_agendamento_bot_conversa_pt": "1853088",
             "id_do_campo_horario_agendado_bot_conversa_pt": "1853084",
             "id_do_campo_data_do_agendamento_bot_conversa_pt": "1852850",
-            "Data de Início com Reagendamento - PT": "2024-09-10 18:00:00",
-            "Data de Término com Adiantamento - PT": "2024-09-10 18:45:00",
+            "Data de Início com Reagendamento - PT": "2024-09-18 18:00:00",
+            "Data de Término com Adiantamento - PT": "2024-09-18 18:45:00",
             "País": ""
           }
         }
@@ -6400,6 +6504,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-09-11T19:28:38.738Z",
-  "versionId": "bfe09815-60b2-4fd7-9cf5-887b4041de82"
+  "updatedAt": "2024-09-16T13:52:32.295Z",
+  "versionId": "ea42ec22-ac01-4155-9860-3363a0fa7b06"
 }
