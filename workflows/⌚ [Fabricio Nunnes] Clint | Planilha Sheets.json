@@ -77,6 +77,17 @@
           }
         ]
       ]
+    },
+    "avisa_Fabricio": {
+      "main": [
+        [
+          {
+            "node": "avisa_Winicius",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-14T14:43:48.505Z",
@@ -947,6 +958,10 @@
             {
               "name": "ID Silas BC Closer 4",
               "value": "362405084"
+            },
+            {
+              "name": "ID Winicius BC",
+              "value": "563485579"
             }
           ]
         },
@@ -1048,6 +1063,42 @@
         300
       ],
       "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Winicius BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVA VENDA - Ganho na Clint* 🔔\n\nDados do Cliente\n\n*Nome do Cliente:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }}\n*Telefone:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Empresa:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*Endereço:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_endereco\"] }}\n*Situação:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_stage\"] }}\n*Plano:* Mentoria {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}.\n*Prazo:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_meses_de_contrato\"] }}\n*Valor do contrato:\" {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Quantidade de parcelas?:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Dia de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Winicius",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        300
+      ],
+      "id": "50d4cdd0-edfd-4f12-80fe-e13388b40ff3",
+      "continueOnFail": true
     }
   ],
   "pinData": {
@@ -1218,6 +1269,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2024-09-11T13:55:26.818Z",
-  "versionId": "78f7013d-a14a-43db-aa8a-162893cf7c12"
+  "updatedAt": "2024-09-18T11:57:52.233Z",
+  "versionId": "a6cd5405-b054-4e0e-b243-a868f63bacb3"
 }
