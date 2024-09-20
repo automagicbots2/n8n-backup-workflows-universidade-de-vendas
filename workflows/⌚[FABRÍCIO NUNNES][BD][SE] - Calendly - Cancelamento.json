@@ -6579,23 +6579,25 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-yrOMPhaGTpLOMGk_R3lz1g",
-            "deliveryTag": 1,
-            "redelivered": false,
+            "consumerTag": "amq.ctag-LTv0AEWEA5DYiRoMMbUlFA",
+            "deliveryTag": 2,
+            "redelivered": true,
             "exchange": "",
             "routingKey": "Calendly - Cancelamentos"
           },
           "properties": {
-            "headers": {}
+            "headers": {
+              "x-delivery-count": 2294378
+            }
           },
           "content": {
-            "Nome do Cliente": "vitor queiroz de almeida",
-            "E-mail do Cliente": "vitorrqueiroztrafego@gmail.com",
-            "Telefone do Cliente - Formato BC": "+5519984574874",
-            "Telefone do Cliente - Formato Z-API": "5519984574874",
-            "ID do Evento": "9e775e47-4025-43c0-9bbc-aefbbfb65f33",
-            "Data do Cancelamento": "2024-09-09",
-            "ID do Cliente": "92d738f5-4a0c-478e-8b2f-3d9c9cf11c62",
+            "Nome do Cliente": "Leonne",
+            "E-mail do Cliente": "leonnesilveira@hotmail.com",
+            "Telefone do Cliente - Formato BC": "+559887084325",
+            "Telefone do Cliente - Formato Z-API": "559887084325",
+            "ID do Evento": "bb9b887c-9d65-4478-bbd0-a8f74c2315c1",
+            "Data do Cancelamento": "2024-09-13",
+            "ID do Cliente": "05903c10-d80c-43bb-8245-895b056ded5b",
             "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
             "id_do_campo_id_do_agendamento_bot_conversa": "1045673",
             "id_do_campo_inviteeid_bot_conversa": "1045675",
@@ -6604,22 +6606,22 @@
             "id_do_campo_dia_da_semana_do_agendamento_bot_conversa": "1045528",
             "fluxo_de_confirmacao_de_cancelamento": "1769093",
             "id_do_campo_motivo_do_cancelamento_bot_conversa": "1045683",
-            "Motivo do Cancelamento": "Teste Cancelamento Automagic Bots",
-            "Data de Início": "2024-09-10",
-            "Hora de Início": "15:00:00",
-            "Link da Reunião": "https://calendly.com/events/9e775e47-4025-43c0-9bbc-aefbbfb65f33/google_meet",
-            "Tipo de Evento": "Sessão estratégica",
-            "Dia da Semana do Evento": "Terça",
-            "utm_source": "source1",
-            "utm_campaign": "campaign2",
-            "utm_term": "term5",
-            "utm_medium": "medium4",
-            "utm_content": "content3",
-            "data_agendamento": "2024-09-09 10:53:57",
+            "Motivo do Cancelamento": null,
+            "Data de Início": "2024-09-13",
+            "Hora de Início": "11:00:00",
+            "Link da Reunião": "https://calendly.com/events/bb9b887c-9d65-4478-bbd0-a8f74c2315c1/google_meet",
+            "Tipo de Evento": "Sessão Estratégica Comercial - MANUAL",
+            "Dia da Semana do Evento": "Sexta",
+            "utm_source": null,
+            "utm_campaign": null,
+            "utm_term": null,
+            "utm_medium": null,
+            "utm_content": null,
+            "data_agendamento": "2024-09-13 10:35:34",
             "id_campo_id_banco_de_dados_bot_conversa": "1408048",
-            "data_termino_ac": "2024-09-10",
-            "data_e_hora_de_termino": "10/09/2024 15:45",
-            "data_e_hora_de_inicio": "10/09/2024 15:00",
+            "data_termino_ac": "2024-09-13",
+            "data_e_hora_de_termino": "13/09/2024 11:45",
+            "data_e_hora_de_inicio": "13/09/2024 11:00",
             "funil": "sessao_estrategica",
             "variacao_do_funil": "v1",
             "E-mail do Responsável": "ana.carvalho@universidadevendas.com.br",
@@ -6643,6 +6645,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-09-11T19:34:25.071Z",
-  "versionId": "ba80d5ff-0ab4-4bad-94b3-adc95bc7812c"
+  "updatedAt": "2024-09-20T00:28:37.185Z",
+  "versionId": "685be452-0a1b-43a0-ba88-6fbe2eebf0f3"
 }
