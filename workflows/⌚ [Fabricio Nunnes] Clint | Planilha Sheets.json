@@ -67,22 +67,22 @@
         ]
       ]
     },
-    "Lead_Ganho": {
+    "avisa_Fabricio": {
       "main": [
         [
           {
-            "node": "CLINT",
+            "node": "avisa_Winicius",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "avisa_Fabricio": {
+    "Lead_Ganho": {
       "main": [
         [
           {
-            "node": "avisa_Winicius",
+            "node": "CLINT",
             "type": "main",
             "index": 0
           }
@@ -1050,22 +1050,6 @@
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "ganho-planilha-hetzner",
-        "options": {}
-      },
-      "id": "964519b9-bd7e-4e47-b456-6c1110a1ba35",
-      "name": "Lead_Ganho",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1.1,
-      "position": [
-        720,
-        300
-      ],
-      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
-    },
-    {
-      "parameters": {
         "requestMethod": "POST",
         "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Winicius BC\"] }}/send_message/",
         "options": {},
@@ -1099,6 +1083,22 @@
       ],
       "id": "50d4cdd0-edfd-4f12-80fe-e13388b40ff3",
       "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ganho-planilha-hetzner",
+        "options": {}
+      },
+      "id": "964519b9-bd7e-4e47-b456-6c1110a1ba35",
+      "name": "Lead_Ganho",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        300
+      ],
+      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
     }
   ],
   "pinData": {
@@ -1230,9 +1230,9 @@
           "params": {},
           "query": {},
           "body": {
-            "contact_name": "Claudia",
-            "contact_email": "caltst@hotmail.com",
-            "contact_phone": "+5573981114994",
+            "contact_name": "Mateus - Teste Automagic",
+            "contact_email": "mateusdiniz@automagicbots.com.br",
+            "contact_phone": "+5562981196678",
             "deal_stage": "Follow up infinito",
             "deal_user": "ana.carvalho@universidadevendas.com.br",
             "deal_status": "WON",
@@ -1269,6 +1269,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2024-09-18T11:57:52.233Z",
-  "versionId": "a6cd5405-b054-4e0e-b243-a868f63bacb3"
+  "updatedAt": "2024-09-26T17:49:47.811Z",
+  "versionId": "bb673499-a123-4cfc-a7bb-14f086e0f20e"
 }
