@@ -1285,11 +1285,6 @@
         ]
       ]
     },
-    "envia_tipo_serviço": {
-      "main": [
-        []
-      ]
-    },
     "If": {
       "main": [
         [
@@ -1403,7 +1398,7 @@
         ],
         [
           {
-            "node": "funil_imperio_ana",
+            "node": "3-1",
             "type": "main",
             "index": 0
           }
@@ -1430,13 +1425,7 @@
             "index": 0
           }
         ],
-        [
-          {
-            "node": "3-1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "atualiza_negocio_clint_imperio": {
@@ -4835,8 +4824,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        4880,
-        1440
+        4740,
+        1240
       ],
       "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
     },
@@ -5096,8 +5085,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        5040,
-        1440
+        4900,
+        1240
       ]
     },
     {
@@ -5662,8 +5651,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        4700,
-        1320
+        4680,
+        1540
       ]
     },
     {
@@ -5676,8 +5665,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        4840,
-        1220
+        4820,
+        1500
       ],
       "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
     },
@@ -5766,7 +5755,7 @@
       "typeVersion": 4.1,
       "position": [
         5000,
-        1220
+        1500
       ]
     }
   ],
@@ -5775,7 +5764,7 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-2aBAyYMjcKdN8EGQAGe5Rg",
+            "consumerTag": "amq.ctag-4xeL8vd2aVzU7RvAnpKcLQ",
             "deliveryTag": 1,
             "redelivered": false,
             "exchange": "",
@@ -5783,29 +5772,29 @@
           },
           "properties": {
             "headers": {
-              "x-delivery-count": 698108
+              "x-delivery-count": 967511
             }
           },
           "content": {
-            "Nome do Cliente": "Vanessa tozzato",
-            "E-mail do Cliente": "vanessatozzato@b2gomarketing.com.br",
-            "Telefone do Cliente - Formato BC": "+5511947589643",
-            "Telefone do Cliente - Formato Z-API": "5511947589643",
+            "Nome do Cliente": "ana clara",
+            "E-mail do Cliente": "anaclaradszf@gmail.com",
+            "Telefone do Cliente - Formato BC": "+553398246355",
+            "Telefone do Cliente - Formato Z-API": "553398246355",
             "Tipo de Evento": "Sessão Estratégica Comercial",
-            "ID do Evento": "84b4e3d0-f594-4773-b245-d300fc96c760",
-            "Responsável pelo Evento": "Jonatã Almeida",
-            "E-mail do Responsável": "closer1@universidadevendas.com.br",
-            "Data de Início": "16/09/2024, 18:00",
-            "Data em que foi feito o Agendamento": "12/09/2024, 06:47",
-            "Data de Término": "16/09/2024, 18:45",
-            "Dia da Semana de Início do Evento": "Segunda",
-            "Link da Reunião": "https://calendly.com/events/84b4e3d0-f594-4773-b245-d300fc96c760/google_meet",
-            "utm_source": "ig",
-            "utm_campaign": "[HBN] [SE] [CAPTAÇÃO] [CADASTROS] [AUTO] [F] Públicos Frios - Evento Novo",
-            "utm_term": "SE_AD031",
-            "utm_medium": "Instagram_Reels",
-            "utm_content": "Tomadores de decisões empresariais",
-            "ID do Cliente": "3021e90a-72f9-40fb-9e0c-0e198cf25454",
+            "ID do Evento": "acf3f253-f712-4f36-8487-82a805ce835b",
+            "Responsável pelo Evento": "Ana Carvalho",
+            "E-mail do Responsável": "ana.carvalho@universidadevendas.com.br",
+            "Data de Início": "04/10/2024, 11:00",
+            "Data em que foi feito o Agendamento": "28/09/2024, 08:10",
+            "Data de Término": "04/10/2024, 11:45",
+            "Dia da Semana de Início do Evento": "Sexta",
+            "Link da Reunião": "https://calendly.com/events/acf3f253-f712-4f36-8487-82a805ce835b/google_meet",
+            "utm_source": "organico_bio",
+            "utm_campaign": "_____",
+            "utm_term": "_____",
+            "utm_medium": "_____",
+            "utm_content": "_____",
+            "ID do Cliente": "1872cb45-d06e-46a8-863f-b646e2cd868b",
             "id_do_campo_id_do_agendamento_bot_conversa": "1045673",
             "fluxo_de_confirmacao_de_agendamento": "4496635",
             "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
@@ -5824,9 +5813,9 @@
             "id_do_campo_faturamento_mensal_bot_conversa": "1051567",
             "id_campo_tem_socio_bot_conversa": "1408036",
             "id_campo_nome_closer_responsavel_bot_conversa": "1459264",
-            "Data em que foi feito o Agendamento - PT": "12/09/2024",
-            "Data de Início - PT": "21:00",
-            "Data de Término - PT": "21:45",
+            "Data em que foi feito o Agendamento - PT": "28/09/2024",
+            "Data de Início - PT": "14:00",
+            "Data de Término - PT": "14:45",
             "id_do_campo_dia_da_semana_do_agendamento_bot_conversa_pt": "1853088",
             "id_do_campo_horario_agendado_bot_conversa_pt": "1853084",
             "id_do_campo_data_do_agendamento_bot_conversa_pt": "1852850"
@@ -5848,6 +5837,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-09-16T13:43:09.038Z",
-  "versionId": "79bb5fe1-d8a3-482a-91da-7685a32d1f5f"
+  "updatedAt": "2024-10-03T16:41:09.411Z",
+  "versionId": "6959b8be-bd2a-4e33-abb9-faf210bc12b5"
 }
