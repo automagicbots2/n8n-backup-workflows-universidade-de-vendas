@@ -130,7 +130,7 @@
             "Qual o valor total que o cliente já pagou?": "=R$ {{ $json[\"body\"][\"deal_value\"] }}",
             "Outro telefone do cliente (se houver)": "={{ $json[\"body\"][\"deal_user_phone\"] }}",
             "Endereço de e-mail": "={{ $json[\"body\"][\"contact_email\"] }}",
-            "Closer": "={{ $json[\"body\"][\"deal_closer\"] }}",
+            "Closer": "={{ $json[\"body\"][\"deal_closer\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo').replace('ana.carvalho@universidadevendas.com.br','Ana Carvalho').replace('leandro.arcas@universidadevendas.com.br','Leandro Arcas') }}",
             "quem qualificou": "={{ $json[\"body\"][\"deal_sdr\"] }}",
             "Quantidade": "1",
             "Vigência total (em meses)": "={{ $json[\"body\"][\"deal_meses_de_contrato\"] }}",
@@ -1269,6 +1269,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2024-09-26T17:49:47.811Z",
-  "versionId": "bb673499-a123-4cfc-a7bb-14f086e0f20e"
+  "updatedAt": "2024-10-17T14:44:37.611Z",
+  "versionId": "113c7f46-cceb-41b3-8720-7c12b2117199"
 }
