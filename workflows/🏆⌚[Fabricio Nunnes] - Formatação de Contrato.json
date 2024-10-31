@@ -342,6 +342,11 @@
             "node": "cria/atualiza_clint3",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "infos_bc3",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -412,17 +417,6 @@
         ]
       ]
     },
-    "TITANIUM": {
-      "main": [
-        [
-          {
-            "node": "tratar_dados3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "formata_contrato_TITANIUM": {
       "main": [
         [
@@ -472,6 +466,17 @@
         [
           {
             "node": "avisa_Closer5_Ana2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TITANIUM": {
+      "main": [
+        [
+          {
+            "node": "tratar_dados3",
             "type": "main",
             "index": 0
           }
@@ -2515,7 +2520,7 @@
             },
             {
               "name": "Data de vencimento",
-              "value": "={{ $json[\"Data de vencimento das parcelas?\"] }}"
+              "value": "={{ $node[\"TITANIUM\"].json[\"body\"][\"form_response\"][\"answers\"][\"18\"][\"number\"] }}"
             }
           ]
         },
@@ -2608,7 +2613,7 @@
             },
             {
               "name": "value",
-              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato3\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato3\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato3\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_TITANIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato3\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato3\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato3\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato3\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato3\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados3\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados3\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados3\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato3\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados3\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados3\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato3\"].json[\"Data de vencimento\"] }}"
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato3\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato3\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato3\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_TITANIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato3\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato3\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato3\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato3\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato3\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados3\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados3\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados3\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato3\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados3\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados3\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato3\"].json[\"Data de vencimento\"] }}\n*Forma de Pagamento:* {{ $node[\"tratar_dados3\"].json[\"Forma de pagamento das parcelas?\"] }}\n*Mês do vencimento da parcela:* {{ $node[\"tratar_dados3\"].json[\"A partir de qual mês o vencimento da parcela?\"] }}"
             }
           ]
         },
@@ -2644,7 +2649,7 @@
             },
             {
               "name": "value",
-              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato3\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato3\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato3\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_TITANIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato3\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato3\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato3\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato3\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato3\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados3\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados3\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados3\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato3\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados3\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados3\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato3\"].json[\"Data de vencimento\"] }}"
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato3\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato3\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato3\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_TITANIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato3\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato3\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato3\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato3\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato3\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados3\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados3\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados3\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato3\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados3\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados3\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato3\"].json[\"Data de vencimento\"] }}\n*Forma de Pagamento:* {{ $node[\"tratar_dados3\"].json[\"Forma de pagamento das parcelas?\"] }}\n*Mês do vencimento da parcela:* {{ $node[\"tratar_dados3\"].json[\"A partir de qual mês o vencimento da parcela?\"] }}"
             }
           ]
         },
@@ -2749,7 +2754,7 @@
             },
             {
               "name": "value",
-              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato3\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato3\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato3\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_TITANIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato3\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato3\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato3\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato3\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato3\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados3\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados3\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados3\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato3\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados3\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados3\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato3\"].json[\"Data de vencimento\"] }}"
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato3\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato3\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato3\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_TITANIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato3\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato3\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato3\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato3\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato3\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados3\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados3\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados3\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato3\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados3\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados3\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato3\"].json[\"Data de vencimento\"] }}\n*Forma de Pagamento:* {{ $node[\"tratar_dados3\"].json[\"Forma de pagamento das parcelas?\"] }}\n*Mês do vencimento da parcela:* {{ $node[\"tratar_dados3\"].json[\"A partir de qual mês o vencimento da parcela?\"] }}"
             }
           ]
         },
@@ -2930,17 +2935,17 @@
             {
               "action": "replaceAll",
               "text": "{{QTE}}",
-              "replaceText": "={{ $node[\"TITANIUM\"].json[\"body\"][\"form_response\"][\"answers\"][\"14\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"tratar_dados3\"].json[\"Quantidade de parcelas?\"] }}"
             },
             {
               "action": "replaceAll",
               "text": "{{PARCELA}}",
-              "replaceText": "={{ $node[\"TITANIUM\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"tratar_dados3\"].json[\"Valor de cada parcela?\"] }}"
             },
             {
               "action": "replaceAll",
               "text": "{{DURACAO}}",
-              "replaceText": "={{ $node[\"TITANIUM\"].json[\"body\"][\"form_response\"][\"answers\"][\"11\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"tratar_dados3\"].json[\"Qual a duração da mentoria em meses?\"] }}"
             }
           ]
         }
@@ -2960,22 +2965,6 @@
         }
       },
       "continueOnFail": true
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "preencher-contrato-titanium",
-        "options": {}
-      },
-      "id": "a4dfd806-8c3a-4fb0-a905-56e78d4a7ede",
-      "name": "TITANIUM",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        40,
-        1540
-      ],
-      "webhookId": "986ab2b5-d42e-4c09-9503-fea259da8e35"
     },
     {
       "parameters": {
@@ -3098,7 +3087,7 @@
             },
             {
               "name": "value",
-              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato3\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato3\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato3\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_TITANIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato3\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato3\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato3\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato3\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato3\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados3\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados3\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados3\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato3\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados3\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados3\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato3\"].json[\"Data de vencimento\"] }}"
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato3\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato3\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato3\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_TITANIUM\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato3\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato3\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato3\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato3\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato3\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados3\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados3\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados3\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato3\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados3\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados3\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato3\"].json[\"Data de vencimento\"] }}\n*Forma de Pagamento:* {{ $node[\"tratar_dados3\"].json[\"Forma de pagamento das parcelas?\"] }}\n*Mês do vencimento da parcela:* {{ $node[\"tratar_dados3\"].json[\"A partir de qual mês o vencimento da parcela?\"] }}"
             }
           ]
         },
@@ -3120,6 +3109,22 @@
       ],
       "id": "d913b274-84f2-43ee-af87-4c1fdf854c79",
       "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "preencher-contrato-titanium",
+        "options": {}
+      },
+      "id": "a4dfd806-8c3a-4fb0-a905-56e78d4a7ede",
+      "name": "TITANIUM",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        40,
+        1540
+      ],
+      "webhookId": "986ab2b5-d42e-4c09-9503-fea259da8e35"
     }
   ],
   "pinData": {
@@ -4623,27 +4628,27 @@
           "headers": {
             "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "user-agent": "Typeform Webhooks",
-            "content-length": "6444",
+            "content-length": "7359",
             "accept-encoding": "gzip",
             "content-type": "application/json",
-            "traceparent": "00-cfb4aea27a57a8d12da2d33a6c3d2170-eef020662ebc662c-01",
-            "x-forwarded-for": "18.204.78.134",
+            "traceparent": "00-8245960b117b08fa82ade72c995bf37a-2408532cddf8b9e0-01",
+            "x-forwarded-for": "34.230.177.131",
             "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "x-forwarded-port": "443",
             "x-forwarded-proto": "https",
             "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "18.204.78.134"
+            "x-real-ip": "34.230.177.131"
           },
           "params": {},
           "query": {},
           "body": {
-            "event_id": "01J5688TR2VSGXTZ8HZHV6Z5P5",
+            "event_id": "01JBF8YC0S9E6N296X6JW3GDK9",
             "event_type": "form_response",
             "form_response": {
               "form_id": "hnGXutX4",
-              "token": "nf2lujidvfd2gj0cbeqznf2men2rtqij",
-              "landed_at": "2024-08-13T16:11:17Z",
-              "submitted_at": "2024-08-13T16:13:52Z",
+              "token": "0jz00zrupdg1vkr0jz00a9178rfk5cdx",
+              "landed_at": "2024-10-30T17:50:51Z",
+              "submitted_at": "2024-10-30T17:52:58Z",
               "definition": {
                 "id": "hnGXutX4",
                 "title": "Dados de Contrato - TITANIUM",
@@ -4765,8 +4770,32 @@
                     "id": "G7akvzUxapTY",
                     "ref": "03fba88b-c00a-47d8-a379-e8edada52e0b",
                     "type": "short_text",
-                    "title": "Valor já pago pelo cliente?",
+                    "title": "Valor já pago pelo cliente? (Entrada)",
                     "properties": {}
+                  },
+                  {
+                    "id": "7JNcDY3vhM9w",
+                    "ref": "f8725b21-76e6-4adb-ab1a-a08aabc8f846",
+                    "type": "multiple_choice",
+                    "title": "Forma de pagamento da entrada?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "e4LXLgIJuxMB",
+                        "ref": "f2048893-ad08-46f7-a855-5fdd798e0e3c",
+                        "label": "Boleto"
+                      },
+                      {
+                        "id": "5WPQFLlHByDH",
+                        "ref": "27628cb2-07c0-4b7e-b958-3efe35025b7c",
+                        "label": "Cartão"
+                      },
+                      {
+                        "id": "GyJc656E4MUS",
+                        "ref": "7cf06906-38ac-4f25-9ed3-3536e00823d4",
+                        "label": "PIX"
+                      }
+                    ]
                   },
                   {
                     "id": "1Bgs86OHyrnq",
@@ -4783,38 +4812,42 @@
                     "properties": {}
                   },
                   {
-                    "id": "n8voeNMRLKpI",
-                    "ref": "8512597c-c5f2-4477-aeb0-36a81892c9ff",
+                    "id": "7sUV060ak4mW",
+                    "ref": "a0fc0d7b-8914-4ea2-9ad5-57be057825c8",
                     "type": "multiple_choice",
-                    "title": "Data de vencimento das parcelas?",
+                    "title": "Forma de pagamento das parcelas?",
                     "properties": {},
                     "choices": [
                       {
-                        "id": "JNKrkCjGtpza",
-                        "ref": "6a00eae2-469f-4dab-818d-9de803f097bf",
-                        "label": "1"
+                        "id": "i9rkuuSTWqj5",
+                        "ref": "dba30a3b-8d12-4dbe-9194-df5608bb2f5d",
+                        "label": "Boleto"
                       },
                       {
-                        "id": "rPYqyQEyfFfU",
-                        "ref": "0f32e603-18b5-422f-b56d-0d89fd9f18ab",
-                        "label": "5"
+                        "id": "3yXBIY78csQK",
+                        "ref": "508f5f95-5cc5-43b9-8a81-0ed40b50751f",
+                        "label": "Cartão"
                       },
                       {
-                        "id": "6NNVQvNyNQnh",
-                        "ref": "e31c675f-7195-4d67-a236-7eda555a3113",
-                        "label": "10"
-                      },
-                      {
-                        "id": "zJmIGJj6CFL4",
-                        "ref": "3bcc48b7-cea8-429d-aed3-b8520a02786c",
-                        "label": "15"
-                      },
-                      {
-                        "id": "FHlBMChqmFRe",
-                        "ref": "00e49f14-959b-4f96-b89d-d8efc4328037",
-                        "label": "20"
+                        "id": "71LyMRTZaujf",
+                        "ref": "a6568b5e-9053-4dff-8192-6b49091141c1",
+                        "label": "PIX"
                       }
                     ]
+                  },
+                  {
+                    "id": "1Ygl16jNxnRL",
+                    "ref": "8512597c-c5f2-4477-aeb0-36a81892c9ff",
+                    "type": "number",
+                    "title": "Data de vencimento das parcelas?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "ngsubg0b59td",
+                    "ref": "b7236a16-5e11-440a-8e27-78c38008d8e6",
+                    "type": "short_text",
+                    "title": "A partir de qual mês o vencimento da parcela?",
+                    "properties": {}
                   }
                 ],
                 "endings": [
@@ -4836,7 +4869,7 @@
               "answers": [
                 {
                   "type": "text",
-                  "text": "Automagic Bots",
+                  "text": "test",
                   "field": {
                     "id": "NwHWwVTIU60c",
                     "type": "short_text",
@@ -4845,7 +4878,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "0001999/000122",
+                  "text": "0000000000000",
                   "field": {
                     "id": "582pPz2Yuqul",
                     "type": "short_text",
@@ -4854,7 +4887,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "Rua Julio Bento Cardoso, 135, Vila Zuleima, Criciuma-SC 88817250",
+                  "text": "test",
                   "field": {
                     "id": "pjuJArYqyIYl",
                     "type": "long_text",
@@ -4863,7 +4896,7 @@
                 },
                 {
                   "type": "email",
-                  "email": "mateusdiniz@automagicbots.com.br",
+                  "email": "testes@teste.com",
                   "field": {
                     "id": "SXpCoMYlLHj3",
                     "type": "email",
@@ -4872,7 +4905,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "Mateus Soares Diniz",
+                  "text": "test",
                   "field": {
                     "id": "y01Yq8Ia4oI1",
                     "type": "short_text",
@@ -4881,7 +4914,7 @@
                 },
                 {
                   "type": "phone_number",
-                  "phone_number": "+5562981196678",
+                  "phone_number": "+5511000000000",
                   "field": {
                     "id": "8sJ9aOe7gS7U",
                     "type": "phone_number",
@@ -4890,7 +4923,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "Brasileiro",
+                  "text": "test",
                   "field": {
                     "id": "RoQJqNnaT2B9",
                     "type": "short_text",
@@ -4912,7 +4945,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "Gestor de Automações",
+                  "text": "test",
                   "field": {
                     "id": "axwckKfDb93W",
                     "type": "short_text",
@@ -4921,7 +4954,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "4192268",
+                  "text": "00000000000",
                   "field": {
                     "id": "RXwwmdK1KuTr",
                     "type": "short_text",
@@ -4930,7 +4963,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "00888766165",
+                  "text": "00000000000",
                   "field": {
                     "id": "QGQEzx3MdZW3",
                     "type": "short_text",
@@ -4965,6 +4998,19 @@
                   }
                 },
                 {
+                  "type": "choice",
+                  "choice": {
+                    "id": "GyJc656E4MUS",
+                    "label": "PIX",
+                    "ref": "7cf06906-38ac-4f25-9ed3-3536e00823d4"
+                  },
+                  "field": {
+                    "id": "7JNcDY3vhM9w",
+                    "type": "multiple_choice",
+                    "ref": "f8725b21-76e6-4adb-ab1a-a08aabc8f846"
+                  }
+                },
+                {
                   "type": "text",
                   "text": "12",
                   "field": {
@@ -4985,14 +5031,32 @@
                 {
                   "type": "choice",
                   "choice": {
-                    "id": "6NNVQvNyNQnh",
-                    "label": "10",
-                    "ref": "e31c675f-7195-4d67-a236-7eda555a3113"
+                    "id": "i9rkuuSTWqj5",
+                    "label": "Boleto",
+                    "ref": "dba30a3b-8d12-4dbe-9194-df5608bb2f5d"
                   },
                   "field": {
-                    "id": "n8voeNMRLKpI",
+                    "id": "7sUV060ak4mW",
                     "type": "multiple_choice",
+                    "ref": "a0fc0d7b-8914-4ea2-9ad5-57be057825c8"
+                  }
+                },
+                {
+                  "type": "number",
+                  "number": 15,
+                  "field": {
+                    "id": "1Ygl16jNxnRL",
+                    "type": "number",
                     "ref": "8512597c-c5f2-4477-aeb0-36a81892c9ff"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Dezembro",
+                  "field": {
+                    "id": "ngsubg0b59td",
+                    "type": "short_text",
+                    "ref": "b7236a16-5e11-440a-8e27-78c38008d8e6"
                   }
                 }
               ],
@@ -5019,6 +5083,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2024-10-25T17:53:25.980Z",
-  "versionId": "ba929165-0dad-4086-8a25-df2e6d861f52"
+  "updatedAt": "2024-10-30T19:10:44.549Z",
+  "versionId": "041831b6-475a-4512-9044-c3954f6ae97c"
 }
