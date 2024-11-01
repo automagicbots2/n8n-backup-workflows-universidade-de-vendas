@@ -130,7 +130,7 @@
             "Qual o valor total que o cliente já pagou?": "=R$ {{ $json[\"body\"][\"deal_value\"] }}",
             "Outro telefone do cliente (se houver)": "={{ $json[\"body\"][\"deal_user_phone\"] }}",
             "Endereço de e-mail": "={{ $json[\"body\"][\"contact_email\"] }}",
-            "Closer": "={{ $json[\"body\"][\"deal_closer\"] }}",
+            "Closer": "={{ $json[\"body\"][\"deal_closer\"].replace('Ana Carvalho','Ana Cristina').replace('leandro.arcas@universidadevendas.com.br','Leandro Arcas') }}",
             "quem qualificou": "={{ $json[\"body\"][\"deal_sdr\"] }}",
             "Quantidade": "1",
             "Vigência total (em meses)": "={{ $json[\"body\"][\"deal_meses_de_contrato\"] }}",
@@ -397,7 +397,7 @@
             "Dono do negocio": "={{ $json[\"body\"][\"deal_user\"] }}",
             "Status do negocio": "={{ $json[\"body\"][\"deal_status\"] }}",
             "Data da Reunião": "={{ $json[\"body\"][\"deal_reuniao\"].slice(0,10) }}",
-            "Closer": "={{ $json[\"body\"][\"deal_closer\"] }}",
+            "Closer": "={{ $json[\"body\"][\"deal_closer\"].replace('Ana Carvalho','Ana Cristina').replace('leandro.arcas@universidadevendas.com.br','Leandro Arcas') }}",
             "SDR": "={{ $json[\"body\"][\"deal_sdr\"] }}",
             "Quantidade": "1"
           },
@@ -569,7 +569,7 @@
             "Dono do negocio": "={{ $json[\"body\"][\"deal_user\"] }}",
             "Status do negocio": "={{ $json[\"body\"][\"deal_status\"] }}",
             "Data da reunião": "={{ $json[\"body\"][\"deal_reuniao\"].slice(0,10) }}",
-            "Closer": "={{ $json[\"body\"][\"deal_closer\"] }}",
+            "Closer": "={{ $json[\"body\"][\"deal_closer\"].replace('Ana Carvalho','Ana Cristina').replace('leandro.arcas@universidadevendas.com.br','Leandro Arcas') }}",
             "SDR": "={{ $json[\"body\"][\"deal_sdr\"] }}",
             "Quantidade": "1"
           },
@@ -741,7 +741,7 @@
             "Dono do negocio": "={{ $json[\"body\"][\"deal_user\"] }}",
             "Status do negocio": "={{ $json[\"body\"][\"deal_status\"] }}",
             "Data da Reunião": "={{ $json[\"body\"][\"deal_reuniao\"].slice(0,10) }}",
-            "Closer": "={{ $json[\"body\"][\"deal_closer\"] }}",
+            "Closer": "={{ $json[\"body\"][\"deal_closer\"].replace('Ana Carvalho','Ana Cristina').replace('leandro.arcas@universidadevendas.com.br','Leandro Arcas') }}",
             "SDR": "={{ $json[\"body\"][\"deal_sdr\"] }}",
             "Quantidade": "1"
           },
@@ -1283,6 +1283,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2024-10-18T12:19:10.370Z",
-  "versionId": "90515fda-7bad-45b9-a33b-ec91effbdb47"
+  "updatedAt": "2024-11-01T13:05:06.807Z",
+  "versionId": "703d2b07-c21e-4ec8-9fe0-723c2b20323b"
 }
