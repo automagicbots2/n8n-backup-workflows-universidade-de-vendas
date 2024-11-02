@@ -88,6 +88,28 @@
           }
         ]
       ]
+    },
+    "avisa_Winicius": {
+      "main": [
+        [
+          {
+            "node": "MensagemGrupoSoftware1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_groups": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-14T14:43:48.505Z",
@@ -962,6 +984,22 @@
             {
               "name": "ID Winicius BC",
               "value": "563485579"
+            },
+            {
+              "name": "ID_grupo_novos_clientes",
+              "value": "120363219650907550@g.us"
+            },
+            {
+              "name": "url_base_evolution",
+              "value": "https://apievolution.automagicbots.com.br/"
+            },
+            {
+              "name": "instancia_nome",
+              "value": "FabricioNunnes"
+            },
+            {
+              "name": "APIKEY_Evolution",
+              "value": "2D2031229498-443A-AA58-2C505530D040"
             }
           ]
         },
@@ -989,7 +1027,7 @@
             },
             {
               "name": "value",
-              "value": "=🔔 *NOVA VENDA - Ganho na Clint* 🔔\n\nDados do Cliente\n\n*Nome do Cliente:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }}\n*Telefone:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Empresa:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*Endereço:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_endereco\"] }}\n*Situação:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_stage\"] }}\n*Plano:* Mentoria {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}.\n*Prazo:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_meses_de_contrato\"] }}\n*Valor do contrato:\" {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Quantidade de parcelas?:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Dia de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}"
+              "value": "=🔔 *NOVA VENDA - Ganho na Clint* 🔔\n\nDados do Cliente\n\n*Nome do Cliente:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }}\n*Telefone:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Empresa:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*Endereço:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_endereco\"] }}\n*Situação:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_stage\"] }}\n*Plano:* Mentoria {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}.\n*Prazo:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_meses_de_contrato\"] }}\n*Valor do contrato:\" {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Quantidade de parcelas?:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Dia de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*SDR:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_sdr\"] }}"
             }
           ]
         },
@@ -1025,7 +1063,7 @@
             },
             {
               "name": "value",
-              "value": "=🔔 *NOVA VENDA - Ganho na Clint* 🔔\n\nDados do Cliente\n\n*Nome do Cliente:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }}\n*Telefone:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Empresa:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*Endereço:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_endereco\"] }}\n*Situação:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_stage\"] }}\n*Plano:* Mentoria {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}.\n*Prazo:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_meses_de_contrato\"] }}\n*Valor do contrato:\" {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Quantidade de parcelas?:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Dia de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}"
+              "value": "=🔔 *NOVA VENDA - Ganho na Clint* 🔔\n\nDados do Cliente\n\n*Nome do Cliente:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }}\n*Telefone:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Empresa:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*Endereço:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_endereco\"] }}\n*Situação:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_stage\"] }}\n*Plano:* Mentoria {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}.\n*Prazo:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_meses_de_contrato\"] }}\n*Valor do contrato:\" {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Quantidade de parcelas?:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Dia de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*SDR:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_sdr\"] }}"
             }
           ]
         },
@@ -1061,7 +1099,7 @@
             },
             {
               "name": "value",
-              "value": "=🔔 *NOVA VENDA - Ganho na Clint* 🔔\n\nDados do Cliente\n\n*Nome do Cliente:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }}\n*Telefone:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Empresa:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*Endereço:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_endereco\"] }}\n*Situação:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_stage\"] }}\n*Plano:* Mentoria {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}.\n*Prazo:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_meses_de_contrato\"] }}\n*Valor do contrato:\" {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Quantidade de parcelas?:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Dia de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}"
+              "value": "=🔔 *NOVA VENDA - Ganho na Clint* 🔔\n\nDados do Cliente\n\n*Nome do Cliente:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }}\n*Telefone:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Empresa:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*Endereço:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_endereco\"] }}\n*Situação:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_stage\"] }}\n*Plano:* Mentoria {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}.\n*Prazo:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_meses_de_contrato\"] }}\n*Valor do contrato:\" {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Quantidade de parcelas?:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Dia de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*SDR:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_sdr\"] }}"
             }
           ]
         },
@@ -1099,6 +1137,131 @@
         300
       ],
       "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"infos_bc\"].json[\"url_base_evolution\"] }}message/sendText/{{ $node[\"infos_bc\"].json[\"instancia_nome\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"infos_bc\"].json[\"APIKEY_Evolution\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $node[\"infos_bc\"].json[\"ID_grupo_novos_clientes\"] }}"
+            },
+            {
+              "name": "text",
+              "value": "=🔔 *NOVA VENDA - Ganho na Clint* 🔔\n\nDados do Cliente\n\n*Nome do Cliente:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }}\n*Telefone:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Empresa:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*Endereço:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_endereco\"] }}\n*Situação:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_stage\"] }}\n*Plano:* Mentoria {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}.\n*Prazo:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_meses_de_contrato\"] }}\n*Valor do contrato:\" {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Quantidade de parcelas?:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Dia de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*SDR:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_sdr\"] }}\n*Data da Venda:* {{ $node[\"CLINT\"].json[\"Data da venda\"] }}"
+            },
+            {
+              "name": "options.delay",
+              "value": "={{ 1200 }}"
+            },
+            {
+              "name": "options.presence",
+              "value": "composing"
+            },
+            {
+              "name": "options.linkPreview",
+              "value": "={{ false }}"
+            },
+            {
+              "name": "=mentionsEveryOne",
+              "value": "={{ true }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "86fd7d0b-e5b2-4e14-bbc0-ee909569f9d8",
+      "name": "MensagemGrupoSoftware1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1880,
+        300
+      ],
+      "typeVersion": 4
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7d62bddb-c5df-4118-9a76-a379e165393f",
+              "leftValue": "={{ $json[\"subject\"] }}",
+              "rightValue": "Integração novos clientes - Universidade Vendas",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "839e64b6-070c-4090-bd67-f994f105bc12",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1880,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://apievolution.automagicbots.com.br/group/fetchAllGroups/FabricioNunnes",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "getParticipants",
+              "value": "false"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "=2D2031229498-443A-AA58-2C505530D040"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f3028904-1b1e-4f4d-aab0-05fe1bae7f0d",
+      "name": "get_groups",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1660,
+        780
+      ]
     }
   ],
   "pinData": {
@@ -1283,6 +1446,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2024-11-01T13:05:06.807Z",
-  "versionId": "703d2b07-c21e-4ec8-9fe0-723c2b20323b"
+  "updatedAt": "2024-11-01T23:49:08.661Z",
+  "versionId": "989eab7a-c28d-4964-ba29-7f51579a1115"
 }
