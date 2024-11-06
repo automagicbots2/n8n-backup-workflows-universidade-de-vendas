@@ -722,7 +722,7 @@
             },
             {
               "name": "Valor Já Pago",
-              "value": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"13\"][\"text\"] }}"
+              "value": "={{ $node[\"tratar_dados\"].json[\"Valor já pago pelo cliente? (Entrada)\"] }}"
             },
             {
               "name": "Data de vencimento",
@@ -873,7 +873,7 @@
             },
             {
               "name": "Valor Já Pago",
-              "value": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"13\"][\"text\"] }}"
+              "value": "={{ $node[\"tratar_dados1\"].json[\"Valor já pago pelo cliente? (Entrada)\"] }}"
             },
             {
               "name": "Data de vencimento",
@@ -1150,17 +1150,22 @@
             {
               "action": "replaceAll",
               "text": "{{QTE}}",
-              "replaceText": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"14\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
             },
             {
               "action": "replaceAll",
               "text": "{{PARCELA}}",
-              "replaceText": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"16\"][\"text\"] }}"
             },
             {
               "action": "replaceAll",
               "text": "{{DURACAO}}",
               "replaceText": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"11\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENTRADA}}",
+              "replaceText": "={{ $node[\"dados_do_contrato\"].json[\"Valor Já Pago\"] }}"
             }
           ]
         }
@@ -1302,17 +1307,22 @@
             {
               "action": "replaceAll",
               "text": "{{QTE}}",
-              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"14\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
             },
             {
               "action": "replaceAll",
               "text": "{{PARCELA}}",
-              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"16\"][\"text\"] }}"
             },
             {
               "action": "replaceAll",
               "text": "{{DURACAO}}",
               "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"11\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENTRADA}}",
+              "replaceText": "={{ $node[\"dados_do_contrato1\"].json[\"Valor Já Pago\"] }}"
             }
           ]
         }
@@ -1614,7 +1624,7 @@
             },
             {
               "name": "Valor Já Pago",
-              "value": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"13\"][\"text\"] }}"
+              "value": "={{ $node[\"tratar_dados2\"].json[\"Valor já pago pelo cliente? (Entrada)\"] }}"
             },
             {
               "name": "Data de vencimento",
@@ -1824,17 +1834,22 @@
             {
               "action": "replaceAll",
               "text": "{{QTE}}",
-              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"14\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
             },
             {
               "action": "replaceAll",
               "text": "{{PARCELA}}",
-              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"16\"][\"text\"] }}"
             },
             {
               "action": "replaceAll",
               "text": "{{DURACAO}}",
               "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"11\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENTRADA}}",
+              "replaceText": "={{ $node[\"dados_do_contrato2\"].json[\"Valor Já Pago\"] }}"
             }
           ]
         }
@@ -2628,7 +2643,7 @@
             },
             {
               "name": "Valor Já Pago",
-              "value": "={{ $node[\"TITANIUM\"].json[\"body\"][\"form_response\"][\"answers\"][\"13\"][\"text\"] }}"
+              "value": "={{ $node[\"tratar_dados3\"].json[\"Valor já pago pelo cliente? (Entrada)\"] }}"
             },
             {
               "name": "Data de vencimento",
@@ -3058,6 +3073,11 @@
               "action": "replaceAll",
               "text": "{{DURACAO}}",
               "replaceText": "={{ $node[\"tratar_dados3\"].json[\"Qual a duração da mentoria em meses?\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENTRADA}}",
+              "replaceText": "={{ $node[\"dados_do_contrato3\"].json[\"Valor Já Pago\"] }}"
             }
           ]
         }
@@ -3413,6 +3433,11 @@
               "action": "replaceAll",
               "text": "{{DURACAO}}",
               "replaceText": "={{ $node[\"tratar_dados3\"].json[\"Qual a duração da mentoria em meses?\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENTRADA}}",
+              "replaceText": "={{ $node[\"dados_do_contrato3\"].json[\"Valor Já Pago\"] }}"
             }
           ]
         }
@@ -3597,17 +3622,22 @@
             {
               "action": "replaceAll",
               "text": "{{QTE}}",
-              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"14\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
             },
             {
               "action": "replaceAll",
               "text": "{{PARCELA}}",
-              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"16\"][\"text\"] }}"
             },
             {
               "action": "replaceAll",
               "text": "{{DURACAO}}",
               "replaceText": "={{ $node[\"Platinum\"].json[\"body\"][\"form_response\"][\"answers\"][\"11\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENTRADA}}",
+              "replaceText": "={{ $node[\"dados_do_contrato1\"].json[\"Valor Já Pago\"] }}"
             }
           ]
         }
@@ -3777,17 +3807,22 @@
             {
               "action": "replaceAll",
               "text": "{{QTE}}",
-              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"14\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
             },
             {
               "action": "replaceAll",
               "text": "{{PARCELA}}",
-              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"16\"][\"text\"] }}"
             },
             {
               "action": "replaceAll",
               "text": "{{DURACAO}}",
               "replaceText": "={{ $node[\"DIAMOND\"].json[\"body\"][\"form_response\"][\"answers\"][\"11\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENTRADA}}",
+              "replaceText": "={{ $node[\"dados_do_contrato2\"].json[\"Valor Já Pago\"] }}"
             }
           ]
         }
@@ -4019,17 +4054,22 @@
             {
               "action": "replaceAll",
               "text": "{{QTE}}",
-              "replaceText": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"14\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
             },
             {
               "action": "replaceAll",
               "text": "{{PARCELA}}",
-              "replaceText": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"15\"][\"text\"] }}"
+              "replaceText": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"16\"][\"text\"] }}"
             },
             {
               "action": "replaceAll",
               "text": "{{DURACAO}}",
               "replaceText": "={{ $node[\"Imperium\"].json[\"body\"][\"form_response\"][\"answers\"][\"11\"][\"text\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENTRADA}}",
+              "replaceText": "={{ $node[\"dados_do_contrato\"].json[\"Valor Já Pago\"] }}"
             }
           ]
         }
@@ -6233,6 +6273,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2024-10-31T12:31:29.108Z",
-  "versionId": "e384d6f0-bd16-4bed-9cc4-cb6478b428fe"
+  "updatedAt": "2024-11-05T22:36:17.237Z",
+  "versionId": "35fe26cf-29b5-4500-8e8d-656f9e2c2004"
 }
