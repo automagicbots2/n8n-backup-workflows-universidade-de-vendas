@@ -78,17 +78,6 @@
         ]
       ]
     },
-    "Lead_Ganho": {
-      "main": [
-        [
-          {
-            "node": "CLINT",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "avisa_Winicius": {
       "main": [
         [
@@ -105,6 +94,17 @@
         [
           {
             "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lead_Ganho": {
+      "main": [
+        [
+          {
+            "node": "CLINT",
             "type": "main",
             "index": 0
           }
@@ -1027,7 +1027,7 @@
             },
             {
               "name": "value",
-              "value": "=🔔 *NOVA VENDA - Ganho na Clint* 🔔\n\nDados do Cliente\n\n*Nome do Cliente:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }}\n*Telefone:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Empresa:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*Endereço:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_endereco\"] }}\n*Situação:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_stage\"] }}\n*Plano:* Mentoria {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}.\n*Prazo:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_meses_de_contrato\"] }}\n*Valor do contrato:\" {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Quantidade de parcelas?:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Dia de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*SDR:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_sdr\"] }}"
+              "value": "=🎉 *NOVA VENDA - Ganho na Clint* 🎉\n\n*Data:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_won_at\"]).slice(0,10) }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*Qual mentoria?* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_produto\"] }}\n*Nome da empresa: (Jurídico/Fantasia):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }} / {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cnpj\"] }}\n*Segmento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_segment\"] }}\n*Plano:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_plano\"] }}\n*Entrada:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Faturamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_faturamento\"] }}\n*Quantidade de Parcelas (Entrada + Parcelas):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Valor das Parcelas:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_valor_das_parcelas_e\"] }}\n*Data de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Forma de pagamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_forma_de_pagamento_1\"] }}\n*Contatos (Nome e telefone):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }} - {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Cidade:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_city\"] }}\n*Estado:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_state\"] }}\n*CEP:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cep\"] }}\n*Briefing:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_briefing\"] }}"
             }
           ]
         },
@@ -1063,7 +1063,7 @@
             },
             {
               "name": "value",
-              "value": "=🔔 *NOVA VENDA - Ganho na Clint* 🔔\n\nDados do Cliente\n\n*Nome do Cliente:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }}\n*Telefone:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Empresa:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*Endereço:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_endereco\"] }}\n*Situação:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_stage\"] }}\n*Plano:* Mentoria {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}.\n*Prazo:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_meses_de_contrato\"] }}\n*Valor do contrato:\" {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Quantidade de parcelas?:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Dia de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*SDR:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_sdr\"] }}"
+              "value": "=🎉 *NOVA VENDA - Ganho na Clint* 🎉\n\n*Data:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_won_at\"]).slice(0,10) }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*Qual mentoria?* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_produto\"] }}\n*Nome da empresa: (Jurídico/Fantasia):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }} / {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cnpj\"] }}\n*Segmento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_segment\"] }}\n*Plano:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_plano\"] }}\n*Entrada:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Faturamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_faturamento\"] }}\n*Quantidade de Parcelas (Entrada + Parcelas):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Valor das Parcelas:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_valor_das_parcelas_e\"] }}\n*Data de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Forma de pagamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_forma_de_pagamento_1\"] }}\n*Contatos (Nome e telefone):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }} - {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Cidade:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_city\"] }}\n*Estado:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_state\"] }}\n*CEP:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cep\"] }}\n*Briefing:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_briefing\"] }}"
             }
           ]
         },
@@ -1099,7 +1099,7 @@
             },
             {
               "name": "value",
-              "value": "=🔔 *NOVA VENDA - Ganho na Clint* 🔔\n\nDados do Cliente\n\n*Nome do Cliente:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }}\n*Telefone:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Empresa:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*Endereço:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_endereco\"] }}\n*Situação:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_stage\"] }}\n*Plano:* Mentoria {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}.\n*Prazo:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_meses_de_contrato\"] }}\n*Valor do contrato:\" {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Quantidade de parcelas?:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Dia de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*SDR:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_sdr\"] }}"
+              "value": "=🎉 *NOVA VENDA - Ganho na Clint* 🎉\n\n*Data:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_won_at\"]).slice(0,10) }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*Qual mentoria?* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_produto\"] }}\n*Nome da empresa: (Jurídico/Fantasia):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }} / {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cnpj\"] }}\n*Segmento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_segment\"] }}\n*Plano:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_plano\"] }}\n*Entrada:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Faturamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_faturamento\"] }}\n*Quantidade de Parcelas (Entrada + Parcelas):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Valor das Parcelas:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_valor_das_parcelas_e\"] }}\n*Data de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Forma de pagamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_forma_de_pagamento_1\"] }}\n*Contatos (Nome e telefone):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }} - {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Cidade:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_city\"] }}\n*Estado:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_state\"] }}\n*CEP:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cep\"] }}\n*Briefing:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_briefing\"] }}"
             }
           ]
         },
@@ -1124,22 +1124,6 @@
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "ganho-planilha-hetzner",
-        "options": {}
-      },
-      "id": "964519b9-bd7e-4e47-b456-6c1110a1ba35",
-      "name": "Lead_Ganho",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1.1,
-      "position": [
-        720,
-        300
-      ],
-      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
-    },
-    {
-      "parameters": {
         "method": "POST",
         "url": "={{ $node[\"infos_bc\"].json[\"url_base_evolution\"] }}message/sendText/{{ $node[\"infos_bc\"].json[\"instancia_nome\"] }}",
         "sendHeaders": true,
@@ -1160,7 +1144,7 @@
             },
             {
               "name": "text",
-              "value": "=🔔 *NOVA VENDA - Ganho na Clint* 🔔\n\nDados do Cliente\n\n*Nome do Cliente:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }}\n*Telefone:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Empresa:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }}\n*Endereço:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_endereco\"] }}\n*Situação:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_stage\"] }}\n*Plano:* Mentoria {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}.\n*Prazo:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_meses_de_contrato\"] }}\n*Valor do contrato:\" {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Quantidade de parcelas?:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Dia de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*SDR:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_sdr\"] }}\n*Data da Venda:* {{ $node[\"CLINT\"].json[\"Data da venda\"] }}"
+              "value": "=🎉 *NOVA VENDA - Ganho na Clint* 🎉\n\n*Data:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_won_at\"]).slice(0,10) }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*Qual mentoria?* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_produto\"] }}\n*Nome da empresa: (Jurídico/Fantasia):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }} / {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cnpj\"] }}\n*Segmento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_segment\"] }}\n*Plano:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_plano\"] }}\n*Entrada:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Faturamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_faturamento\"] }}\n*Quantidade de Parcelas (Entrada + Parcelas):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Valor das Parcelas:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_valor_das_parcelas_e\"] }}\n*Data de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Forma de pagamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_forma_de_pagamento_1\"] }}\n*Contatos (Nome e telefone):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }} - {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Cidade:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_city\"] }}\n*Estado:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_state\"] }}\n*CEP:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cep\"] }}\n*Briefing:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_briefing\"] }}"
             },
             {
               "name": "options.delay",
@@ -1262,6 +1246,22 @@
         1660,
         780
       ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ganho-planilha-hetzner",
+        "options": {}
+      },
+      "id": "964519b9-bd7e-4e47-b456-6c1110a1ba35",
+      "name": "Lead_Ganho",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        300
+      ],
+      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
     }
   ],
   "pinData": {
@@ -1379,7 +1379,7 @@
           "headers": {
             "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "user-agent": "axios/1.7.7",
-            "content-length": "860",
+            "content-length": "1426",
             "accept": "application/json, text/plain, */*",
             "accept-encoding": "gzip, compress, deflate, br",
             "content-type": "application/json",
@@ -1393,40 +1393,50 @@
           "params": {},
           "query": {},
           "body": {
-            "contact_name": "Maria",
-            "contact_email": "bethjoias@yahoo.com.br",
-            "contact_phone": "+5561996312351",
+            "contact_name": "Saskia",
+            "contact_email": "sk.sales@hotmail.com",
+            "contact_phone": "+5565981308787",
             "deal_stage": "Fechado",
-            "deal_user": "ana.carvalho@universidadevendas.com.br",
+            "deal_user": "leonardo.barroso@universidadevendas.com.br",
             "deal_status": "WON",
             "contact_tag": [
               "Qualificado",
-              "Laiane",
-              "boutique feminina",
-              "14/10"
+              "Clinica dermatologica",
+              "Popup",
+              "Laiane"
             ],
             "contact_vendedores": "",
-            "deal_won_at": "17/10/2024 16:47:25",
+            "deal_won_at": "05/11/2024 17:24:37",
             "contact_numero_de_parcelas": "",
-            "deal_quantidade_de_parcel": "",
+            "deal_quantidade_de_parcel": "12",
             "contact_cpfcnpj": "",
-            "organization_name": "",
-            "contact_forma_de_pagamento": "",
+            "organization_name": "teste",
             "contact_status_de_pagamento": "",
             "contact_produto": "",
-            "deal_value": 10000,
-            "deal_faturamento": 10000,
-            "deal_user_phone": "(11) 96870-5210",
-            "deal_endereco": "",
+            "deal_value": 3200,
+            "deal_faturamento": 38400,
+            "deal_user_phone": "(71) 98237-7015",
+            "deal_endereco": "testando automação",
             "organization_city": "",
             "organization_state": "",
             "organization_estado_sigla": "",
             "organization_documentos_important": "",
             "deal_origin": "Funil SE",
             "deal_meses_de_contrato": "",
-            "deal_dia_do_vencimento": "",
-            "deal_closer": "Ana Carvalho",
-            "deal_sdr": "Laiane"
+            "deal_dia_do_vencimento": "15",
+            "deal_closer": "Leonardo Barroso",
+            "deal_sdr": "Laiane",
+            "deal_valor_da_entrada": "2000",
+            "contact_valor_das_parcelas_e": "",
+            "deal_forma_de_pagamento": "",
+            "deal_cep": "",
+            "deal_nome_fantasia_da_emp": "Teste de automação",
+            "deal_plano": "Trimestral",
+            "deal_forma_de_pagamento_1": "Pix",
+            "organization_segment": "teste",
+            "deal_briefing": "<p>Clinica dermatologica FEB<br>Precisa de treinamento para os vendedores e recepcionistas , teve uma queda de faturamento nos ultimos meses<br>Tem 3 vendedores e 2 recepcionista&nbsp;<br>Faturamento medio: 300 mil<br>Não tem socio</p>",
+            "deal_produto": "Platinum",
+            "organization_cnpj": "teste"
           },
           "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/ganho-planilha-hetzner",
           "executionMode": "production"
@@ -1446,6 +1456,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2024-11-01T23:49:08.661Z",
-  "versionId": "989eab7a-c28d-4964-ba29-7f51579a1115"
+  "updatedAt": "2024-11-05T20:55:33.374Z",
+  "versionId": "aa4ebebb-87cd-4257-b67d-ba6c81160b62"
 }
