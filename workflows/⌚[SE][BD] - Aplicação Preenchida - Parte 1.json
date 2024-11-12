@@ -111,7 +111,7 @@
       "main": [
         [
           {
-            "node": "Retorna Output Aleatorio",
+            "node": "dados_validados_correto",
             "type": "main",
             "index": 0
           }
@@ -119,46 +119,6 @@
       ]
     },
     "dados_validados_correto": {
-      "main": [
-        [
-          {
-            "node": "entra_na_fila2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Retorna Output Aleatorio": {
-      "main": [
-        [
-          {
-            "node": "divide_sdr",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "divide_sdr": {
-      "main": [
-        [
-          {
-            "node": "dados_validados_correto",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "dados_validados_correto1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "dados_validados_correto1": {
       "main": [
         [
           {
@@ -1008,7 +968,7 @@
       "type": "n8n-nodes-base.rabbitmq",
       "typeVersion": 1,
       "position": [
-        1660,
+        1420,
         1660
       ],
       "credentials": {
@@ -1465,8 +1425,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        1400,
-        1560
+        1180,
+        1660
       ]
     },
     {
@@ -1486,7 +1446,7 @@
       "parameters": {
         "content": "## Funil Head Comercial",
         "height": 391.3055055479673,
-        "width": 1234.2110474785004
+        "width": 1051.8590276296802
       },
       "id": "616f40be-b4ca-43a7-addf-b4cff17c0dd2",
       "name": "Sticky Note2",
@@ -1495,341 +1455,6 @@
       "position": [
         580,
         1520
-      ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ String($node[\"Retorna Output Aleatorio\"].json[\"result\"]) }}",
-              "value2": "1"
-            }
-          ]
-        }
-      },
-      "id": "6b4dbe31-f38f-4ad0-9f91-1827f1f78e7e",
-      "name": "divide_sdr",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        1180,
-        1660
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Gere um número aleatório entre 0 e 1, usando a data atual para aumentar a variabilidade\nconst randomValue = Math.random() + new Date().getMilliseconds() / 1000;\n\n// Arredonde o número para 1 ou 2\nconst result = (Math.round(randomValue) % 2) + 1;\n\nreturn [{ result }];\n"
-      },
-      "id": "071bf163-5fb9-4feb-b01b-f63f6a9a4208",
-      "name": "Retorna Output Aleatorio",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        1000,
-        1660
-      ]
-    },
-    {
-      "parameters": {
-        "keepOnlySet": true,
-        "values": {
-          "string": [
-            {
-              "name": "Nome do Cliente",
-              "value": "={{ $node[\"formata_dados1\"].json[\"nome\"] }}"
-            },
-            {
-              "name": "E-mail do Cliente",
-              "value": "={{ $node[\"formata_dados1\"].json[\"email\"] }}"
-            },
-            {
-              "name": "Telefone do Cliente - Formato BC",
-              "value": "=+{{ $node[\"formata_dados1\"].json[\"telefone\"] }}"
-            },
-            {
-              "name": "Telefone do Cliente - Formato Z-API",
-              "value": "={{ $node[\"formata_dados1\"].json[\"telefone\"] }}"
-            },
-            {
-              "name": "Instagram",
-              "value": "={{ $node[\"formata_dados1\"].json[\"instagram\"] }}"
-            },
-            {
-              "name": "pergunta0",
-              "value": "={{ $node[\"formata_dados1\"].json[\"quantos_closers_possui\"] }}"
-            },
-            {
-              "name": "pergunta1",
-              "value": "={{ $node[\"formata_dados1\"].json[\"tem_head_comercial\"] }}"
-            },
-            {
-              "name": "pergunta2",
-              "value": "={{ $node[\"formata_dados1\"].json[\"possui_sdr\"] }}"
-            },
-            {
-              "name": "pergunta3",
-              "value": "={{ $node[\"formata_dados1\"].json[\"faturamento\"] }}"
-            },
-            {
-              "name": "pergunta4",
-              "value": "={{ $node[\"formata_dados1\"].json[\"conhece_mentoria?\"] }}"
-            },
-            {
-              "name": "pergunta5",
-              "value": "={{ $node[\"formata_dados1\"].json[\"tem_socio?\"] }}"
-            },
-            {
-              "name": "pergunta6",
-              "value": "={{ $node[\"formata_dados1\"].json[\"objetivo_este_ano\"] }}"
-            },
-            {
-              "name": "pergunta7",
-              "value": "={{ $node[\"formata_dados1\"].json[\"diferentes_formas\"] }}"
-            },
-            {
-              "name": "pergunta8",
-              "value": "={{ $node[\"formata_dados1\"].json[\"porque_voce\"] }}"
-            },
-            {
-              "name": "pergunta9",
-              "value": "={{ $node[\"formata_dados1\"].json[\"quando_comecar\"] }}"
-            },
-            {
-              "name": "pergunta10",
-              "value": "={{ $node[\"formata_dados1\"].json[\"investiu_carreira\"] }}"
-            },
-            {
-              "name": "pergunta11",
-              "value": "={{ $node[\"formata_dados1\"].json[\"pergunta11\"] }}"
-            },
-            {
-              "name": "pergunta12",
-              "value": "={{ $node[\"formata_dados1\"].json[\"pergunta12\"] }}"
-            },
-            {
-              "name": "pergunta13",
-              "value": "={{ $node[\"formata_dados1\"].json[\"pergunta13\"] }}"
-            },
-            {
-              "name": "pergunta14",
-              "value": "={{ $node[\"formata_dados1\"].json[\"pergunta14\"] }}"
-            },
-            {
-              "name": "pergunta15",
-              "value": "={{ $node[\"formata_dados1\"].json[\"pergunta15\"] }}"
-            },
-            {
-              "name": "pergunta16",
-              "value": "={{ $node[\"formata_dados1\"].json[\"pergunta16\"] }}"
-            },
-            {
-              "name": "pergunta17",
-              "value": "={{ $node[\"formata_dados1\"].json[\"pergunta17\"] }}"
-            },
-            {
-              "name": "pergunta18",
-              "value": "={{ $node[\"formata_dados1\"].json[\"pergunta18\"] }}"
-            },
-            {
-              "name": "pergunta19",
-              "value": "={{ $node[\"formata_dados1\"].json[\"pergunta19\"] }}"
-            },
-            {
-              "name": "pergunta20",
-              "value": "={{ $node[\"formata_dados1\"].json[\"pergunta20\"] }}"
-            },
-            {
-              "name": "utm_content",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_content\"] }}"
-            },
-            {
-              "name": "utm_source",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_source\"] }}"
-            },
-            {
-              "name": "utm_campaign",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_campaign\"] }}"
-            },
-            {
-              "name": "utm_medium",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_medium\"] }}"
-            },
-            {
-              "name": "utm_term",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_term\"] }}"
-            },
-            {
-              "name": "data_resposta_type",
-              "value": "={{$now.toFormat('dd/MM/yyyy HH:mm')}}"
-            },
-            {
-              "name": "data_ultima_quinzena",
-              "value": "={{ $node[\"formata_dados1\"].json[\"data_ultima_quinzena\"] }}"
-            },
-            {
-              "name": "id_fluxo_nao_agendou_10_min"
-            },
-            {
-              "name": "id_fluxo_nao_agendou_10_min_desqualificados"
-            },
-            {
-              "name": "API-KEY",
-              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
-            },
-            {
-              "name": "id_campo_id_banco_de_dados_bot_conversa",
-              "value": "1408048"
-            },
-            {
-              "name": "id_campo_utm_source_bot_conversa",
-              "value": "1408038"
-            },
-            {
-              "name": "id_campo_utm_campaign_bot_conversa",
-              "value": "1408041"
-            },
-            {
-              "name": "id_campo_utm_term_bot_conversa",
-              "value": "1408042"
-            },
-            {
-              "name": "id_campo_utm_medium_bot_conversa",
-              "value": "1408043"
-            },
-            {
-              "name": "id_campo_utm_content_bot_conversa",
-              "value": "1408040"
-            },
-            {
-              "name": "id_campo_utm_fun_bot_conversa",
-              "value": "1408044"
-            },
-            {
-              "name": "id_campo_utm_var_bot_conversa",
-              "value": "1408045"
-            },
-            {
-              "name": "id_campo_instagram_bot_conversa"
-            },
-            {
-              "name": "id_campo_emailse_bot_conversa",
-              "value": "1045671"
-            },
-            {
-              "name": "id_campo_data_resposta_type_bot_conversa"
-            },
-            {
-              "name": "id_tag_desqualificado_bot_conversa",
-              "value": "5073673"
-            },
-            {
-              "name": "id_tag_qualificado_bot_conversa",
-              "value": "4891806"
-            },
-            {
-              "name": "id_campo_pergunta0_bot_conversa",
-              "value": "1408034"
-            },
-            {
-              "name": "id_campo_pergunta1_bot_conversa",
-              "value": "2451387"
-            },
-            {
-              "name": "id_campo_pergunta2_bot_conversa",
-              "value": "2451391"
-            },
-            {
-              "name": "id_campo_pergunta3_bot_conversa",
-              "value": "2451408"
-            },
-            {
-              "name": "id_campo_pergunta4_bot_conversa",
-              "value": "1408035"
-            },
-            {
-              "name": "id_campo_pergunta5_bot_conversa",
-              "value": "1408036"
-            },
-            {
-              "name": "id_campo_pergunta6_bot_conversa"
-            },
-            {
-              "name": "id_campo_pergunta7_bot_conversa"
-            },
-            {
-              "name": "id_campo_pergunta8_bot_conversa"
-            },
-            {
-              "name": "id_campo_pergunta9_bot_conversa"
-            },
-            {
-              "name": "id_campo_pergunta10_bot_conversa"
-            },
-            {
-              "name": "id_campo_pergunta11_bot_conversa"
-            },
-            {
-              "name": "id_campo_pergunta12_bot_conversa"
-            },
-            {
-              "name": "id_campo_pergunta13_bot_conversa"
-            },
-            {
-              "name": "id_campo_pergunta14_bot_conversa"
-            },
-            {
-              "name": "id_campo_pergunta15_bot_conversa"
-            },
-            {
-              "name": "id_campo_pergunta16_bot_conversa"
-            },
-            {
-              "name": "id_campo_pergunta17_bot_conversa"
-            },
-            {
-              "name": "id_campo_pergunta18_bot_conversa"
-            },
-            {
-              "name": "id_campo_pergunta19_bot_conversa"
-            },
-            {
-              "name": "id_campo_pergunta20_bot_conversa"
-            },
-            {
-              "name": "id_ending_typeform",
-              "value": "={{ $node[\"formata_dados1\"].json[\"Ending\"] }}"
-            },
-            {
-              "name": "id_campo_data_da_aplicacao_bot_conversa"
-            },
-            {
-              "name": "data_resposta_type_milesegundos",
-              "value": "={{$json[\"timestamp\"] = Math.floor(new Date().getTime() - new Date().getTimezoneOffset() * 60000); $json[\"timestamp\"]}}"
-            },
-            {
-              "name": "dono_negocio",
-              "value": "laiane@universidadevendas.com.br"
-            },
-            {
-              "name": "funil",
-              "value": "head_comercial"
-            },
-            {
-              "name": "variacao_do_funil",
-              "value": "SE-V3"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "2785f676-dc8a-4d2b-bafa-4bf90137794b",
-      "name": "dados_validados_correto1",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 1,
-      "position": [
-        1400,
-        1740
       ]
     },
     {
@@ -4401,6 +4026,6 @@
     }
   ],
   "triggerCount": 5,
-  "updatedAt": "2024-11-11T18:06:12.937Z",
-  "versionId": "f2d91869-9d4a-47da-ac24-57a41df9089d"
+  "updatedAt": "2024-11-12T14:24:50.413Z",
+  "versionId": "33f8edde-86c4-4d3c-b55d-bc2c1987f7a1"
 }
