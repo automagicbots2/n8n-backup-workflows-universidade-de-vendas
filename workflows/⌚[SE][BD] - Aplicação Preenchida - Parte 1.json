@@ -1519,7 +1519,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Gere um número aleatório entre 0 e 1\nconst randomValue = Math.random();\n\n// Arredonde o número para 1 ou 2\nconst result = Math.round(randomValue) + 1;\n\nreturn [{ result }];\n"
+        "jsCode": "// Gere um número aleatório entre 0 e 1, usando a data atual para aumentar a variabilidade\nconst randomValue = Math.random() + new Date().getMilliseconds() / 1000;\n\n// Arredonde o número para 1 ou 2\nconst result = (Math.round(randomValue) % 2) + 1;\n\nreturn [{ result }];\n"
       },
       "id": "071bf163-5fb9-4feb-b01b-f63f6a9a4208",
       "name": "Retorna Output Aleatorio",
@@ -4401,6 +4401,6 @@
     }
   ],
   "triggerCount": 5,
-  "updatedAt": "2024-11-06T19:11:36.729Z",
-  "versionId": "3aa9d49a-f002-48ee-a051-aa704d43cabd"
+  "updatedAt": "2024-11-11T18:06:12.937Z",
+  "versionId": "f2d91869-9d4a-47da-ac24-57a41df9089d"
 }
