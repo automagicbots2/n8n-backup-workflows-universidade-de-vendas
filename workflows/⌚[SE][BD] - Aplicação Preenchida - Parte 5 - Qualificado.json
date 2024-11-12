@@ -377,14 +377,14 @@
       "main": [
         [
           {
-            "node": "create/update clint2",
+            "node": "create/update clint1",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "create/update clint1",
+            "node": "create/update clint2",
             "type": "main",
             "index": 0
           }
@@ -435,14 +435,14 @@
       "main": [
         [
           {
-            "node": "create/update clint4",
+            "node": "create/update clint3",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "create/update clint3",
+            "node": "create/update clint4",
             "type": "main",
             "index": 0
           }
@@ -1811,7 +1811,7 @@
       "typeVersion": 4.1,
       "position": [
         1100,
-        960
+        820
       ]
     },
     {
@@ -1944,7 +1944,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Gere um número aleatório entre 0 e 1\nconst randomValue = Math.random();\n\n// Arredonde o número para 1 ou 2\nconst result = Math.round(randomValue) + 1;\n\nreturn [{ result }];\n"
+        "jsCode": "// Gere um número aleatório entre 0 e 1, usando a data atual para aumentar a variabilidade\nconst randomValue = Math.random() + new Date().getMilliseconds() / 1000;\n\n// Arredonde o número para 1 ou 2\nconst result = (Math.round(randomValue) % 2) + 1;\n\nreturn [{ result }];\n"
       },
       "id": "afb12e71-a76f-4bf9-8c8d-a2db86172988",
       "name": "Retorna Output Aleatorio",
@@ -2040,7 +2040,7 @@
       "typeVersion": 4.1,
       "position": [
         1100,
-        800
+        980
       ]
     },
     {
@@ -2163,7 +2163,7 @@
       "typeVersion": 4.1,
       "position": [
         1100,
-        640
+        480
       ]
     },
     {
@@ -2188,7 +2188,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Gere um número aleatório entre 0 e 1\nconst randomValue = Math.random();\n\n// Arredonde o número para 1 ou 2\nconst result = Math.round(randomValue) + 1;\n\nreturn [{ result }];\n"
+        "jsCode": "// Gere um número aleatório entre 0 e 1, usando a data atual para aumentar a variabilidade\nconst randomValue = Math.random() + new Date().getMilliseconds() / 1000;\n\n// Arredonde o número para 1 ou 2\nconst result = (Math.round(randomValue) % 2) + 1;\n\nreturn [{ result }];\n"
       },
       "id": "b559e85f-e262-4fde-b9f0-b099b621659e",
       "name": "Retorna Output Aleatorio1",
@@ -2284,7 +2284,7 @@
       "typeVersion": 4.1,
       "position": [
         1100,
-        480
+        640
       ]
     }
   ],
@@ -2358,6 +2358,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-06T19:03:29.251Z",
-  "versionId": "80dff457-fcb9-4a6c-8f16-491d22cd5ace"
+  "updatedAt": "2024-11-11T18:06:00.286Z",
+  "versionId": "9a852a31-c8c9-4961-8777-5fe736b8dad9"
 }
