@@ -1,0 +1,1556 @@
+{
+  "active": true,
+  "connections": {
+    "email_colaborador_existe": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_colaborador3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pesquisa_colaborador_da_vez",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_colaborador_da_vez": {
+      "main": [
+        [
+          {
+            "node": "vez_null1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_colaborador4": {
+      "main": [
+        [
+          {
+            "node": "colaborador_existe1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_relacionamento": {
+      "main": [
+        [
+          {
+            "node": "relacionamento_existe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "relacionamento_existe": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_colaborador5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "email_colaborador_existe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_colaborador3": {
+      "main": [
+        [
+          {
+            "node": "insere_relacionamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "vez_null1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_colaborador6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pesquisa_colaborador4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_colaborador6": {
+      "main": [
+        [
+          {
+            "node": "atualiza_vez3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "colaborador_existe1": {
+      "main": [
+        [
+          {
+            "node": "atualiza_vez4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pesquisa_colaborador7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_vez5": {
+      "main": [
+        [
+          {
+            "node": "insere_relacionamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_vez3": {
+      "main": [
+        [
+          {
+            "node": "insere_relacionamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_vez4": {
+      "main": [
+        [
+          {
+            "node": "insere_relacionamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_colaborador7": {
+      "main": [
+        [
+          {
+            "node": "atualiza_vez5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_relacionamento": {
+      "main": [
+        [
+          {
+            "node": "dados_colaborador",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_colaborador5": {
+      "main": [
+        [
+          {
+            "node": "colaborador_existe3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_colaborador_da_vez1": {
+      "main": [
+        [
+          {
+            "node": "vez_null2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_colaborador8": {
+      "main": [
+        [
+          {
+            "node": "colaborador_existe2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "vez_null2": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_colaborador9",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pesquisa_colaborador8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_colaborador9": {
+      "main": [
+        [
+          {
+            "node": "atualiza_vez6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "colaborador_existe2": {
+      "main": [
+        [
+          {
+            "node": "atualiza_vez7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pesquisa_colaborador10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "colaborador_existe3": {
+      "main": [
+        [
+          {
+            "node": "dados_colaborador",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pesquisa_colaborador_da_vez1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_colaborador10": {
+      "main": [
+        [
+          {
+            "node": "atualiza_vez8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_vez6": {
+      "main": [
+        [
+          {
+            "node": "atualiza_relacionamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_vez7": {
+      "main": [
+        [
+          {
+            "node": "atualiza_relacionamento1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_vez8": {
+      "main": [
+        [
+          {
+            "node": "atualiza_relacionamento2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_relacionamento": {
+      "main": [
+        [
+          {
+            "node": "dados_colaborador",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_relacionamento1": {
+      "main": [
+        [
+          {
+            "node": "dados_colaborador",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_relacionamento2": {
+      "main": [
+        [
+          {
+            "node": "dados_colaborador",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_time": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_relacionamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-12T13:19:41.935Z",
+  "id": "kTw2SBb3EUHfvfR1",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "🔔⌚[FABRICIO NUNNES] - Rotacionamento de EQUIPE",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores2",
+          "mode": "list",
+          "cachedResultName": "colaboradores2"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "email",
+              "value": "={{ $node[\"consulta_time\"].json[\"body\"][\"email_colaborador\"] }}"
+            },
+            {
+              "column": "status_atividade",
+              "value": "Y"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c2cb5e9d-1d0e-403b-be5f-5b43960c8eb8",
+      "name": "pesquisa_colaborador3",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        880,
+        980
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "6b7e2434-ab0e-4e63-b61d-527079c2f64a",
+              "leftValue": "={{ $node[\"consulta_time\"].json[\"body\"][\"email_colaborador\"] }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "7b4fffbe-b5ba-4a7f-b99d-0ff22077cb61",
+      "name": "email_colaborador_existe",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        660,
+        1060
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "fila_atendimento",
+          "mode": "list",
+          "cachedResultName": "fila_atendimento"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "time",
+              "value": "={{ $node[\"consulta_time\"].json[\"body\"][\"time\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "91d8d4bc-2668-403b-89d6-9282a256fe8c",
+      "name": "pesquisa_colaborador_da_vez",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        880,
+        1140
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores2",
+          "mode": "list",
+          "cachedResultName": "colaboradores2"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "ordem_fila",
+              "value": "={{ $node[\"pesquisa_colaborador_da_vez\"].json[\"vez\"] }}"
+            },
+            {
+              "column": "status_atividade",
+              "value": "Y"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "33145352-b241-4e5d-a69d-9388c353eda0",
+      "name": "pesquisa_colaborador4",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1280,
+        1260
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "contato_responsavel",
+          "mode": "list",
+          "cachedResultName": "contato_responsavel"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_user",
+              "value": "={{ $node[\"consulta_time\"].json[\"body\"][\"user\"] }}"
+            },
+            {
+              "column": "id_responsavel",
+              "value": "={{\n  $node[\"pesquisa_colaborador7\"].runIndex >= 0 \n      ? $node[\"pesquisa_colaborador7\"].json[\"id\"] : $node[\"pesquisa_colaborador4\"].runIndex >= 0 \n    ? $node[\"pesquisa_colaborador4\"].json[\"id\"]\n    : $node[\"pesquisa_colaborador6\"].runIndex >= 0 \n      ? $node[\"pesquisa_colaborador6\"].json[\"id\"] : $node[\"pesquisa_colaborador3\"].runIndex >= 0 \n      ? $node[\"pesquisa_colaborador3\"].json[\"id\"] : null\n}}"
+            },
+            {
+              "column": "funcao",
+              "value": "={{ $node[\"consulta_time\"].json[\"body\"][\"time\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5df6ef03-a371-4547-90d3-97a81f78cd59",
+      "name": "insere_relacionamento",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        2120,
+        980
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "contato_responsavel",
+          "mode": "list",
+          "cachedResultName": "contato_responsavel"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id_user",
+              "value": "={{ $node[\"consulta_time\"].json[\"body\"][\"user\"] }}"
+            },
+            {
+              "column": "funcao",
+              "value": "={{ $node[\"consulta_time\"].json[\"body\"][\"time\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "577fcbb5-2264-4e51-98b3-2130a254be9f",
+      "name": "pesquisa_relacionamento",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        -40,
+        960
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "6b7e2434-ab0e-4e63-b61d-527079c2f64a",
+              "leftValue": "={{ $node[\"pesquisa_relacionamento\"].json[\"id\"] }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "f9a33fc1-8943-4b60-839e-35a4ab5a2f84",
+      "name": "relacionamento_existe",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        160,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores2",
+          "mode": "list",
+          "cachedResultName": "colaboradores2"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $node[\"pesquisa_relacionamento\"].json[\"id_responsavel\"] }}"
+            },
+            {
+              "column": "status_atividade",
+              "value": "Y"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8fe498d5-fc3f-4070-9c16-136b73b76e53",
+      "name": "pesquisa_colaborador5",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        460,
+        460
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "f3f4f554-1c72-4dd9-87a5-74b0d01653f2",
+              "leftValue": "={{ $node[\"pesquisa_colaborador_da_vez\"].json[\"vez\"] }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "number",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a8952517-98b9-4d2a-b607-512a6cc4d75f",
+      "name": "vez_null1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores2",
+          "mode": "list",
+          "cachedResultName": "colaboradores2"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "funcao",
+              "value": "={{ $node[\"consulta_time\"].json[\"body\"][\"time\"] }}"
+            },
+            {
+              "column": "status_atividade",
+              "value": "Y"
+            }
+          ]
+        },
+        "sort": {
+          "values": [
+            {
+              "column": "id"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4d5c3d69-2d32-4e53-bb8e-8a12e2bf3ae7",
+      "name": "pesquisa_colaborador6",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1280,
+        1080
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "fila_atendimento",
+          "mode": "list",
+          "cachedResultName": "fila_atendimento"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $node[\"pesquisa_colaborador_da_vez\"].json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "vez",
+              "value": "={{ $node[\"pesquisa_colaborador6\"].json[\"ordem_fila\"] + 1 }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fe63f880-c4af-4e86-87fc-1cdc9bc86411",
+      "name": "atualiza_vez3",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1440,
+        1080
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "fila_atendimento",
+          "mode": "list",
+          "cachedResultName": "fila_atendimento"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $node[\"pesquisa_colaborador_da_vez\"].json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "vez",
+              "value": "={{ $node[\"pesquisa_colaborador4\"].json[\"ordem_fila\"] + 1 }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "865c0cba-41b8-4514-8178-af33d3b0524e",
+      "name": "atualiza_vez4",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1680,
+        1240
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "1de9a6bc-5395-4840-b6ff-0ac3f9779921",
+              "leftValue": "={{ $node[\"pesquisa_colaborador4\"].json[\"id\"] }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c8fde9c6-f863-46de-b131-87a7d21d4286",
+      "name": "colaborador_existe1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1480,
+        1260
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "fila_atendimento",
+          "mode": "list",
+          "cachedResultName": "fila_atendimento"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $node[\"pesquisa_colaborador_da_vez\"].json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "vez",
+              "value": "={{ $node[\"pesquisa_colaborador7\"].json[\"ordem_fila\"] + 1 }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c4a7e8d8-3939-4cb6-9f3f-af45bc929ccb",
+      "name": "atualiza_vez5",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1860,
+        1420
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores2",
+          "mode": "list",
+          "cachedResultName": "colaboradores2"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "funcao",
+              "value": "={{ $node[\"consulta_time\"].json[\"body\"][\"time\"] }}"
+            },
+            {
+              "column": "status_atividade",
+              "value": "Y"
+            }
+          ]
+        },
+        "sort": {
+          "values": [
+            {
+              "column": "id"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d10f982f-eb40-4c08-b547-8ef637dc4d10",
+      "name": "pesquisa_colaborador7",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1680,
+        1420
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "49bc1770-8197-483a-b0c5-501e42017fa6",
+              "name": "id_chatwoot",
+              "value": "={{   $node[\"pesquisa_colaborador7\"].runIndex >= 0        ? $node[\"pesquisa_colaborador7\"].json[\"id_chatwoot\"] : $node[\"pesquisa_colaborador10\"].runIndex >= 0      ? $node[\"pesquisa_colaborador10\"].json[\"id_chatwoot\"]     : $node[\"pesquisa_colaborador4\"].runIndex >= 0        ? $node[\"pesquisa_colaborador4\"].json[\"id_chatwoot\"] : $node[\"pesquisa_colaborador6\"].runIndex >= 0        ? $node[\"pesquisa_colaborador6\"].json[\"id_chatwoot\"] : $node[\"pesquisa_colaborador8\"].runIndex >= 0        ? $node[\"pesquisa_colaborador8\"].json[\"id_chatwoot\"] : $node[\"pesquisa_colaborador9\"].runIndex >= 0        ? $node[\"pesquisa_colaborador9\"].json[\"id_chatwoot\"] : $node[\"pesquisa_colaborador3\"].runIndex >= 0        ? $node[\"pesquisa_colaborador3\"].json[\"id_chatwoot\"] : $node[\"pesquisa_colaborador5\"].runIndex >= 0        ? $node[\"pesquisa_colaborador5\"].json[\"id_chatwoot\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "46ec6590-4b1e-4db3-869e-39878e2e5ec1",
+              "name": "id_crm",
+              "value": "={{   $node[\"pesquisa_colaborador7\"].runIndex >= 0        ? $node[\"pesquisa_colaborador7\"].json[\"id_crm\"] : $node[\"pesquisa_colaborador10\"].runIndex >= 0      ? $node[\"pesquisa_colaborador10\"].json[\"id_crm\"]     : $node[\"pesquisa_colaborador4\"].runIndex >= 0        ? $node[\"pesquisa_colaborador4\"].json[\"id_crm\"] : $node[\"pesquisa_colaborador6\"].runIndex >= 0        ? $node[\"pesquisa_colaborador6\"].json[\"id_crm\"] : $node[\"pesquisa_colaborador8\"].runIndex >= 0        ? $node[\"pesquisa_colaborador8\"].json[\"id_crm\"] : $node[\"pesquisa_colaborador9\"].runIndex >= 0        ? $node[\"pesquisa_colaborador9\"].json[\"id_crm\"] : $node[\"pesquisa_colaborador3\"].runIndex >= 0        ? $node[\"pesquisa_colaborador3\"].json[\"id_crm\"] : $node[\"pesquisa_colaborador5\"].runIndex >= 0        ? $node[\"pesquisa_colaborador5\"].json[\"id_crm\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "9233bde6-29d1-490f-b2b2-a87d883fdaca",
+              "name": "apikey_evolution",
+              "value": "={{   $node[\"pesquisa_colaborador7\"].runIndex >= 0        ? $node[\"pesquisa_colaborador7\"].json[\"apikey_evolution\"] : $node[\"pesquisa_colaborador10\"].runIndex >= 0      ? $node[\"pesquisa_colaborador10\"].json[\"apikey_evolution\"]     : $node[\"pesquisa_colaborador4\"].runIndex >= 0        ? $node[\"pesquisa_colaborador4\"].json[\"apikey_evolution\"] : $node[\"pesquisa_colaborador6\"].runIndex >= 0        ? $node[\"pesquisa_colaborador6\"].json[\"apikey_evolution\"] : $node[\"pesquisa_colaborador8\"].runIndex >= 0        ? $node[\"pesquisa_colaborador8\"].json[\"apikey_evolution\"] : $node[\"pesquisa_colaborador9\"].runIndex >= 0        ? $node[\"pesquisa_colaborador9\"].json[\"apikey_evolution\"] : $node[\"pesquisa_colaborador3\"].runIndex >= 0        ? $node[\"pesquisa_colaborador3\"].json[\"apikey_evolution\"] : $node[\"pesquisa_colaborador5\"].runIndex >= 0        ? $node[\"pesquisa_colaborador5\"].json[\"apikey_evolution\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "7af48129-02cd-403f-a276-bdfe0493bb3d",
+              "name": "instancia_evolution",
+              "value": "={{   $node[\"pesquisa_colaborador7\"].runIndex >= 0        ? $node[\"pesquisa_colaborador7\"].json[\"instancia_evolution\"] : $node[\"pesquisa_colaborador10\"].runIndex >= 0      ? $node[\"pesquisa_colaborador10\"].json[\"instancia_evolution\"]     : $node[\"pesquisa_colaborador4\"].runIndex >= 0        ? $node[\"pesquisa_colaborador4\"].json[\"instancia_evolution\"] : $node[\"pesquisa_colaborador6\"].runIndex >= 0        ? $node[\"pesquisa_colaborador6\"].json[\"instancia_evolution\"] : $node[\"pesquisa_colaborador8\"].runIndex >= 0        ? $node[\"pesquisa_colaborador8\"].json[\"instancia_evolution\"] : $node[\"pesquisa_colaborador9\"].runIndex >= 0        ? $node[\"pesquisa_colaborador9\"].json[\"instancia_evolution\"] : $node[\"pesquisa_colaborador3\"].runIndex >= 0        ? $node[\"pesquisa_colaborador3\"].json[\"instancia_evolution\"] : $node[\"pesquisa_colaborador5\"].runIndex >= 0        ? $node[\"pesquisa_colaborador5\"].json[\"instancia_evolution\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "31f724da-4288-49d0-9cce-d9d284cd1a97",
+              "name": "nome",
+              "value": "={{   $node[\"pesquisa_colaborador7\"].runIndex >= 0        ? $node[\"pesquisa_colaborador7\"].json[\"nome\"] : $node[\"pesquisa_colaborador10\"].runIndex >= 0      ? $node[\"pesquisa_colaborador10\"].json[\"nome\"]     : $node[\"pesquisa_colaborador4\"].runIndex >= 0        ? $node[\"pesquisa_colaborador4\"].json[\"nome\"] : $node[\"pesquisa_colaborador6\"].runIndex >= 0        ? $node[\"pesquisa_colaborador6\"].json[\"nome\"] : $node[\"pesquisa_colaborador8\"].runIndex >= 0        ? $node[\"pesquisa_colaborador8\"].json[\"nome\"] : $node[\"pesquisa_colaborador9\"].runIndex >= 0        ? $node[\"pesquisa_colaborador9\"].json[\"nome\"] : $node[\"pesquisa_colaborador3\"].runIndex >= 0        ? $node[\"pesquisa_colaborador3\"].json[\"nome\"] : $node[\"pesquisa_colaborador5\"].runIndex >= 0        ? $node[\"pesquisa_colaborador5\"].json[\"nome\"] : null }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c924c007-1614-43ed-8930-293b6f32f4b0",
+      "name": "dados_colaborador",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2300,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "fila_atendimento",
+          "mode": "list",
+          "cachedResultName": "fila_atendimento"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "time",
+              "value": "={{ $node[\"consulta_time\"].json[\"body\"][\"time\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a9c72a4e-e061-4c96-8e63-e54de2344d54",
+      "name": "pesquisa_colaborador_da_vez1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        800,
+        540
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores2",
+          "mode": "list",
+          "cachedResultName": "colaboradores2"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "ordem_fila",
+              "value": "={{ $node[\"pesquisa_colaborador_da_vez1\"].json[\"vez\"] }}"
+            },
+            {
+              "column": "status_atividade",
+              "value": "Y"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0066bbe4-551f-4933-83b8-3e7827567c3b",
+      "name": "pesquisa_colaborador8",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1200,
+        660
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "f3f4f554-1c72-4dd9-87a5-74b0d01653f2",
+              "leftValue": "={{ $node[\"pesquisa_colaborador_da_vez1\"].json[\"vez\"] }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "number",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "93788e98-40ab-418b-a913-a89ddd2317f6",
+      "name": "vez_null2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores2",
+          "mode": "list",
+          "cachedResultName": "colaboradores2"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "funcao",
+              "value": "={{ $node[\"consulta_time\"].json[\"body\"][\"time\"] }}"
+            },
+            {
+              "column": "status_atividade",
+              "value": "Y"
+            }
+          ]
+        },
+        "sort": {
+          "values": [
+            {
+              "column": "id"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "85a9a42d-a518-4aef-83fe-a056384db002",
+      "name": "pesquisa_colaborador9",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1200,
+        480
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "fila_atendimento",
+          "mode": "list",
+          "cachedResultName": "fila_atendimento"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $node[\"pesquisa_colaborador_da_vez1\"].json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "vez",
+              "value": "={{ $node[\"pesquisa_colaborador9\"].json[\"ordem_fila\"] + 1 }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "444f243a-4455-4b50-a30b-810d739c1651",
+      "name": "atualiza_vez6",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1360,
+        480
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "fila_atendimento",
+          "mode": "list",
+          "cachedResultName": "fila_atendimento"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $node[\"pesquisa_colaborador_da_vez1\"].json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "vez",
+              "value": "={{ $node[\"pesquisa_colaborador8\"].json[\"ordem_fila\"] + 1 }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c761c36b-25bd-4162-a9d0-0173b7e5ce0f",
+      "name": "atualiza_vez7",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1600,
+        660
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "1de9a6bc-5395-4840-b6ff-0ac3f9779921",
+              "leftValue": "={{ $node[\"pesquisa_colaborador8\"].json[\"id\"] }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "d194f3fb-2993-4b58-87b9-fab82ef199a2",
+      "name": "colaborador_existe2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores2",
+          "mode": "list",
+          "cachedResultName": "colaboradores2"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "funcao",
+              "value": "={{ $node[\"consulta_time\"].json[\"body\"][\"time\"] }}"
+            },
+            {
+              "column": "status_atividade",
+              "value": "Y"
+            }
+          ]
+        },
+        "sort": {
+          "values": [
+            {
+              "column": "id"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "68a049b6-5b1c-4728-a283-9c1d279286c8",
+      "name": "pesquisa_colaborador10",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1600,
+        840
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "d6775303-e8d6-4066-8ded-9807106b76ac",
+              "leftValue": "={{ $node[\"pesquisa_colaborador5\"].json[\"id\"] }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "632a0647-c4c5-466c-9e76-8e84b6291fe9",
+      "name": "colaborador_existe3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        640,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "fila_atendimento",
+          "mode": "list",
+          "cachedResultName": "fila_atendimento"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $node[\"pesquisa_colaborador_da_vez1\"].json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "vez",
+              "value": "={{ $node[\"pesquisa_colaborador10\"].json[\"ordem_fila\"] + 1 }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "69d75a0a-ed2b-40e8-8196-4a8a9f662af7",
+      "name": "atualiza_vez8",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1780,
+        840
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "contato_responsavel",
+          "mode": "list",
+          "cachedResultName": "contato_responsavel"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $node[\"pesquisa_relacionamento\"].json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_responsavel",
+              "value": "={{ $node[\"pesquisa_colaborador9\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "09b8fcf8-c536-473e-baf2-d3161c037ffd",
+      "name": "atualiza_relacionamento",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1560,
+        480
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "contato_responsavel",
+          "mode": "list",
+          "cachedResultName": "contato_responsavel"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $node[\"pesquisa_relacionamento\"].json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_responsavel",
+              "value": "={{ $node[\"pesquisa_colaborador8\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4946ea82-80db-4e7a-813b-8f4e070772f2",
+      "name": "atualiza_relacionamento1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1780,
+        660
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "contato_responsavel",
+          "mode": "list",
+          "cachedResultName": "contato_responsavel"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $node[\"pesquisa_relacionamento\"].json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_responsavel",
+              "value": "={{ $node[\"pesquisa_colaborador10\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bf0ea1fc-db3a-4c84-b786-22c519df7382",
+      "name": "atualiza_relacionamento2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1960,
+        840
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "consulta-colaborador",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "d5b4a93f-015f-4cd4-8b08-07445757f158",
+      "name": "consulta_time",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        -240,
+        960
+      ],
+      "webhookId": "948676f6-d253-4323-a474-b478ad4a6aa4"
+    }
+  ],
+  "pinData": {
+    "consulta_time": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n2webhookautomagicbots.automagicbots.com.br",
+            "user-agent": "axios/1.6.7",
+            "content-length": "25",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "172.18.0.1",
+            "x-forwarded-host": "n8n2webhookautomagicbots.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "61f25d337cc6",
+            "x-real-ip": "172.18.0.1"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "user": "8",
+            "time": "SDR"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-11-12T14:19:01.900Z",
+  "versionId": "650b5069-c574-48e3-81af-25a828488c73"
+}
