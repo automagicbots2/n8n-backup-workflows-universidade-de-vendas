@@ -301,14 +301,14 @@
       "main": [
         [
           {
-            "node": "cria/atualiza_negocio_desqualificado2",
+            "node": "cria/atualiza_negocio_desqualificado1",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "cria/atualiza_negocio_desqualificado1",
+            "node": "cria/atualiza_negocio_desqualificado2",
             "type": "main",
             "index": 0
           }
@@ -348,14 +348,14 @@
       "main": [
         [
           {
-            "node": "create/update clint4",
+            "node": "create/update clint3",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "create/update clint3",
+            "node": "create/update clint4",
             "type": "main",
             "index": 0
           }
@@ -1547,7 +1547,7 @@
       "typeVersion": 4.1,
       "position": [
         1820,
-        460
+        300
       ]
     },
     {
@@ -1604,7 +1604,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Gere um número aleatório entre 0 e 1\nconst randomValue = Math.random();\n\n// Arredonde o número para 1 ou 2\nconst result = Math.round(randomValue) + 1;\n\nreturn [{ result }];\n"
+        "jsCode": "// Gere um número aleatório entre 0 e 1, usando a data atual para aumentar a variabilidade\nconst randomValue = Math.random() + new Date().getMilliseconds() / 1000;\n\n// Arredonde o número para 1 ou 2\nconst result = (Math.round(randomValue) % 2) + 1;\n\nreturn [{ result }];\n"
       },
       "id": "4f4d87b6-0af8-45e0-a543-1ba240155314",
       "name": "Retorna Output Aleatorio",
@@ -1700,7 +1700,7 @@
       "typeVersion": 4.1,
       "position": [
         1820,
-        300
+        480
       ]
     },
     {
@@ -1808,7 +1808,7 @@
       "typeVersion": 4.1,
       "position": [
         1820,
-        140
+        -20
       ]
     },
     {
@@ -1833,7 +1833,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Gere um número aleatório entre 0 e 1\nconst randomValue = Math.random();\n\n// Arredonde o número para 1 ou 2\nconst result = Math.round(randomValue) + 1;\n\nreturn [{ result }];\n"
+        "jsCode": "// Gere um número aleatório entre 0 e 1, usando a data atual para aumentar a variabilidade\nconst randomValue = Math.random() + new Date().getMilliseconds() / 1000;\n\n// Arredonde o número para 1 ou 2\nconst result = (Math.round(randomValue) % 2) + 1;\n\nreturn [{ result }];\n"
       },
       "id": "346204a7-f34b-4a2b-9b18-017a983685a3",
       "name": "Retorna Output Aleatorio1",
@@ -1929,7 +1929,7 @@
       "typeVersion": 4.1,
       "position": [
         1820,
-        -20
+        140
       ]
     }
   ],
@@ -1985,7 +1985,11 @@
     ]
   },
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all"
   },
   "staticData": null,
   "tags": [
@@ -1997,6 +2001,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-06T19:04:19.763Z",
-  "versionId": "f60d30cc-ecd1-4b6a-8a1a-62bb5822980c"
+  "updatedAt": "2024-11-11T18:05:15.821Z",
+  "versionId": "a7612044-cd27-4ada-8087-1f0195eeee53"
 }
