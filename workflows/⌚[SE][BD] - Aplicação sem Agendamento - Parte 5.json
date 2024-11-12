@@ -366,14 +366,14 @@
       "main": [
         [
           {
-            "node": "create/update clint1",
+            "node": "create/update clint2",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "create/update clint2",
+            "node": "create/update clint1",
             "type": "main",
             "index": 0
           }
@@ -1675,8 +1675,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        900,
-        240
+        880,
+        420
       ]
     },
     {
@@ -1924,7 +1924,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Gere um número aleatório entre 0 e 1\nconst randomValue = Math.random();\n\n// Arredonde o número para 1 ou 2\nconst result = Math.round(randomValue) + 1;\n\nreturn [{ result }];\n"
+        "jsCode": "// Gere um número aleatório entre 0 e 1, usando a data atual para aumentar a variabilidade\nconst randomValue = Math.random() + new Date().getMilliseconds() / 1000;\n\n// Arredonde o número para 1 ou 2\nconst result = (Math.round(randomValue) % 2) + 1;\n\nreturn [{ result }];\n"
       },
       "id": "fe647bf2-a81a-4e2a-8e80-c1a767ea9085",
       "name": "Retorna Output Aleatorio",
@@ -2067,8 +2067,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        900,
-        400
+        880,
+        240
       ]
     },
     {
@@ -2169,6 +2169,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-06T19:41:25.898Z",
-  "versionId": "87984cc4-5ece-47b8-a19d-92bf8407b917"
+  "updatedAt": "2024-11-11T18:07:53.774Z",
+  "versionId": "86286bf4-e718-4928-8f46-1e5bf30621ce"
 }
