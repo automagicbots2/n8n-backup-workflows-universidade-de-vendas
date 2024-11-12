@@ -329,17 +329,6 @@
         ]
       ]
     },
-    "create/update clint1": {
-      "main": [
-        [
-          {
-            "node": "envia_campo_id_banco_de_dados",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "pesquisa_colaborador": {
       "main": [
         [
@@ -351,40 +340,11 @@
         ]
       ]
     },
-    "Retorna Output Aleatorio": {
-      "main": [
-        [
-          {
-            "node": "divide_sdr",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "create/update clint2": {
       "main": [
         [
           {
             "node": "envia_campo_id_banco_de_dados",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "divide_sdr": {
-      "main": [
-        [
-          {
-            "node": "create/update clint1",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "create/update clint2",
             "type": "main",
             "index": 0
           }
@@ -417,54 +377,14 @@
       "main": [
         [
           {
-            "node": "Retorna Output Aleatorio1",
+            "node": "rodizio_sdr",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Retorna Output Aleatorio",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "divide_sdr1": {
-      "main": [
-        [
-          {
-            "node": "create/update clint3",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "create/update clint4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Retorna Output Aleatorio1": {
-      "main": [
-        [
-          {
-            "node": "divide_sdr1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "create/update clint3": {
-      "main": [
-        [
-          {
-            "node": "envia_campo_id_banco_de_dados",
+            "node": "rodizio_sdr1",
             "type": "main",
             "index": 0
           }
@@ -476,6 +396,28 @@
         [
           {
             "node": "envia_campo_id_banco_de_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "rodizio_sdr": {
+      "main": [
+        [
+          {
+            "node": "create/update clint4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "rodizio_sdr1": {
+      "main": [
+        [
+          {
+            "node": "create/update clint2",
             "type": "main",
             "index": 0
           }
@@ -499,7 +441,7 @@
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        240,
+        420,
         780
       ]
     },
@@ -519,7 +461,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        20,
+        200,
         820
       ]
     },
@@ -1215,7 +1157,7 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        -100,
+        40,
         960
       ],
       "credentials": {
@@ -1722,96 +1664,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        260,
+        420,
         960
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/cfcdb58e-74b1-42c6-bf26-30d36ca9a869",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "nome",
-              "value": "={{ $node[\"chega_da_fila\"].json.content[\"Nome do Cliente\"] }}"
-            },
-            {
-              "name": "telefone",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}"
-            },
-            {
-              "name": "email",
-              "value": "={{ $node[\"chega_da_fila\"].json.content[\"E-mail do Cliente\"].trim() }}"
-            },
-            {
-              "name": "número de funcionários",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
-            },
-            {
-              "name": "possui sócio?",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tem_socio\"] }}"
-            },
-            {
-              "name": "vendedores",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
-            },
-            {
-              "name": "Já conhece o negócio?",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"conhece_mentoria\"] }}"
-            },
-            {
-              "name": "dono_negocio",
-              "value": "laiane@universidadevendas.com.br"
-            },
-            {
-              "name": "utm_source",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
-            },
-            {
-              "name": "utm_campaign",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
-            },
-            {
-              "name": "utm_term",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
-            },
-            {
-              "name": "utm_medium",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
-            },
-            {
-              "name": "utm_content",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
-            },
-            {
-              "name": "funil",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"funil\"] }}"
-            },
-            {
-              "name": "variacao_do_funil",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}"
-            },
-            {
-              "name": "pais",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"pais\"] }}"
-            },
-            {
-              "name": "instagram",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"].toLowerCase().replaceAll('@','')}}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "95f4ddc1-2228-4fb3-9011-90f822fa0c6e",
-      "name": "create/update clint1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        1100,
-        820
       ]
     },
     {
@@ -1924,39 +1778,6 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ String($node[\"Retorna Output Aleatorio\"].json[\"result\"]) }}",
-              "value2": "1"
-            }
-          ]
-        }
-      },
-      "id": "1fcdcf92-3909-4caf-ad69-89a319eca1d9",
-      "name": "divide_sdr",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        900,
-        940
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Gere um número aleatório entre 0 e 1, usando a data atual para aumentar a variabilidade\nconst randomValue = Math.random() + new Date().getMilliseconds() / 1000;\n\n// Arredonde o número para 1 ou 2\nconst result = (Math.round(randomValue) % 2) + 1;\n\nreturn [{ result }];\n"
-      },
-      "id": "afb12e71-a76f-4bf9-8c8d-a2db86172988",
-      "name": "Retorna Output Aleatorio",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        720,
-        940
-      ]
-    },
-    {
-      "parameters": {
         "method": "POST",
         "url": "https://functions-api.clint.digital/endpoints/integration/webhook/cfcdb58e-74b1-42c6-bf26-30d36ca9a869",
         "sendBody": true,
@@ -1992,7 +1813,7 @@
             },
             {
               "name": "dono_negocio",
-              "value": "naiara.jaqueline@universidadevendas.com.br"
+              "value": "={{ $node[\"rodizio_sdr1\"].json[\"nome\"].replace('Laiane','laiane@universidadevendas.com.br').replace('Naiara','naiara.jaqueline@universidadevendas.com.br') }}"
             },
             {
               "name": "utm_source",
@@ -2040,7 +1861,7 @@
       "typeVersion": 4.1,
       "position": [
         1100,
-        980
+        960
       ]
     },
     {
@@ -2074,7 +1895,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        460,
+        620,
         960
       ]
     },
@@ -2115,128 +1936,7 @@
             },
             {
               "name": "dono_negocio",
-              "value": "laiane@universidadevendas.com.br"
-            },
-            {
-              "name": "utm_source",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
-            },
-            {
-              "name": "utm_campaign",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
-            },
-            {
-              "name": "utm_term",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
-            },
-            {
-              "name": "utm_medium",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
-            },
-            {
-              "name": "utm_content",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
-            },
-            {
-              "name": "funil",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"funil\"] }}"
-            },
-            {
-              "name": "variacao_do_funil",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}"
-            },
-            {
-              "name": "pais",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"pais\"] }}"
-            },
-            {
-              "name": "instagram",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"].toLowerCase().replaceAll('@','')}}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "e49b5b08-eec7-4567-aed1-8535d7f74787",
-      "name": "create/update clint3",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        1100,
-        480
-      ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ String($node[\"Retorna Output Aleatorio1\"].json[\"result\"]) }}",
-              "value2": "1"
-            }
-          ]
-        }
-      },
-      "id": "67ea834e-2100-42af-b0e3-65e9bdf85da4",
-      "name": "divide_sdr1",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        900,
-        620
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Gere um número aleatório entre 0 e 1, usando a data atual para aumentar a variabilidade\nconst randomValue = Math.random() + new Date().getMilliseconds() / 1000;\n\n// Arredonde o número para 1 ou 2\nconst result = (Math.round(randomValue) % 2) + 1;\n\nreturn [{ result }];\n"
-      },
-      "id": "b559e85f-e262-4fde-b9f0-b099b621659e",
-      "name": "Retorna Output Aleatorio1",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        720,
-        620
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/0551628d-63e7-4b11-8fc2-cdf5b91ac086",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "nome",
-              "value": "={{ $node[\"chega_da_fila\"].json.content[\"Nome do Cliente\"] }}"
-            },
-            {
-              "name": "telefone",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}"
-            },
-            {
-              "name": "email",
-              "value": "={{ $node[\"chega_da_fila\"].json.content[\"E-mail do Cliente\"].trim() }}"
-            },
-            {
-              "name": "número de funcionários",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
-            },
-            {
-              "name": "possui sócio?",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tem_socio\"] }}"
-            },
-            {
-              "name": "vendedores",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
-            },
-            {
-              "name": "Já conhece o negócio?",
-              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"conhece_mentoria\"] }}"
-            },
-            {
-              "name": "dono_negocio",
-              "value": "naiara.jaqueline@universidadevendas.com.br"
+              "value": "={{ $node[\"rodizio_sdr\"].json[\"nome\"].replace('Laiane','laiane@universidadevendas.com.br').replace('Naiara','naiara.jaqueline@universidadevendas.com.br') }}"
             },
             {
               "name": "utm_source",
@@ -2284,7 +1984,61 @@
       "typeVersion": 4.1,
       "position": [
         1100,
-        640
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/consulta-colaborador",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "SDR"
+            },
+            {
+              "name": "user",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bd\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1c698d6-fcc7-45ce-ba7a-9147dbd43371",
+      "name": "rodizio_sdr",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        840,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/consulta-colaborador",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "SDR"
+            },
+            {
+              "name": "user",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bd\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1d5b7537-060c-42c2-8fd1-8ad6b43a6245",
+      "name": "rodizio_sdr1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        840,
+        960
       ]
     }
   ],
@@ -2358,6 +2112,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-11T18:06:00.286Z",
-  "versionId": "9a852a31-c8c9-4961-8777-5fe736b8dad9"
+  "updatedAt": "2024-11-12T14:16:24.390Z",
+  "versionId": "822eb5ca-574e-48e3-bc5f-867dc9405904"
 }
