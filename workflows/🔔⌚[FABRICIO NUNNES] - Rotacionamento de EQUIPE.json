@@ -1,6 +1,17 @@
 {
   "active": true,
   "connections": {
+    "pesquisa_colaborador3": {
+      "main": [
+        [
+          {
+            "node": "insere_relacionamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "email_colaborador_existe": {
       "main": [
         [
@@ -41,6 +52,17 @@
         ]
       ]
     },
+    "insere_relacionamento": {
+      "main": [
+        [
+          {
+            "node": "dados_colaborador",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "pesquisa_relacionamento": {
       "main": [
         [
@@ -70,11 +92,11 @@
         ]
       ]
     },
-    "pesquisa_colaborador3": {
+    "pesquisa_colaborador5": {
       "main": [
         [
           {
-            "node": "insere_relacionamento",
+            "node": "colaborador_existe3",
             "type": "main",
             "index": 0
           }
@@ -110,6 +132,28 @@
         ]
       ]
     },
+    "atualiza_vez3": {
+      "main": [
+        [
+          {
+            "node": "insere_relacionamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_vez4": {
+      "main": [
+        [
+          {
+            "node": "insere_relacionamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "colaborador_existe1": {
       "main": [
         [
@@ -139,55 +183,11 @@
         ]
       ]
     },
-    "atualiza_vez3": {
-      "main": [
-        [
-          {
-            "node": "insere_relacionamento",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "atualiza_vez4": {
-      "main": [
-        [
-          {
-            "node": "insere_relacionamento",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "pesquisa_colaborador7": {
       "main": [
         [
           {
             "node": "atualiza_vez5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "insere_relacionamento": {
-      "main": [
-        [
-          {
-            "node": "dados_colaborador",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "pesquisa_colaborador5": {
-      "main": [
-        [
-          {
-            "node": "colaborador_existe3",
             "type": "main",
             "index": 0
           }
@@ -245,6 +245,28 @@
         ]
       ]
     },
+    "atualiza_vez6": {
+      "main": [
+        [
+          {
+            "node": "atualiza_relacionamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_vez7": {
+      "main": [
+        [
+          {
+            "node": "atualiza_relacionamento1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "colaborador_existe2": {
       "main": [
         [
@@ -263,6 +285,17 @@
         ]
       ]
     },
+    "pesquisa_colaborador10": {
+      "main": [
+        [
+          {
+            "node": "atualiza_vez8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "colaborador_existe3": {
       "main": [
         [
@@ -275,39 +308,6 @@
         [
           {
             "node": "pesquisa_colaborador_da_vez1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "pesquisa_colaborador10": {
-      "main": [
-        [
-          {
-            "node": "atualiza_vez8",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "atualiza_vez6": {
-      "main": [
-        [
-          {
-            "node": "atualiza_relacionamento",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "atualiza_vez7": {
-      "main": [
-        [
-          {
-            "node": "atualiza_relacionamento1",
             "type": "main",
             "index": 0
           }
@@ -401,13 +401,13 @@
         },
         "options": {}
       },
-      "id": "c2cb5e9d-1d0e-403b-be5f-5b43960c8eb8",
+      "id": "b90ac2ab-d348-4f11-bbda-b4e624fe2182",
       "name": "pesquisa_colaborador3",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        880,
-        980
+        860,
+        1000
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -441,13 +441,13 @@
         },
         "options": {}
       },
-      "id": "7b4fffbe-b5ba-4a7f-b99d-0ff22077cb61",
+      "id": "ed3ca10e-fc30-412b-a6e6-a36f738d4519",
       "name": "email_colaborador_existe",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        660,
-        1060
+        640,
+        1100
       ]
     },
     {
@@ -470,13 +470,13 @@
         },
         "options": {}
       },
-      "id": "91d8d4bc-2668-403b-89d6-9282a256fe8c",
+      "id": "ee770dd0-0435-4703-9245-de1609eeff19",
       "name": "pesquisa_colaborador_da_vez",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        880,
-        1140
+        860,
+        1180
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -510,13 +510,13 @@
         },
         "options": {}
       },
-      "id": "33145352-b241-4e5d-a69d-9388c353eda0",
+      "id": "02e2a91a-f222-4bb5-8e25-3ecef6efc184",
       "name": "pesquisa_colaborador4",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1280,
-        1260
+        1260,
+        1300
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -553,13 +553,13 @@
         },
         "options": {}
       },
-      "id": "5df6ef03-a371-4547-90d3-97a81f78cd59",
+      "id": "c66e69f9-3587-4865-9f2d-94c6f5c5271d",
       "name": "insere_relacionamento",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        2120,
-        980
+        2100,
+        1020
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -593,7 +593,7 @@
         },
         "options": {}
       },
-      "id": "577fcbb5-2264-4e51-98b3-2130a254be9f",
+      "id": "f0cbdbce-1f5a-4576-ac11-fac45add66fc",
       "name": "pesquisa_relacionamento",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
@@ -633,7 +633,7 @@
         },
         "options": {}
       },
-      "id": "f9a33fc1-8943-4b60-839e-35a4ab5a2f84",
+      "id": "bca05202-96ad-49f9-93ac-8ee2220bcff1",
       "name": "relacionamento_existe",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
@@ -666,13 +666,13 @@
         },
         "options": {}
       },
-      "id": "8fe498d5-fc3f-4070-9c16-136b73b76e53",
+      "id": "03e217da-ab85-450c-8cd8-00f44b134047",
       "name": "pesquisa_colaborador5",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        460,
-        460
+        440,
+        500
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -706,13 +706,13 @@
         },
         "options": {}
       },
-      "id": "a8952517-98b9-4d2a-b607-512a6cc4d75f",
+      "id": "cd060fab-6ee3-4571-be1e-951a06be0d12",
       "name": "vez_null1",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        1080,
-        1140
+        1060,
+        1180
       ]
     },
     {
@@ -746,13 +746,13 @@
         },
         "options": {}
       },
-      "id": "4d5c3d69-2d32-4e53-bb8e-8a12e2bf3ae7",
+      "id": "f98b286e-d22a-4c7b-b459-7eea0b1c33c3",
       "name": "pesquisa_colaborador6",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1280,
-        1080
+        1260,
+        1120
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -773,7 +773,7 @@
         },
         "dataMode": "defineBelow",
         "columnToMatchOn": "id",
-        "valueToMatchOn": "={{ $node[\"pesquisa_colaborador_da_vez\"].json[\"id\"] }}",
+        "valueToMatchOn": "={{ $node[\"pesquisa_colaborador_da_vez\"].json[\"id\"] || $node[\"pesquisa_colaborador6\"].json[\"id\"] }}",
         "valuesToSend": {
           "values": [
             {
@@ -784,13 +784,13 @@
         },
         "options": {}
       },
-      "id": "fe63f880-c4af-4e86-87fc-1cdc9bc86411",
+      "id": "e9bd76a0-3ea2-4de2-8526-cca9506fa9f2",
       "name": "atualiza_vez3",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1440,
-        1080
+        1420,
+        1120
       ],
       "credentials": {
         "mySql": {
@@ -821,13 +821,13 @@
         },
         "options": {}
       },
-      "id": "865c0cba-41b8-4514-8178-af33d3b0524e",
+      "id": "763b0945-bfdb-481f-b646-fa5a9bc15b9c",
       "name": "atualiza_vez4",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1680,
-        1240
+        1660,
+        1280
       ],
       "credentials": {
         "mySql": {
@@ -860,13 +860,13 @@
         },
         "options": {}
       },
-      "id": "c8fde9c6-f863-46de-b131-87a7d21d4286",
+      "id": "675dd32f-b573-4537-a4d4-0b233cb81027",
       "name": "colaborador_existe1",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        1480,
-        1260
+        1460,
+        1300
       ]
     },
     {
@@ -891,13 +891,13 @@
         },
         "options": {}
       },
-      "id": "c4a7e8d8-3939-4cb6-9f3f-af45bc929ccb",
+      "id": "29ea6513-9039-458d-adf6-b849c5a029e6",
       "name": "atualiza_vez5",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1860,
-        1420
+        1840,
+        1460
       ],
       "credentials": {
         "mySql": {
@@ -937,13 +937,13 @@
         },
         "options": {}
       },
-      "id": "d10f982f-eb40-4c08-b547-8ef637dc4d10",
+      "id": "7dc5d162-27d8-4d05-ad95-391d25176507",
       "name": "pesquisa_colaborador7",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1680,
-        1420
+        1660,
+        1460
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -991,13 +991,13 @@
         },
         "options": {}
       },
-      "id": "c924c007-1614-43ed-8930-293b6f32f4b0",
+      "id": "dbdb6d45-ce3a-4777-a9dd-d828e95e411f",
       "name": "dados_colaborador",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        2300,
-        840
+        2280,
+        880
       ]
     },
     {
@@ -1020,13 +1020,13 @@
         },
         "options": {}
       },
-      "id": "a9c72a4e-e061-4c96-8e63-e54de2344d54",
+      "id": "db2ad280-64e2-4b49-9728-a088cd78a81d",
       "name": "pesquisa_colaborador_da_vez1",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        800,
-        540
+        780,
+        580
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1060,13 +1060,13 @@
         },
         "options": {}
       },
-      "id": "0066bbe4-551f-4933-83b8-3e7827567c3b",
+      "id": "b20e0411-c81b-4783-85c6-9b5e137d4cef",
       "name": "pesquisa_colaborador8",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1200,
-        660
+        1180,
+        700
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1100,13 +1100,13 @@
         },
         "options": {}
       },
-      "id": "93788e98-40ab-418b-a913-a89ddd2317f6",
+      "id": "a7ec518f-24ad-4da3-9809-0ca96b4f41e0",
       "name": "vez_null2",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        1000,
-        540
+        980,
+        580
       ]
     },
     {
@@ -1140,13 +1140,13 @@
         },
         "options": {}
       },
-      "id": "85a9a42d-a518-4aef-83fe-a056384db002",
+      "id": "95b3fc25-e815-4083-81b6-82273ee85055",
       "name": "pesquisa_colaborador9",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1200,
-        480
+        1180,
+        520
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1178,13 +1178,13 @@
         },
         "options": {}
       },
-      "id": "444f243a-4455-4b50-a30b-810d739c1651",
+      "id": "93b08f32-ea87-4090-a5f6-b98f3951ddb1",
       "name": "atualiza_vez6",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1360,
-        480
+        1340,
+        520
       ],
       "credentials": {
         "mySql": {
@@ -1215,13 +1215,13 @@
         },
         "options": {}
       },
-      "id": "c761c36b-25bd-4162-a9d0-0173b7e5ce0f",
+      "id": "dbc47db6-74c8-46a1-88db-aa7e96087cd8",
       "name": "atualiza_vez7",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1600,
-        660
+        1580,
+        700
       ],
       "credentials": {
         "mySql": {
@@ -1254,13 +1254,13 @@
         },
         "options": {}
       },
-      "id": "d194f3fb-2993-4b58-87b9-fab82ef199a2",
+      "id": "e6cff0a2-978e-4530-bbe5-231b7e2cebe3",
       "name": "colaborador_existe2",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        1400,
-        660
+        1380,
+        700
       ]
     },
     {
@@ -1294,13 +1294,13 @@
         },
         "options": {}
       },
-      "id": "68a049b6-5b1c-4728-a283-9c1d279286c8",
+      "id": "35536a57-d449-4f07-af8f-a0e1ba717055",
       "name": "pesquisa_colaborador10",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1600,
-        840
+        1580,
+        880
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1334,13 +1334,13 @@
         },
         "options": {}
       },
-      "id": "632a0647-c4c5-466c-9e76-8e84b6291fe9",
+      "id": "adce20c4-9e4c-4b11-9edb-242ae8c7260f",
       "name": "colaborador_existe3",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        640,
-        460
+        620,
+        500
       ]
     },
     {
@@ -1365,13 +1365,13 @@
         },
         "options": {}
       },
-      "id": "69d75a0a-ed2b-40e8-8196-4a8a9f662af7",
+      "id": "89e57a94-8f40-438b-b404-deec42f9300d",
       "name": "atualiza_vez8",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1780,
-        840
+        1760,
+        880
       ],
       "credentials": {
         "mySql": {
@@ -1402,13 +1402,13 @@
         },
         "options": {}
       },
-      "id": "09b8fcf8-c536-473e-baf2-d3161c037ffd",
+      "id": "c585c06e-e8f9-4ef5-b91a-de7492b16b9c",
       "name": "atualiza_relacionamento",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1560,
-        480
+        1540,
+        520
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1440,13 +1440,13 @@
         },
         "options": {}
       },
-      "id": "4946ea82-80db-4e7a-813b-8f4e070772f2",
+      "id": "7c1f89d1-d67e-4e04-88e6-2ed7e47ce7bf",
       "name": "atualiza_relacionamento1",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1780,
-        660
+        1760,
+        700
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1478,13 +1478,13 @@
         },
         "options": {}
       },
-      "id": "bf0ea1fc-db3a-4c84-b786-22c519df7382",
+      "id": "40f50c8d-ab71-4707-b387-19d355fccd7c",
       "name": "atualiza_relacionamento2",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.2,
       "position": [
-        1960,
-        840
+        1940,
+        880
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1516,25 +1516,27 @@
       {
         "json": {
           "headers": {
-            "host": "n8n2webhookautomagicbots.automagicbots.com.br",
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "user-agent": "axios/1.6.7",
-            "content-length": "25",
+            "content-length": "26",
             "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
             "accept-encoding": "gzip, compress, deflate, br",
             "content-type": "application/json",
             "x-forwarded-for": "172.18.0.1",
-            "x-forwarded-host": "n8n2webhookautomagicbots.automagicbots.com.br",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "x-forwarded-port": "443",
             "x-forwarded-proto": "https",
-            "x-forwarded-server": "61f25d337cc6",
+            "x-forwarded-server": "77400aba3c69",
             "x-real-ip": "172.18.0.1"
           },
           "params": {},
           "query": {},
           "body": {
-            "user": "8",
-            "time": "SDR"
-          }
+            "time": "SDR",
+            "user": 2755
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/consulta-colaborador",
+          "executionMode": "production"
         }
       }
     ]
@@ -1551,6 +1553,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-11-12T14:19:01.900Z",
-  "versionId": "650b5069-c574-48e3-81af-25a828488c73"
+  "updatedAt": "2024-11-13T18:07:09.662Z",
+  "versionId": "09833968-8c50-4040-9767-a465468422c8"
 }
