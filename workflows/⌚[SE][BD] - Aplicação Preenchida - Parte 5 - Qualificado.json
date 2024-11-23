@@ -362,17 +362,6 @@
         ]
       ]
     },
-    "chega_da_fila": {
-      "main": [
-        [
-          {
-            "node": "cria/atualiza_contato_qualificado1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "é_isca-ebook": {
       "main": [
         [
@@ -384,7 +373,7 @@
         ],
         [
           {
-            "node": "rodizio_sdr1",
+            "node": "é_Funil_V7",
             "type": "main",
             "index": 0
           }
@@ -418,6 +407,57 @@
         [
           {
             "node": "create/update clint2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "é_Funil_V7": {
+      "main": [
+        [
+          {
+            "node": "rodizio_sdr2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "rodizio_sdr1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "rodizio_sdr2": {
+      "main": [
+        [
+          {
+            "node": "create/update clint3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create/update clint3": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_id_banco_de_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chega_da_fila": {
+      "main": [
+        [
+          {
+            "node": "cria/atualiza_contato_qualificado1",
             "type": "main",
             "index": 0
           }
@@ -482,8 +522,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3840,
-        1320
+        4040,
+        1520
       ]
     },
     {
@@ -499,8 +539,8 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3680,
-        1320
+        3880,
+        1520
       ],
       "credentials": {
         "mySql": {
@@ -550,8 +590,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3280,
-        1300
+        3480,
+        1500
       ]
     },
     {
@@ -574,8 +614,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2660,
-        1260
+        2860,
+        1460
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -589,8 +629,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4080,
-        1420
+        4280,
+        1620
       ]
     },
     {
@@ -622,8 +662,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4080,
-        1200
+        4280,
+        1400
       ],
       "retryOnFail": true,
       "waitBetweenTries": 5000,
@@ -662,8 +702,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1380,
-        960
+        1580,
+        1160
       ],
       "retryOnFail": true,
       "waitBetweenTries": 5000,
@@ -702,8 +742,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1240,
-        1260
+        1440,
+        1460
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -743,8 +783,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1440,
-        1260
+        1640,
+        1460
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -784,8 +824,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1640,
-        1260
+        1840,
+        1460
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -825,8 +865,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1820,
-        1260
+        2020,
+        1460
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -866,8 +906,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2020,
-        1260
+        2220,
+        1460
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -907,8 +947,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2220,
-        1260
+        2420,
+        1460
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -948,8 +988,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1040,
-        1260
+        1240,
+        1460
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -989,8 +1029,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2440,
-        1260
+        2640,
+        1460
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -1007,8 +1047,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        3460,
-        1220
+        3660,
+        1420
       ],
       "webhookId": "3b7b2293-187e-4093-b5c5-3293ef3a0db7"
     },
@@ -1045,8 +1085,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1600,
-        960
+        1800,
+        1160
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -1086,8 +1126,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1820,
-        960
+        2020,
+        1160
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -1127,8 +1167,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2020,
-        960
+        2220,
+        1160
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -1442,8 +1482,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3060,
-        1120
+        3260,
+        1320
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -1466,8 +1506,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2860,
-        1260
+        3060,
+        1460
       ]
     },
     {
@@ -1860,8 +1900,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1100,
-        960
+        1300,
+        1160
       ]
     },
     {
@@ -1874,8 +1914,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        3460,
-        1420
+        3660,
+        1620
       ],
       "webhookId": "b8347fd4-a0f4-47c6-95a3-45bb9acd0ddb"
     },
@@ -2037,8 +2077,159 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        840,
-        960
+        1040,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}",
+              "value2": "SE-V7"
+            }
+          ]
+        }
+      },
+      "id": "f3c1b67c-de1f-4acb-b700-73963992802b",
+      "name": "é_Funil_V7",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        820,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/f36155b2-5090-416d-a327-f245ea62207c",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"E-mail do Cliente\"].trim() }}"
+            },
+            {
+              "name": "número de funcionários",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "name": "possui sócio?",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tem_socio\"] }}"
+            },
+            {
+              "name": "vendedores",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "name": "Já conhece o negócio?",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"conhece_mentoria\"] }}"
+            },
+            {
+              "name": "dono_negocio",
+              "value": "={{ $node[\"rodizio_sdr2\"].json[\"nome\"].replace('Laiane','laiane@universidadevendas.com.br').replace('Naiara','naiara.jaqueline@universidadevendas.com.br') }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"funil\"] }}"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}"
+            },
+            {
+              "name": "pais",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"pais\"] }}"
+            },
+            {
+              "name": "instagram",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"].toLowerCase().replaceAll('@','')}}"
+            },
+            {
+              "name": "analise_estratégica",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"analise_estratégica\"] }}"
+            },
+            {
+              "name": "maior_desejo",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"maior_desejo\"] }}"
+            },
+            {
+              "name": "maior_dor",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"maior_dor\"] }}"
+            },
+            {
+              "name": "faturamento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6fc053c3-1910-41a8-b602-1c659d21ac40",
+      "name": "create/update clint3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1260,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/consulta-colaborador",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "SDR"
+            },
+            {
+              "name": "user",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bd\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d16f035b-f706-40bc-b928-6e464bb26fa1",
+      "name": "rodizio_sdr2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1040,
+        1000
       ]
     }
   ],
@@ -2047,8 +2238,8 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-lJ015JzmcEca4eEo8gFzmg",
-            "deliveryTag": 312,
+            "consumerTag": "amq.ctag-T1U7Xc--PePTc-k1N4q7Ew",
+            "deliveryTag": 1,
             "redelivered": false,
             "exchange": "",
             "routingKey": "Não Agendamentos - Parte 5 - Qualificado"
@@ -2057,21 +2248,21 @@
             "headers": {}
           },
           "content": {
-            "Nome do Cliente": "Mateus Diniz",
+            "Nome do Cliente": "Mateus Diniz - Automagic Bots",
             "E-mail do Cliente": "mateusdiniz@automagicbots.com.br",
-            "Telefone do Cliente - Formato Z-API": "5562981196678",
-            "id_lead_bd": 4240,
-            "id_lead_bc": 532010390,
-            "utm_source": "ig",
-            "utm_campaign": "[LF] [SE] [CAPTAÇÃO] [CADASTRO] [AUTO] [F] Públicos Frios ABO",
-            "utm_term": "SE_AD031",
-            "utm_medium": "Instagram_Feed",
-            "utm_content": "00 - [AUTO] [F] EMPRESÁRIOS BRASIL",
-            "funil": "Sessao_Estrategica",
-            "variacao_do_funil": "v1",
+            "Telefone do Cliente - Formato Z-API": "556281196678",
+            "id_lead_bd": 2755,
+            "id_lead_bc": 429904072,
+            "utm_source": "",
+            "utm_campaign": "",
+            "utm_term": "",
+            "utm_medium": "",
+            "utm_content": "",
+            "funil": "sesssao",
+            "variacao_do_funil": "SE-V7",
             "quantos_vendedores_possui": "De 6 a 8 vendedores",
-            "conhece_mentoria": "Não",
-            "tem_socio": "Sim\n",
+            "conhece_mentoria": "Sim",
+            "tem_socio": "Não",
             "id_tag_desqualificado_bot_conversa": "5073673",
             "id_campo_utm_var_bot_conversa": "1408045",
             "id_campo_utm_fun_bot_conversa": "1408044",
@@ -2086,9 +2277,13 @@
             "id_campo_emailse_bot_conversa": "1045671",
             "id_campo_tem_socio_bot_conversa": "1408036",
             "id_fluxo_nao_agendou_10_min": "",
-            "API-KEY": "a9585685-a8d4-4f70-be7c-44c8dedf905f",
-            "data_ultima_quinzena": "\"2024-07-29\"",
-            "instagram": "@mg.energiasolar"
+            "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
+            "data_ultima_quinzena": "2024-11-07",
+            "instagram": "prmateusdiniz",
+            "analise_estratégica": "vocês são os melhores",
+            "maior_desejo": "Aumentar meu faturamento",
+            "maior_dor": "aumento nas vendas",
+            "faturamento": "Entre 100 e 150 mil reais por mês"
           }
         }
       }
@@ -2112,6 +2307,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-12T14:16:24.390Z",
-  "versionId": "822eb5ca-574e-48e3-bc5f-867dc9405904"
+  "updatedAt": "2024-11-23T00:13:10.061Z",
+  "versionId": "1e369d55-991b-4b3a-8220-a6612bc045ea"
 }
