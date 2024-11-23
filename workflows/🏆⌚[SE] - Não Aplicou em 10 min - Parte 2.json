@@ -1108,14 +1108,14 @@
       "main": [
         [
           {
-            "node": "cria/atualiza_deal",
+            "node": "é_Funil_V7",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "cria/atualiza_deal_sdr",
+            "node": "rodizio_sdr",
             "type": "main",
             "index": 0
           }
@@ -1222,6 +1222,68 @@
         [
           {
             "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "rodizio_sdr2": {
+      "main": [
+        [
+          {
+            "node": "cria/atualiza_deal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "rodizio_sdr": {
+      "main": [
+        [
+          {
+            "node": "cria/atualiza_deal_sdr",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "rodizio_sdr1": {
+      "main": [
+        [
+          {
+            "node": "cria/atualiza_deal_sdr1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria/atualiza_deal_sdr1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_data_data_lake",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "é_Funil_V7": {
+      "main": [
+        [
+          {
+            "node": "rodizio_sdr1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "rodizio_sdr2",
             "type": "main",
             "index": 0
           }
@@ -1358,7 +1420,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        2180,
+        2060,
         1280
       ],
       "credentials": {
@@ -1385,7 +1447,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        2380,
+        2260,
         1280
       ]
     },
@@ -1435,7 +1497,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        1960,
+        1840,
         1280
       ],
       "credentials": {
@@ -1461,7 +1523,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1840,
+        1720,
         1720
       ]
     },
@@ -1481,7 +1543,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1640,
+        1520,
         1760
       ]
     },
@@ -1501,7 +1563,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2180,
+        2060,
         1540
       ]
     },
@@ -1521,7 +1583,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2020,
+        1900,
         1620
       ]
     },
@@ -1541,7 +1603,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2000,
+        1880,
         2100
       ]
     },
@@ -1561,7 +1623,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2200,
+        2080,
         2020
       ]
     },
@@ -1582,7 +1644,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        2620,
+        2500,
         1480
       ]
     },
@@ -1631,7 +1693,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        2380,
+        2260,
         1620
       ],
       "credentials": {
@@ -1682,7 +1744,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        2380,
+        2260,
         1460
       ],
       "credentials": {
@@ -1737,7 +1799,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        2180,
+        2060,
         1780
       ],
       "credentials": {
@@ -1792,7 +1854,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        2400,
+        2280,
         1940
       ],
       "credentials": {
@@ -1851,7 +1913,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        2400,
+        2280,
         2120
       ],
       "credentials": {
@@ -1910,7 +1972,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        2160,
+        2040,
         2200
       ],
       "credentials": {
@@ -1936,7 +1998,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2040,
+        1920,
         2480
       ]
     },
@@ -1956,7 +2018,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1880,
+        1760,
         2560
       ]
     },
@@ -2009,7 +2071,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        2040,
+        1920,
         2720
       ],
       "credentials": {
@@ -2064,7 +2126,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        2240,
+        2120,
         2400
       ],
       "credentials": {
@@ -2123,7 +2185,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        2240,
+        2120,
         2560
       ],
       "credentials": {
@@ -2160,7 +2222,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        2760,
+        2640,
         1280
       ],
       "credentials": {
@@ -3070,7 +3132,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        3040,
+        2920,
         1280
       ]
     },
@@ -3123,7 +3185,7 @@
             },
             {
               "name": "dono_negocio",
-              "value": "laiane@universidadevendas.com.br"
+              "value": "={{ $node[\"rodizio_sdr2\"].json[\"nome\"].replace('Laiane','laiane@universidadevendas.com.br').replace('Naiara','naiara.jaqueline@universidadevendas.com.br') }}"
             },
             {
               "name": "pais",
@@ -3138,8 +3200,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        3480,
-        1180
+        3560,
+        1160
       ]
     },
     {
@@ -3925,7 +3987,7 @@
       "type": "n8n-nodes-base.itemLists",
       "typeVersion": 3,
       "position": [
-        2900,
+        2780,
         1280
       ]
     },
@@ -4128,7 +4190,7 @@
             },
             {
               "name": "dono do negócio",
-              "value": "naiara.jaqueline@universidadevendas.com.br"
+              "value": "={{ $node[\"rodizio_sdr\"].json[\"nome\"].replace('Laiane','laiane@universidadevendas.com.br').replace('Naiara','naiara.jaqueline@universidadevendas.com.br') }}"
             },
             {
               "name": "pais",
@@ -4143,8 +4205,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        3480,
-        1360
+        3540,
+        1580
       ]
     },
     {
@@ -4175,8 +4237,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        3260,
-        1280
+        3060,
+        1360
       ]
     },
     {
@@ -4404,6 +4466,175 @@
         8400,
         1220
       ]
+    },
+    {
+      "parameters": {
+        "url": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/consulta-colaborador",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "SDR"
+            },
+            {
+              "name": "user",
+              "value": "={{ $node[\"pesquisa_lead2\"].json[\"id_lead\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "32bc56ab-64ae-423b-986a-b8a7289d5f67",
+      "name": "rodizio_sdr2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3400,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/consulta-colaborador",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "SDR"
+            },
+            {
+              "name": "user",
+              "value": "={{ $node[\"pesquisa_lead2\"].json[\"id_lead\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a8dd1b95-1c24-4c23-90a0-7c7adeef403d",
+      "name": "rodizio_sdr",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3380,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/b8a3e700-d53d-4164-b845-3df0dcae2911",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "utm_fun",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"funil\"] }}"
+            },
+            {
+              "name": "utm_var",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}"
+            },
+            {
+              "name": "dono do negócio",
+              "value": "={{ $node[\"rodizio_sdr1\"].json[\"nome\"].replace('Laiane','laiane@universidadevendas.com.br').replace('Naiara','naiara.jaqueline@universidadevendas.com.br') }}"
+            },
+            {
+              "name": "pais",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Pais\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9fd4332a-a681-478c-aa2c-ea671a8a7591",
+      "name": "cria/atualiza_deal_sdr1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        3540,
+        1400
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/consulta-colaborador",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "SDR"
+            },
+            {
+              "name": "user",
+              "value": "={{ $node[\"pesquisa_lead2\"].json[\"id_lead\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bc89a350-7cff-444f-9091-efbcefb3543c",
+      "name": "rodizio_sdr1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3380,
+        1400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}",
+              "value2": "SE-V7"
+            }
+          ]
+        }
+      },
+      "id": "5c098fa0-74d5-494a-88b4-ce2072bddd67",
+      "name": "é_Funil_V7",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        3220,
+        1240
+      ]
     }
   ],
   "pinData": {
@@ -4411,32 +4642,30 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-WaXEE1H9qMLtKTPoiXUkdg",
-            "deliveryTag": 22,
+            "consumerTag": "amq.ctag-rzYZrVxPwC-B-WekNemd9w",
+            "deliveryTag": 870,
             "redelivered": false,
             "exchange": "",
             "routingKey": "Não Aplicou - Sessão"
           },
           "properties": {
-            "headers": {
-              "x-delivery-count": 3
-            }
+            "headers": {}
           },
           "content": {
-            "Nome do Cliente": "Vitor Queiroz de Almeida",
-            "Telefone do Cliente - Formato Z-API": "5519982022213",
-            "E-mail do Cliente": "vitorrqueiroztrafego@gmail.com",
-            "Data do Evento": "25/06/2024",
-            "Hora do Evento": "16:38",
+            "Nome do Cliente": "Mateus Diniz - Automagic Bots",
+            "Telefone do Cliente - Formato Z-API": "556281196678",
+            "E-mail do Cliente": "mateusdiniz@automagicbots.com.br",
+            "Data do Evento": "22/11/2024",
+            "Hora do Evento": "22:23",
             "utm_term": "",
             "utm_medium": "",
             "utm_campaign": "",
-            "utm_source": "organico",
+            "utm_source": "",
             "utm_content": "",
             "id_campo_emailse": "1045671",
             "valor_mentoria_centavos": "",
             "id_fluxo_nap01": "2445393",
-            "API-KEY": "a9585685-a8d4-4f70-be7c-44c8dedf905f",
+            "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
             "id_pipeline_se": "",
             "id_stage_iniciou_aplicacao": "",
             "id_campo_deal_utm_source": "",
@@ -4446,7 +4675,7 @@
             "id_campo_deal_utm_content": "",
             "id_sdr": "",
             "funil": "sessao_estrategica",
-            "variacao_do_funil": "funil_head_comercial",
+            "variacao_do_funil": "SE-V7",
             "url_api_activecampaign": "",
             "id_campo_deal_utm_fun": "",
             "id_campo_deal_utm_var": "",
@@ -4461,7 +4690,7 @@
             "id_campo_id_banco_de_dados_ac": "",
             "id_campo_iddealac_bot_conversa": "",
             "id_campo_idleadac_bot_conversa": "",
-            "data_ultima_quinzena": "\"2024-06-10\"",
+            "data_ultima_quinzena": "\"2024-11-07\"",
             "id_fluxo_notifica_sdr_pop_up": "2215208",
             "funil_lead_loves": "com agendamento"
           }
@@ -4485,6 +4714,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-06T19:31:20.786Z",
-  "versionId": "0bb1ab57-9ca8-46aa-846a-26df6ecf5816"
+  "updatedAt": "2024-11-23T01:26:11.173Z",
+  "versionId": "4e298020-0f84-4c57-8794-928f0ec20fa1"
 }
