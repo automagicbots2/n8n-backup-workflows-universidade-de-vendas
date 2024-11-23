@@ -300,6 +300,39 @@
           }
         ]
       ]
+    },
+    "formata_dados5": {
+      "main": [
+        [
+          {
+            "node": "dados_validados_correto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "aplicacao_preenchida_novo_funil": {
+      "main": [
+        [
+          {
+            "node": "formata_dados5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_validados_correto1": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-13T20:16:23.098Z",
@@ -2130,6 +2163,378 @@
       "position": [
         640,
         1280
+      ],
+      "webhookId": "ca0c0d67-b335-4d4a-9bb2-47844ea97d8d"
+    },
+    {
+      "parameters": {
+        "queue": "Não Agendamentos - Parte 2",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "7ee06843-5f0f-457d-9ba1-cd6f10813b01",
+      "name": "entra_na_fila4",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        2380
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"formata_dados5\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"formata_dados5\"].json[\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "=+{{ $node[\"formata_dados5\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ $node[\"formata_dados5\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "instagram",
+              "value": "={{ $node[\"formata_dados5\"].json[\"instagram\"] }}"
+            },
+            {
+              "name": "quantos_vendedores_possui",
+              "value": "={{ $node[\"formata_dados5\"].json[\"quantos_vendedores\"] }}"
+            },
+            {
+              "name": "pergunta1",
+              "value": "={{ $node[\"formata_dados5\"].json[\"tem_head_comercial\"] }}"
+            },
+            {
+              "name": "pergunta2",
+              "value": "={{ $node[\"formata_dados5\"].json[\"possui_sdr\"] }}"
+            },
+            {
+              "name": "pergunta3",
+              "value": "={{ $node[\"formata_dados5\"].json[\"faturamento\"] }}"
+            },
+            {
+              "name": "conhece_mentoria",
+              "value": "={{ $node[\"formata_dados5\"].json[\"conhece_mentoria\"] }}"
+            },
+            {
+              "name": "tem_socio",
+              "value": "={{ $node[\"formata_dados5\"].json[\"tem_socio\"] }}"
+            },
+            {
+              "name": "pergunta6",
+              "value": "={{ $node[\"formata_dados5\"].json[\"objetivo_este_ano\"] }}"
+            },
+            {
+              "name": "pergunta7",
+              "value": "={{ $node[\"formata_dados5\"].json[\"diferentes_formas\"] }}"
+            },
+            {
+              "name": "pergunta8",
+              "value": "={{ $node[\"formata_dados5\"].json[\"porque_voce\"] }}"
+            },
+            {
+              "name": "pergunta9",
+              "value": "={{ $node[\"formata_dados5\"].json[\"quando_comecar\"] }}"
+            },
+            {
+              "name": "pergunta10",
+              "value": "={{ $node[\"formata_dados5\"].json[\"investiu_carreira\"] }}"
+            },
+            {
+              "name": "pergunta11",
+              "value": "={{ $node[\"formata_dados5\"].json[\"analise_estrategica\"] }}"
+            },
+            {
+              "name": "pergunta12",
+              "value": "={{ $node[\"formata_dados5\"].json[\"maior_desejo\"] }}"
+            },
+            {
+              "name": "pergunta13",
+              "value": "={{ $node[\"formata_dados5\"].json[\"maior_dor\"] }}"
+            },
+            {
+              "name": "pergunta14",
+              "value": "={{ $node[\"formata_dados5\"].json[\"pergunta14\"] }}"
+            },
+            {
+              "name": "pergunta15",
+              "value": "={{ $node[\"formata_dados5\"].json[\"pergunta15\"] }}"
+            },
+            {
+              "name": "pergunta16",
+              "value": "={{ $node[\"formata_dados5\"].json[\"pergunta16\"] }}"
+            },
+            {
+              "name": "pergunta17",
+              "value": "={{ $node[\"formata_dados5\"].json[\"pergunta17\"] }}"
+            },
+            {
+              "name": "pergunta18",
+              "value": "={{ $node[\"formata_dados5\"].json[\"pergunta18\"] }}"
+            },
+            {
+              "name": "pergunta19",
+              "value": "={{ $node[\"formata_dados5\"].json[\"pergunta19\"] }}"
+            },
+            {
+              "name": "pergunta20",
+              "value": "={{ $node[\"formata_dados5\"].json[\"pergunta20\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados5\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados5\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados5\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados5\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados5\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "data_resposta_type",
+              "value": "={{$now.toFormat('dd/MM/yyyy HH:mm')}}"
+            },
+            {
+              "name": "data_ultima_quinzena",
+              "value": "={{ $node[\"formata_dados5\"].json[\"data_ultima_quinzena\"] }}"
+            },
+            {
+              "name": "id_fluxo_nao_agendou_10_min"
+            },
+            {
+              "name": "id_fluxo_nao_agendou_10_min_desqualificados"
+            },
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1408048"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1408038"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1408041"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1408042"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1408043"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1408040"
+            },
+            {
+              "name": "id_campo_utm_fun_bot_conversa",
+              "value": "1408044"
+            },
+            {
+              "name": "id_campo_utm_var_bot_conversa",
+              "value": "1408045"
+            },
+            {
+              "name": "id_campo_instagram_bot_conversa"
+            },
+            {
+              "name": "id_campo_emailse_bot_conversa",
+              "value": "1045671"
+            },
+            {
+              "name": "id_campo_data_resposta_type_bot_conversa"
+            },
+            {
+              "name": "id_tag_desqualificado_bot_conversa",
+              "value": "5073673"
+            },
+            {
+              "name": "id_tag_qualificado_bot_conversa",
+              "value": "4891806"
+            },
+            {
+              "name": "id_campo_quantos_vendedores_possui_bot_conversa",
+              "value": "1408034"
+            },
+            {
+              "name": "id_campo_pergunta1_bot_conversa",
+              "value": "2451387"
+            },
+            {
+              "name": "id_campo_pergunta2_bot_conversa",
+              "value": "2451391"
+            },
+            {
+              "name": "id_campo_pergunta3_bot_conversa",
+              "value": "2451408"
+            },
+            {
+              "name": "id_campo_conhece_mentoria_bot_conversa",
+              "value": "1408035"
+            },
+            {
+              "name": "id_campo_tem_socio_bot_conversa",
+              "value": "1408036"
+            },
+            {
+              "name": "id_campo_pergunta6_bot_conversa"
+            },
+            {
+              "name": "id_campo_pergunta7_bot_conversa"
+            },
+            {
+              "name": "id_campo_pergunta8_bot_conversa"
+            },
+            {
+              "name": "id_campo_pergunta9_bot_conversa"
+            },
+            {
+              "name": "id_campo_pergunta10_bot_conversa"
+            },
+            {
+              "name": "id_campo_pergunta11_bot_conversa"
+            },
+            {
+              "name": "id_campo_pergunta12_bot_conversa"
+            },
+            {
+              "name": "id_campo_pergunta13_bot_conversa"
+            },
+            {
+              "name": "id_campo_pergunta14_bot_conversa"
+            },
+            {
+              "name": "id_campo_pergunta15_bot_conversa"
+            },
+            {
+              "name": "id_campo_pergunta16_bot_conversa"
+            },
+            {
+              "name": "id_campo_pergunta17_bot_conversa"
+            },
+            {
+              "name": "id_campo_pergunta18_bot_conversa"
+            },
+            {
+              "name": "id_campo_pergunta19_bot_conversa"
+            },
+            {
+              "name": "id_campo_pergunta20_bot_conversa"
+            },
+            {
+              "name": "id_ending_typeform",
+              "value": "={{ $node[\"formata_dados5\"].json[\"ending\"] }}"
+            },
+            {
+              "name": "id_campo_data_da_aplicacao_bot_conversa"
+            },
+            {
+              "name": "data_resposta_type_milesegundos",
+              "value": "={{$json[\"timestamp\"] = Math.floor(new Date().getTime() - new Date().getTimezoneOffset() * 60000); $json[\"timestamp\"]}}"
+            },
+            {
+              "name": "funil",
+              "value": "sesssao"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "SE-V7"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f8364d93-4cf6-41dc-8a55-9d280fa660ab",
+      "name": "dados_validados_correto1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        2380
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extrair informações do input\nconst inputData = items[0].json;\nconst respostas = inputData.body.form_response.answers;\n\n// Função para extrair e formatar o telefone\nfunction extrairDddETelefone(telefone) {\n  if (!telefone) return \"\";\n\n  const telefoneLimpo = telefone.replace(/\\D/g, \"\");\n  const ddd = telefoneLimpo.slice(0, 2);\n  const ddi = '55';\n\n  if (telefoneLimpo.startsWith('351')) {\n    return telefoneLimpo;\n  }\n\n  return telefoneLimpo.length > 10\n    ? ddi + ddd + telefoneLimpo.slice(-8)\n    : ddi + ddd + telefoneLimpo.slice(-9);\n}\n\n// Função para formatar a primeira letra de cada palavra em maiúsculo\nfunction formatarPrimeiraLetraMaiuscula(str) {\n  if (!str) return \"\";\n  const palavras = str.toLowerCase().split(\" \");\n  return palavras.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(\" \");\n}\n\n// Função para traduzir booleanos para Português\nfunction traduzirBooleano(valor) {\n  return valor ? \"Sim\" : \"Não\";\n}\n\n// Função para buscar a resposta com fallback\nfunction buscarRespostaPorRef(ref, tipo = \"text\") {\n  const resposta = respostas.find(answer => answer.field.ref === ref);\n  if (!resposta) return \"Sem informação\";\n\n  switch (tipo) {\n    case \"text\":\n      return resposta.text || \"Sem informação\";\n    case \"choice\":\n      return resposta.choice?.label || \"Sem informação\";\n    case \"boolean\":\n      return traduzirBooleano(resposta.boolean);\n    default:\n      return \"Sem informação\";\n  }\n}\n\n// Extrair UTMs\nfunction extractUTMs(json) {\n  const utms = {};\n  for (const key in json) {\n    if (key.startsWith('utm_')) {\n      utms[key] = json[key];\n    }\n  }\n  return utms;\n}\n\nconst utms = extractUTMs(inputData.body.form_response.hidden);\n\n// Extrair valores do hidden\nconst hidden = inputData.body.form_response.hidden || {};\nconst telefoneFormatado = extrairDddETelefone(hidden.phone || \"\");\n\n// Obter a data atual e formatar para 15 dias atrás\nconst dataAtual = new Date();\ndataAtual.setDate(dataAtual.getDate() - 15);\nconst dataFormatada = dataAtual.toISOString().split('T')[0];\n\n// Montar o objeto de output\nlet output = {\n  nome: formatarPrimeiraLetraMaiuscula(hidden.name || \"\"),\n  telefone: telefoneFormatado,\n  email: hidden.email || \"Sem informação\",\n  instagram: buscarRespostaPorRef(\"bae8dbfc-3bc4-4b25-b431-4d32910b51eb\"),\n  quantos_vendedores: buscarRespostaPorRef(\"fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed\", \"choice\"),\n  conhece_mentoria: buscarRespostaPorRef(\"f9be3fc8-d97d-406b-b633-ef44898fff9a\", \"choice\"),\n  tem_socio: buscarRespostaPorRef(\"06045517-dab6-4de5-bc9e-ae1cdde3d0d3\", \"boolean\"),\n  faturamento: buscarRespostaPorRef(\"8e7ed2e0-8950-449d-aed1-b5ff08e22f05\", \"choice\"),\n  analise_estrategica: buscarRespostaPorRef(\"50e834f2-ef33-40b0-8be8-a9d4f1e39d0f\"),\n  maior_desejo: buscarRespostaPorRef(\"8df77098-0796-418f-9919-86743b1f2c6e\"),\n  maior_dor: buscarRespostaPorRef(\"9bbab278-bbbd-4fce-9a98-d68633f35426\"),\n  data_ultima_quinzena: dataFormatada,\n  utm_content: utms.utm_content || \"\",\n  utm_source: utms.utm_source || \"\",\n  utm_campaign: utms.utm_campaign || \"\",\n  utm_medium: utms.utm_medium || \"\",\n  utm_term: utms.utm_term || \"\",\n  ending: inputData.body.form_response.ending?.ref || \"Sem informação\",\n};\n\n// Adicionar país se o número começar com '351'\nif (telefoneFormatado.startsWith('351')) {\n  output.Pais = \"Portugal\";\n}\n\nreturn [output];\n"
+      },
+      "id": "40ea5573-2ebb-4eb6-87c1-1b278995f316",
+      "name": "formata_dados5",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        920,
+        2380
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Funil Novo - Fabricio",
+        "height": 269.29055109030065,
+        "width": 845.3572881471382
+      },
+      "id": "671c9cad-7162-47f7-96bc-5eb40e91b9bb",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        680,
+        2300
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aplicacao-novo_funil",
+        "options": {}
+      },
+      "id": "c63262e7-eca0-43fa-9a23-c59b4bdae579",
+      "name": "aplicacao_preenchida_novo_funil",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        740,
+        2380
       ],
       "webhookId": "ca0c0d67-b335-4d4a-9bb2-47844ea97d8d"
     }
@@ -4005,6 +4410,280 @@
           "executionMode": "production"
         }
       }
+    ],
+    "aplicacao_preenchida_novo_funil": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "Typeform Webhooks",
+            "content-length": "5327",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "traceparent": "00-1f02116d6ad1bcdf6ff8406ef0e9cbd1-5f17b76b71472f2a-01",
+            "x-forwarded-for": "18.204.78.134",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "18.204.78.134"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event_id": "01JDASJPRBRFXHY6MA3JG5ZTB0",
+            "event_type": "form_response",
+            "form_response": {
+              "form_id": "WX3lTOM1",
+              "token": "b4i2kn46wzmq5a5xab4i2k5b3joo2751",
+              "landed_at": "2024-11-22T20:37:56Z",
+              "submitted_at": "2024-11-22T20:38:53Z",
+              "hidden": {
+                "email": "mateusdiniz@automagicbots.com.br",
+                "name": "Mateus Diniz - Automagic Bots",
+                "phone": "(62) 98119-6678",
+                "utm_campaign": "",
+                "utm_content": "",
+                "utm_id": "xxxxx",
+                "utm_medium": "",
+                "utm_source": "",
+                "utm_term": ""
+              },
+              "definition": {
+                "id": "WX3lTOM1",
+                "title": "Sessão Estratégica Novo",
+                "fields": [
+                  {
+                    "id": "M3m2bVBgcurd",
+                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed",
+                    "type": "multiple_choice",
+                    "title": "{{hidden:name}} quantos vendedores você tem na sua empresa hoje?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "SiLHOkkbU9FC",
+                        "ref": "699fb225-0c8f-4b12-9e00-904c1634f953",
+                        "label": "Não tenho vendedores"
+                      },
+                      {
+                        "id": "VgcWsYGg2EnX",
+                        "ref": "7e019f18-8e58-495d-b48e-6bddb50979e9",
+                        "label": "De 1 a 5 vendedores"
+                      },
+                      {
+                        "id": "bQqN9bQVIDWV",
+                        "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59",
+                        "label": "De 6 a 8 vendedores"
+                      },
+                      {
+                        "id": "ZO7j0UB7x3CN",
+                        "ref": "f272caf5-c0b8-4f15-adb5-70e6cb8a1421",
+                        "label": "De 9 a 15 vendedores"
+                      },
+                      {
+                        "id": "uFbay6lTHnsO",
+                        "ref": "9ada87ee-4773-4496-a28c-fb1235fdeca7",
+                        "label": "Acima de 15 vendedores"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "4v3CIEYOjaHk",
+                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a",
+                    "type": "multiple_choice",
+                    "title": "Você já ouviu falar do meu programa de Mentoria?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "X5Af2z1lSaG1",
+                        "ref": "0935e89e-f63f-4371-be68-67f935aadb55",
+                        "label": "Sim"
+                      },
+                      {
+                        "id": "JBI0C7NMx3aJ",
+                        "ref": "e361a83c-609b-48c9-b2fb-73b04a855081",
+                        "label": "Não"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "JTEAfHUPTzi4",
+                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3",
+                    "type": "yes_no",
+                    "title": "Você tem algum sócio ou parceiro de negócios que toma decisão junto com você?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "MQCC1ObRsy7l",
+                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb",
+                    "type": "short_text",
+                    "title": "Qual o Instagram da sua empresa?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "WkrHy5nCWzcC",
+                    "ref": "8e7ed2e0-8950-449d-aed1-b5ff08e22f05",
+                    "type": "multiple_choice",
+                    "title": "{{hidden:name}} qual a média de faturamento da sua empresa hoje?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "4BKw9X8Pgojq",
+                        "ref": "c4c2323b-7d13-4b03-8fcb-aae435158030",
+                        "label": "Até 40 mil reais por mês"
+                      },
+                      {
+                        "id": "WTlM3skyhU9l",
+                        "ref": "23882e9c-fb4a-471b-b2e2-12298616be35",
+                        "label": "Entre 40 e 100 mil reais por mês"
+                      },
+                      {
+                        "id": "KUxZcxN0so9q",
+                        "ref": "bc1234f2-cbe7-41ea-8500-58c201dd67d4",
+                        "label": "Entre 100 e 150 mil reais por mês"
+                      },
+                      {
+                        "id": "uXjQN5VnErvL",
+                        "ref": "653ed235-77ff-4166-a97b-9eb0fbee4108",
+                        "label": "Entre 150 e 300 mil reais por mês"
+                      },
+                      {
+                        "id": "trZJRCTNJdAN",
+                        "ref": "bc9ab128-e8ad-4ff5-9538-461211ab1145",
+                        "label": "Acima de 300 mil reais por mês"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "XMXPboboxOjO",
+                    "ref": "50e834f2-ef33-40b0-8be8-a9d4f1e39d0f",
+                    "type": "long_text",
+                    "title": "Porque você acredita que a análise estratégica vai ajudar sua empresa?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "voFeOI2TKLtq",
+                    "ref": "8df77098-0796-418f-9919-86743b1f2c6e",
+                    "type": "long_text",
+                    "title": "Qual o maior desejo seu como empresário hoje?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "MV932NeRf0fs",
+                    "ref": "9bbab278-bbbd-4fce-9a98-d68633f35426",
+                    "type": "long_text",
+                    "title": "Qual sua maior dor hoje como empresário e que gostaria que fosse solucionado?",
+                    "properties": {}
+                  }
+                ],
+                "endings": [
+                  {
+                    "id": "T1GhrDmScoYy",
+                    "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90",
+                    "title": "https://calendly.com/comercial-unv/sessao-estrategica?name={{hidden:name}}&email={{hidden:email}}&a1={{hidden:phone}}&utm_source={{hidden:utm_source}}&utm_campaign={{hidden:utm_campaign}}&utm_term={{hidden:utm_term}}&utm_medium={{hidden:utm_medium}}&utm_content={{hidden:utm_content}}",
+                    "type": "url_redirect",
+                    "properties": {
+                      "redirect_url": "https://calendly.com/comercial-unv/sessao-estrategica?name={{hidden:name}}&email={{hidden:email}}&a1={{hidden:phone}}&utm_source={{hidden:utm_source}}&utm_campaign={{hidden:utm_campaign}}&utm_term={{hidden:utm_term}}&utm_medium={{hidden:utm_medium}}&utm_content={{hidden:utm_content}}"
+                    }
+                  }
+                ]
+              },
+              "answers": [
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "bQqN9bQVIDWV",
+                    "label": "De 6 a 8 vendedores",
+                    "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59"
+                  },
+                  "field": {
+                    "id": "M3m2bVBgcurd",
+                    "type": "multiple_choice",
+                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "X5Af2z1lSaG1",
+                    "label": "Sim",
+                    "ref": "0935e89e-f63f-4371-be68-67f935aadb55"
+                  },
+                  "field": {
+                    "id": "4v3CIEYOjaHk",
+                    "type": "multiple_choice",
+                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a"
+                  }
+                },
+                {
+                  "type": "boolean",
+                  "boolean": false,
+                  "field": {
+                    "id": "JTEAfHUPTzi4",
+                    "type": "yes_no",
+                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "prmateusdiniz",
+                  "field": {
+                    "id": "MQCC1ObRsy7l",
+                    "type": "short_text",
+                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "KUxZcxN0so9q",
+                    "label": "Entre 100 e 150 mil reais por mês",
+                    "ref": "bc1234f2-cbe7-41ea-8500-58c201dd67d4"
+                  },
+                  "field": {
+                    "id": "WkrHy5nCWzcC",
+                    "type": "multiple_choice",
+                    "ref": "8e7ed2e0-8950-449d-aed1-b5ff08e22f05"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "vocês são os melhores",
+                  "field": {
+                    "id": "XMXPboboxOjO",
+                    "type": "long_text",
+                    "ref": "50e834f2-ef33-40b0-8be8-a9d4f1e39d0f"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Aumentar meu faturamento",
+                  "field": {
+                    "id": "voFeOI2TKLtq",
+                    "type": "long_text",
+                    "ref": "8df77098-0796-418f-9919-86743b1f2c6e"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "aumento nas vendas",
+                  "field": {
+                    "id": "MV932NeRf0fs",
+                    "type": "long_text",
+                    "ref": "9bbab278-bbbd-4fce-9a98-d68633f35426"
+                  }
+                }
+              ],
+              "ending": {
+                "id": "T1GhrDmScoYy",
+                "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90"
+              }
+            }
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-novo_funil",
+          "executionMode": "production"
+        }
+      }
     ]
   },
   "settings": {
@@ -4025,7 +4704,7 @@
       "name": "[NAG]"
     }
   ],
-  "triggerCount": 5,
-  "updatedAt": "2024-11-12T14:24:50.413Z",
-  "versionId": "33f8edde-86c4-4d3c-b55d-bc2c1987f7a1"
+  "triggerCount": 6,
+  "updatedAt": "2024-11-22T21:58:48.986Z",
+  "versionId": "58d48b32-b26b-4723-bb77-1b3cc3627eff"
 }
