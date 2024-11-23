@@ -165,6 +165,39 @@
           }
         ]
       ]
+    },
+    "formata_dados4": {
+      "main": [
+        [
+          {
+            "node": "dados_do_lead4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_do_lead4": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "preencheu_pre_forms_v7": {
+      "main": [
+        [
+          {
+            "node": "formata_dados4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-13T19:27:32.781Z",
@@ -1193,6 +1226,202 @@
         1040
       ],
       "webhookId": "b9467ba7-123c-4619-84a8-95c3e6c5808f"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"preencheu_pre_forms_v7\"].json.body[\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"preencheu_pre_forms_v7\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"preencheu_pre_forms_v7\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"preencheu_pre_forms_v7\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"preencheu_pre_forms_v7\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"preencheu_pre_forms_v7\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"preencheu_pre_forms_v7\"].json.body[\"utm_content\"];\nconst nome = $node[\"preencheu_pre_forms_v7\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
+      },
+      "id": "2f4ff3bc-2b84-4848-a424-fc22de436366",
+      "name": "formata_dados4",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"formata_dados4\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ $node[\"formata_dados4\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"formata_dados4\"].json[\"email\"] }}"
+            },
+            {
+              "name": "Data do Evento",
+              "value": "={{$now.toFormat('dd/MM/yyyy')}}"
+            },
+            {
+              "name": "Hora do Evento",
+              "value": "={{$now.toFormat('dd/MM/yyyy HH:mm').split(' ')[1]}}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "id_campo_emailse",
+              "value": "1045671"
+            },
+            {
+              "name": "valor_mentoria_centavos"
+            },
+            {
+              "name": "id_fluxo_nap01",
+              "value": "2445393"
+            },
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "id_pipeline_se"
+            },
+            {
+              "name": "id_stage_iniciou_aplicacao"
+            },
+            {
+              "name": "id_campo_deal_utm_source"
+            },
+            {
+              "name": "id_campo_deal_utm_campaign"
+            },
+            {
+              "name": "id_campo_deal_utm_term"
+            },
+            {
+              "name": "id_campo_deal_utm_medium"
+            },
+            {
+              "name": "id_campo_deal_utm_content"
+            },
+            {
+              "name": "id_sdr"
+            },
+            {
+              "name": "funil",
+              "value": "sessao_estrategica"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "=SE-V7"
+            },
+            {
+              "name": "url_api_activecampaign"
+            },
+            {
+              "name": "id_campo_deal_utm_fun"
+            },
+            {
+              "name": "id_campo_deal_utm_var"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1408040"
+            },
+            {
+              "name": "id_campo_utm_fun_bot_conversa",
+              "value": "1408044"
+            },
+            {
+              "name": "id_campo_utm_var_bot_conversa",
+              "value": "1408045"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1408043"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1408042"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1408041"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1408038"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1408048"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_ac"
+            },
+            {
+              "name": "id_campo_iddealac_bot_conversa"
+            },
+            {
+              "name": "id_campo_idleadac_bot_conversa"
+            },
+            {
+              "name": "data_ultima_quinzena",
+              "value": "=\"{{ $node[\"formata_dados4\"].json[\"dataFormatada\"] }}\""
+            },
+            {
+              "name": "id_fluxo_notifica_sdr_pop_up",
+              "value": "2215208"
+            },
+            {
+              "name": "funil_lead_loves",
+              "value": "com agendamento"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5671d1ed-b551-4dd2-ab46-79c19bc94617",
+      "name": "dados_do_lead4",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aplicacao-preenchida-funil-v7",
+        "options": {}
+      },
+      "id": "23ffddaa-8cb7-46a2-9678-065ab1f8ce92",
+      "name": "preencheu_pre_forms_v7",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        1580
+      ],
+      "webhookId": "b9467ba7-123c-4619-84a8-95c3e6c5808f"
     }
   ],
   "pinData": {
@@ -1339,13 +1568,52 @@
           "executionMode": "production"
         }
       }
+    ],
+    "preencheu_pre_forms_v7": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "WordPress/6.5.5; https://universidadevendas.com.br",
+            "content-length": "221",
+            "accept": "*/*",
+            "accept-encoding": "deflate, gzip, br, zstd",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-forwarded-for": "45.8.227.175",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "45.8.227.175"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Nome": "Vitor Queiroz de Almeida",
+            "WhatsApp com DDD": "(19) 98202-2213",
+            "E-mail": "vitorrqueiroztrafego@gmail.com",
+            "utm_source": "organico",
+            "utm_content": "",
+            "utm_campaign": "",
+            "utm_medium": "",
+            "utm_term": "",
+            "form_id": "88889e3",
+            "form_name": "Aplicação"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-preenchida-elementor-hatzner",
+          "executionMode": "production"
+        }
+      }
     ]
   },
   "settings": {
     "executionOrder": "v1",
     "saveManualExecutions": true,
     "callerPolicy": "workflowsFromSameOwner",
-    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true
   },
   "staticData": null,
   "tags": [
@@ -1356,7 +1624,7 @@
       "name": "[NAP]"
     }
   ],
-  "triggerCount": 4,
-  "updatedAt": "2024-08-30T18:34:46.509Z",
-  "versionId": "d87559ac-7c5b-49a1-bb10-f7cb66eb0467"
+  "triggerCount": 5,
+  "updatedAt": "2024-11-23T01:21:03.903Z",
+  "versionId": "70ff18d4-ecce-4b9b-bb56-93e12c738668"
 }
