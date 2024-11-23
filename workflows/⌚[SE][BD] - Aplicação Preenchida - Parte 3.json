@@ -1193,6 +1193,22 @@
             {
               "name": "instagram",
               "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}"
+            },
+            {
+              "name": "analise_estratégica",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"analise_estratégica\"] }}"
+            },
+            {
+              "name": "maior_desejo",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"maior_desejo\"] }}"
+            },
+            {
+              "name": "maior_dor",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"maior_dor\"] }}"
+            },
+            {
+              "name": "faturamento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"faturamento\"] }}"
             }
           ],
           "boolean": [
@@ -1332,8 +1348,8 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-9TwnHIMt2uDIlJgl2QgFNA",
-            "deliveryTag": 198,
+            "consumerTag": "amq.ctag-L4jdwiAJ0dIAaQFUwPqNpQ",
+            "deliveryTag": 1,
             "redelivered": false,
             "exchange": "",
             "routingKey": "Não Agendamentos - Parte 3"
@@ -1355,11 +1371,11 @@
             "utm_term": "",
             "utm_medium": "",
             "utm_content": "",
-            "funil": "SE",
-            "variacao_do_funil": "V1",
+            "funil": "sesssao",
+            "variacao_do_funil": "SE-V7",
             "quantos_vendedores_possui": "De 6 a 8 vendedores",
             "conhece_mentoria": "Sim",
-            "tem_socio": "Sim\n",
+            "tem_socio": "Não",
             "id_tag_desqualificado_bot_conversa": "5073673",
             "id_campo_utm_var_bot_conversa": "1408045",
             "id_campo_utm_fun_bot_conversa": "1408044",
@@ -1375,9 +1391,13 @@
             "id_campo_tem_socio_bot_conversa": "1408036",
             "id_fluxo_nao_agendou_10_min": "",
             "qualificacao": "Qualificado",
-            "API-KEY": "a9585685-a8d4-4f70-be7c-44c8dedf905f",
-            "data_ultima_quinzena": "\"2024-05-22\"",
-            "id_tag_qualificado_bot_conversa": "4891806"
+            "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
+            "data_ultima_quinzena": "2024-11-07",
+            "id_tag_qualificado_bot_conversa": "4891806",
+            "analise_estratégica": "vocês são os melhores",
+            "maior_desejo": "Aumentar meu faturamento",
+            "maior_dor": "aumento nas vendas",
+            "faturamento": "Entre 100 e 150 mil reais por mês"
           }
         }
       }
@@ -1399,6 +1419,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-06-06T17:56:28.827Z",
-  "versionId": "d0d189ca-a617-4f65-970e-7fcab72d4cdc"
+  "updatedAt": "2024-11-22T22:25:16.293Z",
+  "versionId": "55cdc2fd-794c-48d7-81f2-c70fa3c0eb52"
 }
