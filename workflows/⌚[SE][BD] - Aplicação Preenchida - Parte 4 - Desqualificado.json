@@ -1003,6 +1003,22 @@
             {
               "name": "instagram",
               "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}"
+            },
+            {
+              "name": "analise_estratégica",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"analise_estratégica\"] }}"
+            },
+            {
+              "name": "maior_desejo",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"maior_desejo\"] }}"
+            },
+            {
+              "name": "maior_dor",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"maior_dor\"] }}"
+            },
+            {
+              "name": "faturamento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"faturamento\"] }}"
             }
           ]
         },
@@ -1232,6 +1248,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-06-06T17:57:32.720Z",
-  "versionId": "c3b61349-61c9-48a4-a9ce-5df7293ffaf1"
+  "updatedAt": "2024-11-22T22:28:28.459Z",
+  "versionId": "b6d9bb45-c3df-4869-8be2-46c98aba0394"
 }
