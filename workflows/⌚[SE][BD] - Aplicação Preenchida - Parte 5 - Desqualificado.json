@@ -297,7 +297,7 @@
         ],
         [
           {
-            "node": "rodizio_sdr1",
+            "node": "é_Funil_V7",
             "type": "main",
             "index": 0
           }
@@ -331,6 +331,46 @@
         [
           {
             "node": "cria/atualiza_negocio_desqualificado2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "é_Funil_V7": {
+      "main": [
+        [
+          {
+            "node": "rodizio_sdr2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "rodizio_sdr1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "rodizio_sdr2": {
+      "main": [
+        [
+          {
+            "node": "create/update clint3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create/update clint3": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_id_banco_de_dados",
             "type": "main",
             "index": 0
           }
@@ -443,8 +483,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2160,
-        460
+        2260,
+        660
       ],
       "retryOnFail": true,
       "waitBetweenTries": 5000,
@@ -483,8 +523,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2080,
-        700
+        2180,
+        900
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -524,8 +564,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2280,
-        700
+        2380,
+        900
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -565,8 +605,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2480,
-        700
+        2580,
+        900
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -606,8 +646,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2660,
-        700
+        2760,
+        900
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -634,8 +674,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3500,
-        700
+        3600,
+        900
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -675,8 +715,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2860,
-        700
+        2960,
+        900
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -716,8 +756,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3060,
-        700
+        3160,
+        900
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -757,8 +797,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1880,
-        700
+        1980,
+        900
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -798,8 +838,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3280,
-        700
+        3380,
+        900
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -839,8 +879,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2360,
-        460
+        2460,
+        660
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -880,8 +920,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2580,
-        460
+        2680,
+        660
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -921,8 +961,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2800,
-        460
+        2900,
+        660
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -1135,8 +1175,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
       "position": [
-        4280,
-        700
+        4380,
+        900
       ],
       "alwaysOutputData": false,
       "retryOnFail": true,
@@ -1177,8 +1217,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4100,
-        700
+        4200,
+        900
       ],
       "retryOnFail": true,
       "waitBetweenTries": 5000,
@@ -1204,8 +1244,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3880,
-        600
+        3980,
+        800
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -1228,8 +1268,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3660,
-        700
+        3760,
+        900
       ]
     },
     {
@@ -1520,8 +1560,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1940,
-        460
+        2040,
+        660
       ]
     },
     {
@@ -1682,8 +1722,159 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1680,
-        460
+        1780,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}",
+              "value2": "SE-V7"
+            }
+          ]
+        }
+      },
+      "id": "273138e7-0588-47cb-81d7-26b9453803b1",
+      "name": "é_Funil_V7",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        620
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/c131a72e-1fae-45de-b85e-e4e2d14a605d",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente - Formato Z-API\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"E-mail do Cliente\"].trim() }}"
+            },
+            {
+              "name": "número de funcionários",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "name": "possui sócio?",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tem_socio\"] }}"
+            },
+            {
+              "name": "vendedores",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"quantos_vendedores_possui\"] }}"
+            },
+            {
+              "name": "Já conhece o negócio?",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"conhece_mentoria\"] }}"
+            },
+            {
+              "name": "dono_negocio",
+              "value": "={{ $node[\"rodizio_sdr2\"].json[\"nome\"].replace('Laiane','laiane@universidadevendas.com.br').replace('Naiara','naiara.jaqueline@universidadevendas.com.br') }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"funil\"] }}"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"variacao_do_funil\"] }}"
+            },
+            {
+              "name": "pais",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"pais\"] }}"
+            },
+            {
+              "name": "instagram",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"].toLowerCase().replaceAll('@','')}}"
+            },
+            {
+              "name": "analise_estratégica",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"analise_estratégica\"] }}"
+            },
+            {
+              "name": "maior_desejo",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"maior_desejo\"] }}"
+            },
+            {
+              "name": "maior_dor",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"maior_dor\"] }}"
+            },
+            {
+              "name": "faturamento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "368bc6e7-139b-4f32-8cb7-122497f24635",
+      "name": "create/update clint3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2020,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/consulta-colaborador",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "SDR"
+            },
+            {
+              "name": "user",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bd\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f58d7fb7-e25c-4ca4-bca8-57d5ce7453eb",
+      "name": "rodizio_sdr2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1800,
+        480
       ]
     }
   ],
@@ -1755,6 +1946,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-12T14:18:24.016Z",
-  "versionId": "5d714c15-dc17-4c34-996b-9e3ca229ce66"
+  "updatedAt": "2024-11-23T00:17:12.242Z",
+  "versionId": "1371d519-4a2e-47d6-b1be-cd97a3f1cc43"
 }
