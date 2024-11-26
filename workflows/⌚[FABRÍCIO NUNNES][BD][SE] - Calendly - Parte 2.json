@@ -5912,7 +5912,7 @@
             {
               "id": "7a91e12d-29cb-4fdd-99a7-88b0ee99c735",
               "leftValue": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"slug_do_evento\"] }}",
-              "rightValue": "sessao-estrategica-comercial-novo",
+              "rightValue": "sessao-estrategica-novo",
               "operator": {
                 "type": "string",
                 "operation": "equals",
@@ -5939,37 +5939,35 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-6Hj1XICNB2ghK1diIj8smw",
-            "deliveryTag": 13317172,
-            "redelivered": true,
+            "consumerTag": "amq.ctag-CX1SPv4PuHAiooVz8rxYGQ",
+            "deliveryTag": 19,
+            "redelivered": false,
             "exchange": "",
             "routingKey": "Calendly - Sessão Estratégica"
           },
           "properties": {
-            "headers": {
-              "x-delivery-count": 5157528
-            }
+            "headers": {}
           },
           "content": {
-            "Nome do Cliente": "Anairis silva",
-            "E-mail do Cliente": "anairis.silva@hotmail.com",
-            "Telefone do Cliente - Formato BC": "+557599340545",
-            "Telefone do Cliente - Formato Z-API": "557599340545",
-            "Tipo de Evento": "Sessão Estratégica Comercial",
-            "ID do Evento": "8aa4caf4-1f91-445a-9a4c-076a33fa8da7",
-            "Responsável pelo Evento": "Leonardo Barroso",
-            "E-mail do Responsável": "leonardo.barroso@universidadevendas.com.br",
-            "Data de Início": "18/10/2024, 17:00",
-            "Data em que foi feito o Agendamento": "14/10/2024, 06:21",
-            "Data de Término": "18/10/2024, 17:45",
-            "Dia da Semana de Início do Evento": "Sexta",
-            "Link da Reunião": "https://calendly.com/events/8aa4caf4-1f91-445a-9a4c-076a33fa8da7/google_meet",
-            "utm_source": "ig",
-            "utm_campaign": "[LF] [SE] [CAPTAÇÃO] [CADASTRO] [AUTO] [F] Públicos Frios ABO",
-            "utm_term": "SE_AD031",
-            "utm_medium": "Instagram_Feed",
-            "utm_content": "00 - [AUTO] [F] Tomadores de Decisões Empresariais",
-            "ID do Cliente": "6d363a99-d4c4-4e6e-ae52-d37761ae08c8",
+            "Nome do Cliente": "Mateus Diniz (Automagic Bots)",
+            "E-mail do Cliente": "mateusdiniz@automagicbots.com.br",
+            "Telefone do Cliente - Formato BC": "+556281196678",
+            "Telefone do Cliente - Formato Z-API": "556281196678",
+            "Tipo de Evento": "Sessão Estratégica Novo",
+            "ID do Evento": "59eeb65e-5e25-41da-9f4e-f610b12e3660",
+            "Responsável pelo Evento": "Fabricio Nunnes",
+            "E-mail do Responsável": "fabricio@universidadevendas.com.br",
+            "Data de Início": "27/11/2024, 17:00",
+            "Data em que foi feito o Agendamento": "25/11/2024, 14:57",
+            "Data de Término": "27/11/2024, 17:45",
+            "Dia da Semana de Início do Evento": "Quarta",
+            "Link da Reunião": "https://calendly.com/events/59eeb65e-5e25-41da-9f4e-f610b12e3660/google_meet",
+            "utm_source": null,
+            "utm_campaign": null,
+            "utm_term": null,
+            "utm_medium": null,
+            "utm_content": null,
+            "ID do Cliente": "94e5e0a5-c8c5-4f03-8ef5-3c6a47ed58cb",
             "id_do_campo_id_do_agendamento_bot_conversa": "1045673",
             "fluxo_de_confirmacao_de_agendamento": "4496635",
             "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
@@ -5988,12 +5986,13 @@
             "id_do_campo_faturamento_mensal_bot_conversa": "1051567",
             "id_campo_tem_socio_bot_conversa": "1408036",
             "id_campo_nome_closer_responsavel_bot_conversa": "1459264",
-            "Data em que foi feito o Agendamento - PT": "14/10/2024",
+            "Data em que foi feito o Agendamento - PT": "25/11/2024",
             "Data de Início - PT": "20:00",
             "Data de Término - PT": "20:45",
             "id_do_campo_dia_da_semana_do_agendamento_bot_conversa_pt": "1853088",
             "id_do_campo_horario_agendado_bot_conversa_pt": "1853084",
-            "id_do_campo_data_do_agendamento_bot_conversa_pt": "1852850"
+            "id_do_campo_data_do_agendamento_bot_conversa_pt": "1852850",
+            "slug_do_evento": "sessao-estrategica-novo"
           }
         }
       }
@@ -6012,6 +6011,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-23T00:46:56.302Z",
-  "versionId": "6e4074a0-357d-4c08-be56-bacac9a47888"
+  "updatedAt": "2024-11-25T17:59:04.093Z",
+  "versionId": "7043a82a-bbb6-4ab5-b99c-c18dd45f9a06"
 }
