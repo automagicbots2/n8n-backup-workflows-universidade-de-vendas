@@ -2435,78 +2435,78 @@
     "Evento": [
       {
         "json": {
-          "event": "invitee.created",
+          "event": "invitee.canceled",
           "payload": {
             "event_type": {
-              "uuid": "9a89c12e-b4b7-45b6-b462-5ffb9c869d80",
-              "kind": "Round Robin",
-              "slug": "sessao-estrategica",
-              "name": "Sessão Estratégica Comercial",
+              "uuid": "5f3fb08f-2fff-4f05-9ce6-c4b6a5bfa511",
+              "kind": "One-on-One",
+              "slug": "sessao-estrategica-novo",
+              "name": "Sessão Estratégica Novo",
               "duration": 45,
               "owner": {
-                "type": "teams",
-                "uuid": "5cd25daf-bf05-457d-92c5-2721ece75eee"
+                "type": "users",
+                "uuid": "141dacb3-8838-466e-9534-82d139fdeb48"
               }
             },
             "event": {
-              "uuid": "5c5de170-d00b-4a32-9b03-820acb3ee0a9",
+              "uuid": "59eeb65e-5e25-41da-9f4e-f610b12e3660",
               "assigned_to": [
-                "Silas Moraes"
+                "Fabricio Nunnes"
               ],
               "extended_assigned_to": [
                 {
-                  "name": "Silas Moraes",
-                  "email": "silas.moraes@universidadevendas.com.br",
+                  "name": "Fabricio Nunnes",
+                  "email": "fabricio@universidadevendas.com.br",
                   "primary": true
                 }
               ],
-              "start_time": "2024-11-27T10:00:00-03:00",
-              "start_time_pretty": "10:00am - Wednesday, November 27, 2024",
-              "invitee_start_time": "2024-11-27T10:00:00-03:00",
-              "invitee_start_time_pretty": "10:00am - Wednesday, November 27, 2024",
-              "end_time": "2024-11-27T10:45:00-03:00",
-              "end_time_pretty": "10:45am - Wednesday, November 27, 2024",
-              "invitee_end_time": "2024-11-27T10:45:00-03:00",
-              "invitee_end_time_pretty": "10:45am - Wednesday, November 27, 2024",
-              "created_at": "2024-11-22T21:22:24-03:00",
-              "location": "https://calendly.com/events/5c5de170-d00b-4a32-9b03-820acb3ee0a9/google_meet",
-              "canceled": false,
-              "canceler_name": null,
-              "cancel_reason": null,
-              "canceled_at": null
+              "start_time": "2024-11-27T17:00:00-03:00",
+              "start_time_pretty": "05:00pm - Wednesday, November 27, 2024",
+              "invitee_start_time": "2024-11-27T17:00:00-03:00",
+              "invitee_start_time_pretty": "05:00pm - Wednesday, November 27, 2024",
+              "end_time": "2024-11-27T17:45:00-03:00",
+              "end_time_pretty": "05:45pm - Wednesday, November 27, 2024",
+              "invitee_end_time": "2024-11-27T17:45:00-03:00",
+              "invitee_end_time_pretty": "05:45pm - Wednesday, November 27, 2024",
+              "created_at": "2024-11-25T14:57:35-03:00",
+              "location": "https://calendly.com/events/59eeb65e-5e25-41da-9f4e-f610b12e3660/google_meet",
+              "canceled": true,
+              "canceler_name": "Fabricio Nunnes",
+              "cancel_reason": "teste",
+              "canceled_at": "2024-11-25T15:00:36-03:00"
             },
             "invitee": {
-              "uuid": "65aebc11-5b4e-4de6-aa21-021d41312a33",
+              "uuid": "94e5e0a5-c8c5-4f03-8ef5-3c6a47ed58cb",
               "first_name": null,
               "last_name": null,
-              "name": "Marco",
-              "email": "marcoreisjr@mreis.com.br",
+              "name": "Mateus Diniz (Automagic Bots)",
+              "email": "mateusdiniz@automagicbots.com.br",
               "text_reminder_number": null,
               "timezone": "America/Sao_Paulo",
-              "created_at": "2024-11-22T21:22:24-03:00",
+              "created_at": "2024-11-25T14:57:35-03:00",
               "is_reschedule": false,
               "payments": [],
-              "canceled": false,
-              "canceler_name": null,
-              "cancel_reason": null,
-              "canceled_at": null
+              "canceled": true,
+              "canceler_name": "Fabricio Nunnes",
+              "cancel_reason": "teste",
+              "canceled_at": "2024-11-25T15:00:36-03:00"
             },
             "questions_and_answers": [
               {
-                "question": "Qual seu telefone?",
-                "answer": "+55 14 99195-3656"
+                "question": "WhatsApp",
+                "answer": "+55 62 98119-6678"
               }
             ],
             "questions_and_responses": {
-              "1_question": "Qual seu telefone?",
-              "1_response": "+55 14 99195-3656"
+              "1_question": "WhatsApp",
+              "1_response": "+55 62 98119-6678"
             },
             "tracking": {
-              "utm_campaign": "[LF] [SE] [CAPTAÇÃO] [CADASTRO] [AUTO] [F] Públicos Frios ABO",
-              "utm_source": "ig",
-              "utm_medium": "Instagram_Feed",
-              "utm_content": "00 - [AUTO] [F] Tomadores de Decisões Empresariais",
-              "utm_term": "SE_AD031",
+              "utm_campaign": null,
+              "utm_source": null,
+              "utm_medium": null,
+              "utm_content": null,
+              "utm_term": null,
               "salesforce_uuid": null
             },
             "old_event": null,
@@ -2514,7 +2514,7 @@
             "new_event": null,
             "new_invitee": null
           },
-          "time": "2024-11-23T00:22:25Z"
+          "time": "2024-11-25T18:00:37Z"
         }
       }
     ],
@@ -3249,7 +3249,7 @@
   },
   "staticData": {
     "node:Evento": {
-      "webhookId": 5251882
+      "webhookId": 5258096
     }
   },
   "tags": [
@@ -3261,6 +3261,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-23T00:26:08.435Z",
-  "versionId": "11deca84-341d-4a90-b141-55ed8da9ce00"
+  "updatedAt": "2024-11-25T18:06:41.936Z",
+  "versionId": "b4d3c039-d3c6-4fc3-9ad9-a784a4cc0f8c"
 }
