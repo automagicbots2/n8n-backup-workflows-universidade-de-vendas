@@ -4688,6 +4688,11 @@
             {
               "value1": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Tipo de Evento\"] }}",
               "value2": "Sessão estratégica"
+            },
+            {
+              "value1": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Tipo de Evento\"] }}",
+              "operation": "contains",
+              "value2": "Sessão Estratégica"
             }
           ]
         },
@@ -6466,7 +6471,7 @@
             {
               "id": "7a91e12d-29cb-4fdd-99a7-88b0ee99c735",
               "leftValue": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"slug_do_evento\"] }}",
-              "rightValue": "sessao-estrategica-comercial-novo",
+              "rightValue": "sessao-estrategica-novo",
               "operator": {
                 "type": "string",
                 "operation": "equals",
@@ -6675,6 +6680,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-23T00:39:18.553Z",
-  "versionId": "e8e43a1a-4259-4abd-862a-f60535c39ba9"
+  "updatedAt": "2024-11-25T18:07:10.347Z",
+  "versionId": "0083b0af-bc35-47d6-9923-253df714c9aa"
 }
