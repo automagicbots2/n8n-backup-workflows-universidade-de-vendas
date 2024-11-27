@@ -12,35 +12,6 @@
         ]
       ]
     },
-    "numeros_de_teste": {
-      "main": [
-        [
-          {
-            "node": "espera_2_segundos",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "espera_1_min",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "espera_2_segundos": {
-      "main": [
-        [
-          {
-            "node": "envia_fluxo_de_confirmacao_de_agendamento",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "segundo_ou_mais_erro": {
       "main": [
         [
@@ -1124,116 +1095,6 @@
         ]
       ]
     },
-    "espera_1_min": {
-      "main": [
-        [
-          {
-            "node": "espera_1_min1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "espera_1_min2": {
-      "main": [
-        [
-          {
-            "node": "espera_1_min3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "espera_1_min3": {
-      "main": [
-        [
-          {
-            "node": "espera_1_min4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "espera_1_min4": {
-      "main": [
-        [
-          {
-            "node": "espera_1_min5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "espera_1_min1": {
-      "main": [
-        [
-          {
-            "node": "espera_1_min2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "espera_1_min5": {
-      "main": [
-        [
-          {
-            "node": "espera_1_min6",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "espera_1_min6": {
-      "main": [
-        [
-          {
-            "node": "espera_1_min7",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "espera_1_min7": {
-      "main": [
-        [
-          {
-            "node": "espera_1_min8",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "espera_1_min8": {
-      "main": [
-        [
-          {
-            "node": "espera_1_min9",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "espera_1_min9": {
-      "main": [
-        [
-          {
-            "node": "envia_fluxo_de_confirmacao_de_agendamento",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "3-1": {
       "main": [
         [
@@ -1488,6 +1349,17 @@
           }
         ]
       ]
+    },
+    "envia_tipo_serviço": {
+      "main": [
+        [
+          {
+            "node": "envia_fluxo_de_confirmacao_de_agendamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-14T15:05:55.378Z",
@@ -1511,70 +1383,6 @@
         680
       ],
       "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ $node[\"entra_na_fila\"].json.content[\"Telefone do Cliente - Formato BC\"] }}",
-              "value2": "+553185711260"
-            },
-            {
-              "value1": "={{ $node[\"entra_na_fila\"].json.content[\"Telefone do Cliente - Formato BC\"] }}",
-              "value2": "+553184939743"
-            },
-            {
-              "value1": "={{ $node[\"entra_na_fila\"].json.content[\"Telefone do Cliente - Formato BC\"] }}",
-              "value2": "+557181606543"
-            },
-            {
-              "value1": "={{ $node[\"entra_na_fila\"].json.content[\"Telefone do Cliente - Formato BC\"] }}",
-              "value2": "+5514991588346"
-            },
-            {
-              "value1": "={{ $node[\"entra_na_fila\"].json.content[\"Telefone do Cliente - Formato BC\"] }}",
-              "value2": "+5531999580682"
-            },
-            {
-              "value1": "={{ $node[\"entra_na_fila\"].json.content[\"Telefone do Cliente - Formato BC\"] }}",
-              "value2": "+557192594557"
-            },
-            {
-              "value1": "={{ $node[\"entra_na_fila\"].json.content[\"Telefone do Cliente - Formato BC\"] }}",
-              "value2": "+5511968678789"
-            },
-            {
-              "value1": "={{ $node[\"entra_na_fila\"].json.content[\"Telefone do Cliente - Formato BC\"] }}",
-              "value2": "+556281196678"
-            }
-          ]
-        },
-        "combineOperation": "any"
-      },
-      "id": "d2dc6ca3-8dd6-4a14-89b9-e6403de92840",
-      "name": "numeros_de_teste",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        11540,
-        1080
-      ]
-    },
-    {
-      "parameters": {
-        "amount": 2,
-        "unit": "seconds"
-      },
-      "id": "9f450751-d7c1-4a21-9d2b-3336a2b7c3ec",
-      "name": "espera_2_segundos",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        11740,
-        940
-      ],
-      "webhookId": "b8347fd4-a0f4-47c6-95a3-45bb9acd0ddb"
     },
     {
       "parameters": {
@@ -4082,7 +3890,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        12000,
+        11380,
         1080
       ],
       "retryOnFail": true,
@@ -4702,156 +4510,6 @@
         1873,
         940
       ]
-    },
-    {
-      "parameters": {
-        "amount": 60,
-        "unit": "seconds"
-      },
-      "id": "63efef67-a9cc-4c28-bb75-082fac1138ce",
-      "name": "espera_1_min",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        11660,
-        1220
-      ],
-      "webhookId": "e372fa4f-d5a8-464b-8d09-2b2d595c793a"
-    },
-    {
-      "parameters": {
-        "amount": 60,
-        "unit": "seconds"
-      },
-      "id": "9a9f92dd-c2dd-4baf-9c5a-3405b9024bc2",
-      "name": "espera_1_min1",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        11800,
-        1220
-      ],
-      "webhookId": "e372fa4f-d5a8-464b-8d09-2b2d595c793a"
-    },
-    {
-      "parameters": {
-        "amount": 60,
-        "unit": "seconds"
-      },
-      "id": "204b9a37-f097-4c8f-ab06-cca93202017c",
-      "name": "espera_1_min2",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        11520,
-        1360
-      ],
-      "webhookId": "e372fa4f-d5a8-464b-8d09-2b2d595c793a"
-    },
-    {
-      "parameters": {
-        "amount": 60,
-        "unit": "seconds"
-      },
-      "id": "00b704cd-5460-4ac4-ba8d-3a4d66aa9acf",
-      "name": "espera_1_min3",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        11660,
-        1360
-      ],
-      "webhookId": "e372fa4f-d5a8-464b-8d09-2b2d595c793a"
-    },
-    {
-      "parameters": {
-        "amount": 60,
-        "unit": "seconds"
-      },
-      "id": "e4e2263e-6bdf-42be-9602-2c33386b34a0",
-      "name": "espera_1_min4",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        11800,
-        1360
-      ],
-      "webhookId": "e372fa4f-d5a8-464b-8d09-2b2d595c793a"
-    },
-    {
-      "parameters": {
-        "amount": 60,
-        "unit": "seconds"
-      },
-      "id": "a1cfb377-5377-48f2-a889-e56a1cf141ad",
-      "name": "espera_1_min5",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        11960,
-        1360
-      ],
-      "webhookId": "e372fa4f-d5a8-464b-8d09-2b2d595c793a"
-    },
-    {
-      "parameters": {
-        "amount": 60,
-        "unit": "seconds"
-      },
-      "id": "e1c5b4fa-5206-4da8-8ace-8f09eac2e131",
-      "name": "espera_1_min6",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        11520,
-        1500
-      ],
-      "webhookId": "e372fa4f-d5a8-464b-8d09-2b2d595c793a"
-    },
-    {
-      "parameters": {
-        "amount": 60,
-        "unit": "seconds"
-      },
-      "id": "1b92bc4a-1b76-47bc-be7a-86b30240d90c",
-      "name": "espera_1_min7",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        11660,
-        1500
-      ],
-      "webhookId": "e372fa4f-d5a8-464b-8d09-2b2d595c793a"
-    },
-    {
-      "parameters": {
-        "amount": 60,
-        "unit": "seconds"
-      },
-      "id": "731a5766-c240-4d8a-ac68-18b7b13cb3e4",
-      "name": "espera_1_min8",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        11800,
-        1500
-      ],
-      "webhookId": "e372fa4f-d5a8-464b-8d09-2b2d595c793a"
-    },
-    {
-      "parameters": {
-        "amount": 60,
-        "unit": "seconds"
-      },
-      "id": "4b12274d-15c5-43e4-855e-c93eb5240b0f",
-      "name": "espera_1_min9",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        11940,
-        1500
-      ],
-      "webhookId": "e372fa4f-d5a8-464b-8d09-2b2d595c793a"
     },
     {
       "parameters": {
@@ -6011,6 +5669,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-25T17:59:04.093Z",
-  "versionId": "7043a82a-bbb6-4ab5-b99c-c18dd45f9a06"
+  "updatedAt": "2024-11-27T13:40:41.763Z",
+  "versionId": "8c0d5bee-1513-45b1-b9c5-70106c2c923f"
 }
