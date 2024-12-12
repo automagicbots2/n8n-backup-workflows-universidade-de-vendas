@@ -1,0 +1,37 @@
+{
+  "active": true,
+  "connections": {},
+  "createdAt": "2024-12-12T13:38:26.427Z",
+  "id": "2Ya0hs8vCuEylL5M",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "asaas-contaazul",
+        "options": {}
+      },
+      "id": "8e463a9b-3497-4e64-8870-626a2ee249e8",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        800,
+        380
+      ],
+      "webhookId": "417fd3c9-851b-4063-894c-bc57871da022"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-12-12T13:38:26.652Z",
+  "versionId": "5f05782b-7149-4310-b10d-7f8aafa80e85"
+}
