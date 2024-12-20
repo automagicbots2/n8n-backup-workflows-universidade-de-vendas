@@ -1,0 +1,534 @@
+{
+  "active": false,
+  "connections": {
+    "criarContato": {
+      "main": [
+        [
+          {
+            "node": "pesquisaContato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "verificaCobranca": {
+      "main": [
+        [
+          {
+            "node": "existeCobranca",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existeCobranca": {
+      "main": [
+        [
+          {
+            "node": "atualizaCobranca",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "criaCobranca",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RabbitMQ Trigger": {
+      "main": [
+        [
+          {
+            "node": "buscarCliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscarCliente": {
+      "main": [
+        [
+          {
+            "node": "pesquisaContato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisaContato": {
+      "main": [
+        [
+          {
+            "node": "existeContato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existeContato": {
+      "main": [
+        [],
+        [
+          {
+            "node": "criarContato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-19T19:42:13.191Z",
+  "id": "3GaHqFbmGIInEm6t",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[FABRICIO NUNNES] - Integração Asaas + Conta Azul - Parte 2",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.contaazul.com/v1/customers",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "name",
+              "value": "John C."
+            },
+            {
+              "name": "company_name",
+              "value": "John Company"
+            },
+            {
+              "name": "email",
+              "value": "john.company@johncompany.com"
+            },
+            {
+              "name": "business_phone",
+              "value": "99 99999-9999"
+            },
+            {
+              "name": "mobile_phone",
+              "value": "99 99999-9999"
+            },
+            {
+              "name": "person_type",
+              "value": "NATURAL"
+            },
+            {
+              "name": "document"
+            },
+            {
+              "name": "identity_document",
+              "value": "00011122233"
+            },
+            {
+              "name": "state_registration_number",
+              "value": "00011122233"
+            },
+            {
+              "name": "state_registration_type",
+              "value": "NO_CONTRIBUTOR"
+            },
+            {
+              "name": "city_registration_number",
+              "value": "00011122233"
+            },
+            {
+              "name": "date_of_birth",
+              "value": "1988-12-23T08:32:10.118-05"
+            },
+            {
+              "name": "notes",
+              "value": "Important customer, always wears a green hat"
+            },
+            {
+              "name": "contacts[0].name",
+              "value": "John C."
+            },
+            {
+              "name": "contacts[0].business_phone",
+              "value": "99 9999-9999"
+            },
+            {
+              "name": "contacts[0].email",
+              "value": "John.C@johncompany.com"
+            },
+            {
+              "name": "contacts[0].job_title",
+              "value": "Developer"
+            },
+            {
+              "name": "address.zip_code",
+              "value": "79106-330"
+            },
+            {
+              "name": "address.street",
+              "value": "Rua Parma"
+            },
+            {
+              "name": "address.number",
+              "value": "224"
+            },
+            {
+              "name": "address.complement",
+              "value": "Apartamento 2058"
+            },
+            {
+              "name": "address.neighborhood",
+              "value": "Jardim Itália"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a90883bc-7c23-4160-87e7-93d2d6415a57",
+      "name": "criarContato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        500
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "DdHhm6SGCI7cTQZY",
+          "name": "[Fabricio] Conta Azul"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "aplicacoes",
+          "mode": "list",
+          "cachedResultName": "aplicacoes"
+        },
+        "limit": 1,
+        "options": {
+          "queryBatching": "independently"
+        }
+      },
+      "id": "d204c518-22fd-4952-a3e7-390359494dd8",
+      "name": "verificaCobranca",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1420,
+        280
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "01dfe57f-c2dd-42b5-a6f6-ced4ee93e7c5",
+      "name": "existeCobranca",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.contaazul.com/v1/product-categories",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "options": {}
+      },
+      "id": "4c0ec950-6067-4454-a1ee-cc61f749c033",
+      "name": "criaCobranca",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1840,
+        400
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "DdHhm6SGCI7cTQZY",
+          "name": "[Fabricio] Conta Azul"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.contaazul.com/v1/product-categories",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "options": {}
+      },
+      "id": "c42585f0-3b84-4b03-9958-70b5234a706c",
+      "name": "atualizaCobranca",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1840,
+        140
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "DdHhm6SGCI7cTQZY",
+          "name": "[Fabricio] Conta Azul"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "queue": "cobranca_asaas",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "acknowledge": "executionFinishesSuccessfully",
+          "jsonParseBody": true,
+          "parallelMessages": 1
+        }
+      },
+      "id": "3c1d6067-9bbd-4d2a-b26b-96464c89b60e",
+      "name": "RabbitMQ Trigger",
+      "type": "n8n-nodes-base.rabbitmqTrigger",
+      "typeVersion": 1,
+      "position": [
+        380,
+        380
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.asaas.com/v3/customers/cus_000074653476",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "access_token",
+              "value": "$aact_MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6OmEwY2U3YTAyLTBkNzctNDllZC04OGE3LTU2NWUxYTlmMzA5Njo6JGFhY2hfNWRmNjZjZTQtNTYwMy00NzIyLTgzZjItZmM2ZjhmMmE1NmU2"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "14a29702-5e86-46cf-9804-c053075d4a8c",
+      "name": "buscarCliente",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        580,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.contaazul.com/v1/customers",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "search",
+              "value": "={{ $node[\"buscarCliente\"].json[\"cpfCnpj\"] }}"
+            },
+            {
+              "name": "size",
+              "value": "1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "84eb182c-b533-449a-bfbe-be9f35256f19",
+      "name": "pesquisaContato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        380
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "DdHhm6SGCI7cTQZY",
+          "name": "[Fabricio] Conta Azul"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a7d7da51-976e-433e-ab85-385fc6d1b8ec",
+              "leftValue": "={{ $node[\"pesquisaContato\"].json[\"id\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9b03e9bf-8166-4d8a-966f-fbbfc1f02898",
+      "name": "existeContato",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1020,
+        380
+      ]
+    }
+  ],
+  "pinData": {
+    "RabbitMQ Trigger": [
+      {
+        "json": {
+          "fields": {
+            "consumerTag": "amq.ctag-qyjX4INPeLyElzGXFFpcDw",
+            "deliveryTag": 1,
+            "redelivered": false,
+            "exchange": "",
+            "routingKey": "cobranca_asaas"
+          },
+          "properties": {
+            "headers": {}
+          },
+          "content": {
+            "headers": {
+              "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+              "user-agent": "Java/1.8.0_282",
+              "content-length": "1247",
+              "accept": "application/json",
+              "accept-encoding": "gzip",
+              "cache-control": "no-cache",
+              "content-type": "application/json",
+              "pragma": "no-cache",
+              "traceparent": "00-6764796f000000002754670fa12d25de-095f531f775d9693-00",
+              "tracestate": "dd=s:0;p:7b324555a21cfb2b;t.tid:6764796f00000000",
+              "x-datadog-parent-id": "675349863740577427",
+              "x-datadog-sampling-priority": "0",
+              "x-datadog-tags": "_dd.p.tid=6764796f00000000",
+              "x-datadog-trace-id": "2834003382349145566",
+              "x-forwarded-for": "52.67.12.206",
+              "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+              "x-forwarded-port": "443",
+              "x-forwarded-proto": "https",
+              "x-forwarded-server": "77400aba3c69",
+              "x-real-ip": "52.67.12.206"
+            },
+            "params": {},
+            "query": {},
+            "body": {
+              "id": "evt_05b708f961d739ea7eba7e4db318f621&798478822",
+              "event": "PAYMENT_CREATED",
+              "dateCreated": "2024-12-19 16:52:14",
+              "payment": {
+                "object": "payment",
+                "id": "pay_82eorp95rl2p3j75",
+                "dateCreated": "2024-12-19",
+                "customer": "cus_000074653476",
+                "installment": "4f88d4a0-829c-44f2-9fc8-95bef9313e02",
+                "paymentLink": null,
+                "value": 25,
+                "netValue": 23.01,
+                "grossValue": null,
+                "originalValue": null,
+                "interestValue": null,
+                "description": "Parcela 1 de 2.",
+                "billingType": "BOLETO",
+                "canBePaidAfterDueDate": true,
+                "pixTransaction": null,
+                "status": "PENDING",
+                "dueDate": "2024-12-19",
+                "originalDueDate": "2024-12-19",
+                "paymentDate": null,
+                "clientPaymentDate": null,
+                "installmentNumber": 1,
+                "invoiceUrl": "https://www.asaas.com/i/82eorp95rl2p3j75",
+                "invoiceNumber": "491537034",
+                "externalReference": null,
+                "deleted": false,
+                "anticipated": false,
+                "anticipable": false,
+                "creditDate": null,
+                "estimatedCreditDate": null,
+                "transactionReceiptUrl": null,
+                "nossoNumero": "275065784",
+                "bankSlipUrl": "https://www.asaas.com/b/pdf/82eorp95rl2p3j75",
+                "lastInvoiceViewedDate": null,
+                "lastBankSlipViewedDate": null,
+                "discount": {
+                  "value": 0,
+                  "limitDate": null,
+                  "dueDateLimitDays": 0,
+                  "type": "PERCENTAGE"
+                },
+                "fine": {
+                  "value": 0,
+                  "type": "PERCENTAGE"
+                },
+                "interest": {
+                  "value": 0,
+                  "type": "PERCENTAGE"
+                },
+                "postalService": false,
+                "custody": null,
+                "refunds": null
+              }
+            },
+            "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/asaas-contaazul",
+            "executionMode": "production"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-19T20:58:17.342Z",
+  "versionId": "3e5c3f63-cba2-4956-9a8c-5b8c55c8b9b5"
+}
