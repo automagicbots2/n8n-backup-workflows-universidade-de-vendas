@@ -1,0 +1,175 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "RabbitMQ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-12T13:38:26.427Z",
+  "id": "2Ya0hs8vCuEylL5M",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[FABRICIO NUNNES] - Integração Asaas + Conta Azul - Parte 1",
+  "nodes": [
+    {
+      "parameters": {
+        "queue": "cobranca_asaas",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "d8ef70c9-ce58-4a04-8cd3-a6dbca5c1b9c",
+      "name": "RabbitMQ",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1.1,
+      "position": [
+        700,
+        380
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "asaas-contaazul",
+        "options": {}
+      },
+      "id": "8e463a9b-3497-4e64-8870-626a2ee249e8",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        460,
+        380
+      ],
+      "webhookId": "417fd3c9-851b-4063-894c-bc57871da022"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "Java/1.8.0_282",
+            "content-length": "1247",
+            "accept": "application/json",
+            "accept-encoding": "gzip",
+            "cache-control": "no-cache",
+            "content-type": "application/json",
+            "pragma": "no-cache",
+            "traceparent": "00-6764796f000000002754670fa12d25de-095f531f775d9693-00",
+            "tracestate": "dd=s:0;p:7b324555a21cfb2b;t.tid:6764796f00000000",
+            "x-datadog-parent-id": "675349863740577427",
+            "x-datadog-sampling-priority": "0",
+            "x-datadog-tags": "_dd.p.tid=6764796f00000000",
+            "x-datadog-trace-id": "2834003382349145566",
+            "x-forwarded-for": "52.67.12.206",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "52.67.12.206"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "id": "evt_05b708f961d739ea7eba7e4db318f621&798478822",
+            "event": "PAYMENT_CREATED",
+            "dateCreated": "2024-12-19 16:52:14",
+            "payment": {
+              "object": "payment",
+              "id": "pay_82eorp95rl2p3j75",
+              "dateCreated": "2024-12-19",
+              "customer": "cus_000074653476",
+              "installment": "4f88d4a0-829c-44f2-9fc8-95bef9313e02",
+              "paymentLink": null,
+              "value": 25,
+              "netValue": 23.01,
+              "grossValue": null,
+              "originalValue": null,
+              "interestValue": null,
+              "description": "Parcela 1 de 2.",
+              "billingType": "BOLETO",
+              "canBePaidAfterDueDate": true,
+              "pixTransaction": null,
+              "status": "PENDING",
+              "dueDate": "2024-12-19",
+              "originalDueDate": "2024-12-19",
+              "paymentDate": null,
+              "clientPaymentDate": null,
+              "installmentNumber": 1,
+              "invoiceUrl": "https://www.asaas.com/i/82eorp95rl2p3j75",
+              "invoiceNumber": "491537034",
+              "externalReference": null,
+              "deleted": false,
+              "anticipated": false,
+              "anticipable": false,
+              "creditDate": null,
+              "estimatedCreditDate": null,
+              "transactionReceiptUrl": null,
+              "nossoNumero": "275065784",
+              "bankSlipUrl": "https://www.asaas.com/b/pdf/82eorp95rl2p3j75",
+              "lastInvoiceViewedDate": null,
+              "lastBankSlipViewedDate": null,
+              "discount": {
+                "value": 0,
+                "limitDate": null,
+                "dueDateLimitDays": 0,
+                "type": "PERCENTAGE"
+              },
+              "fine": {
+                "value": 0,
+                "type": "PERCENTAGE"
+              },
+              "interest": {
+                "value": 0,
+                "type": "PERCENTAGE"
+              },
+              "postalService": false,
+              "custody": null,
+              "refunds": null
+            }
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/asaas-contaazul",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-12-19T20:33:58.082Z",
+  "versionId": "91168806-b641-455f-b8ee-c0d32bfeff6b"
+}
