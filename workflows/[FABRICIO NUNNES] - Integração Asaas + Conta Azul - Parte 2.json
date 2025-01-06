@@ -329,13 +329,17 @@
     },
     {
       "parameters": {
-        "url": "https://api.asaas.com/v3/customers/cus_000074653476",
+        "url": "=https://api.asaas.com/v3/customers/{{ $json[\"content\"][\"body\"][\"payment\"][\"customer\"] }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
-              "name": "access_token",
-              "value": "$aact_MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6OmEwY2U3YTAyLTBkNzctNDllZC04OGE3LTU2NWUxYTlmMzA5Njo6JGFhY2hfNWRmNjZjZTQtNTYwMy00NzIyLTgzZjItZmM2ZjhmMmE1NmU2"
+              "name": "Authorization",
+              "value": "Bearer $aact_MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6OmEwY2U3YTAyLTBkNzctNDllZC04OGE3LTU2NWUxYTlmMzA5Njo6JGFhY2hfNWRmNjZjZTQtNTYwMy00NzIyLTgzZjItZmM2ZjhmMmE1NmU2"
+            },
+            {
+              "name": "accept",
+              "value": "application/json"
             }
           ]
         },
@@ -529,6 +533,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-19T20:58:17.342Z",
-  "versionId": "3e5c3f63-cba2-4956-9a8c-5b8c55c8b9b5"
+  "updatedAt": "2025-01-06T14:04:44.601Z",
+  "versionId": "1f8d9515-91ee-45bd-b577-367f0b89b4ab"
 }
