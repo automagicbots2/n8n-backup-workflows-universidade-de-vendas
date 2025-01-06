@@ -1144,7 +1144,7 @@
             },
             {
               "name": "text",
-              "value": "=🎉 *NOVA VENDA - Ganho na Clint* 🎉\n\n*Data:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_won_at\"]).slice(0,10) }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*Qual mentoria?* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_produto\"] }}\n*Nome da empresa: (Jurídico/Fantasia):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }} / {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cnpj\"] }}\n*Segmento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_segment\"] }}\n*Plano:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_plano\"] }}\n*Entrada:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Faturamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_faturamento\"] }}\n*Quantidade de Parcelas (Entrada + Parcelas):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Valor das Parcelas:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_valor_das_parcelas\"] }}\n*Data de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_vencimento_da_parcel\"] }}\n*Forma de pagamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_forma_de_pagamento_1\"] }}\n*Contatos (Nome e telefone):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }} - {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Cidade:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_city\"] }}\n*Estado:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_state\"] }}\n*CEP:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cep\"] }}\n*Briefing:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_briefing\"].replaceAll('<p>', '').replaceAll('<br>','\\n').replaceAll('</p>', '').replaceAll('&nbsp;','').replaceAll('#;', '').replaceAll('**;', '')).replace(/, /g, ',').replaceAll(/ ,/g, ', ') }}"
+              "value": "=🎉 *NOVA VENDA - Ganho na Clint* 🎉\n\n*Data:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_won_at\"]).slice(0,10) }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*Qual mentoria?* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_produto\"] }}\n*Nome da empresa: (Jurídico/Fantasia):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }} / {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cnpj\"] }}\n*Segmento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_segment\"] }}\n*Plano:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_plano\"] }}\n*Entrada:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Faturamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_faturamento\"] }}\n*Quantidade de Parcelas (Entrada + Parcelas):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Valor das Parcelas:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_valor_das_parcelas_e\"] }}\n*Data de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}\n*Forma de pagamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_forma_de_pagamento_1\"] }}\n*Contatos (Nome e telefone):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }} - {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Cidade:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_city\"] }}\n*Estado:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_state\"] }}\n*CEP:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_cep\"] }}\n*Briefing:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_briefing\"].replaceAll('<p>', '').replaceAll('<br>','\\n').replaceAll('</p>', '').replaceAll('&nbsp;','').replaceAll('#;', '').replaceAll('**;', '')).replace(/, /g, ',').replaceAll(/ ,/g, ', ') }}"
             },
             {
               "name": "options.delay",
@@ -1177,7 +1177,7 @@
       "name": "MensagemGrupoSoftware1",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        1880,
+        1920,
         300
       ],
       "typeVersion": 4
@@ -1456,6 +1456,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2025-01-03T12:57:36.906Z",
-  "versionId": "0848345f-a15e-471d-a58a-605f8e3e5780"
+  "updatedAt": "2025-01-06T14:32:02.106Z",
+  "versionId": "4e6c91a8-d1e8-4ce1-a6e7-28e52d4778ab"
 }
