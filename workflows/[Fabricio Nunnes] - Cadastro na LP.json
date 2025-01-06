@@ -1,0 +1,271 @@
+{
+  "active": true,
+  "connections": {
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastro_na_lp": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-06T13:02:15.816Z",
+  "id": "YmOQ8a2bpvlDhHaE",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[Fabricio Nunnes] - Cadastro na LP",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c74589e2-452e-44a5-8a49-b98c6fcdeca8",
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados\"].json[\"fname\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "f17267b5-65b0-4c2b-b9f5-d719193bb457",
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados\"].json[\"lname\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "79edcf9f-8602-409f-8d04-ced41c06d16f",
+              "name": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "93103cc7-1870-4962-bb01-59462196b4de",
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"whatsapp\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4750507c-f44a-45d5-b5ce-2a681d5a5581",
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_source\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a68b8a08-b2d1-4352-affb-0a6f4045cf4a",
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_campaign\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "71c74ec7-51b3-422e-a2d5-ae7bbf3bd1b0",
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_term\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "57aa10ae-6631-4352-8925-35138b1c9b7a",
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_medium\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4e84ee54-3122-48e4-92d9-1f9db59e0b94",
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_content\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "14a9c5a1-2f3f-416c-a06d-3f8e331366d7",
+              "name": "utm_fun",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_fun\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "416c7356-388c-4592-87be-d9f29b670bad",
+              "name": "utm_var",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_var\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "866136ed-0c9b-4e19-8a6f-1e716d408e4c",
+              "name": "nome_do_evento",
+              "value": "Semana da Automação",
+              "type": "string"
+            },
+            {
+              "id": "eed1579a-31b8-4dc0-8ad5-8919857b8516",
+              "name": "edicao_do_evento",
+              "value": "1",
+              "type": "string"
+            },
+            {
+              "id": "66f8191a-dd73-4773-b3f7-a63076f8686b",
+              "name": "form_id",
+              "value": "={{ $node[\"formata_dados\"].json[\"form_id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "bb839055-124b-4671-99e9-d13293daa8c7",
+              "name": "form_name",
+              "value": "={{ $node[\"formata_dados\"].json[\"form_name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "9425c2f7-2c66-4df8-ba14-d8a27fcb76b4",
+              "name": "tag_do_lancamento",
+              "value": "SA01",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3ef057c4-0943-4c44-ad58-60979e774fd1",
+      "name": "dados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        820,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "={{ $node[\"dados\"].json[\"tag_do_lancamento\"] }} - Captação - Parte 2",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "9de30e7b-5042-4dfa-9b4d-2573c1c0b746",
+      "name": "entra_na_fila",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        1020,
+        460
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Capturar os dados do input\nconst inputData = items[0].json.body;\n\n// Função para capitalizar o nome\nfunction capitalizeName(fullName) {\n    if (!fullName) {\n        return { fname: '', lname: '', fullname: '' };\n    }\n\n    const lowerCaseWords = ['da', 'de', 'do', 'di', 'du'];\n    let words = fullName.toLowerCase().split(' ').map((word, index) => {\n        if (lowerCaseWords.includes(word) && index !== 0) {\n            return word;\n        }\n        return word.charAt(0).toUpperCase() + word.slice(1);\n    });\n\n    let fname = words.shift();\n    let lname = words.join(' ');\n\n    return { fname, lname, fullname: `${fname} ${lname}` };\n}\n\n// Função para formatar email\nfunction formatEmail(email) {\n    return email ? email.toLowerCase().trim() : \"\";\n}\n\n// Função para processar e formatar o telefone\nfunction processTelefone(telefoneOriginal) {\n    if (!telefoneOriginal) return \"\";\n    const telefoneLimpo = telefoneOriginal.replace(/\\D/g, \"\"); // Remove caracteres não numéricos\n    const DDI = '55';\n    const DDD = telefoneLimpo.slice(0, 2);\n    let numero;\n\n    if (parseInt(DDD) > 28) {\n        numero = telefoneLimpo.slice(-8);\n    } else {\n        numero = telefoneLimpo.slice(-9);\n    }\n\n    return `${DDI}${DDD}${numero}`;\n}\n\n// Extrair e formatar os dados\nconst fullNameAnswer = inputData[\"Nome\"] || \"\";\nconst emailAnswer = inputData[\"E-mail\"] || \"\";\nconst telefoneClienteOriginal = inputData[\"WhatsApp com DDD\"] || \"\";\nconst telefoneFinal = processTelefone(telefoneClienteOriginal);\n\nconst formattedNames = capitalizeName(fullNameAnswer);\nconst formattedEmail = formatEmail(emailAnswer);\n\n// Capturar UTMs e outros campos\nconst utm_source = inputData[\"utm_source\"] || \"\";\nconst utm_campaign = inputData[\"utm_campaign\"] || \"\";\nconst utm_medium = inputData[\"utm_medium\"] || \"\";\nconst utm_term = inputData[\"utm_term\"] || \"\";\nconst utm_content = inputData[\"utm_content\"] || \"\";\nconst form_id = inputData[\"form_id\"] || \"\";\nconst form_name = inputData[\"form_name\"] || \"\";\nconst data_envio = inputData[\"Data\"] || \"\";\nconst horario_envio = inputData[\"Horário\"] || \"\";\nconst url_pagina = inputData[\"URL da página\"] || \"\";\n\n// Montar o objeto de resultado\nconst result = {\n    ...formattedNames, // Nome formatado\n    email: formattedEmail, // Email formatado\n    whatsapp: telefoneFinal, // WhatsApp formatado\n    utm_source: utm_source,\n    utm_campaign: utm_campaign,\n    utm_term: utm_term,\n    utm_medium: utm_medium,\n    utm_content: utm_content,\n    form_id: form_id,\n    form_name: form_name,\n    data_envio: data_envio,\n    horario_envio: horario_envio,\n    url_pagina: url_pagina\n};\n\n// Retorna o resultado como esperado pelo n8n\nreturn [{ json: result }];\n"
+      },
+      "id": "9b2d189d-68af-4d6d-8ff8-d8ae877cbaad",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        640,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "=webinario",
+        "options": {}
+      },
+      "id": "b524309c-3c9d-4026-a446-7696842d7587",
+      "name": "cadastro_na_lp",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        460,
+        460
+      ],
+      "webhookId": "29d86f24-72f3-467f-8364-b606251a4e23"
+    }
+  ],
+  "pinData": {
+    "cadastro_na_lp": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "WordPress/6.7.1; https://universidadevendas.com.br",
+            "content-length": "593",
+            "accept": "*/*",
+            "accept-encoding": "deflate, gzip",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-forwarded-for": "45.148.96.7",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "45.148.96.7"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Nome": "Mateus Diniz - Automagic Bots",
+            "WhatsApp com DDD": "(62) 98119-6678",
+            "E-mail": "mateusdiniz@automagicbots.com.br",
+            "utm_source": "",
+            "utm_content": "",
+            "utm_campaign": "",
+            "utm_medium": "",
+            "utm_term": "",
+            "Data": "06/01/2025",
+            "Horário": "10:05",
+            "URL da página": "https://universidadevendas.com.br/webinario/?NOCACHE",
+            "Agente de usuário": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+            "IP remoto": "2804:1a90:200f:e800:2836:b41c:fd7b:ce6d",
+            "Desenvolvido por": "Elementor",
+            "form_id": "88889e3",
+            "form_name": "Aplicação"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/webinario",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-01-06T13:03:46.274Z",
+      "updatedAt": "2025-01-06T13:03:46.274Z",
+      "id": "UIe4pkWHHzL0wh8x",
+      "name": "[WEBINARIO]"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-01-06T13:24:02.559Z",
+  "versionId": "8c07ff31-c40a-4fd6-865c-23fe4d199960"
+}
