@@ -1,0 +1,3510 @@
+{
+  "active": true,
+  "connections": {
+    "pesquisa_funil": {
+      "main": [
+        [
+          {
+            "node": "encontrou_funil",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chega_da_fila": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_funil",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_user": {
+      "main": [
+        [
+          {
+            "node": "encontrou_user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "encontrou_user": {
+      "main": [
+        [
+          {
+            "node": "email_igual",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pesquisa_email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "email_igual": {
+      "main": [
+        [
+          {
+            "node": "telefone_igual",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "insere_email_na_tabela_emails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_email_na_tabela_emails": {
+      "main": [
+        [
+          {
+            "node": "insere_lead_na_tabela_cadastros4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "telefone_igual": {
+      "main": [
+        [
+          {
+            "node": "insere_lead_na_tabela_cadastros4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "insere_telefone_na_tabela_telefones",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_telefone_na_tabela_telefones": {
+      "main": [
+        [
+          {
+            "node": "insere_lead_na_tabela_cadastros4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_lead_na_tabela_users": {
+      "main": [
+        [
+          {
+            "node": "insere_lead_na_tabela_cadastros",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "encontrou_funil": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_user",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_lead_na_tabela_cadastros": {
+      "main": [
+        [
+          {
+            "node": "insere_lead_na_tabela_emails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_email": {
+      "main": [
+        [
+          {
+            "node": "encontrou_email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "encontrou_email": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_user1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pesquisa_telefone",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_user1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_telefone1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_telefone": {
+      "main": [
+        [
+          {
+            "node": "encontrou_telefone",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "encontrou_telefone": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_user2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "insere_lead_na_tabela_users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_user2": {
+      "main": [
+        [
+          {
+            "node": "insere_lead_na_tabela_emails1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_lead_na_tabela_emails": {
+      "main": [
+        [
+          {
+            "node": "insere_lead_na_tabela_telefones",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_lead_na_tabela_telefones": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_configs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_telefone1": {
+      "main": [
+        [
+          {
+            "node": "encontrou_telefone1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "encontrou_telefone1": {
+      "main": [
+        [
+          {
+            "node": "insere_lead_na_tabela_cadastros1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "insere_lead_na_tabela_cadastros2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_lead_na_tabela_cadastros1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_configs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_lead_na_tabela_cadastros2": {
+      "main": [
+        [
+          {
+            "node": "insere_lead_na_tabela_telefones1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_lead_na_tabela_telefones1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_configs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_lead_na_tabela_emails1": {
+      "main": [
+        [
+          {
+            "node": "insere_lead_na_tabela_cadastros3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_lead_na_tabela_cadastros3": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_configs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insere_lead_na_tabela_cadastros4": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_configs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_configs": {
+      "main": [
+        [
+          {
+            "node": "dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados": {
+      "main": [
+        [
+          {
+            "node": "tem_chatwoot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "entra_na_fila": {
+      "main": [
+        [
+          {
+            "node": "tem_manychat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tem_chatwoot": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "tem_manychat",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "tem_manychat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tem_manychat": {
+      "main": [
+        [
+          {
+            "node": "dados1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "tem_activecampaign",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tem_activecampaign": {
+      "main": [
+        [
+          {
+            "node": "dados2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "tem_msg_cadastro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tem_msg_cadastro": {
+      "main": [
+        [
+          {
+            "node": "busca_mensagem",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "busca_dados",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "tem_ura_cadastro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "usa_evolution": {
+      "main": [
+        [
+          {
+            "node": "dados3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "dados4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "entra_na_fila1": {
+      "main": [
+        [
+          {
+            "node": "tem_ura_cadastro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "entra_na_fila2": {
+      "main": [
+        [
+          {
+            "node": "tem_ura_cadastro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "entra_na_fila3": {
+      "main": [
+        [
+          {
+            "node": "tem_activecampaign",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "entra_na_fila4": {
+      "main": [
+        [
+          {
+            "node": "tem_msg_cadastro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "entra_na_fila5": {
+      "main": [
+        [
+          {
+            "node": "tem_crm",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tem_ura_cadastro": {
+      "main": [
+        [
+          {
+            "node": "dados5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "tem_crm",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados1": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados2": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados3": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados4": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados5": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados6": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tem_crm": {
+      "main": [
+        [
+          {
+            "node": "dados6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "fim",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_mensagem": {
+      "main": [
+        [
+          {
+            "node": "busca_dados",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "usa_evolution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_dados": {
+      "main": [
+        [
+          {
+            "node": "usa_evolution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-06T19:53:40.914Z",
+  "id": "0OqC7ITynnuRq8he",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[Fabricio Nunnes] - Cadastro - Parte 2",
+  "nodes": [
+    {
+      "parameters": {
+        "queue": "WEB001 - Captação - Parte 2",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              },
+              {}
+            ]
+          },
+          "acknowledge": "executionFinishesSuccessfully",
+          "jsonParseBody": "={{ true }}",
+          "parallelMessages": 3
+        }
+      },
+      "id": "70aa87fa-7198-4d8d-b5f2-b042ba5737b1",
+      "name": "chega_da_fila",
+      "type": "n8n-nodes-base.rabbitmqTrigger",
+      "typeVersion": 1,
+      "position": [
+        -660,
+        920
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "funis",
+          "mode": "list",
+          "cachedResultName": "funis"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome_do_evento\"] }}"
+            },
+            {
+              "column": "versao",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"edicao_do_evento\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "bfc0a66f-0586-4fe2-adf1-bd1acfaf1cf0",
+      "name": "pesquisa_funil",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        -480,
+        920
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] === $node[\"chega_da_fila\"].json[\"content\"][\"email\"] ? $node[\"chega_da_fila\"].json[\"content\"][\"email\"] : \"---------\" }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] === $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] ? $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] : \"---------\" }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "00e80408-c3b9-45c7-a36a-1a67d80d2c5f",
+      "name": "pesquisa_user",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        -120,
+        920
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "dd359e72-da78-43bb-84a7-1b0911d82aa5",
+              "leftValue": "={{ $node[\"pesquisa_user\"].json[\"id\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "70274b3f-1f04-4dfd-97bd-2daed9e0b041",
+      "name": "encontrou_user",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        60,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "dd359e72-da78-43bb-84a7-1b0911d82aa5",
+              "leftValue": "={{ $node[\"pesquisa_user\"].json[\"email\"] }}",
+              "rightValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "fd8dfec6-c9e8-4ee5-a242-31a10af8e8cc",
+      "name": "email_igual",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        240,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "emails",
+          "mode": "list",
+          "cachedResultName": "emails"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_user",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"id\"] }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "replaceEmptyStrings": true,
+          "detailedOutput": true,
+          "skipOnConflict": true
+        }
+      },
+      "id": "01c4987e-1e6d-4b2b-8506-edc06d38529a",
+      "name": "insere_email_na_tabela_emails",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        480,
+        660
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "dd359e72-da78-43bb-84a7-1b0911d82aa5",
+              "leftValue": "={{ $node[\"pesquisa_user\"].json[\"telefone\"] }}",
+              "rightValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "ba308345-1c5b-41e1-a670-7bfbb7477eb1",
+      "name": "telefone_igual",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        480,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "telefones",
+          "mode": "list",
+          "cachedResultName": "telefones"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_user",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"id\"] }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "replaceEmptyStrings": true,
+          "detailedOutput": true,
+          "skipOnConflict": true
+        }
+      },
+      "id": "38f5d971-5dd7-45e1-92a6-f9179faa9b67",
+      "name": "insere_telefone_na_tabela_telefones",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        700,
+        540
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data_de_entrada",
+              "value": "={{ $now }}"
+            },
+            {
+              "column": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }}"
+            },
+            {
+              "column": "sobrenome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "ffa9815a-e1f6-46d8-8609-452882756c45",
+      "name": "insere_lead_na_tabela_users",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1020,
+        1240
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "dd359e72-da78-43bb-84a7-1b0911d82aa5",
+              "leftValue": "={{ $node[\"pesquisa_funil\"].json[\"id\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "24968f79-8303-4fa0-8120-e98e2a2d8bc1",
+      "name": "encontrou_funil",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -320,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "An error ocurred!"
+      },
+      "id": "875cba82-5fbf-428f-9ec1-5729c47e04f1",
+      "name": "Stop and Error",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        -120,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "cadastros",
+          "mode": "list",
+          "cachedResultName": "cadastros"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_user",
+              "value": "={{\n  $node[\"pesquisa_user1\"].runIndex >= 0 \n    ? $node[\"pesquisa_user1\"].json[\"id\"]\n    : $node[\"pesquisa_user2\"].runIndex >= 0 \n      ? $node[\"pesquisa_user2\"].json[\"id\"]    : $node[\"insere_lead_na_tabela_users\"].runIndex >= 0 \n      ? $node[\"insere_lead_na_tabela_users\"].json[\"data\"][\"insertId\"]\n              : null\n}}"
+            },
+            {
+              "column": "id_funil",
+              "value": "={{ $node[\"pesquisa_funil\"].json[\"id\"] }}"
+            },
+            {
+              "column": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }}"
+            },
+            {
+              "column": "sobrenome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            },
+            {
+              "column": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "column": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "column": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "column": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "column": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "column": "data_cadastro",
+              "value": "={{ $now }}"
+            },
+            {
+              "column": "instagram",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "78c4fdfd-b91d-475c-9d0c-91a90d9224d7",
+      "name": "insere_lead_na_tabela_cadastros",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1220,
+        1240
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "emails",
+          "mode": "list",
+          "cachedResultName": "emails"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] || '-----------------------' }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "d3aa51d2-7605-4998-ad22-b6724f1f96dc",
+      "name": "pesquisa_email",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        260,
+        1080
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "dd359e72-da78-43bb-84a7-1b0911d82aa5",
+              "leftValue": "={{ $node[\"pesquisa_email\"].json[\"id\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "d7ea80f4-42c1-435d-a49f-e9a0eca25b4f",
+      "name": "encontrou_email",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        440,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $node[\"pesquisa_email\"].json[\"id_user\"] || '-----------------------'}}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "e3dd74fa-97f9-41f6-a199-db75202667ea",
+      "name": "pesquisa_user1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        620,
+        980
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "telefones",
+          "mode": "list",
+          "cachedResultName": "telefones"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "33d801d4-a016-4be7-adba-fab63fe3b8f7",
+      "name": "pesquisa_telefone",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        620,
+        1160
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "dd359e72-da78-43bb-84a7-1b0911d82aa5",
+              "leftValue": "={{ $node[\"pesquisa_telefone\"].json[\"id\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "d1717406-1c88-4c71-87cd-d74a05237eaa",
+      "name": "encontrou_telefone",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        820,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $node[\"pesquisa_telefone\"].json[\"id_user\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "7ebe83f3-c20a-4849-bb7b-7960c340c99e",
+      "name": "pesquisa_user2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1020,
+        1060
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "emails",
+          "mode": "list",
+          "cachedResultName": "emails"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}"
+            },
+            {
+              "column": "data_criacao",
+              "value": "={{ $now }}"
+            },
+            {
+              "column": "id_user",
+              "value": "={{ $node[\"insere_lead_na_tabela_users\"].json[\"data\"][\"insertId\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "replaceEmptyStrings": true,
+          "detailedOutput": true,
+          "skipOnConflict": true
+        }
+      },
+      "id": "d9efdb38-197b-4946-8c85-b4d5aec00ca6",
+      "name": "insere_lead_na_tabela_emails",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1440,
+        1240
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "telefones",
+          "mode": "list",
+          "cachedResultName": "telefones"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_user",
+              "value": "={{ $node[\"insere_lead_na_tabela_users\"].json[\"data\"][\"insertId\"] }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            },
+            {
+              "column": "data_criacao",
+              "value": "={{ $now }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "93caf654-ccf8-4001-b448-bf09568622c4",
+      "name": "insere_lead_na_tabela_telefones",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1640,
+        1240
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "telefones",
+          "mode": "list",
+          "cachedResultName": "telefones"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ba2695f0-8d8e-4f37-b05d-72502fc49165",
+      "name": "pesquisa_telefone1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        800,
+        980
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "dd359e72-da78-43bb-84a7-1b0911d82aa5",
+              "leftValue": "={{ $node[\"pesquisa_telefone1\"].json[\"id\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "2cc29075-ee71-4a21-ac88-4457d0a8cd5b",
+      "name": "encontrou_telefone1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "cadastros",
+          "mode": "list",
+          "cachedResultName": "cadastros"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_user",
+              "value": "={{\n  $node[\"pesquisa_user1\"].runIndex >= 0 \n    ? $node[\"pesquisa_user1\"].json[\"id\"]\n    : $node[\"pesquisa_user2\"].runIndex >= 0 \n      ? $node[\"pesquisa_user2\"].json[\"id\"]    : $node[\"insere_lead_na_tabela_users\"].runIndex >= 0 \n      ? $node[\"insere_lead_na_tabela_users\"].json[\"data\"][\"insertId\"]\n              : null\n}}"
+            },
+            {
+              "column": "id_funil",
+              "value": "={{ $node[\"pesquisa_funil\"].json[\"id\"] }}"
+            },
+            {
+              "column": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }}"
+            },
+            {
+              "column": "sobrenome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            },
+            {
+              "column": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "column": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "column": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "column": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "column": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "column": "data_cadastro",
+              "value": "={{ $now }}"
+            },
+            {
+              "column": "instagram",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "82f4f39b-b1e5-46bc-8c33-bbfe1ecd0d74",
+      "name": "insere_lead_na_tabela_cadastros1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1200,
+        740
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "cadastros",
+          "mode": "list",
+          "cachedResultName": "cadastros"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_user",
+              "value": "={{ $node[\"pesquisa_user1\"].runIndex >= 0    ?    $node[\"pesquisa_user1\"].json[\"id\"]  :  $node[\"pesquisa_user\"].json[\"id\"] }}"
+            },
+            {
+              "column": "id_funil",
+              "value": "={{ $node[\"pesquisa_funil\"].json[\"id\"] }}"
+            },
+            {
+              "column": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }}"
+            },
+            {
+              "column": "sobrenome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            },
+            {
+              "column": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "column": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "column": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "column": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "column": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "column": "data_cadastro",
+              "value": "={{ $now }}"
+            },
+            {
+              "column": "instagram",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "f52af579-6db7-4ecf-ac80-8fa9705a642b",
+      "name": "insere_lead_na_tabela_cadastros2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1200,
+        900
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "telefones",
+          "mode": "list",
+          "cachedResultName": "telefones"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_user",
+              "value": "={{\n  $node[\"pesquisa_user1\"].runIndex >= 0 \n    ? $node[\"pesquisa_user1\"].json[\"id\"]\n    : $node[\"pesquisa_user2\"].runIndex >= 0 \n      ? $node[\"pesquisa_user2\"].json[\"id\"]    : $node[\"insere_lead_na_tabela_users\"].runIndex >= 0 \n      ? $node[\"insere_lead_na_tabela_users\"].json[\"data\"][\"insertId\"]\n              : null\n}}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            },
+            {
+              "column": "data_criacao",
+              "value": "={{ $now }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "a0e72ed3-cbbe-4a92-93ac-a7e50a8c9e65",
+      "name": "insere_lead_na_tabela_telefones1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1420,
+        900
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "emails",
+          "mode": "list",
+          "cachedResultName": "emails"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}"
+            },
+            {
+              "column": "data_criacao",
+              "value": "={{ $now }}"
+            },
+            {
+              "column": "id_user",
+              "value": "={{\n  $node[\"pesquisa_user1\"].runIndex >= 0 \n    ? $node[\"pesquisa_user1\"].json[\"id\"]\n    : $node[\"pesquisa_user2\"].runIndex >= 0 \n      ? $node[\"pesquisa_user2\"].json[\"id\"]    : $node[\"insere_lead_na_tabela_users\"].runIndex >= 0 \n      ? $node[\"insere_lead_na_tabela_users\"].json[\"data\"][\"insertId\"]\n              : null\n}}"
+            }
+          ]
+        },
+        "options": {
+          "replaceEmptyStrings": true,
+          "detailedOutput": true,
+          "skipOnConflict": true
+        }
+      },
+      "id": "2edf0b2a-74f6-4c30-9537-9aaddeb03179",
+      "name": "insere_lead_na_tabela_emails1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1220,
+        1060
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "cadastros",
+          "mode": "list",
+          "cachedResultName": "cadastros"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_user",
+              "value": "={{\n  $node[\"pesquisa_user1\"].runIndex >= 0 \n    ? $node[\"pesquisa_user1\"].json[\"id\"]\n    : $node[\"pesquisa_user2\"].runIndex >= 0 \n      ? $node[\"pesquisa_user2\"].json[\"id\"]    : $node[\"insere_lead_na_tabela_users\"].runIndex >= 0 \n      ? $node[\"insere_lead_na_tabela_users\"].json[\"data\"][\"insertId\"]\n              : null\n}}"
+            },
+            {
+              "column": "id_funil",
+              "value": "={{ $node[\"pesquisa_funil\"].json[\"id\"] }}"
+            },
+            {
+              "column": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }}"
+            },
+            {
+              "column": "sobrenome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            },
+            {
+              "column": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "column": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "column": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "column": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "column": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "column": "data_cadastro",
+              "value": "={{ $now }}"
+            },
+            {
+              "column": "instagram",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "1c9fd659-2ef8-4faa-a6a4-78c26175276b",
+      "name": "insere_lead_na_tabela_cadastros3",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1420,
+        1060
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "cadastros",
+          "mode": "list",
+          "cachedResultName": "cadastros"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_user",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"id\"] }}"
+            },
+            {
+              "column": "id_funil",
+              "value": "={{ $node[\"pesquisa_funil\"].json[\"id\"] }}"
+            },
+            {
+              "column": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }}"
+            },
+            {
+              "column": "sobrenome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            },
+            {
+              "column": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "column": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "column": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "column": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "column": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "column": "data_cadastro",
+              "value": "={{ $now }}"
+            },
+            {
+              "column": "instagram",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "436d40b9-135d-415e-a3aa-dcee07bb9870",
+      "name": "insere_lead_na_tabela_cadastros4",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        940,
+        460
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "configuracoes",
+          "mode": "list",
+          "cachedResultName": "configuracoes"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "funil",
+              "value": "={{ $node[\"pesquisa_funil\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3f89ddc9-27a8-4a0a-9096-64aec5e0e1a8",
+      "name": "pesquisa_configs",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        1860,
+        820
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c74589e2-452e-44a5-8a49-b98c6fcdeca8",
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "f17267b5-65b0-4c2b-b9f5-d719193bb457",
+              "name": "sobrenome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "79edcf9f-8602-409f-8d04-ced41c06d16f",
+              "name": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "93103cc7-1870-4962-bb01-59462196b4de",
+              "name": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4750507c-f44a-45d5-b5ce-2a681d5a5581",
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a68b8a08-b2d1-4352-affb-0a6f4045cf4a",
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "71c74ec7-51b3-422e-a2d5-ae7bbf3bd1b0",
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "57aa10ae-6631-4352-8925-35138b1c9b7a",
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4e84ee54-3122-48e4-92d9-1f9db59e0b94",
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "14a9c5a1-2f3f-416c-a06d-3f8e331366d7",
+              "name": "utm_fun",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_fun\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "416c7356-388c-4592-87be-d9f29b670bad",
+              "name": "utm_var",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_var\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "866136ed-0c9b-4e19-8a6f-1e716d408e4c",
+              "name": "nome_do_evento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome_do_evento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "eed1579a-31b8-4dc0-8ad5-8919857b8516",
+              "name": "edicao_do_evento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"edicao_do_evento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "66f8191a-dd73-4773-b3f7-a63076f8686b",
+              "name": "form_id",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"form_id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "bb839055-124b-4671-99e9-d13293daa8c7",
+              "name": "form_name",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"form_name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "226a1058-30bb-4484-94e7-18d10e7c829c",
+              "name": "id_cadastro",
+              "value": "={{   $node[\"insere_lead_na_tabela_cadastros4\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros4\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros3\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros3\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros2\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros2\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros1\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros1\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros\"].json[\"data\"][\"insertId\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "957ee3f2-d099-4bee-a2f1-df34d030e983",
+              "name": "id_user",
+              "value": "={{   $node[\"pesquisa_user1\"].runIndex >= 0 ? $node[\"pesquisa_user1\"].json[\"id\"] : $node[\"pesquisa_user2\"].runIndex >= 0 ? $node[\"pesquisa_user2\"].json[\"id\"] : $node[\"insere_lead_na_tabela_users\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_users\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_user\"].runIndex >= 0 ? $node[\"pesquisa_user\"].json[\"id\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "f9cb1206-295d-4e5f-9753-ef4f2fe6c8fc",
+              "name": "funil",
+              "value": "={{ $node[\"pesquisa_funil\"].json[\"id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "c37107f7-a5fd-4fad-851a-77528f7ce3a9",
+              "name": "instagram",
+              "value": "=https://www.instagram.com/{{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "10c9d3cf-1ee8-4e19-9d57-baba2b36eb41",
+      "name": "dados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2040,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tag_do_lancamento\"] }} - Criação Chatwoot",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "df14ba97-d970-4d74-b1dc-44f3d2ee2ffa",
+      "name": "entra_na_fila",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        2420,
+        680
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "068f3a3a-71c7-41f2-adb8-194153ed9932",
+              "leftValue": "={{ $node[\"pesquisa_configs\"].json[\"tem_chatwoot\"] }}",
+              "rightValue": "=Y",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1ae560c3-ccdd-443e-a4a8-775279ecc23a",
+      "name": "tem_chatwoot",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2240,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "068f3a3a-71c7-41f2-adb8-194153ed9932",
+              "leftValue": "={{ $node[\"pesquisa_configs\"].json[\"tem_manychat\"] }}",
+              "rightValue": "=Y",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "8c71cbc1-13ff-4d92-84ae-29e686718984",
+              "leftValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}",
+              "rightValue": "manychat",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "5d5f2c24-19aa-408d-98fd-bc5953716afe",
+      "name": "tem_manychat",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "068f3a3a-71c7-41f2-adb8-194153ed9932",
+              "leftValue": "={{ $node[\"pesquisa_configs\"].json[\"tem_activecampaign\"] }}",
+              "rightValue": "=Y",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e167f651-ace8-466b-a9c9-05ea974073e5",
+      "name": "tem_activecampaign",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2600,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "068f3a3a-71c7-41f2-adb8-194153ed9932",
+              "leftValue": "={{ $node[\"pesquisa_configs\"].json[\"estrategias_captacao\"] }}",
+              "rightValue": "Enviar comunicações ao lead se cadastrar",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9178f31a-dbe8-497d-b42f-e1ff0fbd4f01",
+      "name": "tem_msg_cadastro",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2780,
+        1280
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "068f3a3a-71c7-41f2-adb8-194153ed9932",
+              "leftValue": "={{ $node[\"pesquisa_configs\"].json[\"config_wpp_captura\"] }}",
+              "rightValue": "Evolution",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "0a0b58df-f01b-4c8f-aa90-4feb1107981e",
+      "name": "usa_evolution",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        3280,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tag_do_lancamento\"] }} - Evolution",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "91368d50-a38d-4735-b8f8-3d1db25c8333",
+      "name": "entra_na_fila1",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        3640,
+        1000
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "queue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tag_do_lancamento\"] }} - API Oficial",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "3f735bcc-0ab2-4ba2-91c7-0350a1385ffb",
+      "name": "entra_na_fila2",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        3640,
+        1180
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "queue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tag_do_lancamento\"] }} - Criação Manychat",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "21f9b56b-445e-4070-9d20-48e0cad7a727",
+      "name": "entra_na_fila3",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        2760,
+        780
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "queue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tag_do_lancamento\"] }} - Criação ActiveCampaign",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "31f1bdb1-422c-4322-89a1-cb5a776343a4",
+      "name": "entra_na_fila4",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        2940,
+        960
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "queue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tag_do_lancamento\"] }} - URA",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "50b186f3-84d6-453f-83bc-0ad0a8d8dbc3",
+      "name": "entra_na_fila5",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        3340,
+        1340
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "068f3a3a-71c7-41f2-adb8-194153ed9932",
+              "leftValue": "={{ $node[\"pesquisa_configs\"].json[\"etapas_ura\"] }}",
+              "rightValue": "Na hora do cadastro",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "5ba03cd7-38bb-4418-b9cc-35c15626f608",
+      "name": "tem_ura_cadastro",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2940,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tag_do_lancamento\"] }} - CRM - {{ $node[\"pesquisa_configs\"].json[\"crm\"] }}",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "239f9c10-fbcd-4b1b-a7ef-aa710c845503",
+      "name": "entra_na_fila6",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        3500,
+        1600
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c74589e2-452e-44a5-8a49-b98c6fcdeca8",
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "f17267b5-65b0-4c2b-b9f5-d719193bb457",
+              "name": "sobrenome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "79edcf9f-8602-409f-8d04-ced41c06d16f",
+              "name": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "93103cc7-1870-4962-bb01-59462196b4de",
+              "name": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4750507c-f44a-45d5-b5ce-2a681d5a5581",
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a68b8a08-b2d1-4352-affb-0a6f4045cf4a",
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "71c74ec7-51b3-422e-a2d5-ae7bbf3bd1b0",
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "57aa10ae-6631-4352-8925-35138b1c9b7a",
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4e84ee54-3122-48e4-92d9-1f9db59e0b94",
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "14a9c5a1-2f3f-416c-a06d-3f8e331366d7",
+              "name": "utm_fun",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_fun\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "416c7356-388c-4592-87be-d9f29b670bad",
+              "name": "utm_var",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_var\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "866136ed-0c9b-4e19-8a6f-1e716d408e4c",
+              "name": "nome_do_evento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome_do_evento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "eed1579a-31b8-4dc0-8ad5-8919857b8516",
+              "name": "edicao_do_evento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"edicao_do_evento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "66f8191a-dd73-4773-b3f7-a63076f8686b",
+              "name": "form_id",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"form_id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "bb839055-124b-4671-99e9-d13293daa8c7",
+              "name": "form_name",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"form_name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "226a1058-30bb-4484-94e7-18d10e7c829c",
+              "name": "id_cadastro",
+              "value": "={{   $node[\"insere_lead_na_tabela_cadastros4\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros4\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros3\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros3\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros2\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros2\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros1\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros1\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros\"].json[\"data\"][\"insertId\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "957ee3f2-d099-4bee-a2f1-df34d030e983",
+              "name": "id_user",
+              "value": "={{   $node[\"pesquisa_user1\"].runIndex >= 0 ? $node[\"pesquisa_user1\"].json[\"id\"] : $node[\"pesquisa_user2\"].runIndex >= 0 ? $node[\"pesquisa_user2\"].json[\"id\"] : $node[\"insere_lead_na_tabela_users\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_users\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_user\"].runIndex >= 0 ? $node[\"pesquisa_user\"].json[\"id\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "e09a0321-0828-4dbd-b86d-3a06f56ce68a",
+              "name": "funil",
+              "value": "={{ $node[\"pesquisa_funil\"].json[\"id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "2026d3b0-30bb-4071-9f01-0828d082376d",
+              "name": "instagram",
+              "value": "=https://www.instagram.com/{{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "33f33d65-baa6-4bf8-9f23-a9b05b8209f9",
+      "name": "dados1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2580,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c74589e2-452e-44a5-8a49-b98c6fcdeca8",
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "f17267b5-65b0-4c2b-b9f5-d719193bb457",
+              "name": "sobrenome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "79edcf9f-8602-409f-8d04-ced41c06d16f",
+              "name": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "93103cc7-1870-4962-bb01-59462196b4de",
+              "name": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4750507c-f44a-45d5-b5ce-2a681d5a5581",
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a68b8a08-b2d1-4352-affb-0a6f4045cf4a",
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "71c74ec7-51b3-422e-a2d5-ae7bbf3bd1b0",
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "57aa10ae-6631-4352-8925-35138b1c9b7a",
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4e84ee54-3122-48e4-92d9-1f9db59e0b94",
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "14a9c5a1-2f3f-416c-a06d-3f8e331366d7",
+              "name": "utm_fun",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_fun\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "416c7356-388c-4592-87be-d9f29b670bad",
+              "name": "utm_var",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_var\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "866136ed-0c9b-4e19-8a6f-1e716d408e4c",
+              "name": "nome_do_evento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome_do_evento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "eed1579a-31b8-4dc0-8ad5-8919857b8516",
+              "name": "edicao_do_evento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"edicao_do_evento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "66f8191a-dd73-4773-b3f7-a63076f8686b",
+              "name": "form_id",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"form_id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "bb839055-124b-4671-99e9-d13293daa8c7",
+              "name": "form_name",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"form_name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "226a1058-30bb-4484-94e7-18d10e7c829c",
+              "name": "id_cadastro",
+              "value": "={{   $node[\"insere_lead_na_tabela_cadastros4\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros4\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros3\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros3\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros2\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros2\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros1\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros1\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros\"].json[\"data\"][\"insertId\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "957ee3f2-d099-4bee-a2f1-df34d030e983",
+              "name": "id_user",
+              "value": "={{   $node[\"pesquisa_user1\"].runIndex >= 0 ? $node[\"pesquisa_user1\"].json[\"id\"] : $node[\"pesquisa_user2\"].runIndex >= 0 ? $node[\"pesquisa_user2\"].json[\"id\"] : $node[\"insere_lead_na_tabela_users\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_users\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_user\"].runIndex >= 0 ? $node[\"pesquisa_user\"].json[\"id\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "5c29136e-1149-4996-8836-9a268279e93d",
+              "name": "funil",
+              "value": "={{ $node[\"pesquisa_funil\"].json[\"id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "9e54e330-474d-41ad-84a7-bcb929438ea2",
+              "name": "instagram",
+              "value": "=https://www.instagram.com/{{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a96e9c07-4226-4e9f-bfee-b442967b1fa0",
+      "name": "dados2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2760,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c74589e2-452e-44a5-8a49-b98c6fcdeca8",
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "f17267b5-65b0-4c2b-b9f5-d719193bb457",
+              "name": "sobrenome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "79edcf9f-8602-409f-8d04-ced41c06d16f",
+              "name": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "93103cc7-1870-4962-bb01-59462196b4de",
+              "name": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4750507c-f44a-45d5-b5ce-2a681d5a5581",
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a68b8a08-b2d1-4352-affb-0a6f4045cf4a",
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "71c74ec7-51b3-422e-a2d5-ae7bbf3bd1b0",
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "57aa10ae-6631-4352-8925-35138b1c9b7a",
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4e84ee54-3122-48e4-92d9-1f9db59e0b94",
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "14a9c5a1-2f3f-416c-a06d-3f8e331366d7",
+              "name": "utm_fun",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_fun\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "416c7356-388c-4592-87be-d9f29b670bad",
+              "name": "utm_var",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_var\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "866136ed-0c9b-4e19-8a6f-1e716d408e4c",
+              "name": "nome_do_evento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome_do_evento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "eed1579a-31b8-4dc0-8ad5-8919857b8516",
+              "name": "edicao_do_evento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"edicao_do_evento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "66f8191a-dd73-4773-b3f7-a63076f8686b",
+              "name": "form_id",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"form_id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "bb839055-124b-4671-99e9-d13293daa8c7",
+              "name": "form_name",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"form_name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "226a1058-30bb-4484-94e7-18d10e7c829c",
+              "name": "id_cadastro",
+              "value": "={{   $node[\"insere_lead_na_tabela_cadastros4\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros4\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros3\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros3\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros2\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros2\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros1\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros1\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros\"].json[\"data\"][\"insertId\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "957ee3f2-d099-4bee-a2f1-df34d030e983",
+              "name": "id_user",
+              "value": "={{   $node[\"pesquisa_user1\"].runIndex >= 0 ? $node[\"pesquisa_user1\"].json[\"id\"] : $node[\"pesquisa_user2\"].runIndex >= 0 ? $node[\"pesquisa_user2\"].json[\"id\"] : $node[\"insere_lead_na_tabela_users\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_users\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_user\"].runIndex >= 0 ? $node[\"pesquisa_user\"].json[\"id\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "72151848-6004-4229-886d-6616189c6e57",
+              "name": "arquivo",
+              "value": "={{ $node[\"busca_dados\"].json[\"arquivo\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "9742e5de-7eae-4aa5-b68b-50c3a3f1631c",
+              "name": "copy",
+              "value": "={{ $node[\"busca_dados\"].json[\"copy\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a67fbb5b-6416-40b7-a7b3-0b3bec71a49c",
+              "name": "valor_msg",
+              "value": "={{ $node[\"busca_dados\"].json[\"valor_msg\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "349ce38d-ff06-4993-9290-03d489cf223c",
+              "name": "funil",
+              "value": "={{ $node[\"pesquisa_funil\"].json[\"id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "f1b88de8-43b2-46fe-81eb-1ee3757d8a97",
+              "name": "instagram",
+              "value": "=https://www.instagram.com/{{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f6d43374-46c4-4b86-a667-f387f95299d9",
+      "name": "dados3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3460,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c74589e2-452e-44a5-8a49-b98c6fcdeca8",
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "f17267b5-65b0-4c2b-b9f5-d719193bb457",
+              "name": "sobrenome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "79edcf9f-8602-409f-8d04-ced41c06d16f",
+              "name": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "93103cc7-1870-4962-bb01-59462196b4de",
+              "name": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4750507c-f44a-45d5-b5ce-2a681d5a5581",
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a68b8a08-b2d1-4352-affb-0a6f4045cf4a",
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "71c74ec7-51b3-422e-a2d5-ae7bbf3bd1b0",
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "57aa10ae-6631-4352-8925-35138b1c9b7a",
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4e84ee54-3122-48e4-92d9-1f9db59e0b94",
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "14a9c5a1-2f3f-416c-a06d-3f8e331366d7",
+              "name": "utm_fun",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_fun\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "416c7356-388c-4592-87be-d9f29b670bad",
+              "name": "utm_var",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_var\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "866136ed-0c9b-4e19-8a6f-1e716d408e4c",
+              "name": "nome_do_evento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome_do_evento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "eed1579a-31b8-4dc0-8ad5-8919857b8516",
+              "name": "edicao_do_evento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"edicao_do_evento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "66f8191a-dd73-4773-b3f7-a63076f8686b",
+              "name": "form_id",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"form_id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "bb839055-124b-4671-99e9-d13293daa8c7",
+              "name": "form_name",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"form_name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "226a1058-30bb-4484-94e7-18d10e7c829c",
+              "name": "id_cadastro",
+              "value": "={{   $node[\"insere_lead_na_tabela_cadastros4\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros4\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros3\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros3\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros2\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros2\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros1\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros1\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros\"].json[\"data\"][\"insertId\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "957ee3f2-d099-4bee-a2f1-df34d030e983",
+              "name": "id_user",
+              "value": "={{   $node[\"pesquisa_user1\"].runIndex >= 0 ? $node[\"pesquisa_user1\"].json[\"id\"] : $node[\"pesquisa_user2\"].runIndex >= 0 ? $node[\"pesquisa_user2\"].json[\"id\"] : $node[\"insere_lead_na_tabela_users\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_users\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_user\"].runIndex >= 0 ? $node[\"pesquisa_user\"].json[\"id\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "42d9ecb4-1ac1-4a82-8dbe-4f7cbbebbdf5",
+              "name": "arquivo",
+              "value": "={{ $node[\"busca_dados\"].json[\"arquivo\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "95ab23e3-6a03-40f7-a60e-c1147752e746",
+              "name": "copy",
+              "value": "={{ $node[\"busca_dados\"].json[\"copy\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "ebecba86-102d-47a6-bcc3-490f89330aba",
+              "name": "valor_msg",
+              "value": "={{ $node[\"busca_dados\"].json[\"valor_msg\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "0f031c9e-cad2-46a8-928d-2e0ab3d72425",
+              "name": "funil",
+              "value": "={{ $node[\"pesquisa_funil\"].json[\"id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "e46f323c-f4d0-487a-84c1-e4d178b44f96",
+              "name": "instagram",
+              "value": "=https://www.instagram.com/{{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "30ccce8f-1e6b-4f8b-ba51-7aa30bc86d79",
+      "name": "dados4",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3460,
+        1180
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c74589e2-452e-44a5-8a49-b98c6fcdeca8",
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "f17267b5-65b0-4c2b-b9f5-d719193bb457",
+              "name": "sobrenome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "79edcf9f-8602-409f-8d04-ced41c06d16f",
+              "name": "=email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "93103cc7-1870-4962-bb01-59462196b4de",
+              "name": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4750507c-f44a-45d5-b5ce-2a681d5a5581",
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a68b8a08-b2d1-4352-affb-0a6f4045cf4a",
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "71c74ec7-51b3-422e-a2d5-ae7bbf3bd1b0",
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "57aa10ae-6631-4352-8925-35138b1c9b7a",
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4e84ee54-3122-48e4-92d9-1f9db59e0b94",
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "14a9c5a1-2f3f-416c-a06d-3f8e331366d7",
+              "name": "utm_fun",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_fun\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "416c7356-388c-4592-87be-d9f29b670bad",
+              "name": "utm_var",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_var\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "866136ed-0c9b-4e19-8a6f-1e716d408e4c",
+              "name": "nome_do_evento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome_do_evento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "eed1579a-31b8-4dc0-8ad5-8919857b8516",
+              "name": "edicao_do_evento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"edicao_do_evento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "66f8191a-dd73-4773-b3f7-a63076f8686b",
+              "name": "form_id",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"form_id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "bb839055-124b-4671-99e9-d13293daa8c7",
+              "name": "form_name",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"form_name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "226a1058-30bb-4484-94e7-18d10e7c829c",
+              "name": "id_cadastro",
+              "value": "={{   $node[\"insere_lead_na_tabela_cadastros4\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros4\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros3\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros3\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros2\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros2\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros1\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros1\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros\"].json[\"data\"][\"insertId\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "957ee3f2-d099-4bee-a2f1-df34d030e983",
+              "name": "id_user",
+              "value": "={{   $node[\"pesquisa_user1\"].runIndex >= 0 ? $node[\"pesquisa_user1\"].json[\"id\"] : $node[\"pesquisa_user2\"].runIndex >= 0 ? $node[\"pesquisa_user2\"].json[\"id\"] : $node[\"insere_lead_na_tabela_users\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_users\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_user\"].runIndex >= 0 ? $node[\"pesquisa_user\"].json[\"id\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "fbca9713-c93c-4089-9cea-2afce661a9d1",
+              "name": "funil",
+              "value": "={{ $node[\"pesquisa_funil\"].json[\"id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "d6bbccb7-84f2-42f5-8d07-fbc0c70493d8",
+              "name": "instagram",
+              "value": "=https://www.instagram.com/{{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3506ce6c-931b-4358-85d3-dcd6bb205918",
+      "name": "dados5",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3140,
+        1340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c74589e2-452e-44a5-8a49-b98c6fcdeca8",
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "f17267b5-65b0-4c2b-b9f5-d719193bb457",
+              "name": "sobrenome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "79edcf9f-8602-409f-8d04-ced41c06d16f",
+              "name": "email",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "93103cc7-1870-4962-bb01-59462196b4de",
+              "name": "telefone",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4750507c-f44a-45d5-b5ce-2a681d5a5581",
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_source\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a68b8a08-b2d1-4352-affb-0a6f4045cf4a",
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_campaign\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "71c74ec7-51b3-422e-a2d5-ae7bbf3bd1b0",
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_term\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "57aa10ae-6631-4352-8925-35138b1c9b7a",
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_medium\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4e84ee54-3122-48e4-92d9-1f9db59e0b94",
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_content\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "14a9c5a1-2f3f-416c-a06d-3f8e331366d7",
+              "name": "utm_fun",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_fun\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "416c7356-388c-4592-87be-d9f29b670bad",
+              "name": "utm_var",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"utm_var\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "866136ed-0c9b-4e19-8a6f-1e716d408e4c",
+              "name": "nome_do_evento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome_do_evento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "eed1579a-31b8-4dc0-8ad5-8919857b8516",
+              "name": "edicao_do_evento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"edicao_do_evento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "66f8191a-dd73-4773-b3f7-a63076f8686b",
+              "name": "form_id",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"form_id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "bb839055-124b-4671-99e9-d13293daa8c7",
+              "name": "form_name",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"form_name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "226a1058-30bb-4484-94e7-18d10e7c829c",
+              "name": "id_cadastro",
+              "value": "={{   $node[\"insere_lead_na_tabela_cadastros4\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros4\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros3\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros3\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros2\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros2\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros1\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros1\"].json[\"data\"][\"insertId\"] : $node[\"insere_lead_na_tabela_cadastros\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_cadastros\"].json[\"data\"][\"insertId\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "957ee3f2-d099-4bee-a2f1-df34d030e983",
+              "name": "id_user",
+              "value": "={{   $node[\"pesquisa_user1\"].runIndex >= 0 ? $node[\"pesquisa_user1\"].json[\"id\"] : $node[\"pesquisa_user2\"].runIndex >= 0 ? $node[\"pesquisa_user2\"].json[\"id\"] : $node[\"insere_lead_na_tabela_users\"].runIndex >= 0 ? $node[\"insere_lead_na_tabela_users\"].json[\"data\"][\"insertId\"] : $node[\"pesquisa_user\"].runIndex >= 0 ? $node[\"pesquisa_user\"].json[\"id\"] : null }}",
+              "type": "string"
+            },
+            {
+              "id": "36f1ba53-8c83-4258-aff3-23af53adc985",
+              "name": "funil",
+              "value": "={{ $node[\"pesquisa_funil\"].json[\"id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "7a9b19cf-ff64-4f4a-801b-8c8ee6dd1eb9",
+              "name": "instagram",
+              "value": "=https://www.instagram.com/{{ $node[\"chega_da_fila\"].json[\"content\"][\"instagram\"] }}/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "34dee29a-7ca8-4129-b742-2aa9523b6c10",
+      "name": "dados6",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3340,
+        1600
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "068f3a3a-71c7-41f2-adb8-194153ed9932",
+              "leftValue": "={{ $node[\"pesquisa_configs\"].json[\"crm\"] }}",
+              "rightValue": "Não tem",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "5a1cbd63-2759-4abb-93ac-2c43e162031e",
+      "name": "tem_crm",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        3120,
+        1660
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "3854ef6b-14ee-47cf-84a4-437d88f0132c",
+      "name": "fim",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3340,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "getAll",
+        "team": "3135484",
+        "space": "55168085",
+        "folder": "90132837125",
+        "list": "901305192449",
+        "returnAll": false,
+        "filters": {
+          "customFieldsUi": {
+            "customFieldsValues": [
+              {
+                "fieldId": "3bfe1f6e-fdb6-4c4c-9d20-4be849560124",
+                "value": "msg_cadastro"
+              }
+            ]
+          }
+        }
+      },
+      "id": "f779ca57-8b1e-41c9-9086-172c0f4c47e9",
+      "name": "busca_mensagem",
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        2920,
+        1140
+      ],
+      "alwaysOutputData": true,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const respostas = $json[\"custom_fields\"] || [];\nlet arquivo = respostas.find(answer => answer.name === \"Base64 da Mídia\")?.value || \"\";\nlet tipo_msg = respostas.find(answer => answer.name === \"Tipo de Mensagem\")?.value || \"\";\nlet copy = $json[\"text_content\"] || \"\";\nlet valor_msg = tipo_msg.toString().replace(\"0\", \"Texto\").replace(\"1\",\"Áudio\").replace(\"2\",\"Vídeo\").replace(\"3\",\"Imagem\").replace(\"4\",\"Documento\")\n\nreturn {\n  arquivo,\n  tipo_msg,\n  copy,\n  valor_msg\n    }"
+      },
+      "id": "12faef0a-48c9-4fba-b657-423d4934b831",
+      "name": "busca_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3120,
+        1140
+      ]
+    }
+  ],
+  "pinData": {
+    "chega_da_fila": [
+      {
+        "json": {
+          "fields": {
+            "consumerTag": "amq.ctag-spQOvA4x8ksHNARRCZ_nHQ",
+            "deliveryTag": 1,
+            "redelivered": false,
+            "exchange": "",
+            "routingKey": "WEB001 - Captação - Parte 2"
+          },
+          "properties": {
+            "headers": {}
+          },
+          "content": {
+            "nome": "Testes021024",
+            "sobrenome": "",
+            "email": "luiz12felipe34marchioro@gmail.com",
+            "telefone": "554999419731",
+            "utm_source": "",
+            "utm_campaign": "",
+            "utm_term": "",
+            "utm_medium": "",
+            "utm_content": "",
+            "utm_fun": null,
+            "utm_var": null,
+            "nome_do_evento": "Webinario",
+            "edicao_do_evento": "1",
+            "form_id": "88889e3",
+            "form_name": "Webinario",
+            "tag_do_lancamento": "WEB001"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-01-06T13:03:46.274Z",
+      "updatedAt": "2025-01-06T13:03:46.274Z",
+      "id": "UIe4pkWHHzL0wh8x",
+      "name": "[WEBINARIO]"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-01-06T20:41:16.503Z",
+  "versionId": "cd1abcee-d4d4-428c-907a-742f8ce5f175"
+}
