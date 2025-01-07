@@ -1,0 +1,890 @@
+{
+  "active": true,
+  "connections": {
+    "chega_da_fila": {
+      "main": [
+        [
+          {
+            "node": "variaveis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_user": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_preenchida",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variaveis": {
+      "main": [
+        [
+          {
+            "node": "consulta_colaborador",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_contato": {
+      "main": [
+        [
+          {
+            "node": "movimentacao_de_grupo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_colaborador": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "movimentacao_de_grupo": {
+      "main": [
+        [
+          {
+            "node": "atualiza_deal1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "atualiza_deal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_contato1": {
+      "main": [
+        [
+          {
+            "node": "atualiza_deal2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_preenchida": {
+      "main": [
+        [
+          {
+            "node": "atualiza_contato1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ingresso_gerado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_contato2": {
+      "main": [
+        [
+          {
+            "node": "atualiza_deal3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ingresso_gerado": {
+      "main": [
+        [
+          {
+            "node": "atualiza_contato2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "atualiza_contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-06T20:48:40.249Z",
+  "id": "7437SrXcaisDgnIu",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[Fabricio Nunnes] - Cadastro na Clint",
+  "nodes": [
+    {
+      "parameters": {
+        "queue": "WEB001 - CRM - Clint",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "acknowledge": "executionFinishesSuccessfully",
+          "jsonParseBody": "={{ true }}",
+          "parallelMessages": 3
+        }
+      },
+      "id": "fa5f5d2b-1ef7-4198-94e0-6794fab647ac",
+      "name": "chega_da_fila",
+      "type": "n8n-nodes-base.rabbitmqTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1020,
+        420
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_user\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "8d46f0cf-be12-4e49-bd0d-11c1eb4711b2",
+      "name": "pesquisa_user",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        -500,
+        420
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5a0f5c10-edaf-499c-bf42-0f80c6c79a3a",
+              "name": "url_base_chatwoot",
+              "value": "https://chatwoot.crisfranklin.com.br/",
+              "type": "string"
+            },
+            {
+              "id": "f720b08e-cda0-4c02-9b5f-fd14d604d160",
+              "name": "id_conta_chatwoot",
+              "value": "2",
+              "type": "string"
+            },
+            {
+              "id": "8a76ed4d-0788-4be6-9e3b-b16f3560a079",
+              "name": "time_atendimento",
+              "value": "SDR",
+              "type": "string"
+            },
+            {
+              "id": "3d618c6e-9d08-42a6-a929-b80cd397b3a9",
+              "name": "webhook_rotacionamento_time",
+              "value": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/consulta-colaborador",
+              "type": "string"
+            },
+            {
+              "id": "34c12118-6c97-4788-8b34-05825b5359a0",
+              "name": "webhook_clint_contato",
+              "value": "https://functions-api.clint.digital/endpoints/integration/webhook/c8cb3986-d3bc-4813-9338-0b1efb4d30be",
+              "type": "string"
+            },
+            {
+              "id": "1cceb904-c170-4250-99a9-4686f091d60d",
+              "name": "webhook_clint_deal_grupos",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "88248ce9-76d2-4111-be4e-e62d9874cf59",
+              "name": "webhook_clint_deal_cadastro",
+              "value": "https://functions-api.clint.digital/endpoints/integration/webhook/d41df2d6-2f5e-4f16-a543-c13e6a962dd3",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dcb1acb6-c7a1-4fe6-95b5-f009646d10cd",
+      "name": "variaveis",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -860,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"variaveis\"].json[\"webhook_clint_deal_cadastro\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_term }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_content }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_medium }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_campaign }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_source }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"nome\"] }} {{ $node[\"pesquisa_user\"].json[\"sobrenome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "=+{{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            },
+            {
+              "name": "link_chatwoot",
+              "value": "={{ $node[\"variaveis\"].json[\"url_base_chatwoot\"] }}app/accounts/{{ $node[\"variaveis\"].json[\"id_conta_chatwoot\"] }}/contacts/{{ $node[\"pesquisa_user\"].json[\"id_chatwoot\"] }}/"
+            },
+            {
+              "name": "responsavel",
+              "value": "={{ $node[\"consulta_colaborador\"].json[\"id_crm\"] }}"
+            },
+            {
+              "name": "data_do_cadastro",
+              "value": "={{ $now.toFormat('dd/MM/yyyy HH:mm') }}"
+            },
+            {
+              "name": "status_grupo",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"situacao\"] === \"Entrou no Grupo\" ? \"Entrou no Grupo\" : $node[\"chega_da_fila\"].json[\"content\"][\"situacao\"] === \"Saiu do Grupo\" ? \"Saiu do Grupo\" : \"Não entrou no Grupo\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "08e85a86-622c-47f7-9598-7351405862bc",
+      "name": "atualiza_deal",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        480,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"variaveis\"].json[\"webhook_clint_contato\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_term }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_content }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_medium }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_campaign }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_source }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"nome\"] }} {{ $node[\"pesquisa_user\"].json[\"sobrenome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "=+{{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            },
+            {
+              "name": "link_chatwoot",
+              "value": "={{ $node[\"variaveis\"].json[\"url_base_chatwoot\"] }}app/accounts/{{ $node[\"variaveis\"].json[\"id_conta_chatwoot\"] }}/contacts/{{ $node[\"pesquisa_user\"].json[\"id_chatwoot\"] }}/"
+            },
+            {
+              "name": "data_do_cadastro",
+              "value": "={{ $now.toFormat('dd/MM/yyyy HH:mm') }}"
+            },
+            {
+              "name": "status_grupo",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"situacao\"] === \"Entrou no Grupo\" ? \"Entrou no Grupo\" : $node[\"chega_da_fila\"].json[\"content\"][\"situacao\"] === \"Saiu do Grupo\" ? \"Saiu do Grupo\" : \"Não entrou no Grupo\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "30933b44-1b6a-42ce-9a0a-49dfc55d46ed",
+      "name": "atualiza_contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        80,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"variaveis\"].json[\"webhook_rotacionamento_time\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "user",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_user\"] }}"
+            },
+            {
+              "name": "time",
+              "value": "={{ $node[\"variaveis\"].json[\"time_atendimento\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ea03828c-87bf-4dbc-8e0b-f2d3286cab1f",
+      "name": "consulta_colaborador",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -680,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "1ed61747-273e-4ed4-90fd-5b68338b01d2",
+              "leftValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"situacao\"] }}",
+              "rightValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"situacao\"] }}",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "13be46e9-e11d-4972-84e7-6f5f987e1ef3",
+      "name": "movimentacao_de_grupo",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        260,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"variaveis\"].json[\"webhook_clint_deal_grupos\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_term }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_content }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_medium }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_campaign }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_source }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"nome\"] }} {{ $node[\"pesquisa_user\"].json[\"sobrenome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "=+{{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            },
+            {
+              "name": "link_chatwoot",
+              "value": "={{ $node[\"variaveis\"].json[\"url_base_chatwoot\"] }}app/accounts/{{ $node[\"variaveis\"].json[\"id_conta_chatwoot\"] }}/contacts/{{ $node[\"pesquisa_user\"].json[\"id_chatwoot\"] }}/"
+            },
+            {
+              "name": "responsavel",
+              "value": "={{ $node[\"consulta_colaborador\"].json[\"id_crm\"] }}"
+            },
+            {
+              "name": "status_grupo",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"situacao\"] === \"Entrou no Grupo\" ? \"Entrou no Grupo\" : $node[\"chega_da_fila\"].json[\"content\"][\"situacao\"] === \"Saiu do Grupo\" ? \"Saiu do Grupo\" : \"Não entrou no Grupo\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0657e0f7-b165-46b4-93e8-684f70b73b8b",
+      "name": "atualiza_deal1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        480,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"variaveis\"].json[\"webhook_clint_contato\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_term }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_content }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_medium }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_campaign }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_source }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"nome\"] }} {{ $node[\"pesquisa_user\"].json[\"sobrenome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "=+{{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            },
+            {
+              "name": "link_chatwoot",
+              "value": "={{ $node[\"variaveis\"].json[\"url_base_chatwoot\"] }}app/accounts/{{ $node[\"variaveis\"].json[\"id_conta_chatwoot\"] }}/contacts/{{ $node[\"pesquisa_user\"].json[\"id_chatwoot\"] }}/"
+            },
+            {
+              "name": "data_do_cadastro",
+              "value": "={{ $now.toFormat('dd/MM/yyyy HH:mm') }}"
+            },
+            {
+              "name": "preencheu_pesquisa",
+              "value": "Sim"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2a002a8a-5df4-4191-9732-6ab214c39806",
+      "name": "atualiza_contato1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -40,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "667ec0c4-a4e0-4a01-bc3a-9c59679d69bb",
+              "leftValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"situacao\"] }}",
+              "rightValue": "Pesquisa Preenchida",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "cbc5a442-fe1d-4e17-9455-66792cc74a72",
+      "name": "pesquisa_preenchida",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"variaveis\"].json[\"webhook_clint_deal_pesquisa_frio\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"email\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }} {{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "=+{{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            },
+            {
+              "name": "link_chatwoot",
+              "value": "={{ $node[\"variaveis\"].json[\"url_base_chatwoot\"] }}app/accounts/{{ $node[\"variaveis\"].json[\"id_conta_chatwoot\"] }}/contacts/{{ $node[\"pesquisa_user\"].json[\"id_chatwoot\"] }}/"
+            },
+            {
+              "name": "responsavel",
+              "value": "={{ $node[\"consulta_colaborador\"].json[\"id_crm\"] }}"
+            },
+            {
+              "name": "preencheu_pesquisa",
+              "value": "Sim"
+            },
+            {
+              "name": "pergunta1",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"pergunta1\"] }}"
+            },
+            {
+              "name": "pergunta2",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"pergunta2\"] }}"
+            },
+            {
+              "name": "pergunta3",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"pergunta3\"] }}"
+            },
+            {
+              "name": "pergunta4",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"pergunta4\"] }}"
+            },
+            {
+              "name": "pergunta5",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"pergunta5\"] }}"
+            },
+            {
+              "name": "pergunta6",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"pergunta6\"] }}"
+            },
+            {
+              "name": "pergunta7",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"pergunta7\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "898093fb-cf6b-4c97-b337-9c741feb5adc",
+      "name": "atualiza_deal2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        140,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"variaveis\"].json[\"webhook_clint_contato\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_term }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_content }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_medium }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_campaign }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"chega_da_fila\"].json.content.utm_source }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"nome\"] }} {{ $node[\"pesquisa_user\"].json[\"sobrenome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "=+{{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            },
+            {
+              "name": "link_chatwoot",
+              "value": "={{ $node[\"variaveis\"].json[\"url_base_chatwoot\"] }}app/accounts/{{ $node[\"variaveis\"].json[\"id_conta_chatwoot\"] }}/contacts/{{ $node[\"pesquisa_user\"].json[\"id_chatwoot\"] }}/"
+            },
+            {
+              "name": "data_do_cadastro",
+              "value": "={{ $now.toFormat('dd/MM/yyyy HH:mm') }}"
+            },
+            {
+              "name": "gerou_ingresso",
+              "value": "Sim"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d120a931-b1d1-4683-915a-0b1516bb6b3b",
+      "name": "atualiza_contato2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        120,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"variaveis\"].json[\"webhook_clint_deal_ingresso\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"pesquisa_user\"].json[\"email\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }} {{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "=+{{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
+            },
+            {
+              "name": "link_chatwoot",
+              "value": "={{ $node[\"variaveis\"].json[\"url_base_chatwoot\"] }}app/accounts/{{ $node[\"variaveis\"].json[\"id_conta_chatwoot\"] }}/contacts/{{ $node[\"pesquisa_user\"].json[\"id_chatwoot\"] }}/"
+            },
+            {
+              "name": "responsavel",
+              "value": "={{ $node[\"consulta_colaborador\"].json[\"id_crm\"] }}"
+            },
+            {
+              "name": "gerou_ingresso",
+              "value": "Sim"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f72fa4be-7ddf-4728-8c52-74602f7cdb12",
+      "name": "atualiza_deal3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        300,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "667ec0c4-a4e0-4a01-bc3a-9c59679d69bb",
+              "leftValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"situacao\"] }}",
+              "rightValue": "Ingresso Gerado",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e72f349a-5e87-407e-b164-0e202b10c9dc",
+      "name": "ingresso_gerado",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -100,
+        580
+      ]
+    }
+  ],
+  "pinData": {
+    "chega_da_fila": [
+      {
+        "json": {
+          "fields": {
+            "consumerTag": "amq.ctag-OJJNxdE6UQNf4MYWN9jqdA",
+            "deliveryTag": 3,
+            "redelivered": false,
+            "exchange": "",
+            "routingKey": "WEB001 - CRM - Clint"
+          },
+          "properties": {
+            "headers": {}
+          },
+          "content": {
+            "nome": "Luiz",
+            "sobrenome": "Felipe Dhein Marchioro",
+            "email": "luiz12felipe34marchioro@gmail.com",
+            "telefone": "554999419731",
+            "utm_source": "",
+            "utm_campaign": "",
+            "utm_term": "",
+            "utm_medium": "",
+            "utm_content": "",
+            "utm_fun": null,
+            "utm_var": null,
+            "nome_do_evento": "Webinario",
+            "edicao_do_evento": "1",
+            "form_id": "88889e3",
+            "form_name": "Webinario",
+            "id_cadastro": "3",
+            "id_user": "3",
+            "funil": "1",
+            "instagram": "https://www.instagram.com//"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-01-06T21:25:07.025Z",
+  "versionId": "572e95c7-4d01-4295-a644-95ed8f532154"
+}
