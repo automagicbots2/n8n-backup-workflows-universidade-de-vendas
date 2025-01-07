@@ -334,12 +334,8 @@
         "headerParameters": {
           "parameters": [
             {
-              "name": "Authorization",
+              "name": "access_token",
               "value": "Bearer $aact_MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6OmEwY2U3YTAyLTBkNzctNDllZC04OGE3LTU2NWUxYTlmMzA5Njo6JGFhY2hfNWRmNjZjZTQtNTYwMy00NzIyLTgzZjItZmM2ZjhmMmE1NmU2"
-            },
-            {
-              "name": "accept",
-              "value": "application/json"
             }
           ]
         },
@@ -528,11 +524,16 @@
     ]
   },
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-06T14:04:44.601Z",
-  "versionId": "1f8d9515-91ee-45bd-b577-367f0b89b4ab"
+  "updatedAt": "2025-01-06T16:52:43.649Z",
+  "versionId": "e2fd5c21-4e08-4a13-8e35-e63e6c59571c"
 }
