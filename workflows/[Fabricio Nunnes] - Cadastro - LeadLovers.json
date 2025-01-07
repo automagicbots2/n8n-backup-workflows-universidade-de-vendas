@@ -1,0 +1,309 @@
+{
+  "active": true,
+  "connections": {
+    "busca_lead_leadlovers": {
+      "main": [
+        [
+          {
+            "node": "existe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe": {
+      "main": [
+        [
+          {
+            "node": "atualiza_lead_leadlovers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "cria_lead_leadlovers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chega_da_fila": {
+      "main": [
+        [
+          {
+            "node": "variaveis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-06T20:47:00.147Z",
+  "id": "6aAv63sVxVj1s9GE",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[Fabricio Nunnes] - Cadastro - LeadLovers",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://llapi.leadlovers.com/webapi/Lead",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $node[\"pesquisa_variavel_n8n_fluxo_leadlovers\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "71a93135-0d0a-4dc9-81ab-d8347d5083b5",
+      "name": "busca_lead_leadlovers",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        60,
+        540
+      ],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.Email }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "728442b4-96b3-43b9-aeb7-73645336800b",
+      "name": "existe",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        260,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "https://llapi.leadlovers.com/webapi/Lead",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $node[\"pesquisa_variavel_n8n_fluxo_leadlovers\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"Email\": \"{{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] }}\",\n  \"Name\": \"{{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] }}\",\n  \"Phone\": \"{{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] }}\",\n  \"Tags\": [\n    \"{{ $node[\"pesquisa_variaveis_leadlovers\"].json[\"id_tag\"] }}\"\n  ],\n  \"MachineCode\": {{ $node[\"pesquisa_variaveis_leadlovers\"].json[\"id_maquina\"] }},\n  \"EmailSequenceCode\": {{ $node[\"pesquisa_variaveis_leadlovers\"].json[\"id_sequencia\"] }},\n  \"SequenceLevelCode\": 1\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "57256a38-9479-4ebc-9928-b14d1ea46a11",
+      "name": "atualiza_lead_leadlovers",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://llapi.leadlovers.com/webapi/lead",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $node[\"pesquisa_variavel_n8n_fluxo_leadlovers\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Email",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] }}"
+            },
+            {
+              "name": "MachineCode",
+              "value": "={{ $node[\"pesquisa_variaveis_leadlovers\"].json[\"id_maquina\"] }}"
+            },
+            {
+              "name": "EmailSequenceCode",
+              "value": "={{ $node[\"pesquisa_variaveis_leadlovers\"].json[\"id_sequencia\"] }}"
+            },
+            {
+              "name": "SequenceLevelCode",
+              "value": "1"
+            },
+            {
+              "name": "Name",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] }}"
+            },
+            {
+              "name": "Phone",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] }}"
+            },
+            {
+              "name": "Tag",
+              "value": "={{ $node[\"pesquisa_variaveis_leadlovers\"].json[\"id_tag\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "4fad4a30-bc27-45d9-9950-755ecb244a16",
+      "name": "cria_lead_leadlovers",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        460,
+        620
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "WEB001 - Criação ActiveCampaign",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "acknowledge": "executionFinishesSuccessfully",
+          "jsonParseBody": "={{ true }}",
+          "parallelMessages": 3
+        }
+      },
+      "id": "b07ea0ad-2205-488a-97c9-5278146cecd2",
+      "name": "chega_da_fila",
+      "type": "n8n-nodes-base.rabbitmqTrigger",
+      "typeVersion": 1,
+      "position": [
+        -340,
+        540
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7c27d4e2-865d-4283-9dc6-62d819ba5c41",
+              "name": "token_manychat",
+              "value": "485156:05e3a505353c26ef4861b94d93ab6e64",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "641e463d-281a-46e2-a556-a48700bc7035",
+      "name": "variaveis",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -160,
+        540
+      ]
+    }
+  ],
+  "pinData": {
+    "chega_da_fila": [
+      {
+        "json": {
+          "fields": {
+            "consumerTag": "amq.ctag-pzEY5BpM1eiJrr7X7Ycojw",
+            "deliveryTag": 1,
+            "redelivered": false,
+            "exchange": "",
+            "routingKey": "WEB001 - Criação ActiveCampaign"
+          },
+          "properties": {
+            "headers": {}
+          },
+          "content": {
+            "nome": "Mateus",
+            "sobrenome": "Diniz",
+            "email": "mateusdiniz@automagicbots.com.br",
+            "telefone": "556281196678",
+            "nome_do_evento": "Webinario",
+            "edicao_do_evento": "1",
+            "id_user": "1535",
+            "situacao": "Pesquisa Preenchida - Quente",
+            "funil": "11",
+            "pergunta1": "Coordenador",
+            "pergunta2": "Graduação",
+            "pergunta3": "Entre R$7.500 e R$8.999",
+            "pergunta4": "Não usei",
+            "pergunta5": "Iniciante",
+            "pergunta6": "teste",
+            "pergunta7": null
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-01-06T13:03:46.274Z",
+      "updatedAt": "2025-01-06T13:03:46.274Z",
+      "id": "UIe4pkWHHzL0wh8x",
+      "name": "[WEBINARIO]"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-01-06T20:47:51.540Z",
+  "versionId": "5d9383d0-2594-486a-b3e4-92c92cad0c29"
+}
