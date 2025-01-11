@@ -1,0 +1,270 @@
+{
+  "active": true,
+  "connections": {
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "evolution_event": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-10T20:24:37.481Z",
+  "id": "qQlOHK7iwqiNoxrZ",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[Fabricio Nunnes] - Entrou ou Saiu do Grupo - Parte 1",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "7164ad9e-9fcf-4cd1-bed6-9355b8c6a35f",
+      "name": "saida_do_grupo",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "  const whatsappInput = $node[\"evolution_event\"].json[\"body\"][\"data\"][\"participants\"][\"0\"].split('@')[0] || \"\";\n  const groupId = $node[\"evolution_event\"].json[\"body\"][\"data\"][\"id\"];\n  const event = $node[\"evolution_event\"].json[\"body\"][\"data\"][\"action\"];\nconst result = {\n    whatsapp: whatsappInput,\n    groupId: groupId,\n    event: event\n};\n\n// Aqui estamos ajustando a estrutura do retorno para se adequar ao que o n8n espera\nreturn [{ json: result }];\n"
+      },
+      "id": "30eb9b22-a826-45d6-a72e-060dbfda6963",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        620,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "93103cc7-1870-4962-bb01-59462196b4de",
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"whatsapp\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "866136ed-0c9b-4e19-8a6f-1e716d408e4c",
+              "name": "grupo",
+              "value": "={{ $node[\"evolution_event\"].json[\"body\"][\"data\"][\"id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a676f67c-1200-4cde-bd7c-8ac1d93d6220",
+              "name": "evento",
+              "value": "={{ $node[\"formata_dados\"].json[\"event\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "295b5fe1-7f09-40e9-ba1f-6e5078bfc74a",
+              "name": "nome_do_evento",
+              "value": "Webinario",
+              "type": "string"
+            },
+            {
+              "id": "42b2db40-c8d6-45e2-a7eb-6bb6368bd293",
+              "name": "edicao_do_evento",
+              "value": "1",
+              "type": "string"
+            },
+            {
+              "id": "c16b6948-fbf2-44be-a0d7-689669d95e1d",
+              "name": "tag_do_lancamento",
+              "value": "WEB001",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6d66d422-d3b1-457a-9661-1ae4088d1fb6",
+      "name": "dados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        800,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "={{ $node[\"dados\"].json[\"tag_do_lancamento\"] }} - Grupos",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "11c9a988-eba8-4ff5-b7eb-176fb1c98907",
+      "name": "entra_na_fila",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        640
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "evolution-events",
+        "options": {}
+      },
+      "id": "fc226c00-2352-4e47-8d15-f3975a2ba1a7",
+      "name": "evolution_event",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        460,
+        640
+      ],
+      "webhookId": "052c045e-02a9-4141-8901-55b03478d0d8"
+    }
+  ],
+  "pinData": {
+    "saida_do_grupo": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n2webhookautomagicbots.automagicbots.com.br",
+            "user-agent": "axios/1.6.2",
+            "content-length": "425",
+            "accept": "application/json, text/plain, */*",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "69.55.49.20",
+            "x-forwarded-host": "n8n2webhookautomagicbots.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "61f25d337cc6",
+            "x-real-ip": "69.55.49.20"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event": "group-participants.update",
+            "instance": "Teste",
+            "data": {
+              "id": "120363257932288913@g.us",
+              "participants": [
+                "553185711260@s.whatsapp.net"
+              ],
+              "action": "remove"
+            },
+            "destination": "https://n8n2webhookautomagicbots.automagicbots.com.br/webhook/evolution-events",
+            "date_time": "2024-03-27T13:59:29.239Z",
+            "sender": "5511955835870@s.whatsapp.net",
+            "server_url": "https://evolutionapi.automagicbots.com.br",
+            "apikey": "qhfgqsenfc9s3msxswxh5"
+          }
+        }
+      }
+    ],
+    "evolution_event": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n2webhookautomagicbots.automagicbots.com.br",
+            "user-agent": "axios/1.6.2",
+            "content-length": "422",
+            "accept": "application/json, text/plain, */*",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "69.55.49.20",
+            "x-forwarded-host": "n8n2webhookautomagicbots.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "61f25d337cc6",
+            "x-real-ip": "69.55.49.20"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event": "group-participants.update",
+            "instance": "Teste",
+            "data": {
+              "id": "120363257932288913@g.us",
+              "participants": [
+                "553185711260@s.whatsapp.net"
+              ],
+              "action": "add"
+            },
+            "destination": "https://n8n2webhookautomagicbots.automagicbots.com.br/webhook/evolution-events",
+            "date_time": "2024-03-27T13:58:37.863Z",
+            "sender": "5511955835870@s.whatsapp.net",
+            "server_url": "https://evolutionapi.automagicbots.com.br",
+            "apikey": "qhfgqsenfc9s3msxswxh5"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-01-06T13:03:46.274Z",
+      "updatedAt": "2025-01-06T13:03:46.274Z",
+      "id": "UIe4pkWHHzL0wh8x",
+      "name": "[WEBINARIO]"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-01-10T20:28:55.158Z",
+  "versionId": "bc01bbc4-f2b0-4459-a94a-bcdbb87efd01"
+}
