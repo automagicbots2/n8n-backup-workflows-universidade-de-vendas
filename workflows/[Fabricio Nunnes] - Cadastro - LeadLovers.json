@@ -40,6 +40,17 @@
           }
         ]
       ]
+    },
+    "variaveis": {
+      "main": [
+        [
+          {
+            "node": "busca_lead_leadlovers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-01-06T20:47:00.147Z",
@@ -57,11 +68,11 @@
           "parameters": [
             {
               "name": "token",
-              "value": "={{ $node[\"pesquisa_variavel_n8n_fluxo_leadlovers\"].json[\"valor_variavel\"] }}"
+              "value": "={{ $node[\"variaveis\"].json[\"token_leadlovers\"] }}"
             },
             {
               "name": "email",
-              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}"
             }
           ]
         },
@@ -110,13 +121,13 @@
           "parameters": [
             {
               "name": "token",
-              "value": "={{ $node[\"pesquisa_variavel_n8n_fluxo_leadlovers\"].json[\"valor_variavel\"] }}"
+              "value": "={{ $node[\"variaveis\"].json[\"token_leadlovers\"] }}"
             }
           ]
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"Email\": \"{{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] }}\",\n  \"Name\": \"{{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] }}\",\n  \"Phone\": \"{{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] }}\",\n  \"Tags\": [\n    \"{{ $node[\"pesquisa_variaveis_leadlovers\"].json[\"id_tag\"] }}\"\n  ],\n  \"MachineCode\": {{ $node[\"pesquisa_variaveis_leadlovers\"].json[\"id_maquina\"] }},\n  \"EmailSequenceCode\": {{ $node[\"pesquisa_variaveis_leadlovers\"].json[\"id_sequencia\"] }},\n  \"SequenceLevelCode\": 1\n}",
+        "jsonBody": "={\n  \"Email\": \"{{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}\",\n  \"Name\": \"{{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }} {{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}\",\n  \"Phone\": \"{{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}\",\n  \"MachineCode\": 752114,\n  \"EmailSequenceCode\": 1775870,\n  \"SequenceLevelCode\": 1\n}",
         "options": {
           "redirect": {
             "redirect": {}
@@ -141,7 +152,7 @@
           "parameters": [
             {
               "name": "token",
-              "value": "={{ $node[\"pesquisa_variavel_n8n_fluxo_leadlovers\"].json[\"valor_variavel\"] }}"
+              "value": "={{ $node[\"variaveis\"].json[\"token_leadlovers\"] }}"
             }
           ]
         },
@@ -150,15 +161,15 @@
           "parameters": [
             {
               "name": "Email",
-              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}"
             },
             {
               "name": "MachineCode",
-              "value": "={{ $node[\"pesquisa_variaveis_leadlovers\"].json[\"id_maquina\"] }}"
+              "value": "=752114"
             },
             {
               "name": "EmailSequenceCode",
-              "value": "={{ $node[\"pesquisa_variaveis_leadlovers\"].json[\"id_sequencia\"] }}"
+              "value": "=1775870"
             },
             {
               "name": "SequenceLevelCode",
@@ -166,15 +177,11 @@
             },
             {
               "name": "Name",
-              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }} {{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}"
             },
             {
               "name": "Phone",
-              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] }}"
-            },
-            {
-              "name": "Tag",
-              "value": "={{ $node[\"pesquisa_variaveis_leadlovers\"].json[\"id_tag\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}"
             }
           ]
         },
@@ -231,8 +238,8 @@
           "assignments": [
             {
               "id": "7c27d4e2-865d-4283-9dc6-62d819ba5c41",
-              "name": "token_manychat",
-              "value": "485156:05e3a505353c26ef4861b94d93ab6e64",
+              "name": "token_leadlovers",
+              "value": "4A3A3499EBDA4A25A1282B4BD44D5A97",
               "type": "string"
             }
           ]
@@ -254,8 +261,8 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-pzEY5BpM1eiJrr7X7Ycojw",
-            "deliveryTag": 1,
+            "consumerTag": "amq.ctag-eniLcQOZAPHKU11uq3sw4Q",
+            "deliveryTag": 51,
             "redelivered": false,
             "exchange": "",
             "routingKey": "WEB001 - Criação ActiveCampaign"
@@ -264,22 +271,25 @@
             "headers": {}
           },
           "content": {
-            "nome": "Mateus",
-            "sobrenome": "Diniz",
-            "email": "mateusdiniz@automagicbots.com.br",
-            "telefone": "556281196678",
+            "nome": "Taís",
+            "sobrenome": "",
+            "email": "taiskopsch@gmail.com",
+            "telefone": "554788948269",
+            "utm_source": "organico_bio",
+            "utm_campaign": "",
+            "utm_term": "",
+            "utm_medium": "",
+            "utm_content": "",
+            "utm_fun": null,
+            "utm_var": null,
             "nome_do_evento": "Webinario",
             "edicao_do_evento": "1",
-            "id_user": "1535",
-            "situacao": "Pesquisa Preenchida - Quente",
-            "funil": "11",
-            "pergunta1": "Coordenador",
-            "pergunta2": "Graduação",
-            "pergunta3": "Entre R$7.500 e R$8.999",
-            "pergunta4": "Não usei",
-            "pergunta5": "Iniciante",
-            "pergunta6": "teste",
-            "pergunta7": null
+            "form_id": "88889e3",
+            "form_name": "Webinario",
+            "id_cadastro": "52",
+            "id_user": "47",
+            "funil": "1",
+            "instagram": "https://www.instagram.com//"
           }
         }
       }
@@ -304,6 +314,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-01-06T20:47:51.540Z",
-  "versionId": "5d9383d0-2594-486a-b3e4-92c92cad0c29"
+  "updatedAt": "2025-01-10T20:22:59.494Z",
+  "versionId": "0d84aa26-4772-49ea-b9fb-697c32175111"
 }
