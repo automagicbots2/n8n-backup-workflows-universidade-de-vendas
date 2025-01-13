@@ -30,22 +30,34 @@
         ]
       ]
     },
-    "chega_da_fila": {
+    "variaveis": {
       "main": [
         [
           {
-            "node": "variaveis",
+            "node": "busca_lead_leadlovers",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "variaveis": {
+    "chega_da_fila": {
       "main": [
         [
           {
-            "node": "busca_lead_leadlovers",
+            "node": "email_vazio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "email_vazio": {
+      "main": [
+        [],
+        [
+          {
+            "node": "variaveis",
             "type": "main",
             "index": 0
           }
@@ -222,8 +234,8 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        -340,
-        540
+        -520,
+        520
       ],
       "credentials": {
         "rabbitmq": {
@@ -254,6 +266,39 @@
         -160,
         540
       ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "060a24c1-0e30-4829-ae86-964a65608bd1",
+              "leftValue": "={{ $json[\"content\"][\"email\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9c482644-cdd2-4c95-ae5a-10861a27fc19",
+      "name": "email_vazio",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -360,
+        520
+      ]
     }
   ],
   "pinData": {
@@ -261,33 +306,35 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-eniLcQOZAPHKU11uq3sw4Q",
-            "deliveryTag": 51,
-            "redelivered": false,
+            "consumerTag": "amq.ctag-XjOCsyGa7jLrg4JkiJQBEQ",
+            "deliveryTag": 1,
+            "redelivered": true,
             "exchange": "",
             "routingKey": "WEB001 - Criação ActiveCampaign"
           },
           "properties": {
-            "headers": {}
+            "headers": {
+              "x-delivery-count": 72
+            }
           },
           "content": {
-            "nome": "Taís",
+            "nome": "Gabriel",
             "sobrenome": "",
-            "email": "taiskopsch@gmail.com",
-            "telefone": "554788948269",
-            "utm_source": "organico_bio",
-            "utm_campaign": "",
-            "utm_term": "",
-            "utm_medium": "",
-            "utm_content": "",
+            "email": "teste@automagicbots.com.br",
+            "telefone": "553185711260",
+            "utm_source": "fb",
+            "utm_campaign": "LF+WB+WB0121+CAPTAO+CADASTRO+AUTO+F+Pblicos+Frios++Cpia",
+            "utm_term": "WB0125_AD004",
+            "utm_medium": "Facebook_Right_Column",
+            "utm_content": "02+-+AUTO+F+Mix+Frios",
             "utm_fun": null,
             "utm_var": null,
             "nome_do_evento": "Webinario",
             "edicao_do_evento": "1",
             "form_id": "88889e3",
             "form_name": "Webinario",
-            "id_cadastro": "52",
-            "id_user": "47",
+            "id_cadastro": "85",
+            "id_user": "75",
             "funil": "1",
             "instagram": "https://www.instagram.com//"
           }
@@ -314,6 +361,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-01-10T20:22:59.494Z",
-  "versionId": "0d84aa26-4772-49ea-b9fb-697c32175111"
+  "updatedAt": "2025-01-13T13:11:13.336Z",
+  "versionId": "a9844e5a-a49d-4520-a6e4-46d94f048bba"
 }
