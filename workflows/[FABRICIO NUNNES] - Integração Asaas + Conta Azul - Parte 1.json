@@ -1,7 +1,87 @@
 {
   "active": true,
   "connections": {
+    "pagamento_recebido": {
+      "main": [
+        [
+          {
+            "node": "buscarCliente",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Webhook": {
+      "main": [
+        [
+          {
+            "node": "pagamento_recebido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscarCliente": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pessoa_fisica": {
+      "main": [
+        [
+          {
+            "node": "dados",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "pessoa_fisica",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados1": {
+      "main": [
+        [
+          {
+            "node": "RabbitMQ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados": {
       "main": [
         [
           {
@@ -40,7 +120,7 @@
       "type": "n8n-nodes-base.rabbitmq",
       "typeVersion": 1.1,
       "position": [
-        700,
+        1380,
         380
       ],
       "credentials": {
@@ -49,6 +129,50 @@
           "name": "[RabbitMQ] - Fabrício Nunnes"
         }
       }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "733598a4-beb3-46bf-9081-62b39db5f6ba",
+              "leftValue": "={{ $node[\"Webhook\"].json[\"body\"][\"event\"] }}",
+              "rightValue": "PAYMENT_RECEIVED",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "36ede5a5-08af-4b22-9eb7-00dfc50179db",
+      "name": "pagamento_recebido",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        200,
+        380
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "3c03b111-a20e-42b7-b82b-ceac01c36204",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        460,
+        600
+      ]
     },
     {
       "parameters": {
@@ -61,10 +185,293 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        460,
+        -20,
         380
       ],
       "webhookId": "417fd3c9-851b-4063-894c-bc57871da022"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.asaas.com/v3/customers/{{ $node[\"Webhook\"].json[\"body\"][\"payment\"][\"customer\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "access_token",
+              "value": "$aact_MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6OjExMzBhNDcwLWE5YjEtNDVmOS1iMTNhLTE2MjAzYzBkNzc5Yzo6JGFhY2hfZjQ1MmFmMjctMTNjZS00NjUyLWExZmQtMjJkMmZlMjg0NWI4"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a8e7a9f0-4d52-4fa8-9900-d5a1a42c32f6",
+      "name": "buscarCliente",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        460,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "5358b764-8735-4389-9a9d-aa2534e62d70",
+              "leftValue": "={{ $node[\"buscarCliente\"].json[\"personType\"] }}",
+              "rightValue": "FISICA",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "8b57ea42-aa5c-4c76-a79f-20d1b19eaa61",
+      "name": "pessoa_fisica",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        880,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c74589e2-452e-44a5-8a49-b98c6fcdeca8",
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados\"].json[\"fname\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "f17267b5-65b0-4c2b-b9f5-d719193bb457",
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados\"].json[\"lname\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "79edcf9f-8602-409f-8d04-ced41c06d16f",
+              "name": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "93103cc7-1870-4962-bb01-59462196b4de",
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"whatsapp\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "b9134b79-303b-4d22-8c4c-36002bd7e7f8",
+              "name": "instagram",
+              "value": "={{ $node[\"formata_dados\"].json[\"instagram\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "5eb6f2d9-2f11-4e14-a9a7-d14179600cf6",
+              "name": "cpf",
+              "value": "={{ $node[\"formata_dados\"].json[\"cpf_cnpj\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "94f708d4-b7c3-497d-91be-d598a38464de",
+              "name": "rua",
+              "value": "={{ $node[\"buscarCliente\"].json[\"address\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "208fe39a-1d50-4bf8-ab1b-0925e779ab5e",
+              "name": "numero",
+              "value": "={{ $node[\"buscarCliente\"].json[\"addressNumber\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "a9ba35a8-86fb-442b-ab6f-51198c921703",
+              "name": "complemento",
+              "value": "={{ $node[\"buscarCliente\"].json[\"complement\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "9fba1a42-9134-4ffa-be0f-cb001271ad68",
+              "name": "bairro",
+              "value": "={{ $node[\"buscarCliente\"].json[\"province\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "00206a5c-d7f5-42c7-a1e3-a001d7cc410e",
+              "name": "cep",
+              "value": "={{ $node[\"formata_dados\"].json[\"postalCode\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "48bfde76-056c-4d5f-bb84-7a442b3a7a4e",
+              "name": "cidade",
+              "value": "={{ $node[\"buscarCliente\"].json[\"cityName\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "70e1ce6a-f106-4b65-bd26-0b9408c9996e",
+              "name": "estado",
+              "value": "={{ $node[\"buscarCliente\"].json[\"state\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "958e399f-777b-42de-895b-5d3a64339fee",
+              "name": "pais",
+              "value": "={{ $node[\"buscarCliente\"].json[\"country\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "85cb8713-0b48-4466-a9c8-40ffa09c445c",
+              "name": "id_asaas",
+              "value": "={{ $node[\"buscarCliente\"].json[\"id\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7d996e69-5a7a-4fe5-8f2d-0afbaf096849",
+      "name": "dados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1100,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const fullNameAnswer = $node[\"buscarCliente\"].json[\"name\"] || \"\";\nconst emailAnswer = $node[\"buscarCliente\"].json[\"email\"] || \"\";\nconst telefoneClienteOriginal = $node[\"buscarCliente\"].json[\"phone\"] || \"\";\nconst instagramAnswer = $node[\"buscarCliente\"].json[\"Instagram\"] || \"\";\n\nfunction capitalizeName(fullName) {\n    if (typeof fullName === 'undefined') {\n        return { fname: '', lname: '', fullname: '' };\n    }\n\n    const lowerCaseWords = ['da', 'de', 'do', 'di', 'du'];\n    let words = fullName.toLowerCase().split(' ').map((word, index) => {\n        if (lowerCaseWords.includes(word) && index !== 0) {\n            return word;\n        }\n        return word.charAt(0).toUpperCase() + word.slice(1);\n    });\n\n    let fname = words.shift();\n    let lname = words.join(' ');\n\n    let fullname = lname ? `${fname} ${lname}` : fname;\n\n    return { fname, lname, fullname };\n}\n\nfunction formatEmail(email) {\n    return email.toLowerCase().trim();\n}\n\nfunction formatInstagram(instagram) {\n    return instagram.toLowerCase().replace(/^@/, \"\");\n}\n\nfunction formatCPF(cpf) {\n    const cpfLimpo = cpf.replace(/\\D/g, \"\");\n    if (cpfLimpo.length === 11) {\n        return `${cpfLimpo.slice(0, 3)}.${cpfLimpo.slice(3, 6)}.${cpfLimpo.slice(6, 9)}-${cpfLimpo.slice(9, 11)}`;\n    }\n    return cpf;\n}\n\nfunction formatCNPJ(cnpj) {\n    const cnpjLimpo = cnpj.replace(/\\D/g, \"\");\n    if (cnpjLimpo.length === 14) {\n        return `${cnpjLimpo.slice(0, 2)}.${cnpjLimpo.slice(2, 5)}.${cnpjLimpo.slice(5, 8)}/${cnpjLimpo.slice(8, 12)}-${cnpjLimpo.slice(12, 14)}`;\n    }\n    return cnpj;\n}\n\nfunction isCPFOrCNPJ(cpfCnpj) {\n    const cleaned = cpfCnpj.replace(/\\D/g, \"\"); // Remove caracteres não numéricos\n    if (cleaned.length === 11) {\n        return \"CPF\"; // É um CPF\n    } else if (cleaned.length === 14) {\n        return \"CNPJ\"; // É um CNPJ\n    }\n    return null; // Valor inválido\n}\n\n// Modifique o formato conforme o tipo\nconst cpfCnpj = $node[\"buscarCliente\"].json[\"cpfCnpj\"] || \"\";\nlet formattedCPFOrCNPJ = \"\";\n\nif (isCPFOrCNPJ(cpfCnpj) === \"CPF\") {\n    formattedCPFOrCNPJ = formatCPF(cpfCnpj);\n} else if (isCPFOrCNPJ(cpfCnpj) === \"CNPJ\") {\n    formattedCPFOrCNPJ = formatCNPJ(cpfCnpj);\n}\n\n\nlet telefoneFinal = \"\";\n\nif (telefoneClienteOriginal) {\n    const telefoneLimpo = telefoneClienteOriginal.replace(/\\D/g, \"\");\n\n    let DDI = '';\n    let DDD = '';\n    let numero = '';\n\n    if (telefoneLimpo.length > 11) {\n        DDI = telefoneLimpo.slice(0, 2);\n        DDD = telefoneLimpo.slice(2, 4);\n        numero = telefoneLimpo.slice(4);\n    } else if (telefoneLimpo.length === 11) {\n        DDI = '55';\n        DDD = telefoneLimpo.slice(0, 2);\n        numero = telefoneLimpo.slice(2);\n    } else if (telefoneLimpo.length === 10) {\n        DDI = '55';\n        DDD = telefoneLimpo.slice(0, 2);\n        numero = telefoneLimpo.slice(2);\n    } else {\n        telefoneFinal = telefoneLimpo;\n    }\n\n    if (DDD && numero) {\n        if (parseInt(DDD) > 28) {\n            if (numero.length === 9 && numero.startsWith(\"9\")) {\n                numero = numero.slice(1);\n            }\n        } else {\n            if (numero.length === 8) {\n                numero = `9${numero}`;\n            }\n        }\n    }\n\n    if (DDI && DDD && numero) {\n        telefoneFinal = `${DDI}${DDD}${numero}`;\n    }\n}\n\nfunction formatCEP(cep) {\n    const cepLimpo = cep.replace(/\\D/g, \"\"); // Remove qualquer caractere não numérico\n    if (cepLimpo.length === 8) {\n        return `${cepLimpo.slice(0, 2)}.${cepLimpo.slice(2, 5)}-${cepLimpo.slice(5, 8)}`;\n    }\n    return cep; // Retorna o valor original se não tiver 8 dígitos\n}\n\n\nconst formattedNames = capitalizeName(fullNameAnswer);\nconst formattedEmail = formatEmail(emailAnswer);\nconst formattedInstagram = formatInstagram(instagramAnswer);\nconst utm_source = $node[\"buscarCliente\"].json[\"utm_source\"] || \"\";\nconst utm_campaign = $node[\"buscarCliente\"].json[\"utm_campaign\"] || \"\";\nconst utm_medium = $node[\"buscarCliente\"].json[\"utm_medium\"] || \"\";\nconst utm_term = $node[\"buscarCliente\"].json[\"utm_term\"] || \"\";\nconst utm_content = $node[\"buscarCliente\"].json[\"utm_content\"] || \"\";\nconst form_id = $node[\"buscarCliente\"].json[\"form_id\"] || \"\";\nconst form_name = $node[\"buscarCliente\"].json[\"form_name\"] || \"\";\nconst postalCode = $node[\"buscarCliente\"].json[\"postalCode\"] || \"\";\nconst formattedPostalCode = formatCEP(postalCode);\n\nconst result = {\n    ...formattedNames,\n    email: formattedEmail,\n    whatsapp: telefoneFinal,\n    instagram: formattedInstagram,\n    cpf_cnpj: formattedCPFOrCNPJ, // Inclui o CPF ou CNPJ formatado corretamente\n    postalCode: formattedPostalCode, // CEP formatado\n    utm_source: utm_source,\n    utm_campaign: utm_campaign,\n    utm_term: utm_term,\n    utm_medium: utm_medium,\n    utm_content: utm_content,\n    form_id: form_id,\n    form_name: form_name\n};\n\nreturn [{ json: result }];\n"
+      },
+      "id": "f43116dc-986d-4c19-83d9-1bb00dad0efa",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c74589e2-452e-44a5-8a49-b98c6fcdeca8",
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados\"].json[\"fname\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "f17267b5-65b0-4c2b-b9f5-d719193bb457",
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados\"].json[\"lname\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "79edcf9f-8602-409f-8d04-ced41c06d16f",
+              "name": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "93103cc7-1870-4962-bb01-59462196b4de",
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"whatsapp\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "b9134b79-303b-4d22-8c4c-36002bd7e7f8",
+              "name": "instagram",
+              "value": "={{ $node[\"formata_dados\"].json[\"instagram\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "5eb6f2d9-2f11-4e14-a9a7-d14179600cf6",
+              "name": "cnpj",
+              "value": "={{ $node[\"formata_dados\"].json[\"cpf_cnpj\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "94f708d4-b7c3-497d-91be-d598a38464de",
+              "name": "rua",
+              "value": "={{ $node[\"buscarCliente\"].json[\"address\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "208fe39a-1d50-4bf8-ab1b-0925e779ab5e",
+              "name": "numero",
+              "value": "={{ $node[\"buscarCliente\"].json[\"addressNumber\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "a9ba35a8-86fb-442b-ab6f-51198c921703",
+              "name": "complemento",
+              "value": "={{ $node[\"buscarCliente\"].json[\"complement\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "9fba1a42-9134-4ffa-be0f-cb001271ad68",
+              "name": "bairro",
+              "value": "={{ $node[\"buscarCliente\"].json[\"province\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "00206a5c-d7f5-42c7-a1e3-a001d7cc410e",
+              "name": "cep",
+              "value": "={{ $node[\"formata_dados\"].json[\"postalCode\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "48bfde76-056c-4d5f-bb84-7a442b3a7a4e",
+              "name": "cidade",
+              "value": "={{ $node[\"buscarCliente\"].json[\"cityName\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "70e1ce6a-f106-4b65-bd26-0b9408c9996e",
+              "name": "estado",
+              "value": "={{ $node[\"buscarCliente\"].json[\"state\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "958e399f-777b-42de-895b-5d3a64339fee",
+              "name": "pais",
+              "value": "={{ $node[\"buscarCliente\"].json[\"country\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "8164abb3-56d3-48cb-9c84-7bec8af57c1f",
+              "name": "id_asaas",
+              "value": "={{ $node[\"buscarCliente\"].json[\"id\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "02328456-d4b0-45ad-a17d-b380b73195a6",
+      "name": "dados1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1100,
+        420
+      ]
     }
   ],
   "pinData": {
@@ -97,7 +504,7 @@
           "query": {},
           "body": {
             "id": "evt_05b708f961d739ea7eba7e4db318f621&798478822",
-            "event": "PAYMENT_CREATED",
+            "event": "PAYMENT_RECEIVED",
             "dateCreated": "2024-12-19 16:52:14",
             "payment": {
               "object": "payment",
@@ -170,6 +577,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-12-19T20:33:58.082Z",
-  "versionId": "91168806-b641-455f-b8ee-c0d32bfeff6b"
+  "updatedAt": "2025-01-13T14:44:14.378Z",
+  "versionId": "7073b4d1-7843-44d8-b3c9-8f84a6d26d32"
 }
