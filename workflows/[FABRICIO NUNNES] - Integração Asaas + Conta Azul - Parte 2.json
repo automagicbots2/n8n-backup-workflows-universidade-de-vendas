@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "criarContato": {
       "main": [
@@ -43,13 +43,7 @@
     },
     "RabbitMQ Trigger": {
       "main": [
-        [
-          {
-            "node": "buscarCliente",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "buscarCliente": {
@@ -335,7 +329,7 @@
           "parameters": [
             {
               "name": "access_token",
-              "value": "Bearer $aact_MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6OmEwY2U3YTAyLTBkNzctNDllZC04OGE3LTU2NWUxYTlmMzA5Njo6JGFhY2hfNWRmNjZjZTQtNTYwMy00NzIyLTgzZjItZmM2ZjhmMmE1NmU2"
+              "value": "$aact_MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6OjExMzBhNDcwLWE5YjEtNDVmOS1iMTNhLTE2MjAzYzBkNzc5Yzo6JGFhY2hfZjQ1MmFmMjctMTNjZS00NjUyLWExZmQtMjJkMmZlMjg0NWI4"
             }
           ]
         },
@@ -355,8 +349,8 @@
         "url": "https://api.contaazul.com/v1/customers",
         "authentication": "genericCredentialType",
         "genericAuthType": "oAuth2Api",
-        "sendBody": true,
-        "bodyParameters": {
+        "sendQuery": true,
+        "queryParameters": {
           "parameters": [
             {
               "name": "search",
@@ -380,8 +374,8 @@
       ],
       "credentials": {
         "oAuth2Api": {
-          "id": "DdHhm6SGCI7cTQZY",
-          "name": "[Fabricio] Conta Azul"
+          "id": "rPMcxfmZaXUiOcP8",
+          "name": "[Conta Azul] - Universidade de Vendas"
         }
       }
     },
@@ -533,7 +527,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-01-10T17:42:16.929Z",
-  "versionId": "375334d7-c7f8-498a-8d16-a0984f26f2b0"
+  "triggerCount": 1,
+  "updatedAt": "2025-01-13T14:39:12.570Z",
+  "versionId": "51c7c549-c2c2-457c-a434-abe5a9007af7"
 }
