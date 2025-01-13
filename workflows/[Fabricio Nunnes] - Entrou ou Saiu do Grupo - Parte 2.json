@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "chega_da_fila": {
       "main": [
@@ -726,7 +726,7 @@
   "nodes": [
     {
       "parameters": {
-        "queue": "TAGDOLANÇAMENTO - Grupos",
+        "queue": "WEB001 - Grupos",
         "options": {
           "arguments": {
             "argument": [
@@ -748,7 +748,13 @@
       "position": [
         -1940,
         800
-      ]
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
     },
     {
       "parameters": {
@@ -3143,8 +3149,8 @@
           "conditions": [
             {
               "id": "6866829b-afd6-4165-9ca5-cc9c16536a01",
-              "leftValue": "={{ $json[\"subject\"] }}",
-              "rightValue": "Time de vendas de Elite",
+              "leftValue": "={{ $json[\"desc\"] }}",
+              "rightValue": "21/01/2025",
               "operator": {
                 "type": "string",
                 "operation": "contains"
@@ -3174,14 +3180,14 @@
             "deliveryTag": 1,
             "redelivered": false,
             "exchange": "",
-            "routingKey": "TAGDOLANÇAMENTO - Captação - Grupos"
+            "routingKey": "WEB001 - Captação - Grupos"
           },
           "properties": {},
           "content": {
-            "telefone": "553185711260",
-            "grupo": "120363257932288913@g.us",
-            "evento": "remove",
-            "nome_do_evento": "Semana da Automação",
+            "telefone": "5562981196678",
+            "grupo": "120363197205651811@g.us",
+            "evento": "add",
+            "nome_do_evento": "Webinario",
             "edicao_do_evento": "1"
           }
         }
@@ -3206,7 +3212,7 @@
       "name": "[WEBINARIO]"
     }
   ],
-  "triggerCount": 0,
-  "updatedAt": "2025-01-10T21:43:52.093Z",
-  "versionId": "99e7b983-4bf5-4ebd-ae0f-ad9cc9a3b485"
+  "triggerCount": 1,
+  "updatedAt": "2025-01-13T12:52:59.966Z",
+  "versionId": "70ea7445-c9bf-4e5b-bdea-a6661c6011f9"
 }
