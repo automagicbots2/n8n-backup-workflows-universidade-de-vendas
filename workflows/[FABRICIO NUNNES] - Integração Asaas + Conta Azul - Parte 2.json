@@ -1,17 +1,6 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
-    "criarContato": {
-      "main": [
-        [
-          {
-            "node": "pesquisaContato",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "verificaCobranca": {
       "main": [
         [
@@ -43,37 +32,191 @@
     },
     "RabbitMQ Trigger": {
       "main": [
-        []
-      ]
-    },
-    "buscarCliente": {
-      "main": [
         [
           {
-            "node": "pesquisaContato",
+            "node": "pesquisa_variavel_n8n_fluxo_users",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "pesquisaContato": {
+    "pesquisa_variavel_n8n_fluxo_users": {
       "main": [
         [
           {
-            "node": "existeContato",
+            "node": "cria_atualiza_user",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "existeContato": {
+    "cria_atualiza_user": {
       "main": [
-        [],
         [
           {
-            "node": "criarContato",
+            "node": "update_user_address",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id_asaas_preenchido": {
+      "main": [
+        [
+          {
+            "node": "id_conta_azul_preenchido",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "update_user_id_asaas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_user_id_asaas": {
+      "main": [
+        [
+          {
+            "node": "id_conta_azul_preenchido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id_conta_azul_preenchido": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_contato_conta_azul1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pesquisa_contato_conta_azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_user_address": {
+      "main": [
+        [
+          {
+            "node": "id_asaas_preenchido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_contato_conta_azul": {
+      "main": [
+        [
+          {
+            "node": "contato_existe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "contato_existe": {
+      "main": [
+        [
+          {
+            "node": "update_user_id_conta_azul",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "cria_contato_conta_azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_contato_conta_azul1": {
+      "main": [
+        [
+          {
+            "node": "contato_existe1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "contato_existe1": {
+      "main": [
+        [
+          {
+            "node": "parcelamento",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "cria_contato_conta_azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_contato_conta_azul": {
+      "main": [
+        [
+          {
+            "node": "update_user_id_conta_azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_user_id_conta_azul": {
+      "main": [
+        [
+          {
+            "node": "parcelamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "parcelamento": {
+      "main": [
+        [
+          {
+            "node": "primeira_parcela",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "primeira_parcela": {
+      "main": [
+        [
+          {
+            "node": "cria_venda_conta_azul",
             "type": "main",
             "index": 0
           }
@@ -88,121 +231,6 @@
   },
   "name": "[FABRICIO NUNNES] - Integração Asaas + Conta Azul - Parte 2",
   "nodes": [
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.contaazul.com/v1/customers",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "oAuth2Api",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "name",
-              "value": "John C."
-            },
-            {
-              "name": "company_name",
-              "value": "John Company"
-            },
-            {
-              "name": "email",
-              "value": "john.company@johncompany.com"
-            },
-            {
-              "name": "business_phone",
-              "value": "99 99999-9999"
-            },
-            {
-              "name": "mobile_phone",
-              "value": "99 99999-9999"
-            },
-            {
-              "name": "person_type",
-              "value": "NATURAL"
-            },
-            {
-              "name": "document"
-            },
-            {
-              "name": "identity_document",
-              "value": "00011122233"
-            },
-            {
-              "name": "state_registration_number",
-              "value": "00011122233"
-            },
-            {
-              "name": "state_registration_type",
-              "value": "NO_CONTRIBUTOR"
-            },
-            {
-              "name": "city_registration_number",
-              "value": "00011122233"
-            },
-            {
-              "name": "date_of_birth",
-              "value": "1988-12-23T08:32:10.118-05"
-            },
-            {
-              "name": "notes",
-              "value": "Important customer, always wears a green hat"
-            },
-            {
-              "name": "contacts[0].name",
-              "value": "John C."
-            },
-            {
-              "name": "contacts[0].business_phone",
-              "value": "99 9999-9999"
-            },
-            {
-              "name": "contacts[0].email",
-              "value": "John.C@johncompany.com"
-            },
-            {
-              "name": "contacts[0].job_title",
-              "value": "Developer"
-            },
-            {
-              "name": "address.zip_code",
-              "value": "79106-330"
-            },
-            {
-              "name": "address.street",
-              "value": "Rua Parma"
-            },
-            {
-              "name": "address.number",
-              "value": "224"
-            },
-            {
-              "name": "address.complement",
-              "value": "Apartamento 2058"
-            },
-            {
-              "name": "address.neighborhood",
-              "value": "Jardim Itália"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "a90883bc-7c23-4160-87e7-93d2d6415a57",
-      "name": "criarContato",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        1200,
-        500
-      ],
-      "credentials": {
-        "oAuth2Api": {
-          "id": "DdHhm6SGCI7cTQZY",
-          "name": "[Fabricio] Conta Azul"
-        }
-      }
-    },
     {
       "parameters": {
         "operation": "select",
@@ -222,8 +250,8 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        1420,
-        280
+        4060,
+        -880
       ],
       "credentials": {
         "mySql": {
@@ -241,8 +269,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        1640,
-        280
+        4280,
+        -880
       ]
     },
     {
@@ -257,8 +285,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1840,
-        400
+        4480,
+        -760
       ],
       "credentials": {
         "oAuth2Api": {
@@ -279,8 +307,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1840,
-        140
+        4480,
+        -1020
       ],
       "credentials": {
         "oAuth2Api": {
@@ -311,8 +339,8 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        380,
-        380
+        60,
+        360
       ],
       "credentials": {
         "rabbitmq": {
@@ -323,26 +351,284 @@
     },
     {
       "parameters": {
-        "url": "=https://api.asaas.com/v3/customers/{{ $json[\"content\"][\"body\"][\"payment\"][\"customer\"] }}",
-        "sendHeaders": true,
-        "headerParameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Users"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "9551c653-24eb-4f4d-b28f-311c802fdf88",
+      "name": "pesquisa_variavel_n8n_fluxo_users",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        260,
+        360
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
           "parameters": [
             {
-              "name": "access_token",
-              "value": "$aact_MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6OjExMzBhNDcwLWE5YjEtNDVmOS1iMTNhLTE2MjAzYzBkNzc5Yzo6JGFhY2hfZjQ1MmFmMjctMTNjZS00NjUyLWExZmQtMjJkMmZlMjg0NWI4"
+              "name": "nome",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"nome\"] || \"\" }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"sobrenome\"] || \"\" }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"telefone\"] || \"\" }}"
+            },
+            {
+              "name": "instagram",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"instagram\"] || \"\" }}"
+            },
+            {
+              "name": "cpf",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"cpf\"] || \"\" }}"
+            },
+            {
+              "name": "cnpj",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"cnpj\"] || \"\" }}"
             }
           ]
         },
         "options": {}
       },
-      "id": "14a29702-5e86-46cf-9804-c053075d4a8c",
-      "name": "buscarCliente",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        580,
-        380
+        460,
+        360
+      ],
+      "id": "38b03bb1-dbd7-4bc7-b809-8b109783bd62",
+      "name": "cria_atualiza_user"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a6d3067f-45b5-4903-905e-de975d2fa051",
+              "leftValue": "={{ $node[\"cria_atualiza_user\"].json[\"id_asaas\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "7ee2403b-9ae9-4223-93b8-ecca5637d085",
+      "name": "id_asaas_preenchido",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        920,
+        360
       ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $node[\"cria_atualiza_user\"].json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_asaas",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"id_asaas\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "replaceEmptyStrings": true,
+          "detailedOutput": true
+        }
+      },
+      "id": "ecc2abf2-8dd8-4724-9914-8d8b8aae9b03",
+      "name": "update_user_id_asaas",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1180,
+        440
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a6d3067f-45b5-4903-905e-de975d2fa051",
+              "leftValue": "={{ $node[\"cria_atualiza_user\"].json[\"id_conta_azul\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9d5b4114-17ff-4a51-9cb7-55bc9532c282",
+      "name": "id_conta_azul_preenchido",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1380,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.contaazul.com/v1/customers",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"name\": \"{{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"nome\"] + ($node[\"RabbitMQ Trigger\"].json[\"content\"][\"sobrenome\"] ? ' ' + $node[\"RabbitMQ Trigger\"].json[\"content\"][\"sobrenome\"] : '') }}\",\n  \"company_name\": \"{{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"empresa\"] || \"\" }}\",\n  \"email\": \"{{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"email\"] || \"\" }}\",\n  \"business_phone\": \"{{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"telefone\"] || \"\" }}\",\n  \"mobile_phone\": \"{{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"telefone\"] || \"\" }}\",\n  \"person_type\": \"{{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"pessoa\"] || \"\" }}\",\n  \"document\": \"{{ \n  ($node[\"RabbitMQ Trigger\"].json[\"content\"][\"cpf\"] ? $node[\"RabbitMQ Trigger\"].json[\"content\"][\"cpf\"] : $node[\"RabbitMQ Trigger\"].json[\"content\"][\"cnpj\"]).replace(/\\D/g, '') \n}}\",\n  \"contacts\": [\n    {\n      \"name\": \"{{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"nome\"] + ($node[\"RabbitMQ Trigger\"].json[\"content\"][\"sobrenome\"] ? ' ' + $node[\"RabbitMQ Trigger\"].json[\"content\"][\"sobrenome\"] : '') }}\",\n      \"business_phone\": \"{{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"telefone\"] || \"\" }}\",\n      \"email\": \"{{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"email\"] || \"\" }}\",\n    }\n  ],\n  \"address\": {\n    \"zip_code\": \"{{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"cep\"].replace('.','') }}\",\n    \"street\": \"{{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"rua\"] }}\",\n    \"number\": \"{{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"numero\"] }}\",\n    \"complement\": \"{{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"complemento\"] }}\",\n    \"neighborhood\": \"{{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"bairro\"] }}\"\n  }\n}",
+        "options": {}
+      },
+      "id": "a90883bc-7c23-4160-87e7-93d2d6415a57",
+      "name": "cria_contato_conta_azul",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2060,
+        380
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "rPMcxfmZaXUiOcP8",
+          "name": "[Conta Azul] - Universidade de Vendas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $node[\"cria_atualiza_user\"].json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "rua",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"rua\"] || \"\" }}"
+            },
+            {
+              "column": "complemento",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"complemento\"] }}"
+            },
+            {
+              "column": "bairro",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"bairro\"] }}"
+            },
+            {
+              "column": "cidade",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"cidade\"] }}"
+            },
+            {
+              "column": "estado",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"estado\"] }}"
+            },
+            {
+              "column": "pais",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"pais\"] }}"
+            },
+            {
+              "column": "cep",
+              "value": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"cep\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "replaceEmptyStrings": true,
+          "detailedOutput": true
+        }
+      },
+      "id": "ae3ce740-2523-43bd-aa12-d69343d4e3b2",
+      "name": "update_user_address",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        660,
+        360
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
     },
     {
       "parameters": {
@@ -354,7 +640,7 @@
           "parameters": [
             {
               "name": "search",
-              "value": "={{ $node[\"buscarCliente\"].json[\"cpfCnpj\"] }}"
+              "value": "={{ \n  ($node[\"RabbitMQ Trigger\"].json[\"content\"][\"cpf\"] ? $node[\"RabbitMQ Trigger\"].json[\"content\"][\"cpf\"] : $node[\"RabbitMQ Trigger\"].json[\"content\"][\"cnpj\"]).replace(/\\D/g, '') \n}}"
             },
             {
               "name": "size",
@@ -365,12 +651,12 @@
         "options": {}
       },
       "id": "84eb182c-b533-449a-bfbe-be9f35256f19",
-      "name": "pesquisaContato",
+      "name": "pesquisa_contato_conta_azul",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        800,
-        380
+        1600,
+        280
       ],
       "credentials": {
         "oAuth2Api": {
@@ -390,7 +676,7 @@
           "conditions": [
             {
               "id": "a7d7da51-976e-433e-ab85-385fc6d1b8ec",
-              "leftValue": "={{ $node[\"pesquisaContato\"].json[\"id\"] }}",
+              "leftValue": "={{ $node[\"pesquisa_contato_conta_azul\"].json[\"id\"] }}",
               "rightValue": "",
               "operator": {
                 "type": "string",
@@ -404,13 +690,199 @@
         "options": {}
       },
       "id": "9b03e9bf-8166-4d8a-966f-fbbfc1f02898",
-      "name": "existeContato",
+      "name": "contato_existe",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        1020,
-        380
+        1820,
+        280
       ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.contaazul.com/v1/customers/{{ $node[\"cria_atualiza_user\"].json[\"id_conta_azul\"] }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "options": {}
+      },
+      "id": "b14e3ecb-1136-4737-a825-0c53e1da206b",
+      "name": "pesquisa_contato_conta_azul1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        -20
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "rPMcxfmZaXUiOcP8",
+          "name": "[Conta Azul] - Universidade de Vendas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a7d7da51-976e-433e-ab85-385fc6d1b8ec",
+              "leftValue": "={{ $node[\"pesquisa_contato_conta_azul1\"].json[\"id\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "3b630e51-897d-4319-9e5a-68e405e9b747",
+      "name": "contato_existe1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1820,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $node[\"cria_atualiza_user\"].json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_conta_azul",
+              "value": "={{ $node[\"cria_contato_conta_azul\"].runIndex >= 0      ?   $node[\"cria_contato_conta_azul\"].json[\"id\"] : $node[\"pesquisa_contato_conta_azul\"].runIndex >= 0      ?   $node[\"pesquisa_contato_conta_azul\"].json[\"id\"] : $node[\"pesquisa_contato_conta_azul1\"].runIndex >= 0      ?   $node[\"pesquisa_contato_conta_azul1\"].json[\"id\"] : null }}"
+            }
+          ]
+        },
+        "options": {
+          "replaceEmptyStrings": true,
+          "detailedOutput": true
+        }
+      },
+      "id": "515cb8fd-1c49-46fb-bf83-a75179808c16",
+      "name": "update_user_id_conta_azul",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2220,
+        220
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a7d7da51-976e-433e-ab85-385fc6d1b8ec",
+              "leftValue": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"description\"] }}",
+              "rightValue": "Parcela",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1e20aa84-709e-404e-a260-86adf09ed6a5",
+      "name": "parcelamento",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a7d7da51-976e-433e-ab85-385fc6d1b8ec",
+              "leftValue": "={{ $node[\"RabbitMQ Trigger\"].json[\"content\"][\"description\"] }}",
+              "rightValue": "Parcela 1",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "11e0e255-4e8c-4b98-83c8-978997b86577",
+      "name": "primeira_parcela",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2620,
+        -260
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.contaazul.com/v1/sales",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"emission\": \"{{ $now.toISO() }}\",\n  \"status\": \"COMMITTED\",\n  \"customer_id\": \"{{ $node['cria_contato_conta_azul'].runIndex >= 0 ? $node['cria_contato_conta_azul'].json['id'] : $node['pesquisa_contato_conta_azul'].runIndex >= 0 ? $node['pesquisa_contato_conta_azul'].json['id'] : $node['pesquisa_contato_conta_azul1'].runIndex >= 0 ? $node['pesquisa_contato_conta_azul1'].json['id'] : null }}\",\n  \"payment\": {\n    \"type\": \"TIMES\",\n    \"method\": \"{{ $node['RabbitMQ Trigger'].json['content']['forma_de_pagamento'] }}\",\n    \"installments\": [\n      {\n        \"number\": {{ $node['RabbitMQ Trigger'].json['content']['description'].split('Parcela ')[1].slice(0, 1) }},\n        \"value\": {{ $node['RabbitMQ Trigger'].json['content']['valor'] }},\n        \"due_date\": \"{{ $now.toISO() }}\",\n        \"status\": \"PENDING\"\n      }\n    ]\n  }\n}",
+        "options": {}
+      },
+      "id": "a299f306-0409-4471-8c31-c2c930f297a2",
+      "name": "cria_venda_conta_azul",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2860,
+        -400
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "rPMcxfmZaXUiOcP8",
+          "name": "[Conta Azul] - Universidade de Vendas"
+        }
+      }
     }
   ],
   "pinData": {
@@ -418,7 +890,7 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-qyjX4INPeLyElzGXFFpcDw",
+            "consumerTag": "amq.ctag-q0t9_OTx_0mXNl3ClM8sXw",
             "deliveryTag": 1,
             "redelivered": false,
             "exchange": "",
@@ -428,90 +900,26 @@
             "headers": {}
           },
           "content": {
-            "headers": {
-              "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-              "user-agent": "Java/1.8.0_282",
-              "content-length": "1247",
-              "accept": "application/json",
-              "accept-encoding": "gzip",
-              "cache-control": "no-cache",
-              "content-type": "application/json",
-              "pragma": "no-cache",
-              "traceparent": "00-6764796f000000002754670fa12d25de-095f531f775d9693-00",
-              "tracestate": "dd=s:0;p:7b324555a21cfb2b;t.tid:6764796f00000000",
-              "x-datadog-parent-id": "675349863740577427",
-              "x-datadog-sampling-priority": "0",
-              "x-datadog-tags": "_dd.p.tid=6764796f00000000",
-              "x-datadog-trace-id": "2834003382349145566",
-              "x-forwarded-for": "52.67.12.206",
-              "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-              "x-forwarded-port": "443",
-              "x-forwarded-proto": "https",
-              "x-forwarded-server": "77400aba3c69",
-              "x-real-ip": "52.67.12.206"
-            },
-            "params": {},
-            "query": {},
-            "body": {
-              "id": "evt_05b708f961d739ea7eba7e4db318f621&798478822",
-              "event": "PAYMENT_CREATED",
-              "dateCreated": "2024-12-19 16:52:14",
-              "payment": {
-                "object": "payment",
-                "id": "pay_82eorp95rl2p3j75",
-                "dateCreated": "2024-12-19",
-                "customer": "cus_000074653476",
-                "installment": "4f88d4a0-829c-44f2-9fc8-95bef9313e02",
-                "paymentLink": null,
-                "value": 25,
-                "netValue": 23.01,
-                "grossValue": null,
-                "originalValue": null,
-                "interestValue": null,
-                "description": "Parcela 1 de 2.",
-                "billingType": "BOLETO",
-                "canBePaidAfterDueDate": true,
-                "pixTransaction": null,
-                "status": "PENDING",
-                "dueDate": "2024-12-19",
-                "originalDueDate": "2024-12-19",
-                "paymentDate": null,
-                "clientPaymentDate": null,
-                "installmentNumber": 1,
-                "invoiceUrl": "https://www.asaas.com/i/82eorp95rl2p3j75",
-                "invoiceNumber": "491537034",
-                "externalReference": null,
-                "deleted": false,
-                "anticipated": false,
-                "anticipable": false,
-                "creditDate": null,
-                "estimatedCreditDate": null,
-                "transactionReceiptUrl": null,
-                "nossoNumero": "275065784",
-                "bankSlipUrl": "https://www.asaas.com/b/pdf/82eorp95rl2p3j75",
-                "lastInvoiceViewedDate": null,
-                "lastBankSlipViewedDate": null,
-                "discount": {
-                  "value": 0,
-                  "limitDate": null,
-                  "dueDateLimitDays": 0,
-                  "type": "PERCENTAGE"
-                },
-                "fine": {
-                  "value": 0,
-                  "type": "PERCENTAGE"
-                },
-                "interest": {
-                  "value": 0,
-                  "type": "PERCENTAGE"
-                },
-                "postalService": false,
-                "custody": null,
-                "refunds": null
-              }
-            },
-            "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/asaas-contaazul",
-            "executionMode": "production"
+            "nome": "Fabrício",
+            "sobrenome": "",
+            "email": "fabricioaugustonoliveira@gmail.com",
+            "telefone": "553189840003",
+            "instagram": "",
+            "cpf": "078.102.716-01",
+            "rua": "Rua Lucas Emmanuel Morais Pereira",
+            "numero": "325",
+            "complemento": "",
+            "bairro": "São Marcos",
+            "cep": "36.404-465",
+            "cidade": "Conselheiro Lafaiete",
+            "estado": "MG",
+            "pais": "Brasil",
+            "id_asaas": "cus_000074653476",
+            "empresa": "",
+            "pessoa": "NATURAL",
+            "description": "Parcela 1 de 2.",
+            "valor": "25",
+            "forma_de_pagamento": "BANKING_BILLET"
           }
         }
       }
@@ -528,6 +936,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-01-13T14:39:12.570Z",
-  "versionId": "51c7c549-c2c2-457c-a434-abe5a9007af7"
+  "updatedAt": "2025-01-13T18:27:26.960Z",
+  "versionId": "22243538-e165-405e-b96f-edd3e176a15d"
 }
