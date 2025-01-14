@@ -1,0 +1,330 @@
+{
+  "active": true,
+  "connections": {
+    "executa_procedure": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_user": {
+      "main": [
+        [
+          {
+            "node": "executa_procedure1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "executa_procedure1": {
+      "main": [
+        [
+          {
+            "node": "Limit1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "user_nao_existe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "user_nao_existe": {
+      "main": [
+        [
+          {
+            "node": "insert_user",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "fluxo_chamado": {
+      "main": [
+        [
+          {
+            "node": "executa_procedure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-13T15:02:09.018Z",
+  "id": "HvBXhbDuCT5IDWna",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚[Universidade de Vendas][Banco de Dados] - Cria ou Atualiza User",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "CALL busca_usuario('{{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] }}');",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -220,
+        580
+      ],
+      "id": "258db383-3282-4dc7-bf31-bc5096ac9b6f",
+      "name": "executa_procedure",
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "data_de_entrada",
+              "value": "={{ $now }}"
+            },
+            {
+              "column": "nome",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] || NULL }}"
+            },
+            {
+              "column": "sobrenome",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] || NULL }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] || NULL }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] || NULL }}"
+            },
+            {
+              "column": "instagram",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] || NULL }}"
+            },
+            {
+              "column": "cpf",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] || NULL }}"
+            },
+            {
+              "column": "cnpj",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] || NULL }}"
+            },
+            {
+              "column": "status_atividade",
+              "value": "Y"
+            },
+            {
+              "column": "data_atualizacao",
+              "value": "={{ $now }}"
+            }
+          ]
+        },
+        "options": {
+          "replaceEmptyStrings": true,
+          "detailedOutput": true
+        }
+      },
+      "id": "59907d47-0297-4757-81bf-3d964ad41515",
+      "name": "insert_user",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        460,
+        460
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "CALL busca_usuario('{{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] }}');",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        660,
+        460
+      ],
+      "id": "9e29b1eb-7303-47d1-945e-7220de594572",
+      "name": "executa_procedure1",
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        0,
+        580
+      ],
+      "id": "97ba9433-3e85-42e1-a936-0bd704c00fb4",
+      "name": "Limit"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        860,
+        460
+      ],
+      "id": "7e484cb7-b118-4bf8-a913-8ae360208875",
+      "name": "Limit1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        460,
+        700
+      ],
+      "id": "8508fb7e-884b-4ce4-9805-8613aad121c4",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "74134405-0295-41c7-a149-d5a294db4ea6",
+              "leftValue": "={{ $json[0].mensagem }}",
+              "rightValue": "Usuário não encontrado",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "ce5008fd-4e98-4cd0-95a4-467c8ba86e1e",
+      "name": "user_nao_existe",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        200,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "path": "cria-atualiza-user",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -440,
+        580
+      ],
+      "id": "8540ff89-076e-45db-84bb-a7d0b86fc809",
+      "name": "fluxo_chamado",
+      "webhookId": "480e1e30-05c3-4aba-9470-4421b90f0da2"
+    }
+  ],
+  "pinData": {
+    "fluxo_chamado": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n2webhookautomagicbots.automagicbots.com.br",
+            "user-agent": "axios/1.7.4",
+            "content-length": "169",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "172.18.0.1",
+            "x-forwarded-host": "n8n2webhookautomagicbots.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "40f84ef31161",
+            "x-real-ip": "172.18.0.1"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "nome": "João",
+            "sobrenome": "Victor de Carrera",
+            "email": "joaovictor_carrera@hotmail.com",
+            "telefone": "556599016556",
+            "instagram": "amaraldas_automacoes",
+            "cpf": "",
+            "cnpj": ""
+          },
+          "webhookUrl": "https://n8n2webhookautomagicbots.automagicbots.com.br/webhook/cria-atualiza-user",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-01-13T15:04:38.894Z",
+  "versionId": "1099c834-6a8c-4d2e-aea4-de07777e0787"
+}
