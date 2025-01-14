@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "variaveis",
+            "node": "email_vazio",
             "type": "main",
             "index": 0
           }
@@ -131,6 +131,18 @@
           }
         ]
       ]
+    },
+    "email_vazio": {
+      "main": [
+        [],
+        [
+          {
+            "node": "variaveis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-01-06T20:48:40.249Z",
@@ -162,8 +174,8 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        -1020,
-        420
+        -1220,
+        400
       ],
       "credentials": {
         "rabbitmq": {
@@ -832,6 +844,39 @@
         -100,
         580
       ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "060a24c1-0e30-4829-ae86-964a65608bd1",
+              "leftValue": "={{ $json[\"content\"][\"email\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "7e30dc8e-c498-4091-b93f-62c6b07965fe",
+      "name": "email_vazio",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -1060,
+        400
+      ]
     }
   ],
   "pinData": {
@@ -885,6 +930,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-01-06T21:25:07.025Z",
-  "versionId": "572e95c7-4d01-4295-a644-95ed8f532154"
+  "updatedAt": "2025-01-14T00:22:39.436Z",
+  "versionId": "ef82e5d7-0b5e-463e-8911-1a13e0e0da00"
 }
