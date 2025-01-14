@@ -139,7 +139,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"Email\": \"{{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}\",\n  \"Name\": \"{{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }} {{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}\",\n  \"Phone\": \"{{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}\",\n  \"MachineCode\": 752114,\n  \"EmailSequenceCode\": 1775870,\n  \"SequenceLevelCode\": 1\n}",
+        "jsonBody": "={\n  \"Email\": \"{{ $node[\"chega_da_fila\"].json[\"content\"][\"email\"] }}\",\n  \"Name\": \"{{ $node[\"chega_da_fila\"].json[\"content\"][\"nome\"] }} {{ $node[\"chega_da_fila\"].json[\"content\"][\"sobrenome\"] }}\",\n  \"Phone\": \"{{ $node[\"chega_da_fila\"].json[\"content\"][\"telefone\"] }}\",\n  \"MachineCode\": 752114,\n  \"EmailSequenceCode\": 1775870,\n  \"SequenceLevelCode\": 1,\n  \"Tag\": 839466\n}",
         "options": {
           "redirect": {
             "redirect": {}
@@ -186,6 +186,10 @@
             {
               "name": "SequenceLevelCode",
               "value": "1"
+            },
+            {
+              "name": "Tag",
+              "value": "=839466"
             },
             {
               "name": "Name",
@@ -306,35 +310,33 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-XjOCsyGa7jLrg4JkiJQBEQ",
-            "deliveryTag": 1,
-            "redelivered": true,
+            "consumerTag": "amq.ctag-S3zdd7c1ADzgBYFZQQXr2A",
+            "deliveryTag": 24,
+            "redelivered": false,
             "exchange": "",
             "routingKey": "WEB001 - Criação ActiveCampaign"
           },
           "properties": {
-            "headers": {
-              "x-delivery-count": 72
-            }
+            "headers": {}
           },
           "content": {
-            "nome": "Gabriel",
-            "sobrenome": "",
-            "email": "teste@automagicbots.com.br",
-            "telefone": "553185711260",
-            "utm_source": "fb",
-            "utm_campaign": "LF+WB+WB0121+CAPTAO+CADASTRO+AUTO+F+Pblicos+Frios++Cpia",
-            "utm_term": "WB0125_AD004",
-            "utm_medium": "Facebook_Right_Column",
-            "utm_content": "02+-+AUTO+F+Mix+Frios",
+            "nome": "Mateus",
+            "sobrenome": "Diniz - Automagic Bots",
+            "email": "mateusdiniz@automagicbots.com.br",
+            "telefone": "556281196678",
+            "utm_source": "ig",
+            "utm_campaign": "[LF] [WB] [WB0121] [CAPTAÇÃO] [CADASTRO] [AUTO] [Q] Publicos Quentes",
+            "utm_term": "WB0125_AD006_Group_1",
+            "utm_medium": "Instagram_Stories",
+            "utm_content": "01 - [AUTO] [Q] Envolvimento 60D",
             "utm_fun": null,
             "utm_var": null,
             "nome_do_evento": "Webinario",
             "edicao_do_evento": "1",
             "form_id": "88889e3",
             "form_name": "Webinario",
-            "id_cadastro": "85",
-            "id_user": "75",
+            "id_cadastro": "99",
+            "id_user": "97",
             "funil": "1",
             "instagram": "https://www.instagram.com//"
           }
@@ -361,6 +363,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-01-13T13:11:13.336Z",
-  "versionId": "a9844e5a-a49d-4520-a6e4-46d94f048bba"
+  "updatedAt": "2025-01-14T13:27:18.358Z",
+  "versionId": "b61b6cbf-fe28-42ce-becd-2aa450406571"
 }
