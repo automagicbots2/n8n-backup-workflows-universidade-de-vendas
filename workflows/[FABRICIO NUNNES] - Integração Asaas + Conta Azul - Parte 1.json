@@ -19,17 +19,6 @@
         ]
       ]
     },
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "pagamento_recebido",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "buscarCliente": {
       "main": [
         [
@@ -86,6 +75,17 @@
         [
           {
             "node": "RabbitMQ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "pagamento_recebido",
             "type": "main",
             "index": 0
           }
@@ -173,22 +173,6 @@
         460,
         600
       ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "asaas-contaazul",
-        "options": {}
-      },
-      "id": "8e463a9b-3497-4e64-8870-626a2ee249e8",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        -20,
-        380
-      ],
-      "webhookId": "417fd3c9-851b-4063-894c-bc57871da022"
     },
     {
       "parameters": {
@@ -339,6 +323,36 @@
               "name": "id_asaas",
               "value": "={{ $node[\"buscarCliente\"].json[\"id\"] }}",
               "type": "string"
+            },
+            {
+              "id": "e76af9f2-3730-478c-89e4-11a84711bc15",
+              "name": "empresa",
+              "value": "={{ $node[\"buscarCliente\"].json[\"company\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "02ebf3c9-b357-407e-a8b6-a36e242da389",
+              "name": "pessoa",
+              "value": "={{ $node[\"buscarCliente\"].json[\"personType\"].replace(\"FISICA\",\"NATURAL\").replace(\"JURIDICA\",\"LEGAL\") }}",
+              "type": "string"
+            },
+            {
+              "id": "8ddf75c5-a724-48d9-aaa8-ff6ad0c1fed2",
+              "name": "description",
+              "value": "={{ $node[\"Webhook\"].json[\"body\"][\"payment\"][\"description\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a2c63d28-a629-4bed-99e3-2122d58c6b98",
+              "name": "valor",
+              "value": "={{ $node[\"Webhook\"].json[\"body\"][\"payment\"][\"value\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "3a6e9a25-fff8-413e-87c7-07dbc73aa105",
+              "name": "forma_de_pagamento",
+              "value": "={{ $node[\"Webhook\"].json[\"body\"][\"payment\"][\"billingType\"].replace('BOLETO','BANKING_BILLET').replace('PIX','INSTANT_PAYMENT') }}",
+              "type": "string"
             }
           ]
         },
@@ -459,6 +473,36 @@
               "name": "id_asaas",
               "value": "={{ $node[\"buscarCliente\"].json[\"id\"] }}",
               "type": "string"
+            },
+            {
+              "id": "90f0fb95-31a1-4d2f-a5cd-97a01fd1018b",
+              "name": "empresa",
+              "value": "={{ $node[\"buscarCliente\"].json[\"company\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "8afea091-149b-46e5-907a-7a24c6754412",
+              "name": "pessoa",
+              "value": "={{ $node[\"buscarCliente\"].json[\"personType\"].replace(\"FISICA\",\"NATURAL\").replace(\"JURIDICA\",\"LEGAL\") }}",
+              "type": "string"
+            },
+            {
+              "id": "21953b9f-9c25-44e8-9ee9-29ea8df4179e",
+              "name": "description",
+              "value": "={{ $node[\"Webhook\"].json[\"body\"][\"payment\"][\"description\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "e9f49881-26a4-457a-8b76-29097fbd5c52",
+              "name": "valor",
+              "value": "={{ $node[\"Webhook\"].json[\"body\"][\"payment\"][\"value\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "7a5e94af-8f26-4be9-95b0-0f9709e9c448",
+              "name": "forma_de_pagamento",
+              "value": "={{ $node[\"Webhook\"].json[\"body\"][\"payment\"][\"billingType\"].replace('BOLETO','BANKING_BILLET').replace('PIX','INSTANT_PAYMENT') }}",
+              "type": "string"
             }
           ]
         },
@@ -472,6 +516,22 @@
         1100,
         420
       ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "asaas-contaazul",
+        "options": {}
+      },
+      "id": "8e463a9b-3497-4e64-8870-626a2ee249e8",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -20,
+        380
+      ],
+      "webhookId": "417fd3c9-851b-4063-894c-bc57871da022"
     }
   ],
   "pinData": {
@@ -577,6 +637,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-01-13T14:44:14.378Z",
-  "versionId": "7073b4d1-7843-44d8-b3c9-8f84a6d26d32"
+  "updatedAt": "2025-01-13T18:28:01.770Z",
+  "versionId": "0989f549-b9c5-4580-9ef3-219c6833d898"
 }
