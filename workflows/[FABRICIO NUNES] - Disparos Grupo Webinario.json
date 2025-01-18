@@ -1,0 +1,1330 @@
+{
+  "active": true,
+  "connections": {
+    "dados": {
+      "main": [
+        [
+          {
+            "node": "envia_msg_grupo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "data": {
+      "main": [
+        [
+          {
+            "node": "dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados1": {
+      "main": [
+        [
+          {
+            "node": "envia_msg_grupo1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "data1": {
+      "main": [
+        [
+          {
+            "node": "dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "EnviaAudio1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados2": {
+      "main": [
+        [
+          {
+            "node": "envia_msg_grupo2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "data2": {
+      "main": [
+        [
+          {
+            "node": "dados2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "segunda_12h": {
+      "main": [
+        [
+          {
+            "node": "data2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "domingo_17h": {
+      "main": [
+        [
+          {
+            "node": "data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados3": {
+      "main": [
+        [
+          {
+            "node": "envia_msg_grupo3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "data3": {
+      "main": [
+        [
+          {
+            "node": "dados3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "domingo_21h": {
+      "main": [
+        [
+          {
+            "node": "data3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "domingo_12h": {
+      "main": [
+        [
+          {
+            "node": "data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_msg_grupo1": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nome_certo": {
+      "main": [
+        [],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "variaveis_evolution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_groups1": {
+      "main": [
+        [
+          {
+            "node": "nome_certo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variaveis_evolution": {
+      "main": [
+        [
+          {
+            "node": "get_groups1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-17T20:49:52.630Z",
+  "id": "2bMSLOi03K5kC7a4",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[FABRICIO NUNES] - Disparos Grupo Webinario",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d634000b-57c2-4cc8-944f-7d4baecaf23b",
+              "name": "instancia",
+              "value": "FabricioNunnes",
+              "type": "string"
+            },
+            {
+              "id": "04ba02e4-fb67-404a-9004-5c7560826c5d",
+              "name": "apikey",
+              "value": "2D2031229498-443A-AA58-2C505530D040",
+              "type": "string"
+            },
+            {
+              "id": "02cfad05-bcf7-4052-a461-baea76b9d480",
+              "name": "urlevolution",
+              "value": "https://apievolution.automagicbots.com.br/",
+              "type": "string"
+            },
+            {
+              "id": "b5c16063-4b96-4cc6-9295-93169b8521ab",
+              "name": "grupo_id",
+              "value": "120363197205651811@g.us",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "48e02cb3-dc6e-40b9-8176-a3b204f166fc",
+      "name": "dados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        700,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"dados\"].json[\"urlevolution\"] }}message/sendText/{{ $node[\"dados\"].json[\"instancia\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados\"].json[\"apikey\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $node[\"dados\"].json[\"grupo_id\"] }}"
+            },
+            {
+              "name": "text",
+              "value": "=Fico feliz que você tenha se motivado a conhecer o método que vai virar a chave do seu time de vendas!\n\n🗓 *Dia 21/01* você vai ter acesso a cada passo necessário para aumentar a performance do seu time e escalar o seu negócio.\n\nMinha equipe preparou um formulário que vai me ajudar a entender melhor seus desafios para que você possa ter acesso a um conteúdo mais personalizado no nosso encontro!\n\n*Aperta nesse link abaixo pra preencher o formulário* ⬇️\nhttps://forms.gle/rqJUpLWJagFncoC17\n\n_Nos vemos em breve!_\n"
+            },
+            {
+              "name": "options.delay",
+              "value": "={{ 1200 }}"
+            },
+            {
+              "name": "options.presence",
+              "value": "composing"
+            },
+            {
+              "name": "linkPreview",
+              "value": "={{ false }}"
+            },
+            {
+              "name": "=mentionsEveryOne",
+              "value": "={{ true }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "6c56bd53-1f2b-43d5-bfb5-8a25d31d1088",
+      "name": "envia_msg_grupo",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        860,
+        120
+      ],
+      "typeVersion": 4
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c23e69bf-3556-4d8f-8613-b28b3303573b",
+              "leftValue": "={{ $now.toFormat('dd/MM/yyyy') }}",
+              "rightValue": "19/01/2025",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "4250d936-cd30-4233-a910-155f3df8f068",
+      "name": "data",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        480,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d634000b-57c2-4cc8-944f-7d4baecaf23b",
+              "name": "instancia",
+              "value": "FabricioNunnes",
+              "type": "string"
+            },
+            {
+              "id": "04ba02e4-fb67-404a-9004-5c7560826c5d",
+              "name": "apikey",
+              "value": "2D2031229498-443A-AA58-2C505530D040",
+              "type": "string"
+            },
+            {
+              "id": "02cfad05-bcf7-4052-a461-baea76b9d480",
+              "name": "urlevolution",
+              "value": "https://apievolution.automagicbots.com.br",
+              "type": "string"
+            },
+            {
+              "id": "4a323f47-6379-43f7-a356-5f39bd16a00d",
+              "name": "grupo_id",
+              "value": "120363197205651811@g.us",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "76db1a68-31bc-4d98-be78-0104eae4cf3c",
+      "name": "dados1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        700,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"dados1\"].json[\"urlevolution\"] }}/message/sendText/{{ $node[\"dados1\"].json[\"instancia\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados1\"].json[\"apikey\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $node[\"dados1\"].json[\"grupo_id\"] }}"
+            },
+            {
+              "name": "text",
+              "value": "=*Recado Importante!* 🚨\n\nEscute o áudio e clique no link:\nhttps://forms.gle/rqJUpLWJagFncoC17\n"
+            },
+            {
+              "name": "options.delay",
+              "value": "={{ 1200 }}"
+            },
+            {
+              "name": "options.presence",
+              "value": "composing"
+            },
+            {
+              "name": "linkPreview",
+              "value": "={{ false }}"
+            },
+            {
+              "name": "=mentionsEveryOne",
+              "value": "={{ true }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "29d6d113-3b74-4384-bc4d-7778720ec61e",
+      "name": "envia_msg_grupo1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        860,
+        420
+      ],
+      "typeVersion": 4
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c23e69bf-3556-4d8f-8613-b28b3303573b",
+              "leftValue": "={{ $now.toFormat('dd/MM/yyyy') }}",
+              "rightValue": "19/01/2025",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "b2bc492d-cb70-4290-8963-3c1a616e25f2",
+      "name": "data1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        480,
+        480
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"dados1\"].json[\"urlevolution\"] }}/message/sendWhatsAppAudio/{{ $node[\"dados1\"].json[\"instancia\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados1\"].json[\"apikey\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $node[\"dados1\"].json[\"grupo_id\"] }}"
+            },
+            {
+              "name": "audio",
+              "value": "=https://app.clickup.com/t/86a687e5y?comment=90130094414495"
+            },
+            {
+              "name": "options.delay",
+              "value": "={{ 12000 }}"
+            },
+            {
+              "name": "options.presence",
+              "value": "composing"
+            },
+            {
+              "name": "options.encoding",
+              "value": "={{ false }}"
+            },
+            {
+              "name": "=mentionsEveryOne",
+              "value": "={{ true }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "41f08435-27eb-4891-a54b-527e58de736e",
+      "name": "EnviaAudio1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1180,
+        420
+      ],
+      "typeVersion": 4
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "id": "b6775071-c360-443a-9cac-ffcd704c6f51",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1020,
+        420
+      ],
+      "webhookId": "f8060ffa-03df-40b7-a580-59989845ceba"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d634000b-57c2-4cc8-944f-7d4baecaf23b",
+              "name": "instancia",
+              "value": "FabricioNunnes",
+              "type": "string"
+            },
+            {
+              "id": "04ba02e4-fb67-404a-9004-5c7560826c5d",
+              "name": "apikey",
+              "value": "2D2031229498-443A-AA58-2C505530D040",
+              "type": "string"
+            },
+            {
+              "id": "02cfad05-bcf7-4052-a461-baea76b9d480",
+              "name": "urlevolution",
+              "value": "https://apievolution.automagicbots.com.br/",
+              "type": "string"
+            },
+            {
+              "id": "b5c16063-4b96-4cc6-9295-93169b8521ab",
+              "name": "grupo_id",
+              "value": "120363197205651811@g.us",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4c70be0d-444e-460b-bb53-99cd8ce165af",
+      "name": "dados2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        720,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"dados2\"].json[\"urlevolution\"] }}message/sendText/{{ $node[\"dados2\"].json[\"instancia\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados2\"].json[\"apikey\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $node[\"dados2\"].json[\"grupo_id\"] }}"
+            },
+            {
+              "name": "text",
+              "value": "=*Dado Importante* 📊\n\nVocê sabia que times motivados *são 21% mais produtivos*? Esse é um dos tópicos que vamos abordar no nosso encontro! \n\nVocê descobrirá estratégias práticas para manter seu time engajado e focado nas metas, garantindo que todos trabalhem na mais alta performance.\n\n*Amanhã estaremos juntos para conversarmos um pouco mais!* 🔥\n"
+            },
+            {
+              "name": "options.delay",
+              "value": "={{ 1200 }}"
+            },
+            {
+              "name": "options.presence",
+              "value": "composing"
+            },
+            {
+              "name": "linkPreview",
+              "value": "={{ false }}"
+            },
+            {
+              "name": "=mentionsEveryOne",
+              "value": "={{ true }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "4bc068d3-5401-4708-82a1-eee41817e81a",
+      "name": "envia_msg_grupo2",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        880,
+        960
+      ],
+      "typeVersion": 4
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c23e69bf-3556-4d8f-8613-b28b3303573b",
+              "leftValue": "={{ $now.toFormat('dd/MM/yyyy') }}",
+              "rightValue": "20/01/2025",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "58d7586f-d7e9-41aa-aaa6-714cdcb2ed67",
+      "name": "data2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        500,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [
+                1
+              ],
+              "triggerAtHour": 12
+            }
+          ]
+        }
+      },
+      "id": "6efb5d98-ccf9-4b79-a814-3f0e73681647",
+      "name": "segunda_12h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        300,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtHour": 17
+            }
+          ]
+        }
+      },
+      "id": "032d2405-839d-4e19-a3ba-4ed1b25e727d",
+      "name": "domingo_17h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        280,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d634000b-57c2-4cc8-944f-7d4baecaf23b",
+              "name": "instancia",
+              "value": "FabricioNunnes",
+              "type": "string"
+            },
+            {
+              "id": "04ba02e4-fb67-404a-9004-5c7560826c5d",
+              "name": "apikey",
+              "value": "2D2031229498-443A-AA58-2C505530D040",
+              "type": "string"
+            },
+            {
+              "id": "02cfad05-bcf7-4052-a461-baea76b9d480",
+              "name": "urlevolution",
+              "value": "https://apievolution.automagicbots.com.br/",
+              "type": "string"
+            },
+            {
+              "id": "b5c16063-4b96-4cc6-9295-93169b8521ab",
+              "name": "grupo_id",
+              "value": "120363197205651811@g.us",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6323d8b7-6ffd-4b85-ac57-c21f96172cc4",
+      "name": "dados3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        700,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"dados3\"].json[\"urlevolution\"] }}message/sendText/{{ $node[\"dados3\"].json[\"instancia\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"dados3\"].json[\"apikey\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $node[\"dados3\"].json[\"grupo_id\"] }}"
+            },
+            {
+              "name": "text",
+              "value": "=*Qual é o maior benefício que você espera ter ao transformar seu time em uma equipe de alta performance?*\n\nA) Aumento de vendas\nB) Melhor retenção de clientes\nC) Crescimento do negócio\nD) Todos os itens acima\n\nVamos discutir esses benefícios no nosso encontro e te ajudar a alcançar cada um deles! 🔥"
+            },
+            {
+              "name": "options.delay",
+              "value": "={{ 1200 }}"
+            },
+            {
+              "name": "options.presence",
+              "value": "composing"
+            },
+            {
+              "name": "linkPreview",
+              "value": "={{ false }}"
+            },
+            {
+              "name": "=mentionsEveryOne",
+              "value": "={{ true }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "2e5a3329-23b3-44e1-a959-29122ca44207",
+      "name": "envia_msg_grupo3",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        860,
+        680
+      ],
+      "typeVersion": 4
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c23e69bf-3556-4d8f-8613-b28b3303573b",
+              "leftValue": "={{ $now.toFormat('dd/MM/yyyy') }}",
+              "rightValue": "19/01/2025",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "774decf9-5677-497d-ab49-684feccbef7a",
+      "name": "data3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        480,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtHour": 21
+            }
+          ]
+        }
+      },
+      "id": "08b857c6-c034-44a4-8fa9-81e011372250",
+      "name": "domingo_21h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        280,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtHour": 12
+            }
+          ]
+        }
+      },
+      "id": "3091ee69-77b6-41f5-adc7-8e0fb34a6f20",
+      "name": "domingo_12h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        280,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"get_groups\"].json[\"subject\"] }}",
+              "operation": "contains",
+              "value2": "={{ $item(\"0\").$node[\"variaveis_evolution\"].json[\"nome_evento\"] }}"
+            }
+          ]
+        }
+      },
+      "id": "5d44484e-74e5-4b0b-b037-b1fa54669888",
+      "name": "nome_certo",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        820,
+        -320
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "7b2eb8a2-1c9d-429c-bfb3-468048f937f4",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        -220
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "a0f57f08-667d-4246-ad59-abcf9ac23fd9",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        200,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"variaveis_evolution\"].json[\"url_base\"] }}group/fetchAllGroups/{{ $node[\"variaveis_evolution\"].json[\"nome_da_instancia\"] }}?getParticipants=false",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $node[\"variaveis_evolution\"].json[\"apikey\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "56341dbd-557b-43df-a58b-08ef99dd1d4c",
+      "name": "get_groups1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        600,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "url_base",
+              "value": "https://apievolution.automagicbots.com.br/"
+            },
+            {
+              "name": "apikey",
+              "value": "0EAD0386DBC7-46F1-8414-06CFB9E2E7D4"
+            },
+            {
+              "name": "nome_da_instancia",
+              "value": "HenrySantos"
+            },
+            {
+              "name": "nome_evento",
+              "value": "---------"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0ec72b54-0f94-4647-8ff1-6519a9e18c52",
+      "name": "variaveis_evolution",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        420,
+        -320
+      ]
+    }
+  ],
+  "pinData": {
+    "get_groups1": [
+      {
+        "json": {
+          "id": "120363299218014173@g.us",
+          "subject": "Mentoria Salão Autoadministrável \n",
+          "subjectOwner": "554797464264@s.whatsapp.net",
+          "subjectTime": 1720536090,
+          "pictureUrl": null,
+          "size": 1,
+          "creation": 1720536051,
+          "owner": "554797464264@s.whatsapp.net",
+          "desc": "‎Olá! Esta comunidade foi criada para que os membros possam conversar em grupos de assuntos específicos e receber avisos importantes.",
+          "descId": "1720490066-433",
+          "restrict": false,
+          "announce": false
+        }
+      },
+      {
+        "json": {
+          "id": "120363047106411441@g.us",
+          "subject": "2 Super interessados",
+          "subjectTime": 1675906118,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/312274622_696991658777534_1558055707408570921_n.jpg?ccb=11-4&oh=01_Q5AaILBnqm-tZ-RdDf499SxkLvpGv5RAv9KhKMNrghnJM3Xz&oe=67952321&_nc_sid=5e03e0&_nc_cat=111",
+          "size": 1,
+          "creation": 1675906118,
+          "restrict": true,
+          "announce": true
+        }
+      },
+      {
+        "json": {
+          "id": "120363048278192744@g.us",
+          "subject": "3 Super interessados",
+          "subjectTime": 1675906125,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/323086191_754373809698607_7601730306180668423_n.jpg?ccb=11-4&oh=01_Q5AaIJq7iWHN9PjnzEZ0abqrYfa4N6zHGIp5TJbuqf7CKlPT&oe=6795093C&_nc_sid=5e03e0&_nc_cat=106",
+          "size": 1,
+          "creation": 1675906125,
+          "restrict": true,
+          "announce": true
+        }
+      },
+      {
+        "json": {
+          "id": "120363162737910010@g.us",
+          "subject": "SDR rascunho 💼",
+          "subjectOwner": "558196568911@s.whatsapp.net",
+          "subjectTime": 1692644524,
+          "pictureUrl": null,
+          "size": 1,
+          "creation": 1690458534,
+          "owner": "558198604648@s.whatsapp.net",
+          "restrict": false,
+          "announce": false
+        }
+      },
+      {
+        "json": {
+          "id": "120363048013928744@g.us",
+          "subject": "Leads",
+          "subjectOwner": "558196568911@s.whatsapp.net",
+          "subjectTime": 1686159448,
+          "pictureUrl": null,
+          "size": 1,
+          "creation": 1675084120,
+          "owner": "558196568911@s.whatsapp.net",
+          "restrict": false,
+          "announce": false
+        }
+      },
+      {
+        "json": {
+          "id": "120363030338514954@g.us",
+          "subject": "4 Super interessados",
+          "subjectTime": 1675910126,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/323930002_497142002376791_1025062475913968006_n.jpg?ccb=11-4&oh=01_Q5AaIAT3rmgQAMsylZZvvro-iYGXbL0ucJFCo6dN7gX2BA5O&oe=6795148A&_nc_sid=5e03e0&_nc_cat=102",
+          "size": 1,
+          "creation": 1675910126,
+          "restrict": true,
+          "announce": true
+        }
+      },
+      {
+        "json": {
+          "id": "120363282360560178@g.us",
+          "subject": "Aula Secreta 💇🔐",
+          "subjectOwner": "554797464264@s.whatsapp.net",
+          "subjectTime": 1716487490,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/436868271_1369088367121668_5539938136567910733_n.jpg?ccb=11-4&oh=01_Q5AaIFKOYVTEDOqk4O9V-3cpRbwTmsgXzfTfQFh-3uwhIvRR&oe=679523B4&_nc_sid=5e03e0&_nc_cat=110",
+          "size": 5,
+          "creation": 1716487490,
+          "owner": "554797464264@s.whatsapp.net",
+          "desc": "Bem-vindo(a) ao Grupo da  Aula Secreta: \n\n*Como sair dos 30 mil para 100 mil por mês de faturamento com seu salão de beleza!*\n\nEste será o link do nosso encontro nesta segunda-feira (27/05) às 19h: https://us02web.zoom.us/j/85208657743\n\nAqui você faz parte de uma comunidade exclusiva de donos(as) de salões de beleza visionários.\n\n✅ Para garantir que você receba todos os materiais e informações importantes, por favor, salve este número em seus contatos: [81 99656 8911]. Assim, você terá acesso a todos os recursos que serão entregues ao longo da aula secreta.\n\n🔇 Fique tranquilo(a), o grupo será silenciado para evitar distrações e garantir um ambiente focado no aprendizado. Isso nos permitirá aproveitar ao máximo cada momento juntos. Se você tiver alguma dúvida ou precisar de suporte, sinta-se à vontade para me enviar uma mensagem privada. Estou aqui para ajudar.\n\n✨ Estamos animados com a sua participação e mal podemos esperar para compartilhar conhecimentos valiosos, estratégias práticas e insights inspiradores. \n\n*Esteja preparado(a) para uma jornada de crescimento, transformação e liberdade.*",
+          "descId": "1d77ade8-9134-4032-9ec2-37a39d15d59d",
+          "restrict": true,
+          "announce": true
+        }
+      },
+      {
+        "json": {
+          "id": "120363192025389301@g.us",
+          "subject": "Salão Autoadministrável - AVISOS",
+          "subjectOwner": "554797464264@s.whatsapp.net",
+          "subjectTime": 1697643896,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/382452981_337073268807767_613944641126066443_n.jpg?ccb=11-4&oh=01_Q5AaIPKY2iDJhAOWDUnOS3q2ArSZF4wBNceI6Ysnpq_kXKSv&oe=679518EC&_nc_sid=5e03e0&_nc_cat=111",
+          "size": 6,
+          "creation": 1697643896,
+          "owner": "554797464264@s.whatsapp.net",
+          "restrict": true,
+          "announce": true
+        }
+      },
+      {
+        "json": {
+          "id": "120363387900798445@g.us",
+          "subject": "Planejamento Estratégico 2025: LUCRANDO sem ENLOUQUECER com seu Salão de Beleza",
+          "subjectOwner": "554797464264@s.whatsapp.net",
+          "subjectTime": 1736534224,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/473396382_2466390477026680_3860199192812893010_n.jpg?ccb=11-4&oh=01_Q5AaIOd8UkavB69syGN17t3M_4QlpZh-vsw9kj3Ej0YW_ELW&oe=67951C45&_nc_sid=5e03e0&_nc_cat=106",
+          "size": 12,
+          "creation": 1736254976,
+          "owner": "554797464264@s.whatsapp.net",
+          "desc": "*Bem-vindo(a) ao grupo oficial do Webinário Planejamento Estratégico 2025: Lucre sem Enlouquecer com Henry Santos! 🚀*\n\n📅 Data: 26 de janeiro de 2025 (domingo)\n🕓 Horário: 16h (Horário de Brasília)\n📍 Onde: https://us02web.zoom.us/j/83602976070\n\n🎯 *O que você vai aprender:*\n\n✔️ Como aumentar o ticket médio de cada cliente\n✔️ Estratégias práticas para sua equipe vender mais e gerar picos de faturamento\n✔️ Como fidelizar clientes e garantir estabilidade ao longo do ano\n✔️ Planejar 2025 com clareza e previsibilidade\n\n🎁 Bônus EXCLUSIVO para quem estiver AO VIVO:\nMapa mental do Planejamento Estratégico LUCRE SEM ENLOUQUECER 2025!\n\n💡 *Prepare-se para transformar o seu salão no ano de 2025 com estratégias claras, práticas e testadas.*\n\nAcompanhe as mensagens por aqui para não perder nada importante. Te esperamos ao vivo! 🎉",
+          "descId": "4af5dcf8-e489-48b9-a12f-42f04e93d738",
+          "restrict": true,
+          "announce": true
+        }
+      },
+      {
+        "json": {
+          "id": "120363165007522327@g.us",
+          "subject": "Reunião Secreta - É HOJE",
+          "subjectOwner": "554797464264@s.whatsapp.net",
+          "subjectTime": 1692037786,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/363563099_1434025607175531_5592160852285846130_n.jpg?ccb=11-4&oh=01_Q5AaIF97A9WmFgYTH6uz1UxeBrjVgew85z2Lip9ajMByILn9&oe=6795035A&_nc_sid=5e03e0&_nc_cat=105",
+          "size": 16,
+          "creation": 1691415759,
+          "owner": "554797464264@s.whatsapp.net",
+          "desc": "Seja bem vindo(a)\n\nAqui neste grupo você receberá o link da Reunião Secreta que vai acontecer no dia 14/08(segunda-feira) às 19h30\n\nTema: Oportunidade para ter o acompanhamento pessoal PREMIUM do Henry na Gestão do seu Salão Autoadministrável",
+          "descId": "1691608524-286",
+          "restrict": false,
+          "announce": true
+        }
+      },
+      {
+        "json": {
+          "id": "120363313473226866@g.us",
+          "subject": "MSA Advanced",
+          "subjectOwner": "554797464264@s.whatsapp.net",
+          "subjectTime": 1719259444,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/432767991_350102377900231_4269912868295871748_n.jpg?ccb=11-4&oh=01_Q5AaICYzGwXj03-LsoOo8cMVCSIr2eY2ZN8P4vDPdy5J3toS&oe=6795051A&_nc_sid=5e03e0&_nc_cat=101",
+          "size": 19,
+          "creation": 1719259444,
+          "owner": "554797464264@s.whatsapp.net",
+          "restrict": true,
+          "announce": false
+        }
+      },
+      {
+        "json": {
+          "id": "120363198578363705@g.us",
+          "subject": "SALÃO AUTOADMINISTRÁVEL",
+          "subjectOwner": "558196568911@s.whatsapp.net",
+          "subjectTime": 1709033927,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/390104335_6812280135473905_1315323861888324629_n.jpg?ccb=11-4&oh=01_Q5AaIK8eFKZqDz-Q7zPKvXnL0WxxhsacXjQhqwgmEqtfHKKG&oe=67952CF4&_nc_sid=5e03e0&_nc_cat=106",
+          "size": 23,
+          "creation": 1700489915,
+          "owner": "554797464264@s.whatsapp.net",
+          "restrict": true,
+          "announce": false
+        }
+      },
+      {
+        "json": {
+          "id": "120363297571413987@g.us",
+          "subject": "Sala Secreta com Henry Santos",
+          "subjectOwner": "554797464264@s.whatsapp.net",
+          "subjectTime": 1719592349,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/439349268_1123156402103071_5601270336102968791_n.jpg?ccb=11-4&oh=01_Q5AaIEMdf3d9oaZi8rc3EOPcAyzQ91bo7CckF1CMzpuXw_WG&oe=6794FC0A&_nc_sid=5e03e0&_nc_cat=102",
+          "size": 29,
+          "creation": 1719583166,
+          "owner": "554797464264@s.whatsapp.net",
+          "desc": "Bem-vindo à Sala Secreta! 🎉\n\nParabéns por dar esse passo importante para transformar o seu salão! Estamos muito felizes em ter você aqui.\n\n📅 Data da Aula:\nSegunda-Feira 15 de julho às 18 hrs(horário de Brasília)\n\n🔗 Link da Sala de Zoom: https://us02web.zoom.us/j/84833578944\n\nPara garantir que você possa participar sem problemas, por favor, certifique-se de ter o aplicativo do Zoom instalado no seu dispositivo. \n\n-> Isso permitirá que você entre na aula diretamente e aproveite ao máximo essa experiência exclusiva.\n\nEstamos aqui para *ajudá-lo a traçar um plano de ação eficaz para o segundo semestre e garantir que você bata suas metas todos os meses.* Prepare-se para um encontro transformador!\n\nNos vemos ao vivo na Sala Secreta!\nAbraços,\nHenry Santos e Equipe MSA.",
+          "descId": "63658dc4-72b3-4503-9231-46d40023cec1",
+          "restrict": true,
+          "announce": true
+        }
+      },
+      {
+        "json": {
+          "id": "120363307022792711@g.us",
+          "subject": "Sala Secreta Imersão Salão Autoadministrável",
+          "subjectOwner": "554797464264@s.whatsapp.net",
+          "subjectTime": 1723746022,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/454235620_1683567812471493_1392730305370982336_n.jpg?ccb=11-4&oh=01_Q5AaICYFFzy8y6r49EengJ7ZRM84uC7uDZbnKuK1BvOZD6VM&oe=67951C03&_nc_sid=5e03e0&_nc_cat=102",
+          "size": 31,
+          "creation": 1723746022,
+          "owner": "554797464264@s.whatsapp.net",
+          "desc": "🔒 Bem-vindo ao Grupo Oficial da Sala Secreta 🔒\n\nData do Evento: 27/08 às 19h\n🚨 Este é um grupo exclusivo e silencioso,\n\n📅 Fique atento:\nAqui, você receberá todos os detalhes para participar do evento mais transformador do ano, além de conteúdos exclusivos que vão preparar você para tirar o máximo proveito da nossa Sala Secreta.\n\n*O que esperar:*\nInsights valiosos sobre Controle, Organização e Processos eficientes.\nDicas para Engajar sua Equipe e Otimizar Lucros.\nOportunidade de participar da Imersão Salão Autoadministrável.\n\n👀 Importante:\nMantenha as notificações ativas para não perder nada. Cada mensagem aqui pode ser o próximo passo para transformar o futuro do seu salão.\n\n🔗 Aco0mpanhe, participe e prepare-se para a mudança.",
+          "descId": "1a0aaf6e-8436-4e76-9cd6-2306362b1bca",
+          "restrict": true,
+          "announce": true
+        }
+      },
+      {
+        "json": {
+          "id": "120363047383373108@g.us",
+          "subject": "1 Super interessados",
+          "subjectTime": 1675906111,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/326001503_741635373938310_3810033356498786248_n.jpg?ccb=11-4&oh=01_Q5AaIG7LytFzrgDWdVqZK8qRMojX_B7CDD16eqgtPF7OAB6Z&oe=67952008&_nc_sid=5e03e0&_nc_cat=108",
+          "size": 45,
+          "creation": 1675906111,
+          "restrict": true,
+          "announce": true
+        }
+      },
+      {
+        "json": {
+          "id": "120363335314244420@g.us",
+          "subject": "Plano 30 mil -> Salão Autoadministrável",
+          "subjectOwner": "554797464264@s.whatsapp.net",
+          "subjectTime": 1736185675,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/459519393_1090513979279595_7804961329580692174_n.jpg?ccb=11-4&oh=01_Q5AaIEFJzTS6Eqw1EGWbda9OE0DHmB_8LWRqNZ-Aumc6YL_6&oe=6794FE8B&_nc_sid=5e03e0&_nc_cat=102",
+          "size": 80,
+          "creation": 1730142283,
+          "owner": "554797464264@s.whatsapp.net",
+          "desc": "*📅 Próxima aula ao vivo: 15/01, Quarta-feira, às 19h da manhã*\n\n*💼 Tema: Como atingir os primeiros R$30 mil de faturamento mensal com seu salão e ter uma reserva financeira*\n\n*AGENDE SUA VAGA PARA A PRÓXIMA AULA:* https://calendly.com/henry-dossantos/aula-fature-seus-primeiros-30-mil-com-o-salao\n\nAqui você vai receber todas as orientações e links para participar da aula que pode transformar a gestão do seu salão. Durante a aula, vamos compartilhar estratégias práticas sobre:\n\n->Como estruturar suas finanças e começar uma reserva financeira\n\n->O passo a passo para contratar e treinar uma equipe eficiente\n\n->Ferramentas para precificar de forma lucrativa e sustentável\n\nPrepare-se para dar um novo rumo ao seu salão!\n\n*Nos vemos quarta-feira às 19h!*",
+          "descId": "a7c1a84e-340c-4beb-98ad-f977158f67dc",
+          "restrict": true,
+          "announce": true
+        }
+      },
+      {
+        "json": {
+          "id": "120363295424007193@g.us",
+          "subject": "Salão Autoadministrável - Aulas AO VIVO",
+          "subjectOwner": "554797464264@s.whatsapp.net",
+          "subjectTime": 1718389417,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/436916993_752585420417781_141755498259202471_n.jpg?ccb=11-4&oh=01_Q5AaIHHcprpBPyggSYxCikLRWwZhBPD8FNh432CIz1xoF2tw&oe=67952297&_nc_sid=5e03e0&_nc_cat=108",
+          "size": 149,
+          "creation": 1718389417,
+          "owner": "554797464264@s.whatsapp.net",
+          "desc": "Bem-vindos ao grupo exclusivo para as aulas gratuitas de Henry Santos! \n\nEste é o seu espaço VIP para receber todas as informações sobre as lives que ocorrem às terças e quintas-feiras, pontualmente às 8h da manhã (horário de Brasília). \n\nAqui, você fará parte de um grupo seleto que tem acesso direto aos insights e \n\nestratégias valiosas compartilhadas por Henry Santos, um dos maiores especialistas em gestão de salões de beleza.\n\nPor que este grupo é essencial?\n\nAcesso Exclusivo: Somente membros deste grupo receberão os links para as aulas ao vivo. Estas sessões são uma oportunidade única para aprender diretamente com Henry e não serão gravadas - você precisa estar aqui para vivenciar.\n\nAtualizações Diretas: Todas as informações sobre as lives, incluindo tópicos e prévias dos conteúdos, serão compartilhadas aqui. Fique atento às mensagens para não perder nada\n\nImportante:\n\nAs aulas ao vivo não ficarão gravadas, e somente os alunos da MSA terão acesso a estas informações posteriormente. Portanto, estar neste grupo garante que você não perca nenhuma informação valiosa.\n\n👉 Mantenha as notificações ativadas para receber imediatamente o link de cada aula e garantir seu lugar. \n\n📅 Marque na Agenda:\n\nTerças e Quintas | 8:00 AM | Horário de Brasília\nSeja muito bem-vindo(a) e prepare-se para se inspirar e aprender com o melhor!\nHenry Santos e equipe",
+          "descId": "4732a64d-8c0e-4d13-8e30-d5b831138ed9",
+          "restrict": true,
+          "announce": true
+        }
+      },
+      {
+        "json": {
+          "id": "120363298519068204@g.us",
+          "subject": "Mentoria Salão Autoadministrável \n",
+          "subjectOwner": "554797464264@s.whatsapp.net",
+          "subjectTime": 1720536090,
+          "pictureUrl": null,
+          "size": 183,
+          "creation": 1720536051,
+          "owner": "554797464264@s.whatsapp.net",
+          "desc": "‎Olá! Esta comunidade foi criada para que os membros possam conversar em grupos de assuntos específicos e receber avisos importantes.",
+          "descId": "1720490066-433",
+          "restrict": false,
+          "announce": true
+        }
+      },
+      {
+        "json": {
+          "id": "120363365993576646@g.us",
+          "subject": "AGENDE! Planejamento para 2025 ser o ano do crescimento financeiro do seu salão de beleza💵🤑⏳",
+          "subjectOwner": "554797464264@s.whatsapp.net",
+          "subjectTime": 1734304082,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/467391618_545039388384286_5274103930499849187_n.jpg?ccb=11-4&oh=01_Q5AaIKWeT0QibMRkQLdrBW1doHHyfq_apGtqIfMijeHccOWl&oe=679510C8&_nc_sid=5e03e0&_nc_cat=107",
+          "size": 227,
+          "creation": 1731499301,
+          "owner": "554797464264@s.whatsapp.net",
+          "desc": "AGENDE SUA SESSÃO ESTRATÉGICA PARA 2025 SER O ANO MAIS LUCRATIVO DO SEU SALÃO: https://form.typeform.com/to/qdGq8uWE\n\nDescubra *O plano para não cometer os mesmos erros de 2022, 23, 24… e transformar 2025 no ano do crescimento financeiro do seu salão de beleza, SEM ENLOUQUECER,*, através de um planejamento estratégico e plano de ação para pôr em prática rápido",
+          "descId": "1734298916-371",
+          "restrict": true,
+          "announce": true
+        }
+      },
+      {
+        "json": {
+          "id": "120363250366394159@g.us",
+          "subject": "Salão Autoadministrável - Aulas AO VIVO",
+          "subjectOwner": "554797464264@s.whatsapp.net",
+          "subjectTime": 1717439363,
+          "pictureUrl": "https://pps.whatsapp.net/v/t61.24694-24/440144261_1141397426951695_4516595654573464994_n.jpg?ccb=11-4&oh=01_Q5AaIGxIDHSyUv4wbkxaYdpV0kTw02bKPx3HIri2C_RD79dT&oe=67952113&_nc_sid=5e03e0&_nc_cat=108",
+          "size": 264,
+          "creation": 1709320724,
+          "owner": "554797464264@s.whatsapp.net",
+          "desc": "Bem-vindos ao mundo Autoadministrável pro seu Salão de Beleza!\n\nEste grupo exclusivo foi criado para VOCÊ, dona de salão. \n\nAqui, compartilharemos uma jornada incrível rumo à inovação, excelência e crescimento no mundo da beleza.\n\nPor Que Ficar?\n\n💡 Conteúdos Exclusivos: Dicas práticas, tendências da indústria e insights valiosos para elevar o padrão do seu salão.\n\n📅 Eventos e Lives: Seja o primeiro a saber sobre nossas lives educativas, webinars e eventos especiais.\n\n🚀 Estratégias de Crescimento: Aprenda estratégias comprovadas para transformar seu salão em um negócio lucrativo e autoadministrável.\n\n🤝 Comunidade de Apoio: Troque experiências, obtenha suporte e construa conexões valiosas com outros profissionais visionários.\n\n🎁 Ofertas Exclusivas: Acesso antecipado a promoções, novos serviços e produtos inovadores.\n\nRegras Básicas:\n\nRespeito Acima de Tudo: Mantenha a cordialidade e o respeito nas interações.\n\nSem Spam: Evite a divulgação de serviços, produtos ou qualquer tipo de propaganda não autorizada.\n\nFeedback Construtivo: Encorajamos a troca de ideias e feedbacks que nos ajudem a crescer juntos.\n\nEstamos aqui para inspirar, educar e apoiar um ao outro na jornada para um sucesso sem precedentes no mundo da beleza. 💇‍♀️💇‍♂️✨\n\nVamos juntos fazer deste grupo o ponto de partida para um futuro brilhante no setor da beleza!\n\nCom carinho,\nHenry Santos & Equipe Mentoria Salão Autoadministrável",
+          "descId": "77937c39-9034-464f-999a-14612b79ad87",
+          "restrict": true,
+          "announce": true
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": {
+    "node:segunda_12h": {
+      "recurrencyRules": []
+    },
+    "node:domingo_17h": {
+      "recurrencyRules": []
+    },
+    "node:domingo_21h": {
+      "recurrencyRules": []
+    },
+    "node:domingo_12h": {
+      "recurrencyRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 4,
+  "updatedAt": "2025-01-17T22:06:11.877Z",
+  "versionId": "55aec194-a3cb-4282-a759-64b8270e6695"
+}
