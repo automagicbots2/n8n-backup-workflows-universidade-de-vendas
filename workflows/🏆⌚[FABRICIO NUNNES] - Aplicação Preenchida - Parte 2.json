@@ -3340,7 +3340,7 @@
             },
             {
               "name": "dono_do_negocio",
-              "value": "={{ $node[\"rodizio_sdr1\"].json[\"nome\"].replace('Laiane','laiane@universidadevendas.com.br').replace('Naiara','naiara.jaqueline@universidadevendas.com.br') }}"
+              "value": "={{ $node[\"rodizio_sdr1\"].json[\"email\"] }}"
             },
             {
               "name": "ID Bot Conversa",
@@ -3440,7 +3440,7 @@
             },
             {
               "name": "dono_do_negocio",
-              "value": "={{ $node[\"rodizio_sdr\"].json[\"nome\"].replace('Laiane','laiane@universidadevendas.com.br').replace('Naiara','naiara.jaqueline@universidadevendas.com.br') }}"
+              "value": "={{ $node[\"rodizio_sdr\"].json[\"email\"] }}"
             },
             {
               "name": "ID Bot Conversa",
@@ -3652,6 +3652,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-12T14:24:33.816Z",
-  "versionId": "801c8554-84c7-4076-881e-2d279c83e34d"
+  "updatedAt": "2025-02-05T13:43:46.143Z",
+  "versionId": "388773e4-b801-4883-8d87-2338fc8401e9"
 }
