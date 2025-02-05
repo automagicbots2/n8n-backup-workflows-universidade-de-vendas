@@ -1034,7 +1034,7 @@
       "main": [
         [
           {
-            "node": "cria/atualiza_negocio",
+            "node": "rodizio_sdr1",
             "type": "main",
             "index": 0
           }
@@ -1123,6 +1123,17 @@
         [
           {
             "node": "pesquisa_data_data_lake",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "rodizio_sdr1": {
+      "main": [
+        [
+          {
+            "node": "cria/atualiza_negocio",
             "type": "main",
             "index": 0
           }
@@ -1226,7 +1237,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3700,
+        3580,
         860
       ],
       "credentials": {
@@ -1253,7 +1264,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        3900,
+        3780,
         860
       ]
     },
@@ -1303,7 +1314,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3520,
+        3400,
         860
       ],
       "credentials": {
@@ -1329,7 +1340,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3360,
+        3240,
         1320
       ]
     },
@@ -1349,7 +1360,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3160,
+        3040,
         1340
       ]
     },
@@ -1369,7 +1380,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3700,
+        3580,
         1140
       ]
     },
@@ -1389,7 +1400,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3540,
+        3420,
         1220
       ]
     },
@@ -1409,7 +1420,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3520,
+        3400,
         1700
       ]
     },
@@ -1429,7 +1440,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3720,
+        3600,
         1620
       ]
     },
@@ -1450,7 +1461,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        4220,
+        4080,
         1060
       ]
     },
@@ -1499,7 +1510,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3900,
+        3780,
         1220
       ],
       "credentials": {
@@ -1550,7 +1561,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3900,
+        3780,
         1060
       ],
       "credentials": {
@@ -1605,7 +1616,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3700,
+        3580,
         1380
       ],
       "credentials": {
@@ -1660,7 +1671,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3920,
+        3800,
         1540
       ],
       "credentials": {
@@ -1719,7 +1730,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3920,
+        3800,
         1720
       ],
       "credentials": {
@@ -1778,7 +1789,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3720,
+        3600,
         1840
       ],
       "credentials": {
@@ -1804,7 +1815,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3560,
+        3440,
         2080
       ]
     },
@@ -1824,7 +1835,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3400,
+        3280,
         2160
       ]
     },
@@ -1877,7 +1888,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3560,
+        3440,
         2320
       ],
       "credentials": {
@@ -1932,7 +1943,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3760,
+        3640,
         2000
       ],
       "credentials": {
@@ -1991,7 +2002,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        3760,
+        3640,
         2160
       ],
       "credentials": {
@@ -2028,7 +2039,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.1,
       "position": [
-        4400,
+        4260,
         1060
       ],
       "credentials": {
@@ -3803,7 +3814,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2940,
+        2900,
         1120
       ]
     },
@@ -3849,7 +3860,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        4740,
+        4600,
         1060
       ],
       "webhookId": "23d93ae7-1736-4e2e-9ca7-7c4812952b4d"
@@ -4143,7 +4154,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        4580,
+        4440,
         1060
       ]
     },
@@ -4196,7 +4207,7 @@
             },
             {
               "name": "dono_do_negocio",
-              "value": "laiane@universidadevendas.com.br"
+              "value": "={{ $node[\"rodizio_sdr1\"].json[\"email\"] }}"
             }
           ]
         },
@@ -4207,7 +4218,34 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        4880,
+        4900,
+        1060
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/consulta-colaborador",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "SDR"
+            },
+            {
+              "name": "user",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bd\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "506706d5-9dec-4293-b1bc-b27a3e326fa7",
+      "name": "rodizio_sdr1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4740,
         1060
       ]
     }
@@ -4297,6 +4335,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-01-28T19:07:11.286Z",
-  "versionId": "a7cab4ea-44c9-4d2f-9566-b92b9e6458d9"
+  "updatedAt": "2025-02-05T13:44:31.452Z",
+  "versionId": "5d7b6dc7-c333-4ef0-9c9c-650683522399"
 }
