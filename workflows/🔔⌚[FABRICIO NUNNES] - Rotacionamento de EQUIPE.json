@@ -986,6 +986,12 @@
               "name": "nome",
               "value": "={{   $node[\"pesquisa_colaborador7\"].runIndex >= 0        ? $node[\"pesquisa_colaborador7\"].json[\"nome\"] : $node[\"pesquisa_colaborador10\"].runIndex >= 0      ? $node[\"pesquisa_colaborador10\"].json[\"nome\"]     : $node[\"pesquisa_colaborador4\"].runIndex >= 0        ? $node[\"pesquisa_colaborador4\"].json[\"nome\"] : $node[\"pesquisa_colaborador6\"].runIndex >= 0        ? $node[\"pesquisa_colaborador6\"].json[\"nome\"] : $node[\"pesquisa_colaborador8\"].runIndex >= 0        ? $node[\"pesquisa_colaborador8\"].json[\"nome\"] : $node[\"pesquisa_colaborador9\"].runIndex >= 0        ? $node[\"pesquisa_colaborador9\"].json[\"nome\"] : $node[\"pesquisa_colaborador3\"].runIndex >= 0        ? $node[\"pesquisa_colaborador3\"].json[\"nome\"] : $node[\"pesquisa_colaborador5\"].runIndex >= 0        ? $node[\"pesquisa_colaborador5\"].json[\"nome\"] : null }}",
               "type": "string"
+            },
+            {
+              "id": "b94a2f3a-e803-48d1-824f-cb8ca550289d",
+              "name": "email",
+              "value": "={{   $node[\"pesquisa_colaborador7\"].runIndex >= 0        ? $node[\"pesquisa_colaborador7\"].json[\"email\"] : $node[\"pesquisa_colaborador10\"].runIndex >= 0      ? $node[\"pesquisa_colaborador10\"].json[\"email\"]     : $node[\"pesquisa_colaborador4\"].runIndex >= 0        ? $node[\"pesquisa_colaborador4\"].json[\"email\"] : $node[\"pesquisa_colaborador6\"].runIndex >= 0        ? $node[\"pesquisa_colaborador6\"].json[\"email\"] : $node[\"pesquisa_colaborador8\"].runIndex >= 0        ? $node[\"pesquisa_colaborador8\"].json[\"email\"] : $node[\"pesquisa_colaborador9\"].runIndex >= 0        ? $node[\"pesquisa_colaborador9\"].json[\"email\"] : $node[\"pesquisa_colaborador3\"].runIndex >= 0        ? $node[\"pesquisa_colaborador3\"].json[\"email\"] : $node[\"pesquisa_colaborador5\"].runIndex >= 0        ? $node[\"pesquisa_colaborador5\"].json[\"email\"] : null }}",
+              "type": "string"
             }
           ]
         },
@@ -1553,6 +1559,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-11-13T18:07:09.662Z",
-  "versionId": "09833968-8c50-4040-9767-a465468422c8"
+  "updatedAt": "2025-02-05T13:39:55.635Z",
+  "versionId": "ccf14e50-7cef-4a35-b5db-610a4923ded9"
 }
