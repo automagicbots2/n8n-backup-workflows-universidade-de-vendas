@@ -1354,6 +1354,18 @@
       "main": [
         [
           {
+            "node": "é_Funil_SS1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "é_Funil_SS1": {
+      "main": [
+        [],
+        [
+          {
             "node": "envia_fluxo_de_confirmacao_de_agendamento",
             "type": "main",
             "index": 0
@@ -3890,8 +3902,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        11380,
-        1080
+        11620,
+        1180
       ],
       "retryOnFail": true,
       "waitBetweenTries": 5000,
@@ -5590,6 +5602,39 @@
         4680,
         1360
       ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7a91e12d-29cb-4fdd-99a7-88b0ee99c735",
+              "leftValue": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Tipo de Evento\"] }}",
+              "rightValue": "Sessão Estratégica Comercial - Funil SS",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "68cadb72-fad5-4f5a-ba03-e9a879f60e92",
+      "name": "é_Funil_SS1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        11340,
+        1080
+      ]
     }
   ],
   "pinData": {
@@ -5669,6 +5714,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-27T13:40:41.763Z",
-  "versionId": "8c0d5bee-1513-45b1-b9c5-70106c2c923f"
+  "updatedAt": "2025-02-05T16:49:04.060Z",
+  "versionId": "a502a88f-a356-47e8-98d2-41754afc6e7b"
 }
