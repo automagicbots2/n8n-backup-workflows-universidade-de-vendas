@@ -181,39 +181,6 @@
         ]
       ]
     },
-    "avisa_Closer2_Mayara": {
-      "main": [
-        [
-          {
-            "node": "avisa_Closer3_Sunamita",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "avisa_Closer2_Mayara1": {
-      "main": [
-        [
-          {
-            "node": "avisa_Closer3_sunamita",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "avisa_Closer2_Mayara2": {
-      "main": [
-        [
-          {
-            "node": "avisa_Closer3_sunamita1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "duplica_contrato_PLANTINUM2": {
       "main": [
         [
@@ -240,7 +207,7 @@
       "main": [
         [
           {
-            "node": "avisa_Closer2_Mayara2",
+            "node": "avisa_Closer_Rafael2",
             "type": "main",
             "index": 0
           }
@@ -251,7 +218,7 @@
       "main": [
         [
           {
-            "node": "avisa_Closer2_Mayara1",
+            "node": "avisa_Closer_Rafael1",
             "type": "main",
             "index": 0
           }
@@ -262,7 +229,7 @@
       "main": [
         [
           {
-            "node": "avisa_Closer2_Mayara",
+            "node": "avisa_Closer_Rafael",
             "type": "main",
             "index": 0
           }
@@ -311,7 +278,7 @@
       "main": [
         [
           {
-            "node": "avisa_Closer2_Mayara3",
+            "node": "avisa_Closer_Rafael3",
             "type": "main",
             "index": 0
           }
@@ -323,17 +290,6 @@
         [
           {
             "node": "avisa_Closer4_silas3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "avisa_Closer2_Mayara3": {
-      "main": [
-        [
-          {
-            "node": "avisa_Closer3_sunamita2",
             "type": "main",
             "index": 0
           }
@@ -686,6 +642,50 @@
           }
         ]
       ]
+    },
+    "avisa_Closer_Rafael": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer3_Sunamita",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer_Rafael1": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer3_sunamita",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer_Rafael2": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer3_sunamita1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer_Rafael3": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer3_sunamita2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-14T17:20:50.250Z",
@@ -836,6 +836,10 @@
             {
               "name": "ID Leandro BC Closer 6",
               "value": "584292487"
+            },
+            {
+              "name": "ID Rafael BC",
+              "value": "269199328"
             }
           ]
         },
@@ -995,6 +999,10 @@
             {
               "name": "ID Leandro BC Closer 6",
               "value": "584292487"
+            },
+            {
+              "name": "ID Rafael BC",
+              "value": "269199328"
             }
           ]
         },
@@ -1750,6 +1758,10 @@
             {
               "name": "ID Leandro BC Closer 6",
               "value": "584292487"
+            },
+            {
+              "name": "ID Rafael BC",
+              "value": "269199328"
             }
           ]
         },
@@ -2182,117 +2194,6 @@
           "name": "[Google Drive] - Auth2 Automagic"
         }
       }
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Gabriel BC Closer 2\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_IMPERIUM\"].runIndex >= 0      ?   $node[\"duplica_contrato_IMPERIUM\"].json[\"id\"] : $node[\"duplica_contrato_IMPERIUM1\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato\"].json[\"Data de vencimento\"] }}\n*Forma de Pagamento:* {{ $node[\"tratar_dados\"].json[\"Forma de pagamento das parcelas?\"] }}\n*Mês do vencimento da parcela:* {{ $node[\"tratar_dados\"].json[\"A partir de qual mês o vencimento da parcela?\"] }}"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Closer2_Mayara",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        1480,
-        360
-      ],
-      "id": "f6f0b104-ed6c-4cd6-b749-008428d191cf",
-      "disabled": true,
-      "continueOnFail": true
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc1\"].json[\"ID Gabriel BC Closer 2\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato1\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato1\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato1\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato1\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_PLANTINUM\"].runIndex >= 0      ?   $node[\"duplica_contrato_PLANTINUM\"].json[\"id\"] : $node[\"duplica_contrato_PLANTINUM1\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato1\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato1\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato1\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato1\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato1\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados1\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato1\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados1\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados1\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato1\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados1\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados1\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato1\"].json[\"Data de vencimento\"] }}\n*Forma de Pagamento:* {{ $node[\"tratar_dados1\"].json[\"Forma de pagamento das parcelas?\"] }}\n*Mês do vencimento da parcela:* {{ $node[\"tratar_dados1\"].json[\"A partir de qual mês o vencimento da parcela?\"] }}"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Closer2_Mayara1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        1440,
-        860
-      ],
-      "id": "059bb55d-2d74-400a-9985-8ce3fb5d5bfb",
-      "disabled": true,
-      "continueOnFail": true
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc2\"].json[\"ID Gabriel BC Closer 2\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato2\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato2\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato2\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato2\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_DIAMOND\"].runIndex >= 0      ?   $node[\"duplica_contrato_DIAMOND\"].json[\"id\"] : $node[\"duplica_contrato_DIAMOND1\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato2\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato2\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato2\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato2\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato2\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados2\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato2\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados2\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados2\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato2\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados2\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados2\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato2\"].json[\"Data de vencimento\"] }}\n*Forma de Pagamento:* {{ $node[\"tratar_dados2\"].json[\"Forma de pagamento das parcelas?\"] }}\n*Mês do vencimento da parcela:* {{ $node[\"tratar_dados2\"].json[\"A partir de qual mês o vencimento da parcela?\"] }}"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc2\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Closer2_Mayara2",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        1420,
-        1500
-      ],
-      "id": "154db602-0246-4491-af49-3e124ff66d57",
-      "disabled": true,
-      "continueOnFail": true
     },
     {
       "parameters": {
@@ -2773,6 +2674,10 @@
             {
               "name": "ID Leandro BC Closer 6",
               "value": "584292487"
+            },
+            {
+              "name": "ID Rafael BC",
+              "value": "269199328"
             }
           ]
         },
@@ -2962,43 +2867,6 @@
         1920
       ],
       "id": "887769f3-a91b-4bfe-abb8-6e5d7d7e804a",
-      "continueOnFail": true
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc3\"].json[\"ID Gabriel BC Closer 2\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato3\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato3\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato3\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_TITANIUM\"].runIndex >= 0      ?   $node[\"duplica_contrato_TITANIUM\"].json[\"id\"] : $node[\"duplica_contrato_TITANIUM1\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato3\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato3\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato3\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato3\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato3\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados3\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados3\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados3\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato3\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados3\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados3\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato3\"].json[\"Data de vencimento\"] }}\n*Forma de Pagamento:* {{ $node[\"tratar_dados3\"].json[\"Forma de pagamento das parcelas?\"] }}\n*Mês do vencimento da parcela:* {{ $node[\"tratar_dados3\"].json[\"A partir de qual mês o vencimento da parcela?\"] }}"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc3\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Closer2_Mayara3",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        1420,
-        1920
-      ],
-      "id": "3d347302-09b7-4bdf-9e64-b1c5586f420d",
-      "disabled": true,
       "continueOnFail": true
     },
     {
@@ -4334,6 +4202,150 @@
           "name": "[Google Drive] - Auth2 Automagic"
         }
       }
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Rafael BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_IMPERIUM\"].runIndex >= 0      ?   $node[\"duplica_contrato_IMPERIUM\"].json[\"id\"] : $node[\"duplica_contrato_IMPERIUM1\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato\"].json[\"Data de vencimento\"] }}\n*Forma de Pagamento:* {{ $node[\"tratar_dados\"].json[\"Forma de pagamento das parcelas?\"] }}\n*Mês do vencimento da parcela:* {{ $node[\"tratar_dados\"].json[\"A partir de qual mês o vencimento da parcela?\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer_Rafael",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1480,
+        360
+      ],
+      "id": "f6f0b104-ed6c-4cd6-b749-008428d191cf",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc1\"].json[\"ID Rafael BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato1\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato1\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato1\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato1\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_PLANTINUM\"].runIndex >= 0      ?   $node[\"duplica_contrato_PLANTINUM\"].json[\"id\"] : $node[\"duplica_contrato_PLANTINUM1\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato1\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato1\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato1\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato1\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato1\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato1\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados1\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato1\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados1\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados1\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato1\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados1\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados1\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato1\"].json[\"Data de vencimento\"] }}\n*Forma de Pagamento:* {{ $node[\"tratar_dados1\"].json[\"Forma de pagamento das parcelas?\"] }}\n*Mês do vencimento da parcela:* {{ $node[\"tratar_dados1\"].json[\"A partir de qual mês o vencimento da parcela?\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer_Rafael1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        860
+      ],
+      "id": "059bb55d-2d74-400a-9985-8ce3fb5d5bfb",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc2\"].json[\"ID Rafael BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato2\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato2\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato2\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato2\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_DIAMOND\"].runIndex >= 0      ?   $node[\"duplica_contrato_DIAMOND\"].json[\"id\"] : $node[\"duplica_contrato_DIAMOND1\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato2\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato2\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato2\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato2\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato2\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato2\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados2\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato2\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados2\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados2\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato2\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados2\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados2\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato2\"].json[\"Data de vencimento\"] }}\n*Forma de Pagamento:* {{ $node[\"tratar_dados2\"].json[\"Forma de pagamento das parcelas?\"] }}\n*Mês do vencimento da parcela:* {{ $node[\"tratar_dados2\"].json[\"A partir de qual mês o vencimento da parcela?\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc2\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer_Rafael2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1420,
+        1500
+      ],
+      "id": "154db602-0246-4491-af49-3e124ff66d57",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc3\"].json[\"ID Rafael BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 *NOVO CONTRATO* 🔔\n\nO cliente {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}, acabou de preencher o contrato da Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"] }}. \n{{ $node[\"dados_do_contrato3\"].json[\"DIA \"] }}/{{ $node[\"dados_do_contrato3\"].json[\"MÊS\"] }}/{{ $node[\"dados_do_contrato3\"].json[\"ANO (DOIS DIGITOS)\"] }}\n\nO arquivo foi gerado no link https://docs.google.com/document/d/{{ $node[\"duplica_contrato_TITANIUM\"].runIndex >= 0      ?   $node[\"duplica_contrato_TITANIUM\"].json[\"id\"] : $node[\"duplica_contrato_TITANIUM1\"].json[\"id\"] }}/edit!\n\n🚨 Confira se está tudo certo para subir e enviar para o cliente no e-mail {{ $node[\"dados_do_contrato3\"].json[\"E-mail\"] }} pelo {{ $node[\"dados_do_contrato3\"].json[\"ferramenta_contrato\"] }}.\n\n.................................\n\nDados a serem enviados no Grupo Financeiro:\n\n*Nome do Cliente:* {{ $node[\"dados_do_contrato3\"].json[\"Nome Completo do(a) Representante Legal\"] }}\n*Telefone:* {{ $node[\"dados_do_contrato3\"].json[\"Telefone do(a) Representante Legal\"] }}\n*Empresa:* {{ $node[\"dados_do_contrato3\"].json[\"Razão Social\"] }}\n*CNPJ:* {{ $node[\"dados_do_contrato3\"].json[\"CNPJ\"] }}\n*Endereço:* {{ $node[\"tratar_dados3\"].json[\"Endereço completo\"] }}\n*Plano:* Mentoria {{ $node[\"dados_do_contrato3\"].json[\"ID FORMS\"].replace('vIqpVdJT','Mentoria Modus Inovandi (Inteira)').replace('hWcc3zcM','Mentoria Modus Inovandi Start') }}.\n*Prazo:* {{ $node[\"tratar_dados3\"].json[\"Qual a duração da mentoria em meses?\"] }}\n*Valor do contrato:\" {{ $node[\"tratar_dados3\"].json[\"Valor total da mentoria?\"] }}\n*Valor já pago:* {{ $node[\"dados_do_contrato3\"].json[\"Valor Já Pago\"] }}\n*Quantidade de parcelas?:* {{ $node[\"tratar_dados3\"].json[\"Quantidade de parcelas?\"] }}\n*Valor da parcela:* {{ $node[\"tratar_dados3\"].json[\"Valor de cada parcela?\"] }}\n*Data de vencimento:* {{ $node[\"dados_do_contrato3\"].json[\"Data de vencimento\"] }}\n*Forma de Pagamento:* {{ $node[\"tratar_dados3\"].json[\"Forma de pagamento das parcelas?\"] }}\n*Mês do vencimento da parcela:* {{ $node[\"tratar_dados3\"].json[\"A partir de qual mês o vencimento da parcela?\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc3\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer_Rafael3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1420,
+        1920
+      ],
+      "id": "3d347302-09b7-4bdf-9e64-b1c5586f420d",
+      "continueOnFail": true
     }
   ],
   "pinData": {
@@ -6503,6 +6515,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2024-12-04T19:00:39.564Z",
-  "versionId": "4ecd9564-4968-405b-8bda-97f3aa9341c5"
+  "updatedAt": "2025-02-05T20:41:55.556Z",
+  "versionId": "6076e575-0a63-4c12-a472-482620e9e3ee"
 }
