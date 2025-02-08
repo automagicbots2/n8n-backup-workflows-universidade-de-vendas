@@ -1,0 +1,429 @@
+{
+  "active": true,
+  "connections": {
+    "infos_bc": {
+      "main": [
+        [
+          {
+            "node": "cadastrar_contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastrar_contato": {
+      "main": [
+        [
+          {
+            "node": "envia_fluxo_de_recuperação",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos_bc1": {
+      "main": [
+        [
+          {
+            "node": "cadastrar_contato1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastrar_contato1": {
+      "main": [
+        [
+          {
+            "node": "envia_fluxo_sai_da_recuperacao",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prospecção_Conexão": {
+      "main": [
+        [
+          {
+            "node": "infos_bc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "em_atendimento": {
+      "main": [
+        [
+          {
+            "node": "infos_bc1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-07T18:07:27.434Z",
+  "id": "Xek9JR6i2MPFL1fS",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚ [Fabricio Nunnes] Clint | Recuperação de Leads",
+  "nodes": [
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "ID_Fluxo_recuperacao",
+              "value": "6409141"
+            },
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"Prospecção_Conexão\"].json[\"body\"][\"contact_name\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente",
+              "value": "={{ $node[\"Prospecção_Conexão\"].json[\"body\"][\"contact_phone\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"Prospecção_Conexão\"].json[\"body\"][\"contact_email\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ec3be54b-fd0b-471b-8e8c-890232ce5acf",
+      "name": "infos_bc",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "={{ $node[\"infos_bc\"].json[\"Telefone do Cliente\"] }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"infos_bc\"].json[\"Nome do Cliente\"].split(\" \")[0] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"infos_bc\"].json[\"Nome do Cliente\"].split(\" \")[1] }}."
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "cadastrar_contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1320,
+        300
+      ],
+      "id": "6d3a722a-29a3-49e4-b233-7b005b855abb",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "ID_Fluxo_sai_da_recuperacao",
+              "value": "6412149"
+            },
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"em_atendimento\"].json[\"body\"][\"contact_name\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente",
+              "value": "={{ $node[\"em_atendimento\"].json[\"body\"][\"contact_phone\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"em_atendimento\"].json[\"body\"][\"contact_email\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c76f3b66-ccdf-4c8a-97e8-86cf52c1fb94",
+      "name": "infos_bc1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "={{ $node[\"infos_bc1\"].json[\"Telefone do Cliente\"] }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"infos_bc1\"].json[\"Nome do Cliente\"].split(\" \")[0] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"infos_bc1\"].json[\"Nome do Cliente\"].split(\" \")[1] }}."
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "cadastrar_contato1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1320,
+        540
+      ],
+      "id": "99295d48-deab-4957-91e2-316e5b523d9f",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "entrou-prospeccao-ou-conexao",
+        "options": {}
+      },
+      "id": "a206627c-1bb6-4bb6-b4cb-3dc95465c8ea",
+      "name": "Prospecção_Conexão",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        880,
+        300
+      ],
+      "webhookId": "5c5830b3-3ac1-48d6-aee6-067d27b5c4ac"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "em-atendimento",
+        "options": {}
+      },
+      "id": "eb96e41a-4d81-4794-9344-100e652a6092",
+      "name": "em_atendimento",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        880,
+        540
+      ],
+      "webhookId": "5c5830b3-3ac1-48d6-aee6-067d27b5c4ac"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/send_flow/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"infos_bc\"].json[\"ID_Fluxo_recuperacao\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fa87baaa-9adb-4cba-a18f-1cdca46dbc17",
+      "name": "envia_fluxo_de_recuperação",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1540,
+        300
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato1\"].json[\"id\"] }}/send_flow/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"infos_bc1\"].json[\"ID_Fluxo_sai_da_recuperacao\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "db936805-454a-42ae-b0b4-4be84c8826f8",
+      "name": "envia_fluxo_sai_da_recuperacao",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1540,
+        540
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    }
+  ],
+  "pinData": {
+    "Prospecção_Conexão": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/1.7.9",
+            "content-length": "199",
+            "accept": "application/json, text/plain, */*",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "traceparent": "00-67a64c3200000000515660430ff18907-27279e6d7dcac531-00",
+            "tracestate": "dd=t.tid:67a64c3200000000;t.dm:-3;s:-1;p:27279e6d7dcac531",
+            "x-datadog-parent-id": "2821397884669969713",
+            "x-datadog-sampling-priority": "-1",
+            "x-datadog-tags": "_dd.p.tid=67a64c3200000000",
+            "x-datadog-trace-id": "5860977806215842055",
+            "x-forwarded-for": "52.200.254.28",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "52.200.254.28"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "contact_name": "Luís",
+            "contact_email": "luttychagas@gmail.com",
+            "contact_phone": "+5592981327366",
+            "deal_stage": "Prospecção",
+            "deal_user": "silas.moraes@universidadevendas.com.br",
+            "deal_status": "OPEN"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/entrou-prospeccao",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "em_atendimento": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/1.7.9",
+            "content-length": "199",
+            "accept": "application/json, text/plain, */*",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "traceparent": "00-67a64c3200000000515660430ff18907-27279e6d7dcac531-00",
+            "tracestate": "dd=t.tid:67a64c3200000000;t.dm:-3;s:-1;p:27279e6d7dcac531",
+            "x-datadog-parent-id": "2821397884669969713",
+            "x-datadog-sampling-priority": "-1",
+            "x-datadog-tags": "_dd.p.tid=67a64c3200000000",
+            "x-datadog-trace-id": "5860977806215842055",
+            "x-forwarded-for": "52.200.254.28",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "52.200.254.28"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "contact_name": "Luís",
+            "contact_email": "luttychagas@gmail.com",
+            "contact_phone": "+5592981327366",
+            "deal_stage": "Prospecção",
+            "deal_user": "silas.moraes@universidadevendas.com.br",
+            "deal_status": "OPEN"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/entrou-prospeccao",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2025-02-07T18:37:17.598Z",
+  "versionId": "745aee58-bc41-41a2-bf8a-d04835576065"
+}
