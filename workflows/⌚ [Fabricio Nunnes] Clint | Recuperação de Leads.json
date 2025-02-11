@@ -231,38 +231,6 @@
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "entrou-prospeccao-ou-conexao",
-        "options": {}
-      },
-      "id": "a206627c-1bb6-4bb6-b4cb-3dc95465c8ea",
-      "name": "Prospecção_Conexão",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1.1,
-      "position": [
-        880,
-        300
-      ],
-      "webhookId": "5c5830b3-3ac1-48d6-aee6-067d27b5c4ac"
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "em-atendimento",
-        "options": {}
-      },
-      "id": "eb96e41a-4d81-4794-9344-100e652a6092",
-      "name": "em_atendimento",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1.1,
-      "position": [
-        880,
-        540
-      ],
-      "webhookId": "5c5830b3-3ac1-48d6-aee6-067d27b5c4ac"
-    },
-    {
-      "parameters": {
         "method": "POST",
         "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/send_flow/",
         "sendHeaders": true,
@@ -332,6 +300,38 @@
       "retryOnFail": true,
       "waitBetweenTries": 5000,
       "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "entrou-prospeccao-ou-conexao",
+        "options": {}
+      },
+      "id": "a206627c-1bb6-4bb6-b4cb-3dc95465c8ea",
+      "name": "Prospecção_Conexão",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        880,
+        300
+      ],
+      "webhookId": "5c5830b3-3ac1-48d6-aee6-067d27b5c4ac"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "em-atendimento",
+        "options": {}
+      },
+      "id": "eb96e41a-4d81-4794-9344-100e652a6092",
+      "name": "em_atendimento",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        880,
+        540
+      ],
+      "webhookId": "5c5830b3-3ac1-48d6-aee6-067d27b5c4ac"
     }
   ],
   "pinData": {
@@ -424,6 +424,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-02-07T18:37:17.598Z",
-  "versionId": "745aee58-bc41-41a2-bf8a-d04835576065"
+  "updatedAt": "2025-02-10T22:59:59.230Z",
+  "versionId": "841053be-d6d2-49e2-a5f8-f927f74b6f58"
 }
