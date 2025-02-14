@@ -324,7 +324,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Obtendo os dados do nó \"fluxo_chamado\"\nconst inputData = $node[\"evento\"].json.body || {};\n\n// Extraindo informações da venda, cliente, produto e oferta\nconst order = inputData.order || {};\nconst item = inputData.item || {};\nconst transaction = inputData.transaction || {};\nconst customer = inputData.customer || {};\nconst phone = customer.phone || {};\n\n// Extraindo informações específicas do pagamento\nconst transaction_id = order.hash || \"\";\nconst chargeAmount = order.paid_amount || 0;\nconst value = (chargeAmount / 100).toFixed(2); // Converter centavos para reais\nconst transStatus = inputData.status || \"\";\nconst paymentMethod = inputData.payment_method || \"\";\nconst productId = item.product_id || \"\";\nconst productName = item.product_name || \"\";\nconst offer_code = item.offer_id || \"\";\nconst billet_barcode = transaction.bank_slip_code || \"\";\nconst bankslip = transaction.bank_slip_url || \"\";\nconst billetExpirationDate = \"\"; // Não há no JSON de entrada, então deixamos vazio\nconst installments = order.installments || \"\";\nconst emailAnswer = customer.email || \"\";\nconst cpfAnswer = customer.cpf || \"\";\nconst cnpjAnswer = customer.cnpj || \"\";\nconst fullNameAnswer = customer.name || \"\";\n\n// Função para formatar CPF\nfunction formatCPF(cpf) {\n    if (!cpf) return \"\";\n    const cpfLimpo = cpf.replace(/\\D/g, \"\");\n    return cpfLimpo.length === 11 ? \n        `${cpfLimpo.slice(0, 3)}.${cpfLimpo.slice(3, 6)}.${cpfLimpo.slice(6, 9)}-${cpfLimpo.slice(9, 11)}` : cpf;\n}\n\n// Função para formatar telefone corretamente\nfunction formatPhone(ddi, ddd, number) {\n    if (!number || !ddd) return \"\";\n    \n    let telefoneFormatado = `${ddi.replace(\"+\", \"\")}${ddd}${number.replace(/\\D/g, \"\")}`;\n    \n    // Verifica se o número precisa de ajustes para o WhatsApp\n    if (ddd.length === 2 && number.length === 8) {\n        telefoneFormatado = `${ddi.replace(\"+\", \"\")}${ddd}9${number}`;\n    }\n    \n    return telefoneFormatado;\n}\n\n// Formatar telefone corretamente\nconst telefoneFinal = formatPhone(phone.ddi || \"+55\", phone.ddd || \"\", phone.number || \"\");\n\n// Traduzir status da transação\nconst statusMap = {\n    \"waiting_payment\": \"Aguardando Pagamento\",\n    \"paid\": \"Compra Aprovada\",\n    \"billet_created\": \"Boleto Gerado\",\n    \"pix_created\": \"PIX Gerado\",\n    \"order_rejected\": \"Compra Cancelada\",\n    \"order_refunded\": \"Compra Reembolsada\",\n    \"chargeback\": \"Chargeback\",\n    \"subscription_canceled\": \"Assinatura Cancelada\",\n    \"subscription_late\": \"Compra Atrasada\",\n    \"subscription_renewed\": \"Renovação\",\n    \"abandoned\": \"Carrinho Abandonado\"\n};\nconst purchaseStatusTranslation = statusMap[transStatus] || \"Desconhecido\";\n\n// Traduzir método de pagamento\nconst paymentMethodMap = {\n    \"pix\": \"PIX\",\n    \"bank_slip\": \"Boleto Bancário\",\n    \"credit_card\": \"Cartão de Crédito\"\n};\nconst paymentMethodTranslation = paymentMethodMap[paymentMethod] || \"Desconhecido\";\n\n// Transformar nome para capitalizado\nfunction capitalizeName(fullName) {\n    if (!fullName) return { fname: \"\", lname: \"\", fullname: \"\" };\n\n    const lowerCaseWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n    let words = fullName.toLowerCase().split(\" \").map((word, index) => {\n        return lowerCaseWords.includes(word) && index !== 0 ? word : \n               word.charAt(0).toUpperCase() + word.slice(1);\n    });\n\n    let fname = words.shift();\n    let lname = words.join(\" \");\n    let fullname = lname ? `${fname} ${lname}` : fname;\n\n    return { fname, lname, fullname };\n}\n\n// Criando os resultados formatados\nconst formattedNames = capitalizeName(fullNameAnswer);\nconst formattedEmail = emailAnswer.toLowerCase().trim();\n\n// Construindo objeto final\nconst result = {\n    ...formattedNames,\n    email: formattedEmail,\n    whatsapp: telefoneFinal,\n    cpf: formatCPF(cpfAnswer),\n    cnpj: formatCPF(cnpjAnswer),\n    transaction_id: transaction_id,\n    value: value,\n    trans_status: purchaseStatusTranslation,\n    payment_method: paymentMethodTranslation,\n    product_id: productId,\n    product_name: productName,\n    offer_code: offer_code,\n    billet_barcode: billet_barcode,\n    bankslip: bankslip,\n    billetExpirationDate: billetExpirationDate,\n    installments: installments\n};\n\n// **Garantindo que o retorno seja um array de objetos**\nreturn [{ json: result }];\n"
+        "jsCode": "// Obtendo os dados do nó \"evento\"\nconst inputData = items?.[0]?.json?.body || {};\nconst data = inputData.data || {};\nconst customer = data.customer || {};\nconst feeDetails = data.fee_details || {};\nconst relations = data.relations || {};\n\n// **Garantindo que \"items\" existe antes de acessá-lo**\nconst item = Array.isArray(data.items) && data.items.length > 0 ? data.items[0] : {};\n\n// **Extraindo Informações de Pagamento**\nconst transaction_id = data.id || \"\";\nconst chargeAmount = data.amount || 0;\nconst value = (chargeAmount / 100).toFixed(2); // Convertendo centavos para reais\nconst transStatus = data.status || \"\";\nconst paymentMethod = data.payment_method || \"\";\nconst productId = \"\"; // O JSON não contém um campo específico para ID do produto\nconst productName = item.description || \"\";\nconst offer_code = relations.id_link_payment || \"\";\nconst billet_barcode = data.boleto_digitable_line || \"\";\nconst bankslip = data.boleto_url || \"\";\nconst billetExpirationDate = data.pix_expire || \"\";\nconst installments = data.installments || \"\";\nconst emailAnswer = customer.email || \"\";\nconst cpfAnswer = customer.document || \"\";\nconst cnpjAnswer = cpfAnswer.length === 14 ? cpfAnswer : \"\";\nconst fullNameAnswer = customer.name || \"\";\n\n// **Formatar CPF/CNPJ**\nfunction formatCPF_CNPJ(doc) {\n    if (!doc) return \"\";\n    const docLimpo = doc.replace(/\\D/g, \"\");\n    \n    if (docLimpo.length === 11) {\n        return `${docLimpo.slice(0, 3)}.${docLimpo.slice(3, 6)}.${docLimpo.slice(6, 9)}-${docLimpo.slice(9, 11)}`;\n    } else if (docLimpo.length === 14) {\n        return `${docLimpo.slice(0, 2)}.${docLimpo.slice(2, 5)}.${docLimpo.slice(5, 8)}/${docLimpo.slice(8, 12)}-${docLimpo.slice(12, 14)}`;\n    }\n    return doc;\n}\n\n// **Formatar Telefone**\nfunction formatPhone(phone) {\n    if (!phone) return \"\";\n    const phoneLimpo = phone.replace(/\\D/g, \"\");\n    if (phoneLimpo.length >= 11) {\n        return `55${phoneLimpo}`;\n    }\n    return phoneLimpo;\n}\n\n// **Formatar Nome**\nfunction capitalizeName(fullName) {\n    if (!fullName) return \"\";\n    return fullName.toLowerCase().replace(/\\b\\w/g, char => char.toUpperCase()).trim();\n}\n\n// **Traduzir Status da Transação**\nconst statusMap = {\n    \"waiting_payment\": \"Aguardando Pagamento\",\n    \"paid\": \"Compra Aprovada\",\n    \"billet_created\": \"Boleto Gerado\",\n    \"pix_created\": \"PIX Gerado\",\n    \"order_rejected\": \"Compra Cancelada\",\n    \"order_refunded\": \"Compra Reembolsada\",\n    \"chargeback\": \"Chargeback\",\n    \"subscription_canceled\": \"Assinatura Cancelada\",\n    \"subscription_late\": \"Compra Atrasada\",\n    \"subscription_renewed\": \"Renovação\",\n    \"abandoned\": \"Carrinho Abandonado\"\n};\nconst purchaseStatusTranslation = statusMap[transStatus] || \"Desconhecido\";\n\n// **Traduzir Método de Pagamento**\nconst paymentMethodMap = {\n    \"credit_card\": \"Cartão de Crédito\",\n    \"bank_slip\": \"Boleto Bancário\",\n    \"pix\": \"PIX\"\n};\nconst paymentMethodTranslation = paymentMethodMap[paymentMethod] || \"Desconhecido\";\n\n// **Criando o Objeto Final (MANTENDO OS NOMES ORIGINAIS)**\nconst result = {\n    fname: capitalizeName(fullNameAnswer),\n    email: emailAnswer.toLowerCase().trim(),\n    whatsapp: formatPhone(customer.mobile_phone || \"\"),\n    cpf: formatCPF_CNPJ(cpfAnswer.length === 11 ? cpfAnswer : \"\"),\n    cnpj: formatCPF_CNPJ(cnpjAnswer.length === 14 ? cnpjAnswer : \"\"),\n    transaction_id: transaction_id,\n    value: value,\n    trans_status: purchaseStatusTranslation,\n    payment_method: paymentMethodTranslation,\n    product_id: productId,\n    product_name: productName,\n    offer_code: offer_code,\n    billet_barcode: billet_barcode,\n    bankslip: bankslip,\n    billetExpirationDate: billetExpirationDate,\n    installments: installments\n};\n\n// **Retorno Correto para o n8n**\nreturn [{ json: result }];\n"
       },
       "id": "55a25df9-88fd-4a6d-b466-87b8775ff7e0",
       "name": "formata_dados",
@@ -387,77 +387,101 @@
       {
         "json": {
           "headers": {
-            "host": "n8npamellabrandao.automagicbots.com.br",
-            "user-agent": "axios/0.23.0",
-            "content-length": "1086",
-            "accept": "application/json, text/plain, */*",
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "ReactPHP/1",
+            "content-length": "1339",
             "content-type": "application/json",
-            "x-forwarded-for": "3.239.15.170",
-            "x-forwarded-host": "n8npamellabrandao.automagicbots.com.br",
+            "x-forwarded-for": "54.243.51.20",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "x-forwarded-port": "443",
             "x-forwarded-proto": "https",
-            "x-forwarded-server": "d4ad76bf4c9b",
-            "x-real-ip": "3.239.15.170",
-            "x-vercel-id": "gru1::2wckj-1739369015116-2cc66255df92",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "54.243.51.20",
             "accept-encoding": "gzip"
           },
           "params": {},
           "query": {},
           "body": {
-            "status": "waiting_payment",
-            "payment_method": "bank_slip",
-            "url_params": {
-              "query_params": {
-                "code": "O132FE82D"
-              }
-            },
-            "order": {
-              "hash": "TOB12609GU88Q5",
-              "paid_amount": 50000,
-              "installments": 1
-            },
-            "item": {
-              "product_name": "Paki Guthrie",
-              "product_id": 1,
-              "offer_name": "Teste qa",
-              "offer_id": 16,
-              "coupon_id": null,
-              "quantity": 1,
-              "amount": 50000,
-              "members_portal_id": 24,
-              "members_classroom_id": 123,
-              "days_of_access": null,
-              "trial_days": null
-            },
-            "transaction": {
-              "bank_slip_code": "03399.85301 29700.000242 2722020.901016 2 7815002200015630",
-              "bank_slip_url": "https://boleto.sandbox.pagseguro.com.br/f92e014a-b80c-4b0e-94a1-eb8811e991de.pdf"
-            },
-            "customer": {
-              "cpf": "00442742299",
-              "cnpj": null,
-              "name": "Cliente Teste",
-              "type": "person",
-              "email": "emailteste@customerteste.com.io",
-              "is_foreign": false,
-              "phone": {
-                "ddd": "999",
-                "ddi": "+55",
-                "number": "995682466"
+            "event": "CHARGE-APPROVED",
+            "signature": "",
+            "data": {
+              "id": "428f25e7-7152-4c56-9316-9f4c1d35cc59",
+              "created_at": "2025-02-13 21:33:41",
+              "updated_at": "2025-02-13 21:33:46",
+              "cod_external": null,
+              "amount": 500000,
+              "refunds": {
+                "details": [],
+                "total_refunds": 0
               },
-              "address": {
-                "street": "Rua teste",
-                "street_number": "222",
-                "complement": "Complemento Teste",
-                "neighborhood": "Teste de Bairro",
-                "city": "São Paulo",
-                "state": "SP",
-                "zip_code": "13044207"
+              "currency": "BRL",
+              "status": "paid",
+              "status_details": "Aprovado",
+              "msg": null,
+              "payment_method": "credit_card",
+              "card_code_auth": "039652",
+              "card_brand": "VISA",
+              "card_bin": "496045******8611",
+              "installments": "12",
+              "boleto_url": null,
+              "boleto_digitable_line": null,
+              "pix_qrcode": null,
+              "pix_qrcode_url": "",
+              "pix_content": null,
+              "pix_expire": null,
+              "items": [
+                {
+                  "id": "",
+                  "externCode": "",
+                  "description": "Sirius",
+                  "price": 500000,
+                  "quantity": 1,
+                  "sku": "",
+                  "gtin": ""
+                }
+              ],
+              "customer": {
+                "name": "Clínica Corpo e Saúde Ltda ",
+                "email": "corpoesaudeacademia@yahoo.com.br",
+                "mobile_phone": "(31) 9 8525-0609",
+                "document": "00606993000140",
+                "document_type": "CNPJ",
+                "birthdate": null,
+                "gender": "",
+                "address": {
+                  "street": null,
+                  "number": null,
+                  "neighborhood": null,
+                  "zip_code": null,
+                  "city": null,
+                  "state": null,
+                  "complement": null
+                }
+              },
+              "shipping": {
+                "city": "",
+                "neighborhood": "",
+                "number": "",
+                "state": "",
+                "street": "",
+                "zip_code": "",
+                "complement": ""
+              },
+              "fee_details": {
+                "amount": 563.97,
+                "fee_payer": "collector",
+                "type": "dompagamentos_fee"
+              },
+              "metadata": "null",
+              "postbackUrl": null,
+              "relations": {
+                "id_invoice": "",
+                "id_link_payment": "ca8b6ecd-26f9-44d4-a0ea-99b9d05eba82",
+                "id_subscriber": ""
               }
-            },
-            "token": "n88RqwSbiW4vkBGEnwHogT5UiYPZ4wVal6PSXXDWjXciCUKhAdzfWkoFiNWa8ZAELCb3T0MMcrV8oBs89FmdZVri0ShYJhWZ4oz0"
+            }
           },
-          "webhookUrl": "https://n8npamellabrandao.automagicbots.com.br/webhook/eventos_ticto",
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/eventos_dom",
           "executionMode": "production"
         }
       }
@@ -475,6 +499,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-02-13T18:06:53.735Z",
-  "versionId": "266facbc-8365-4756-afe1-f9a87ec10ae3"
+  "updatedAt": "2025-02-14T14:36:34.921Z",
+  "versionId": "60d7812f-79e1-4f9f-92a6-987bd3cb6f29"
 }
