@@ -1,0 +1,480 @@
+{
+  "active": true,
+  "connections": {
+    "dados": {
+      "main": [
+        [
+          {
+            "node": "fila_acoes_funis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_funil": {
+      "main": [
+        [
+          {
+            "node": "dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_funis": {
+      "main": [
+        [
+          {
+            "node": "busca_funil",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "evento": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-13T18:04:47.913Z",
+  "id": "M7VsgyrxY4YM2pp8",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[FABRICIO NUNNES] - Dom Pagamentos -> Conta Azul",
+  "nodes": [
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados\"].json[\"fname\"] || \"\" }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados\"].json[\"lname\"] || \"\" }}"
+            },
+            {
+              "name": "nome_completo",
+              "value": "={{ $node[\"formata_dados\"].json[\"fullname\"] || \"\" }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"whatsapp\"] || \"\" }}"
+            },
+            {
+              "name": "cpf",
+              "value": "={{ $node[\"formata_dados\"].json[\"cpf\"] || \"\" }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_source\"] || \"\" }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_campaign\"] || \"\" }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_term\"] || \"\" }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_medium\"] || \"\" }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_content\"] || \"\" }}"
+            },
+            {
+              "name": "form_id",
+              "value": "={{ $node[\"formata_dados\"].json[\"form_id\"] || \"\" }}"
+            },
+            {
+              "name": "form_name",
+              "value": "={{ $node[\"formata_dados\"].json[\"form_name\"] || \"\" }}"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"formata_dados\"].json[\"value\"] || \"\" }}"
+            },
+            {
+              "name": "transaction_id",
+              "value": "={{ $node[\"formata_dados\"].json[\"transaction_id\"] || \"\" }}"
+            },
+            {
+              "name": "net_value",
+              "value": "={{ $node[\"formata_dados\"].json[\"net_value\"] || \"\" }}"
+            },
+            {
+              "name": "trans_status",
+              "value": "={{ $node[\"formata_dados\"].json[\"trans_status\"] || \"\" }}"
+            },
+            {
+              "name": "payment_method",
+              "value": "={{ $node[\"formata_dados\"].json[\"payment_method\"] || \"\" }}"
+            },
+            {
+              "name": "refund_date",
+              "value": "={{ $node[\"formata_dados\"].json[\"refund_date\"] || \"\" }}"
+            },
+            {
+              "name": "event_date",
+              "value": "={{ $node[\"formata_dados\"].json[\"event_date\"] || \"\" }}"
+            },
+            {
+              "name": "payment_date",
+              "value": "={{ $node[\"formata_dados\"].json[\"payment_date\"] || \"\" }}"
+            },
+            {
+              "name": "product_type",
+              "value": "={{ $node[\"formata_dados\"].json[\"product_type\"] || \"\" }}"
+            },
+            {
+              "name": "product_id",
+              "value": "={{ $node[\"formata_dados\"].json[\"product_id\"] || \"\" }}"
+            },
+            {
+              "name": "product_name",
+              "value": "={{ $node[\"formata_dados\"].json[\"product_name\"] || \"\" }}"
+            },
+            {
+              "name": "warranty_date",
+              "value": "={{ $node[\"formata_dados\"].json[\"warranty_date\"] || \"\" }}"
+            },
+            {
+              "name": "offer_code",
+              "value": "={{ $node[\"formata_dados\"].json[\"offer_code\"] || \"\" }}"
+            },
+            {
+              "name": "discount_coupon",
+              "value": "={{ $node[\"formata_dados\"].json[\"discount_coupon\"] || \"\" }}"
+            },
+            {
+              "name": "street",
+              "value": "={{ $node[\"formata_dados\"].json[\"street\"] || \"\" }}"
+            },
+            {
+              "name": "address_number",
+              "value": "={{ $node[\"formata_dados\"].json[\"address_number\"] || \"\" }}"
+            },
+            {
+              "name": "country",
+              "value": "={{ $node[\"formata_dados\"].json[\"country\"] || \"\" }}"
+            },
+            {
+              "name": "district",
+              "value": "={{ $node[\"formata_dados\"].json[\"district\"] || \"\" }}"
+            },
+            {
+              "name": "address_complement",
+              "value": "={{ $node[\"formata_dados\"].json[\"address_complement\"] || \"\" }}"
+            },
+            {
+              "name": "city",
+              "value": "={{ $node[\"formata_dados\"].json[\"city\"] || \"\" }}"
+            },
+            {
+              "name": "address_state",
+              "value": "={{ $node[\"formata_dados\"].json[\"address_state\"] || \"\" }}"
+            },
+            {
+              "name": "zipcode",
+              "value": "={{ $node[\"formata_dados\"].json[\"zipcode\"] || \"\" }}"
+            },
+            {
+              "name": "affiliate_value",
+              "value": "={{ $node[\"formata_dados\"].json[\"affiliate_value\"] || \"\" }}"
+            },
+            {
+              "name": "gateway_comission",
+              "value": "={{ $node[\"formata_dados\"].json[\"gateway_comission\"] || \"\" }}"
+            },
+            {
+              "name": "billet_barcode",
+              "value": "={{ $node[\"formata_dados\"].json[\"billet_barcode\"] || \"\" }}"
+            },
+            {
+              "name": "currency",
+              "value": "={{ $node[\"formata_dados\"].json[\"currency\"] || \"\" }}"
+            },
+            {
+              "name": "bankslip",
+              "value": "={{ $node[\"formata_dados\"].json[\"bankslip\"] || \"\" }}"
+            },
+            {
+              "name": "recurrenceExpirationDate",
+              "value": "={{ $node[\"formata_dados\"].json[\"recurrenceExpirationDate\"] || \"\" }}"
+            },
+            {
+              "name": "cancelledDate",
+              "value": "={{ $node[\"formata_dados\"].json[\"formattedCancelledDate\"] || \"\" }}"
+            },
+            {
+              "name": "id_funil",
+              "value": "={{ $node[\"busca_funil\"].json[\"id_funil\"] }}"
+            },
+            {
+              "name": "tipo_forms",
+              "value": "={{ $node[\"busca_funil\"].json[\"tipo_forms\"] }}"
+            },
+            {
+              "name": "cnpj",
+              "value": "={{ $node[\"formata_dados\"].json[\"cnpj\"] || \"\" }}"
+            },
+            {
+              "name": "id_forms",
+              "value": "={{ $node[\"busca_funil\"].json[\"id_forms\"] || \"\" }}"
+            },
+            {
+              "name": "installments",
+              "value": "={{ $node[\"formata_dados\"].json[\"installments\"] || \"\" }}"
+            },
+            {
+              "name": "billetExpirationDate",
+              "value": "={{ $node[\"formata_dados\"].json[\"billetExpirationDate\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "dados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        360
+      ],
+      "id": "5b269e1c-586e-4bb7-9ad5-a36917ff1303"
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_forms",
+              "value": "={{ $node[\"formata_dados\"].json[\"form_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1220,
+        360
+      ],
+      "id": "a9cc3a91-1bb2-4d4f-97c0-dddd88e075ed",
+      "name": "busca_funil"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Funis"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "dcbce373-83f2-4c72-8f86-194b9df8d324",
+      "name": "pesquisa_variavel_n8n_fluxo_funis",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1000,
+        360
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtendo os dados do nó \"fluxo_chamado\"\nconst inputData = $node[\"evento\"].json.body || {};\n\n// Extraindo informações da venda, cliente, produto e oferta\nconst order = inputData.order || {};\nconst item = inputData.item || {};\nconst transaction = inputData.transaction || {};\nconst customer = inputData.customer || {};\nconst phone = customer.phone || {};\n\n// Extraindo informações específicas do pagamento\nconst transaction_id = order.hash || \"\";\nconst chargeAmount = order.paid_amount || 0;\nconst value = (chargeAmount / 100).toFixed(2); // Converter centavos para reais\nconst transStatus = inputData.status || \"\";\nconst paymentMethod = inputData.payment_method || \"\";\nconst productId = item.product_id || \"\";\nconst productName = item.product_name || \"\";\nconst offer_code = item.offer_id || \"\";\nconst billet_barcode = transaction.bank_slip_code || \"\";\nconst bankslip = transaction.bank_slip_url || \"\";\nconst billetExpirationDate = \"\"; // Não há no JSON de entrada, então deixamos vazio\nconst installments = order.installments || \"\";\nconst emailAnswer = customer.email || \"\";\nconst cpfAnswer = customer.cpf || \"\";\nconst cnpjAnswer = customer.cnpj || \"\";\nconst fullNameAnswer = customer.name || \"\";\n\n// Função para formatar CPF\nfunction formatCPF(cpf) {\n    if (!cpf) return \"\";\n    const cpfLimpo = cpf.replace(/\\D/g, \"\");\n    return cpfLimpo.length === 11 ? \n        `${cpfLimpo.slice(0, 3)}.${cpfLimpo.slice(3, 6)}.${cpfLimpo.slice(6, 9)}-${cpfLimpo.slice(9, 11)}` : cpf;\n}\n\n// Função para formatar telefone corretamente\nfunction formatPhone(ddi, ddd, number) {\n    if (!number || !ddd) return \"\";\n    \n    let telefoneFormatado = `${ddi.replace(\"+\", \"\")}${ddd}${number.replace(/\\D/g, \"\")}`;\n    \n    // Verifica se o número precisa de ajustes para o WhatsApp\n    if (ddd.length === 2 && number.length === 8) {\n        telefoneFormatado = `${ddi.replace(\"+\", \"\")}${ddd}9${number}`;\n    }\n    \n    return telefoneFormatado;\n}\n\n// Formatar telefone corretamente\nconst telefoneFinal = formatPhone(phone.ddi || \"+55\", phone.ddd || \"\", phone.number || \"\");\n\n// Traduzir status da transação\nconst statusMap = {\n    \"waiting_payment\": \"Aguardando Pagamento\",\n    \"paid\": \"Compra Aprovada\",\n    \"billet_created\": \"Boleto Gerado\",\n    \"pix_created\": \"PIX Gerado\",\n    \"order_rejected\": \"Compra Cancelada\",\n    \"order_refunded\": \"Compra Reembolsada\",\n    \"chargeback\": \"Chargeback\",\n    \"subscription_canceled\": \"Assinatura Cancelada\",\n    \"subscription_late\": \"Compra Atrasada\",\n    \"subscription_renewed\": \"Renovação\",\n    \"abandoned\": \"Carrinho Abandonado\"\n};\nconst purchaseStatusTranslation = statusMap[transStatus] || \"Desconhecido\";\n\n// Traduzir método de pagamento\nconst paymentMethodMap = {\n    \"pix\": \"PIX\",\n    \"bank_slip\": \"Boleto Bancário\",\n    \"credit_card\": \"Cartão de Crédito\"\n};\nconst paymentMethodTranslation = paymentMethodMap[paymentMethod] || \"Desconhecido\";\n\n// Transformar nome para capitalizado\nfunction capitalizeName(fullName) {\n    if (!fullName) return { fname: \"\", lname: \"\", fullname: \"\" };\n\n    const lowerCaseWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n    let words = fullName.toLowerCase().split(\" \").map((word, index) => {\n        return lowerCaseWords.includes(word) && index !== 0 ? word : \n               word.charAt(0).toUpperCase() + word.slice(1);\n    });\n\n    let fname = words.shift();\n    let lname = words.join(\" \");\n    let fullname = lname ? `${fname} ${lname}` : fname;\n\n    return { fname, lname, fullname };\n}\n\n// Criando os resultados formatados\nconst formattedNames = capitalizeName(fullNameAnswer);\nconst formattedEmail = emailAnswer.toLowerCase().trim();\n\n// Construindo objeto final\nconst result = {\n    ...formattedNames,\n    email: formattedEmail,\n    whatsapp: telefoneFinal,\n    cpf: formatCPF(cpfAnswer),\n    cnpj: formatCPF(cnpjAnswer),\n    transaction_id: transaction_id,\n    value: value,\n    trans_status: purchaseStatusTranslation,\n    payment_method: paymentMethodTranslation,\n    product_id: productId,\n    product_name: productName,\n    offer_code: offer_code,\n    billet_barcode: billet_barcode,\n    bankslip: bankslip,\n    billetExpirationDate: billetExpirationDate,\n    installments: installments\n};\n\n// **Garantindo que o retorno seja um array de objetos**\nreturn [{ json: result }];\n"
+      },
+      "id": "55a25df9-88fd-4a6d-b466-87b8775ff7e0",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        680,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "Fila de Ações de Funis",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "964aed20-031b-439c-9b97-423cfcaaf86d",
+      "name": "fila_acoes_funis",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        1660,
+        360
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "eventos_dom",
+        "options": {}
+      },
+      "id": "f1b4d96a-e1b2-479b-8b33-7d3a96d9c109",
+      "name": "evento",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        480,
+        360
+      ],
+      "webhookId": "7b9177bf-3454-4099-8ba4-803b02db6a0d"
+    }
+  ],
+  "pinData": {
+    "evento": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8npamellabrandao.automagicbots.com.br",
+            "user-agent": "axios/0.23.0",
+            "content-length": "1086",
+            "accept": "application/json, text/plain, */*",
+            "content-type": "application/json",
+            "x-forwarded-for": "3.239.15.170",
+            "x-forwarded-host": "n8npamellabrandao.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "d4ad76bf4c9b",
+            "x-real-ip": "3.239.15.170",
+            "x-vercel-id": "gru1::2wckj-1739369015116-2cc66255df92",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "status": "waiting_payment",
+            "payment_method": "bank_slip",
+            "url_params": {
+              "query_params": {
+                "code": "O132FE82D"
+              }
+            },
+            "order": {
+              "hash": "TOB12609GU88Q5",
+              "paid_amount": 50000,
+              "installments": 1
+            },
+            "item": {
+              "product_name": "Paki Guthrie",
+              "product_id": 1,
+              "offer_name": "Teste qa",
+              "offer_id": 16,
+              "coupon_id": null,
+              "quantity": 1,
+              "amount": 50000,
+              "members_portal_id": 24,
+              "members_classroom_id": 123,
+              "days_of_access": null,
+              "trial_days": null
+            },
+            "transaction": {
+              "bank_slip_code": "03399.85301 29700.000242 2722020.901016 2 7815002200015630",
+              "bank_slip_url": "https://boleto.sandbox.pagseguro.com.br/f92e014a-b80c-4b0e-94a1-eb8811e991de.pdf"
+            },
+            "customer": {
+              "cpf": "00442742299",
+              "cnpj": null,
+              "name": "Cliente Teste",
+              "type": "person",
+              "email": "emailteste@customerteste.com.io",
+              "is_foreign": false,
+              "phone": {
+                "ddd": "999",
+                "ddi": "+55",
+                "number": "995682466"
+              },
+              "address": {
+                "street": "Rua teste",
+                "street_number": "222",
+                "complement": "Complemento Teste",
+                "neighborhood": "Teste de Bairro",
+                "city": "São Paulo",
+                "state": "SP",
+                "zip_code": "13044207"
+              }
+            },
+            "token": "n88RqwSbiW4vkBGEnwHogT5UiYPZ4wVal6PSXXDWjXciCUKhAdzfWkoFiNWa8ZAELCb3T0MMcrV8oBs89FmdZVri0ShYJhWZ4oz0"
+          },
+          "webhookUrl": "https://n8npamellabrandao.automagicbots.com.br/webhook/eventos_ticto",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-02-13T18:06:53.735Z",
+  "versionId": "266facbc-8365-4756-afe1-f9a87ec10ae3"
+}
