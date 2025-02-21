@@ -1508,6 +1508,16 @@
             {
               "value1": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"slug\"] }}",
               "value2": "30min"
+            },
+            {
+              "value1": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"slug\"] }}",
+              "operation": "contains",
+              "value2": "funil-de-recuperacao"
+            },
+            {
+              "value1": "={{ $node[\"Evento\"].json[\"payload\"][\"event_type\"][\"slug\"] }}",
+              "operation": "contains",
+              "value2": "prospeccao-outbound"
             }
           ]
         },
@@ -2435,78 +2445,84 @@
     "Evento": [
       {
         "json": {
-          "event": "invitee.canceled",
+          "event": "invitee.created",
           "payload": {
             "event_type": {
-              "uuid": "5f3fb08f-2fff-4f05-9ce6-c4b6a5bfa511",
-              "kind": "One-on-One",
-              "slug": "sessao-estrategica-novo",
-              "name": "Sessão Estratégica Novo",
+              "uuid": "c98878e3-55d6-44f7-a7dc-440c68d2ea89",
+              "kind": "Round Robin",
+              "slug": "funil-de-recuperacao",
+              "name": "Funil de recuperação",
               "duration": 45,
               "owner": {
-                "type": "users",
-                "uuid": "141dacb3-8838-466e-9534-82d139fdeb48"
+                "type": "teams",
+                "uuid": "5cd25daf-bf05-457d-92c5-2721ece75eee"
               }
             },
             "event": {
-              "uuid": "59eeb65e-5e25-41da-9f4e-f610b12e3660",
+              "uuid": "ffdfaa30-d755-45de-9526-20ec9d98acbb",
               "assigned_to": [
-                "Fabricio Nunnes"
+                "Laiane Silva"
               ],
               "extended_assigned_to": [
                 {
-                  "name": "Fabricio Nunnes",
-                  "email": "fabricio@universidadevendas.com.br",
+                  "name": "Laiane Silva",
+                  "email": "laiane@universidadevendas.com.br",
                   "primary": true
                 }
               ],
-              "start_time": "2024-11-27T17:00:00-03:00",
-              "start_time_pretty": "05:00pm - Wednesday, November 27, 2024",
-              "invitee_start_time": "2024-11-27T17:00:00-03:00",
-              "invitee_start_time_pretty": "05:00pm - Wednesday, November 27, 2024",
-              "end_time": "2024-11-27T17:45:00-03:00",
-              "end_time_pretty": "05:45pm - Wednesday, November 27, 2024",
-              "invitee_end_time": "2024-11-27T17:45:00-03:00",
-              "invitee_end_time_pretty": "05:45pm - Wednesday, November 27, 2024",
-              "created_at": "2024-11-25T14:57:35-03:00",
-              "location": "https://calendly.com/events/59eeb65e-5e25-41da-9f4e-f610b12e3660/google_meet",
-              "canceled": true,
-              "canceler_name": "Fabricio Nunnes",
-              "cancel_reason": "teste",
-              "canceled_at": "2024-11-25T15:00:36-03:00"
+              "start_time": "2025-02-27T14:00:00-03:00",
+              "start_time_pretty": "02:00pm - Thursday, February 27, 2025",
+              "invitee_start_time": "2025-02-27T14:00:00-03:00",
+              "invitee_start_time_pretty": "02:00pm - Thursday, February 27, 2025",
+              "end_time": "2025-02-27T14:45:00-03:00",
+              "end_time_pretty": "02:45pm - Thursday, February 27, 2025",
+              "invitee_end_time": "2025-02-27T14:45:00-03:00",
+              "invitee_end_time_pretty": "02:45pm - Thursday, February 27, 2025",
+              "created_at": "2025-02-20T15:43:34-03:00",
+              "location": "https://calendly.com/events/ffdfaa30-d755-45de-9526-20ec9d98acbb/google_meet",
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
             },
             "invitee": {
-              "uuid": "94e5e0a5-c8c5-4f03-8ef5-3c6a47ed58cb",
+              "uuid": "7b158502-8e89-4ccc-957d-886e522371d1",
               "first_name": null,
               "last_name": null,
               "name": "Mateus Diniz (Automagic Bots)",
               "email": "mateusdiniz@automagicbots.com.br",
               "text_reminder_number": null,
               "timezone": "America/Sao_Paulo",
-              "created_at": "2024-11-25T14:57:35-03:00",
+              "created_at": "2025-02-20T15:43:34-03:00",
               "is_reschedule": false,
               "payments": [],
-              "canceled": true,
-              "canceler_name": "Fabricio Nunnes",
-              "cancel_reason": "teste",
-              "canceled_at": "2024-11-25T15:00:36-03:00"
+              "canceled": false,
+              "canceler_name": null,
+              "cancel_reason": null,
+              "canceled_at": null
             },
             "questions_and_answers": [
               {
-                "question": "WhatsApp",
+                "question": "Qual seu telefone?",
                 "answer": "+55 62 98119-6678"
+              },
+              {
+                "question": "Instagram",
+                "answer": "prmateusdiniz"
               }
             ],
             "questions_and_responses": {
-              "1_question": "WhatsApp",
-              "1_response": "+55 62 98119-6678"
+              "1_question": "Qual seu telefone?",
+              "1_response": "+55 62 98119-6678",
+              "2_question": "Instagram",
+              "2_response": "prmateusdiniz"
             },
             "tracking": {
-              "utm_campaign": null,
-              "utm_source": null,
-              "utm_medium": null,
+              "utm_campaign": "bots",
+              "utm_source": "teste",
+              "utm_medium": "automagic",
               "utm_content": null,
-              "utm_term": null,
+              "utm_term": "aovivo",
               "salesforce_uuid": null
             },
             "old_event": null,
@@ -2514,7 +2530,7 @@
             "new_event": null,
             "new_invitee": null
           },
-          "time": "2024-11-25T18:00:37Z"
+          "time": "2025-02-20T18:43:35Z"
         }
       }
     ],
@@ -3249,7 +3265,7 @@
   },
   "staticData": {
     "node:Evento": {
-      "webhookId": 5258096
+      "webhookId": 5497166
     }
   },
   "tags": [
@@ -3261,6 +3277,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-25T18:06:41.936Z",
-  "versionId": "b4d3c039-d3c6-4fc3-9ad9-a784a4cc0f8c"
+  "updatedAt": "2025-02-20T18:46:42.728Z",
+  "versionId": "00765a57-1546-4478-bd94-ee3cd10ec632"
 }
