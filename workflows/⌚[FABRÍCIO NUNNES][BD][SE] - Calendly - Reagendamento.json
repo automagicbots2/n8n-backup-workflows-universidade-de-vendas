@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "create/update_negocio_clint",
+            "node": "atualiza_negocio_clint",
             "type": "main",
             "index": 0
           }
@@ -1152,17 +1152,6 @@
         ]
       ]
     },
-    "create/update_negocio_clint": {
-      "main": [
-        [
-          {
-            "node": "pesquisa_agendamento_antigo",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "envia_campo_horario_agendado1": {
       "main": [
         [
@@ -1416,39 +1405,6 @@
         ]
       ]
     },
-    "funil_imperio_ana": {
-      "main": [
-        [
-          {
-            "node": "3-5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "3-5": {
-      "main": [
-        [
-          {
-            "node": "atualiza_negocio_clint_imperio",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "atualiza_negocio_clint_imperio": {
-      "main": [
-        [
-          {
-            "node": "pesquisa_agendamento_antigo",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "envia_campo_link_do_agendamento": {
       "main": [
         [
@@ -1482,7 +1438,7 @@
         ],
         [
           {
-            "node": "3",
+            "node": "é_funil-de-recuperacao",
             "type": "main",
             "index": 0
           }
@@ -1510,6 +1466,97 @@
           }
         ]
       ]
+    },
+    "3-6": {
+      "main": [
+        [
+          {
+            "node": "atualiza_negocio_clint5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "é_funil-de-recuperacao": {
+      "main": [
+        [
+          {
+            "node": "3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "é_prospeccao-outbound",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "é_prospeccao-outbound": {
+      "main": [
+        [
+          {
+            "node": "3-5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "3-6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "3-5": {
+      "main": [
+        [
+          {
+            "node": "atualiza_negocio_clint4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_negocio_clint5": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_agendamento_antigo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_negocio_clint4": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_agendamento_antigo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_negocio_clint": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_agendamento_antigo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-14T15:12:36.824Z",
@@ -1519,21 +1566,6 @@
   },
   "name": "⌚[FABRÍCIO NUNNES][BD][SE] - Calendly - Reagendamento",
   "nodes": [
-    {
-      "parameters": {
-        "amount": 3,
-        "unit": "seconds"
-      },
-      "id": "49fe9167-2e2e-4ebb-b589-61d4d4afa652",
-      "name": "3",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        4580,
-        2500
-      ],
-      "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
-    },
     {
       "parameters": {
         "operation": "select",
@@ -4693,6 +4725,16 @@
               "value1": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Tipo de Evento\"] }}",
               "operation": "contains",
               "value2": "Sessão Estratégica"
+            },
+            {
+              "value1": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"slug_do_evento\"] }}",
+              "operation": "contains",
+              "value2": "funil-de-recuperacao"
+            },
+            {
+              "value1": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"slug_do_evento\"] }}",
+              "operation": "contains",
+              "value2": "prospeccao-outbound"
             }
           ]
         },
@@ -5021,102 +5063,6 @@
       "retryOnFail": true,
       "waitBetweenTries": 5000,
       "continueOnFail": true
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/a2bc35fe-d345-4fa3-b553-7b2476cea463",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "nome",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Nome do Cliente\"] }}"
-            },
-            {
-              "name": "telefone",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Telefone do Cliente - Formato BC\"] }}"
-            },
-            {
-              "name": "email",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
-            },
-            {
-              "name": "etapa_funil",
-              "value": "Pré-qualificação"
-            },
-            {
-              "name": "dono_negocio",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"] }}"
-            },
-            {
-              "name": "reunião",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"] }}"
-            },
-            {
-              "name": "link_reuniao",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}"
-            },
-            {
-              "name": "link_cancelamento",
-              "value": "=https://calendly.com/cancellations/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
-            },
-            {
-              "name": "link_reagendamento",
-              "value": "=https://calendly.com/reschedullings/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
-            },
-            {
-              "name": "etapa_funil",
-              "value": "3"
-            },
-            {
-              "name": "utm_source",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_source\"] }}"
-            },
-            {
-              "name": "utm_campaign",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_campaign\"] }}"
-            },
-            {
-              "name": "utm_term",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_term\"] }}"
-            },
-            {
-              "name": "utm_medium",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_medium\"] }}"
-            },
-            {
-              "name": "utm_content",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_content\"] }}"
-            },
-            {
-              "name": "pais",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"País\"] }}"
-            },
-            {
-              "name": "data_de_inicio_portugal",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início com Reagendamento - PT\"] }}"
-            },
-            {
-              "name": "data_de_inicio_portugal",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Término com Adiantamento - PT\"] }}"
-            },
-            {
-              "name": "closer",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo').replace('ana.carvalho@universidadevendas.com.br','Ana Carvalho').replace('leandro.arcas@universidadevendas.com.br','Leandro Arcas') }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "d1fea5a2-9d2e-426b-be12-066c1d777d45",
-      "name": "create/update_negocio_clint",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        4740,
-        2500
-      ]
     },
     {
       "parameters": {
@@ -6243,142 +6189,6 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict"
-          },
-          "conditions": [
-            {
-              "id": "7a91e12d-29cb-4fdd-99a7-88b0ee99c735",
-              "leftValue": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"] }}",
-              "rightValue": "ana.carvalho@universidadevendas.com.br",
-              "operator": {
-                "type": "string",
-                "operation": "equals",
-                "name": "filter.operator.equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "id": "b4b8c5cb-9fb9-4341-9186-4bf08f8d0ff7",
-      "name": "funil_imperio_ana",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
-      "position": [
-        4420,
-        2780
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/cb91f78b-59f3-41bc-bba7-d35f560d2d69",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "email",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
-            },
-            {
-              "name": "telefone",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Telefone do Cliente - Formato BC\"] }}"
-            },
-            {
-              "name": "nome",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Nome do Cliente\"] }}"
-            },
-            {
-              "name": "dono_negocio",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"] }}"
-            },
-            {
-              "name": "reunião",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"] }}"
-            },
-            {
-              "name": "link_reuniao",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}"
-            },
-            {
-              "name": "link_cancelamento",
-              "value": "=https://calendly.com/cancellations/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
-            },
-            {
-              "name": "link_reagendamento",
-              "value": "=https://calendly.com/reschedullings/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
-            },
-            {
-              "name": "utm_source",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_source\"] }}"
-            },
-            {
-              "name": "utm_campaign",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_campaign\"] }}"
-            },
-            {
-              "name": "utm_term",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_term\"] }}"
-            },
-            {
-              "name": "utm_medium",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_medium\"] }}"
-            },
-            {
-              "name": "utm_content",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_content\"] }}"
-            },
-            {
-              "name": "pais",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"pais\"] }}"
-            },
-            {
-              "name": "data_de_inicio_portugal",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início - PT\"] }}"
-            },
-            {
-              "name": "data_de_termino_portugal",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Término - PT\"] }}"
-            },
-            {
-              "name": "closer",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo').replace('ana.carvalho@universidadevendas.com.br','Ana Carvalho') }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "b2083907-b651-45e0-8054-58247e380037",
-      "name": "atualiza_negocio_clint_imperio",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        4720,
-        2680
-      ]
-    },
-    {
-      "parameters": {
-        "amount": 3,
-        "unit": "seconds"
-      },
-      "id": "3befb75a-0b2b-414b-bf41-d8bba8cafa38",
-      "name": "3-5",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        4560,
-        2680
-      ],
-      "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
-    },
-    {
-      "parameters": {
         "method": "POST",
         "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato1\"].json[\"id\"] }}/custom_fields/1045682/",
         "sendHeaders": true,
@@ -6489,7 +6299,7 @@
       "typeVersion": 2,
       "position": [
         4460,
-        2320
+        2360
       ]
     },
     {
@@ -6594,6 +6404,381 @@
         4760,
         2300
       ]
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "47a6c446-9672-45ca-b36f-baaab271705d",
+      "name": "3",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        4780,
+        2480
+      ],
+      "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/a59636c5-e07d-4512-820d-c492fc39db18",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "dono_negocio",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"] }}"
+            },
+            {
+              "name": "reunião",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"] }}"
+            },
+            {
+              "name": "link_reuniao",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}"
+            },
+            {
+              "name": "link_cancelamento",
+              "value": "=https://calendly.com/cancellations/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
+            },
+            {
+              "name": "link_reagendamento",
+              "value": "=https://calendly.com/reschedullings/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "pais",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"pais\"] }}"
+            },
+            {
+              "name": "data_de_inicio_portugal",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início - PT\"] }}"
+            },
+            {
+              "name": "data_de_termino_portugal",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Término - PT\"] }}"
+            },
+            {
+              "name": "closer",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo').replace('ana.carvalho@universidadevendas.com.br','Ana Carvalho').replace('leandro.arcas@universidadevendas.com.br','Leandro Arcas') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "96660af6-425f-4c0d-bb83-314115ff2607",
+      "name": "atualiza_negocio_clint",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        4940,
+        2480
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/7d9c3a10-c968-4bc6-af93-64368cea8d31",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "dono_negocio",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"] }}"
+            },
+            {
+              "name": "reunião",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"] }}"
+            },
+            {
+              "name": "link_reuniao",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}"
+            },
+            {
+              "name": "link_cancelamento",
+              "value": "=https://calendly.com/cancellations/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
+            },
+            {
+              "name": "link_reagendamento",
+              "value": "=https://calendly.com/reschedullings/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "pais",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"pais\"] }}"
+            },
+            {
+              "name": "data_de_inicio_portugal",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início - PT\"] }}"
+            },
+            {
+              "name": "data_de_termino_portugal",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Término - PT\"] }}"
+            },
+            {
+              "name": "closer",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo').replace('ana.carvalho@universidadevendas.com.br','Ana Carvalho').replace('leandro.arcas@universidadevendas.com.br','Leandro Arcas') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2cd6375a-920f-4508-b2e9-7edbf5764d87",
+      "name": "atualiza_negocio_clint4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        5000,
+        2720
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "40f29afc-b673-4994-a4b5-792108de6b06",
+      "name": "3-6",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        4840,
+        2920
+      ],
+      "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/a2bc35fe-d345-4fa3-b553-7b2476cea463",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "dono_negocio",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"] }}"
+            },
+            {
+              "name": "reunião",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"] }}"
+            },
+            {
+              "name": "link_reuniao",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}"
+            },
+            {
+              "name": "link_cancelamento",
+              "value": "=https://calendly.com/cancellations/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
+            },
+            {
+              "name": "link_reagendamento",
+              "value": "=https://calendly.com/reschedullings/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "pais",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"pais\"] }}"
+            },
+            {
+              "name": "data_de_inicio_portugal",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início - PT\"] }}"
+            },
+            {
+              "name": "data_de_termino_portugal",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Término - PT\"] }}"
+            },
+            {
+              "name": "closer",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo').replace('ana.carvalho@universidadevendas.com.br','Ana Carvalho').replace('leandro.arcas@universidadevendas.com.br','Leandro Arcas') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b78c8fe5-923c-4178-946e-9863a9a920aa",
+      "name": "atualiza_negocio_clint5",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        5000,
+        2920
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7a91e12d-29cb-4fdd-99a7-88b0ee99c735",
+              "leftValue": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"slug_do_evento\"] }}",
+              "rightValue": "funil-de-recuperacao",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "5dff4d67-17b1-4621-8bd8-bb009388f1e2",
+      "name": "é_funil-de-recuperacao",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        4580,
+        2580
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7a91e12d-29cb-4fdd-99a7-88b0ee99c735",
+              "leftValue": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"slug_do_evento\"] }}",
+              "rightValue": "prospeccao-outbound",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1fbf2a72-cecb-4a96-b596-11bc47a7f737",
+      "name": "é_prospeccao-outbound",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        4700,
+        2820
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "72bf36cb-ffde-4b7b-ac1f-a4cf0dd7524d",
+      "name": "3-5",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        4840,
+        2720
+      ],
+      "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
     }
   ],
   "pinData": {
@@ -6680,6 +6865,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-25T18:07:10.347Z",
-  "versionId": "0083b0af-bc35-47d6-9923-253df714c9aa"
+  "updatedAt": "2025-02-20T18:37:34.023Z",
+  "versionId": "00603704-4f09-4f21-9303-4dd94b11e4cc"
 }
