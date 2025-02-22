@@ -44,6 +44,11 @@
           }
         ]
       ]
+    },
+    "formata_dados": {
+      "main": [
+        []
+      ]
     }
   },
   "createdAt": "2025-02-13T18:04:47.913Z",
@@ -337,7 +342,7 @@
     },
     {
       "parameters": {
-        "queue": "Fila de Ações de Funis",
+        "queue": "cobranca_asaas",
         "options": {
           "arguments": {
             "argument": [
@@ -355,7 +360,7 @@
       "type": "n8n-nodes-base.rabbitmq",
       "typeVersion": 1,
       "position": [
-        1660,
+        1600,
         360
       ],
       "credentials": {
@@ -389,7 +394,7 @@
           "headers": {
             "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "user-agent": "ReactPHP/1",
-            "content-length": "1339",
+            "content-length": "1314",
             "content-type": "application/json",
             "x-forwarded-for": "54.243.51.20",
             "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
@@ -405,11 +410,11 @@
             "event": "CHARGE-APPROVED",
             "signature": "",
             "data": {
-              "id": "428f25e7-7152-4c56-9316-9f4c1d35cc59",
-              "created_at": "2025-02-13 21:33:41",
-              "updated_at": "2025-02-13 21:33:46",
+              "id": "b25258b0-e84f-45cf-bc5f-cec4afb5ec19",
+              "created_at": "2025-02-17 19:29:53",
+              "updated_at": "2025-02-17 19:29:57",
               "cod_external": null,
-              "amount": 500000,
+              "amount": 1350000,
               "refunds": {
                 "details": [],
                 "total_refunds": 0
@@ -419,10 +424,10 @@
               "status_details": "Aprovado",
               "msg": null,
               "payment_method": "credit_card",
-              "card_code_auth": "039652",
+              "card_code_auth": "073212",
               "card_brand": "VISA",
-              "card_bin": "496045******8611",
-              "installments": "12",
+              "card_bin": "422007******2079",
+              "installments": "3",
               "boleto_url": null,
               "boleto_digitable_line": null,
               "pix_qrcode": null,
@@ -434,18 +439,18 @@
                   "id": "",
                   "externCode": "",
                   "description": "Sirius",
-                  "price": 500000,
+                  "price": 1350000,
                   "quantity": 1,
                   "sku": "",
                   "gtin": ""
                 }
               ],
               "customer": {
-                "name": "Clínica Corpo e Saúde Ltda ",
-                "email": "corpoesaudeacademia@yahoo.com.br",
-                "mobile_phone": "(31) 9 8525-0609",
-                "document": "00606993000140",
-                "document_type": "CNPJ",
+                "name": "Rosimeri Cristiani Piccin",
+                "email": "cris@amabiletur.com.br",
+                "mobile_phone": "(45) 9 9988-7733",
+                "document": "01952518903",
+                "document_type": "CPF",
                 "birthdate": null,
                 "gender": "",
                 "address": {
@@ -468,7 +473,7 @@
                 "complement": ""
               },
               "fee_details": {
-                "amount": 563.97,
+                "amount": 646.77,
                 "fee_payer": "collector",
                 "type": "dompagamentos_fee"
               },
@@ -476,7 +481,7 @@
               "postbackUrl": null,
               "relations": {
                 "id_invoice": "",
-                "id_link_payment": "ca8b6ecd-26f9-44d4-a0ea-99b9d05eba82",
+                "id_link_payment": "8de6189a-8d93-4a77-80a6-1dbb1283f32d",
                 "id_subscriber": ""
               }
             }
@@ -499,6 +504,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-02-14T14:36:34.921Z",
-  "versionId": "60d7812f-79e1-4f9f-92a6-987bd3cb6f29"
+  "updatedAt": "2025-02-21T16:11:00.952Z",
+  "versionId": "50ce53fd-302f-4741-8549-3cdffb2e4ea5"
 }
