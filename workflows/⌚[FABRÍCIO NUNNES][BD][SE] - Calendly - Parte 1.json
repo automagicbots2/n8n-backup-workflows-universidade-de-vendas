@@ -528,7 +528,7 @@
     },
     {
       "parameters": {
-        "queue": "Calendly - Sessão Estratégica",
+        "queue": "Calendly-parte2",
         "options": {
           "arguments": {
             "argument": [
@@ -2448,10 +2448,10 @@
           "event": "invitee.created",
           "payload": {
             "event_type": {
-              "uuid": "c98878e3-55d6-44f7-a7dc-440c68d2ea89",
+              "uuid": "287b5cd2-2e58-4f4a-a877-c80d450099e7",
               "kind": "Round Robin",
-              "slug": "funil-de-recuperacao",
-              "name": "Funil de recuperação",
+              "slug": "sessao-estrategica-comercial-manual-clone",
+              "name": "Funil SS",
               "duration": 45,
               "owner": {
                 "type": "teams",
@@ -2459,41 +2459,41 @@
               }
             },
             "event": {
-              "uuid": "ffdfaa30-d755-45de-9526-20ec9d98acbb",
+              "uuid": "1c09550b-c09e-4da2-91a6-8e27d043ac85",
               "assigned_to": [
-                "Laiane Silva"
+                "Leandro Arcas"
               ],
               "extended_assigned_to": [
                 {
-                  "name": "Laiane Silva",
-                  "email": "laiane@universidadevendas.com.br",
+                  "name": "Leandro Arcas",
+                  "email": "leandro.arcas@universidadevendas.com.br",
                   "primary": true
                 }
               ],
-              "start_time": "2025-02-27T14:00:00-03:00",
-              "start_time_pretty": "02:00pm - Thursday, February 27, 2025",
-              "invitee_start_time": "2025-02-27T14:00:00-03:00",
-              "invitee_start_time_pretty": "02:00pm - Thursday, February 27, 2025",
-              "end_time": "2025-02-27T14:45:00-03:00",
-              "end_time_pretty": "02:45pm - Thursday, February 27, 2025",
-              "invitee_end_time": "2025-02-27T14:45:00-03:00",
-              "invitee_end_time_pretty": "02:45pm - Thursday, February 27, 2025",
-              "created_at": "2025-02-20T15:43:34-03:00",
-              "location": "https://calendly.com/events/ffdfaa30-d755-45de-9526-20ec9d98acbb/google_meet",
+              "start_time": "2025-02-26T16:00:00-03:00",
+              "start_time_pretty": "04:00pm - Wednesday, February 26, 2025",
+              "invitee_start_time": "2025-02-26T16:00:00-03:00",
+              "invitee_start_time_pretty": "04:00pm - Wednesday, February 26, 2025",
+              "end_time": "2025-02-26T16:45:00-03:00",
+              "end_time_pretty": "04:45pm - Wednesday, February 26, 2025",
+              "invitee_end_time": "2025-02-26T16:45:00-03:00",
+              "invitee_end_time_pretty": "04:45pm - Wednesday, February 26, 2025",
+              "created_at": "2025-02-24T15:29:38-03:00",
+              "location": "https://calendly.com/events/1c09550b-c09e-4da2-91a6-8e27d043ac85/google_meet",
               "canceled": false,
               "canceler_name": null,
               "cancel_reason": null,
               "canceled_at": null
             },
             "invitee": {
-              "uuid": "7b158502-8e89-4ccc-957d-886e522371d1",
+              "uuid": "fc4a020f-bd2b-4967-8a08-6b3222eb7464",
               "first_name": null,
               "last_name": null,
-              "name": "Mateus Diniz (Automagic Bots)",
-              "email": "mateusdiniz@automagicbots.com.br",
+              "name": "Matheus Lanna",
+              "email": "matheus@armyfit.com.br",
               "text_reminder_number": null,
               "timezone": "America/Sao_Paulo",
-              "created_at": "2025-02-20T15:43:34-03:00",
+              "created_at": "2025-02-24T15:29:38-03:00",
               "is_reschedule": false,
               "payments": [],
               "canceled": false,
@@ -2504,25 +2504,25 @@
             "questions_and_answers": [
               {
                 "question": "Qual seu telefone?",
-                "answer": "+55 62 98119-6678"
+                "answer": "+55 11 95248-9272"
               },
               {
                 "question": "Instagram",
-                "answer": "prmateusdiniz"
+                "answer": "@mlanna94"
               }
             ],
             "questions_and_responses": {
               "1_question": "Qual seu telefone?",
-              "1_response": "+55 62 98119-6678",
+              "1_response": "+55 11 95248-9272",
               "2_question": "Instagram",
-              "2_response": "prmateusdiniz"
+              "2_response": "@mlanna94"
             },
             "tracking": {
-              "utm_campaign": "bots",
-              "utm_source": "teste",
-              "utm_medium": "automagic",
+              "utm_campaign": null,
+              "utm_source": null,
+              "utm_medium": null,
               "utm_content": null,
-              "utm_term": "aovivo",
+              "utm_term": null,
               "salesforce_uuid": null
             },
             "old_event": null,
@@ -2530,7 +2530,7 @@
             "new_event": null,
             "new_invitee": null
           },
-          "time": "2025-02-20T18:43:35Z"
+          "time": "2025-02-24T18:29:40Z"
         }
       }
     ],
@@ -3265,7 +3265,7 @@
   },
   "staticData": {
     "node:Evento": {
-      "webhookId": 5497166
+      "webhookId": 5507329
     }
   },
   "tags": [
@@ -3277,6 +3277,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-02-20T18:46:42.728Z",
-  "versionId": "00765a57-1546-4478-bd94-ee3cd10ec632"
+  "updatedAt": "2025-02-24T18:48:50.802Z",
+  "versionId": "1a9c0b69-e4d0-4779-8fff-8f55448db520"
 }
