@@ -5843,7 +5843,13 @@
     ]
   },
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
   },
   "staticData": null,
   "tags": [
@@ -5855,6 +5861,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-02-24T18:51:01.643Z",
-  "versionId": "ec8437d8-52d2-4973-80cb-bd62575ea86e"
+  "updatedAt": "2025-03-12T13:52:35.461Z",
+  "versionId": "b078c96b-8e6b-4599-aa7c-5ed9cb80d118"
 }
