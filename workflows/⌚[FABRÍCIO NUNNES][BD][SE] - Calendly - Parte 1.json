@@ -3261,11 +3261,17 @@
     ]
   },
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
   },
   "staticData": {
     "node:Evento": {
-      "webhookId": 5507329
+      "webhookId": 5555740
     }
   },
   "tags": [
@@ -3277,6 +3283,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-02-24T18:48:50.802Z",
-  "versionId": "1a9c0b69-e4d0-4779-8fff-8f55448db520"
+  "updatedAt": "2025-03-12T13:52:53.451Z",
+  "versionId": "793fd7c0-f272-4c25-bd1f-bd199e214310"
 }
