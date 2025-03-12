@@ -5704,7 +5704,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/a2bc35fe-d345-4fa3-b553-7b2476cea463",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/9dc96134-b927-49f0-9631-043c62dcff42",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -5719,10 +5719,6 @@
             {
               "name": "email",
               "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
-            },
-            {
-              "name": "etapa_funil",
-              "value": "Pré-qualificação"
             },
             {
               "name": "dono_negocio",
@@ -5743,10 +5739,6 @@
             {
               "name": "link_reagendamento",
               "value": "=https://calendly.com/reschedullings/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
-            },
-            {
-              "name": "etapa_funil",
-              "value": "3"
             },
             {
               "name": "utm_source",
@@ -6970,6 +6962,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-02-20T18:36:36.717Z",
-  "versionId": "41f3ba89-0724-4962-b884-f09cd2ed2a61"
+  "updatedAt": "2025-03-12T14:01:33.937Z",
+  "versionId": "ec74389f-3b08-4bcc-8355-482ad31d9b3f"
 }
