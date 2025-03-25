@@ -1267,7 +1267,7 @@
       "main": [
         [
           {
-            "node": "cadastrar_contato1",
+            "node": "segundo_ou_mais_erro",
             "type": "main",
             "index": 0
           }
@@ -3585,14 +3585,6 @@
             {
               "column": "sobrenome",
               "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Nome do Cliente\"].split(\" \").slice(1).join(\" \") }}"
-            },
-            {
-              "column": "id_lead_activecampaign",
-              "value": "={{ $node[\"id_activecampaign\"].json[\"id\"] }}"
-            },
-            {
-              "column": "id_deal_activecampaign",
-              "value": "={{ $node[\"atualizar_campos_deal6\"].json[\"deal\"][\"id\"] }}"
             }
           ]
         },
@@ -6786,37 +6778,35 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-afeH3E5ekqYLDx3eHDw-hg",
-            "deliveryTag": 1,
-            "redelivered": true,
+            "consumerTag": "amq.ctag-Yxp7AVpj8_uj-o2eP9J2yg",
+            "deliveryTag": 8,
+            "redelivered": false,
             "exchange": "",
             "routingKey": "Calendly - Reagendamentos"
           },
           "properties": {
-            "headers": {
-              "x-delivery-count": 260127
-            }
+            "headers": {}
           },
           "content": {
-            "Nome do Cliente": "Tarcísio",
-            "E-mail do Cliente": "tarcisioscapneus@hotmail.com",
-            "Telefone do Cliente - Formato BC": "+5516991642933",
-            "Telefone do Cliente - Formato Z-API": "5516991642933",
-            "ID do Evento": "dcd6fcce-5d6f-411a-9027-0ef77f585714",
-            "Responsável pelo Evento": "Leonardo Barroso",
-            "E-mail do Responsável": "leonardo.barroso@universidadevendas.com.br",
-            "Data de Início": "19/09/2024, 13:00",
-            "Data em que foi feito o Reagendamento": "2024-09-18",
-            "Data de Término": "19/09/2024, 13:45",
-            "Dia da Semana de Início do Evento": "Quinta",
-            "utm_source": "ig",
-            "utm_campaign": "[LF] [SE] [CAPTAÇÃO] [CADASTRO] [AUTO] [F] Públicos Frios ABO",
-            "utm_term": "SE_AD044",
-            "utm_medium": "Instagram_Feed",
-            "utm_content": "00 - [AUTO] [F] EMPRESÁRIOS BRASIL",
+            "Nome do Cliente": "Juliano Testoni Costa Nobre",
+            "E-mail do Cliente": "costanobre@gmail.com",
+            "Telefone do Cliente - Formato BC": "+5511958769781",
+            "Telefone do Cliente - Formato Z-API": "5511958769781",
+            "ID do Evento": "46e04164-b4a6-453a-ad6c-a08dae22ce5d",
+            "Responsável pelo Evento": "Maiko Bruce",
+            "E-mail do Responsável": "maiko.bruce@universidadevendas.com.br",
+            "Data de Início": "28/03/2025, 10:00",
+            "Data em que foi feito o Reagendamento": "2025-03-25",
+            "Data de Término": "28/03/2025, 10:45",
+            "Dia da Semana de Início do Evento": "Sexta",
+            "utm_source": "fb",
+            "utm_campaign": "[LF] [SE] [CAPTAÇÃO] [CADASTRO] [AUTO] [F] Acebolada master + Página nova",
+            "utm_term": "SE_AD031",
+            "utm_medium": "Facebook_Desktop_Feed",
+            "utm_content": "02 - [AUTO] [F] Lal 10% Leads Qualificados",
             "Motivo do Reagendamento": null,
-            "ID do Cliente": "24b085f9-8f4c-4bb6-94c5-9cf536565415",
-            "ID do Evento Antigo": "ba800069-5541-426c-9dc8-929ba45dc20b",
+            "ID do Cliente": "fc736d97-eab8-469a-af3a-d46d59007141",
+            "ID do Evento Antigo": "b8c8d986-df63-4b0f-b1d0-27587ec5d9d5",
             "Tipo de Evento": "Sessão Estratégica Comercial",
             "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
             "id_do_campo_id_do_agendamento_bot_conversa": "1045673",
@@ -6825,18 +6815,18 @@
             "id_do_campo_data_do_agendamento_bot_conversa": "1045668",
             "id_do_campo_dia_da_semana_do_agendamento_bot_conversa": "1045528",
             "fluxo_de_confirmacao_de_reagendamento": "1769147",
-            "Link da Reunião": "https://calendly.com/events/dcd6fcce-5d6f-411a-9027-0ef77f585714/google_meet",
-            "ID do Cliente Antigo": "27bd0ab6-bd16-46c6-94b6-7b4e8a5d5428",
-            "data_de_inicio_antigo": "2024-09-18",
-            "hora_de_inicio_antigo": "13:00:00",
-            "Link da Reunião Antigo": "https://calendly.com/events/ba800069-5541-426c-9dc8-929ba45dc20b/google_meet",
-            "Dia da Semana de Início do Evento Antigo": "Quarta",
-            "Data do Agendamento Antigo": "2024-09-15 12:30:04",
-            "Responsável pelo Evento Antigo": "Ana Carvalho",
-            "E-mail do Responsável Antigo": "ana.carvalho@universidadevendas.com.br",
-            "data_de_inicio_novo": "2024-09-19",
-            "data_agendamento_novo": "2024-09-18 11:16:37",
-            "hora_de_inicio_novo": "13:00:00",
+            "Link da Reunião": "https://calendly.com/events/46e04164-b4a6-453a-ad6c-a08dae22ce5d/google_meet",
+            "ID do Cliente Antigo": "a5f73e3c-bb08-4c05-a293-122c5fd467c4",
+            "data_de_inicio_antigo": "2025-03-27",
+            "hora_de_inicio_antigo": "11:00:00",
+            "Link da Reunião Antigo": "https://calendly.com/events/b8c8d986-df63-4b0f-b1d0-27587ec5d9d5/google_meet",
+            "Dia da Semana de Início do Evento Antigo": "Quinta",
+            "Data do Agendamento Antigo": "2025-03-21 21:38:30",
+            "Responsável pelo Evento Antigo": "Maiko Bruce",
+            "E-mail do Responsável Antigo": "maiko.bruce@universidadevendas.com.br",
+            "data_de_inicio_novo": "2025-03-28",
+            "data_agendamento_novo": "2025-03-25 09:06:36",
+            "hora_de_inicio_novo": "09:00:00",
             "id_campo_id_banco_de_dados_bot_conversa": "1408048",
             "funil": "sessao_estrategica",
             "variacao_do_funil": "v1",
@@ -6844,9 +6834,10 @@
             "id_do_campo_dia_da_semana_do_agendamento_bot_conversa_pt": "1853088",
             "id_do_campo_horario_agendado_bot_conversa_pt": "1853084",
             "id_do_campo_data_do_agendamento_bot_conversa_pt": "1852850",
-            "Data de Início com Reagendamento - PT": "2024-09-19 16:00:00",
-            "Data de Término com Adiantamento - PT": "2024-09-19 16:45:00",
-            "País": ""
+            "Data de Início com Reagendamento - PT": "2025-03-28 13:00:00",
+            "Data de Término com Adiantamento - PT": "2025-03-28 13:45:00",
+            "País": "",
+            "slug_do_evento": "sessao-estrategica"
           }
         }
       }
@@ -6865,6 +6856,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-02-20T18:37:34.023Z",
-  "versionId": "00603704-4f09-4f21-9303-4dd94b11e4cc"
+  "updatedAt": "2025-03-25T13:46:51.221Z",
+  "versionId": "b0c86f49-ce18-45fe-8117-7b940e48cfe8"
 }
