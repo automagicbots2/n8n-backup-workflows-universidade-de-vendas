@@ -1395,7 +1395,7 @@
       "main": [
         [
           {
-            "node": "cadastrar_contato",
+            "node": "segundo_ou_mais_erro",
             "type": "main",
             "index": 0
           }
@@ -6891,23 +6891,25 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-7PSmFJHg2wAwHGplMUg11A",
-            "deliveryTag": 1,
+            "consumerTag": "amq.ctag-o0v5YVQyzTn7MpGitLSbbg",
+            "deliveryTag": 4,
             "redelivered": false,
             "exchange": "",
             "routingKey": "Calendly - Cancelamentos"
           },
           "properties": {
-            "headers": {}
+            "headers": {
+              "x-delivery-count": 4269
+            }
           },
           "content": {
-            "Nome do Cliente": "Mateus Diniz (Automagic Bots)",
-            "E-mail do Cliente": "mateusdiniz@automagicbots.com.br",
-            "Telefone do Cliente - Formato BC": "+556281196678",
-            "Telefone do Cliente - Formato Z-API": "556281196678",
-            "ID do Evento": "59eeb65e-5e25-41da-9f4e-f610b12e3660",
-            "Data do Cancelamento": "2024-11-25",
-            "ID do Cliente": "94e5e0a5-c8c5-4f03-8ef5-3c6a47ed58cb",
+            "Nome do Cliente": "Rosimar lima",
+            "E-mail do Cliente": "rosyatacadao@hotmail.com",
+            "Telefone do Cliente - Formato BC": "+556599060403",
+            "Telefone do Cliente - Formato Z-API": "556599060403",
+            "ID do Evento": "44167a15-6e6e-473a-9414-ef63264a3d25",
+            "Data do Cancelamento": "2025-03-24",
+            "ID do Cliente": "a8480b0d-0c9b-4319-a3af-2f8a4dbae49c",
             "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
             "id_do_campo_id_do_agendamento_bot_conversa": "1045673",
             "id_do_campo_inviteeid_bot_conversa": "1045675",
@@ -6916,28 +6918,28 @@
             "id_do_campo_dia_da_semana_do_agendamento_bot_conversa": "1045528",
             "fluxo_de_confirmacao_de_cancelamento": "1769093",
             "id_do_campo_motivo_do_cancelamento_bot_conversa": "1045683",
-            "Motivo do Cancelamento": "teste",
-            "Data de Início": "2024-11-27",
-            "Hora de Início": "17:00:00",
-            "Link da Reunião": "https://calendly.com/events/59eeb65e-5e25-41da-9f4e-f610b12e3660/google_meet",
-            "Tipo de Evento": "Sessão Estratégica Novo",
-            "Dia da Semana do Evento": "Quarta",
-            "utm_source": null,
-            "utm_campaign": null,
-            "utm_term": null,
-            "utm_medium": null,
-            "utm_content": null,
-            "data_agendamento": "2024-11-25 14:57:35",
+            "Motivo do Cancelamento": "",
+            "Data de Início": "2025-03-27",
+            "Hora de Início": "09:00:00",
+            "Link da Reunião": "https://calendly.com/events/44167a15-6e6e-473a-9414-ef63264a3d25/google_meet",
+            "Tipo de Evento": "Sessão Estratégica Comercial",
+            "Dia da Semana do Evento": "Quinta",
+            "utm_source": "ig",
+            "utm_campaign": "[LF] [SE] [CAPTAÇÃO] [CADASTRO] [IG] [F] Públicos Frios Teste Posionamento",
+            "utm_term": "SE_AD031",
+            "utm_medium": "Instagram_Feed",
+            "utm_content": "00 - [AUTO] [F] CARGOS ALTOS",
+            "data_agendamento": "2025-03-22 10:14:21",
             "id_campo_id_banco_de_dados_bot_conversa": "1408048",
-            "data_termino_ac": "2024-11-27",
-            "data_e_hora_de_termino": "27/11/2024 17:45",
-            "data_e_hora_de_inicio": "27/11/2024 17:00",
+            "data_termino_ac": "2025-03-27",
+            "data_e_hora_de_termino": "27/03/2025 09:45",
+            "data_e_hora_de_inicio": "27/03/2025 09:00",
             "funil": "sessao_estrategica",
             "variacao_do_funil": "v1",
-            "E-mail do Responsável": "fabricio@universidadevendas.com.br",
-            "Nome do Responsável": "Fabricio Nunnes",
+            "E-mail do Responsável": "maiko.bruce@universidadevendas.com.br",
+            "Nome do Responsável": "Maiko Bruce",
             "id_campo_data_cancelamento_bot_conversa": "1057942",
-            "slug_do_evento": "sessao-estrategica-novo"
+            "slug_do_evento": "sessao-estrategica"
           }
         }
       }
@@ -6962,6 +6964,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-03-12T14:01:33.937Z",
-  "versionId": "ec74389f-3b08-4bcc-8355-482ad31d9b3f"
+  "updatedAt": "2025-03-25T13:16:43.276Z",
+  "versionId": "c9080911-cc08-400a-8793-460af53c1aa6"
 }
