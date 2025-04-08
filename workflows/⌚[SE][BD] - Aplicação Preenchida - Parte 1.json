@@ -129,17 +129,6 @@
         ]
       ]
     },
-    "aplicacao_preenchida_head_comercial": {
-      "main": [
-        [
-          {
-            "node": "formata_dados1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "add_lead_leadlovers": {
       "main": [
         [
@@ -173,17 +162,6 @@
         ]
       ]
     },
-    "Isca-de-baleia": {
-      "main": [
-        [
-          {
-            "node": "formata_dados4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "formata_dados4": {
       "main": [
         [
@@ -200,17 +178,6 @@
         [
           {
             "node": "dados_validados3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "aplicacao_preenchida": {
-      "main": [
-        [
-          {
-            "node": "formata_dados",
             "type": "main",
             "index": 0
           }
@@ -279,33 +246,11 @@
         ]
       ]
     },
-    "aplicacao_preenchida-PT": {
-      "main": [
-        [
-          {
-            "node": "formata_dados2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "formata_dados5": {
       "main": [
         [
           {
             "node": "dados_validados_correto1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "aplicacao_preenchida_novo_funil": {
-      "main": [
-        [
-          {
-            "node": "formata_dados5",
             "type": "main",
             "index": 0
           }
@@ -323,11 +268,66 @@
         ]
       ]
     },
+    "aplicacao_preenchida-PT": {
+      "main": [
+        [
+          {
+            "node": "formata_dados2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "aplicacao_preenchida1": {
       "main": [
         [
           {
             "node": "formata_dados3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "aplicacao_preenchida_head_comercial": {
+      "main": [
+        [
+          {
+            "node": "formata_dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Isca-de-baleia": {
+      "main": [
+        [
+          {
+            "node": "formata_dados4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "aplicacao_preenchida_novo_funil": {
+      "main": [
+        [
+          {
+            "node": "formata_dados5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "aplicacao_preenchida": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
             "type": "main",
             "index": 0
           }
@@ -1492,22 +1492,6 @@
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "aplicacao-preenchida-head-comercial",
-        "options": {}
-      },
-      "id": "1a53473f-5735-4f29-9207-9d1571dc13ee",
-      "name": "aplicacao_preenchida_head_comercial",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        640,
-        1660
-      ],
-      "webhookId": "ca0c0d67-b335-4d4a-9bb2-47844ea97d8d"
-    },
-    {
-      "parameters": {
         "method": "POST",
         "url": "=https://llapi.leadlovers.com/webapi/Lead",
         "sendQuery": true,
@@ -1823,22 +1807,6 @@
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "isca-de-baleia",
-        "options": {}
-      },
-      "id": "53f28d62-fc3c-4622-b8aa-ff82396e7cf7",
-      "name": "Isca-de-baleia",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        660,
-        2060
-      ],
-      "webhookId": "ca0c0d67-b335-4d4a-9bb2-47844ea97d8d"
-    },
-    {
-      "parameters": {
         "method": "POST",
         "url": "=https://llapi.leadlovers.com/webapi/Lead",
         "sendQuery": true,
@@ -1872,22 +1840,6 @@
         1040,
         2060
       ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "aplicacao-preenchida-hetzner",
-        "options": {}
-      },
-      "id": "223cb2af-cf81-4301-83f7-8a61ac503fce",
-      "name": "aplicacao_preenchida",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        460,
-        660
-      ],
-      "webhookId": "ca0c0d67-b335-4d4a-9bb2-47844ea97d8d"
     },
     {
       "parameters": {
@@ -2133,22 +2085,6 @@
         820,
         920
       ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "aplicacao-preenchida-PT-hetzner",
-        "options": {}
-      },
-      "id": "b045edee-81b6-4007-bbf7-4c3abdf80312",
-      "name": "aplicacao_preenchida-PT",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        460,
-        920
-      ],
-      "webhookId": "ca0c0d67-b335-4d4a-9bb2-47844ea97d8d"
     },
     {
       "parameters": {
@@ -2509,16 +2445,16 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "aplicacao-novo_funil",
+        "path": "aplicacao-preenchida-PT-hetzner",
         "options": {}
       },
-      "id": "c63262e7-eca0-43fa-9a23-c59b4bdae579",
-      "name": "aplicacao_preenchida_novo_funil",
+      "id": "b045edee-81b6-4007-bbf7-4c3abdf80312",
+      "name": "aplicacao_preenchida-PT",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        740,
-        2380
+        460,
+        920
       ],
       "webhookId": "ca0c0d67-b335-4d4a-9bb2-47844ea97d8d"
     },
@@ -2535,6 +2471,70 @@
       "position": [
         640,
         1280
+      ],
+      "webhookId": "ca0c0d67-b335-4d4a-9bb2-47844ea97d8d"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aplicacao-preenchida-head-comercial",
+        "options": {}
+      },
+      "id": "1a53473f-5735-4f29-9207-9d1571dc13ee",
+      "name": "aplicacao_preenchida_head_comercial",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        640,
+        1660
+      ],
+      "webhookId": "ca0c0d67-b335-4d4a-9bb2-47844ea97d8d"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "isca-de-baleia",
+        "options": {}
+      },
+      "id": "53f28d62-fc3c-4622-b8aa-ff82396e7cf7",
+      "name": "Isca-de-baleia",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        660,
+        2060
+      ],
+      "webhookId": "ca0c0d67-b335-4d4a-9bb2-47844ea97d8d"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aplicacao-novo_funil",
+        "options": {}
+      },
+      "id": "c63262e7-eca0-43fa-9a23-c59b4bdae579",
+      "name": "aplicacao_preenchida_novo_funil",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        740,
+        2380
+      ],
+      "webhookId": "ca0c0d67-b335-4d4a-9bb2-47844ea97d8d"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aplicacao-preenchida-hetzner",
+        "options": {}
+      },
+      "id": "223cb2af-cf81-4301-83f7-8a61ac503fce",
+      "name": "aplicacao_preenchida",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        660
       ],
       "webhookId": "ca0c0d67-b335-4d4a-9bb2-47844ea97d8d"
     }
@@ -2831,6 +2831,464 @@
               }
             }
           }
+        }
+      }
+    ],
+    "aplicacao_preenchida-PT": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "Typeform Webhooks",
+            "content-length": "3377",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "traceparent": "00-51b8d07db1391702af1ba916260a5c3e-1371540dc8fdc01a-01",
+            "x-forwarded-for": "18.210.136.162",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "18.210.136.162"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event_id": "01HZQ9899R8NQF6TF1HQAFHTR2",
+            "event_type": "form_response",
+            "form_response": {
+              "form_id": "PkklTqKj",
+              "token": "j43sr4e4e7mnkbl4j446t4e0oqs1wjwb",
+              "landed_at": "2024-06-06T17:23:44Z",
+              "submitted_at": "2024-06-06T17:23:57Z",
+              "hidden": {
+                "email": "mateusdiniz@automagicbots.com.br",
+                "name": "Mateus Diniz - Automagic Bots",
+                "phone": "(62) 98119-6678",
+                "utm_campaign": "",
+                "utm_content": "",
+                "utm_id": "xxxxx",
+                "utm_medium": "",
+                "utm_source": "",
+                "utm_term": ""
+              },
+              "definition": {
+                "id": "PkklTqKj",
+                "title": "Sessão Estratégica",
+                "fields": [
+                  {
+                    "id": "jEM7hIRuqppb",
+                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed",
+                    "type": "multiple_choice",
+                    "title": "{{hidden:name}} quantos vendedores você tem na sua empresa hoje?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "5a0lwyGwkyxR",
+                        "ref": "699fb225-0c8f-4b12-9e00-904c1634f953",
+                        "label": "Não tenho vendedores"
+                      },
+                      {
+                        "id": "sBvfRShsDU61",
+                        "ref": "7e019f18-8e58-495d-b48e-6bddb50979e9",
+                        "label": "De 1 a 5 vendedores"
+                      },
+                      {
+                        "id": "9cpU3xNHkblJ",
+                        "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59",
+                        "label": "De 6 a 8 vendedores"
+                      },
+                      {
+                        "id": "lZw9TGqZwfOk",
+                        "ref": "f272caf5-c0b8-4f15-adb5-70e6cb8a1421",
+                        "label": "De 9 a 15 vendedores"
+                      },
+                      {
+                        "id": "NfNnRcS9yKci",
+                        "ref": "9ada87ee-4773-4496-a28c-fb1235fdeca7",
+                        "label": "Acima de 15 vendedores"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "QjeWdzEVnl6O",
+                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a",
+                    "type": "multiple_choice",
+                    "title": "Você já ouviu falar do meu programa de Mentoria?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "9fy6XL9M5TJz",
+                        "ref": "0935e89e-f63f-4371-be68-67f935aadb55",
+                        "label": "Sim"
+                      },
+                      {
+                        "id": "khKb0dSYSU0F",
+                        "ref": "e361a83c-609b-48c9-b2fb-73b04a855081",
+                        "label": "Não"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "lzsQlWi9872H",
+                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3",
+                    "type": "yes_no",
+                    "title": "Você tem algum sócio ou parceiro de negócios que toma decisão junto com você?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "KRNIQgziTSkK",
+                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb",
+                    "type": "short_text",
+                    "title": "Qual o Instagram da sua empresa?",
+                    "properties": {}
+                  }
+                ],
+                "endings": [
+                  {
+                    "id": "UvUHG2ZTIqUG",
+                    "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90",
+                    "title": "https://calendly.com/comercial-unv/sessao-estrategica?name={{hidden:name}}&email={{hidden:email}}&a1={{hidden:phone}}&utm_source={{hidden:utm_source}}&utm_campaign={{hidden:utm_campaign}}&utm_term={{hidden:utm_term}}&utm_medium={{hidden:utm_medium}}&utm_content={{hidden:utm_content}}",
+                    "type": "url_redirect",
+                    "properties": {
+                      "redirect_url": "https://calendly.com/comercial-unv/sessao-estrategica?name={{hidden:name}}&email={{hidden:email}}&a1={{hidden:phone}}&utm_source={{hidden:utm_source}}&utm_campaign={{hidden:utm_campaign}}&utm_term={{hidden:utm_term}}&utm_medium={{hidden:utm_medium}}&utm_content={{hidden:utm_content}}"
+                    }
+                  }
+                ]
+              },
+              "answers": [
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "9cpU3xNHkblJ",
+                    "label": "De 6 a 8 vendedores",
+                    "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59"
+                  },
+                  "field": {
+                    "id": "jEM7hIRuqppb",
+                    "type": "multiple_choice",
+                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "9fy6XL9M5TJz",
+                    "label": "Sim",
+                    "ref": "0935e89e-f63f-4371-be68-67f935aadb55"
+                  },
+                  "field": {
+                    "id": "QjeWdzEVnl6O",
+                    "type": "multiple_choice",
+                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a"
+                  }
+                },
+                {
+                  "type": "boolean",
+                  "boolean": true,
+                  "field": {
+                    "id": "lzsQlWi9872H",
+                    "type": "yes_no",
+                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "prmateusdiniz",
+                  "field": {
+                    "id": "KRNIQgziTSkK",
+                    "type": "short_text",
+                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb"
+                  }
+                }
+              ],
+              "ending": {
+                "id": "UvUHG2ZTIqUG",
+                "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90"
+              }
+            }
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-preenchida-hetzner",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "aplicacao_preenchida1": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "Typeform Webhooks",
+            "content-length": "5658",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "traceparent": "00-1f1d7ebb7d148158538ae2dc40700f6d-b2a08bf3acd356c5-01",
+            "x-forwarded-for": "18.204.78.134",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "18.204.78.134"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event_id": "01JKS513CHJRVF8FR36VNHK2G6",
+            "event_type": "form_response",
+            "form_response": {
+              "form_id": "wZS82c8n",
+              "token": "gqcw9l280nlh3gqcwk13qib0527dn7h6",
+              "landed_at": "2025-02-10T23:59:07Z",
+              "submitted_at": "2025-02-11T00:02:32Z",
+              "hidden": {
+                "email": "andrezinhaec@gmail.com",
+                "name": "Andressa Pinheiro",
+                "phone": "(22) 99821-9010",
+                "utm_campaign": "",
+                "utm_content": "",
+                "utm_id": "xxxxx",
+                "utm_medium": "",
+                "utm_source": "",
+                "utm_term": ""
+              },
+              "definition": {
+                "id": "wZS82c8n",
+                "title": "Sessão Estratégica Sem agendamento - V2",
+                "fields": [
+                  {
+                    "id": "DoJYsmCk2cKZ",
+                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed",
+                    "type": "multiple_choice",
+                    "title": "{{hidden:name}} quantos vendedores você tem na sua empresa hoje?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "jrd1g9ZTO9pA",
+                        "ref": "699fb225-0c8f-4b12-9e00-904c1634f953",
+                        "label": "Não tenho vendedores"
+                      },
+                      {
+                        "id": "7jI4nk9FTZLI",
+                        "ref": "7e019f18-8e58-495d-b48e-6bddb50979e9",
+                        "label": "De 1 a 5 vendedores"
+                      },
+                      {
+                        "id": "jaOdNd8Zr3gR",
+                        "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59",
+                        "label": "De 6 a 8 vendedores"
+                      },
+                      {
+                        "id": "xq1lmZkPJ1va",
+                        "ref": "f272caf5-c0b8-4f15-adb5-70e6cb8a1421",
+                        "label": "De 9 a 15 vendedores"
+                      },
+                      {
+                        "id": "h4uNcd3KCIIL",
+                        "ref": "9ada87ee-4773-4496-a28c-fb1235fdeca7",
+                        "label": "Acima de 15 vendedores"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "YPlrNc4DbDZS",
+                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a",
+                    "type": "multiple_choice",
+                    "title": "Você já ouviu falar do meu programa de Mentoria?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "CZTWDaJuiBUw",
+                        "ref": "0935e89e-f63f-4371-be68-67f935aadb55",
+                        "label": "Sim"
+                      },
+                      {
+                        "id": "hdEcPbwJnUFQ",
+                        "ref": "e361a83c-609b-48c9-b2fb-73b04a855081",
+                        "label": "Não"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "jfZdxcbLWNZD",
+                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3",
+                    "type": "yes_no",
+                    "title": "Você tem algum sócio ou parceiro de negócios que toma decisão junto com você?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "Ehka9n9NiwnE",
+                    "ref": "7957a5e1-174a-490e-ae42-f6cbda1a4f91",
+                    "type": "multiple_choice",
+                    "title": "Qual das opções abaixo representa melhor a sua situação atual?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "kjvVorDQKGHl",
+                        "ref": "764fbf29-fb6f-4eb2-bf33-9c8f240121e5",
+                        "label": "Apenas quero saber como direcionar melhor meu time de vendedores"
+                      },
+                      {
+                        "id": "mhlKcUFsdnb6",
+                        "ref": "78b24258-6e28-4843-b251-c14580a6bed7",
+                        "label": "Preciso de alguém me direcionando para gerir melhor meu time de vendedores"
+                      },
+                      {
+                        "id": "eoPIbHy2EVQV",
+                        "ref": "6b855906-dfdb-4c36-9387-f56290867a1d",
+                        "label": "Quero ter a Universidade Vendas atuando diretamente na gestão comercial do meu time de vendedores"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "kDJJAmvEqi9z",
+                    "ref": "6ffe68b5-11aa-4fa3-afc6-e3181331ff8a",
+                    "type": "multiple_choice",
+                    "title": "Nós temos diferentes formas de ajudar a sua empresa a vender mais e ter uma melhor gestão comercial. Qual delas você prefere?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "sOnnxP4w4zk0",
+                        "ref": "b7927c08-1861-4f1a-9e29-0dd88e44ec68",
+                        "label": "Prefiro aprender a metodologia do Fabrício Nunnes e executar sozinho"
+                      },
+                      {
+                        "id": "MAAwysnD8TIk",
+                        "ref": "fc773c3e-6e0a-425a-afed-f904d293dc74",
+                        "label": "Prefiro aprender a metodologia do Fabrício Nunnes mas ter o acompanhamento e feedback direito da implementação e escala da minha empresa"
+                      },
+                      {
+                        "id": "yiAOICfCtENO",
+                        "ref": "a7f3b608-354a-47de-bed3-756a444fe0f2",
+                        "label": "Quero a equipe do Fabrício Nunnes como diretor comercial da minha empresa atuando diretamente com meus vendedores"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "dOmJsz5M3wJF",
+                    "ref": "4be22d03-5acd-436c-b0a3-e5a5255db868",
+                    "type": "multiple_choice",
+                    "title": "Se você for selecionado para o nosso projeto, quando pretende começar?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "hbH15ziBnAXK",
+                        "ref": "85dc47d6-fda4-4766-8f7c-5e6a33f45508",
+                        "label": "Imediatamente para gerar resultados imediatos"
+                      },
+                      {
+                        "id": "0P7vZcYBFsUk",
+                        "ref": "ce75bc82-a2b3-4c97-9810-62356736ec5c",
+                        "label": "Pra ontem"
+                      },
+                      {
+                        "id": "Fd9kWwQq7O8R",
+                        "ref": "f880439e-8e43-49e8-a354-f88bbcf6fd6f",
+                        "label": "Nas próximas semanas"
+                      },
+                      {
+                        "id": "leh2vwRXDGDo",
+                        "ref": "a8ff7b3f-1a48-422c-8fea-601cd103b9d0",
+                        "label": "Quero para os próximos 2 meses"
+                      }
+                    ]
+                  }
+                ],
+                "endings": [
+                  {
+                    "id": "jNauDCSSgAV0",
+                    "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90",
+                    "title": "https://universidadevendas.com.br/parabens_sessao_estrategica-2",
+                    "type": "url_redirect",
+                    "properties": {
+                      "redirect_url": "https://universidadevendas.com.br/parabens_sessao_estrategica-2"
+                    }
+                  }
+                ]
+              },
+              "answers": [
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "jrd1g9ZTO9pA",
+                    "label": "Não tenho vendedores",
+                    "ref": "699fb225-0c8f-4b12-9e00-904c1634f953"
+                  },
+                  "field": {
+                    "id": "DoJYsmCk2cKZ",
+                    "type": "multiple_choice",
+                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "hdEcPbwJnUFQ",
+                    "label": "Não",
+                    "ref": "e361a83c-609b-48c9-b2fb-73b04a855081"
+                  },
+                  "field": {
+                    "id": "YPlrNc4DbDZS",
+                    "type": "multiple_choice",
+                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a"
+                  }
+                },
+                {
+                  "type": "boolean",
+                  "boolean": true,
+                  "field": {
+                    "id": "jfZdxcbLWNZD",
+                    "type": "yes_no",
+                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "eoPIbHy2EVQV",
+                    "label": "Quero ter a Universidade Vendas atuando diretamente na gestão comercial do meu time de vendedores",
+                    "ref": "6b855906-dfdb-4c36-9387-f56290867a1d"
+                  },
+                  "field": {
+                    "id": "Ehka9n9NiwnE",
+                    "type": "multiple_choice",
+                    "ref": "7957a5e1-174a-490e-ae42-f6cbda1a4f91"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "MAAwysnD8TIk",
+                    "label": "Prefiro aprender a metodologia do Fabrício Nunnes mas ter o acompanhamento e feedback direito da implementação e escala da minha empresa",
+                    "ref": "fc773c3e-6e0a-425a-afed-f904d293dc74"
+                  },
+                  "field": {
+                    "id": "kDJJAmvEqi9z",
+                    "type": "multiple_choice",
+                    "ref": "6ffe68b5-11aa-4fa3-afc6-e3181331ff8a"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "hbH15ziBnAXK",
+                    "label": "Imediatamente para gerar resultados imediatos",
+                    "ref": "85dc47d6-fda4-4766-8f7c-5e6a33f45508"
+                  },
+                  "field": {
+                    "id": "dOmJsz5M3wJF",
+                    "type": "multiple_choice",
+                    "ref": "4be22d03-5acd-436c-b0a3-e5a5255db868"
+                  }
+                }
+              ],
+              "ending": {
+                "id": "jNauDCSSgAV0",
+                "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90"
+              }
+            }
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-preenchida-sem-agendamento-hetzner",
+          "executionMode": "production"
         }
       }
     ],
@@ -3631,364 +4089,6 @@
         }
       }
     ],
-    "aplicacao_preenchida": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "Typeform Webhooks",
-            "content-length": "3377",
-            "accept-encoding": "gzip",
-            "content-type": "application/json",
-            "traceparent": "00-51b8d07db1391702af1ba916260a5c3e-1371540dc8fdc01a-01",
-            "x-forwarded-for": "18.210.136.162",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "18.210.136.162"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "event_id": "01HZQ9899R8NQF6TF1HQAFHTR2",
-            "event_type": "form_response",
-            "form_response": {
-              "form_id": "PkklTqKj",
-              "token": "j43sr4e4e7mnkbl4j446t4e0oqs1wjwb",
-              "landed_at": "2024-06-06T17:23:44Z",
-              "submitted_at": "2024-06-06T17:23:57Z",
-              "hidden": {
-                "email": "mateusdiniz@automagicbots.com.br",
-                "name": "Mateus Diniz - Automagic Bots",
-                "phone": "(62) 98119-6678",
-                "utm_campaign": "",
-                "utm_content": "",
-                "utm_id": "xxxxx",
-                "utm_medium": "",
-                "utm_source": "",
-                "utm_term": ""
-              },
-              "definition": {
-                "id": "PkklTqKj",
-                "title": "Sessão Estratégica",
-                "fields": [
-                  {
-                    "id": "jEM7hIRuqppb",
-                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed",
-                    "type": "multiple_choice",
-                    "title": "{{hidden:name}} quantos vendedores você tem na sua empresa hoje?",
-                    "properties": {},
-                    "choices": [
-                      {
-                        "id": "5a0lwyGwkyxR",
-                        "ref": "699fb225-0c8f-4b12-9e00-904c1634f953",
-                        "label": "Não tenho vendedores"
-                      },
-                      {
-                        "id": "sBvfRShsDU61",
-                        "ref": "7e019f18-8e58-495d-b48e-6bddb50979e9",
-                        "label": "De 1 a 5 vendedores"
-                      },
-                      {
-                        "id": "9cpU3xNHkblJ",
-                        "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59",
-                        "label": "De 6 a 8 vendedores"
-                      },
-                      {
-                        "id": "lZw9TGqZwfOk",
-                        "ref": "f272caf5-c0b8-4f15-adb5-70e6cb8a1421",
-                        "label": "De 9 a 15 vendedores"
-                      },
-                      {
-                        "id": "NfNnRcS9yKci",
-                        "ref": "9ada87ee-4773-4496-a28c-fb1235fdeca7",
-                        "label": "Acima de 15 vendedores"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "QjeWdzEVnl6O",
-                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a",
-                    "type": "multiple_choice",
-                    "title": "Você já ouviu falar do meu programa de Mentoria?",
-                    "properties": {},
-                    "choices": [
-                      {
-                        "id": "9fy6XL9M5TJz",
-                        "ref": "0935e89e-f63f-4371-be68-67f935aadb55",
-                        "label": "Sim"
-                      },
-                      {
-                        "id": "khKb0dSYSU0F",
-                        "ref": "e361a83c-609b-48c9-b2fb-73b04a855081",
-                        "label": "Não"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "lzsQlWi9872H",
-                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3",
-                    "type": "yes_no",
-                    "title": "Você tem algum sócio ou parceiro de negócios que toma decisão junto com você?",
-                    "properties": {}
-                  },
-                  {
-                    "id": "KRNIQgziTSkK",
-                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb",
-                    "type": "short_text",
-                    "title": "Qual o Instagram da sua empresa?",
-                    "properties": {}
-                  }
-                ],
-                "endings": [
-                  {
-                    "id": "UvUHG2ZTIqUG",
-                    "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90",
-                    "title": "https://calendly.com/comercial-unv/sessao-estrategica?name={{hidden:name}}&email={{hidden:email}}&a1={{hidden:phone}}&utm_source={{hidden:utm_source}}&utm_campaign={{hidden:utm_campaign}}&utm_term={{hidden:utm_term}}&utm_medium={{hidden:utm_medium}}&utm_content={{hidden:utm_content}}",
-                    "type": "url_redirect",
-                    "properties": {
-                      "redirect_url": "https://calendly.com/comercial-unv/sessao-estrategica?name={{hidden:name}}&email={{hidden:email}}&a1={{hidden:phone}}&utm_source={{hidden:utm_source}}&utm_campaign={{hidden:utm_campaign}}&utm_term={{hidden:utm_term}}&utm_medium={{hidden:utm_medium}}&utm_content={{hidden:utm_content}}"
-                    }
-                  }
-                ]
-              },
-              "answers": [
-                {
-                  "type": "choice",
-                  "choice": {
-                    "id": "9cpU3xNHkblJ",
-                    "label": "De 6 a 8 vendedores",
-                    "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59"
-                  },
-                  "field": {
-                    "id": "jEM7hIRuqppb",
-                    "type": "multiple_choice",
-                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed"
-                  }
-                },
-                {
-                  "type": "choice",
-                  "choice": {
-                    "id": "9fy6XL9M5TJz",
-                    "label": "Sim",
-                    "ref": "0935e89e-f63f-4371-be68-67f935aadb55"
-                  },
-                  "field": {
-                    "id": "QjeWdzEVnl6O",
-                    "type": "multiple_choice",
-                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a"
-                  }
-                },
-                {
-                  "type": "boolean",
-                  "boolean": true,
-                  "field": {
-                    "id": "lzsQlWi9872H",
-                    "type": "yes_no",
-                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3"
-                  }
-                },
-                {
-                  "type": "text",
-                  "text": "prmateusdiniz",
-                  "field": {
-                    "id": "KRNIQgziTSkK",
-                    "type": "short_text",
-                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb"
-                  }
-                }
-              ],
-              "ending": {
-                "id": "UvUHG2ZTIqUG",
-                "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90"
-              }
-            }
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-preenchida-hetzner",
-          "executionMode": "production"
-        }
-      }
-    ],
-    "aplicacao_preenchida-PT": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "Typeform Webhooks",
-            "content-length": "3377",
-            "accept-encoding": "gzip",
-            "content-type": "application/json",
-            "traceparent": "00-51b8d07db1391702af1ba916260a5c3e-1371540dc8fdc01a-01",
-            "x-forwarded-for": "18.210.136.162",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "18.210.136.162"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "event_id": "01HZQ9899R8NQF6TF1HQAFHTR2",
-            "event_type": "form_response",
-            "form_response": {
-              "form_id": "PkklTqKj",
-              "token": "j43sr4e4e7mnkbl4j446t4e0oqs1wjwb",
-              "landed_at": "2024-06-06T17:23:44Z",
-              "submitted_at": "2024-06-06T17:23:57Z",
-              "hidden": {
-                "email": "mateusdiniz@automagicbots.com.br",
-                "name": "Mateus Diniz - Automagic Bots",
-                "phone": "(62) 98119-6678",
-                "utm_campaign": "",
-                "utm_content": "",
-                "utm_id": "xxxxx",
-                "utm_medium": "",
-                "utm_source": "",
-                "utm_term": ""
-              },
-              "definition": {
-                "id": "PkklTqKj",
-                "title": "Sessão Estratégica",
-                "fields": [
-                  {
-                    "id": "jEM7hIRuqppb",
-                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed",
-                    "type": "multiple_choice",
-                    "title": "{{hidden:name}} quantos vendedores você tem na sua empresa hoje?",
-                    "properties": {},
-                    "choices": [
-                      {
-                        "id": "5a0lwyGwkyxR",
-                        "ref": "699fb225-0c8f-4b12-9e00-904c1634f953",
-                        "label": "Não tenho vendedores"
-                      },
-                      {
-                        "id": "sBvfRShsDU61",
-                        "ref": "7e019f18-8e58-495d-b48e-6bddb50979e9",
-                        "label": "De 1 a 5 vendedores"
-                      },
-                      {
-                        "id": "9cpU3xNHkblJ",
-                        "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59",
-                        "label": "De 6 a 8 vendedores"
-                      },
-                      {
-                        "id": "lZw9TGqZwfOk",
-                        "ref": "f272caf5-c0b8-4f15-adb5-70e6cb8a1421",
-                        "label": "De 9 a 15 vendedores"
-                      },
-                      {
-                        "id": "NfNnRcS9yKci",
-                        "ref": "9ada87ee-4773-4496-a28c-fb1235fdeca7",
-                        "label": "Acima de 15 vendedores"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "QjeWdzEVnl6O",
-                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a",
-                    "type": "multiple_choice",
-                    "title": "Você já ouviu falar do meu programa de Mentoria?",
-                    "properties": {},
-                    "choices": [
-                      {
-                        "id": "9fy6XL9M5TJz",
-                        "ref": "0935e89e-f63f-4371-be68-67f935aadb55",
-                        "label": "Sim"
-                      },
-                      {
-                        "id": "khKb0dSYSU0F",
-                        "ref": "e361a83c-609b-48c9-b2fb-73b04a855081",
-                        "label": "Não"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "lzsQlWi9872H",
-                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3",
-                    "type": "yes_no",
-                    "title": "Você tem algum sócio ou parceiro de negócios que toma decisão junto com você?",
-                    "properties": {}
-                  },
-                  {
-                    "id": "KRNIQgziTSkK",
-                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb",
-                    "type": "short_text",
-                    "title": "Qual o Instagram da sua empresa?",
-                    "properties": {}
-                  }
-                ],
-                "endings": [
-                  {
-                    "id": "UvUHG2ZTIqUG",
-                    "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90",
-                    "title": "https://calendly.com/comercial-unv/sessao-estrategica?name={{hidden:name}}&email={{hidden:email}}&a1={{hidden:phone}}&utm_source={{hidden:utm_source}}&utm_campaign={{hidden:utm_campaign}}&utm_term={{hidden:utm_term}}&utm_medium={{hidden:utm_medium}}&utm_content={{hidden:utm_content}}",
-                    "type": "url_redirect",
-                    "properties": {
-                      "redirect_url": "https://calendly.com/comercial-unv/sessao-estrategica?name={{hidden:name}}&email={{hidden:email}}&a1={{hidden:phone}}&utm_source={{hidden:utm_source}}&utm_campaign={{hidden:utm_campaign}}&utm_term={{hidden:utm_term}}&utm_medium={{hidden:utm_medium}}&utm_content={{hidden:utm_content}}"
-                    }
-                  }
-                ]
-              },
-              "answers": [
-                {
-                  "type": "choice",
-                  "choice": {
-                    "id": "9cpU3xNHkblJ",
-                    "label": "De 6 a 8 vendedores",
-                    "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59"
-                  },
-                  "field": {
-                    "id": "jEM7hIRuqppb",
-                    "type": "multiple_choice",
-                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed"
-                  }
-                },
-                {
-                  "type": "choice",
-                  "choice": {
-                    "id": "9fy6XL9M5TJz",
-                    "label": "Sim",
-                    "ref": "0935e89e-f63f-4371-be68-67f935aadb55"
-                  },
-                  "field": {
-                    "id": "QjeWdzEVnl6O",
-                    "type": "multiple_choice",
-                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a"
-                  }
-                },
-                {
-                  "type": "boolean",
-                  "boolean": true,
-                  "field": {
-                    "id": "lzsQlWi9872H",
-                    "type": "yes_no",
-                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3"
-                  }
-                },
-                {
-                  "type": "text",
-                  "text": "prmateusdiniz",
-                  "field": {
-                    "id": "KRNIQgziTSkK",
-                    "type": "short_text",
-                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb"
-                  }
-                }
-              ],
-              "ending": {
-                "id": "UvUHG2ZTIqUG",
-                "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90"
-              }
-            }
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-preenchida-hetzner",
-          "executionMode": "production"
-        }
-      }
-    ],
     "aplicacao_preenchida_novo_funil": [
       {
         "json": {
@@ -4263,37 +4363,37 @@
         }
       }
     ],
-    "aplicacao_preenchida1": [
+    "aplicacao_preenchida": [
       {
         "json": {
           "headers": {
             "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "user-agent": "Typeform Webhooks",
-            "content-length": "5658",
+            "content-length": "3377",
             "accept-encoding": "gzip",
             "content-type": "application/json",
-            "traceparent": "00-1f1d7ebb7d148158538ae2dc40700f6d-b2a08bf3acd356c5-01",
-            "x-forwarded-for": "18.204.78.134",
+            "traceparent": "00-51b8d07db1391702af1ba916260a5c3e-1371540dc8fdc01a-01",
+            "x-forwarded-for": "18.210.136.162",
             "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "x-forwarded-port": "443",
             "x-forwarded-proto": "https",
             "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "18.204.78.134"
+            "x-real-ip": "18.210.136.162"
           },
           "params": {},
           "query": {},
           "body": {
-            "event_id": "01JKS513CHJRVF8FR36VNHK2G6",
+            "event_id": "01HZQ9899R8NQF6TF1HQAFHTR2",
             "event_type": "form_response",
             "form_response": {
-              "form_id": "wZS82c8n",
-              "token": "gqcw9l280nlh3gqcwk13qib0527dn7h6",
-              "landed_at": "2025-02-10T23:59:07Z",
-              "submitted_at": "2025-02-11T00:02:32Z",
+              "form_id": "PkklTqKj",
+              "token": "j43sr4e4e7mnkbl4j446t4e0oqs1wjwb",
+              "landed_at": "2024-06-06T17:23:44Z",
+              "submitted_at": "2024-06-06T17:23:57Z",
               "hidden": {
-                "email": "andrezinhaec@gmail.com",
-                "name": "Andressa Pinheiro",
-                "phone": "(22) 99821-9010",
+                "email": "mateusdiniz@automagicbots.com.br",
+                "name": "Mateus Diniz - Automagic Bots",
+                "phone": "(62) 98119-6678",
                 "utm_campaign": "",
                 "utm_content": "",
                 "utm_id": "xxxxx",
@@ -4302,155 +4402,85 @@
                 "utm_term": ""
               },
               "definition": {
-                "id": "wZS82c8n",
-                "title": "Sessão Estratégica Sem agendamento - V2",
+                "id": "PkklTqKj",
+                "title": "Sessão Estratégica",
                 "fields": [
                   {
-                    "id": "DoJYsmCk2cKZ",
+                    "id": "jEM7hIRuqppb",
                     "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed",
                     "type": "multiple_choice",
                     "title": "{{hidden:name}} quantos vendedores você tem na sua empresa hoje?",
                     "properties": {},
                     "choices": [
                       {
-                        "id": "jrd1g9ZTO9pA",
+                        "id": "5a0lwyGwkyxR",
                         "ref": "699fb225-0c8f-4b12-9e00-904c1634f953",
                         "label": "Não tenho vendedores"
                       },
                       {
-                        "id": "7jI4nk9FTZLI",
+                        "id": "sBvfRShsDU61",
                         "ref": "7e019f18-8e58-495d-b48e-6bddb50979e9",
                         "label": "De 1 a 5 vendedores"
                       },
                       {
-                        "id": "jaOdNd8Zr3gR",
+                        "id": "9cpU3xNHkblJ",
                         "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59",
                         "label": "De 6 a 8 vendedores"
                       },
                       {
-                        "id": "xq1lmZkPJ1va",
+                        "id": "lZw9TGqZwfOk",
                         "ref": "f272caf5-c0b8-4f15-adb5-70e6cb8a1421",
                         "label": "De 9 a 15 vendedores"
                       },
                       {
-                        "id": "h4uNcd3KCIIL",
+                        "id": "NfNnRcS9yKci",
                         "ref": "9ada87ee-4773-4496-a28c-fb1235fdeca7",
                         "label": "Acima de 15 vendedores"
                       }
                     ]
                   },
                   {
-                    "id": "YPlrNc4DbDZS",
+                    "id": "QjeWdzEVnl6O",
                     "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a",
                     "type": "multiple_choice",
                     "title": "Você já ouviu falar do meu programa de Mentoria?",
                     "properties": {},
                     "choices": [
                       {
-                        "id": "CZTWDaJuiBUw",
+                        "id": "9fy6XL9M5TJz",
                         "ref": "0935e89e-f63f-4371-be68-67f935aadb55",
                         "label": "Sim"
                       },
                       {
-                        "id": "hdEcPbwJnUFQ",
+                        "id": "khKb0dSYSU0F",
                         "ref": "e361a83c-609b-48c9-b2fb-73b04a855081",
                         "label": "Não"
                       }
                     ]
                   },
                   {
-                    "id": "jfZdxcbLWNZD",
+                    "id": "lzsQlWi9872H",
                     "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3",
                     "type": "yes_no",
                     "title": "Você tem algum sócio ou parceiro de negócios que toma decisão junto com você?",
                     "properties": {}
                   },
                   {
-                    "id": "Ehka9n9NiwnE",
-                    "ref": "7957a5e1-174a-490e-ae42-f6cbda1a4f91",
-                    "type": "multiple_choice",
-                    "title": "Qual das opções abaixo representa melhor a sua situação atual?",
-                    "properties": {},
-                    "choices": [
-                      {
-                        "id": "kjvVorDQKGHl",
-                        "ref": "764fbf29-fb6f-4eb2-bf33-9c8f240121e5",
-                        "label": "Apenas quero saber como direcionar melhor meu time de vendedores"
-                      },
-                      {
-                        "id": "mhlKcUFsdnb6",
-                        "ref": "78b24258-6e28-4843-b251-c14580a6bed7",
-                        "label": "Preciso de alguém me direcionando para gerir melhor meu time de vendedores"
-                      },
-                      {
-                        "id": "eoPIbHy2EVQV",
-                        "ref": "6b855906-dfdb-4c36-9387-f56290867a1d",
-                        "label": "Quero ter a Universidade Vendas atuando diretamente na gestão comercial do meu time de vendedores"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "kDJJAmvEqi9z",
-                    "ref": "6ffe68b5-11aa-4fa3-afc6-e3181331ff8a",
-                    "type": "multiple_choice",
-                    "title": "Nós temos diferentes formas de ajudar a sua empresa a vender mais e ter uma melhor gestão comercial. Qual delas você prefere?",
-                    "properties": {},
-                    "choices": [
-                      {
-                        "id": "sOnnxP4w4zk0",
-                        "ref": "b7927c08-1861-4f1a-9e29-0dd88e44ec68",
-                        "label": "Prefiro aprender a metodologia do Fabrício Nunnes e executar sozinho"
-                      },
-                      {
-                        "id": "MAAwysnD8TIk",
-                        "ref": "fc773c3e-6e0a-425a-afed-f904d293dc74",
-                        "label": "Prefiro aprender a metodologia do Fabrício Nunnes mas ter o acompanhamento e feedback direito da implementação e escala da minha empresa"
-                      },
-                      {
-                        "id": "yiAOICfCtENO",
-                        "ref": "a7f3b608-354a-47de-bed3-756a444fe0f2",
-                        "label": "Quero a equipe do Fabrício Nunnes como diretor comercial da minha empresa atuando diretamente com meus vendedores"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "dOmJsz5M3wJF",
-                    "ref": "4be22d03-5acd-436c-b0a3-e5a5255db868",
-                    "type": "multiple_choice",
-                    "title": "Se você for selecionado para o nosso projeto, quando pretende começar?",
-                    "properties": {},
-                    "choices": [
-                      {
-                        "id": "hbH15ziBnAXK",
-                        "ref": "85dc47d6-fda4-4766-8f7c-5e6a33f45508",
-                        "label": "Imediatamente para gerar resultados imediatos"
-                      },
-                      {
-                        "id": "0P7vZcYBFsUk",
-                        "ref": "ce75bc82-a2b3-4c97-9810-62356736ec5c",
-                        "label": "Pra ontem"
-                      },
-                      {
-                        "id": "Fd9kWwQq7O8R",
-                        "ref": "f880439e-8e43-49e8-a354-f88bbcf6fd6f",
-                        "label": "Nas próximas semanas"
-                      },
-                      {
-                        "id": "leh2vwRXDGDo",
-                        "ref": "a8ff7b3f-1a48-422c-8fea-601cd103b9d0",
-                        "label": "Quero para os próximos 2 meses"
-                      }
-                    ]
+                    "id": "KRNIQgziTSkK",
+                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb",
+                    "type": "short_text",
+                    "title": "Qual o Instagram da sua empresa?",
+                    "properties": {}
                   }
                 ],
                 "endings": [
                   {
-                    "id": "jNauDCSSgAV0",
+                    "id": "UvUHG2ZTIqUG",
                     "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90",
-                    "title": "https://universidadevendas.com.br/parabens_sessao_estrategica-2",
+                    "title": "https://calendly.com/comercial-unv/sessao-estrategica?name={{hidden:name}}&email={{hidden:email}}&a1={{hidden:phone}}&utm_source={{hidden:utm_source}}&utm_campaign={{hidden:utm_campaign}}&utm_term={{hidden:utm_term}}&utm_medium={{hidden:utm_medium}}&utm_content={{hidden:utm_content}}",
                     "type": "url_redirect",
                     "properties": {
-                      "redirect_url": "https://universidadevendas.com.br/parabens_sessao_estrategica-2"
+                      "redirect_url": "https://calendly.com/comercial-unv/sessao-estrategica?name={{hidden:name}}&email={{hidden:email}}&a1={{hidden:phone}}&utm_source={{hidden:utm_source}}&utm_campaign={{hidden:utm_campaign}}&utm_term={{hidden:utm_term}}&utm_medium={{hidden:utm_medium}}&utm_content={{hidden:utm_content}}"
                     }
                   }
                 ]
@@ -4459,12 +4489,12 @@
                 {
                   "type": "choice",
                   "choice": {
-                    "id": "jrd1g9ZTO9pA",
-                    "label": "Não tenho vendedores",
-                    "ref": "699fb225-0c8f-4b12-9e00-904c1634f953"
+                    "id": "9cpU3xNHkblJ",
+                    "label": "De 6 a 8 vendedores",
+                    "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59"
                   },
                   "field": {
-                    "id": "DoJYsmCk2cKZ",
+                    "id": "jEM7hIRuqppb",
                     "type": "multiple_choice",
                     "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed"
                   }
@@ -4472,12 +4502,12 @@
                 {
                   "type": "choice",
                   "choice": {
-                    "id": "hdEcPbwJnUFQ",
-                    "label": "Não",
-                    "ref": "e361a83c-609b-48c9-b2fb-73b04a855081"
+                    "id": "9fy6XL9M5TJz",
+                    "label": "Sim",
+                    "ref": "0935e89e-f63f-4371-be68-67f935aadb55"
                   },
                   "field": {
-                    "id": "YPlrNc4DbDZS",
+                    "id": "QjeWdzEVnl6O",
                     "type": "multiple_choice",
                     "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a"
                   }
@@ -4486,58 +4516,28 @@
                   "type": "boolean",
                   "boolean": true,
                   "field": {
-                    "id": "jfZdxcbLWNZD",
+                    "id": "lzsQlWi9872H",
                     "type": "yes_no",
                     "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3"
                   }
                 },
                 {
-                  "type": "choice",
-                  "choice": {
-                    "id": "eoPIbHy2EVQV",
-                    "label": "Quero ter a Universidade Vendas atuando diretamente na gestão comercial do meu time de vendedores",
-                    "ref": "6b855906-dfdb-4c36-9387-f56290867a1d"
-                  },
+                  "type": "text",
+                  "text": "prmateusdiniz",
                   "field": {
-                    "id": "Ehka9n9NiwnE",
-                    "type": "multiple_choice",
-                    "ref": "7957a5e1-174a-490e-ae42-f6cbda1a4f91"
-                  }
-                },
-                {
-                  "type": "choice",
-                  "choice": {
-                    "id": "MAAwysnD8TIk",
-                    "label": "Prefiro aprender a metodologia do Fabrício Nunnes mas ter o acompanhamento e feedback direito da implementação e escala da minha empresa",
-                    "ref": "fc773c3e-6e0a-425a-afed-f904d293dc74"
-                  },
-                  "field": {
-                    "id": "kDJJAmvEqi9z",
-                    "type": "multiple_choice",
-                    "ref": "6ffe68b5-11aa-4fa3-afc6-e3181331ff8a"
-                  }
-                },
-                {
-                  "type": "choice",
-                  "choice": {
-                    "id": "hbH15ziBnAXK",
-                    "label": "Imediatamente para gerar resultados imediatos",
-                    "ref": "85dc47d6-fda4-4766-8f7c-5e6a33f45508"
-                  },
-                  "field": {
-                    "id": "dOmJsz5M3wJF",
-                    "type": "multiple_choice",
-                    "ref": "4be22d03-5acd-436c-b0a3-e5a5255db868"
+                    "id": "KRNIQgziTSkK",
+                    "type": "short_text",
+                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb"
                   }
                 }
               ],
               "ending": {
-                "id": "jNauDCSSgAV0",
+                "id": "UvUHG2ZTIqUG",
                 "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90"
               }
             }
           },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-preenchida-sem-agendamento-hetzner",
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-preenchida-hetzner",
           "executionMode": "production"
         }
       }
@@ -4562,6 +4562,6 @@
     }
   ],
   "triggerCount": 6,
-  "updatedAt": "2025-02-11T14:39:41.475Z",
-  "versionId": "0814b43a-f86a-4de5-bc72-e7c6e9b99ff3"
+  "updatedAt": "2025-04-08T14:07:17.074Z",
+  "versionId": "e2402d2a-7d5e-44d3-949b-d6d161d897e8"
 }
