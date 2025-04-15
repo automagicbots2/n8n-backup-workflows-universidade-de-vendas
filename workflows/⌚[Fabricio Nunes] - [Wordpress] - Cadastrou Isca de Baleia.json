@@ -99,6 +99,110 @@
           }
         ]
       ]
+    },
+    "formata_dados4": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_funis1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Isca-de-baleia": {
+      "main": [
+        [
+          {
+            "node": "formata_dados4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_validados3": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_url_rotacionamento_colaboradores1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_users1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_users1": {
+      "main": [
+        [
+          {
+            "node": "cria_atualiza_user1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_atualiza_user1": {
+      "main": [
+        [
+          {
+            "node": "consulta_sdr1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_funil1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_url_rotacionamento_colaboradores1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_funis1": {
+      "main": [
+        [
+          {
+            "node": "busca_funil1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create/update clint": {
+      "main": [
+        []
+      ]
+    },
+    "consulta_sdr1": {
+      "main": [
+        [
+          {
+            "node": "create/update clint",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-04-11T18:14:44.863Z",
@@ -110,36 +214,6 @@
   "nodes": [
     {
       "parameters": {
-        "queue": "Não Aplicou - Sessão Estratégica Atualizado",
-        "options": {
-          "arguments": {
-            "argument": [
-              {
-                "key": "x-queue-type",
-                "value": "quorum"
-              }
-            ]
-          },
-          "durable": true
-        }
-      },
-      "id": "5292f57d-424d-4655-a264-22926724df9e",
-      "name": "entra_na_fila1",
-      "type": "n8n-nodes-base.rabbitmq",
-      "typeVersion": 1,
-      "position": [
-        2520,
-        1240
-      ],
-      "credentials": {
-        "rabbitmq": {
-          "id": "gEWuEJrN8BnSAPqF",
-          "name": "[RabbitMQ] - Fabrício Nunnes"
-        }
-      }
-    },
-    {
-      "parameters": {
         "jsCode": "const fullNameAnswer = $node[\"cadastro_isca_baleia\"].json[\"body\"][\"Nome\"] || \"\";\nconst emailAnswer = $node[\"cadastro_isca_baleia\"].json[\"body\"][\"E-mail\"] || \"\";\nconst telefoneClienteOriginal = $node[\"cadastro_isca_baleia\"].json[\"body\"][\"WhatsApp com DDD\"] || \"\";\n\n\nfunction capitalizeName(fullName) {\n    if (typeof fullName === 'undefined') {\n        return { fname: '', lname: '', fullname: '' };\n    }\n\n    const lowerCaseWords = ['da', 'de', 'do', 'di', 'du'];\n    let words = fullName.toLowerCase().split(' ').map((word, index) => {\n        if (lowerCaseWords.includes(word) && index !== 0) {\n            return word;\n        }\n        return word.charAt(0).toUpperCase() + word.slice(1);\n    });\n\n    let fname = words.shift();\n    let lname = words.join(' ');\n\n    let fullname = lname ? `${fname} ${lname}` : fname;\n\n    return { fname, lname, fullname };\n}\n\nfunction formatEmail(email) {\n    return email.toLowerCase().trim();\n}\n\nfunction formatInstagram(instagram) {\n    return instagram.toLowerCase().replace(/^@/, \"\");\n}\n\nfunction formatCPF(cpf) {\n    const cpfLimpo = cpf.replace(/\\D/g, \"\");\n    if (cpfLimpo.length === 11) {\n        return `${cpfLimpo.slice(0, 3)}.${cpfLimpo.slice(3, 6)}.${cpfLimpo.slice(6, 9)}-${cpfLimpo.slice(9, 11)}`;\n    }\n    return cpf;\n}\n\nfunction formatCNPJ(cnpj) {\n    const cnpjLimpo = cnpj.replace(/\\D/g, \"\");\n    if (cnpjLimpo.length === 14) {\n        return `${cnpjLimpo.slice(0, 2)}.${cnpjLimpo.slice(2, 5)}.${cnpjLimpo.slice(5, 8)}/${cnpjLimpo.slice(8, 12)}-${cnpjLimpo.slice(12, 14)}`;\n    }\n    return cnpj;\n}\n\nlet telefoneFinal = \"\";\n\nif (telefoneClienteOriginal) {\n    const telefoneLimpo = telefoneClienteOriginal.replace(/\\D/g, \"\");\n\n    let DDI = '';\n    let DDD = '';\n    let numero = '';\n\n    if (telefoneLimpo.length > 11) {\n        DDI = telefoneLimpo.slice(0, 2);\n        DDD = telefoneLimpo.slice(2, 4);\n        numero = telefoneLimpo.slice(4);\n    } else if (telefoneLimpo.length === 11) {\n        DDI = '55';\n        DDD = telefoneLimpo.slice(0, 2);\n        numero = telefoneLimpo.slice(2);\n    } else if (telefoneLimpo.length === 10) {\n        DDI = '55';\n        DDD = telefoneLimpo.slice(0, 2);\n        numero = telefoneLimpo.slice(2);\n    } else {\n        telefoneFinal = telefoneLimpo;\n    }\n\n    if (DDD && numero) {\n        if (parseInt(DDD) > 28) {\n            if (numero.length === 9 && numero.startsWith(\"9\")) {\n                numero = numero.slice(1);\n            }\n        } else {\n            if (numero.length === 8) {\n                numero = `9${numero}`;\n            }\n        }\n    }\n\n    if (DDI && DDD && numero) {\n        telefoneFinal = `${DDI}${DDD}${numero}`;\n    }\n}\n\nconst formattedNames = capitalizeName(fullNameAnswer);\nconst formattedEmail = formatEmail(emailAnswer);\nconst utm_source = $node[\"cadastro_isca_baleia\"].json[\"body\"][\"utm_source\"] || \"\";\nconst utm_campaign = $node[\"cadastro_isca_baleia\"].json[\"body\"][\"utm_campaign\"] || \"\";\nconst utm_medium = $node[\"cadastro_isca_baleia\"].json[\"body\"][\"utm_medium\"] || \"\";\nconst utm_term = $node[\"cadastro_isca_baleia\"].json[\"body\"][\"utm_term\"] || \"\";\nconst utm_content = $node[\"cadastro_isca_baleia\"].json[\"body\"][\"utm_content\"] || \"\";\nconst form_id = $node[\"cadastro_isca_baleia\"].json[\"body\"][\"form_id\"]  || \"\";\nconst form_name = $node[\"cadastro_isca_baleia\"].json[\"body\"][\"form_name\"] || \"\";\n\n\nconst result = {\n    ...formattedNames,\n    email: formattedEmail,\n    whatsapp: telefoneFinal,\n    utm_source: utm_source,\n    utm_campaign: utm_campaign,\n    utm_term: utm_term,\n    utm_medium: utm_medium,\n    utm_content: utm_content,\n    form_id: form_id,\n    form_name: form_name\n};\n\nreturn [{ json: result }];\n"
       },
       "id": "53823336-9a17-4556-ab8b-e1763d850842",
@@ -149,169 +223,6 @@
       "position": [
         960,
         1020
-      ]
-    },
-    {
-      "parameters": {
-        "keepOnlySet": true,
-        "values": {
-          "string": [
-            {
-              "name": "=Nome do Cliente",
-              "value": "={{ $node[\"formata_dados1\"].json[\"nome\"] }}"
-            },
-            {
-              "name": "Telefone do Cliente - Formato Z-API",
-              "value": "={{ $node[\"formata_dados1\"].json[\"telefone\"] }}"
-            },
-            {
-              "name": "E-mail do Cliente",
-              "value": "={{ $node[\"formata_dados1\"].json[\"email\"] }}"
-            },
-            {
-              "name": "Data do Evento",
-              "value": "={{$now.toFormat('dd/MM/yyyy')}}"
-            },
-            {
-              "name": "Hora do Evento",
-              "value": "={{$now.toFormat('dd/MM/yyyy HH:mm').split(' ')[1]}}"
-            },
-            {
-              "name": "utm_term",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_term\"] }}"
-            },
-            {
-              "name": "utm_medium",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_medium\"] }}"
-            },
-            {
-              "name": "utm_campaign",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_campaign\"] }}"
-            },
-            {
-              "name": "utm_source",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_source\"] }}"
-            },
-            {
-              "name": "utm_content",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_content\"] }}"
-            },
-            {
-              "name": "id_campo_emailse",
-              "value": "1045671"
-            },
-            {
-              "name": "valor_mentoria_centavos"
-            },
-            {
-              "name": "id_fluxo_nap01",
-              "value": "2445393"
-            },
-            {
-              "name": "API-KEY",
-              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
-            },
-            {
-              "name": "id_pipeline_se"
-            },
-            {
-              "name": "id_stage_iniciou_aplicacao"
-            },
-            {
-              "name": "id_campo_deal_utm_source"
-            },
-            {
-              "name": "id_campo_deal_utm_campaign"
-            },
-            {
-              "name": "id_campo_deal_utm_term"
-            },
-            {
-              "name": "id_campo_deal_utm_medium"
-            },
-            {
-              "name": "id_campo_deal_utm_content"
-            },
-            {
-              "name": "id_sdr"
-            },
-            {
-              "name": "funil",
-              "value": "sessao_estrategica"
-            },
-            {
-              "name": "variacao_do_funil",
-              "value": "={{ $node[\"cadastro_isca_baleia\"].json[\"body\"][\"form_id\"] === '88889e3' ? 'funil_head_comercial' : 'v1' }}"
-            },
-            {
-              "name": "url_api_activecampaign"
-            },
-            {
-              "name": "id_campo_deal_utm_fun"
-            },
-            {
-              "name": "id_campo_deal_utm_var"
-            },
-            {
-              "name": "id_campo_utm_content_bot_conversa",
-              "value": "1408040"
-            },
-            {
-              "name": "id_campo_utm_fun_bot_conversa",
-              "value": "1408044"
-            },
-            {
-              "name": "id_campo_utm_var_bot_conversa",
-              "value": "1408045"
-            },
-            {
-              "name": "id_campo_utm_medium_bot_conversa",
-              "value": "1408043"
-            },
-            {
-              "name": "id_campo_utm_term_bot_conversa",
-              "value": "1408042"
-            },
-            {
-              "name": "id_campo_utm_campaign_bot_conversa",
-              "value": "1408041"
-            },
-            {
-              "name": "id_campo_utm_source_bot_conversa",
-              "value": "1408038"
-            },
-            {
-              "name": "id_campo_id_banco_de_dados_bot_conversa",
-              "value": "1408048"
-            },
-            {
-              "name": "id_campo_id_banco_de_dados_ac"
-            },
-            {
-              "name": "id_campo_iddealac_bot_conversa"
-            },
-            {
-              "name": "id_campo_idleadac_bot_conversa"
-            },
-            {
-              "name": "data_ultima_quinzena",
-              "value": "=\"{{ $node[\"formata_dados1\"].json[\"dataFormatada\"] }}\""
-            },
-            {
-              "name": "id_fluxo_notifica_sdr_pop_up",
-              "value": "2215208"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "5ba7fdd8-9f68-41cd-96d2-b318cce78414",
-      "name": "dados_do_lead3",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 2,
-      "position": [
-        2180,
-        1360
       ]
     },
     {
@@ -622,6 +533,531 @@
         2640,
         1020
       ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"formata_dados4\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"formata_dados4\"].json[\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato BC",
+              "value": "=+{{ $node[\"formata_dados4\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente - Formato Z-API",
+              "value": "={{ $node[\"formata_dados4\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "id_fluxo_nao_agendou_10_min"
+            },
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "quantos_vendedores_possui",
+              "value": "={{ $node[\"formata_dados4\"].json[\"quantos_vendedores_possui\"]  || null }}"
+            },
+            {
+              "name": "conhece_mentoria",
+              "value": "={{ $node[\"formata_dados4\"].json[\"conhece_mentoria\"]   || null }}"
+            },
+            {
+              "name": "tem_socio",
+              "value": "={{ $node[\"formata_dados4\"].json[\"possui_socio\"] }}"
+            },
+            {
+              "name": "id_campo_id_banco_de_dados_bot_conversa",
+              "value": "1408048"
+            },
+            {
+              "name": "id_campo_utm_source_bot_conversa",
+              "value": "1408038"
+            },
+            {
+              "name": "id_campo_utm_campaign_bot_conversa",
+              "value": "1408041"
+            },
+            {
+              "name": "id_campo_utm_term_bot_conversa",
+              "value": "1408042"
+            },
+            {
+              "name": "id_campo_utm_medium_bot_conversa",
+              "value": "1408043"
+            },
+            {
+              "name": "id_campo_utm_content_bot_conversa",
+              "value": "1408040"
+            },
+            {
+              "name": "id_campo_utm_fun_bot_conversa",
+              "value": "1408044"
+            },
+            {
+              "name": "id_campo_utm_var_bot_conversa",
+              "value": "1408045"
+            },
+            {
+              "name": "id_campo_quantos_vendedores_possui_bot_conversa",
+              "value": "1408034"
+            },
+            {
+              "name": "id_campo_conhece_mentoria_bot_conversa",
+              "value": "1408035"
+            },
+            {
+              "name": "id_campo_tem_socio_bot_conversa",
+              "value": "1408036"
+            },
+            {
+              "name": "funil",
+              "value": "Isca_Ebook"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "SE-Isca"
+            },
+            {
+              "name": "data_ultima_quinzena",
+              "value": "=\"{{ $node[\"formata_dados4\"].json[\"data_ultima_quinzena\"] }}\""
+            },
+            {
+              "name": "id_campo_emailse_bot_conversa",
+              "value": "1045671"
+            },
+            {
+              "name": "id_tag_desqualificado_bot_conversa",
+              "value": "5073673"
+            },
+            {
+              "name": "id_tag_qualificado_bot_conversa",
+              "value": "4891806"
+            },
+            {
+              "name": "instagram",
+              "value": "={{ $node[\"formata_dados4\"].json[\"instagram\"] }}"
+            },
+            {
+              "name": "faturamento",
+              "value": "={{ $node[\"formata_dados4\"].json[\"faturamento\"] }}"
+            },
+            {
+              "name": "maior_problema",
+              "value": "={{ $node[\"formata_dados4\"].json[\"maior_problema\"] }}"
+            },
+            {
+              "name": "porque_a_mentoria",
+              "value": "={{ $node[\"formata_dados4\"].json[\"porque_a_mentoria\"] }}"
+            },
+            {
+              "name": "porque_voce",
+              "value": "={{ $node[\"formata_dados4\"].json[\"porque_voce\"] }}"
+            },
+            {
+              "name": "estrategias",
+              "value": "={{ $node[\"formata_dados4\"].json[\"estrategias\"] }}"
+            },
+            {
+              "name": "nicho",
+              "value": "={{ $node[\"formata_dados4\"].json[\"nicho\"] }}"
+            },
+            {
+              "name": "conhece_mentoria",
+              "value": "={{ $node[\"formata_dados4\"].json[\"conhece_mentoria\"] }}"
+            },
+            {
+              "name": "situacao_atual",
+              "value": "={{ $node[\"formata_dados4\"].json[\"situacao_atual\"] }}"
+            },
+            {
+              "name": "metodologia",
+              "value": "={{ $node[\"formata_dados4\"].json[\"metodologia\"] }}"
+            },
+            {
+              "name": "comeca_quando",
+              "value": "={{ $node[\"formata_dados4\"].json[\"comeca_quando\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7113051c-fc0e-4ce6-a0ba-47df438ab5a4",
+      "name": "dados_validados3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        2660,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const hidden = $node[\"Isca-de-baleia\"].json.body.form_response.hidden || {};\nconst answers = $node[\"Isca-de-baleia\"].json.body.form_response.answers || [];\n\n// Captura dos campos ocultos do Typeform\nconst fullNameAnswer = hidden[\"name\"] || \"\";\nconst emailAnswer = hidden[\"email\"] || \"\";\nconst telefoneClienteOriginal = hidden[\"phone\"] || \"\";\n\nfunction capitalizeName(fullName) {\n    if (!fullName) {\n        return { fname: '', lname: '', fullname: '' };\n    }\n\n    const lowerCaseWords = ['da', 'de', 'do', 'di', 'du'];\n    let words = fullName.toLowerCase().split(' ').map((word, index) => {\n        if (lowerCaseWords.includes(word) && index !== 0) {\n            return word;\n        }\n        return word.charAt(0).toUpperCase() + word.slice(1);\n    });\n\n    let fname = words.shift();\n    let lname = words.join(' ');\n    let fullname = lname ? `${fname} ${lname}` : fname;\n\n    return { fname, lname, fullname };\n}\n\nfunction formatEmail(email) {\n    return email.toLowerCase().trim();\n}\n\nfunction formatInstagram(instagram) {\n    return instagram.toLowerCase().replace(/^@/, \"\");\n}\n\nfunction formatCPF(cpf) {\n    const cpfLimpo = cpf.replace(/\\D/g, \"\");\n    if (cpfLimpo.length === 11) {\n        return `${cpfLimpo.slice(0, 3)}.${cpfLimpo.slice(3, 6)}.${cpfLimpo.slice(6, 9)}-${cpfLimpo.slice(9, 11)}`;\n    }\n    return cpf;\n}\n\nfunction formatCNPJ(cnpj) {\n    const cnpjLimpo = cnpj.replace(/\\D/g, \"\");\n    if (cnpjLimpo.length === 14) {\n        return `${cnpjLimpo.slice(0, 2)}.${cnpjLimpo.slice(2, 5)}.${cnpjLimpo.slice(5, 8)}/${cnpjLimpo.slice(8, 12)}-${cnpjLimpo.slice(12, 14)}`;\n    }\n    return cnpj;\n}\n\nlet telefoneFinal = \"\";\nif (telefoneClienteOriginal) {\n    const telefoneLimpo = telefoneClienteOriginal.replace(/\\D/g, \"\");\n    let DDI = '', DDD = '', numero = '';\n\n    if (telefoneLimpo.length > 11) {\n        DDI = telefoneLimpo.slice(0, 2);\n        DDD = telefoneLimpo.slice(2, 4);\n        numero = telefoneLimpo.slice(4);\n    } else if (telefoneLimpo.length === 11 || telefoneLimpo.length === 10) {\n        DDI = '55';\n        DDD = telefoneLimpo.slice(0, 2);\n        numero = telefoneLimpo.slice(2);\n    } else {\n        telefoneFinal = telefoneLimpo;\n    }\n\n    if (DDD && numero) {\n        if (parseInt(DDD) > 28) {\n            if (numero.length === 9 && numero.startsWith(\"9\")) {\n                numero = numero.slice(1);\n            }\n        } else {\n            if (numero.length === 8) {\n                numero = `9${numero}`;\n            }\n        }\n    }\n\n    if (DDI && DDD && numero) {\n        telefoneFinal = `${DDI}${DDD}${numero}`;\n    }\n}\n\nconst formattedNames = capitalizeName(fullNameAnswer);\nconst formattedEmail = formatEmail(emailAnswer);\n\n// UTM e infos do formulário\nconst utm_source = hidden[\"utm_source\"] || \"\";\nconst utm_campaign = hidden[\"utm_campaign\"] || \"\";\nconst utm_medium = hidden[\"utm_medium\"] || \"\";\nconst utm_term = hidden[\"utm_term\"] || \"\";\nconst utm_content = hidden[\"utm_content\"] || \"\";\nconst form_id = $node[\"Isca-de-baleia\"].json.body.form_response.form_id || \"\";\nconst form_name = $node[\"Isca-de-baleia\"].json.body.form_response.definition?.title || \"\";\n\n// Capturar respostas do Typeform\nlet quantos_vendedores = \"\";\nlet conhece_mentoria = \"\";\nlet faturamento_mensal = \"\";\nlet tem_socios = \"\";\nlet instagram_empresa = \"\";\n\nanswers.forEach(answer => {\n    const fieldRef = answer.field.ref;\n\n    switch (fieldRef) {\n        case \"fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed\": // Quantos vendedores?\n            quantos_vendedores = answer.choice?.label || \"\";\n            break;\n        case \"f9be3fc8-d97d-406b-b633-ef44898fff9a\": // Já ouviu falar da mentoria?\n            conhece_mentoria = answer.choice?.label || \"\";\n            break;\n        case \"c2c91ede-d2c1-4245-bf78-589b779371a4\": // Faturamento médio\n            faturamento_mensal = answer.choice?.label || \"\";\n            break;\n        case \"06045517-dab6-4de5-bc9e-ae1cdde3d0d3\": // Tem sócios?\n            tem_socios = answer.boolean === true ? \"Sim\" : \"Não\";\n            break;\n        case \"bae8dbfc-3bc4-4b25-b431-4d32910b51eb\": // Instagram\n            instagram_empresa = formatInstagram(answer.text || \"\");\n            break;\n    }\n});\n\n// Montar objeto final\nconst result = {\n    ...formattedNames,\n    email: formattedEmail,\n    whatsapp: telefoneFinal,\n    utm_source,\n    utm_campaign,\n    utm_term,\n    utm_medium,\n    utm_content,\n    form_id,\n    form_name,\n    quantos_vendedores,\n    conhece_mentoria,\n    faturamento_mensal,\n    tem_socios,\n    instagram_empresa\n};\n\nreturn [{ json: result }];\n"
+      },
+      "id": "1b9e3134-1b83-4fc6-b702-ca60af6e8bc8",
+      "name": "formata_dados4",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        920,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "Não Agendamentos - Parte 2",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "01b64eeb-f5ce-4439-aeca-13b8e56bcf18",
+      "name": "entra_na_fila3",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        2820,
+        1240
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "material_gratuito-isca",
+        "options": {}
+      },
+      "id": "7c0e5cec-1fff-4a00-ba33-41e4147aec27",
+      "name": "Isca-de-baleia",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        740,
+        1240
+      ],
+      "webhookId": "ca0c0d67-b335-4d4a-9bb2-47844ea97d8d"
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_url_rotacionamento_colaboradores1\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "=SDR"
+            },
+            {
+              "name": "id_user",
+              "value": "={{ $node[\"cria_atualiza_user1\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2220,
+        1240
+      ],
+      "id": "dec3fae4-7ab9-4df6-8489-bbc00408307f",
+      "name": "consulta_sdr1"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Rotacionamento de Colaboradores"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "69b6e21b-6208-4807-b46d-66d92f0bb053",
+      "name": "pesquisa_url_rotacionamento_colaboradores1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1560,
+        1240
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Users"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "4a08f178-d98a-4cf7-9811-6d877e865fc4",
+      "name": "pesquisa_variavel_n8n_fluxo_users1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1800,
+        1240
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users1\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados4\"].json[\"fname\"] || \"\" }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados4\"].json[\"lname\"] || \"\" }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados4\"].json[\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados4\"].json[\"whatsapp\"] || \"\" }}"
+            },
+            {
+              "name": "instagram",
+              "value": "={{ $node[\"formata_dados4\"].json[\"instagram_empresa\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2020,
+        1240
+      ],
+      "id": "c14648b9-4ce0-466d-8702-68839a3f8578",
+      "name": "cria_atualiza_user1"
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis1\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_forms",
+              "value": "={{ $node[\"formata_dados4\"].json[\"form_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        1240
+      ],
+      "id": "c641b35d-2738-40e5-ab42-c55d7f7ed01a",
+      "name": "busca_funil1"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Funis"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "9b0928d7-9459-4a8b-b0ce-e9d0e3fd821b",
+      "name": "pesquisa_variavel_n8n_fluxo_funis1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1160,
+        1240
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/0551628d-63e7-4b11-8fc2-cdf5b91ac086",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados4\"].json[\"fname\"] }} {{ $node[\"formata_dados4\"].json[\"lname\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados4\"].json[\"whatsapp\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados4\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "=ISCA DE BALEIA"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "=V2"
+            },
+            {
+              "name": "dono",
+              "value": "={{ $node[\"consulta_sdr1\"].json[\"email\"] }}"
+            },
+            {
+              "name": "vendedores",
+              "value": "={{ $node[\"formata_dados4\"].json[\"quantos_vendedores\"] }}"
+            },
+            {
+              "name": "possui sócio?",
+              "value": "={{ $node[\"formata_dados4\"].json[\"tem_socios\"] }}"
+            },
+            {
+              "name": "Já conhece o negócio?",
+              "value": "={{ $node[\"formata_dados4\"].json[\"conhece_mentoria\"] }}"
+            },
+            {
+              "name": "faturamento",
+              "value": "={{ $node[\"formata_dados4\"].json[\"faturamento_mensal\"] }}"
+            },
+            {
+              "name": "instagram",
+              "value": "={{ $node[\"formata_dados4\"].json[\"instagram_empresa\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "24a239db-2722-470e-af4f-c12ce69d1204",
+      "name": "create/update clint",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2420,
+        1240
+      ]
     }
   ],
   "pinData": {
@@ -660,6 +1096,240 @@
           "executionMode": "production"
         }
       }
+    ],
+    "Isca-de-baleia": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "Typeform Webhooks",
+            "content-length": "4007",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "traceparent": "00-43bc7897990e08d57404684c6abc934b-5d416cd35bbeb821-01",
+            "x-forwarded-for": "18.204.78.134",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "18.204.78.134"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event_id": "01JRTV1JHQVA66HRFY1ZESBQHS",
+            "event_type": "form_response",
+            "form_response": {
+              "form_id": "ZiF4mE2g",
+              "token": "112sgu4bipt41rhi3kmxu112sgt32gey",
+              "landed_at": "2025-04-14T19:04:45Z",
+              "submitted_at": "2025-04-14T19:05:00Z",
+              "hidden": {
+                "email": "mateusdiniz@automagicbots.com.br",
+                "name": "Mateus Diniz - Automagic Bots",
+                "phone": "62981196678",
+                "utm_campaign": "teste",
+                "utm_content": "auto123",
+                "utm_id": "xxxxx",
+                "utm_medium": "Bots",
+                "utm_source": "Automagic",
+                "utm_term": "aovivo"
+              },
+              "definition": {
+                "id": "ZiF4mE2g",
+                "title": "Material gratuito",
+                "fields": [
+                  {
+                    "id": "Lhw3yEETzf7f",
+                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed",
+                    "type": "multiple_choice",
+                    "title": "{{hidden:name}} quantos vendedores você tem na sua empresa hoje?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "05ZjdKYCH4tY",
+                        "ref": "699fb225-0c8f-4b12-9e00-904c1634f953",
+                        "label": "Não tenho vendedores"
+                      },
+                      {
+                        "id": "XotONusXfJGI",
+                        "ref": "7e019f18-8e58-495d-b48e-6bddb50979e9",
+                        "label": "De 1 a 5 vendedores"
+                      },
+                      {
+                        "id": "2gYCQmZsvHEk",
+                        "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59",
+                        "label": "De 6 a 8 vendedores"
+                      },
+                      {
+                        "id": "wyYanUyHDDpt",
+                        "ref": "f272caf5-c0b8-4f15-adb5-70e6cb8a1421",
+                        "label": "De 9 a 15 vendedores"
+                      },
+                      {
+                        "id": "QSJoOhCwgeX0",
+                        "ref": "9ada87ee-4773-4496-a28c-fb1235fdeca7",
+                        "label": "Acima de 15 vendedores"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "yj9NRIwnbRhn",
+                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a",
+                    "type": "multiple_choice",
+                    "title": "Você já ouviu falar do meu programa de Mentoria?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "UFRmkVFg9uqI",
+                        "ref": "0935e89e-f63f-4371-be68-67f935aadb55",
+                        "label": "Sim"
+                      },
+                      {
+                        "id": "bb3PDb02udMn",
+                        "ref": "e361a83c-609b-48c9-b2fb-73b04a855081",
+                        "label": "Não"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "cmESPEvFRxfQ",
+                    "ref": "c2c91ede-d2c1-4245-bf78-589b779371a4",
+                    "type": "multiple_choice",
+                    "title": "Qual faturamento médio mensal da sua empresa?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "Or5hPdcJsF4Y",
+                        "ref": "05845253-f89a-4128-be1d-09705ae3219b",
+                        "label": "Até 20 mil reais"
+                      },
+                      {
+                        "id": "iSXrTpTmTqX9",
+                        "ref": "0cc01189-531b-434c-b748-6fa27245a533",
+                        "label": "Entre 20 e 50 mil reais"
+                      },
+                      {
+                        "id": "spcwXtvzU8gt",
+                        "ref": "c003d3bd-9e91-40ed-8d25-26f3adf525c2",
+                        "label": "Entre 50 e 100 mil reais"
+                      },
+                      {
+                        "id": "sEyZhPeKp4VA",
+                        "ref": "e29fbefc-3900-4f74-aeca-e1e14f140069",
+                        "label": "Entre 100 e 200 mil reais"
+                      },
+                      {
+                        "id": "LxhmBK3jJgBA",
+                        "ref": "b553d2b1-0717-4cf9-92d4-bbfafbbe7db9",
+                        "label": "Entre 200 e 300 mil reais"
+                      },
+                      {
+                        "id": "LnzOaF26XA7q",
+                        "ref": "41716b89-2910-4793-bc60-849140740031",
+                        "label": "Acima de 300 mil reais"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "U8WX7lz78BQe",
+                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3",
+                    "type": "yes_no",
+                    "title": "Você tem algum sócio ou parceiro de negócios que toma decisão junto com você?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "PPniQ2iR3zsb",
+                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb",
+                    "type": "short_text",
+                    "title": "Qual o Instagram da sua empresa?",
+                    "properties": {}
+                  }
+                ],
+                "endings": [
+                  {
+                    "id": "3Wlu66WFd9mV",
+                    "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90",
+                    "title": "https://universidadevendas.com.br/parabens-material/",
+                    "type": "url_redirect",
+                    "properties": {
+                      "redirect_url": "https://universidadevendas.com.br/parabens-material/"
+                    }
+                  }
+                ],
+                "settings": {
+                  "partial_responses_to_all_integrations": false
+                }
+              },
+              "answers": [
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "XotONusXfJGI",
+                    "label": "De 1 a 5 vendedores",
+                    "ref": "7e019f18-8e58-495d-b48e-6bddb50979e9"
+                  },
+                  "field": {
+                    "id": "Lhw3yEETzf7f",
+                    "type": "multiple_choice",
+                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "bb3PDb02udMn",
+                    "label": "Não",
+                    "ref": "e361a83c-609b-48c9-b2fb-73b04a855081"
+                  },
+                  "field": {
+                    "id": "yj9NRIwnbRhn",
+                    "type": "multiple_choice",
+                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "iSXrTpTmTqX9",
+                    "label": "Entre 20 e 50 mil reais",
+                    "ref": "0cc01189-531b-434c-b748-6fa27245a533"
+                  },
+                  "field": {
+                    "id": "cmESPEvFRxfQ",
+                    "type": "multiple_choice",
+                    "ref": "c2c91ede-d2c1-4245-bf78-589b779371a4"
+                  }
+                },
+                {
+                  "type": "boolean",
+                  "boolean": false,
+                  "field": {
+                    "id": "U8WX7lz78BQe",
+                    "type": "yes_no",
+                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "prmateusdiniz",
+                  "field": {
+                    "id": "PPniQ2iR3zsb",
+                    "type": "short_text",
+                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb"
+                  }
+                }
+              ],
+              "ending": {
+                "id": "3Wlu66WFd9mV",
+                "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90"
+              }
+            }
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/isca-de-baleia",
+          "executionMode": "production"
+        }
+      }
     ]
   },
   "settings": {
@@ -673,7 +1343,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 1,
-  "updatedAt": "2025-04-11T20:57:28.246Z",
-  "versionId": "7be27ee8-cbb5-42c6-8146-d17bc6d71567"
+  "triggerCount": 2,
+  "updatedAt": "2025-04-14T21:00:12.806Z",
+  "versionId": "7ac199a0-2a34-47eb-a055-b3d54187c522"
 }
