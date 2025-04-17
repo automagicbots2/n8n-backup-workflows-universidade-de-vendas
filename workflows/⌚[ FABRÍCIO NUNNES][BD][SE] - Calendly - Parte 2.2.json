@@ -1161,7 +1161,7 @@
       "main": [
         [
           {
-            "node": "atualiza_negocio_clint1",
+            "node": "atualiza_negocio_clint6",
             "type": "main",
             "index": 0
           }
@@ -1172,7 +1172,7 @@
       "main": [
         [
           {
-            "node": "pesquisa_agendamento",
+            "node": "3-2",
             "type": "main",
             "index": 0
           }
@@ -1183,7 +1183,7 @@
       "main": [
         [
           {
-            "node": "3-2",
+            "node": "atualiza_negocio_clint1",
             "type": "main",
             "index": 0
           }
@@ -1396,6 +1396,17 @@
         [
           {
             "node": "3-6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_negocio_clint6": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_agendamento",
             "type": "main",
             "index": 0
           }
@@ -5033,7 +5044,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        4720,
+        4780,
         860
       ],
       "webhookId": "33994601-1b7b-4f45-b8ae-b77a768db8b3"
@@ -5130,7 +5141,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        4900,
+        4600,
         860
       ]
     },
@@ -5152,9 +5163,19 @@
                 "operation": "equals",
                 "name": "filter.operator.equals"
               }
+            },
+            {
+              "id": "f5883cfd-2780-4ce8-8b2d-c1bb1e1d5438",
+              "leftValue": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Tipo de Evento\"] }}",
+              "rightValue": "Sessão Estratégica Comercial (Material Gratuito)",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
             }
           ],
-          "combinator": "and"
+          "combinator": "or"
         },
         "options": {}
       },
@@ -5776,6 +5797,102 @@
         4920,
         1860
       ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/c5fe3c58-98ab-4376-a859-e7dc87b70c34",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "dono_negocio",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"] }}"
+            },
+            {
+              "name": "reunião",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"] }}"
+            },
+            {
+              "name": "link_reuniao",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}"
+            },
+            {
+              "name": "link_cancelamento",
+              "value": "=https://calendly.com/cancellations/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
+            },
+            {
+              "name": "link_reagendamento",
+              "value": "=https://calendly.com/reschedullings/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "utm_fun",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"funil\"] }}"
+            },
+            {
+              "name": "utm_var",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"variacao_do_funil\"] }}"
+            },
+            {
+              "name": "pais",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"pais\"] }}"
+            },
+            {
+              "name": "data_de_inicio_portugal",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início - PT\"] }}"
+            },
+            {
+              "name": "data_de_termino_portugal",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Término - PT\"] }}"
+            },
+            {
+              "name": "closer",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo').replace('ana.carvalho@universidadevendas.com.br','Ana Carvalho').replace('leandro.arcas@universidadevendas.com.br','Leandro Arcas') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e97a575e-e400-4341-98b3-76adea812b9e",
+      "name": "atualiza_negocio_clint6",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        4980,
+        860
+      ]
     }
   ],
   "pinData": {
@@ -5783,37 +5900,35 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-DegZ7dRQwF_W6jyUPUVliA",
-            "deliveryTag": 4,
+            "consumerTag": "amq.ctag-BTXlh2BKrfbH6Y2t3q5d6Q",
+            "deliveryTag": 225,
             "redelivered": false,
             "exchange": "",
             "routingKey": "Calendly-parte2"
           },
           "properties": {
-            "headers": {
-              "x-delivery-count": 217
-            }
+            "headers": {}
           },
           "content": {
-            "Nome do Cliente": "Diógenes Fidel Marçal",
-            "E-mail do Cliente": "clinicaelementus@gmail.com",
-            "Telefone do Cliente - Formato BC": "+556293436941",
-            "Telefone do Cliente - Formato Z-API": "556293436941",
-            "Tipo de Evento": "Funil SS",
-            "ID do Evento": "b1255ff9-0b77-4d99-bcdb-f39dc457a2dd",
-            "Responsável pelo Evento": "Maiko Bruce",
-            "E-mail do Responsável": "maiko.bruce@universidadevendas.com.br",
-            "Data de Início": "26/03/2025, 10:00",
-            "Data em que foi feito o Agendamento": "25/03/2025, 08:50",
-            "Data de Término": "26/03/2025, 10:45",
-            "Dia da Semana de Início do Evento": "Quarta",
-            "Link da Reunião": "https://calendly.com/events/b1255ff9-0b77-4d99-bcdb-f39dc457a2dd/google_meet",
+            "Nome do Cliente": "Mateus Diniz (Automagic Bots)",
+            "E-mail do Cliente": "mateusdiniz@automagicbots.com.br",
+            "Telefone do Cliente - Formato BC": "+556281196678",
+            "Telefone do Cliente - Formato Z-API": "556281196678",
+            "Tipo de Evento": "Sessão Estratégica Comercial (Material Gratuito)",
+            "ID do Evento": "78f954b5-c5c1-4b5f-96f5-ffb121f25c20",
+            "Responsável pelo Evento": "Ana Carvalho",
+            "E-mail do Responsável": "ana.carvalho@universidadevendas.com.br",
+            "Data de Início": "18/04/2025, 11:00",
+            "Data em que foi feito o Agendamento": "16/04/2025, 18:47",
+            "Data de Término": "18/04/2025, 11:45",
+            "Dia da Semana de Início do Evento": "Sexta",
+            "Link da Reunião": "https://calendly.com/events/78f954b5-c5c1-4b5f-96f5-ffb121f25c20/google_meet",
             "utm_source": null,
             "utm_campaign": null,
             "utm_term": null,
             "utm_medium": null,
             "utm_content": null,
-            "ID do Cliente": "1e67412b-07b0-45e5-ac18-6b1dead16b98",
+            "ID do Cliente": "d2888455-485f-401d-bf07-7a6db391b95b",
             "id_do_campo_id_do_agendamento_bot_conversa": "1045673",
             "fluxo_de_confirmacao_de_agendamento": "4496635",
             "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
@@ -5832,13 +5947,13 @@
             "id_do_campo_faturamento_mensal_bot_conversa": "1051567",
             "id_campo_tem_socio_bot_conversa": "1408036",
             "id_campo_nome_closer_responsavel_bot_conversa": "1459264",
-            "Data em que foi feito o Agendamento - PT": "25/03/2025",
-            "Data de Início - PT": "13:00",
-            "Data de Término - PT": "13:45",
+            "Data em que foi feito o Agendamento - PT": "16/04/2025",
+            "Data de Início - PT": "14:00",
+            "Data de Término - PT": "14:45",
             "id_do_campo_dia_da_semana_do_agendamento_bot_conversa_pt": "1853088",
             "id_do_campo_horario_agendado_bot_conversa_pt": "1853084",
             "id_do_campo_data_do_agendamento_bot_conversa_pt": "1852850",
-            "slug_do_evento": "sessao-estrategica-comercial-manual-clone"
+            "slug_do_evento": "sessao-estrategica-material-gratuito"
           }
         }
       }
@@ -5863,6 +5978,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-03-25T13:13:51.023Z",
-  "versionId": "b62feebd-06da-423c-beff-2e0456454438"
+  "updatedAt": "2025-04-16T21:49:59.764Z",
+  "versionId": "89192f8f-8555-42f6-81c5-633d5eb3cb19"
 }
