@@ -163,7 +163,7 @@
             "Qual o valor total que o cliente já pagou?": "=R$ {{ $json[\"body\"][\"deal_value\"] }}",
             "Outro telefone do cliente (se houver)": "={{ $json[\"body\"][\"deal_user_phone\"] }}",
             "Endereço de e-mail": "={{ $json[\"body\"][\"contact_email\"] }}",
-            "Closer": "={{ $json[\"body\"][\"deal_closer\"] }}",
+            "Closer": "={{ $json[\"body\"][\"deal_closer\"].replace('Ana Carvalho','Ana Cristina') }}",
             "quem qualificou": "={{ $json[\"body\"][\"deal_sdr\"] }}",
             "Quantidade": "1",
             "Vigência total (em meses)": "={{ $json[\"body\"][\"deal_meses_de_contrato\"] }}",
@@ -1521,6 +1521,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2025-03-13T13:03:13.986Z",
-  "versionId": "c51669aa-f3db-498d-9eaa-5b60a9b7779c"
+  "updatedAt": "2025-04-16T21:12:12.020Z",
+  "versionId": "1bb5cc3b-0e61-4d19-92bc-f3198887a198"
 }
