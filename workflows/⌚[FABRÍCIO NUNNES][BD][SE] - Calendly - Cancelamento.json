@@ -6229,7 +6229,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/6a5690aa-a379-4d2d-9227-3e1befeee3fa",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/6893cac4-a1b0-41b2-862a-7e8099bf2abc",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -6251,11 +6251,11 @@
             },
             {
               "name": "reunião",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"] }}"
+              "value": "=REUNIÃO CANCELADA - {{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"] }}"
             },
             {
               "name": "link_reuniao",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}"
+              "value": "=REUNIÃO CANCELADA - {{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}"
             },
             {
               "name": "link_cancelamento",
@@ -6308,14 +6308,6 @@
             {
               "name": "closer",
               "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo').replace('ana.carvalho@universidadevendas.com.br','Ana Carvalho').replace('leandro.arcas@universidadevendas.com.br','Leandro Arcas') }}"
-            },
-            {
-              "name": "etapa_funil",
-              "value": "3"
-            },
-            {
-              "name": "etapa_funil",
-              "value": "Pré-qualificação"
             }
           ]
         },
@@ -6348,9 +6340,19 @@
                 "operation": "equals",
                 "name": "filter.operator.equals"
               }
+            },
+            {
+              "id": "1cbfb885-9022-4745-8638-5fc12e68a69b",
+              "leftValue": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Tipo de Evento\"] }}",
+              "rightValue": "Sessão Estratégica Comercial (Material Gratuito)",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
             }
           ],
-          "combinator": "and"
+          "combinator": "or"
         },
         "options": {}
       },
@@ -6964,6 +6966,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-03-25T13:16:43.276Z",
-  "versionId": "c9080911-cc08-400a-8793-460af53c1aa6"
+  "updatedAt": "2025-04-16T21:58:23.095Z",
+  "versionId": "a18e8645-8f57-4ccf-b794-247b5b591256"
 }
