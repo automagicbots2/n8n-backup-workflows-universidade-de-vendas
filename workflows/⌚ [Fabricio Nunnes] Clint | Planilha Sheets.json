@@ -1,28 +1,6 @@
 {
   "active": true,
   "connections": {
-    "call_realizada": {
-      "main": [
-        [
-          {
-            "node": "CLINT CALL REALIZADA",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "no_show": {
-      "main": [
-        [
-          {
-            "node": "CLINT NO SHOW",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Call_Agendada": {
       "main": [
         [
@@ -91,13 +69,7 @@
     },
     "get_groups": {
       "main": [
-        [
-          {
-            "node": "If",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "avisa_Rafael": {
@@ -120,6 +92,79 @@
             "index": 0
           }
         ]
+      ]
+    },
+    "call_realizada": {
+      "main": [
+        [
+          {
+            "node": "CLINT CALL REALIZADA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "no_show": {
+      "main": [
+        [
+          {
+            "node": "CLINT NO SHOW",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CLINT NO SHOW": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CLINT CALL REALIZADA": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [],
+        [
+          {
+            "node": "add_lead_leadlovers_callrealizada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "add_lead_leadlovers_noshow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CLINT CALL AGENDADA": {
+      "main": [
+        []
       ]
     }
   },
@@ -919,38 +964,6 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "call_realizada-hetzner",
-        "options": {}
-      },
-      "id": "bd7f3a00-c1c3-43a2-9c9b-e8dffa1ba0cf",
-      "name": "call_realizada",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1.1,
-      "position": [
-        720,
-        720
-      ],
-      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "no_show-hetzner",
-        "options": {}
-      },
-      "id": "8139dbb5-7280-4ce8-983c-6e16c61258f2",
-      "name": "no_show",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1.1,
-      "position": [
-        720,
-        920
-      ],
-      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
         "path": "call_agendada-hetzner",
         "options": {}
       },
@@ -1213,12 +1226,12 @@
           "conditions": [
             {
               "id": "7d62bddb-c5df-4118-9a76-a379e165393f",
-              "leftValue": "={{ $json[\"subject\"] }}",
+              "leftValue": "={{ $node[\"call_realizada\"].json[\"body\"][\"contact_email\"] }}",
               "rightValue": "Integração novos clientes - Universidade Vendas",
               "operator": {
                 "type": "string",
-                "operation": "equals",
-                "name": "filter.operator.equals"
+                "operation": "empty",
+                "singleValue": true
               }
             }
           ],
@@ -1231,8 +1244,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        1880,
-        780
+        1140,
+        720
       ]
     },
     {
@@ -1263,8 +1276,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1660,
-        780
+        1920,
+        740
       ]
     },
     {
@@ -1318,81 +1331,146 @@
         300
       ],
       "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "call_realizada-hetzner",
+        "options": {}
+      },
+      "id": "bd7f3a00-c1c3-43a2-9c9b-e8dffa1ba0cf",
+      "name": "call_realizada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        720
+      ],
+      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "no_show-hetzner",
+        "options": {}
+      },
+      "id": "8139dbb5-7280-4ce8-983c-6e16c61258f2",
+      "name": "no_show",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        920
+      ],
+      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://llapi.leadlovers.com/webapi/lead",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "4A3A3499EBDA4A25A1282B4BD44D5A97"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"Name\": \"{{ $node[\"no_show\"].json[\"body\"][\"contact_name\"] }}\",\n  \"Email\": \"{{ $node[\"no_show\"].json[\"body\"][\"contact_email\"] }}\",\n  \"MachineCode\": 758865,\n  \"EmailSequenceCode\": 1794353,\n  \"SequenceLevelCode\": 1\n}",
+        "options": {}
+      },
+      "id": "0a588858-c86e-4ef3-959c-2dac0ae2dd7e",
+      "name": "add_lead_leadlovers_noshow",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://llapi.leadlovers.com/webapi/lead",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "4A3A3499EBDA4A25A1282B4BD44D5A97"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"Name\": \"{{ $node[\"call_realizada\"].json[\"body\"][\"contact_name\"] }}\",\n  \"Email\": \"{{ $node[\"call_realizada\"].json[\"body\"][\"contact_email\"] }}\",\n  \"MachineCode\": 758873,\n  \"EmailSequenceCode\": 1794362,\n  \"SequenceLevelCode\": 1\n}",
+        "options": {}
+      },
+      "id": "807c5a6c-de63-49ee-93ef-af12c7302455",
+      "name": "add_lead_leadlovers_callrealizada",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7d62bddb-c5df-4118-9a76-a379e165393f",
+              "leftValue": "={{ $node[\"no_show\"].json[\"body\"][\"contact_email\"] }}",
+              "rightValue": "Integração novos clientes - Universidade Vendas",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "0158945a-29ac-4d0d-8ca7-4d2906fbdf6c",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        920
+      ]
     }
   ],
   "pinData": {
-    "call_realizada": [
-      {
-        "json": {
-          "headers": {
-            "host": "n8nwebhookfabricionunnes.automagicbots.com.br",
-            "user-agent": "axios/0.27.2",
-            "content-length": "374",
-            "accept": "application/json, text/plain, */*",
-            "content-type": "application/json",
-            "x-forwarded-for": "52.200.254.28",
-            "x-forwarded-host": "n8nwebhookfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "077bd0aa48be",
-            "x-real-ip": "52.200.254.28",
-            "accept-encoding": "gzip"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "contact_name": "Isadora",
-            "contact_email": "isadorarochadebrito@hotmail.com",
-            "contact_phone": "+5541996755364",
-            "deal_stage": "Proposta",
-            "deal_user": "closer1@universidadevendas.com.br",
-            "deal_status": "OPEN",
-            "deal_origin": "Sessão Estratégica",
-            "deal_reuniao": "04/03/2024, 13:00",
-            "organization_name": "",
-            "deal_nome_fantasia_da_emp": "",
-            "deal_closer": "Jonatã Almeida",
-            "deal_sdr": ""
-          }
-        }
-      }
-    ],
-    "no_show": [
-      {
-        "json": {
-          "headers": {
-            "host": "n8nwebhookfabricionunnes.automagicbots.com.br",
-            "user-agent": "axios/0.27.2",
-            "content-length": "373",
-            "accept": "application/json, text/plain, */*",
-            "content-type": "application/json",
-            "x-forwarded-for": "52.200.254.28",
-            "x-forwarded-host": "n8nwebhookfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "077bd0aa48be",
-            "x-real-ip": "52.200.254.28",
-            "accept-encoding": "gzip"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "contact_name": "Vitor Queiroz",
-            "contact_email": "vitorrqueiroztrafego@gmail.com",
-            "contact_phone": "+5519984574874",
-            "deal_stage": "No-show",
-            "deal_user": "closer1@universidadevendas.com.br",
-            "deal_status": "OPEN",
-            "deal_origin": "Sessão Estratégica",
-            "deal_reuniao": "04/03/2024, 13:00",
-            "organization_name": "",
-            "deal_nome_fantasia_da_emp": "",
-            "deal_closer": "Jonatã Almeida",
-            "deal_sdr": ""
-          }
-        }
-      }
-    ],
     "Call_Agendada": [
       {
         "json": {
@@ -1507,6 +1585,94 @@
           "executionMode": "production"
         }
       }
+    ],
+    "call_realizada": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/1.7.9",
+            "content-length": "410",
+            "accept": "application/json, text/plain, */*",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "traceparent": "00-68014942000000006d49bf12665589e8-47ab13591b9530a0-00",
+            "tracestate": "dd=t.tid:6801494200000000;t.dm:-3;s:-1;p:47ab13591b9530a0",
+            "x-datadog-parent-id": "5164242671146184864",
+            "x-datadog-sampling-priority": "-1",
+            "x-datadog-tags": "_dd.p.tid=6801494200000000",
+            "x-datadog-trace-id": "7875035509181221352",
+            "x-forwarded-for": "52.200.254.28",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "52.200.254.28"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "contact_name": "Thatiane Souza",
+            "contact_email": "thatianesouza@assistancesolucoes.com.br",
+            "contact_phone": "+5531997456705",
+            "deal_stage": "Follow up infinito",
+            "deal_user": "thiago.campanholo@universidadevendas.com.br",
+            "deal_status": "OPEN",
+            "deal_origin": "Funil SS",
+            "deal_reuniao": "11/03/2025, 17:00",
+            "organization_name": "",
+            "deal_nome_fantasia_da_emp": "",
+            "deal_closer": "Leandro Arcas",
+            "deal_sdr": "Yasmin Vitorino"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/call_realizada-hetzner",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "no_show": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/1.7.9",
+            "content-length": "382",
+            "accept": "application/json, text/plain, */*",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "traceparent": "00-6801291a000000001803cf602c3455be-373de58e43346588-00",
+            "tracestate": "dd=t.tid:6801291a00000000;t.dm:-3;s:-1;p:373de58e43346588",
+            "x-datadog-parent-id": "3980590044841010568",
+            "x-datadog-sampling-priority": "-1",
+            "x-datadog-tags": "_dd.p.tid=6801291a00000000",
+            "x-datadog-trace-id": "1730454693805839806",
+            "x-forwarded-for": "52.200.254.28",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "52.200.254.28"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "contact_name": "Yuri",
+            "contact_email": "yuri.12@gmail.com",
+            "contact_phone": "+5511982558090",
+            "deal_stage": "No show",
+            "deal_user": "thiago.campanholo@universidadevendas.com.br",
+            "deal_status": "OPEN",
+            "deal_origin": "Funil SE",
+            "deal_reuniao": "17/04/2025, 13:00",
+            "organization_name": "",
+            "deal_nome_fantasia_da_emp": "",
+            "deal_closer": "thiago.campanholo@universidadevendas.com.br",
+            "deal_sdr": ""
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/no_show-hetzner",
+          "executionMode": "production"
+        }
+      }
     ]
   },
   "settings": {
@@ -1521,6 +1687,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2025-04-16T21:12:12.020Z",
-  "versionId": "1bb5cc3b-0e61-4d19-92bc-f3198887a198"
+  "updatedAt": "2025-04-17T21:15:56.132Z",
+  "versionId": "46726aef-a203-4af4-9ad1-0cdf4d0581f2"
 }
