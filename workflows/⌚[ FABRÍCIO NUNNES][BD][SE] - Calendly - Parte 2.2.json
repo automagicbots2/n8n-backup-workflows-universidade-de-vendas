@@ -5929,7 +5929,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"Name\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Nome do Cliente\"] }}\",\n  \"Email\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}\",\n \"MENSAGEM\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"].split(', ')[0] }}\",\n \"CIDADE\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"].split(', ')[1] }}\",\n \"OBSERVACAO\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}\",\n  \"MachineCode\": 758879,\n  \"EmailSequenceCode\": 1794370,\n  \"SequenceLevelCode\": 1\n}",
+        "jsonBody": "={\n  \"Name\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Nome do Cliente\"] }}\",\n  \"Email\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}\",\n \"data_reuniao\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"].split(', ')[0] }}\",\n \"HORARIO\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"].split(', ')[1] }}\",\n \"LINK_reuniao\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}\",\n  \"MachineCode\": 758879,\n  \"EmailSequenceCode\": 1794370,\n  \"SequenceLevelCode\": 1\n}",
         "options": {}
       },
       "id": "8733aa99-9354-4d99-9b9f-e0c47d45b59a",
@@ -6027,6 +6027,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-04-20T00:02:31.685Z",
-  "versionId": "4231a9cb-6eff-495b-bfcb-b5548b990e0e"
+  "updatedAt": "2025-04-21T16:45:57.161Z",
+  "versionId": "f3c6356f-eea0-4612-ae08-a17b0cd58ccf"
 }
