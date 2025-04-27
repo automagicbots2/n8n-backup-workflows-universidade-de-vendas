@@ -1395,7 +1395,7 @@
         ],
         [
           {
-            "node": "3-6",
+            "node": "é_diagnostico-palestra",
             "type": "main",
             "index": 0
           }
@@ -1418,6 +1418,46 @@
         [
           {
             "node": "cadastrar_contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "3-7": {
+      "main": [
+        [
+          {
+            "node": "atualiza_negocio_clint7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "é_diagnostico-palestra": {
+      "main": [
+        [
+          {
+            "node": "3-7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "3-6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_negocio_clint7": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_agendamento",
             "type": "main",
             "index": 0
           }
@@ -5195,7 +5235,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        4400,
+        4360,
         900
       ]
     },
@@ -5345,8 +5385,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        4560,
-        1100
+        4480,
+        1080
       ]
     },
     {
@@ -5481,8 +5521,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        4680,
-        1360
+        4600,
+        1320
       ]
     },
     {
@@ -5650,8 +5690,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        5060,
-        1960
+        5120,
+        2200
       ],
       "webhookId": "6085f287-9939-413f-86e2-66168e7b2f93"
     },
@@ -5739,8 +5779,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        5220,
-        1960
+        5280,
+        2200
       ]
     },
     {
@@ -5772,8 +5812,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        4800,
-        1640
+        4720,
+        1560
       ]
     },
     {
@@ -5805,8 +5845,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        4920,
-        1860
+        4840,
+        1760
       ]
     },
     {
@@ -5942,6 +5982,142 @@
       ],
       "disabled": true,
       "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "e556a4ba-493e-4f59-ade0-d5325af367eb",
+      "name": "3-7",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        5160,
+        1920
+      ],
+      "webhookId": "6085f287-9939-413f-86e2-66168e7b2f93"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/07859169-6c8e-4721-80b0-fbb602f96d59",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "dono_negocio",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"] }}"
+            },
+            {
+              "name": "reunião",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"] }}"
+            },
+            {
+              "name": "link_reuniao",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}"
+            },
+            {
+              "name": "link_cancelamento",
+              "value": "=https://calendly.com/cancellations/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
+            },
+            {
+              "name": "link_reagendamento",
+              "value": "=https://calendly.com/reschedullings/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "pais",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"pais\"] }}"
+            },
+            {
+              "name": "data_de_inicio_portugal",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início - PT\"] }}"
+            },
+            {
+              "name": "data_de_termino_portugal",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Término - PT\"] }}"
+            },
+            {
+              "name": "closer",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo').replace('ana.carvalho@universidadevendas.com.br','Ana Carvalho').replace('leandro.arcas@universidadevendas.com.br','Leandro Arcas') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "22e1bcdf-9fd4-41e1-bf77-c44793e06e83",
+      "name": "atualiza_negocio_clint7",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        5320,
+        1920
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7a91e12d-29cb-4fdd-99a7-88b0ee99c735",
+              "leftValue": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"slug_do_evento\"] }}",
+              "rightValue": "diagnostico-palestra",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a7b1cf45-ed77-4b7a-813e-644e2bea2671",
+      "name": "é_diagnostico-palestra",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        4980,
+        1940
+      ]
     }
   ],
   "pinData": {
@@ -5949,8 +6125,8 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-BTXlh2BKrfbH6Y2t3q5d6Q",
-            "deliveryTag": 225,
+            "consumerTag": "amq.ctag-y4MBMLLH3ymdy4H2GUbHqQ",
+            "deliveryTag": 1,
             "redelivered": false,
             "exchange": "",
             "routingKey": "Calendly-parte2"
@@ -5959,25 +6135,25 @@
             "headers": {}
           },
           "content": {
-            "Nome do Cliente": "Mateus Diniz (Automagic Bots)",
+            "Nome do Cliente": "Mateus Diniz",
             "E-mail do Cliente": "mateusdiniz@automagicbots.com.br",
             "Telefone do Cliente - Formato BC": "+556281196678",
             "Telefone do Cliente - Formato Z-API": "556281196678",
-            "Tipo de Evento": "Sessão Estratégica Comercial (Material Gratuito)",
-            "ID do Evento": "78f954b5-c5c1-4b5f-96f5-ffb121f25c20",
-            "Responsável pelo Evento": "Ana Carvalho",
-            "E-mail do Responsável": "ana.carvalho@universidadevendas.com.br",
-            "Data de Início": "18/04/2025, 11:00",
-            "Data em que foi feito o Agendamento": "16/04/2025, 18:47",
-            "Data de Término": "18/04/2025, 11:45",
-            "Dia da Semana de Início do Evento": "Sexta",
-            "Link da Reunião": "https://calendly.com/events/78f954b5-c5c1-4b5f-96f5-ffb121f25c20/google_meet",
+            "Tipo de Evento": "Diagnóstico - Palestra",
+            "ID do Evento": "ca71f426-e103-49fb-95ec-e5c764e88d71",
+            "Responsável pelo Evento": "Thiago Campanholo",
+            "E-mail do Responsável": "thiago.campanholo@universidadevendas.com.br",
+            "Data de Início": "30/04/2025, 13:00",
+            "Data em que foi feito o Agendamento": "26/04/2025, 23:25",
+            "Data de Término": "30/04/2025, 13:45",
+            "Dia da Semana de Início do Evento": "Quarta",
+            "Link da Reunião": "https://calendly.com/events/ca71f426-e103-49fb-95ec-e5c764e88d71/google_meet",
             "utm_source": null,
             "utm_campaign": null,
             "utm_term": null,
             "utm_medium": null,
             "utm_content": null,
-            "ID do Cliente": "d2888455-485f-401d-bf07-7a6db391b95b",
+            "ID do Cliente": "845533be-9494-4654-aa2a-5d7f0f9a4207",
             "id_do_campo_id_do_agendamento_bot_conversa": "1045673",
             "fluxo_de_confirmacao_de_agendamento": "4496635",
             "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
@@ -5996,13 +6172,13 @@
             "id_do_campo_faturamento_mensal_bot_conversa": "1051567",
             "id_campo_tem_socio_bot_conversa": "1408036",
             "id_campo_nome_closer_responsavel_bot_conversa": "1459264",
-            "Data em que foi feito o Agendamento - PT": "16/04/2025",
-            "Data de Início - PT": "14:00",
-            "Data de Término - PT": "14:45",
+            "Data em que foi feito o Agendamento - PT": "26/04/2025",
+            "Data de Início - PT": "16:00",
+            "Data de Término - PT": "16:45",
             "id_do_campo_dia_da_semana_do_agendamento_bot_conversa_pt": "1853088",
             "id_do_campo_horario_agendado_bot_conversa_pt": "1853084",
             "id_do_campo_data_do_agendamento_bot_conversa_pt": "1852850",
-            "slug_do_evento": "sessao-estrategica-material-gratuito"
+            "slug_do_evento": "diagnostico-palestra"
           }
         }
       }
@@ -6027,6 +6203,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-04-21T16:45:57.161Z",
-  "versionId": "f3c6356f-eea0-4612-ae08-a17b0cd58ccf"
+  "updatedAt": "2025-04-27T02:49:47.918Z",
+  "versionId": "f624e059-7db6-4c2e-ae55-f1c21707349c"
 }
