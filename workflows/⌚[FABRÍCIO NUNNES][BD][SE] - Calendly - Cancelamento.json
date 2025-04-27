@@ -1679,7 +1679,47 @@
         ],
         [
           {
+            "node": "é_diagnostico-palestra",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "3-7": {
+      "main": [
+        [
+          {
+            "node": "create/update_negocio_clint4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "é_diagnostico-palestra": {
+      "main": [
+        [
+          {
+            "node": "3-7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
             "node": "3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create/update_negocio_clint4": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_agendamento",
             "type": "main",
             "index": 0
           }
@@ -1703,7 +1743,7 @@
       "typeVersion": 1,
       "position": [
         5360,
-        2100
+        2260
       ],
       "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
     },
@@ -5704,7 +5744,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/9dc96134-b927-49f0-9631-043c62dcff42",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/a5cb837d-3f89-464a-92d8-468959f1fd9f",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -5726,11 +5766,11 @@
             },
             {
               "name": "reunião",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"] }}"
+              "value": "=CANCELADA"
             },
             {
               "name": "link_reuniao",
-              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}"
+              "value": "=CANCELADA"
             },
             {
               "name": "link_cancelamento",
@@ -5774,7 +5814,7 @@
       "typeVersion": 4.1,
       "position": [
         5540,
-        2100
+        2260
       ]
     },
     {
@@ -6850,8 +6890,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        5120,
-        1780
+        5020,
+        1740
       ]
     },
     {
@@ -6883,8 +6923,132 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        5200,
+        5080,
         2000
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "311b98a1-32d8-4881-97bd-829b6b0446c6",
+      "name": "3-7",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        5340,
+        2060
+      ],
+      "webhookId": "913baeed-133b-4d1d-8524-24fdef83c563"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/9dc96134-b927-49f0-9631-043c62dcff42",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Telefone do Cliente - Formato BC\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "dono_negocio",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"] }}"
+            },
+            {
+              "name": "reunião",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"] }}"
+            },
+            {
+              "name": "link_reuniao",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}"
+            },
+            {
+              "name": "link_cancelamento",
+              "value": "=https://calendly.com/cancellations/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
+            },
+            {
+              "name": "link_reagendamento",
+              "value": "=https://calendly.com/reschedullings/{{ $node[\"entra_na_fila\"].json[\"content\"][\"ID do Cliente\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"utm_content\"] }}"
+            },
+            {
+              "name": "closer",
+              "value": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Responsável\"].replace('silas.moraes@universidadevendas.com.br','Silas Moraes').replace('fabricio@universidadevendas.com.br','Fabricio Nunes').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('closer1@universidadevendas.com.br','Jonatã Almeida').replace('leonardo.barroso@universidadevendas.com.br','Leonardo Barroso').replace('mayra.santos@universidadevendas.com.br','Mayra Santos').replace('mariella.rodrigues@universidadevendas.com.br','Mariella Rodrigues').replace('jessica.melo@universidadevendas.com.br','Jessica Melo').replace('ana.carvalho@universidadevendas.com.br','Ana Carvalho').replace('leandro.arcas@universidadevendas.com.br','Leandro Arcas') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d5230a9f-7578-4269-96bb-ddafc1de62bd",
+      "name": "create/update_negocio_clint4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        5520,
+        2060
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7a91e12d-29cb-4fdd-99a7-88b0ee99c735",
+              "leftValue": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"slug_do_evento\"] }}",
+              "rightValue": "diagnostico-palestra",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "cbfa9a43-b223-4551-a2df-821760055a1e",
+      "name": "é_diagnostico-palestra",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        5200,
+        2140
       ]
     }
   ],
@@ -6966,6 +7130,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-04-16T21:58:23.095Z",
-  "versionId": "a18e8645-8f57-4ccf-b794-247b5b591256"
+  "updatedAt": "2025-04-27T02:47:52.552Z",
+  "versionId": "c0350653-b114-426c-be68-0dffd99da26b"
 }
