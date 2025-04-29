@@ -5969,7 +5969,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"Name\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Nome do Cliente\"] }}\",\n  \"Email\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}\",\n \"data_reuniao\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"].split(', ')[0] }}\",\n \"HORARIO\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"].split(', ')[1] }}\",\n \"LINK_reuniao\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}\",\n  \"MachineCode\": 758879,\n  \"EmailSequenceCode\": 1794370,\n  \"SequenceLevelCode\": 1\n}",
+        "jsonBody": "={\n  \"Name\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Nome do Cliente\"] }}\",\n  \"Email\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}\",\n  \"MachineCode\": 758879,\n  \"EmailSequenceCode\": 1794370,\n  \"SequenceLevelCode\": 1,\n\"DynamicFields\": [\n    { \"Id\": 99948,\n      \"Value\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"].split(', ')[0] }}\"},\n    { \"Id\": 99949,\n     \"Value\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Data de Início\"].split(', ')[1] }}\"},\n    { \"Id\": 99950,\n      \"Value\": \"{{ $node[\"entra_na_fila\"].json[\"content\"][\"Link da Reunião\"] }}\" }\n  ]\n}",
         "options": {}
       },
       "id": "8733aa99-9354-4d99-9b9f-e0c47d45b59a",
@@ -5980,7 +5980,6 @@
         1440,
         1060
       ],
-      "disabled": true,
       "onError": "continueRegularOutput"
     },
     {
@@ -6203,6 +6202,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-04-27T02:49:47.918Z",
-  "versionId": "f624e059-7db6-4c2e-ae55-f1c21707349c"
+  "updatedAt": "2025-04-28T17:13:15.823Z",
+  "versionId": "1fd6f760-3c16-4439-b918-7b79a7e0c9b9"
 }
