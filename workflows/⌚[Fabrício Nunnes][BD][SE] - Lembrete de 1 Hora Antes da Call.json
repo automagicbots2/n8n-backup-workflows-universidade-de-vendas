@@ -623,7 +623,7 @@
       "main": [
         [
           {
-            "node": "id_bc_existe",
+            "node": "add_lead_leadlovers_callrealizada1",
             "type": "main",
             "index": 0
           }
@@ -660,6 +660,17 @@
         [
           {
             "node": "sessao_estrategica3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "add_lead_leadlovers_callrealizada1": {
+      "main": [
+        [
+          {
+            "node": "id_bc_existe",
             "type": "main",
             "index": 0
           }
@@ -2419,6 +2430,43 @@
       "maxTries": 3,
       "waitBetweenTries": 5000,
       "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://llapi.leadlovers.com/webapi/lead",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "4A3A3499EBDA4A25A1282B4BD44D5A97"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"Name\": \"{{ $node[\"item_unico\"].json[\"nome\"] }}\",\n  \"Email\": \"{{ $node[\"item_unico\"].json[\"email\"] }}\",\n  \"MachineCode\": 759353,\n  \"EmailSequenceCode\": 1795646,\n  \"SequenceLevelCode\": 1,\n\"DynamicFields\": [\n    { \"Id\": 99949,\n     \"Value\": \"{{ $node[\"separa_em_linhas\"].json[\"hora_de_inicio\"].split(':')[0] }}:{{ $node[\"separa_em_linhas\"].json[\"hora_de_inicio\"].split(':')[1] }}\"},\n    { \"Id\": 99950,\n      \"Value\": \"{{ $node[\"separa_em_linhas\"].json[\"link_reuniao\"] }}\" }\n  ]\n}",
+        "options": {}
+      },
+      "id": "4d293042-cbf1-4922-80e3-3d9998993ace",
+      "name": "add_lead_leadlovers_callrealizada1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3480,
+        760
+      ],
+      "onError": "continueRegularOutput"
     }
   ],
   "pinData": {},
@@ -2448,6 +2496,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2024-08-30T18:47:41.732Z",
-  "versionId": "8255a13e-b03d-4587-9aeb-6f49d6ed1cf9"
+  "updatedAt": "2025-04-28T17:44:55.600Z",
+  "versionId": "a0e7f7a9-8c93-4386-8775-45b79c7a9b91"
 }
