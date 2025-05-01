@@ -1,0 +1,128 @@
+{
+  "active": true,
+  "connections": {
+    "executa_procedure": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "fluxo_chamado": {
+      "main": [
+        [
+          {
+            "node": "executa_procedure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-01T13:48:46.550Z",
+  "id": "pNFxRINgoPscBPZM",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚[FABRICIO NUNNES][Banco de Dados] - Busca ou Insere Assinatura",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "CALL busca_assinatura({{ $node[\"fluxo_chamado\"].json[\"body\"][\"id_conversao\"] }}, {{ $node[\"fluxo_chamado\"].json[\"body\"][\"id_produto\"] }}, '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"data_conversao\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"data_expiracao\"] }}');\n",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        860,
+        240
+      ],
+      "id": "83d5f74c-6183-42a3-918a-008980406749",
+      "name": "executa_procedure",
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        240
+      ],
+      "id": "683d6779-f9f6-4f17-bf9a-4dfc9979ea37",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "path": "add-subscription-bd",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        640,
+        240
+      ],
+      "id": "2bd28ab5-01b4-46d7-974d-4266cd8ae268",
+      "name": "fluxo_chamado",
+      "webhookId": "7a046997-4089-434c-a0ae-f4da1d44546d"
+    }
+  ],
+  "pinData": {
+    "fluxo_chamado": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookhetznerhenrysantos.automagicbots.com.br",
+            "user-agent": "axios/1.7.4",
+            "content-length": "93",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "172.18.0.1",
+            "x-forwarded-host": "webhookhetznerhenrysantos.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "b71525949d32",
+            "x-real-ip": "172.18.0.1"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "id_conversao": 9,
+            "id_produto": 10,
+            "data_conversao": "2025-01-15 16:16:09",
+            "data_expiracao": "2026-01-15"
+          },
+          "webhookUrl": "https://webhookhetznerhenrysantos.automagicbots.com.br/webhook/add-subscription-bd",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-05-01T13:49:31.743Z",
+  "versionId": "beb8f4d8-d08b-4c5c-9c60-718127234883"
+}
