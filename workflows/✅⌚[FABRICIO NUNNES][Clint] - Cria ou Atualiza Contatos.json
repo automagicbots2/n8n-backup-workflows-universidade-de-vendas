@@ -1,0 +1,335 @@
+{
+  "active": true,
+  "connections": {
+    "pesquisa_url_rotacionamento_colaboradores": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_etapa_funil",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_sdr": {
+      "main": [
+        [
+          {
+            "node": "cria_ou_atualiza_contact_na_clint",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_campos_contact1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_url_rotacionamento_colaboradores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_json_fields_contact1": {
+      "main": [
+        [
+          {
+            "node": "formata_campos_contact1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_etapa_funil": {
+      "main": [
+        [
+          {
+            "node": "consulta_sdr",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "fluxo_chamado": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_json_fields_contact1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-01T13:50:01.395Z",
+  "id": "AC9OweZbngwCvXOK",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "✅⌚[FABRICIO NUNNES][Clint] - Cria ou Atualiza Contatos",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Rotacionamento de Colaboradores"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "b89be7b8-5c73-4f7d-a521-c0c0e84855cb",
+      "name": "pesquisa_url_rotacionamento_colaboradores",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1120,
+        280
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_url_rotacionamento_colaboradores\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "={{ \n  $node[\"pesquisa_etapa_funil\"].json[\"nome\"]\n    .replace('Cadastro','Closer')\n    .replace('Aplicação','SDR')\n    .replace('Agendamento','Closer')\n    .replace('Pesquisa','SDR')\n    .replace('Checkout', \n      $node[\"fluxo_chamado\"].json[\"body\"][\"payload\"][\"trans_status\"] === \"Compra Aprovada\" ? \"CS\" : \"Closer\"\n    ) \n}}"
+            },
+            {
+              "name": "id_user",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"id_user\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1520,
+        280
+      ],
+      "id": "6fe93d29-a60f-4038-bba9-4dbf777e9912",
+      "name": "consulta_sdr"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obter o template do banco de dados\nlet template = $node[\"pesquisa_json_fields_contact1\"].json[\"payload_fields\"];\n\n// Verifique se o template é válido (precisa ser um objeto)\nif (typeof template !== \"object\" || template === null) {\n    throw new Error(\"O template payload_fields não é um objeto válido.\");\n}\n\n// Obter os dados diretamente do \"body\" do webhook\nconst payload = $node[\"fluxo_chamado\"].json[\"body\"][\"payload\"];\n\n// Criar uma cópia do payload e adicionar o campo \"nome\" concatenado com \"sobrenome\"\nconst payloadAtualizado = { \n    ...payload, \n    nome: `${payload.nome || ''} ${payload.sobrenome || ''}`.trim() \n};\n\n// Função para substituir os placeholders\nconst replacePlaceholders = (template, data) => {\n    return Object.keys(template).map(key => {\n        let fieldValue = template[key];\n\n        if (typeof fieldValue === \"string\") {\n            // Substituir placeholders no formato {{ chave }}\n            fieldValue = fieldValue.replace(/{{\\s*(\\w+)\\s*}}/g, (_, key) => {\n                return data[key] !== undefined ? data[key] : ''; // Substitui ou deixa vazio se não encontrado\n            });\n        }\n\n        return { field: key, value: fieldValue };\n    });\n};\n\n// Substituir os placeholders no template com os dados do webhook atualizado\nlet result = replacePlaceholders(template, payloadAtualizado);\n\n// Retornar o resultado no formato esperado\nreturn {\n    custom_fields_values: result\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        900,
+        280
+      ],
+      "id": "4a1c2733-1558-431e-82f0-6ebb9d958365",
+      "name": "formata_campos_contact1"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "situacao_pipeline_stage_2",
+          "mode": "list",
+          "cachedResultName": "situacao_pipeline_stage_2"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "entidade",
+              "value": "contact"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "aadf7cb1-377e-4239-ad6c-8cc471dcf552",
+      "name": "pesquisa_json_fields_contact1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        680,
+        280
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"pesquisa_json_fields_contact1\"].json[\"webhook\"] }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($node[\"formata_campos_contact1\"].json[\"custom_fields_values\"]\n  .concat([{ \"field\": \"dono\", \"value\": $node[\"consulta_sdr\"].json[\"email\"] }])) }}",
+        "options": {}
+      },
+      "id": "7d490cf9-d008-47dd-821c-00f92207bd60",
+      "name": "cria_ou_atualiza_contact_na_clint",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1720,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "etapas_funil",
+          "mode": "list",
+          "cachedResultName": "etapas_funil"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"id_etapa_funil\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8b7bca29-075f-49a3-a77b-5d9d734762fb",
+      "name": "pesquisa_etapa_funil",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1320,
+        280
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "add-update-contact-clint",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        440,
+        280
+      ],
+      "id": "b4d2713f-62dc-4c78-a61f-0cfb35f055ed",
+      "name": "fluxo_chamado",
+      "webhookId": "bcdcc520-6bbf-4601-a1b7-abda1e4eadcc"
+    }
+  ],
+  "pinData": {
+    "fluxo_chamado": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookpaulaardanza.automagicbots.com.br",
+            "user-agent": "axios/1.7.4",
+            "content-length": "1140",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "172.18.0.1",
+            "x-forwarded-host": "n8nwebhookpaulaardanza.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "2c577e48e4c6",
+            "x-real-ip": "172.18.0.1"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "id_etapa_funil": 2,
+            "id_funil": "1",
+            "id_user": 1,
+            "payload": {
+              "nome": "Mateus",
+              "sobrenome": "Diniz (automagic Bots)",
+              "email": "mateusdiniz@automagicbots.com.br",
+              "telefone": "5562981196678",
+              "utm_source": "",
+              "utm_campaign": "",
+              "utm_term": "",
+              "utm_medium": "",
+              "utm_content": "",
+              "id_funil": "1",
+              "instagram": "",
+              "id_agendamento": "567bbe33-63cf-49c7-aaca-e9592dd9d785",
+              "id_forms": "6",
+              "tipo_forms": "Agendamento",
+              "link_da_reuniao": "https://calendly.com/events/7434930b-16b7-49ea-8ade-d18776090ed6/google_meet",
+              "email_responsavel": "victor@paulaardanza.com.br",
+              "data_termino": "25/03/2025, 17:30",
+              "data_inicio": "25/03/2025, 17:00",
+              "data_do_agendamento": "19/03/2025, 08:51",
+              "evento": "Cancelamento",
+              "dia_call": "Terça-feira",
+              "id_agendamento_reagendado": "",
+              "nome_do_evento": "Consultoria Gratuita_SS",
+              "motivo_cancelamento": "teste",
+              "data_call_kommo": null,
+              "closer": "Thiago",
+              "hora_inicio": "17:00",
+              "link_reagendamento": "https://calendly.com/reschedulings/567bbe33-63cf-49c7-aaca-e9592dd9d785",
+              "link_cancelamento": "https://calendly.com/cancellations/567bbe33-63cf-49c7-aaca-e9592dd9d785",
+              "id_do_cliente": "",
+              "data_cancelamento": "19/03/2025 08:54"
+            },
+            "id_situacao_agendamento": 2
+          },
+          "webhookUrl": "https://n8nwebhookpaulaardanza.automagicbots.com.br/webhook/add-update-contact-clint",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-05-01T13:59:15.847Z",
+  "versionId": "4c61b276-f6ae-4d19-9dd7-676794bde22c"
+}
