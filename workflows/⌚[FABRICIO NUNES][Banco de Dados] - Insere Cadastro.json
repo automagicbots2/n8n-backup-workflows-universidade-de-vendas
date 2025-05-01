@@ -1,0 +1,187 @@
+{
+  "active": true,
+  "connections": {
+    "fluxo_chamado": {
+      "main": [
+        [
+          {
+            "node": "insert_cadastro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-01T13:40:02.646Z",
+  "id": "yQiQwaUDAI4clrgJ",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚[FABRICIO NUNES][Banco de Dados] - Insere Cadastro",
+  "nodes": [
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "cadastros",
+          "mode": "list",
+          "cachedResultName": "cadastros"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_user",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"id_user\"] }}"
+            },
+            {
+              "column": "id_funil",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"id_funil\"] }}"
+            },
+            {
+              "column": "nome",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] || NULL }}"
+            },
+            {
+              "column": "sobrenome",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] || NULL }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] || NULL }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] || NULL }}"
+            },
+            {
+              "column": "instagram",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] || NULL }}"
+            },
+            {
+              "column": "utm_source",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"utm_source\"] || NULL }}"
+            },
+            {
+              "column": "utm_campaign",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"utm_campaign\"] || NULL }}"
+            },
+            {
+              "column": "utm_term",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"utm_term\"] || NULL }}"
+            },
+            {
+              "column": "utm_medium",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"utm_medium\"] || NULL }}"
+            },
+            {
+              "column": "utm_content",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"utm_content\"] || NULL }}"
+            },
+            {
+              "column": "data_cadastro",
+              "value": "={{ $now }}"
+            },
+            {
+              "column": "id_forms",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"id_forms\"] }}"
+            },
+            {
+              "column": "Qualificacao",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"qualificacao\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "replaceEmptyStrings": true,
+          "detailedOutput": true
+        }
+      },
+      "id": "d5b728d1-44ab-4e8a-959a-52e7634a825c",
+      "name": "insert_cadastro",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        700,
+        280
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "insere-cadastro",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        480,
+        280
+      ],
+      "id": "eb0c61ca-2534-45a3-9c9d-59ea93d69a2d",
+      "name": "fluxo_chamado",
+      "webhookId": "697ca672-f32b-489c-bc69-d8ae2e5f0679"
+    }
+  ],
+  "pinData": {
+    "fluxo_chamado": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookpaulaardanza.automagicbots.com.br",
+            "user-agent": "axios/1.7.4",
+            "content-length": "414",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "172.18.0.1",
+            "x-forwarded-host": "n8nwebhookpaulaardanza.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "2c577e48e4c6",
+            "x-real-ip": "172.18.0.1"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "id_funil": "1",
+            "id_user": 10,
+            "utm_source": "Instagram_Stories",
+            "utm_campaign": "MENTORIA_FUNIL30_JAN25_CALENDLY_VENDAS",
+            "utm_term": "120214604351790253",
+            "utm_medium": "01 FRIOS [Gastronomia e Restaurantes]",
+            "utm_content": "FUNIL30_NOV24_DonoDeRestaurante_VID_AD_1",
+            "id_forms": "4",
+            "nome": "Dalva",
+            "sobrenome": "",
+            "email": "dauvalopez@hotmail.com",
+            "telefone": "5511917442884",
+            "instagram": "Marmitaria bigplate",
+            "graduacao": ""
+          },
+          "webhookUrl": "https://n8nwebhookpaulaardanza.automagicbots.com.br/webhook/insere-cadastro",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-05-01T13:42:27.668Z",
+  "versionId": "08ac31bb-b1ec-464d-aa99-48894f02f369"
+}
