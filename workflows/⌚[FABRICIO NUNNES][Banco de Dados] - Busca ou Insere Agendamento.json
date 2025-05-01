@@ -1,0 +1,162 @@
+{
+  "active": true,
+  "connections": {
+    "pesquisa_colaborador": {
+      "main": [
+        [
+          {
+            "node": "executa_procedure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "fluxo_chamado": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_colaborador",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-01T13:59:57.901Z",
+  "id": "xCPhtSZd94WvjrE1",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚[FABRICIO NUNNES][Banco de Dados] - Busca ou Insere Agendamento",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "CALL busca_agendamento(\n  '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"id_evento\"] }}',\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"id_cliente\"] ? $node[\"fluxo_chamado\"].json[\"body\"][\"id_cliente\"] : null }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"id_user\"] }},\n  {{ $node[\"pesquisa_colaborador\"].json[\"id\"] }},\n  '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"data_agendamento\"] }}',\n  '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"status_evento\"] }}',\n  '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"data_de_inicio\"] }}',\n  '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"hora_de_inicio\"] }}',\n  '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"hora_de_termino\"] }}',\n  '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"link_reuniao\"] }}',\n  '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"evento\"] }}',\n  '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"dia_da_semana_evento\"] }}',\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"data_cancelamento\"] \n      ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"data_cancelamento\"] + \"'\" \n      : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"motivo_cancelamento\"] \n      ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"motivo_cancelamento\"] + \"'\" \n      : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"id_agendamento_reagendado\"] \n      ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"id_agendamento_reagendado\"] + \"'\" \n      : \"null\" }}\n);\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1100,
+        260
+      ],
+      "id": "644ebcb6-9b5a-4dc8-b603-70a006d0c54c",
+      "name": "executa_procedure",
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "colaboradores",
+          "mode": "list",
+          "cachedResultName": "colaboradores"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "email",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"id_responsavel\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3f26fd89-2a96-477c-8b11-5e8c6d32897a",
+      "name": "pesquisa_colaborador",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.2,
+      "position": [
+        860,
+        260
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "add-agendamento-bd",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        620,
+        260
+      ],
+      "id": "a762488a-cfdb-4e22-8d3c-a2ec8c2f66f5",
+      "name": "fluxo_chamado",
+      "webhookId": "ce9e0c49-3b01-40d1-a43e-0275d34030ce"
+    }
+  ],
+  "pinData": {
+    "fluxo_chamado": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookpaulaardanza.automagicbots.com.br",
+            "user-agent": "axios/1.7.4",
+            "content-length": "575",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "172.18.0.1",
+            "x-forwarded-host": "n8nwebhookpaulaardanza.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "2c577e48e4c6",
+            "x-real-ip": "172.18.0.1"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "id_evento": "8068e0a8-8b15-46b4-82a3-6ac390ed4ea0",
+            "id_cliente": "",
+            "id_user": 49,
+            "id_responsavel": "victor@paulaardanza.com.br",
+            "data_agendamento": "2025-03-25 15:26:00",
+            "status_evento": "Agendado",
+            "data_de_inicio": "2025-03-27",
+            "hora_de_inicio": "17:00",
+            "hora_de_termino": "17:30",
+            "link_reuniao": "https://calendly.com/events/aad140b4-6177-472c-bf9d-4a63100d016e/google_meet",
+            "evento": "[P] Consultoria de 30\" ",
+            "dia_da_semana_evento": "Quinta-feira",
+            "data_cancelamento": "25/03/2025 15:27",
+            "motivo_cancelamento": "",
+            "id_agendamento_reagendado": "a908983e-ce9c-489e-8b87-93a583c52dc7"
+          },
+          "webhookUrl": "https://n8nwebhookpaulaardanza.automagicbots.com.br/webhook/add-agendamento-bd",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-05-01T14:02:51.289Z",
+  "versionId": "94667779-1422-4bbd-b34d-d96bfd855a33"
+}
