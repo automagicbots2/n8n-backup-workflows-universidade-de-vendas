@@ -1,0 +1,276 @@
+{
+  "active": true,
+  "connections": {
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "insert_respostas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_pesquisa": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insert_respostas": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "fluxo_chamado": {
+      "main": [
+        [
+          {
+            "node": "busca_pesquisa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-01T14:03:37.294Z",
+  "id": "N66RRZtWaLKtduAc",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚[FABRICIO NUNNES][Banco de Dados] - Insere Respostas de Formulários",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// 📌 Obter dados do payload\nconst inputData = $node[\"fluxo_chamado\"].json;\nconst idUser = inputData.body.id_user;\nconst idForms = inputData.body.id_forms;\n\n// 📌 Verifica se \"perguntas_respostas\" é uma string JSON e faz o parse, senão usa como objeto\nlet respostas = inputData.body.payload.perguntas_respostas;\nif (typeof respostas === \"string\") {\n    try {\n        respostas = JSON.parse(respostas);\n    } catch (error) {\n        respostas = {}; // Se houver erro no JSON, define um objeto vazio\n    }\n}\n\n// 📌 Obter perguntas do banco de dados do nó \"Loop Over Items\"\nlet perguntasDoBanco = $node[\"Loop Over Items\"].json;\n\n// 📌 Garantir que perguntasDoBanco seja um array\nif (!Array.isArray(perguntasDoBanco)) {\n    perguntasDoBanco = [perguntasDoBanco]; // Se for um único objeto, transforma em array\n}\n\n// 📌 Criar array de respostas formatadas\nconst respostasFormatadas = perguntasDoBanco.map(pergunta => ({\n    id_user: idUser,                                       // ID do usuário que respondeu\n    id_pergunta_forms: pergunta.id_pergunta_forms,        // ID da pergunta no banco\n    id: pergunta.id,                                       // ID do registro da pergunta no banco\n    resposta: respostas[pergunta.id_pergunta_forms] !== undefined \n        ? respostas[pergunta.id_pergunta_forms]            // Se houver resposta, usa ela\n        : null                                             // Caso contrário, deixa como null\n}));\n\n// 📌 Retornar os dados formatados para o próximo nó do n8n\nreturn respostasFormatadas.map(resposta => ({ json: resposta }));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        500
+      ],
+      "id": "5a41beb2-8d1a-4505-803d-f3f1dc2d4b7b",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "perguntas_pesquisas",
+          "mode": "list",
+          "cachedResultName": "perguntas_pesquisas"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "id_pesquisa",
+              "value": "={{ $node[\"fluxo_chamado\"].json[\"body\"][\"id_forms\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "641d6a63-0691-4a2f-9841-14519721b86c",
+      "name": "busca_pesquisa",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        80,
+        460
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        300,
+        460
+      ],
+      "id": "df4d561a-716a-43fa-8c7c-9d1255961b11",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "respostas_pesquisas",
+          "mode": "list",
+          "cachedResultName": "respostas_pesquisas"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_user",
+              "value": "={{ $node[\"Code\"].json[\"id_user\"] }}"
+            },
+            {
+              "column": "id_pergunta",
+              "value": "={{ $node[\"Code\"].json[\"id\"] }}"
+            },
+            {
+              "column": "resposta",
+              "value": "={{ $node[\"Code\"].json[\"resposta\"] || '.' }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8afae8b6-c78a-4585-9136-5a934aedee02",
+      "name": "insert_respostas",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        760,
+        500
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        560,
+        280
+      ],
+      "id": "f7dc3580-9746-4763-9938-a483645423e2",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "path": "insert_forms_answers",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -140,
+        460
+      ],
+      "id": "2dd3f32a-bb31-4e5b-8d9a-4d710483faa8",
+      "name": "fluxo_chamado",
+      "webhookId": "9ab86871-54bb-4a45-b5bd-c085c9d62559"
+    }
+  ],
+  "pinData": {
+    "fluxo_chamado": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookpaulaardanza.automagicbots.com.br",
+            "user-agent": "axios/1.7.4",
+            "content-length": "1197",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "172.18.0.1",
+            "x-forwarded-host": "n8nwebhookpaulaardanza.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "2c577e48e4c6",
+            "x-real-ip": "172.18.0.1"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "id_etapa_funil": 1,
+            "id_user": 4,
+            "id_forms": "4",
+            "payload": {
+              "nome": "Theresa",
+              "sobrenome": "Sampaio",
+              "email": "thereza123@hotmail.com.br",
+              "telefone": "5599981170684",
+              "instagram": "Não tem! É uma conveniência",
+              "data_aplicacao": "2025-03-18 16:19",
+              "id_forms": "4",
+              "id_ferramenta_forms": "VLyzJujC",
+              "utm_source": "",
+              "utm_campaign": "",
+              "utm_term": "",
+              "utm_medium": "",
+              "utm_content": "",
+              "faturamento": "De 100 a 150 mil",
+              "posicao": "Sócio (proprietário)",
+              "dificuldade": "Mais lucratividade",
+              "contato": "Whatsapp",
+              "desafio_negocio": "",
+              "ajuda_desafio": "",
+              "origem_lead": "lp-mentoria-estrategica-generica",
+              "tipo_forms": "Aplicação",
+              "qualificacao": "Qualificado",
+              "id_funil": "1",
+              "perguntas_respostas": "{\"2f973c4f-a057-48f0-b728-ac9504c92a94\":\"Theresa Sampaio\",\"080df5c4-6143-49a3-a611-0d8b064d4794\":\"thereza123@hotmail.com.br\",\"e39e6e26-9844-40c6-beb3-29d1ae9bc25c\":\"+5599981170684\",\"7c627923-6156-4394-a09c-3c380f73a27f\":\"Não tem! É uma conveniência\",\"10c1787c-9644-4ffb-a5c1-d2e99770739b\":\"De 100 a 150 mil\",\"729c3646-d176-4576-94eb-a98fdf4705b2\":\"Sócio (proprietário)\",\"751e7062-4667-4c3d-b2c3-9265b5f72035\":\"Mais lucratividade\",\"5d079336-590a-4804-902a-be82596075c0\":\"Whatsapp\"}"
+            }
+          },
+          "webhookUrl": "https://n8nwebhookpaulaardanza.automagicbots.com.br/webhook/insert_forms_answers",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-05-01T14:04:00.480Z",
+  "versionId": "f8bbcb67-5cd0-4fcc-9e66-a502362f74f7"
+}
