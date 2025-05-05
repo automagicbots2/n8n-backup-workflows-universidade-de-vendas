@@ -67,27 +67,11 @@
         ]
       ]
     },
-    "get_groups": {
-      "main": [
-        []
-      ]
-    },
     "avisa_Rafael": {
       "main": [
         [
           {
             "node": "MensagemGrupoSoftware1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Lead_Ganho": {
-      "main": [
-        [
-          {
-            "node": "CLINT",
             "type": "main",
             "index": 0
           }
@@ -162,9 +146,15 @@
         ]
       ]
     },
-    "CLINT CALL AGENDADA": {
+    "Lead_Ganho": {
       "main": [
-        []
+        [
+          {
+            "node": "CLINT",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -1319,22 +1309,6 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "ganho-planilha-hetzner",
-        "options": {}
-      },
-      "id": "964519b9-bd7e-4e47-b456-6c1110a1ba35",
-      "name": "Lead_Ganho",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1.1,
-      "position": [
-        720,
-        300
-      ],
-      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
         "path": "call_realizada-hetzner",
         "options": {}
       },
@@ -1468,6 +1442,22 @@
         1140,
         920
       ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ganho-planilha-hetzner",
+        "options": {}
+      },
+      "id": "964519b9-bd7e-4e47-b456-6c1110a1ba35",
+      "name": "Lead_Ganho",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        300
+      ],
+      "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
     }
   ],
   "pinData": {
@@ -1504,85 +1494,6 @@
             "organization_name": "",
             "deal_nome_fantasia_da_emp": ""
           }
-        }
-      }
-    ],
-    "Lead_Ganho": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "axios/1.7.9",
-            "content-length": "4177",
-            "accept": "application/json, text/plain, */*",
-            "accept-encoding": "gzip, compress, deflate, br",
-            "content-type": "application/json",
-            "traceparent": "00-6781256500000000354a65334b8789bd-63406f21382b5985-00",
-            "tracestate": "dd=t.tid:6781256500000000;t.dm:-3;s:-1;p:63406f21382b5985",
-            "x-datadog-parent-id": "7151838396731316613",
-            "x-datadog-sampling-priority": "-1",
-            "x-datadog-tags": "_dd.p.tid=6781256500000000",
-            "x-datadog-trace-id": "3839992903271680445",
-            "x-forwarded-for": "52.200.254.28",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "52.200.254.28"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "contact_name": "Marcos",
-            "contact_email": "marcos@evolucaoimpressos.com.br",
-            "contact_phone": "+5548996626888",
-            "deal_stage": "Proposta apresentada",
-            "deal_user": "ana.carvalho@universidadevendas.com.br",
-            "deal_status": "WON",
-            "contact_tag": [
-              "Funil Social Setter",
-              "Gabriele",
-              "14/11",
-              "retornar em janeiro"
-            ],
-            "contact_vendedores": "",
-            "deal_won_at": "10/01/2025 10:48:49",
-            "contact_numero_de_parcelas": "",
-            "deal_quantidade_de_parcel": "12",
-            "contact_cpfcnpj": "",
-            "organization_name": "MQ Teixeira - Evolução Gráfica e Comunicação Visual",
-            "contact_forma_de_pagamento": "",
-            "contact_status_de_pagamento": "",
-            "contact_produto": "",
-            "deal_value": 1500,
-            "deal_faturamento": 35000,
-            "deal_user_phone": "(11) 96870-5210",
-            "deal_endereco": "R João Grumiche 196, Kobrasol, São José SC",
-            "organization_city": "São José ",
-            "organization_state": "SC",
-            "organization_estado_sigla": "SC",
-            "organization_documentos_important": "",
-            "deal_origin": "Funil SS",
-            "deal_meses_de_contrato": "",
-            "deal_dia_do_vencimento": "",
-            "deal_closer": "Ana Carvalho",
-            "deal_sdr": "Gabriele",
-            "deal_valor_da_entrada": "",
-            "deal_valor_das_parcelas": 2500,
-            "deal_forma_de_pagamento": "",
-            "deal_cep": "",
-            "deal_nome_fantasia_da_emp": "Evolução Comunicação Visual e Gráfica",
-            "deal_produto": "Platinum",
-            "deal_plano": "Anual",
-            "deal_forma_de_pagamento_1": "Boleto",
-            "organization_segment": "Comunicação visual ",
-            "deal_briefing": "<p><span style=\"color:rgb(51,51,51);\">Marcos possui uma empresa de comunicação gráfica e visual e começou a seguir nosso perfil buscando informações sobre como estruturar uma equipe comercial. Ele já conta com dois vendedores e trabalha com metas e bonificações, mas acredita que os resultados poderiam melhorar se eles tivessem técnicas e abordagens mais assertivas.</span><br>- **Participantes e Introdução:**<br>&nbsp;- Ana e Laiane discutem sobre a entrada de um participante chamado Leandro e mencionam Gabi e Marcos.<br>&nbsp;- Ana apresenta-se a Marcos como parte do time de Fabrício Nunes.</p><p>- **Discussão Inicial:**<br>&nbsp;- Marcos possui uma empresa de comunicação visual.<br>&nbsp;- Ana menciona um depoimento de Ricardo, um cliente satisfeito, mas Marcos não o viu.</p><p>- **Estratégias de Vendas:**<br>&nbsp;- Ana sugere o uso de um funil de social selling para Marcos, destacando a importância de interações nas redes sociais.<br>&nbsp;- Marcos tem dois vendedores, mas não há um processo de vendas estruturado.</p><p>- **Desafios de Marcos:**<br>&nbsp;- Marcos relata que sua empresa é pequena e ele é sobrecarregado.<br>&nbsp;- Falta de técnica de vendas e investigação das necessidades dos clientes.<br>&nbsp;- Marcos usa uma plataforma de WhatsApp e planeja implementar um funil.</p><p>- **Soluções Propostas:**<br>&nbsp;- Ana sugere treinamento para colaboradores ou a contratação de um gerente comercial.<br>&nbsp;- Marcos expressa desconfiança devido a experiências passadas com consultorias.</p><p>- **Cultura e Motivação:**<br>&nbsp;- Discussão sobre a importância de motivar a equipe e implementar um plano de carreira baseado em meritocracia.<br>&nbsp;- Marcos menciona a falta de engajamento e a cultura solta na empresa.</p><p>- **Processos e Ferramentas:**<br>&nbsp;- Ana fala sobre a importância de ter processos bem alinhados e a possibilidade de usar ferramentas de CRM.<br>&nbsp;- Marcos menciona que a empresa depende muito dele e deseja uma estrutura auto gerenciável.</p><p>- **Proposta de Parceria:**<br>&nbsp;- Ana apresenta duas soluções: treinamento para colaboradores ou terceirização do gerente comercial.<br>&nbsp;- Marcos está preocupado com o custo e a forma de pagamento, preferindo boleto a cartão de crédito.</p><p>- **Resultados Esperados:**<br>&nbsp;- Ana promete retorno do investimento em dois a três meses.<br>&nbsp;- Marcos compartilha dados de propostas e vendas, indicando potencial de crescimento.</p><p>- **Conclusão:**<br>&nbsp;- Ana se compromete a discutir com Fabrício para ajustar a proposta financeira.<br>&nbsp;- Marcos está aberto a considerar a parceria, mas quer garantir que o investimento traga resultados.</p>",
-            "organization_cnpj": "24541498000168",
-            "organization_cep": "88102600",
-            "deal_vencimento_da_parcel": "20"
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/ganho-planilha-hetzner",
-          "executionMode": "production"
         }
       }
     ],
@@ -1673,6 +1584,85 @@
           "executionMode": "production"
         }
       }
+    ],
+    "Lead_Ganho": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/1.7.9",
+            "content-length": "4177",
+            "accept": "application/json, text/plain, */*",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "traceparent": "00-6781256500000000354a65334b8789bd-63406f21382b5985-00",
+            "tracestate": "dd=t.tid:6781256500000000;t.dm:-3;s:-1;p:63406f21382b5985",
+            "x-datadog-parent-id": "7151838396731316613",
+            "x-datadog-sampling-priority": "-1",
+            "x-datadog-tags": "_dd.p.tid=6781256500000000",
+            "x-datadog-trace-id": "3839992903271680445",
+            "x-forwarded-for": "52.200.254.28",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "52.200.254.28"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "contact_name": "Marcos",
+            "contact_email": "marcos@evolucaoimpressos.com.br",
+            "contact_phone": "+5548996626888",
+            "deal_stage": "Proposta apresentada",
+            "deal_user": "ana.carvalho@universidadevendas.com.br",
+            "deal_status": "WON",
+            "contact_tag": [
+              "Funil Social Setter",
+              "Gabriele",
+              "14/11",
+              "retornar em janeiro"
+            ],
+            "contact_vendedores": "",
+            "deal_won_at": "10/01/2025 10:48:49",
+            "contact_numero_de_parcelas": "",
+            "deal_quantidade_de_parcel": "12",
+            "contact_cpfcnpj": "",
+            "organization_name": "MQ Teixeira - Evolução Gráfica e Comunicação Visual",
+            "contact_forma_de_pagamento": "",
+            "contact_status_de_pagamento": "",
+            "contact_produto": "",
+            "deal_value": 1500,
+            "deal_faturamento": 35000,
+            "deal_user_phone": "(11) 96870-5210",
+            "deal_endereco": "R João Grumiche 196, Kobrasol, São José SC",
+            "organization_city": "São José ",
+            "organization_state": "SC",
+            "organization_estado_sigla": "SC",
+            "organization_documentos_important": "",
+            "deal_origin": "Funil SS",
+            "deal_meses_de_contrato": "",
+            "deal_dia_do_vencimento": "",
+            "deal_closer": "Ana Carvalho",
+            "deal_sdr": "Gabriele",
+            "deal_valor_da_entrada": "",
+            "deal_valor_das_parcelas": 2500,
+            "deal_forma_de_pagamento": "",
+            "deal_cep": "",
+            "deal_nome_fantasia_da_emp": "Evolução Comunicação Visual e Gráfica",
+            "deal_produto": "Platinum",
+            "deal_plano": "Anual",
+            "deal_forma_de_pagamento_1": "Boleto",
+            "organization_segment": "Comunicação visual ",
+            "deal_briefing": "<p><span style=\"color:rgb(51,51,51);\">Marcos possui uma empresa de comunicação gráfica e visual e começou a seguir nosso perfil buscando informações sobre como estruturar uma equipe comercial. Ele já conta com dois vendedores e trabalha com metas e bonificações, mas acredita que os resultados poderiam melhorar se eles tivessem técnicas e abordagens mais assertivas.</span><br>- **Participantes e Introdução:**<br>&nbsp;- Ana e Laiane discutem sobre a entrada de um participante chamado Leandro e mencionam Gabi e Marcos.<br>&nbsp;- Ana apresenta-se a Marcos como parte do time de Fabrício Nunes.</p><p>- **Discussão Inicial:**<br>&nbsp;- Marcos possui uma empresa de comunicação visual.<br>&nbsp;- Ana menciona um depoimento de Ricardo, um cliente satisfeito, mas Marcos não o viu.</p><p>- **Estratégias de Vendas:**<br>&nbsp;- Ana sugere o uso de um funil de social selling para Marcos, destacando a importância de interações nas redes sociais.<br>&nbsp;- Marcos tem dois vendedores, mas não há um processo de vendas estruturado.</p><p>- **Desafios de Marcos:**<br>&nbsp;- Marcos relata que sua empresa é pequena e ele é sobrecarregado.<br>&nbsp;- Falta de técnica de vendas e investigação das necessidades dos clientes.<br>&nbsp;- Marcos usa uma plataforma de WhatsApp e planeja implementar um funil.</p><p>- **Soluções Propostas:**<br>&nbsp;- Ana sugere treinamento para colaboradores ou a contratação de um gerente comercial.<br>&nbsp;- Marcos expressa desconfiança devido a experiências passadas com consultorias.</p><p>- **Cultura e Motivação:**<br>&nbsp;- Discussão sobre a importância de motivar a equipe e implementar um plano de carreira baseado em meritocracia.<br>&nbsp;- Marcos menciona a falta de engajamento e a cultura solta na empresa.</p><p>- **Processos e Ferramentas:**<br>&nbsp;- Ana fala sobre a importância de ter processos bem alinhados e a possibilidade de usar ferramentas de CRM.<br>&nbsp;- Marcos menciona que a empresa depende muito dele e deseja uma estrutura auto gerenciável.</p><p>- **Proposta de Parceria:**<br>&nbsp;- Ana apresenta duas soluções: treinamento para colaboradores ou terceirização do gerente comercial.<br>&nbsp;- Marcos está preocupado com o custo e a forma de pagamento, preferindo boleto a cartão de crédito.</p><p>- **Resultados Esperados:**<br>&nbsp;- Ana promete retorno do investimento em dois a três meses.<br>&nbsp;- Marcos compartilha dados de propostas e vendas, indicando potencial de crescimento.</p><p>- **Conclusão:**<br>&nbsp;- Ana se compromete a discutir com Fabrício para ajustar a proposta financeira.<br>&nbsp;- Marcos está aberto a considerar a parceria, mas quer garantir que o investimento traga resultados.</p>",
+            "organization_cnpj": "24541498000168",
+            "organization_cep": "88102600",
+            "deal_vencimento_da_parcel": "20"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/ganho-planilha-hetzner",
+          "executionMode": "production"
+        }
+      }
     ]
   },
   "settings": {
@@ -1687,6 +1677,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2025-04-17T21:15:56.132Z",
-  "versionId": "46726aef-a203-4af4-9ad1-0cdf4d0581f2"
+  "updatedAt": "2025-05-05T13:43:49.626Z",
+  "versionId": "11bb3a72-6459-48e3-8a30-04c7a364a282"
 }
