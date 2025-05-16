@@ -85,7 +85,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "CALL busca_usuario('{{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] }}');",
+        "query": "CALL busca_usuario(\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] || null }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] || null }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] || null }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] || null }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] || null }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] || null }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] || null }}\n);\n",
         "options": {}
       },
       "type": "n8n-nodes-base.mySql",
@@ -325,6 +325,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-01-13T15:04:38.894Z",
-  "versionId": "1099c834-6a8c-4d2e-aea4-de07777e0787"
+  "updatedAt": "2025-05-16T14:10:44.967Z",
+  "versionId": "51a45c03-d65b-4efe-b2ec-ee1e4c534276"
 }
