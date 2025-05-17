@@ -4113,7 +4113,7 @@
       "typeVersion": 1,
       "position": [
         1040,
-        1040
+        1180
       ]
     },
     {
@@ -4413,6 +4413,10 @@
               "value1": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"slug_do_evento\"] }}",
               "operation": "contains",
               "value2": "prospeccao-outbound"
+            },
+            {
+              "value1": "={{ $node[\"entra_na_fila\"].json[\"content\"][\"Tipo de Evento\"] }}",
+              "value2": "Funil SS"
             }
           ]
         },
@@ -7057,25 +7061,23 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-o0v5YVQyzTn7MpGitLSbbg",
-            "deliveryTag": 4,
+            "consumerTag": "amq.ctag-kfZBcs0ah0hcUMDO-j319g",
+            "deliveryTag": 75,
             "redelivered": false,
             "exchange": "",
             "routingKey": "Calendly - Cancelamentos"
           },
           "properties": {
-            "headers": {
-              "x-delivery-count": 4269
-            }
+            "headers": {}
           },
           "content": {
-            "Nome do Cliente": "Rosimar lima",
-            "E-mail do Cliente": "rosyatacadao@hotmail.com",
-            "Telefone do Cliente - Formato BC": "+556599060403",
-            "Telefone do Cliente - Formato Z-API": "556599060403",
-            "ID do Evento": "44167a15-6e6e-473a-9414-ef63264a3d25",
-            "Data do Cancelamento": "2025-03-24",
-            "ID do Cliente": "a8480b0d-0c9b-4319-a3af-2f8a4dbae49c",
+            "Nome do Cliente": "Mateus Diniz (Automagic Bots)",
+            "E-mail do Cliente": "mateusdiniz@automagicbots.com.br",
+            "Telefone do Cliente - Formato BC": "+556281196678",
+            "Telefone do Cliente - Formato Z-API": "556281196678",
+            "ID do Evento": "c1094810-e059-41b9-9d5a-3f6223f54812",
+            "Data do Cancelamento": "2025-05-16",
+            "ID do Cliente": "548be38d-1d0d-43c6-a838-4c84306f9b34",
             "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
             "id_do_campo_id_do_agendamento_bot_conversa": "1045673",
             "id_do_campo_inviteeid_bot_conversa": "1045675",
@@ -7084,28 +7086,28 @@
             "id_do_campo_dia_da_semana_do_agendamento_bot_conversa": "1045528",
             "fluxo_de_confirmacao_de_cancelamento": "1769093",
             "id_do_campo_motivo_do_cancelamento_bot_conversa": "1045683",
-            "Motivo do Cancelamento": "",
-            "Data de Início": "2025-03-27",
-            "Hora de Início": "09:00:00",
-            "Link da Reunião": "https://calendly.com/events/44167a15-6e6e-473a-9414-ef63264a3d25/google_meet",
-            "Tipo de Evento": "Sessão Estratégica Comercial",
-            "Dia da Semana do Evento": "Quinta",
-            "utm_source": "ig",
-            "utm_campaign": "[LF] [SE] [CAPTAÇÃO] [CADASTRO] [IG] [F] Públicos Frios Teste Posionamento",
-            "utm_term": "SE_AD031",
-            "utm_medium": "Instagram_Feed",
-            "utm_content": "00 - [AUTO] [F] CARGOS ALTOS",
-            "data_agendamento": "2025-03-22 10:14:21",
+            "Motivo do Cancelamento": "teste",
+            "Data de Início": "2025-05-23",
+            "Hora de Início": "13:00:00",
+            "Link da Reunião": "https://calendly.com/events/c1094810-e059-41b9-9d5a-3f6223f54812/google_meet",
+            "Tipo de Evento": "Funil SS",
+            "Dia da Semana do Evento": "Sexta",
+            "utm_source": null,
+            "utm_campaign": null,
+            "utm_term": null,
+            "utm_medium": null,
+            "utm_content": null,
+            "data_agendamento": "2025-05-16 14:17:18",
             "id_campo_id_banco_de_dados_bot_conversa": "1408048",
-            "data_termino_ac": "2025-03-27",
-            "data_e_hora_de_termino": "27/03/2025 09:45",
-            "data_e_hora_de_inicio": "27/03/2025 09:00",
+            "data_termino_ac": "2025-05-23",
+            "data_e_hora_de_termino": "23/05/2025 13:45",
+            "data_e_hora_de_inicio": "23/05/2025 13:00",
             "funil": "sessao_estrategica",
             "variacao_do_funil": "v1",
-            "E-mail do Responsável": "maiko.bruce@universidadevendas.com.br",
-            "Nome do Responsável": "Maiko Bruce",
+            "E-mail do Responsável": "thiago.campanholo@universidadevendas.com.br",
+            "Nome do Responsável": "Thiago Campanholo",
             "id_campo_data_cancelamento_bot_conversa": "1057942",
-            "slug_do_evento": "sessao-estrategica"
+            "slug_do_evento": "sessao-estrategica-comercial-manual-clone"
           }
         }
       }
@@ -7130,6 +7132,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-04-27T02:47:52.552Z",
-  "versionId": "c0350653-b114-426c-be68-0dffd99da26b"
+  "updatedAt": "2025-05-16T17:25:34.893Z",
+  "versionId": "946c0411-5f92-4bd4-9119-e9ea6d16ae43"
 }
