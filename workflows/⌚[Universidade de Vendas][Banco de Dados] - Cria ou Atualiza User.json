@@ -85,7 +85,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "CALL busca_usuario(\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] || null }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] || null }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] || null }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] || null }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] || null }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] || null }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] || null }}\n);\n",
+        "query": "CALL busca_usuario(\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] + \"'\" : \"null\" }}\n);\n",
         "options": {}
       },
       "type": "n8n-nodes-base.mySql",
@@ -286,31 +286,29 @@
       {
         "json": {
           "headers": {
-            "host": "n8n2webhookautomagicbots.automagicbots.com.br",
-            "user-agent": "axios/1.7.4",
-            "content-length": "169",
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/1.6.7",
+            "content-length": "129",
             "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
             "accept-encoding": "gzip, compress, deflate, br",
             "content-type": "application/json",
             "x-forwarded-for": "172.18.0.1",
-            "x-forwarded-host": "n8n2webhookautomagicbots.automagicbots.com.br",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "x-forwarded-port": "443",
             "x-forwarded-proto": "https",
-            "x-forwarded-server": "40f84ef31161",
+            "x-forwarded-server": "77400aba3c69",
             "x-real-ip": "172.18.0.1"
           },
           "params": {},
           "query": {},
           "body": {
-            "nome": "João",
-            "sobrenome": "Victor de Carrera",
-            "email": "joaovictor_carrera@hotmail.com",
-            "telefone": "556599016556",
-            "instagram": "amaraldas_automacoes",
-            "cpf": "",
-            "cnpj": ""
+            "nome": "Claudio",
+            "sobrenome": "Costa",
+            "email": "consultoria@ilacbrasil.com.br",
+            "telefone": "557184650310",
+            "instagram": "ilacbrasil"
           },
-          "webhookUrl": "https://n8n2webhookautomagicbots.automagicbots.com.br/webhook/cria-atualiza-user",
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/cria-atualiza-user",
           "executionMode": "production"
         }
       }
@@ -325,6 +323,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-16T14:10:44.967Z",
-  "versionId": "51a45c03-d65b-4efe-b2ec-ee1e4c534276"
+  "updatedAt": "2025-05-19T13:27:48.563Z",
+  "versionId": "7138ac07-6620-4148-82ca-49b8fa528a69"
 }
