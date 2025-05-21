@@ -457,7 +457,7 @@
       "main": [
         [
           {
-            "node": "cria/atualiza_contato_qualificado1",
+            "node": "segundo_ou_mais_erro3",
             "type": "main",
             "index": 0
           }
@@ -501,8 +501,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        200,
-        820
+        220,
+        960
       ]
     },
     {
@@ -2238,31 +2238,33 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-T1U7Xc--PePTc-k1N4q7Ew",
-            "deliveryTag": 1,
-            "redelivered": false,
+            "consumerTag": "amq.ctag-Cslwkcq3k-nQlHA4kz7GHg",
+            "deliveryTag": 24,
+            "redelivered": true,
             "exchange": "",
             "routingKey": "Não Agendamentos - Parte 5 - Qualificado"
           },
           "properties": {
-            "headers": {}
+            "headers": {
+              "x-delivery-count": 2535
+            }
           },
           "content": {
-            "Nome do Cliente": "Mateus Diniz - Automagic Bots",
-            "E-mail do Cliente": "mateusdiniz@automagicbots.com.br",
-            "Telefone do Cliente - Formato Z-API": "556281196678",
-            "id_lead_bd": 2755,
-            "id_lead_bc": 429904072,
-            "utm_source": "",
-            "utm_campaign": "",
-            "utm_term": "",
-            "utm_medium": "",
-            "utm_content": "",
-            "funil": "sesssao",
-            "variacao_do_funil": "SE-V7",
-            "quantos_vendedores_possui": "De 6 a 8 vendedores",
-            "conhece_mentoria": "Sim",
-            "tem_socio": "Não",
+            "Nome do Cliente": "Fabiane",
+            "E-mail do Cliente": "fabiane.pbs@gmail.com",
+            "Telefone do Cliente - Formato Z-API": "559481078180",
+            "id_lead_bd": 1615,
+            "id_lead_bc": 370396647,
+            "utm_source": "ig",
+            "utm_campaign": "[LF] [SE] [CAPTAÇÃO] [CADASTRO] [IG] [F] Público Frio - abencoada",
+            "utm_term": "SE_AD031",
+            "utm_medium": "Instagram_Feed",
+            "utm_content": "02 - [AUTO] [F] CARGOS ALTOS",
+            "funil": "Sessao_Estrategica",
+            "variacao_do_funil": "v1",
+            "quantos_vendedores_possui": "Não tenho vendedores",
+            "conhece_mentoria": "Não",
+            "tem_socio": "Não\n",
             "id_tag_desqualificado_bot_conversa": "5073673",
             "id_campo_utm_var_bot_conversa": "1408045",
             "id_campo_utm_fun_bot_conversa": "1408044",
@@ -2278,12 +2280,8 @@
             "id_campo_tem_socio_bot_conversa": "1408036",
             "id_fluxo_nao_agendou_10_min": "",
             "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
-            "data_ultima_quinzena": "2024-11-07",
-            "instagram": "prmateusdiniz",
-            "analise_estratégica": "vocês são os melhores",
-            "maior_desejo": "Aumentar meu faturamento",
-            "maior_dor": "aumento nas vendas",
-            "faturamento": "Entre 100 e 150 mil reais por mês"
+            "data_ultima_quinzena": "\"2025-05-04\"",
+            "instagram": "@drafabianejatoba"
           }
         }
       }
@@ -2307,6 +2305,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-02-05T13:41:36.745Z",
-  "versionId": "683f834f-0109-4445-9faf-fafeddf459b5"
+  "updatedAt": "2025-05-21T13:22:47.719Z",
+  "versionId": "89a0d536-d3ce-451c-9d4f-3e3f6ae2fadf"
 }
