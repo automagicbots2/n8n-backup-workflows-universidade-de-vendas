@@ -1,0 +1,506 @@
+{
+  "active": false,
+  "connections": {
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_funis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados": {
+      "main": [
+        [
+          {
+            "node": "fila_acoes_funis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_funil": {
+      "main": [
+        [
+          {
+            "node": "dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_funis": {
+      "main": [
+        [
+          {
+            "node": "busca_funil",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastro_na_lp": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-20T19:18:51.664Z",
+  "id": "B78mEaHnuJrkmp4H",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚[Fabricio Nunes] - [Typeform] - Trata dados - Sessão Estratégica",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "const formResponse = $node[\"cadastro_na_lp\"].json[\"body\"][\"form_response\"];\nconst hidden = formResponse.hidden || {};\nconst answers = formResponse.answers || [];\n\n// Captura dados ocultos (do hidden)\nconst fullNameAnswer = hidden.name || \"\";\nconst emailAnswer = hidden.email || \"\";\nconst telefoneClienteOriginal = hidden.phone || \"\";\n\n// Funções auxiliares\nfunction capitalizeName(fullName) {\n  if (!fullName) return { fname: '', lname: '', fullname: '' };\n\n  const lowerCaseWords = ['da', 'de', 'do', 'di', 'du'];\n  let words = fullName.toLowerCase().split(' ').map((word, index) => {\n    if (lowerCaseWords.includes(word) && index !== 0) return word;\n    return word.charAt(0).toUpperCase() + word.slice(1);\n  });\n\n  const fname = words.shift();\n  const lname = words.join(' ');\n  return { fname, lname, fullname: `${fname} ${lname}` };\n}\n\nfunction formatEmail(email) {\n  return email.toLowerCase().trim();\n}\n\nfunction formatInstagram(instagram) {\n  return instagram.toLowerCase().replace(/^@/, \"\").trim();\n}\n\nfunction formatCPF(cpf) {\n  const cpfLimpo = cpf.replace(/\\D/g, \"\");\n  return cpfLimpo.length === 11\n    ? `${cpfLimpo.slice(0, 3)}.${cpfLimpo.slice(3, 6)}.${cpfLimpo.slice(6, 9)}-${cpfLimpo.slice(9)}`\n    : cpf;\n}\n\nfunction formatCNPJ(cnpj) {\n  const cnpjLimpo = cnpj.replace(/\\D/g, \"\");\n  return cnpjLimpo.length === 14\n    ? `${cnpjLimpo.slice(0, 2)}.${cnpjLimpo.slice(2, 5)}.${cnpjLimpo.slice(5, 8)}/${cnpjLimpo.slice(8, 12)}-${cnpjLimpo.slice(12)}`\n    : cnpj;\n}\n\n// Formatação de telefone\nlet telefoneFinal = \"\";\nif (telefoneClienteOriginal) {\n  const telefoneLimpo = telefoneClienteOriginal.replace(/\\D/g, \"\");\n\n  let DDI = '', DDD = '', numero = '';\n  if (telefoneLimpo.length > 11) {\n    DDI = telefoneLimpo.slice(0, 2);\n    DDD = telefoneLimpo.slice(2, 4);\n    numero = telefoneLimpo.slice(4);\n  } else if (telefoneLimpo.length === 11 || telefoneLimpo.length === 10) {\n    DDI = '55';\n    DDD = telefoneLimpo.slice(0, 2);\n    numero = telefoneLimpo.slice(2);\n  } else {\n    telefoneFinal = telefoneLimpo;\n  }\n\n  if (DDD && numero) {\n    if (parseInt(DDD) > 28 && numero.length === 9 && numero.startsWith(\"9\")) {\n      numero = numero.slice(1);\n    } else if (numero.length === 8) {\n      numero = `9${numero}`;\n    }\n  }\n\n  if (DDI && DDD && numero) {\n    telefoneFinal = `${DDI}${DDD}${numero}`;\n  }\n}\n\n// Dados padrão\nconst cpfAnswer = \"\";\nconst cnpjAnswer = \"\";\nconst formName = formResponse.definition.title || \"Formulário\";\nconst formId = formResponse.form_id || \"desconhecido\";\n\n// 🔹 Mapeia perguntas e respostas com o `ref` da resposta como chave\nconst perguntas_respostas = {};\n\nfor (const answer of answers) {\n  let resposta = \"\";\n  let idResposta = null;\n\n  if (answer.type === \"choice\" && answer.choice) {\n    resposta = answer.choice.label;\n    idResposta = answer.choice.ref; // captura o ref da opção marcada\n  }\n\n  if (answer.type === \"boolean\") {\n    resposta = answer.boolean ? \"Sim\" : \"Não\";\n    idResposta = answer.field.ref; // usa o ref do campo como chave\n  }\n\n  if (answer.type === \"text\") {\n    resposta = answer.text;\n    idResposta = answer.field.ref; // usa o ref do campo como chave\n  }\n\n  if (idResposta) {\n    perguntas_respostas[idResposta] = resposta;\n  }\n}\n\n// Formatações finais\nconst formattedNames = capitalizeName(fullNameAnswer);\nconst formattedEmail = formatEmail(emailAnswer);\nconst formattedInstagram = formatInstagram(perguntas_respostas[\"bae8dbfc-3bc4-4b25-b431-4d32910b51eb\"] || \"\");\n\nconst result = {\n  ...formattedNames,\n  email: formattedEmail,\n  whatsapp: telefoneFinal,\n  instagram: formattedInstagram,\n  cpf: formatCPF(cpfAnswer),\n  cnpj: formatCNPJ(cnpjAnswer),\n  form_name: formName,\n  form_id: formId,\n  perguntas_respostas\n};\n\nreturn [{ json: result }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        740,
+        120
+      ],
+      "id": "5d038428-a149-4e18-a464-7f71b8f1692d",
+      "name": "formata_dados"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c74589e2-452e-44a5-8a49-b98c6fcdeca8",
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados\"].json[\"fname\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "f17267b5-65b0-4c2b-b9f5-d719193bb457",
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados\"].json[\"lname\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "79edcf9f-8602-409f-8d04-ced41c06d16f",
+              "name": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "93103cc7-1870-4962-bb01-59462196b4de",
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"whatsapp\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4750507c-f44a-45d5-b5ce-2a681d5a5581",
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_source\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a68b8a08-b2d1-4352-affb-0a6f4045cf4a",
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_campaign\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "71c74ec7-51b3-422e-a2d5-ae7bbf3bd1b0",
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_term\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "57aa10ae-6631-4352-8925-35138b1c9b7a",
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_medium\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4e84ee54-3122-48e4-92d9-1f9db59e0b94",
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_content\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "2bb4770b-d984-4366-a4c5-6e323c3889c1",
+              "name": "id_funil",
+              "value": "={{ $node[\"busca_funil\"].json[\"id_funil\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "b9134b79-303b-4d22-8c4c-36002bd7e7f8",
+              "name": "instagram",
+              "value": "={{ $node[\"formata_dados\"].json[\"instagram\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "f94127c8-00db-445d-b77e-bfb06bed512a",
+              "name": "id_forms",
+              "value": "={{ $node[\"busca_funil\"].json[\"id_forms\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "e98d611f-7a4b-4d56-882b-73294009efa0",
+              "name": "tipo_forms",
+              "value": "={{ $node[\"busca_funil\"].json[\"tipo_forms\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "b73b995c-f5ad-47e5-8497-43ad7fa1963d",
+              "name": "nomeEmpresa",
+              "value": "={{ $node[\"formata_dados\"].json[\"nomeEmpresa\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "20bcb83f-e980-45dc-bd35-e9ad6cb5ffac",
+              "name": "siteEmpresa",
+              "value": "={{ $node[\"formata_dados\"].json[\"siteEmpresa\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "412ab871-752c-4a88-b793-f257951f452c",
+              "name": "qtdFuncionarios",
+              "value": "={{ $node[\"formata_dados\"].json[\"qtdFuncionarios\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "1103ecdb-d98d-4fcf-9ffc-56fa526237ce",
+              "name": "modeloNegocio",
+              "value": "={{ $node[\"formata_dados\"].json[\"modeloNegocio\"] || \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "daa68fd0-f465-418d-937c-9086e9804060",
+              "name": "cargo",
+              "value": "={{ $node[\"formata_dados\"].json[\"cargo\"] || \"\" }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "44d5e4f9-d396-4d8c-a2ae-bc31daaad4b5",
+      "name": "dados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1400,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "Fila de Ações de Funis",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "9cc59282-85a2-48a1-9550-dc898dff3d75",
+      "name": "fila_acoes_funis",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        120
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_forms",
+              "value": "={{ $node[\"formata_dados\"].json[\"form_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1180,
+        120
+      ],
+      "id": "867e2d2a-cecd-4d35-80b0-1fa6948944d0",
+      "name": "busca_funil"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Funis"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "3d124872-11bb-425d-a95b-fd3864734e67",
+      "name": "pesquisa_variavel_n8n_fluxo_funis",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        980,
+        120
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "f077ec25-ab23-4e76-bbf9-e7117f3cc0cd",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        520,
+        120
+      ],
+      "id": "bdcc29d7-5832-4e43-9274-fe9c499eae22",
+      "name": "cadastro_na_lp",
+      "webhookId": "f077ec25-ab23-4e76-bbf9-e7117f3cc0cd"
+    }
+  ],
+  "pinData": {
+    "cadastro_na_lp": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "Typeform Webhooks",
+            "content-length": "3377",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "traceparent": "00-51b8d07db1391702af1ba916260a5c3e-1371540dc8fdc01a-01",
+            "x-forwarded-for": "18.210.136.162",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "18.210.136.162"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event_id": "01HZQ9899R8NQF6TF1HQAFHTR2",
+            "event_type": "form_response",
+            "form_response": {
+              "form_id": "PkklTqKj",
+              "token": "j43sr4e4e7mnkbl4j446t4e0oqs1wjwb",
+              "landed_at": "2024-06-06T17:23:44Z",
+              "submitted_at": "2024-06-06T17:23:57Z",
+              "hidden": {
+                "email": "mateusdiniz@automagicbots.com.br",
+                "name": "Mateus Diniz - Automagic Bots",
+                "phone": "(62) 98119-6678",
+                "utm_campaign": "",
+                "utm_content": "",
+                "utm_id": "xxxxx",
+                "utm_medium": "",
+                "utm_source": "",
+                "utm_term": ""
+              },
+              "definition": {
+                "id": "PkklTqKj",
+                "title": "Sessão Estratégica",
+                "fields": [
+                  {
+                    "id": "jEM7hIRuqppb",
+                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed",
+                    "type": "multiple_choice",
+                    "title": "{{hidden:name}} quantos vendedores você tem na sua empresa hoje?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "5a0lwyGwkyxR",
+                        "ref": "699fb225-0c8f-4b12-9e00-904c1634f953",
+                        "label": "Não tenho vendedores"
+                      },
+                      {
+                        "id": "sBvfRShsDU61",
+                        "ref": "7e019f18-8e58-495d-b48e-6bddb50979e9",
+                        "label": "De 1 a 5 vendedores"
+                      },
+                      {
+                        "id": "9cpU3xNHkblJ",
+                        "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59",
+                        "label": "De 6 a 8 vendedores"
+                      },
+                      {
+                        "id": "lZw9TGqZwfOk",
+                        "ref": "f272caf5-c0b8-4f15-adb5-70e6cb8a1421",
+                        "label": "De 9 a 15 vendedores"
+                      },
+                      {
+                        "id": "NfNnRcS9yKci",
+                        "ref": "9ada87ee-4773-4496-a28c-fb1235fdeca7",
+                        "label": "Acima de 15 vendedores"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "QjeWdzEVnl6O",
+                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a",
+                    "type": "multiple_choice",
+                    "title": "Você já ouviu falar do meu programa de Mentoria?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "9fy6XL9M5TJz",
+                        "ref": "0935e89e-f63f-4371-be68-67f935aadb55",
+                        "label": "Sim"
+                      },
+                      {
+                        "id": "khKb0dSYSU0F",
+                        "ref": "e361a83c-609b-48c9-b2fb-73b04a855081",
+                        "label": "Não"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "lzsQlWi9872H",
+                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3",
+                    "type": "yes_no",
+                    "title": "Você tem algum sócio ou parceiro de negócios que toma decisão junto com você?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "KRNIQgziTSkK",
+                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb",
+                    "type": "short_text",
+                    "title": "Qual o Instagram da sua empresa?",
+                    "properties": {}
+                  }
+                ],
+                "endings": [
+                  {
+                    "id": "UvUHG2ZTIqUG",
+                    "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90",
+                    "title": "https://calendly.com/comercial-unv/sessao-estrategica?name={{hidden:name}}&email={{hidden:email}}&a1={{hidden:phone}}&utm_source={{hidden:utm_source}}&utm_campaign={{hidden:utm_campaign}}&utm_term={{hidden:utm_term}}&utm_medium={{hidden:utm_medium}}&utm_content={{hidden:utm_content}}",
+                    "type": "url_redirect",
+                    "properties": {
+                      "redirect_url": "https://calendly.com/comercial-unv/sessao-estrategica?name={{hidden:name}}&email={{hidden:email}}&a1={{hidden:phone}}&utm_source={{hidden:utm_source}}&utm_campaign={{hidden:utm_campaign}}&utm_term={{hidden:utm_term}}&utm_medium={{hidden:utm_medium}}&utm_content={{hidden:utm_content}}"
+                    }
+                  }
+                ]
+              },
+              "answers": [
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "9cpU3xNHkblJ",
+                    "label": "De 6 a 8 vendedores",
+                    "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59"
+                  },
+                  "field": {
+                    "id": "jEM7hIRuqppb",
+                    "type": "multiple_choice",
+                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "9fy6XL9M5TJz",
+                    "label": "Sim",
+                    "ref": "0935e89e-f63f-4371-be68-67f935aadb55"
+                  },
+                  "field": {
+                    "id": "QjeWdzEVnl6O",
+                    "type": "multiple_choice",
+                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a"
+                  }
+                },
+                {
+                  "type": "boolean",
+                  "boolean": true,
+                  "field": {
+                    "id": "lzsQlWi9872H",
+                    "type": "yes_no",
+                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "prmateusdiniz",
+                  "field": {
+                    "id": "KRNIQgziTSkK",
+                    "type": "short_text",
+                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb"
+                  }
+                }
+              ],
+              "ending": {
+                "id": "UvUHG2ZTIqUG",
+                "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90"
+              }
+            }
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-preenchida-hetzner",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-05-20T21:51:46.677Z",
+  "versionId": "2990ba07-0ad9-4805-a1b3-7563440f0062"
+}
