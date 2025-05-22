@@ -587,7 +587,7 @@
           "values": [
             {
               "column": "id_user",
-              "value": "={{ $node[\"consulta_time\"].json[\"body\"][\"user\"] }}"
+              "value": "={{ $node[\"consulta_time\"].json[\"body\"][\"user\"] }}{{ $node[\"consulta_time\"].json[\"body\"][\"id_user\"] }}"
             },
             {
               "column": "funcao",
@@ -1532,7 +1532,7 @@
           "headers": {
             "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "user-agent": "axios/1.6.7",
-            "content-length": "26",
+            "content-length": "50",
             "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
             "accept-encoding": "gzip, compress, deflate, br",
             "content-type": "application/json",
@@ -1547,7 +1547,8 @@
           "query": {},
           "body": {
             "time": "SDR",
-            "user": 8126
+            "id_user": 97,
+            "email_colaborador": ""
           },
           "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/consulta-colaborador",
           "executionMode": "production"
@@ -1567,6 +1568,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-21T13:18:46.589Z",
-  "versionId": "43f255e2-4f76-4ce7-866c-78d4baff2ba4"
+  "updatedAt": "2025-05-21T18:49:18.843Z",
+  "versionId": "658e7df7-1857-49b8-917b-a3e9f06888de"
 }
