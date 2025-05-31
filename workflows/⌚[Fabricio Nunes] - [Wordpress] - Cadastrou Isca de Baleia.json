@@ -231,6 +231,17 @@
           }
         ]
       ]
+    },
+    "avisa_Maynara": {
+      "main": [
+        [
+          {
+            "node": "avisa_Felipe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-04-11T18:14:44.863Z",
@@ -1143,7 +1154,10 @@
               "name": "ID Thiago BC",
               "value": "387179683"
             },
-            {}
+            {
+              "name": "ID Felipe BC",
+              "value": "747203618"
+            }
           ]
         },
         "options": {}
@@ -1227,6 +1241,42 @@
         1020
       ],
       "id": "22cafd13-cd83-45b9-9d1e-dce411b04152",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Felipe BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL ISCA DE BALEIA 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"fname\"] }} {{ $node[\"formata_dados1\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Felipe",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        3420,
+        1020
+      ],
+      "id": "3a32dde4-5da1-4112-ab38-286546f59eac",
       "continueOnFail": true
     }
   ],
@@ -1514,6 +1564,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-04-16T21:23:05.228Z",
-  "versionId": "54265a10-1711-455c-96cc-6032e4842046"
+  "updatedAt": "2025-05-30T17:46:04.238Z",
+  "versionId": "1cb58a1f-97e8-4ae8-afdd-cde77e493eca"
 }
