@@ -425,7 +425,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.2,
       "position": [
-        920,
+        900,
         300
       ],
       "credentials": {
@@ -1033,7 +1033,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        1120,
+        1100,
         300
       ]
     },
@@ -1067,7 +1067,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1340,
+        1320,
         300
       ],
       "id": "9610ee9a-8dc9-4cad-8e0b-0ae06b2fd5d9",
@@ -1103,7 +1103,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1540,
+        1520,
         300
       ],
       "id": "1818815f-bd8e-4274-9602-f349e061d4b9",
@@ -1139,7 +1139,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1720,
+        1700,
         300
       ],
       "id": "50d4cdd0-edfd-4f12-80fe-e13388b40ff3",
@@ -1167,7 +1167,7 @@
             },
             {
               "name": "text",
-              "value": "=🎉 *TESTE DE NOVA VENDA - Ganho na Clint* 🎉\n\n*Data:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_won_at\"]).slice(0,10) }}\n*SDR*: {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_sdr\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*Qual mentoria?* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_produto\"] }} {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}\n*Nome da empresa: (Jurídico/Fantasia):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }} / {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cnpj\"] }}\n*Segmento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_segment\"] }}\n*Plano:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_plano\"] }}\n*Entrada:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Faturamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_faturamento\"] }}\n*Quantidade de Parcelas (Entrada + Parcelas):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Valor das Parcelas:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_valor_das_parcelas_e\"] }}{{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_valor_das_parcelas\"] }}\n*Data de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}{{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_vencimento_da_parcel\"] }}\n*Forma de pagamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_forma_de_pagamento_1\"] }}\n*Contatos (Nome e telefone):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }} - {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Cidade:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_city\"] }}\n*Estado:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_state\"] }}\n*CEP:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_cep\"] }}{{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cep\"] }}\n*Briefing:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_briefing\"].replaceAll('<p>', '').replaceAll('<br>','\\n').replaceAll('</p>', '').replaceAll('&nbsp;','').replaceAll('#;', '').replaceAll('**;', '')).replace(/, /g, ',').replaceAll(/ ,/g, ', ') }}"
+              "value": "=🎉 *NOVA VENDA - Ganho na Clint* 🎉\n\n*Data:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_won_at\"]).slice(0,10) }}\n*SDR*: {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_sdr\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*Qual mentoria?* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_produto\"] }} {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}\n*Nome da empresa: (Jurídico/Fantasia):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }} / {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cnpj\"] }}\n*Segmento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_segment\"] }}\n*Plano:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_plano\"] }}\n*Entrada:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Faturamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_faturamento\"] }}\n*Quantidade de Parcelas (Entrada + Parcelas):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Valor das Parcelas:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_valor_das_parcelas_e\"] }}{{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_valor_das_parcelas\"] }}\n*Data de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}{{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_vencimento_da_parcel\"] }}\n*Forma de pagamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_forma_de_pagamento_1\"] }}\n*Contatos (Nome e telefone):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }} - {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Cidade:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_city\"] }}\n*Estado:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_state\"] }}\n*CEP:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_cep\"] }}{{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cep\"] }}\n*Briefing:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_briefing\"].replaceAll('<p>', '').replaceAll('<br>','\\n').replaceAll('</p>', '').replaceAll('&nbsp;','').replaceAll('#;', '').replaceAll('**;', '')).replace(/, /g, ',').replaceAll(/ ,/g, ', ') }}"
             },
             {
               "name": "options.delay",
@@ -1266,8 +1266,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1920,
-        740
+        700,
+        40
       ]
     },
     {
@@ -1300,7 +1300,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1920,
+        1900,
         300
       ],
       "id": "dd538bc4-fbe8-4b5a-96f3-288281714324",
@@ -1591,16 +1591,16 @@
           "headers": {
             "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "user-agent": "axios/1.7.9",
-            "content-length": "4177",
+            "content-length": "6602",
             "accept": "application/json, text/plain, */*",
             "accept-encoding": "gzip, compress, deflate, br",
             "content-type": "application/json",
-            "traceparent": "00-6781256500000000354a65334b8789bd-63406f21382b5985-00",
-            "tracestate": "dd=t.tid:6781256500000000;t.dm:-3;s:-1;p:63406f21382b5985",
-            "x-datadog-parent-id": "7151838396731316613",
+            "traceparent": "00-684078fb0000000063cfe661ccd2a928-24dd93064140610a-00",
+            "tracestate": "dd=t.tid:684078fb00000000;t.dm:-3;s:-1;p:24dd93064140610a",
+            "x-datadog-parent-id": "2656441010292285706",
             "x-datadog-sampling-priority": "-1",
-            "x-datadog-tags": "_dd.p.tid=6781256500000000",
-            "x-datadog-trace-id": "3839992903271680445",
+            "x-datadog-tags": "_dd.p.tid=684078fb00000000",
+            "x-datadog-trace-id": "7192220437656545576",
             "x-forwarded-for": "52.200.254.28",
             "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "x-forwarded-port": "443",
@@ -1611,53 +1611,50 @@
           "params": {},
           "query": {},
           "body": {
-            "contact_name": "Marcos",
-            "contact_email": "marcos@evolucaoimpressos.com.br",
-            "contact_phone": "+5548996626888",
-            "deal_stage": "Proposta apresentada",
-            "deal_user": "ana.carvalho@universidadevendas.com.br",
+            "contact_name": "alexsandra fernandes",
+            "contact_email": "cariocasantos376@gmail.com",
+            "contact_phone": "+5511933045322",
+            "deal_stage": "Reunião Realizada",
+            "deal_user": "michelle.nunes@universidadevendas.com.br",
             "deal_status": "WON",
             "contact_tag": [
-              "Funil Social Setter",
-              "Gabriele",
-              "14/11",
-              "retornar em janeiro"
+              "Qualificado",
+              "Natália"
             ],
             "contact_vendedores": "",
-            "deal_won_at": "10/01/2025 10:48:49",
+            "deal_won_at": "04/06/2025 13:48:58",
             "contact_numero_de_parcelas": "",
-            "deal_quantidade_de_parcel": "12",
+            "deal_quantidade_de_parcel": "5",
             "contact_cpfcnpj": "",
-            "organization_name": "MQ Teixeira - Evolução Gráfica e Comunicação Visual",
-            "contact_forma_de_pagamento": "",
+            "organization_name": "kaylaine Moreira Fernandes Rodrigues",
             "contact_status_de_pagamento": "",
             "contact_produto": "",
-            "deal_value": 1500,
-            "deal_faturamento": 35000,
-            "deal_user_phone": "(11) 96870-5210",
-            "deal_endereco": "R João Grumiche 196, Kobrasol, São José SC",
-            "organization_city": "São José ",
-            "organization_state": "SC",
-            "organization_estado_sigla": "SC",
+            "deal_value": 3000,
+            "deal_faturamento": 10000,
+            "deal_user_phone": "5511948145047",
+            "deal_endereco": "Estrada do Montanhão, 27, Montanhão - São Paulo, SP. CEP  01153-000",
+            "organization_city": "Montanhão",
+            "organization_state": "SP",
+            "organization_estado_sigla": "",
             "organization_documentos_important": "",
-            "deal_origin": "Funil SS",
+            "deal_origin": "Funil SE",
             "deal_meses_de_contrato": "",
             "deal_dia_do_vencimento": "",
-            "deal_closer": "Ana Carvalho",
-            "deal_sdr": "Gabriele",
+            "deal_closer": "michelle.nunes@universidadevendas.com.br",
+            "deal_sdr": "Natália Amador",
             "deal_valor_da_entrada": "",
-            "deal_valor_das_parcelas": 2500,
+            "deal_valor_das_parcelas": 1400,
             "deal_forma_de_pagamento": "",
             "deal_cep": "",
-            "deal_nome_fantasia_da_emp": "Evolução Comunicação Visual e Gráfica",
-            "deal_produto": "Platinum",
-            "deal_plano": "Anual",
-            "deal_forma_de_pagamento_1": "Boleto",
-            "organization_segment": "Comunicação visual ",
-            "deal_briefing": "<p><span style=\"color:rgb(51,51,51);\">Marcos possui uma empresa de comunicação gráfica e visual e começou a seguir nosso perfil buscando informações sobre como estruturar uma equipe comercial. Ele já conta com dois vendedores e trabalha com metas e bonificações, mas acredita que os resultados poderiam melhorar se eles tivessem técnicas e abordagens mais assertivas.</span><br>- **Participantes e Introdução:**<br>&nbsp;- Ana e Laiane discutem sobre a entrada de um participante chamado Leandro e mencionam Gabi e Marcos.<br>&nbsp;- Ana apresenta-se a Marcos como parte do time de Fabrício Nunes.</p><p>- **Discussão Inicial:**<br>&nbsp;- Marcos possui uma empresa de comunicação visual.<br>&nbsp;- Ana menciona um depoimento de Ricardo, um cliente satisfeito, mas Marcos não o viu.</p><p>- **Estratégias de Vendas:**<br>&nbsp;- Ana sugere o uso de um funil de social selling para Marcos, destacando a importância de interações nas redes sociais.<br>&nbsp;- Marcos tem dois vendedores, mas não há um processo de vendas estruturado.</p><p>- **Desafios de Marcos:**<br>&nbsp;- Marcos relata que sua empresa é pequena e ele é sobrecarregado.<br>&nbsp;- Falta de técnica de vendas e investigação das necessidades dos clientes.<br>&nbsp;- Marcos usa uma plataforma de WhatsApp e planeja implementar um funil.</p><p>- **Soluções Propostas:**<br>&nbsp;- Ana sugere treinamento para colaboradores ou a contratação de um gerente comercial.<br>&nbsp;- Marcos expressa desconfiança devido a experiências passadas com consultorias.</p><p>- **Cultura e Motivação:**<br>&nbsp;- Discussão sobre a importância de motivar a equipe e implementar um plano de carreira baseado em meritocracia.<br>&nbsp;- Marcos menciona a falta de engajamento e a cultura solta na empresa.</p><p>- **Processos e Ferramentas:**<br>&nbsp;- Ana fala sobre a importância de ter processos bem alinhados e a possibilidade de usar ferramentas de CRM.<br>&nbsp;- Marcos menciona que a empresa depende muito dele e deseja uma estrutura auto gerenciável.</p><p>- **Proposta de Parceria:**<br>&nbsp;- Ana apresenta duas soluções: treinamento para colaboradores ou terceirização do gerente comercial.<br>&nbsp;- Marcos está preocupado com o custo e a forma de pagamento, preferindo boleto a cartão de crédito.</p><p>- **Resultados Esperados:**<br>&nbsp;- Ana promete retorno do investimento em dois a três meses.<br>&nbsp;- Marcos compartilha dados de propostas e vendas, indicando potencial de crescimento.</p><p>- **Conclusão:**<br>&nbsp;- Ana se compromete a discutir com Fabrício para ajustar a proposta financeira.<br>&nbsp;- Marcos está aberto a considerar a parceria, mas quer garantir que o investimento traga resultados.</p>",
-            "organization_cnpj": "24541498000168",
-            "organization_cep": "88102600",
-            "deal_vencimento_da_parcel": "20"
+            "deal_nome_fantasia_da_emp": "Elite Drive",
+            "deal_plano": "Semestral",
+            "deal_forma_de_pagamento_1": "Pix",
+            "organization_segment": "",
+            "deal_briefing": "<p>Resumo da Reunião entre Michelle (Universidade de Vendas) e Alexsandra (Elite Drive)<br>1. Apresentação Inicial<br>Michelle se apresentou como especialista em desenvolvimento comercial da Universidade de Vendas.</p><p>Alexsandra apresentou a Elite Drive, empresa especializada em viagens personalizadas, com foco em segurança e atendimento diferenciado, principalmente para clientes com necessidades especiais (pets, autistas, mulheres que preferem motoristas mulheres, etc.).</p><p>2. Modelo de Negócio da Elite Drive<br>Oferecem viagens de longo percurso (entre cidades e estados), com opções que incluem ônibus, avião, aplicativos (Uber, 99) e transporte executivo.</p><p>A empresa possui uma frota de motoristas próprios e freelancers.</p><p>Motoristas pagam mensalidade para fazer parte do grupo VIP, recebem bonificações e passam por um rigoroso processo seletivo com foco em segurança, responsabilidade e atendimento ao cliente.</p><p>Serviço de alta personalização e cuidado, como acompanhamento em tempo real das viagens, e preocupação tanto com a segurança do passageiro quanto do motorista.</p><p>Tipo de atendimento inclui serviços diferenciados, como motoristas para empresas que já possuem veículo próprio.</p><p>3. Desafios Identificados<br>Dificuldade em transformar interesse online em vendas concretas (exemplo de orçamento R$ 60.000 e faturamento efetivo de apenas R$ 5.000).</p><p>Problemas com agência de publicidade anterior, que não compreendia a essência da empresa e gerou impactos financeiros negativos.</p><p>Falta de experiência e domínio em tecnologia para gestão comercial e marketing.</p><p>Equipe de atendimento composta por familiares, que ainda não são vendedores treinados.</p><p>Dificuldade financeira para investir em serviços e expansão.</p><p>4. Diferenciais da Elite Drive<br>Foco na segurança e conforto do passageiro, principalmente para públicos vulneráveis.</p><p>Treinamento rigoroso para motoristas e avaliação constante.</p><p>Atendimento humanizado e acompanhamento próximo da viagem.</p><p>Atuação especialmente em viagens interestaduais e personalizadas.</p><p>5. Proposta e Soluções Apresentadas por Michelle<br>Sugestão de trabalhar estratégia de branding para fortalecer a marca e comunicar claramente os diferenciais da empresa no mercado.</p><p>Implantação e uso de CRM para organização de leads, follow-up, métricas e gestão da equipe comercial.</p><p>Treinamento de equipe de vendas focado em técnicas específicas para o nicho, incluindo neurovendas, argumentação, rapport e pós-venda.</p><p>Criação de scripts para evitar perda de vendas, como garantir documentos e pagamentos antecipados.</p><p>Desenvolvimento de novos funis de venda para segmentação de clientes e expansão de público-alvo.</p><p>Ações e campanhas de motivação para vendedores, criação de plano de carreira e comissionamento.</p><p>Gestão estratégica com reuniões periódicas para acompanhamento de metas, análise de resultados e planos de ação.</p><p>Participação em reuniões coletivas online (Hot City) para troca de experiências e aprendizado continuo.</p><p>Suporte de equipe especializada para auxiliar no uso de ferramentas, implantação de processos e acompanhamento comercial.</p><p>6. Estrutura do Serviço Oferecido<br>Serviço anual ofertado a R$ 36.000, mas com opção de pacote de 6 meses por R$ 10.000 (com possibilidade de pagamento via cartão ou PIX e parcelamento).</p><p>Implantação rápida com contrato e reuniões iniciais para diagnóstico completo da empresa.</p><p>Planos de ação customizados em até duas semanas.</p><p>Suporte contínuo de gerente de contas e gerente de relacionamento.</p><p>Inclusão de treinamento contínuo e reuniões de acompanhamento.</p><p>7. Considerações Finais de Alexsandra<br>Reconhecimento da qualidade do serviço e do valor da proposta.</p><p>Sinceridade quanto à atual limitação financeira para assumir o compromisso anual, mas interesse na proposta de seis meses.</p><p>Confiança e entusiasmo após o contato com Michelle, sentindo que os desafios serão supridos.</p><p>Compromisso em se organizar financeiramente para viabilizar a parceria.</p><p>Demonstração de fé e otimismo para superar dificuldades com o apoio da Universidade de Vendas.</p><p>8. Próximos Passos<br>Michelle enviará a apresentação formal e proposta.</p><p>Alexsandra fará alinhamentos financeiros e entrará em contato para formalizar a contratação.</p><p>Início do processo logo após fechamento, com agendamento da reunião de boas-vindas e diagnóstico detalhado.</p><p>Conclusão:<br>A reunião foi marcada por um diálogo aberto e transparente. Michelle apresentou um plano estruturado para resolver as dificuldades comerciais da Elite Drive, com foco em fortalecer o marketing, implementar processos comerciais sólidos e treinar a equipe de vendas. Alexsandra demonstrou grande interesse e reconheceu a importância do suporte oferecido, mas ressaltou sua atual limitação financeira, optando pela proposta de seis meses com possibilidade de parcelamento. Ambas manifestaram comprometimento em trabalhar juntas para o crescimento sustentável&nbsp;da&nbsp;empresa.</p>",
+            "deal_produto": "Sirius",
+            "organization_cnpj": "60.712193000135",
+            "organization_cep": "09791250",
+            "deal_vencimento_da_parcel": "N/A"
           },
           "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/ganho-planilha-hetzner",
           "executionMode": "production"
@@ -1677,6 +1674,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2025-06-03T18:37:50.978Z",
-  "versionId": "884a1562-cd6c-47f5-b32f-a86b5ce8061b"
+  "updatedAt": "2025-06-04T17:57:15.725Z",
+  "versionId": "317a407d-eba0-4b38-a3ae-ec46dae823c1"
 }
