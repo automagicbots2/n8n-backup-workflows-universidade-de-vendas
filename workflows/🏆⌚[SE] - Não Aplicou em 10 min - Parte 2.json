@@ -3185,7 +3185,7 @@
             },
             {
               "name": "dono_negocio",
-              "value": "={{ $node[\"rodizio_sdr2\"].json[\"nome\"].replace('Laiane','laiane@universidadevendas.com.br').replace('Naiara','naiara.jaqueline@universidadevendas.com.br') }}"
+              "value": "={{ $node[\"rodizio_sdr2\"].json[\"email\"] }} "
             },
             {
               "name": "pais",
@@ -4190,7 +4190,7 @@
             },
             {
               "name": "dono do negócio",
-              "value": "={{ $node[\"rodizio_sdr\"].json[\"nome\"].replace('Laiane','laiane@universidadevendas.com.br').replace('Naiara','naiara.jaqueline@universidadevendas.com.br') }}"
+              "value": "={{ $node[\"rodizio_sdr\"].json[\"email\"] }}"
             },
             {
               "name": "pais",
@@ -4570,7 +4570,7 @@
             },
             {
               "name": "dono do negócio",
-              "value": "={{ $node[\"rodizio_sdr1\"].json[\"nome\"].replace('Laiane','laiane@universidadevendas.com.br').replace('Naiara','naiara.jaqueline@universidadevendas.com.br') }}"
+              "value": "={{ $node[\"rodizio_sdr1\"].json[\"email\"] }}"
             },
             {
               "name": "pais",
@@ -4714,6 +4714,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-23T01:26:11.173Z",
-  "versionId": "4e298020-0f84-4c57-8794-928f0ec20fa1"
+  "updatedAt": "2025-06-09T20:15:50.929Z",
+  "versionId": "605cf53c-7484-4b76-bd69-483acef832d1"
 }
