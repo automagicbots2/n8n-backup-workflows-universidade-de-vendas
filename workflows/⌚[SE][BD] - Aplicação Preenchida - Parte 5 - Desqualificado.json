@@ -1621,7 +1621,7 @@
             },
             {
               "name": "dono_negocio",
-              "value": "={{ $node[\"rodizio_sdr\"].json[\"nome\"].replace('Laiane','laiane@universidadevendas.com.br').replace('Naiara','naiara.jaqueline@universidadevendas.com.br') }}"
+              "value": "={{ $node[\"rodizio_sdr\"].json[\"email\"] }}"
             },
             {
               "name": "utm_source",
@@ -1946,6 +1946,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-02-05T13:43:18.031Z",
-  "versionId": "7a7bdfe4-baec-4f36-aece-06c162c2fae2"
+  "updatedAt": "2025-06-09T20:18:39.437Z",
+  "versionId": "d5fe398b-2ad3-4919-95c5-d2fb9bf0367e"
 }
