@@ -12,17 +12,6 @@
         ]
       ]
     },
-    "cadastro_isca_baleia": {
-      "main": [
-        [
-          {
-            "node": "formata_dados1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "pesquisa_url_rotacionamento_colaboradores": {
       "main": [
         [
@@ -242,6 +231,17 @@
           }
         ]
       ]
+    },
+    "cadastro_isca_baleia": {
+      "main": [
+        [
+          {
+            "node": "formata_dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-04-11T18:14:44.863Z",
@@ -263,22 +263,6 @@
         960,
         1020
       ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "cadastro_isca_baleia",
-        "options": {}
-      },
-      "id": "5b0c574e-efe9-4dcb-9977-de721cc76476",
-      "name": "cadastro_isca_baleia",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        760,
-        1020
-      ],
-      "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
     },
     {
       "parameters": {
@@ -569,7 +553,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2640,
+        2620,
         1020
       ]
     },
@@ -1278,45 +1262,25 @@
       ],
       "id": "3a32dde4-5da1-4112-ab38-286546f59eac",
       "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "cadastro_isca_baleia",
+        "options": {}
+      },
+      "id": "5b0c574e-efe9-4dcb-9977-de721cc76476",
+      "name": "cadastro_isca_baleia",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        760,
+        1020
+      ],
+      "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
     }
   ],
   "pinData": {
-    "cadastro_isca_baleia": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "WordPress/6.7.2; https://universidadevendas.com.br",
-            "content-length": "252",
-            "accept": "*/*",
-            "accept-encoding": "deflate, gzip",
-            "content-type": "application/x-www-form-urlencoded",
-            "x-forwarded-for": "45.148.96.7",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "45.148.96.7"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "Nome": "Mateus Diniz - Automagic Bots",
-            "WhatsApp com DDD": "62981196678",
-            "E-mail": "mateusdiniz@automagicbots.com.br",
-            "utm_source": "Automagic",
-            "utm_content": "auto123",
-            "utm_campaign": "teste",
-            "utm_medium": "Bots",
-            "utm_term": "aovivo",
-            "form_id": "88889e3",
-            "form_name": "Aplicação-PkklTqKj"
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/cadastro_isca_baleia",
-          "executionMode": "production"
-        }
-      }
-    ],
     "Isca-de-baleia": [
       {
         "json": {
@@ -1550,6 +1514,42 @@
           "executionMode": "production"
         }
       }
+    ],
+    "cadastro_isca_baleia": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "WordPress/6.7.2; https://universidadevendas.com.br",
+            "content-length": "252",
+            "accept": "*/*",
+            "accept-encoding": "deflate, gzip",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-forwarded-for": "45.148.96.7",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "45.148.96.7"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Nome": "Mateus Diniz - Automagic Bots",
+            "WhatsApp com DDD": "4835191298",
+            "E-mail": "mateus@resenhadocafe.com.br",
+            "utm_source": "Automagic",
+            "utm_content": "auto123",
+            "utm_campaign": "teste",
+            "utm_medium": "Bots",
+            "utm_term": "aovivo",
+            "form_id": "88889e3",
+            "form_name": "Aplicação-PkklTqKj"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/cadastro_isca_baleia",
+          "executionMode": "production"
+        }
+      }
     ]
   },
   "settings": {
@@ -1564,6 +1564,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-05-30T17:46:04.238Z",
-  "versionId": "1cb58a1f-97e8-4ae8-afdd-cde77e493eca"
+  "updatedAt": "2025-06-10T20:12:55.887Z",
+  "versionId": "d1ebde50-8f34-4434-8557-03d37b3fa63d"
 }
