@@ -1,0 +1,58 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-06-26T11:44:03.075Z",
+  "id": "DeOxByV82aBgYAjQ",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[Facebook Lead Ads] - Fabricio Nunnes - SE maio",
+  "nodes": [
+    {
+      "parameters": {
+        "page": {
+          "__rl": true,
+          "value": "103878341604152",
+          "mode": "id"
+        },
+        "form": {
+          "__rl": true,
+          "value": "1684219988855748",
+          "mode": "list",
+          "cachedResultName": "Sessao-Estrategica-maio-2025"
+        },
+        "options": {}
+      },
+      "id": "d7ba8940-b0d0-4843-af2d-b55b7110de1c",
+      "name": "Facebook Lead Ads Trigger",
+      "type": "n8n-nodes-base.facebookLeadAdsTrigger",
+      "typeVersion": 1,
+      "position": [
+        620,
+        340
+      ],
+      "webhookId": "8196500c-04c2-40aa-b7bb-e1e236cfdec0",
+      "credentials": {
+        "facebookLeadAdsOAuth2Api": {
+          "id": "26PsT69kKcKF644z",
+          "name": "[Facebook Lead Ads] - Fabricio Nunnes"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2025-06-26T11:44:24.356Z",
+  "versionId": "a49a5e2a-7153-4f95-b569-0f1118c7eb8e"
+}
