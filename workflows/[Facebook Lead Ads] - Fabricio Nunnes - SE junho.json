@@ -1,0 +1,58 @@
+{
+  "active": true,
+  "connections": {},
+  "createdAt": "2025-06-17T12:56:57.146Z",
+  "id": "MvsGdHhGv9m9W4aR",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[Facebook Lead Ads] - Fabricio Nunnes - SE junho",
+  "nodes": [
+    {
+      "parameters": {
+        "page": {
+          "__rl": true,
+          "value": "103878341604152",
+          "mode": "id"
+        },
+        "form": {
+          "__rl": true,
+          "value": "3022347304596357",
+          "mode": "list",
+          "cachedResultName": "Sessao-Estrategica-Junho-2025-Condicional"
+        },
+        "options": {}
+      },
+      "id": "80b588ab-14c5-435e-80c6-607e942fc754",
+      "name": "Facebook Lead Ads Trigger",
+      "type": "n8n-nodes-base.facebookLeadAdsTrigger",
+      "typeVersion": 1,
+      "position": [
+        620,
+        340
+      ],
+      "webhookId": "28da9295-6ccd-4731-9e87-3bfc53b068c5",
+      "credentials": {
+        "facebookLeadAdsOAuth2Api": {
+          "id": "26PsT69kKcKF644z",
+          "name": "[Facebook Lead Ads] - Fabricio Nunnes"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2025-06-26T11:44:08.424Z",
+  "versionId": "7681e398-b098-46d4-bb34-dc7fd43402f7"
+}
