@@ -1,33 +1,18 @@
 {
   "active": true,
   "connections": {
-    "executa_procedure": {
+    "user_nao_existe": {
       "main": [
         [
           {
-            "node": "Limit",
+            "node": "insert_user",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "insert_user": {
-      "main": [
+        ],
         [
           {
-            "node": "executa_procedure1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "executa_procedure1": {
-      "main": [
-        [
-          {
-            "node": "Limit1",
+            "node": "No Operation, do nothing",
             "type": "main",
             "index": 0
           }
@@ -45,18 +30,33 @@
         ]
       ]
     },
-    "user_nao_existe": {
+    "executa_procedure1": {
       "main": [
         [
           {
-            "node": "insert_user",
+            "node": "Limit1",
             "type": "main",
             "index": 0
           }
-        ],
+        ]
+      ]
+    },
+    "insert_user": {
+      "main": [
         [
           {
-            "node": "No Operation, do nothing",
+            "node": "executa_procedure1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "executa_procedure": {
+      "main": [
+        [
+          {
+            "node": "Limit",
             "type": "main",
             "index": 0
           }
@@ -84,18 +84,100 @@
   "nodes": [
     {
       "parameters": {
+        "path": "cria-atualiza-user",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -420,
+        580
+      ],
+      "id": "e5c37427-aefb-4dd9-b3b4-2510c9cedd26",
+      "name": "fluxo_chamado",
+      "webhookId": "480e1e30-05c3-4aba-9470-4421b90f0da2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "74134405-0295-41c7-a149-d5a294db4ea6",
+              "leftValue": "={{ $json[0].mensagem }}",
+              "rightValue": "Usuário não encontrado",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "6b463d34-1885-4319-b3ee-9bb6a3c9e7a0",
+      "name": "user_nao_existe",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        200,
+        580
+      ]
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        460,
+        700
+      ],
+      "id": "dff5458f-c98a-4cee-b0b2-f0f82225e85b",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        860,
+        460
+      ],
+      "id": "1ef8ce1f-a950-4f77-9b64-520a1aac19eb",
+      "name": "Limit1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        0,
+        580
+      ],
+      "id": "b40c1937-e020-42ae-bf3a-aa42bd01de59",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
         "operation": "executeQuery",
-        "query": "CALL busca_usuario(\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] + \"'\" : \"null\" }}\n);\n",
+        "query": "CALL busca_usuario('{{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] }}');",
         "options": {}
       },
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        -220,
-        580
+        660,
+        460
       ],
-      "id": "258db383-3282-4dc7-bf31-bc5096ac9b6f",
-      "name": "executa_procedure",
+      "id": "9bfeb239-8b72-46c9-a97c-0ee6d8da3a61",
+      "name": "executa_procedure1",
       "credentials": {
         "mySql": {
           "id": "PfzfhyuSKTUfroef",
@@ -161,7 +243,7 @@
           "detailedOutput": true
         }
       },
-      "id": "59907d47-0297-4757-81bf-3d964ad41515",
+      "id": "50a2fb41-858c-4ac2-b5af-fb12bf59a58f",
       "name": "insert_user",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
@@ -180,140 +262,26 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "CALL busca_usuario('{{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] }}');",
+        "query": "CALL busca_usuario(\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] + \"'\" : \"null\" }},\n  {{ $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] ? \"'\" + $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] + \"'\" : \"null\" }}\n);\n",
         "options": {}
       },
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        660,
-        460
+        -220,
+        580
       ],
-      "id": "9e29b1eb-7303-47d1-945e-7220de594572",
-      "name": "executa_procedure1",
+      "id": "185c74c3-a366-411d-a7a0-3e3ea3e4052b",
+      "name": "executa_procedure",
       "credentials": {
         "mySql": {
           "id": "PfzfhyuSKTUfroef",
           "name": "[MySQL] - Fabricio Nunnes"
         }
       }
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.limit",
-      "typeVersion": 1,
-      "position": [
-        0,
-        580
-      ],
-      "id": "97ba9433-3e85-42e1-a936-0bd704c00fb4",
-      "name": "Limit"
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.limit",
-      "typeVersion": 1,
-      "position": [
-        860,
-        460
-      ],
-      "id": "7e484cb7-b118-4bf8-a913-8ae360208875",
-      "name": "Limit1"
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        460,
-        700
-      ],
-      "id": "8508fb7e-884b-4ce4-9805-8613aad121c4",
-      "name": "No Operation, do nothing"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict"
-          },
-          "conditions": [
-            {
-              "id": "74134405-0295-41c7-a149-d5a294db4ea6",
-              "leftValue": "={{ $json[0].mensagem }}",
-              "rightValue": "Usuário não encontrado",
-              "operator": {
-                "type": "string",
-                "operation": "equals",
-                "name": "filter.operator.equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "id": "ce5008fd-4e98-4cd0-95a4-467c8ba86e1e",
-      "name": "user_nao_existe",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
-      "position": [
-        200,
-        580
-      ]
-    },
-    {
-      "parameters": {
-        "path": "cria-atualiza-user",
-        "responseMode": "lastNode",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        -440,
-        580
-      ],
-      "id": "8540ff89-076e-45db-84bb-a7d0b86fc809",
-      "name": "fluxo_chamado",
-      "webhookId": "480e1e30-05c3-4aba-9470-4421b90f0da2"
     }
   ],
-  "pinData": {
-    "fluxo_chamado": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "axios/1.6.7",
-            "content-length": "129",
-            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
-            "accept-encoding": "gzip, compress, deflate, br",
-            "content-type": "application/json",
-            "x-forwarded-for": "172.18.0.1",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "172.18.0.1"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "nome": "Claudio",
-            "sobrenome": "Costa",
-            "email": "consultoria@ilacbrasil.com.br",
-            "telefone": "557184650310",
-            "instagram": "ilacbrasil"
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/cria-atualiza-user",
-          "executionMode": "production"
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "settings": {
     "executionOrder": "v1",
     "saveManualExecutions": true,
@@ -323,6 +291,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-19T13:27:48.563Z",
-  "versionId": "7138ac07-6620-4148-82ca-49b8fa528a69"
+  "updatedAt": "2025-07-02T22:13:22.097Z",
+  "versionId": "e1aabc56-64a6-4835-bd4b-a968cd0b5de2"
 }
