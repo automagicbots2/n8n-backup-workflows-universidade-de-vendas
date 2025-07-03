@@ -1,17 +1,6 @@
 {
   "active": true,
   "connections": {
-    "create/update clint4": {
-      "main": [
-        [
-          {
-            "node": "infos_bc",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "consulta_sdr": {
       "main": [
         [
@@ -93,7 +82,7 @@
       "main": [
         [
           {
-            "node": "avisa_Maynara",
+            "node": "avisa_Natalia",
             "type": "main",
             "index": 0
           }
@@ -116,6 +105,28 @@
         [
           {
             "node": "pesquisa_variavel_n8n_fluxo_funis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Natalia": {
+      "main": [
+        [
+          {
+            "node": "avisa_Felipe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create/update clint4": {
+      "main": [
+        [
+          {
+            "node": "infos_bc",
             "type": "main",
             "index": 0
           }
@@ -425,12 +436,12 @@
               "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
             },
             {
-              "name": "ID Maynara BC",
-              "value": "622774507"
+              "name": "ID Natalia BC",
+              "value": "768179930"
             },
             {
-              "name": "ID Gabriel BC Closer 2",
-              "value": "342799217"
+              "name": "ID Felipe  BC",
+              "value": "747203618"
             },
             {
               "name": "ID Isabella BC Closer 3",
@@ -520,8 +531,24 @@
     },
     {
       "parameters": {
+        "httpMethod": "POST",
+        "path": "typeform-palestra",
+        "options": {}
+      },
+      "id": "81816c99-142a-4612-ad46-baf1ed4444e7",
+      "name": "typeform-palestra",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        280
+      ],
+      "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
+    },
+    {
+      "parameters": {
         "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Maynara BC\"] }}/send_message/",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Natalia BC\"] }}/send_message/",
         "options": {},
         "bodyParametersUi": {
           "parameter": [
@@ -544,7 +571,7 @@
           ]
         }
       },
-      "name": "avisa_Maynara",
+      "name": "avisa_Natalia",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
@@ -556,19 +583,39 @@
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "typeform-palestra",
-        "options": {}
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Felipe  BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DE PALESTRA 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"fname\"] }} {{ $node[\"formata_dados1\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados1\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados1\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados1\"].json[\"desafio_comercial\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
       },
-      "id": "81816c99-142a-4612-ad46-baf1ed4444e7",
-      "name": "typeform-palestra",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
+      "name": "avisa_Felipe",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
       "position": [
-        540,
+        3020,
         280
       ],
-      "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
+      "id": "31a1741d-3b3a-48da-82c5-57c8a7bafa9a",
+      "continueOnFail": true
     }
   ],
   "pinData": {
@@ -816,6 +863,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-04-27T02:35:40.844Z",
-  "versionId": "281dc805-c5e5-4e6f-b6c1-f5b62b546b55"
+  "updatedAt": "2025-07-02T22:07:54.289Z",
+  "versionId": "f1da2ebe-c641-4d95-bf1d-4e933a7d2315"
 }
