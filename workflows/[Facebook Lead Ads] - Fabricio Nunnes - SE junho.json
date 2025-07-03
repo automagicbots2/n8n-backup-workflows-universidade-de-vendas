@@ -1,6 +1,139 @@
 {
   "active": true,
-  "connections": {},
+  "connections": {
+    "formata_dados1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_funis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_sdr": {
+      "main": [
+        [
+          {
+            "node": "create/update clint4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_url_rotacionamento_colaboradores": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_users": {
+      "main": [
+        [
+          {
+            "node": "cria_atualiza_user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_atualiza_user": {
+      "main": [
+        [
+          {
+            "node": "consulta_sdr",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_funil": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_url_rotacionamento_colaboradores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_funis": {
+      "main": [
+        [
+          {
+            "node": "busca_funil",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos_bc": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer1_Jonatã",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer1_Jonatã": {
+      "main": [
+        [
+          {
+            "node": "avisa_Felipe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Facebook Lead Ads Trigger": {
+      "main": [
+        [
+          {
+            "node": "formata_dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Felipe": {
+      "main": [
+        [
+          {
+            "node": "avisa_Natalia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create/update clint4": {
+      "main": [
+        [
+          {
+            "node": "infos_bc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
   "createdAt": "2025-06-17T12:56:57.146Z",
   "id": "MvsGdHhGv9m9W4aR",
   "meta": {
@@ -38,9 +171,519 @@
           "name": "[Facebook Lead Ads] - Fabricio Nunnes"
         }
       }
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = items[0].json;\nconst data = input.data || {};\n\n// Funções auxiliares\nfunction capitalizeName(fullName) {\n  if (!fullName) return { fname: \"\", lname: \"\", fullname: \"\" };\n\n  const lowerCaseWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n  let words = fullName.toLowerCase().split(\" \").map((word, index) =>\n    lowerCaseWords.includes(word) && index !== 0\n      ? word\n      : word.charAt(0).toUpperCase() + word.slice(1)\n  );\n\n  let fname = words.shift();\n  let lname = words.join(\" \");\n  return { fname, lname, fullname: `${fname} ${lname}` };\n}\n\nfunction formatEmail(email) {\n  return email ? email.toLowerCase().trim() : \"\";\n}\n\nfunction formatPhone(phone) {\n  if (!phone) return \"\";\n  const telefoneLimpo = phone.replace(/\\D/g, \"\");\n  let DDI = \"55\";\n  let DDD = telefoneLimpo.slice(2, 4);\n  let numero = telefoneLimpo.slice(4);\n\n  if (numero.length === 8) {\n    numero = `9${numero}`;\n  }\n\n  return `${DDI}${DDD}${numero}`;\n}\n\nfunction formatDate(isoDate) {\n  if (!isoDate) return \"\";\n  const date = new Date(isoDate);\n  const year = date.getFullYear();\n  const month = String(date.getMonth() + 1).padStart(2, \"0\");\n  const day = String(date.getDate()).padStart(2, \"0\");\n  const hours = String(date.getHours()).padStart(2, \"0\");\n  const minutes = String(date.getMinutes()).padStart(2, \"0\");\n  return `${year}-${month}-${day} ${hours}:${minutes}`;\n}\n\n// Captura e formatação dos dados\nconst fullNameRaw = data[\"qual_seu_nome?\"] || \"\";\nconst telefoneRaw = data[\"qual_seu_número_de_whatsapp_com_ddd?\"] || \"\";\nconst emailRaw = data[\"qual_o_seu_melhor_e-mail?\"] || \"\";\n\nconst formattedNames = capitalizeName(fullNameRaw);\nconst formattedEmail = formatEmail(emailRaw);\nconst telefoneFormatado = formatPhone(telefoneRaw);\n\nconst result = {\n  ...formattedNames,\n  email: formattedEmail,\n  whatsapp: telefoneFormatado,\n  qtd_vendedores: data[\"hoje,_quem_vende_na_sua_empresa?\"] || \"\",\n  faturamento: data[\"qual_a_média_de_faturamento_mensal_do_seu_negócio?\"] || \"\",\n  desafio_comercial: data[\"qual_dessas_frases_mais_parece_com_a_sua_realidade_hoje?\"] || \"\",\n  cargo: data[\"atualmente_qual_é_o_seu_cargo_na_empresa?\"] || \"\",\n  empresa: data[\"qual_nome_da_sua_empresa?\"] || \"\",\n  form_id: input.form?.id || \"\",\n  form_name: input.form?.name || \"\",\n  page_name: input.page?.name || \"\",\n  data_aplicacao: formatDate(input.created_time),\n  utm_source: data[\"utm_source\"] || \"\",\n  utm_medium: data[\"utm_medium\"] || \"\",\n  utm_campaign: data[\"utm_campaign\"] || \"\",\n  utm_content: data[\"utm_content\"] || \"\",\n  utm_term: data[\"utm_term\"] || \"\",\n  utm_source_platform: data[\"utm_source_platform\"] || \"\"\n};\n\nreturn [{ json: result }];\n"
+      },
+      "id": "fae11636-ce52-41db-a27c-ccab3327afd9",
+      "name": "formata_dados1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        800,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/d39f6419-f894-4834-9584-4de1b1aef0af",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados1\"].json[\"fname\"] }} {{ $node[\"formata_dados1\"].json[\"lname\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados1\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "=FACEBOOK ADS - LEAD"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "={{ $node[\"formata_dados1\"].json[\"form_name\"] }}"
+            },
+            {
+              "name": "dono",
+              "value": "={{ $node[\"consulta_sdr\"].json[\"email\"] }}"
+            },
+            {
+              "name": "qtd_vendedores",
+              "value": "={{ $node[\"formata_dados1\"].json[\"qtd_vendedores\"] }}"
+            },
+            {
+              "name": "faturamento",
+              "value": "={{ $node[\"formata_dados1\"].json[\"faturamento\"] }}"
+            },
+            {
+              "name": "desafio_comercial",
+              "value": "={{ $node[\"formata_dados1\"].json[\"desafio_comercial\"] }}"
+            },
+            {
+              "name": "data_aplicacao",
+              "value": "={{ $node[\"formata_dados1\"].json[\"data_aplicacao\"] }}"
+            },
+            {
+              "name": "empresa",
+              "value": "={{ $node[\"formata_dados1\"].json[\"empresa\"] }}"
+            },
+            {
+              "name": "cargo",
+              "value": "={{ $node[\"formata_dados1\"].json[\"cargo\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "95230214-14c4-495d-a0f2-9a29fd0dd7be",
+      "name": "create/update clint4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2260,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_url_rotacionamento_colaboradores\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "=SDR"
+            },
+            {
+              "name": "id_user",
+              "value": "={{ $node[\"cria_atualiza_user\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2060,
+        340
+      ],
+      "id": "7d6f1fb4-3056-44ec-bd62-164712c4ce66",
+      "name": "consulta_sdr"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Rotacionamento de Colaboradores"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "62011634-6e3a-48a8-8af4-fb90817b8a4b",
+      "name": "pesquisa_url_rotacionamento_colaboradores",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1400,
+        340
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Users"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "deed39ff-7990-4014-a4fd-a4446a4fcfc4",
+      "name": "pesquisa_variavel_n8n_fluxo_users",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1640,
+        340
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados1\"].json[\"fname\"] || \"\" }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados1\"].json[\"lname\"] || \"\" }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados1\"].json[\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados1\"].json[\"whatsapp\"] || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1860,
+        340
+      ],
+      "id": "c2436526-bf39-4774-a198-f39ad51c6052",
+      "name": "cria_atualiza_user"
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_forms",
+              "value": "={{ $node[\"formata_dados1\"].json[\"form_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        340
+      ],
+      "id": "b409d7a5-e25f-459c-bd1e-8fe5b98f899b",
+      "name": "busca_funil"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Funis"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "12ac7d6b-69cf-48aa-9d79-f3486856b0e0",
+      "name": "pesquisa_variavel_n8n_fluxo_funis",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1000,
+        340
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID Jonatã BC Closer 1",
+              "value": "342800505"
+            },
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "ID Maynara BC",
+              "value": "622774507"
+            },
+            {
+              "name": "ID Felipe BC SDR",
+              "value": "747203618"
+            },
+            {
+              "name": "ID Natalia BC SDR",
+              "value": "768179930"
+            },
+            {
+              "name": "ID Laiane BC Closer 4",
+              "value": "445512667"
+            },
+            {
+              "name": "ID Winicius BC",
+              "value": "563485579"
+            },
+            {
+              "name": "ID_grupo_novos_clientes",
+              "value": "120363219650907550@g.us"
+            },
+            {
+              "name": "url_base_evolution",
+              "value": "https://apievolution.automagicbots.com.br/"
+            },
+            {
+              "name": "instancia_nome",
+              "value": "Fabricio-Nunnes"
+            },
+            {
+              "name": "APIKEY_Evolution",
+              "value": "D2977F0B8F6C-4B1F-A11C-D78FBA4D10A0"
+            },
+            {
+              "name": "ID Rafael BC",
+              "value": "269199328"
+            },
+            {
+              "name": "ID Thiago BC",
+              "value": "387179683"
+            },
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "id": "d94150a9-098a-4457-98d4-d5cabb4f2a1b",
+      "name": "infos_bc",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        2460,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL SE NATIVO 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"fname\"] }} {{ $node[\"formata_dados1\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados1\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados1\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados1\"].json[\"desafio_comercial\"] }}\n*Cargo*: {{ $node[\"formata_dados1\"].json[\"cargo\"] }}\n*Empresa*: {{ $node[\"formata_dados1\"].json[\"empresa\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer1_Jonatã",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2660,
+        340
+      ],
+      "id": "0f5a58d0-1f84-45a6-96f2-014369ccf9f6",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Felipe BC SDR\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL SE NATIVO 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"fname\"] }} {{ $node[\"formata_dados1\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados1\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados1\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados1\"].json[\"desafio_comercial\"] }}\n*Cargo*: {{ $node[\"formata_dados1\"].json[\"cargo\"] }}\n*Empresa*: {{ $node[\"formata_dados1\"].json[\"empresa\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Felipe",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2860,
+        340
+      ],
+      "id": "63869f34-d27b-4711-a86b-7e47984491d9",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Natalia BC SDR\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL SE NATIVO 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"fname\"] }} {{ $node[\"formata_dados1\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados1\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados1\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados1\"].json[\"desafio_comercial\"] }}\n*Cargo*: {{ $node[\"formata_dados1\"].json[\"cargo\"] }}\n*Empresa*: {{ $node[\"formata_dados1\"].json[\"empresa\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Natalia",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        3040,
+        340
+      ],
+      "id": "4a1974de-ff81-4785-8197-256978261961",
+      "continueOnFail": true
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Facebook Lead Ads Trigger": [
+      {
+        "json": {
+          "id": "1846528505914249",
+          "data": {
+            "utm_source": "{{site_source_name}}",
+            "utm_medium": "{{placement}}",
+            "utm_campaign": "{{campaign.name}}",
+            "utm_content": "{{adset.name}}",
+            "utm_term": "{{ad.name}}",
+            "utm_source_platform": "{{platform}}",
+            "hoje,_quem_vende_na_sua_empresa?": "<test lead: dummy data for hoje,_quem_vende_na_sua_empresa?>",
+            "qual_a_média_de_faturamento_mensal_do_seu_negócio?": "<test lead: dummy data for qual_a_média_de_faturamento_mensal_do_seu_negócio?>",
+            "qual_dessas_frases_mais_parece_com_a_sua_realidade_hoje?": "<test lead: dummy data for qual_dessas_frases_mais_parece_com_a_sua_realidade_hoje?>",
+            "atualmente_qual_é_o_seu_cargo_na_empresa?": "<test lead: dummy data for atualmente_qual_é_o_seu_cargo_na_empresa?>",
+            "qual_seu_nome?": "<test lead: dummy data for qual_seu_nome?>",
+            "qual_seu_número_de_whatsapp_com_ddd?": "<test lead: dummy data for qual_seu_número_de_whatsapp_com_ddd?>",
+            "qual_o_seu_melhor_e-mail?": "<test lead: dummy data for qual_o_seu_melhor_e-mail?>",
+            "qual_nome_da_sua_empresa?": "<test lead: dummy data for qual_nome_da_sua_empresa?>",
+            "email": "test@fb.com"
+          },
+          "form": {
+            "id": "3022347304596357",
+            "name": "Sessao-Estrategica-Junho-2025-Condicional",
+            "locale": "pt_BR",
+            "status": "ACTIVE"
+          },
+          "ad": {},
+          "adset": {},
+          "page": {
+            "name": "Fabrício Nunnes",
+            "id": "103878341604152"
+          },
+          "created_time": "2025-07-02T15:27:38+0000"
+        }
+      }
+    ]
+  },
   "settings": {
     "executionOrder": "v1",
     "saveDataErrorExecution": "all",
@@ -53,6 +696,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-06-30T12:07:37.470Z",
-  "versionId": "a778b352-1a88-441d-bbc2-5d7dd80046a9"
+  "updatedAt": "2025-07-02T22:06:05.619Z",
+  "versionId": "3b8f70ac-146e-4e45-961c-914b4c4974d8"
 }
