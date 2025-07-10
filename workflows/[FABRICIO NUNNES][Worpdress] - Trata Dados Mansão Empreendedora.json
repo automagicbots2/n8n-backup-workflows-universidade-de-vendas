@@ -1,0 +1,2943 @@
+{
+  "active": true,
+  "connections": {
+    "create/update clint4": {
+      "main": [
+        [
+          {
+            "node": "infos_bc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_sdr": {
+      "main": [
+        [
+          {
+            "node": "create/update clint4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_url_rotacionamento_colaboradores": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_users": {
+      "main": [
+        [
+          {
+            "node": "cria_atualiza_user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_atualiza_user": {
+      "main": [
+        [
+          {
+            "node": "consulta_sdr",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_funil": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_url_rotacionamento_colaboradores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_funis": {
+      "main": [
+        [
+          {
+            "node": "busca_funil",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos_bc": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer1_Jonatã",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer1_Jonatã": {
+      "main": [
+        [
+          {
+            "node": "avisa_Natalia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Natalia": {
+      "main": [
+        [
+          {
+            "node": "avisa_Felipe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create/update clint": {
+      "main": [
+        [
+          {
+            "node": "infos_bc1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_sdr1": {
+      "main": [
+        [
+          {
+            "node": "create/update clint",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_url_rotacionamento_colaboradores1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_users1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_users1": {
+      "main": [
+        [
+          {
+            "node": "cria_atualiza_user1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_atualiza_user1": {
+      "main": [
+        [
+          {
+            "node": "consulta_sdr1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_funil1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_url_rotacionamento_colaboradores1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_funis1": {
+      "main": [
+        [
+          {
+            "node": "busca_funil1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos_bc1": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer1_Jonatã1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer1_Jonatã1": {
+      "main": [
+        [
+          {
+            "node": "avisa_Natalia1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Natalia1": {
+      "main": [
+        [
+          {
+            "node": "avisa_Felipe1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_funis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_funis1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "precheckout-black": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "precheckout-silver": {
+      "main": [
+        [
+          {
+            "node": "formata_dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_sdr2": {
+      "main": [
+        [
+          {
+            "node": "create/update clint5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_url_rotacionamento_colaboradores2": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_users2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_users2": {
+      "main": [
+        [
+          {
+            "node": "cria_atualiza_user2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_atualiza_user2": {
+      "main": [
+        [
+          {
+            "node": "consulta_sdr2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_funil2": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_url_rotacionamento_colaboradores2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_funis2": {
+      "main": [
+        [
+          {
+            "node": "busca_funil2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "checkout-mansao": {
+      "main": [
+        [
+          {
+            "node": "formata_dados2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_sdr3": {
+      "main": [
+        [
+          {
+            "node": "create/update clint6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_url_rotacionamento_colaboradores3": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_users3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_users3": {
+      "main": [
+        [
+          {
+            "node": "cria_atualiza_user3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_atualiza_user3": {
+      "main": [
+        [
+          {
+            "node": "consulta_sdr3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_funil3": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_url_rotacionamento_colaboradores3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_funis3": {
+      "main": [
+        [
+          {
+            "node": "busca_funil3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "aguardandopag-mansao": {
+      "main": [
+        [
+          {
+            "node": "formata_dados3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_sdr4": {
+      "main": [
+        [
+          {
+            "node": "create/update clint7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_url_rotacionamento_colaboradores4": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_users4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_users4": {
+      "main": [
+        [
+          {
+            "node": "cria_atualiza_user4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_atualiza_user4": {
+      "main": [
+        [
+          {
+            "node": "consulta_sdr4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_funil4": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_url_rotacionamento_colaboradores4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_funis4": {
+      "main": [
+        [
+          {
+            "node": "busca_funil4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "compraaprovada-mansao": {
+      "main": [
+        [
+          {
+            "node": "formata_dados4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-10T11:48:06.503Z",
+  "id": "lkyYNnfIdHdZ3zbj",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[FABRICIO NUNNES][Worpdress] - Trata Dados Mansão Empreendedora",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"precheckout-silver\"].json.body[\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"precheckout-silver\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"precheckout-silver\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"precheckout-silver\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"precheckout-silver\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"precheckout-silver\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"precheckout-silver\"].json.body[\"utm_content\"];\nconst nome = $node[\"precheckout-silver\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
+      },
+      "id": "f4ca6736-87d7-405b-afc7-4f78e3dc85a7",
+      "name": "formata_dados1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        660,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/a64d2446-5c0a-4b98-9621-4f5667ea9f1b",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados1\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados1\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados1\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "=MANSÃO EMPREENDEDORA"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "=INGRESSO SILVER"
+            },
+            {
+              "name": "dono",
+              "value": "={{ $node[\"consulta_sdr\"].json[\"email\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "03eb3fe4-30b0-44ba-a304-fb5a2af5b2a0",
+      "name": "create/update clint4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2120,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_url_rotacionamento_colaboradores\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "=SDR"
+            },
+            {
+              "name": "id_user",
+              "value": "={{ $node[\"cria_atualiza_user\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1920,
+        460
+      ],
+      "id": "11602bd5-9aaa-4df8-a9c0-2854dd31e9fe",
+      "name": "consulta_sdr"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Rotacionamento de Colaboradores"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "d6553873-61f0-46d2-a882-dbd5f4c56a8e",
+      "name": "pesquisa_url_rotacionamento_colaboradores",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1260,
+        460
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Users"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "454eeea9-098b-4a94-bf95-11ffcf81165a",
+      "name": "pesquisa_variavel_n8n_fluxo_users",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1500,
+        460
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados1\"].json[\"nome\"].split(' ')[0] || \"\" }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados1\"].json[\"nome\"].split(\" \").slice(1).join(\" \")|| \"\" }}."
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados1\"].json[\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados1\"].json[\"telefone\"] || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1720,
+        460
+      ],
+      "id": "cc7e01f0-46bd-4756-9bba-6d0e467e5e65",
+      "name": "cria_atualiza_user"
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_forms",
+              "value": "={{ $node[\"precheckout-silver\"].json[\"body\"][\"form_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1060,
+        460
+      ],
+      "id": "f8110acf-6991-45a8-9d93-43fb5c30fd7d",
+      "name": "busca_funil"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Funis"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "f2ff6a00-662f-44bf-90ac-e6fab23f4730",
+      "name": "pesquisa_variavel_n8n_fluxo_funis",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        860,
+        460
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID Jonatã BC Closer 1",
+              "value": "342800505"
+            },
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "ID Natalia BC",
+              "value": "768179930"
+            },
+            {
+              "name": "ID Felipe  BC",
+              "value": "747203618"
+            },
+            {
+              "name": "ID Isabella BC Closer 3",
+              "value": "695498921"
+            },
+            {
+              "name": "ID Laiane BC Closer 4",
+              "value": "445512667"
+            },
+            {
+              "name": "ID Winicius BC",
+              "value": "563485579"
+            },
+            {
+              "name": "ID_grupo_novos_clientes",
+              "value": "120363219650907550@g.us"
+            },
+            {
+              "name": "url_base_evolution",
+              "value": "https://apievolution.automagicbots.com.br/"
+            },
+            {
+              "name": "instancia_nome",
+              "value": "Fabricio-Nunnes"
+            },
+            {
+              "name": "APIKEY_Evolution",
+              "value": "D2977F0B8F6C-4B1F-A11C-D78FBA4D10A0"
+            },
+            {
+              "name": "ID Rafael BC",
+              "value": "269199328"
+            },
+            {
+              "name": "ID Thiago BC",
+              "value": "387179683"
+            },
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "id": "1b0777a2-cdf1-4bdc-b5e4-0301f8327427",
+      "name": "infos_bc",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        2320,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DE MANSÃO EMPREENDEDORA 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"nome\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"telefone\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"telefone\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Ingresso*: Silver"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer1_Jonatã",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2520,
+        460
+      ],
+      "id": "9b2ea701-4295-4c7f-9476-c36d8aed50d9",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Natalia BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DE MANSÃO EMPREENDEDORA 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"nome\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"telefone\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"telefone\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Ingresso*: Silver"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Natalia",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2720,
+        460
+      ],
+      "id": "9477b828-18d9-45cb-8eb8-b4a9af2783c2",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Felipe  BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DE MANSÃO EMPREENDEDORA 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"nome\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"telefone\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"telefone\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Ingresso*: Silver"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Felipe",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2940,
+        460
+      ],
+      "id": "db914136-d949-4045-9343-8b77c5a1d655",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"precheckout-black\"].json.body[\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"precheckout-black\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"precheckout-black\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"precheckout-black\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"precheckout-black\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"precheckout-black\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"precheckout-black\"].json.body[\"utm_content\"];\nconst nome = $node[\"precheckout-black\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
+      },
+      "id": "3ddea06c-6507-40d3-9523-7d0e239a0a4a",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        660,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/6830a51d-21a4-40da-90a8-6517125123b4",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "=MANSÃO EMPREENDEDORA"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "=INGRESSO BLACK"
+            },
+            {
+              "name": "dono",
+              "value": "={{ $node[\"consulta_sdr1\"].json[\"email\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "22e5b480-30db-4d47-a751-56cfd74bef9b",
+      "name": "create/update clint",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2120,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_url_rotacionamento_colaboradores1\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "=SDR"
+            },
+            {
+              "name": "id_user",
+              "value": "={{ $node[\"cria_atualiza_user1\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1920,
+        240
+      ],
+      "id": "b1871bcd-8458-40ec-8bb3-fdf6a2bae2e4",
+      "name": "consulta_sdr1"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Rotacionamento de Colaboradores"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "d6a01937-613b-4997-9719-a3bdcf62b339",
+      "name": "pesquisa_url_rotacionamento_colaboradores1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1260,
+        240
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Users"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "294fc27c-a23e-444f-8ead-09cc9ea83238",
+      "name": "pesquisa_variavel_n8n_fluxo_users1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1500,
+        240
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users1\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados\"].json[\"nome\"].split(' ')[0] || \"\" }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados\"].json[\"nome\"].split(\" \").slice(1).join(\" \") || \"\" }}."
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefone\"] || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1720,
+        240
+      ],
+      "id": "47e2380e-2ced-40cf-aa3f-cc986e5f1d71",
+      "name": "cria_atualiza_user1"
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis1\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_forms",
+              "value": "={{ $node[\"precheckout-black\"].json[\"body\"][\"form_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1060,
+        240
+      ],
+      "id": "2134613a-20c9-4915-99a1-e25d3509dcf6",
+      "name": "busca_funil1"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Funis"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "79678c52-8c11-4249-888e-3cd883b4aceb",
+      "name": "pesquisa_variavel_n8n_fluxo_funis1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        860,
+        240
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID Jonatã BC Closer 1",
+              "value": "342800505"
+            },
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "ID Natalia BC",
+              "value": "768179930"
+            },
+            {
+              "name": "ID Felipe  BC",
+              "value": "747203618"
+            },
+            {
+              "name": "ID Isabella BC Closer 3",
+              "value": "695498921"
+            },
+            {
+              "name": "ID Laiane BC Closer 4",
+              "value": "445512667"
+            },
+            {
+              "name": "ID Winicius BC",
+              "value": "563485579"
+            },
+            {
+              "name": "ID_grupo_novos_clientes",
+              "value": "120363219650907550@g.us"
+            },
+            {
+              "name": "url_base_evolution",
+              "value": "https://apievolution.automagicbots.com.br/"
+            },
+            {
+              "name": "instancia_nome",
+              "value": "Fabricio-Nunnes"
+            },
+            {
+              "name": "APIKEY_Evolution",
+              "value": "D2977F0B8F6C-4B1F-A11C-D78FBA4D10A0"
+            },
+            {
+              "name": "ID Rafael BC",
+              "value": "269199328"
+            },
+            {
+              "name": "ID Thiago BC",
+              "value": "387179683"
+            },
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "id": "758a2e89-5b56-4124-8ab9-73d8836111c7",
+      "name": "infos_bc1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        2320,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc1\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DE MANSÃO EMPREENDEDORA 🔔\n\n*Nome*: {{ $node[\"formata_dados\"].json[\"nome\"] }}\n*E-mail*: {{ $node[\"formata_dados\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados\"].json[\"telefone\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados\"].json[\"telefone\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Ingresso*: Black"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer1_Jonatã1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2520,
+        240
+      ],
+      "id": "b4c1aa5e-4bb7-4078-ae07-93d4dc3c12a8",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc1\"].json[\"ID Natalia BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DE MANSÃO EMPREENDEDORA 🔔\n\n*Nome*: {{ $node[\"formata_dados\"].json[\"nome\"] }}\n*E-mail*: {{ $node[\"formata_dados\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados\"].json[\"telefone\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados\"].json[\"telefone\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Ingresso*: Black"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Natalia1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2720,
+        240
+      ],
+      "id": "98643c8a-8539-4333-a36f-beb0bf326ab4",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc1\"].json[\"ID Felipe  BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DE MANSÃO EMPREENDEDORA 🔔\n\n*Nome*: {{ $node[\"formata_dados\"].json[\"nome\"] }}\n*E-mail*: {{ $node[\"formata_dados\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados\"].json[\"telefone\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados\"].json[\"telefone\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Ingresso*: Black"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Felipe1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2940,
+        240
+      ],
+      "id": "c02ce0b5-8906-4b81-ba51-ad0a64d9149b",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "mansao-black",
+        "options": {}
+      },
+      "id": "68bc6c3b-facb-4889-b271-b7f645b1624a",
+      "name": "precheckout-black",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        240
+      ],
+      "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "mansao-silver",
+        "options": {}
+      },
+      "id": "4b964da3-63ba-453c-8692-1d837431bb2e",
+      "name": "precheckout-silver",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ],
+      "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"checkout-mansao\"].json.body[\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"checkout-mansao\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"checkout-mansao\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"checkout-mansao\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"checkout-mansao\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"checkout-mansao\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"checkout-mansao\"].json.body[\"utm_content\"];\nconst nome = $node[\"checkout-mansao\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
+      },
+      "id": "829d5e9d-9b94-4c65-b3ac-ba26df0d5f13",
+      "name": "formata_dados2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        660,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/a64d2446-5c0a-4b98-9621-4f5667ea9f1b",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados2\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados2\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados2\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados2\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados2\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados2\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados2\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados2\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "=MANSÃO EMPREENDEDORA"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "=INGRESSO SILVER"
+            },
+            {
+              "name": "dono",
+              "value": "={{ $node[\"consulta_sdr2\"].json[\"email\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5f9fb571-a44b-4d1e-b88f-df44f829f581",
+      "name": "create/update clint5",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2120,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_url_rotacionamento_colaboradores2\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "=SDR"
+            },
+            {
+              "name": "id_user",
+              "value": "={{ $node[\"cria_atualiza_user2\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1920,
+        660
+      ],
+      "id": "6c660056-b0bc-4fd7-bc68-c6eafa7d589a",
+      "name": "consulta_sdr2"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Rotacionamento de Colaboradores"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "d83f7eb5-9626-4cf8-b4b3-b8475f0ba105",
+      "name": "pesquisa_url_rotacionamento_colaboradores2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1260,
+        660
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Users"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "e77bedb9-7510-4630-a11c-e564bf317676",
+      "name": "pesquisa_variavel_n8n_fluxo_users2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1500,
+        660
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users2\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados2\"].json[\"nome\"].split(' ')[0] || \"\" }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados2\"].json[\"nome\"].split(\" \").slice(1).join(\" \")|| \"\" }}."
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados2\"].json[\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados2\"].json[\"telefone\"] || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1720,
+        660
+      ],
+      "id": "d711bb3a-1934-4b65-be55-54dfa8dc8032",
+      "name": "cria_atualiza_user2"
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis2\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_forms",
+              "value": "={{ $node[\"checkout-mansao\"].json[\"body\"][\"form_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1060,
+        660
+      ],
+      "id": "ecf37ea7-c3a3-450d-afcc-07446afbb151",
+      "name": "busca_funil2"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Funis"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "ceab7f10-2c55-44ee-ae08-4dc0b2fd759a",
+      "name": "pesquisa_variavel_n8n_fluxo_funis2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        860,
+        660
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "checkout-mansao",
+        "options": {}
+      },
+      "id": "a8c7245d-d417-4201-a2d7-b9f9dda0735d",
+      "name": "checkout-mansao",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        660
+      ],
+      "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"aguardandopag-mansao\"].json.body[\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"aguardandopag-mansao\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"aguardandopag-mansao\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"aguardandopag-mansao\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"aguardandopag-mansao\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"aguardandopag-mansao\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"aguardandopag-mansao\"].json.body[\"utm_content\"];\nconst nome = $node[\"aguardandopag-mansao\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
+      },
+      "id": "bef6c11f-009b-4275-ac0f-d6c875b4bcce",
+      "name": "formata_dados3",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        660,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/a64d2446-5c0a-4b98-9621-4f5667ea9f1b",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados3\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados3\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados3\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados3\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados3\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados3\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados3\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados3\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "=MANSÃO EMPREENDEDORA"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "=INGRESSO SILVER"
+            },
+            {
+              "name": "dono",
+              "value": "={{ $node[\"consulta_sdr3\"].json[\"email\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9f2a54ec-c8d8-4484-9fcb-8cdb6de57af0",
+      "name": "create/update clint6",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2120,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_url_rotacionamento_colaboradores3\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "=SDR"
+            },
+            {
+              "name": "id_user",
+              "value": "={{ $node[\"cria_atualiza_user3\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1920,
+        860
+      ],
+      "id": "af5bae40-777b-4e4c-bc86-7980480c648f",
+      "name": "consulta_sdr3"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Rotacionamento de Colaboradores"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "3a1cc924-6857-4e8d-ac0a-baf64a5110ea",
+      "name": "pesquisa_url_rotacionamento_colaboradores3",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1260,
+        860
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Users"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "3ff9fcf8-14d1-4cd8-b7a4-501f9ff00dba",
+      "name": "pesquisa_variavel_n8n_fluxo_users3",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1500,
+        860
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users3\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados3\"].json[\"nome\"].split(' ')[0] || \"\" }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados3\"].json[\"nome\"].split(\" \").slice(1).join(\" \")|| \"\" }}."
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados3\"].json[\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados3\"].json[\"telefone\"] || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1720,
+        860
+      ],
+      "id": "afc15559-fae1-4665-ae7f-58b9e6bd9898",
+      "name": "cria_atualiza_user3"
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis3\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_forms",
+              "value": "={{ $node[\"aguardandopag-mansao\"].json[\"body\"][\"form_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1060,
+        860
+      ],
+      "id": "310a61f5-ef43-4090-a1ab-0e3590619b44",
+      "name": "busca_funil3"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Funis"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "354b273b-3334-44cc-85ea-5f311492e574",
+      "name": "pesquisa_variavel_n8n_fluxo_funis3",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        860,
+        860
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aguardandopag-mansao",
+        "options": {}
+      },
+      "id": "6a3c6595-bea3-401c-8ccd-0a7723c78b41",
+      "name": "aguardandopag-mansao",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        860
+      ],
+      "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"compraaprovada-mansao\"].json.body[\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"compraaprovada-mansao\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"compraaprovada-mansao\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"compraaprovada-mansao\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"compraaprovada-mansao\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"compraaprovada-mansao\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"compraaprovada-mansao\"].json.body[\"utm_content\"];\nconst nome = $node[\"compraaprovada-mansao\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
+      },
+      "id": "99fcbf83-4835-4df3-8eba-722de2a1e5d8",
+      "name": "formata_dados4",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        660,
+        1060
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/a64d2446-5c0a-4b98-9621-4f5667ea9f1b",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados4\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados4\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados4\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados4\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "=MANSÃO EMPREENDEDORA"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "=INGRESSO SILVER"
+            },
+            {
+              "name": "dono",
+              "value": "={{ $node[\"consulta_sdr4\"].json[\"email\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "32478cd1-7173-4cbc-8550-ea1d5649fe47",
+      "name": "create/update clint7",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2120,
+        1060
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_url_rotacionamento_colaboradores4\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "=SDR"
+            },
+            {
+              "name": "id_user",
+              "value": "={{ $node[\"cria_atualiza_user4\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1920,
+        1060
+      ],
+      "id": "22d2aea1-e06a-4e74-b9ea-db151787247a",
+      "name": "consulta_sdr4"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Rotacionamento de Colaboradores"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "8d16dd9d-b3e5-490a-8236-46f15c21bbbb",
+      "name": "pesquisa_url_rotacionamento_colaboradores4",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1260,
+        1060
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Users"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "9ba4fa59-6015-44eb-960b-90c53f4c4224",
+      "name": "pesquisa_variavel_n8n_fluxo_users4",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1500,
+        1060
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users4\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados4\"].json[\"nome\"].split(' ')[0] || \"\" }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados4\"].json[\"nome\"].split(\" \").slice(1).join(\" \")|| \"\" }}."
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados4\"].json[\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados4\"].json[\"telefone\"] || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1720,
+        1060
+      ],
+      "id": "ba1465c3-9562-4a5d-864c-caa4e7d3af03",
+      "name": "cria_atualiza_user4"
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis4\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_forms",
+              "value": "={{ $node[\"compraaprovada-mansao\"].json[\"body\"][\"form_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1060,
+        1060
+      ],
+      "id": "cdd1e262-7f80-4a6b-a617-552e7bfa2f98",
+      "name": "busca_funil4"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Funis"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "a47e3a23-d38a-4d69-8762-fbeab9b0a25c",
+      "name": "pesquisa_variavel_n8n_fluxo_funis4",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        860,
+        1060
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "compraaprovada-mansao",
+        "options": {}
+      },
+      "id": "87729a2d-6ce6-4836-8169-fab1cfd8dd93",
+      "name": "compraaprovada-mansao",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        1060
+      ],
+      "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
+    }
+  ],
+  "pinData": {
+    "precheckout-black": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "WordPress/6.8.1; https://universidadevendas.com.br",
+            "content-length": "252",
+            "accept": "*/*",
+            "accept-encoding": "deflate, gzip",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-forwarded-for": "45.148.96.7",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "45.148.96.7"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Nome": "Mateus Diniz - Automagic Bots",
+            "WhatsApp com DDD": "62981196678",
+            "E-mail": "mateusdiniz@automagicbots.com.br",
+            "utm_source": "Automagic",
+            "utm_content": "auto123",
+            "utm_campaign": "teste",
+            "utm_medium": "Bots",
+            "utm_term": "aovivo",
+            "form_id": "88889e3",
+            "form_name": "Aplicação-PkklTqKj"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/mansao-black",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "precheckout-silver": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "WordPress/6.8.1; https://universidadevendas.com.br",
+            "content-length": "252",
+            "accept": "*/*",
+            "accept-encoding": "deflate, gzip",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-forwarded-for": "45.148.96.7",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "45.148.96.7"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Nome": "Mateus Diniz - Automagic Bots",
+            "WhatsApp com DDD": "62981196678",
+            "E-mail": "mateusdiniz@automagicbots.com.br",
+            "utm_source": "Automagic",
+            "utm_content": "auto123",
+            "utm_campaign": "teste",
+            "utm_medium": "Bots",
+            "utm_term": "aovivo",
+            "form_id": "88889e3",
+            "form_name": "Aplicação-PkklTqKj"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/mansao-silver",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "checkout-mansao": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "5039",
+            "content-type": "application/json",
+            "traceparent": "00-686fbeb6000000004a6e872885daf86e-3ccfd4af4fb81189-01",
+            "tracestate": "dd=s:2;t.dm:-3",
+            "x-datadog-parent-id": "4381954811876610441",
+            "x-datadog-sampling-priority": "2",
+            "x-datadog-tags": "_dd.p.tid=686fbeb600000000,_dd.p.dm=-3",
+            "x-datadog-trace-id": "5363372814359001198",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$/8k7L/hFRqGr6eVYx4XDIerpK3oBt9LpG6ZauoFcWFY8Wx7lxY7cC",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "checkout",
+            "event": "checkoutAbandoned",
+            "oldStatus": "abandoned",
+            "currentStatus": "abandoned",
+            "contract": null,
+            "sale": {
+              "id": 692,
+              "type": "TRANSACTION",
+              "status": "abandoned",
+              "created_at": "2025-07-10T13:23:02.567530Z",
+              "update_at": "2025-07-10T13:23:02.567533Z",
+              "seller_id": 505,
+              "installments": 12,
+              "method": "CREDIT_CARD",
+              "client_id": 698,
+              "amount": 497,
+              "proposal_id": null,
+              "total": 497
+            },
+            "client": {
+              "id": 698,
+              "name": "Prof. Tito Bahringer",
+              "email": "coy.effertz@hotmail.com",
+              "cellphone": "+18025796195",
+              "document": "398.999.439-12",
+              "cpf_cnpj": "398.999.439-12",
+              "zipcode": "94012",
+              "street": "Trisha Mall",
+              "number": "751",
+              "complement": "",
+              "neighborhood": "",
+              "city": "New Lisaside",
+              "uf": "NC",
+              "created_at": "2025-07-10T13:23:02.567500Z",
+              "updated_at": "2025-07-10T13:23:02.567506Z"
+            },
+            "product": {
+              "id": 118096,
+              "name": "Black",
+              "description": "**A imersão Mansão Empreendedora vai impactar o faturamento da sua empresa para escalar o seu negócio SEM DEPENDER DE VOCÊ**\n\n*- Ingresso Black dá direito a um jantar exclusivo com palestrantes e convidados no primeiro dia de evento*\n\n- Aprendizados constantes com os maiores experts do Brasil em gestão empresarial.\n\n- Técnicas especiais com o maior especialista em gestão comercial do Brasil.\n\n- Acesso a metodologia testada e validada no Brasil e no Mundo.\n\n- Acesso a uma ferramenta para que sua empresa funcione sem você na operação.\n\n- Dinâmicas, interações, hotseats e exercícios práticos de implementação de conteúdos.\n\n- Brindes e surpresas exclusivas para uma experiência incrível na imersão.",
+              "category_id": 14,
+              "stock": null,
+              "type": "TRANSACTION",
+              "amount": 497,
+              "period": 30,
+              "thank_you_page": "https://form.typeform.com/to/csrqtdKB",
+              "affiliation": null,
+              "comission": null,
+              "created_at": "2025-05-17T17:33:26.000000Z",
+              "updated_at": "2025-07-07T16:02:08.000000Z",
+              "seller_id": 33571,
+              "slug": "mansao-empreendedora-bh",
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "warranty": 7,
+              "url_callback": null,
+              "trial": 0,
+              "is_checkout_address": 0,
+              "bump_description": null,
+              "social_prove_id": null,
+              "proposal_minimum": 0,
+              "banner_checkout": null,
+              "allow_proposal": 0,
+              "affiliation_approbation": 1,
+              "affiliation_public": 1,
+              "pending_motive": null,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 1,
+              "max_boleto_installments": 0,
+              "status": "APPROVED",
+              "max_subscription_installments": null,
+              "max_installments": 12,
+              "max_comission": null,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null,
+              "allowed_coupon": 1,
+              "format": "EVENT",
+              "instructions": null,
+              "smart_sale": 0,
+              "fixed_installments": null,
+              "smart_sale_installments": null,
+              "has_stock": 0,
+              "can_be_gifted": 0,
+              "has_shipping_fee": 0,
+              "has_custom_shipping_address": 0,
+              "height": null,
+              "width": null,
+              "length": null,
+              "weight": null,
+              "address_product_id": 4889,
+              "co_seller_display_id": null,
+              "is_public_allowed": true,
+              "charges": null,
+              "no_interest_installments": 0,
+              "seller_fee": null,
+              "affiliate_fee": null,
+              "warranty_checkout": 1,
+              "smart_sale_dynamic_installments": 0,
+              "pre_selected_installment": 12,
+              "is_heaven": 0,
+              "type_shipping_fee": "DYNAMIC",
+              "amount_fixed_shipping_fee": null,
+              "shipping_fee_is_recurring": 1,
+              "affiliation_lead": 0,
+              "high_ticket_fee": null,
+              "mentoring_period": null,
+              "mentoring_duration": null,
+              "start_date": "2025-08-09",
+              "end_date": "2025-08-10",
+              "start_time": "09:00:00",
+              "end_time": "19:00:00",
+              "location": "WO Business Center",
+              "product_type_id": 3,
+              "status_changed_at": "2025-05-17 17:33:26",
+              "enable_invoice_items": false,
+              "items_for_invoice": "[{\"ncm\": null, \"title\": null, \"percent\": null, \"quantity\": null}]",
+              "has_cashback": 0,
+              "is_ia_approval": 1,
+              "recommendation": "APPROVE",
+              "negative_reasons": null,
+              "positive_reasons": "O nome do produto é significativo e não deixa dúvidas sobre o que está sendo comprado. O nome do produto está de acordo com todas as Diretrizes de Aprovação de Produto. A descrição do produto está relacionada ao nome do produto. A descrição do produto provê detalhes sobre o produto. A descrição do produto está de acordo com todas as Diretrizes de Aprovação de Produto. O tipo de entrega condiz com a categoria do produto (evento). O conteúdo da entrega está de acordo com todas as Diretrizes de Aprovação de Produto. Produto da categoria evento tem data e local para a realização do evento. O local e data do evento condizem com o produto.",
+              "are_non_transferable": 1,
+              "in_stock": true,
+              "status_product": "APPROVED",
+              "product_id": 118096,
+              "hash": "o5iSo6",
+              "default": 1,
+              "reason": "",
+              "analised": 0,
+              "currency_id": 1,
+              "allow_offer_link": 0,
+              "offer_redirect_id": null,
+              "offer_group_id": 6500,
+              "batch_order": null,
+              "ticket_release_quantity": null,
+              "can_use_as_recovery": 1,
+              "status_offer": "APPROVED",
+              "custom_charges": [],
+              "offer_redirect": null
+            },
+            "oferta": "Black",
+            "offer": {
+              "hash": "o5iSo6",
+              "amount": 497,
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "name": "Black",
+              "created_at": "2025-05-17T17:33:26.000000Z"
+            },
+            "seller": {
+              "id": 505,
+              "name": "Pink Reynolds III",
+              "email": "gayle84@medhurst.org",
+              "cellphone": "+13315497716"
+            },
+            "affiliate": null,
+            "productMetas": [],
+            "proposalMetas": []
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/checkout-mansao",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "aguardandopag-mansao": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "5039",
+            "content-type": "application/json",
+            "traceparent": "00-686fbeb6000000004a6e872885daf86e-3ccfd4af4fb81189-01",
+            "tracestate": "dd=s:2;t.dm:-3",
+            "x-datadog-parent-id": "4381954811876610441",
+            "x-datadog-sampling-priority": "2",
+            "x-datadog-tags": "_dd.p.tid=686fbeb600000000,_dd.p.dm=-3",
+            "x-datadog-trace-id": "5363372814359001198",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$/8k7L/hFRqGr6eVYx4XDIerpK3oBt9LpG6ZauoFcWFY8Wx7lxY7cC",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "checkout",
+            "event": "checkoutAbandoned",
+            "oldStatus": "abandoned",
+            "currentStatus": "abandoned",
+            "contract": null,
+            "sale": {
+              "id": 692,
+              "type": "TRANSACTION",
+              "status": "abandoned",
+              "created_at": "2025-07-10T13:23:02.567530Z",
+              "update_at": "2025-07-10T13:23:02.567533Z",
+              "seller_id": 505,
+              "installments": 12,
+              "method": "CREDIT_CARD",
+              "client_id": 698,
+              "amount": 497,
+              "proposal_id": null,
+              "total": 497
+            },
+            "client": {
+              "id": 698,
+              "name": "Prof. Tito Bahringer",
+              "email": "coy.effertz@hotmail.com",
+              "cellphone": "+18025796195",
+              "document": "398.999.439-12",
+              "cpf_cnpj": "398.999.439-12",
+              "zipcode": "94012",
+              "street": "Trisha Mall",
+              "number": "751",
+              "complement": "",
+              "neighborhood": "",
+              "city": "New Lisaside",
+              "uf": "NC",
+              "created_at": "2025-07-10T13:23:02.567500Z",
+              "updated_at": "2025-07-10T13:23:02.567506Z"
+            },
+            "product": {
+              "id": 118096,
+              "name": "Black",
+              "description": "**A imersão Mansão Empreendedora vai impactar o faturamento da sua empresa para escalar o seu negócio SEM DEPENDER DE VOCÊ**\n\n*- Ingresso Black dá direito a um jantar exclusivo com palestrantes e convidados no primeiro dia de evento*\n\n- Aprendizados constantes com os maiores experts do Brasil em gestão empresarial.\n\n- Técnicas especiais com o maior especialista em gestão comercial do Brasil.\n\n- Acesso a metodologia testada e validada no Brasil e no Mundo.\n\n- Acesso a uma ferramenta para que sua empresa funcione sem você na operação.\n\n- Dinâmicas, interações, hotseats e exercícios práticos de implementação de conteúdos.\n\n- Brindes e surpresas exclusivas para uma experiência incrível na imersão.",
+              "category_id": 14,
+              "stock": null,
+              "type": "TRANSACTION",
+              "amount": 497,
+              "period": 30,
+              "thank_you_page": "https://form.typeform.com/to/csrqtdKB",
+              "affiliation": null,
+              "comission": null,
+              "created_at": "2025-05-17T17:33:26.000000Z",
+              "updated_at": "2025-07-07T16:02:08.000000Z",
+              "seller_id": 33571,
+              "slug": "mansao-empreendedora-bh",
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "warranty": 7,
+              "url_callback": null,
+              "trial": 0,
+              "is_checkout_address": 0,
+              "bump_description": null,
+              "social_prove_id": null,
+              "proposal_minimum": 0,
+              "banner_checkout": null,
+              "allow_proposal": 0,
+              "affiliation_approbation": 1,
+              "affiliation_public": 1,
+              "pending_motive": null,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 1,
+              "max_boleto_installments": 0,
+              "status": "APPROVED",
+              "max_subscription_installments": null,
+              "max_installments": 12,
+              "max_comission": null,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null,
+              "allowed_coupon": 1,
+              "format": "EVENT",
+              "instructions": null,
+              "smart_sale": 0,
+              "fixed_installments": null,
+              "smart_sale_installments": null,
+              "has_stock": 0,
+              "can_be_gifted": 0,
+              "has_shipping_fee": 0,
+              "has_custom_shipping_address": 0,
+              "height": null,
+              "width": null,
+              "length": null,
+              "weight": null,
+              "address_product_id": 4889,
+              "co_seller_display_id": null,
+              "is_public_allowed": true,
+              "charges": null,
+              "no_interest_installments": 0,
+              "seller_fee": null,
+              "affiliate_fee": null,
+              "warranty_checkout": 1,
+              "smart_sale_dynamic_installments": 0,
+              "pre_selected_installment": 12,
+              "is_heaven": 0,
+              "type_shipping_fee": "DYNAMIC",
+              "amount_fixed_shipping_fee": null,
+              "shipping_fee_is_recurring": 1,
+              "affiliation_lead": 0,
+              "high_ticket_fee": null,
+              "mentoring_period": null,
+              "mentoring_duration": null,
+              "start_date": "2025-08-09",
+              "end_date": "2025-08-10",
+              "start_time": "09:00:00",
+              "end_time": "19:00:00",
+              "location": "WO Business Center",
+              "product_type_id": 3,
+              "status_changed_at": "2025-05-17 17:33:26",
+              "enable_invoice_items": false,
+              "items_for_invoice": "[{\"ncm\": null, \"title\": null, \"percent\": null, \"quantity\": null}]",
+              "has_cashback": 0,
+              "is_ia_approval": 1,
+              "recommendation": "APPROVE",
+              "negative_reasons": null,
+              "positive_reasons": "O nome do produto é significativo e não deixa dúvidas sobre o que está sendo comprado. O nome do produto está de acordo com todas as Diretrizes de Aprovação de Produto. A descrição do produto está relacionada ao nome do produto. A descrição do produto provê detalhes sobre o produto. A descrição do produto está de acordo com todas as Diretrizes de Aprovação de Produto. O tipo de entrega condiz com a categoria do produto (evento). O conteúdo da entrega está de acordo com todas as Diretrizes de Aprovação de Produto. Produto da categoria evento tem data e local para a realização do evento. O local e data do evento condizem com o produto.",
+              "are_non_transferable": 1,
+              "in_stock": true,
+              "status_product": "APPROVED",
+              "product_id": 118096,
+              "hash": "o5iSo6",
+              "default": 1,
+              "reason": "",
+              "analised": 0,
+              "currency_id": 1,
+              "allow_offer_link": 0,
+              "offer_redirect_id": null,
+              "offer_group_id": 6500,
+              "batch_order": null,
+              "ticket_release_quantity": null,
+              "can_use_as_recovery": 1,
+              "status_offer": "APPROVED",
+              "custom_charges": [],
+              "offer_redirect": null
+            },
+            "oferta": "Black",
+            "offer": {
+              "hash": "o5iSo6",
+              "amount": 497,
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "name": "Black",
+              "created_at": "2025-05-17T17:33:26.000000Z"
+            },
+            "seller": {
+              "id": 505,
+              "name": "Pink Reynolds III",
+              "email": "gayle84@medhurst.org",
+              "cellphone": "+13315497716"
+            },
+            "affiliate": null,
+            "productMetas": [],
+            "proposalMetas": []
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/checkout-mansao",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "compraaprovada-mansao": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "5039",
+            "content-type": "application/json",
+            "traceparent": "00-686fbeb6000000004a6e872885daf86e-3ccfd4af4fb81189-01",
+            "tracestate": "dd=s:2;t.dm:-3",
+            "x-datadog-parent-id": "4381954811876610441",
+            "x-datadog-sampling-priority": "2",
+            "x-datadog-tags": "_dd.p.tid=686fbeb600000000,_dd.p.dm=-3",
+            "x-datadog-trace-id": "5363372814359001198",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$/8k7L/hFRqGr6eVYx4XDIerpK3oBt9LpG6ZauoFcWFY8Wx7lxY7cC",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "checkout",
+            "event": "checkoutAbandoned",
+            "oldStatus": "abandoned",
+            "currentStatus": "abandoned",
+            "contract": null,
+            "sale": {
+              "id": 692,
+              "type": "TRANSACTION",
+              "status": "abandoned",
+              "created_at": "2025-07-10T13:23:02.567530Z",
+              "update_at": "2025-07-10T13:23:02.567533Z",
+              "seller_id": 505,
+              "installments": 12,
+              "method": "CREDIT_CARD",
+              "client_id": 698,
+              "amount": 497,
+              "proposal_id": null,
+              "total": 497
+            },
+            "client": {
+              "id": 698,
+              "name": "Prof. Tito Bahringer",
+              "email": "coy.effertz@hotmail.com",
+              "cellphone": "+18025796195",
+              "document": "398.999.439-12",
+              "cpf_cnpj": "398.999.439-12",
+              "zipcode": "94012",
+              "street": "Trisha Mall",
+              "number": "751",
+              "complement": "",
+              "neighborhood": "",
+              "city": "New Lisaside",
+              "uf": "NC",
+              "created_at": "2025-07-10T13:23:02.567500Z",
+              "updated_at": "2025-07-10T13:23:02.567506Z"
+            },
+            "product": {
+              "id": 118096,
+              "name": "Black",
+              "description": "**A imersão Mansão Empreendedora vai impactar o faturamento da sua empresa para escalar o seu negócio SEM DEPENDER DE VOCÊ**\n\n*- Ingresso Black dá direito a um jantar exclusivo com palestrantes e convidados no primeiro dia de evento*\n\n- Aprendizados constantes com os maiores experts do Brasil em gestão empresarial.\n\n- Técnicas especiais com o maior especialista em gestão comercial do Brasil.\n\n- Acesso a metodologia testada e validada no Brasil e no Mundo.\n\n- Acesso a uma ferramenta para que sua empresa funcione sem você na operação.\n\n- Dinâmicas, interações, hotseats e exercícios práticos de implementação de conteúdos.\n\n- Brindes e surpresas exclusivas para uma experiência incrível na imersão.",
+              "category_id": 14,
+              "stock": null,
+              "type": "TRANSACTION",
+              "amount": 497,
+              "period": 30,
+              "thank_you_page": "https://form.typeform.com/to/csrqtdKB",
+              "affiliation": null,
+              "comission": null,
+              "created_at": "2025-05-17T17:33:26.000000Z",
+              "updated_at": "2025-07-07T16:02:08.000000Z",
+              "seller_id": 33571,
+              "slug": "mansao-empreendedora-bh",
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "warranty": 7,
+              "url_callback": null,
+              "trial": 0,
+              "is_checkout_address": 0,
+              "bump_description": null,
+              "social_prove_id": null,
+              "proposal_minimum": 0,
+              "banner_checkout": null,
+              "allow_proposal": 0,
+              "affiliation_approbation": 1,
+              "affiliation_public": 1,
+              "pending_motive": null,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 1,
+              "max_boleto_installments": 0,
+              "status": "APPROVED",
+              "max_subscription_installments": null,
+              "max_installments": 12,
+              "max_comission": null,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null,
+              "allowed_coupon": 1,
+              "format": "EVENT",
+              "instructions": null,
+              "smart_sale": 0,
+              "fixed_installments": null,
+              "smart_sale_installments": null,
+              "has_stock": 0,
+              "can_be_gifted": 0,
+              "has_shipping_fee": 0,
+              "has_custom_shipping_address": 0,
+              "height": null,
+              "width": null,
+              "length": null,
+              "weight": null,
+              "address_product_id": 4889,
+              "co_seller_display_id": null,
+              "is_public_allowed": true,
+              "charges": null,
+              "no_interest_installments": 0,
+              "seller_fee": null,
+              "affiliate_fee": null,
+              "warranty_checkout": 1,
+              "smart_sale_dynamic_installments": 0,
+              "pre_selected_installment": 12,
+              "is_heaven": 0,
+              "type_shipping_fee": "DYNAMIC",
+              "amount_fixed_shipping_fee": null,
+              "shipping_fee_is_recurring": 1,
+              "affiliation_lead": 0,
+              "high_ticket_fee": null,
+              "mentoring_period": null,
+              "mentoring_duration": null,
+              "start_date": "2025-08-09",
+              "end_date": "2025-08-10",
+              "start_time": "09:00:00",
+              "end_time": "19:00:00",
+              "location": "WO Business Center",
+              "product_type_id": 3,
+              "status_changed_at": "2025-05-17 17:33:26",
+              "enable_invoice_items": false,
+              "items_for_invoice": "[{\"ncm\": null, \"title\": null, \"percent\": null, \"quantity\": null}]",
+              "has_cashback": 0,
+              "is_ia_approval": 1,
+              "recommendation": "APPROVE",
+              "negative_reasons": null,
+              "positive_reasons": "O nome do produto é significativo e não deixa dúvidas sobre o que está sendo comprado. O nome do produto está de acordo com todas as Diretrizes de Aprovação de Produto. A descrição do produto está relacionada ao nome do produto. A descrição do produto provê detalhes sobre o produto. A descrição do produto está de acordo com todas as Diretrizes de Aprovação de Produto. O tipo de entrega condiz com a categoria do produto (evento). O conteúdo da entrega está de acordo com todas as Diretrizes de Aprovação de Produto. Produto da categoria evento tem data e local para a realização do evento. O local e data do evento condizem com o produto.",
+              "are_non_transferable": 1,
+              "in_stock": true,
+              "status_product": "APPROVED",
+              "product_id": 118096,
+              "hash": "o5iSo6",
+              "default": 1,
+              "reason": "",
+              "analised": 0,
+              "currency_id": 1,
+              "allow_offer_link": 0,
+              "offer_redirect_id": null,
+              "offer_group_id": 6500,
+              "batch_order": null,
+              "ticket_release_quantity": null,
+              "can_use_as_recovery": 1,
+              "status_offer": "APPROVED",
+              "custom_charges": [],
+              "offer_redirect": null
+            },
+            "oferta": "Black",
+            "offer": {
+              "hash": "o5iSo6",
+              "amount": 497,
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "name": "Black",
+              "created_at": "2025-05-17T17:33:26.000000Z"
+            },
+            "seller": {
+              "id": 505,
+              "name": "Pink Reynolds III",
+              "email": "gayle84@medhurst.org",
+              "cellphone": "+13315497716"
+            },
+            "affiliate": null,
+            "productMetas": [],
+            "proposalMetas": []
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/checkout-mansao",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 5,
+  "updatedAt": "2025-07-10T13:25:03.564Z",
+  "versionId": "2a1581e0-143c-4217-824f-d756fb706ac7"
+}
