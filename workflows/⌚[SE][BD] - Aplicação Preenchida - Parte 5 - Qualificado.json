@@ -463,6 +463,28 @@
           }
         ]
       ]
+    },
+    "envia_fluxo_de_nao_agendou_10_min": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "envia_fluxo_de_depoimentos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-13T20:29:09.172Z",
@@ -2231,6 +2253,56 @@
         1040,
         1000
       ]
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "5b2f4866-f6d6-40dd-9044-445f921dc1a3",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        4500,
+        1400
+      ],
+      "webhookId": "e067bcc6-a71d-4a0c-8a3f-27ed6dc76ccd"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_lead_bc\"] }}/send_flow/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json.content[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "flow",
+              "value": "4384812"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b99ac357-c2de-44a8-a396-f511ef35597a",
+      "name": "envia_fluxo_de_depoimentos",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        4680,
+        1400
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
     }
   ],
   "pinData": {
@@ -2305,6 +2377,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-06-17T12:19:43.896Z",
-  "versionId": "251eae54-bff4-47c9-b13f-f9a093735eb8"
+  "updatedAt": "2025-07-11T14:21:02.947Z",
+  "versionId": "e1e13cf2-fc4b-440d-a761-da192b3238f8"
 }
