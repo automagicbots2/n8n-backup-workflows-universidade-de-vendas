@@ -408,17 +408,6 @@
         ]
       ]
     },
-    "aguardandopag-mansao": {
-      "main": [
-        [
-          {
-            "node": "formata_dados3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "consulta_sdr4": {
       "main": [
         [
@@ -490,6 +479,17 @@
         [
           {
             "node": "formata_dados4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "aguardandopag-mansao": {
+      "main": [
+        [
+          {
+            "node": "formata_dados3",
             "type": "main",
             "index": 0
           }
@@ -1434,7 +1434,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"checkout-mansao\"].json.body[\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"checkout-mansao\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"checkout-mansao\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"checkout-mansao\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"checkout-mansao\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"checkout-mansao\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"checkout-mansao\"].json.body[\"utm_content\"];\nconst nome = $node[\"checkout-mansao\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
+        "jsCode": "// Obtendo os dados da entrada\nconst inputData = $input.item.json.body || {};\n\n// Extraindo informações da venda, cliente, produto e oferta\nconst sale = inputData.sale || {};\nconst client = inputData.client || {};\nconst product = inputData.product || {};\nconst offer = inputData.offer || {};\n\n// Extraindo informações específicas do pagamento\nconst transaction_id = sale.id || \"\";\nconst chargeAmount = sale.amount || 0;\nconst value = chargeAmount ? chargeAmount.toFixed(2) : \"\";\nconst transStatus = sale.status || \"\";\nconst refundDate = sale.refunded_at || \"\";\nconst eventDate = sale.updated_at || sale.created_at || \"\";\nconst paidDate = sale.paid_at || \"\";\nconst paymentMethod = sale.method || \"\";\nconst productId = product.id || \"\";\nconst productName = product.name || \"\";\nconst chargeType = product.type || \"\";\nconst offer_code = offer.hash || \"\";\nconst gateway_comission = sale.fee ? sale.fee.toFixed(2) : \"\";\nconst billet_barcode = sale.boleto_barcode || \"\";\nconst currency = \"BRL\";\nconst bankslip = sale.boleto_url || \"\";\nconst billetExpirationDate = sale.boleto_expiration_date || \"\";\nconst installments = sale.installments || \"\";\n\n// Dados do cliente\nconst fullNameAnswer = client.name || \"\";\nconst emailAnswer = client.email || \"\";\nconst telefoneClienteOriginal = client.cellphone || \"\";\nconst cpfAnswer = client.cpf_cnpj || \"\";\nconst cnpjAnswer = client.cnpj || \"\";\n\n// Função para formatar CPF\nfunction formatCPF(cpf) {\n    if (!cpf) return \"\";\n    const cpfLimpo = cpf.replace(/\\D/g, \"\");\n    return cpfLimpo.length === 11 ? \n        `${cpfLimpo.slice(0, 3)}.${cpfLimpo.slice(3, 6)}.${cpfLimpo.slice(6, 9)}-${cpfLimpo.slice(9, 11)}` : cpf;\n}\n\n// Função para formatar telefone corretamente\nfunction formatPhone(telefone) {\n    if (!telefone) return \"\";\n    let telefoneLimpo = telefone.replace(/\\D/g, \"\");\n\n    if (telefoneLimpo.startsWith(\"55\") && telefoneLimpo.length > 11) {\n        telefoneLimpo = telefoneLimpo.slice(2);\n    }\n\n    let DDI = \"55\";\n    let DDD = telefoneLimpo.slice(0, 2);\n    let numero = telefoneLimpo.slice(2);\n\n    if (DDD && numero) {\n        if (parseInt(DDD) > 28 && numero.length === 9 && numero.startsWith(\"9\")) {\n            numero = numero.slice(1);\n        } else if (numero.length === 8) {\n            numero = `9${numero}`;\n        }\n    }\n\n    return `${DDI}${DDD}${numero}`;\n}\n\n// Função para formatar datas\nfunction formatDateTime(dateString) {\n    return dateString ? dateString.replace(\"T\", \" \").split(\".\")[0] : \"\";\n}\n\n// Traduzir status da transação\nconst statusMap = {\n    \"paid\": \"Compra Aprovada\",\n    \"billet_created\": \"Boleto Gerado\",\n    \"pix_created\": \"PIX Gerado\",\n    \"order_rejected\": \"Compra Cancelada\",\n    \"order_refunded\": \"Compra Reembolsada\",\n    \"chargeback\": \"Chargeback\",\n    \"subscription_canceled\": \"Assinatura Cancelada\",\n    \"subscription_late\": \"Compra Atrasada\",\n    \"subscription_renewed\": \"Renovação\",\n    \"abandoned\": \"Carrinho Abandonado\"\n};\nconst purchaseStatusTranslation = statusMap[transStatus] || \"Desconhecido\";\n\n// Traduzir método de pagamento\nconst paymentMethodMap = {\n    \"PIX\": \"PIX\",\n    \"BOLETO\": \"Boleto Bancário\",\n    \"CREDIT_CARD\": \"Cartão de Crédito\"\n};\nconst paymentMethodTranslation = paymentMethodMap[paymentMethod] || \"Desconhecido\";\n\n// Traduzir tipo de cobrança\nconst chargeTypeMap = {\n    \"TRANSACTION\": \"Cobrança única\",\n    \"SUBSCRIPTION\": \"Assinatura\",\n    \"DIGITAL\": \"Produto Digital\",\n    \"PHYSICAL\": \"Produto Físico\",\n    \"SERVICE\": \"Serviço\"\n};\nconst translatedChargeType = chargeTypeMap[chargeType] || \"Tipo desconhecido\";\n\n// Capitalizar nome\nfunction capitalizeName(fullName) {\n    if (!fullName) return { fname: \"\", lname: \"\", fullname: \"\" };\n\n    const lowerCaseWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n    let words = fullName.toLowerCase().split(\" \").map((word, index) => {\n        return lowerCaseWords.includes(word) && index !== 0 ? word : \n               word.charAt(0).toUpperCase() + word.slice(1);\n    });\n\n    let fname = words.shift();\n    let lname = words.join(\" \");\n    let fullname = lname ? `${fname} ${lname}` : fname;\n\n    return { fname, lname, fullname };\n}\n\n// Aplicando formatações finais\nconst formattedNames = capitalizeName(fullNameAnswer);\nconst formattedEmail = emailAnswer.toLowerCase().trim();\nconst formattedEventDate = formatDateTime(eventDate);\nconst formattedRefundDate = formatDateTime(refundDate);\nconst formattedPaidDate = formatDateTime(paidDate);\nconst telefoneFinal = formatPhone(telefoneClienteOriginal);\n\n// Construindo objeto final\nconst result = {\n    ...formattedNames,\n    email: formattedEmail,\n    whatsapp: telefoneFinal,\n    cpf: formatCPF(cpfAnswer),\n    cnpj: formatCPF(cnpjAnswer),\n    transaction_id: transaction_id,\n    value: value,\n    trans_status: purchaseStatusTranslation,\n    payment_method: paymentMethodTranslation,\n    refund_date: formattedRefundDate,\n    event_date: formattedEventDate,\n    payment_date: formattedPaidDate,\n    product_type: translatedChargeType,\n    product_id: productId,\n    product_name: productName,\n    offer_code: offer_code,\n    gateway_comission: gateway_comission,\n    billet_barcode: billet_barcode,\n    currency: currency,\n    bankslip: bankslip,\n    billetExpirationDate: billetExpirationDate,\n    installments: installments\n};\n\nreturn [{ json: result }];\n"
       },
       "id": "829d5e9d-9b94-4c65-b3ac-ba26df0d5f13",
       "name": "formata_dados2",
@@ -1720,7 +1720,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"aguardandopag-mansao\"].json.body[\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"aguardandopag-mansao\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"aguardandopag-mansao\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"aguardandopag-mansao\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"aguardandopag-mansao\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"aguardandopag-mansao\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"aguardandopag-mansao\"].json.body[\"utm_content\"];\nconst nome = $node[\"aguardandopag-mansao\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
+        "jsCode": "// Obtendo os dados da entrada\nconst inputData = $input.item.json.body || {};\n\n// Extraindo informações da venda, cliente, produto e oferta\nconst sale = inputData.sale || {};\nconst client = inputData.client || {};\nconst product = inputData.product || {};\nconst offer = inputData.offer || {};\n\n// Extraindo informações específicas do pagamento\nconst transaction_id = sale.id || \"\";\nconst chargeAmount = sale.amount || 0;\nconst value = chargeAmount ? chargeAmount.toFixed(2) : \"\";\nconst transStatus = sale.status || \"\";\nconst refundDate = sale.refunded_at || \"\";\nconst eventDate = sale.updated_at || sale.created_at || \"\";\nconst paidDate = sale.paid_at || \"\";\nconst paymentMethod = sale.method || \"\";\nconst productId = product.id || \"\";\nconst productName = product.name || \"\";\nconst chargeType = product.type || \"\";\nconst offer_code = offer.hash || \"\";\nconst gateway_comission = sale.fee ? sale.fee.toFixed(2) : \"\";\nconst billet_barcode = sale.boleto_barcode || \"\";\nconst currency = \"BRL\";\nconst bankslip = sale.boleto_url || \"\";\nconst billetExpirationDate = sale.boleto_expiration_date || \"\";\nconst installments = sale.installments || \"\";\n\n// Dados do cliente\nconst fullNameAnswer = client.name || \"\";\nconst emailAnswer = client.email || \"\";\nconst telefoneClienteOriginal = client.cellphone || \"\";\nconst cpfAnswer = client.cpf_cnpj || \"\";\nconst cnpjAnswer = client.cnpj || \"\";\n\n// Função para formatar CPF\nfunction formatCPF(cpf) {\n    if (!cpf) return \"\";\n    const cpfLimpo = cpf.replace(/\\D/g, \"\");\n    return cpfLimpo.length === 11 ? \n        `${cpfLimpo.slice(0, 3)}.${cpfLimpo.slice(3, 6)}.${cpfLimpo.slice(6, 9)}-${cpfLimpo.slice(9, 11)}` : cpf;\n}\n\n// Função para formatar telefone corretamente\nfunction formatPhone(telefone) {\n    if (!telefone) return \"\";\n    let telefoneLimpo = telefone.replace(/\\D/g, \"\");\n\n    if (telefoneLimpo.startsWith(\"55\") && telefoneLimpo.length > 11) {\n        telefoneLimpo = telefoneLimpo.slice(2);\n    }\n\n    let DDI = \"55\";\n    let DDD = telefoneLimpo.slice(0, 2);\n    let numero = telefoneLimpo.slice(2);\n\n    if (DDD && numero) {\n        if (parseInt(DDD) > 28 && numero.length === 9 && numero.startsWith(\"9\")) {\n            numero = numero.slice(1);\n        } else if (numero.length === 8) {\n            numero = `9${numero}`;\n        }\n    }\n\n    return `${DDI}${DDD}${numero}`;\n}\n\n// Função para formatar datas\nfunction formatDateTime(dateString) {\n    return dateString ? dateString.replace(\"T\", \" \").split(\".\")[0] : \"\";\n}\n\n// Traduzir status da transação\nconst statusMap = {\n    \"paid\": \"Compra Aprovada\",\n    \"billet_created\": \"Boleto Gerado\",\n    \"pix_created\": \"PIX Gerado\",\n    \"order_rejected\": \"Compra Cancelada\",\n    \"order_refunded\": \"Compra Reembolsada\",\n    \"chargeback\": \"Chargeback\",\n    \"subscription_canceled\": \"Assinatura Cancelada\",\n    \"subscription_late\": \"Compra Atrasada\",\n    \"subscription_renewed\": \"Renovação\",\n    \"abandoned\": \"Carrinho Abandonado\"\n};\nconst purchaseStatusTranslation = statusMap[transStatus] || \"Desconhecido\";\n\n// Traduzir método de pagamento\nconst paymentMethodMap = {\n    \"PIX\": \"PIX\",\n    \"BOLETO\": \"Boleto Bancário\",\n    \"CREDIT_CARD\": \"Cartão de Crédito\"\n};\nconst paymentMethodTranslation = paymentMethodMap[paymentMethod] || \"Desconhecido\";\n\n// Traduzir tipo de cobrança\nconst chargeTypeMap = {\n    \"TRANSACTION\": \"Cobrança única\",\n    \"SUBSCRIPTION\": \"Assinatura\",\n    \"DIGITAL\": \"Produto Digital\",\n    \"PHYSICAL\": \"Produto Físico\",\n    \"SERVICE\": \"Serviço\"\n};\nconst translatedChargeType = chargeTypeMap[chargeType] || \"Tipo desconhecido\";\n\n// Capitalizar nome\nfunction capitalizeName(fullName) {\n    if (!fullName) return { fname: \"\", lname: \"\", fullname: \"\" };\n\n    const lowerCaseWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n    let words = fullName.toLowerCase().split(\" \").map((word, index) => {\n        return lowerCaseWords.includes(word) && index !== 0 ? word : \n               word.charAt(0).toUpperCase() + word.slice(1);\n    });\n\n    let fname = words.shift();\n    let lname = words.join(\" \");\n    let fullname = lname ? `${fname} ${lname}` : fname;\n\n    return { fname, lname, fullname };\n}\n\n// Aplicando formatações finais\nconst formattedNames = capitalizeName(fullNameAnswer);\nconst formattedEmail = emailAnswer.toLowerCase().trim();\nconst formattedEventDate = formatDateTime(eventDate);\nconst formattedRefundDate = formatDateTime(refundDate);\nconst formattedPaidDate = formatDateTime(paidDate);\nconst telefoneFinal = formatPhone(telefoneClienteOriginal);\n\n// Construindo objeto final\nconst result = {\n    ...formattedNames,\n    email: formattedEmail,\n    whatsapp: telefoneFinal,\n    cpf: formatCPF(cpfAnswer),\n    cnpj: formatCPF(cnpjAnswer),\n    transaction_id: transaction_id,\n    value: value,\n    trans_status: purchaseStatusTranslation,\n    payment_method: paymentMethodTranslation,\n    refund_date: formattedRefundDate,\n    event_date: formattedEventDate,\n    payment_date: formattedPaidDate,\n    product_type: translatedChargeType,\n    product_id: productId,\n    product_name: productName,\n    offer_code: offer_code,\n    gateway_comission: gateway_comission,\n    billet_barcode: billet_barcode,\n    currency: currency,\n    bankslip: bankslip,\n    billetExpirationDate: billetExpirationDate,\n    installments: installments\n};\n\nreturn [{ json: result }];\n"
       },
       "id": "bef6c11f-009b-4275-ac0f-d6c875b4bcce",
       "name": "formata_dados3",
@@ -1990,23 +1990,7 @@
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "aguardandopag-mansao",
-        "options": {}
-      },
-      "id": "6a3c6595-bea3-401c-8ccd-0a7723c78b41",
-      "name": "aguardandopag-mansao",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        460,
-        860
-      ],
-      "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
-    },
-    {
-      "parameters": {
-        "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"compraaprovada-mansao\"].json.body[\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"compraaprovada-mansao\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"compraaprovada-mansao\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"compraaprovada-mansao\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"compraaprovada-mansao\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"compraaprovada-mansao\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"compraaprovada-mansao\"].json.body[\"utm_content\"];\nconst nome = $node[\"compraaprovada-mansao\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
+        "jsCode": "// Obtendo os dados da entrada\nconst inputData = $input.item.json.body || {};\n\n// Extraindo informações da venda, cliente, produto e oferta\nconst sale = inputData.sale || {};\nconst client = inputData.client || {};\nconst product = inputData.product || {};\nconst offer = inputData.offer || {};\n\n// Extraindo informações específicas do pagamento\nconst transaction_id = sale.id || \"\";\nconst chargeAmount = sale.amount || 0;\nconst value = chargeAmount ? chargeAmount.toFixed(2) : \"\";\nconst transStatus = sale.status || \"\";\nconst refundDate = sale.refunded_at || \"\";\nconst eventDate = sale.updated_at || sale.created_at || \"\";\nconst paidDate = sale.paid_at || \"\";\nconst paymentMethod = sale.method || \"\";\nconst productId = product.id || \"\";\nconst productName = product.name || \"\";\nconst chargeType = product.type || \"\";\nconst offer_code = offer.hash || \"\";\nconst gateway_comission = sale.fee ? sale.fee.toFixed(2) : \"\";\nconst billet_barcode = sale.boleto_barcode || \"\";\nconst currency = \"BRL\";\nconst bankslip = sale.boleto_url || \"\";\nconst billetExpirationDate = sale.boleto_expiration_date || \"\";\nconst installments = sale.installments || \"\";\n\n// Dados do cliente\nconst fullNameAnswer = client.name || \"\";\nconst emailAnswer = client.email || \"\";\nconst telefoneClienteOriginal = client.cellphone || \"\";\nconst cpfAnswer = client.cpf_cnpj || \"\";\nconst cnpjAnswer = client.cnpj || \"\";\n\n// Função para formatar CPF\nfunction formatCPF(cpf) {\n    if (!cpf) return \"\";\n    const cpfLimpo = cpf.replace(/\\D/g, \"\");\n    return cpfLimpo.length === 11 ? \n        `${cpfLimpo.slice(0, 3)}.${cpfLimpo.slice(3, 6)}.${cpfLimpo.slice(6, 9)}-${cpfLimpo.slice(9, 11)}` : cpf;\n}\n\n// Função para formatar telefone corretamente\nfunction formatPhone(telefone) {\n    if (!telefone) return \"\";\n    let telefoneLimpo = telefone.replace(/\\D/g, \"\");\n\n    if (telefoneLimpo.startsWith(\"55\") && telefoneLimpo.length > 11) {\n        telefoneLimpo = telefoneLimpo.slice(2);\n    }\n\n    let DDI = \"55\";\n    let DDD = telefoneLimpo.slice(0, 2);\n    let numero = telefoneLimpo.slice(2);\n\n    if (DDD && numero) {\n        if (parseInt(DDD) > 28 && numero.length === 9 && numero.startsWith(\"9\")) {\n            numero = numero.slice(1);\n        } else if (numero.length === 8) {\n            numero = `9${numero}`;\n        }\n    }\n\n    return `${DDI}${DDD}${numero}`;\n}\n\n// Função para formatar datas\nfunction formatDateTime(dateString) {\n    return dateString ? dateString.replace(\"T\", \" \").split(\".\")[0] : \"\";\n}\n\n// Traduzir status da transação\nconst statusMap = {\n    \"paid\": \"Compra Aprovada\",\n    \"billet_created\": \"Boleto Gerado\",\n    \"pix_created\": \"PIX Gerado\",\n    \"order_rejected\": \"Compra Cancelada\",\n    \"order_refunded\": \"Compra Reembolsada\",\n    \"chargeback\": \"Chargeback\",\n    \"subscription_canceled\": \"Assinatura Cancelada\",\n    \"subscription_late\": \"Compra Atrasada\",\n    \"subscription_renewed\": \"Renovação\",\n    \"abandoned\": \"Carrinho Abandonado\"\n};\nconst purchaseStatusTranslation = statusMap[transStatus] || \"Desconhecido\";\n\n// Traduzir método de pagamento\nconst paymentMethodMap = {\n    \"PIX\": \"PIX\",\n    \"BOLETO\": \"Boleto Bancário\",\n    \"CREDIT_CARD\": \"Cartão de Crédito\"\n};\nconst paymentMethodTranslation = paymentMethodMap[paymentMethod] || \"Desconhecido\";\n\n// Traduzir tipo de cobrança\nconst chargeTypeMap = {\n    \"TRANSACTION\": \"Cobrança única\",\n    \"SUBSCRIPTION\": \"Assinatura\",\n    \"DIGITAL\": \"Produto Digital\",\n    \"PHYSICAL\": \"Produto Físico\",\n    \"SERVICE\": \"Serviço\"\n};\nconst translatedChargeType = chargeTypeMap[chargeType] || \"Tipo desconhecido\";\n\n// Capitalizar nome\nfunction capitalizeName(fullName) {\n    if (!fullName) return { fname: \"\", lname: \"\", fullname: \"\" };\n\n    const lowerCaseWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n    let words = fullName.toLowerCase().split(\" \").map((word, index) => {\n        return lowerCaseWords.includes(word) && index !== 0 ? word : \n               word.charAt(0).toUpperCase() + word.slice(1);\n    });\n\n    let fname = words.shift();\n    let lname = words.join(\" \");\n    let fullname = lname ? `${fname} ${lname}` : fname;\n\n    return { fname, lname, fullname };\n}\n\n// Aplicando formatações finais\nconst formattedNames = capitalizeName(fullNameAnswer);\nconst formattedEmail = emailAnswer.toLowerCase().trim();\nconst formattedEventDate = formatDateTime(eventDate);\nconst formattedRefundDate = formatDateTime(refundDate);\nconst formattedPaidDate = formatDateTime(paidDate);\nconst telefoneFinal = formatPhone(telefoneClienteOriginal);\n\n// Construindo objeto final\nconst result = {\n    ...formattedNames,\n    email: formattedEmail,\n    whatsapp: telefoneFinal,\n    cpf: formatCPF(cpfAnswer),\n    cnpj: formatCPF(cnpjAnswer),\n    transaction_id: transaction_id,\n    value: value,\n    trans_status: purchaseStatusTranslation,\n    payment_method: paymentMethodTranslation,\n    refund_date: formattedRefundDate,\n    event_date: formattedEventDate,\n    payment_date: formattedPaidDate,\n    product_type: translatedChargeType,\n    product_id: productId,\n    product_name: productName,\n    offer_code: offer_code,\n    gateway_comission: gateway_comission,\n    billet_barcode: billet_barcode,\n    currency: currency,\n    bankslip: bankslip,\n    billetExpirationDate: billetExpirationDate,\n    installments: installments\n};\n\nreturn [{ json: result }];\n"
       },
       "id": "99fcbf83-4835-4df3-8eba-722de2a1e5d8",
       "name": "formata_dados4",
@@ -2289,6 +2273,22 @@
         1060
       ],
       "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aguardandopag-mansao",
+        "options": {}
+      },
+      "id": "6a3c6595-bea3-401c-8ccd-0a7723c78b41",
+      "name": "aguardandopag-mansao",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        860
+      ],
+      "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
     }
   ],
   "pinData": {
@@ -2553,209 +2553,14 @@
         }
       }
     ],
-    "aguardandopag-mansao": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "GuzzleHttp/7",
-            "content-length": "5039",
-            "content-type": "application/json",
-            "traceparent": "00-686fbeb6000000004a6e872885daf86e-3ccfd4af4fb81189-01",
-            "tracestate": "dd=s:2;t.dm:-3",
-            "x-datadog-parent-id": "4381954811876610441",
-            "x-datadog-sampling-priority": "2",
-            "x-datadog-tags": "_dd.p.tid=686fbeb600000000,_dd.p.dm=-3",
-            "x-datadog-trace-id": "5363372814359001198",
-            "x-forwarded-for": "54.208.146.185",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "54.208.146.185",
-            "x-webhook-token": "$2y$10$/8k7L/hFRqGr6eVYx4XDIerpK3oBt9LpG6ZauoFcWFY8Wx7lxY7cC",
-            "accept-encoding": "gzip"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "type": "checkout",
-            "event": "checkoutAbandoned",
-            "oldStatus": "abandoned",
-            "currentStatus": "abandoned",
-            "contract": null,
-            "sale": {
-              "id": 692,
-              "type": "TRANSACTION",
-              "status": "abandoned",
-              "created_at": "2025-07-10T13:23:02.567530Z",
-              "update_at": "2025-07-10T13:23:02.567533Z",
-              "seller_id": 505,
-              "installments": 12,
-              "method": "CREDIT_CARD",
-              "client_id": 698,
-              "amount": 497,
-              "proposal_id": null,
-              "total": 497
-            },
-            "client": {
-              "id": 698,
-              "name": "Prof. Tito Bahringer",
-              "email": "coy.effertz@hotmail.com",
-              "cellphone": "+18025796195",
-              "document": "398.999.439-12",
-              "cpf_cnpj": "398.999.439-12",
-              "zipcode": "94012",
-              "street": "Trisha Mall",
-              "number": "751",
-              "complement": "",
-              "neighborhood": "",
-              "city": "New Lisaside",
-              "uf": "NC",
-              "created_at": "2025-07-10T13:23:02.567500Z",
-              "updated_at": "2025-07-10T13:23:02.567506Z"
-            },
-            "product": {
-              "id": 118096,
-              "name": "Black",
-              "description": "**A imersão Mansão Empreendedora vai impactar o faturamento da sua empresa para escalar o seu negócio SEM DEPENDER DE VOCÊ**\n\n*- Ingresso Black dá direito a um jantar exclusivo com palestrantes e convidados no primeiro dia de evento*\n\n- Aprendizados constantes com os maiores experts do Brasil em gestão empresarial.\n\n- Técnicas especiais com o maior especialista em gestão comercial do Brasil.\n\n- Acesso a metodologia testada e validada no Brasil e no Mundo.\n\n- Acesso a uma ferramenta para que sua empresa funcione sem você na operação.\n\n- Dinâmicas, interações, hotseats e exercícios práticos de implementação de conteúdos.\n\n- Brindes e surpresas exclusivas para uma experiência incrível na imersão.",
-              "category_id": 14,
-              "stock": null,
-              "type": "TRANSACTION",
-              "amount": 497,
-              "period": 30,
-              "thank_you_page": "https://form.typeform.com/to/csrqtdKB",
-              "affiliation": null,
-              "comission": null,
-              "created_at": "2025-05-17T17:33:26.000000Z",
-              "updated_at": "2025-07-07T16:02:08.000000Z",
-              "seller_id": 33571,
-              "slug": "mansao-empreendedora-bh",
-              "method": "CREDIT_CARD,BOLETO,PIX",
-              "warranty": 7,
-              "url_callback": null,
-              "trial": 0,
-              "is_checkout_address": 0,
-              "bump_description": null,
-              "social_prove_id": null,
-              "proposal_minimum": 0,
-              "banner_checkout": null,
-              "allow_proposal": 0,
-              "affiliation_approbation": 1,
-              "affiliation_public": 1,
-              "pending_motive": null,
-              "is_active": 1,
-              "deleted_at": null,
-              "affiliation_proposal": 1,
-              "max_boleto_installments": 0,
-              "status": "APPROVED",
-              "max_subscription_installments": null,
-              "max_installments": 12,
-              "max_comission": null,
-              "category_fiscal": "SERVICE",
-              "fiscal_code": null,
-              "allowed_coupon": 1,
-              "format": "EVENT",
-              "instructions": null,
-              "smart_sale": 0,
-              "fixed_installments": null,
-              "smart_sale_installments": null,
-              "has_stock": 0,
-              "can_be_gifted": 0,
-              "has_shipping_fee": 0,
-              "has_custom_shipping_address": 0,
-              "height": null,
-              "width": null,
-              "length": null,
-              "weight": null,
-              "address_product_id": 4889,
-              "co_seller_display_id": null,
-              "is_public_allowed": true,
-              "charges": null,
-              "no_interest_installments": 0,
-              "seller_fee": null,
-              "affiliate_fee": null,
-              "warranty_checkout": 1,
-              "smart_sale_dynamic_installments": 0,
-              "pre_selected_installment": 12,
-              "is_heaven": 0,
-              "type_shipping_fee": "DYNAMIC",
-              "amount_fixed_shipping_fee": null,
-              "shipping_fee_is_recurring": 1,
-              "affiliation_lead": 0,
-              "high_ticket_fee": null,
-              "mentoring_period": null,
-              "mentoring_duration": null,
-              "start_date": "2025-08-09",
-              "end_date": "2025-08-10",
-              "start_time": "09:00:00",
-              "end_time": "19:00:00",
-              "location": "WO Business Center",
-              "product_type_id": 3,
-              "status_changed_at": "2025-05-17 17:33:26",
-              "enable_invoice_items": false,
-              "items_for_invoice": "[{\"ncm\": null, \"title\": null, \"percent\": null, \"quantity\": null}]",
-              "has_cashback": 0,
-              "is_ia_approval": 1,
-              "recommendation": "APPROVE",
-              "negative_reasons": null,
-              "positive_reasons": "O nome do produto é significativo e não deixa dúvidas sobre o que está sendo comprado. O nome do produto está de acordo com todas as Diretrizes de Aprovação de Produto. A descrição do produto está relacionada ao nome do produto. A descrição do produto provê detalhes sobre o produto. A descrição do produto está de acordo com todas as Diretrizes de Aprovação de Produto. O tipo de entrega condiz com a categoria do produto (evento). O conteúdo da entrega está de acordo com todas as Diretrizes de Aprovação de Produto. Produto da categoria evento tem data e local para a realização do evento. O local e data do evento condizem com o produto.",
-              "are_non_transferable": 1,
-              "in_stock": true,
-              "status_product": "APPROVED",
-              "product_id": 118096,
-              "hash": "o5iSo6",
-              "default": 1,
-              "reason": "",
-              "analised": 0,
-              "currency_id": 1,
-              "allow_offer_link": 0,
-              "offer_redirect_id": null,
-              "offer_group_id": 6500,
-              "batch_order": null,
-              "ticket_release_quantity": null,
-              "can_use_as_recovery": 1,
-              "status_offer": "APPROVED",
-              "custom_charges": [],
-              "offer_redirect": null
-            },
-            "oferta": "Black",
-            "offer": {
-              "hash": "o5iSo6",
-              "amount": 497,
-              "method": "CREDIT_CARD,BOLETO,PIX",
-              "name": "Black",
-              "created_at": "2025-05-17T17:33:26.000000Z"
-            },
-            "seller": {
-              "id": 505,
-              "name": "Pink Reynolds III",
-              "email": "gayle84@medhurst.org",
-              "cellphone": "+13315497716"
-            },
-            "affiliate": null,
-            "productMetas": [],
-            "proposalMetas": []
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/checkout-mansao",
-          "executionMode": "production"
-        }
-      }
-    ],
     "compraaprovada-mansao": [
       {
         "json": {
           "headers": {
             "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "user-agent": "GuzzleHttp/7",
-            "content-length": "5039",
+            "content-length": "8282",
             "content-type": "application/json",
-            "traceparent": "00-686fbeb6000000004a6e872885daf86e-3ccfd4af4fb81189-01",
-            "tracestate": "dd=s:2;t.dm:-3",
-            "x-datadog-parent-id": "4381954811876610441",
-            "x-datadog-sampling-priority": "2",
-            "x-datadog-tags": "_dd.p.tid=686fbeb600000000,_dd.p.dm=-3",
-            "x-datadog-trace-id": "5363372814359001198",
             "x-forwarded-for": "54.208.146.185",
             "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "x-forwarded-port": "443",
@@ -2768,165 +2573,288 @@
           "params": {},
           "query": {},
           "body": {
-            "type": "checkout",
-            "event": "checkoutAbandoned",
-            "oldStatus": "abandoned",
-            "currentStatus": "abandoned",
-            "contract": null,
+            "type": "sale",
+            "event": "saleUpdated",
+            "oldStatus": "paid",
+            "currentStatus": "paid",
             "sale": {
-              "id": 692,
+              "id": 5932429,
               "type": "TRANSACTION",
-              "status": "abandoned",
-              "created_at": "2025-07-10T13:23:02.567530Z",
-              "update_at": "2025-07-10T13:23:02.567533Z",
-              "seller_id": 505,
-              "installments": 12,
-              "method": "CREDIT_CARD",
-              "client_id": 698,
-              "amount": 497,
+              "status": "paid",
+              "created_at": "2025-07-10T20:17:32.000000Z",
+              "updated_at": "2025-07-10T20:18:37.000000Z",
+              "seller_id": 33571,
+              "installments": 1,
+              "method": "PIX",
+              "client_id": 3777928,
+              "fee": 2.48,
+              "seller_balance": 27.22,
+              "total": 29.7,
+              "amount": 29.7,
               "proposal_id": null,
-              "total": 497
+              "subscription_id": null,
+              "boleto_url": null,
+              "boleto_barcode": null,
+              "boleto_expiration_date": null,
+              "qrcode": "00020126580014br.gov.bcb.pix013633d77803-b7c5-4afa-b373-2cfea60f3c9d520400005303986540529.705802BR5918GDGD202207181520456009Sao Paulo62250521mpqrinter117627836109630453EE",
+              "imgQrcode": "data:image/png;base64,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",
+              "paid_at": "2025-07-10T20:18:34.000000Z",
+              "bump_id": null,
+              "is_smart_sale": 0,
+              "shipping_amount": null,
+              "shipping_selected": null,
+              "coupon": {
+                "id": 45212,
+                "seller_id": 33571,
+                "name": "CUPOMBH",
+                "type": "PERCENTAGE",
+                "amount": 90,
+                "only_products": 1,
+                "limit": 2,
+                "due_date": null,
+                "created_at": "2025-07-10T20:16:13.000000Z",
+                "updated_at": "2025-07-10T20:16:13.000000Z",
+                "is_active": 1,
+                "deleted_at": null,
+                "currency_id": 1,
+                "convert_amount": 0,
+                "used": 1,
+                "status": "active"
+              }
             },
             "client": {
-              "id": 698,
-              "name": "Prof. Tito Bahringer",
-              "email": "coy.effertz@hotmail.com",
-              "cellphone": "+18025796195",
-              "document": "398.999.439-12",
-              "cpf_cnpj": "398.999.439-12",
-              "zipcode": "94012",
-              "street": "Trisha Mall",
-              "number": "751",
+              "id": 3777928,
+              "name": "Fabrício Augusto",
+              "email": "fabricio@universidadevendas.com.br",
+              "cellphone": "+5531989840003",
+              "document": "078.102.716-01",
+              "zipcode": null,
+              "street": "",
+              "number": "0",
               "complement": "",
               "neighborhood": "",
-              "city": "New Lisaside",
-              "uf": "NC",
-              "created_at": "2025-07-10T13:23:02.567500Z",
-              "updated_at": "2025-07-10T13:23:02.567506Z"
+              "city": "",
+              "uf": "",
+              "created_at": "2025-07-10T20:17:32.000000Z",
+              "updated_at": "2025-07-10T20:17:32.000000Z",
+              "document_type": "cpf",
+              "cpf_cnpj": "078.102.716-01"
             },
             "product": {
               "id": 118096,
-              "name": "Black",
+              "name": "Mansão empreendedora BH",
               "description": "**A imersão Mansão Empreendedora vai impactar o faturamento da sua empresa para escalar o seu negócio SEM DEPENDER DE VOCÊ**\n\n*- Ingresso Black dá direito a um jantar exclusivo com palestrantes e convidados no primeiro dia de evento*\n\n- Aprendizados constantes com os maiores experts do Brasil em gestão empresarial.\n\n- Técnicas especiais com o maior especialista em gestão comercial do Brasil.\n\n- Acesso a metodologia testada e validada no Brasil e no Mundo.\n\n- Acesso a uma ferramenta para que sua empresa funcione sem você na operação.\n\n- Dinâmicas, interações, hotseats e exercícios práticos de implementação de conteúdos.\n\n- Brindes e surpresas exclusivas para uma experiência incrível na imersão.",
-              "category_id": 14,
-              "stock": null,
               "type": "TRANSACTION",
-              "amount": 497,
+              "amount": 297,
               "period": 30,
               "thank_you_page": "https://form.typeform.com/to/csrqtdKB",
-              "affiliation": null,
-              "comission": null,
-              "created_at": "2025-05-17T17:33:26.000000Z",
+              "created_at": "2025-07-07T15:57:08.000000Z",
               "updated_at": "2025-07-07T16:02:08.000000Z",
-              "seller_id": 33571,
-              "slug": "mansao-empreendedora-bh",
               "method": "CREDIT_CARD,BOLETO,PIX",
-              "warranty": 7,
               "url_callback": null,
-              "trial": 0,
-              "is_checkout_address": 0,
-              "bump_description": null,
-              "social_prove_id": null,
+              "trial": null,
               "proposal_minimum": 0,
-              "banner_checkout": null,
               "allow_proposal": 0,
               "affiliation_approbation": 1,
               "affiliation_public": 1,
-              "pending_motive": null,
               "is_active": 1,
               "deleted_at": null,
               "affiliation_proposal": 1,
-              "max_boleto_installments": 0,
-              "status": "APPROVED",
-              "max_subscription_installments": null,
-              "max_installments": 12,
-              "max_comission": null,
               "category_fiscal": "SERVICE",
-              "fiscal_code": null,
-              "allowed_coupon": 1,
-              "format": "EVENT",
-              "instructions": null,
-              "smart_sale": 0,
-              "fixed_installments": null,
-              "smart_sale_installments": null,
-              "has_stock": 0,
-              "can_be_gifted": 0,
-              "has_shipping_fee": 0,
-              "has_custom_shipping_address": 0,
-              "height": null,
-              "width": null,
-              "length": null,
-              "weight": null,
-              "address_product_id": 4889,
-              "co_seller_display_id": null,
-              "is_public_allowed": true,
-              "charges": null,
-              "no_interest_installments": 0,
-              "seller_fee": null,
-              "affiliate_fee": null,
-              "warranty_checkout": 1,
-              "smart_sale_dynamic_installments": 0,
-              "pre_selected_installment": 12,
-              "is_heaven": 0,
-              "type_shipping_fee": "DYNAMIC",
-              "amount_fixed_shipping_fee": null,
-              "shipping_fee_is_recurring": 1,
-              "affiliation_lead": 0,
-              "high_ticket_fee": null,
-              "mentoring_period": null,
-              "mentoring_duration": null,
-              "start_date": "2025-08-09",
-              "end_date": "2025-08-10",
-              "start_time": "09:00:00",
-              "end_time": "19:00:00",
-              "location": "WO Business Center",
-              "product_type_id": 3,
-              "status_changed_at": "2025-05-17 17:33:26",
-              "enable_invoice_items": false,
-              "items_for_invoice": "[{\"ncm\": null, \"title\": null, \"percent\": null, \"quantity\": null}]",
-              "has_cashback": 0,
-              "is_ia_approval": 1,
-              "recommendation": "APPROVE",
-              "negative_reasons": null,
-              "positive_reasons": "O nome do produto é significativo e não deixa dúvidas sobre o que está sendo comprado. O nome do produto está de acordo com todas as Diretrizes de Aprovação de Produto. A descrição do produto está relacionada ao nome do produto. A descrição do produto provê detalhes sobre o produto. A descrição do produto está de acordo com todas as Diretrizes de Aprovação de Produto. O tipo de entrega condiz com a categoria do produto (evento). O conteúdo da entrega está de acordo com todas as Diretrizes de Aprovação de Produto. Produto da categoria evento tem data e local para a realização do evento. O local e data do evento condizem com o produto.",
-              "are_non_transferable": 1,
-              "in_stock": true,
-              "status_product": "APPROVED",
-              "product_id": 118096,
-              "hash": "o5iSo6",
-              "default": 1,
-              "reason": "",
-              "analised": 0,
-              "currency_id": 1,
-              "allow_offer_link": 0,
-              "offer_redirect_id": null,
-              "offer_group_id": 6500,
-              "batch_order": null,
-              "ticket_release_quantity": null,
-              "can_use_as_recovery": 1,
-              "status_offer": "APPROVED",
-              "custom_charges": [],
-              "offer_redirect": null
+              "fiscal_code": null
             },
-            "oferta": "Black",
+            "oferta": "Silver",
             "offer": {
-              "hash": "o5iSo6",
-              "amount": 497,
+              "hash": "xcgMZH",
+              "amount": 297,
               "method": "CREDIT_CARD,BOLETO,PIX",
-              "name": "Black",
-              "created_at": "2025-05-17T17:33:26.000000Z"
+              "name": "Silver",
+              "created_at": "2025-07-07T15:57:08.000000Z"
             },
             "seller": {
-              "id": 505,
-              "name": "Pink Reynolds III",
-              "email": "gayle84@medhurst.org",
-              "cellphone": "+13315497716"
+              "id": 33571,
+              "name": "Fabricio Augusto Nunes Oliveira",
+              "email": "fabricioaugustonoliveira@gmail.com",
+              "cellphone": "+5531989840003"
             },
             "affiliate": null,
             "productMetas": [],
-            "proposalMetas": []
+            "proposalMetas": [],
+            "saleMetas": [
+              {
+                "id": 30623330,
+                "sale_id": 5932429,
+                "meta_key": "reuse_credit_card",
+                "meta_value": "1",
+                "created_at": "2025-07-10T20:17:32.000000Z",
+                "updated_at": "2025-07-10T20:17:32.000000Z"
+              },
+              {
+                "id": 30623331,
+                "sale_id": 5932429,
+                "meta_key": "assoc_ticket",
+                "meta_value": "1",
+                "created_at": "2025-07-10T20:17:32.000000Z",
+                "updated_at": "2025-07-10T20:17:32.000000Z"
+              }
+            ],
+            "sf_trk": null,
+            "client_has_contract_id": null
           },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/checkout-mansao",
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/compraaprovada-mansao",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "aguardandopag-mansao": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "8280",
+            "content-type": "application/json",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$/8k7L/hFRqGr6eVYx4XDIerpK3oBt9LpG6ZauoFcWFY8Wx7lxY7cC",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "sale",
+            "event": "saleUpdated",
+            "oldStatus": "waiting_payment",
+            "currentStatus": "waiting_payment",
+            "sale": {
+              "id": 5932429,
+              "type": "TRANSACTION",
+              "status": "waiting_payment",
+              "created_at": "2025-07-10T20:17:32.000000Z",
+              "updated_at": "2025-07-10T20:17:38.000000Z",
+              "seller_id": 33571,
+              "installments": 1,
+              "method": "PIX",
+              "client_id": 3777928,
+              "fee": 0,
+              "seller_balance": 0,
+              "total": 0,
+              "amount": 29.7,
+              "proposal_id": null,
+              "subscription_id": null,
+              "boleto_url": null,
+              "boleto_barcode": null,
+              "boleto_expiration_date": null,
+              "qrcode": "00020126580014br.gov.bcb.pix013633d77803-b7c5-4afa-b373-2cfea60f3c9d520400005303986540529.705802BR5918GDGD202207181520456009Sao Paulo62250521mpqrinter117627836109630453EE",
+              "imgQrcode": "data:image/png;base64,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",
+              "paid_at": null,
+              "bump_id": null,
+              "is_smart_sale": 0,
+              "shipping_amount": null,
+              "shipping_selected": null,
+              "coupon": {
+                "id": 45212,
+                "seller_id": 33571,
+                "name": "CUPOMBH",
+                "type": "PERCENTAGE",
+                "amount": 90,
+                "only_products": 1,
+                "limit": 2,
+                "due_date": null,
+                "created_at": "2025-07-10T20:16:13.000000Z",
+                "updated_at": "2025-07-10T20:16:13.000000Z",
+                "is_active": 1,
+                "deleted_at": null,
+                "currency_id": 1,
+                "convert_amount": 0,
+                "used": 0,
+                "status": "active"
+              }
+            },
+            "client": {
+              "id": 3777928,
+              "name": "Fabrício Augusto",
+              "email": "fabricio@universidadevendas.com.br",
+              "cellphone": "+5531989840003",
+              "document": "078.102.716-01",
+              "zipcode": null,
+              "street": "",
+              "number": "0",
+              "complement": "",
+              "neighborhood": "",
+              "city": "",
+              "uf": "",
+              "created_at": "2025-07-10T20:17:32.000000Z",
+              "updated_at": "2025-07-10T20:17:32.000000Z",
+              "document_type": "cpf",
+              "cpf_cnpj": "078.102.716-01"
+            },
+            "product": {
+              "id": 118096,
+              "name": "Mansão empreendedora BH",
+              "description": "**A imersão Mansão Empreendedora vai impactar o faturamento da sua empresa para escalar o seu negócio SEM DEPENDER DE VOCÊ**\n\n*- Ingresso Black dá direito a um jantar exclusivo com palestrantes e convidados no primeiro dia de evento*\n\n- Aprendizados constantes com os maiores experts do Brasil em gestão empresarial.\n\n- Técnicas especiais com o maior especialista em gestão comercial do Brasil.\n\n- Acesso a metodologia testada e validada no Brasil e no Mundo.\n\n- Acesso a uma ferramenta para que sua empresa funcione sem você na operação.\n\n- Dinâmicas, interações, hotseats e exercícios práticos de implementação de conteúdos.\n\n- Brindes e surpresas exclusivas para uma experiência incrível na imersão.",
+              "type": "TRANSACTION",
+              "amount": 297,
+              "period": 30,
+              "thank_you_page": "https://form.typeform.com/to/csrqtdKB",
+              "created_at": "2025-07-07T15:57:08.000000Z",
+              "updated_at": "2025-07-07T16:02:08.000000Z",
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "url_callback": null,
+              "trial": null,
+              "proposal_minimum": 0,
+              "allow_proposal": 0,
+              "affiliation_approbation": 1,
+              "affiliation_public": 1,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 1,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null
+            },
+            "oferta": "Silver",
+            "offer": {
+              "hash": "xcgMZH",
+              "amount": 297,
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "name": "Silver",
+              "created_at": "2025-07-07T15:57:08.000000Z"
+            },
+            "seller": {
+              "id": 33571,
+              "name": "Fabricio Augusto Nunes Oliveira",
+              "email": "fabricioaugustonoliveira@gmail.com",
+              "cellphone": "+5531989840003"
+            },
+            "affiliate": null,
+            "productMetas": [],
+            "proposalMetas": [],
+            "saleMetas": [
+              {
+                "id": 30623330,
+                "sale_id": 5932429,
+                "meta_key": "reuse_credit_card",
+                "meta_value": "1",
+                "created_at": "2025-07-10T20:17:32.000000Z",
+                "updated_at": "2025-07-10T20:17:32.000000Z"
+              },
+              {
+                "id": 30623331,
+                "sale_id": 5932429,
+                "meta_key": "assoc_ticket",
+                "meta_value": "1",
+                "created_at": "2025-07-10T20:17:32.000000Z",
+                "updated_at": "2025-07-10T20:17:32.000000Z"
+              }
+            ],
+            "sf_trk": null,
+            "client_has_contract_id": null
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aguardandopag-mansao",
           "executionMode": "production"
         }
       }
@@ -2938,6 +2866,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 5,
-  "updatedAt": "2025-07-10T13:25:03.564Z",
-  "versionId": "2a1581e0-143c-4217-824f-d756fb706ac7"
+  "updatedAt": "2025-07-10T22:11:55.778Z",
+  "versionId": "164189a3-f938-440b-b254-5c992d45fc58"
 }
