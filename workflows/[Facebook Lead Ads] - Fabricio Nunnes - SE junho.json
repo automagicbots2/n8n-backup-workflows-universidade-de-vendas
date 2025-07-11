@@ -174,7 +174,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const input = items[0].json;\nconst data = input.data || {};\n\n// Funções auxiliares\nfunction capitalizeName(fullName) {\n  if (!fullName) return { fname: \"\", lname: \"\", fullname: \"\" };\n\n  const lowerCaseWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n  let words = fullName.toLowerCase().split(\" \").map((word, index) =>\n    lowerCaseWords.includes(word) && index !== 0\n      ? word\n      : word.charAt(0).toUpperCase() + word.slice(1)\n  );\n\n  let fname = words.shift();\n  let lname = words.join(\" \");\n  return { fname, lname, fullname: `${fname} ${lname}` };\n}\n\nfunction formatEmail(email) {\n  return email ? email.toLowerCase().trim() : \"\";\n}\n\nfunction formatPhone(phone) {\n  if (!phone) return \"\";\n  const telefoneLimpo = phone.replace(/\\D/g, \"\");\n  let DDI = \"55\";\n  let DDD = telefoneLimpo.slice(2, 4);\n  let numero = telefoneLimpo.slice(4);\n\n  if (numero.length === 8) {\n    numero = `9${numero}`;\n  }\n\n  return `${DDI}${DDD}${numero}`;\n}\n\nfunction formatDate(isoDate) {\n  if (!isoDate) return \"\";\n  const date = new Date(isoDate);\n  const year = date.getFullYear();\n  const month = String(date.getMonth() + 1).padStart(2, \"0\");\n  const day = String(date.getDate()).padStart(2, \"0\");\n  const hours = String(date.getHours()).padStart(2, \"0\");\n  const minutes = String(date.getMinutes()).padStart(2, \"0\");\n  return `${year}-${month}-${day} ${hours}:${minutes}`;\n}\n\n// Captura e formatação dos dados\nconst fullNameRaw = data[\"qual_seu_nome?\"] || \"\";\nconst telefoneRaw = data[\"qual_seu_número_de_whatsapp_com_ddd?\"] || \"\";\nconst emailRaw = data[\"qual_o_seu_melhor_e-mail?\"] || \"\";\n\nconst formattedNames = capitalizeName(fullNameRaw);\nconst formattedEmail = formatEmail(emailRaw);\nconst telefoneFormatado = formatPhone(telefoneRaw);\n\nconst result = {\n  ...formattedNames,\n  email: formattedEmail,\n  whatsapp: telefoneFormatado,\n  qtd_vendedores: data[\"hoje,_quem_vende_na_sua_empresa?\"] || \"\",\n  faturamento: data[\"qual_a_média_de_faturamento_mensal_do_seu_negócio?\"] || \"\",\n  desafio_comercial: data[\"qual_dessas_frases_mais_parece_com_a_sua_realidade_hoje?\"] || \"\",\n  cargo: data[\"atualmente_qual_é_o_seu_cargo_na_empresa?\"] || \"\",\n  empresa: data[\"qual_nome_da_sua_empresa?\"] || \"\",\n  form_id: input.form?.id || \"\",\n  form_name: input.form?.name || \"\",\n  page_name: input.page?.name || \"\",\n  data_aplicacao: formatDate(input.created_time),\n  utm_source: data[\"utm_source\"] || \"\",\n  utm_medium: data[\"utm_medium\"] || \"\",\n  utm_campaign: data[\"utm_campaign\"] || \"\",\n  utm_content: data[\"utm_content\"] || \"\",\n  utm_term: data[\"utm_term\"] || \"\",\n  utm_source_platform: data[\"utm_source_platform\"] || \"\"\n};\n\nreturn [{ json: result }];\n"
+        "jsCode": "const input = items[0].json;\nconst data = input.data || {};\n\n// Funções auxiliares\nfunction capitalizeName(fullName) {\n  if (!fullName) return { fname: \"\", lname: \"\", fullname: \"\" };\n\n  const lowerCaseWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n  let words = fullName.toLowerCase().split(\" \").map((word, index) =>\n    lowerCaseWords.includes(word) && index !== 0\n      ? word\n      : word.charAt(0).toUpperCase() + word.slice(1)\n  );\n\n  let fname = words.shift();\n  let lname = words.join(\" \");\n  return { fname, lname, fullname: `${fname} ${lname}` };\n}\n\nfunction formatEmail(email) {\n  return email ? email.toLowerCase().trim() : \"\";\n}\n\nfunction formatPhone(phone) {\n  if (!phone) return \"\";\n  const telefoneLimpo = phone.replace(/\\D/g, \"\");\n\n  // Se tiver 11 dígitos, assume DDD + número\n  if (telefoneLimpo.length === 11) {\n    return `55${telefoneLimpo}`;\n  }\n\n  // Se tiver 10 dígitos, adiciona o 9 na frente do número\n  if (telefoneLimpo.length === 10) {\n    return `55${telefoneLimpo.slice(0, 2)}9${telefoneLimpo.slice(2)}`;\n  }\n\n  // Se tiver menos, retorna como está, sem formatação\n  return telefoneLimpo;\n}\n\nfunction formatDate(isoDate) {\n  if (!isoDate) return \"\";\n  const date = new Date(isoDate);\n  const year = date.getFullYear();\n  const month = String(date.getMonth() + 1).padStart(2, \"0\");\n  const day = String(date.getDate()).padStart(2, \"0\");\n  const hours = String(date.getHours()).padStart(2, \"0\");\n  const minutes = String(date.getMinutes()).padStart(2, \"0\");\n  return `${year}-${month}-${day} ${hours}:${minutes}`;\n}\n\n// Captura e formatação dos dados\nconst fullNameRaw = data[\"qual_seu_nome?\"] || \"\";\nconst telefoneRaw = data[\"qual_seu_número_de_whatsapp_com_ddd?\"] || \"\";\nconst emailRaw = data[\"qual_o_seu_melhor_e-mail?\"] || \"\";\n\nconst formattedNames = capitalizeName(fullNameRaw);\nconst formattedEmail = formatEmail(emailRaw);\nconst telefoneFormatado = formatPhone(telefoneRaw);\n\n// Resultado final\nconst result = {\n  ...formattedNames,\n  email: formattedEmail,\n  whatsapp: telefoneFormatado,\n  qtd_vendedores: data[\"hoje,_quem_vende_na_sua_empresa?\"] || \"\",\n  faturamento: data[\"qual_a_média_de_faturamento_mensal_do_seu_negócio?\"] || \"\",\n  desafio_comercial: data[\"qual_dessas_frases_mais_parece_com_a_sua_realidade_hoje?\"] || \"\",\n  cargo: data[\"atualmente_qual_é_o_seu_cargo_na_empresa?\"] || \"\",\n  empresa: data[\"qual_nome_da_sua_empresa?\"] || \"\",\n  form_id: input.form?.id || \"\",\n  form_name: input.form?.name || \"\",\n  page_name: input.page?.name || \"\",\n  data_aplicacao: formatDate(input.created_time),\n  utm_source: data[\"utm_source\"] || \"\",\n  utm_medium: data[\"utm_medium\"] || \"\",\n  utm_campaign: data[\"utm_campaign\"] || \"\",\n  utm_content: data[\"utm_content\"] || \"\",\n  utm_term: data[\"utm_term\"] || \"\",\n  utm_source_platform: data[\"utm_source_platform\"] || \"\"\n};\n\nreturn [{ json: result }];\n"
       },
       "id": "fae11636-ce52-41db-a27c-ccab3327afd9",
       "name": "formata_dados1",
@@ -649,7 +649,7 @@
     "Facebook Lead Ads Trigger": [
       {
         "json": {
-          "id": "1846528505914249",
+          "id": "1159219202635412",
           "data": {
             "utm_source": "{{site_source_name}}",
             "utm_medium": "{{placement}}",
@@ -657,15 +657,15 @@
             "utm_content": "{{adset.name}}",
             "utm_term": "{{ad.name}}",
             "utm_source_platform": "{{platform}}",
-            "hoje,_quem_vende_na_sua_empresa?": "<test lead: dummy data for hoje,_quem_vende_na_sua_empresa?>",
-            "qual_a_média_de_faturamento_mensal_do_seu_negócio?": "<test lead: dummy data for qual_a_média_de_faturamento_mensal_do_seu_negócio?>",
-            "qual_dessas_frases_mais_parece_com_a_sua_realidade_hoje?": "<test lead: dummy data for qual_dessas_frases_mais_parece_com_a_sua_realidade_hoje?>",
-            "atualmente_qual_é_o_seu_cargo_na_empresa?": "<test lead: dummy data for atualmente_qual_é_o_seu_cargo_na_empresa?>",
-            "qual_seu_nome?": "<test lead: dummy data for qual_seu_nome?>",
-            "qual_seu_número_de_whatsapp_com_ddd?": "<test lead: dummy data for qual_seu_número_de_whatsapp_com_ddd?>",
-            "qual_o_seu_melhor_e-mail?": "<test lead: dummy data for qual_o_seu_melhor_e-mail?>",
-            "qual_nome_da_sua_empresa?": "<test lead: dummy data for qual_nome_da_sua_empresa?>",
-            "email": "test@fb.com"
+            "hoje,_quem_vende_na_sua_empresa?": "eu_+_2_ou_3",
+            "qual_a_média_de_faturamento_mensal_do_seu_negócio?": "entre_r$20_mil_e_r$50_mil",
+            "qual_dessas_frases_mais_parece_com_a_sua_realidade_hoje?": "minha_equipe_até_tenta,_mas_não_fecha",
+            "atualmente_qual_é_o_seu_cargo_na_empresa?": "sócio",
+            "qual_seu_nome?": "Pablo",
+            "qual_seu_número_de_whatsapp_com_ddd?": "31 98643-0360",
+            "qual_o_seu_melhor_e-mail?": "Pablo.q.dias@gmail.com",
+            "qual_nome_da_sua_empresa?": "Arko",
+            "email": "pablo.q.dias@gmail.com"
           },
           "form": {
             "id": "3022347304596357",
@@ -673,13 +673,19 @@
             "locale": "pt_BR",
             "status": "ACTIVE"
           },
-          "ad": {},
-          "adset": {},
+          "ad": {
+            "id": "120227320647700619",
+            "name": "DEIXE EU SER SEU DIRETOR"
+          },
+          "adset": {
+            "id": "120227320630080619",
+            "name": "00 - [IG] [F] Empresários"
+          },
           "page": {
             "name": "Fabrício Nunnes",
             "id": "103878341604152"
           },
-          "created_time": "2025-07-02T15:27:38+0000"
+          "created_time": "2025-07-10T19:57:44+0000"
         }
       }
     ]
@@ -696,6 +702,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-07-02T22:06:05.619Z",
-  "versionId": "3b8f70ac-146e-4e45-961c-914b4c4974d8"
+  "updatedAt": "2025-07-11T12:32:15.096Z",
+  "versionId": "4624b05c-31a8-4964-bb7f-381ceb40c332"
 }
