@@ -495,6 +495,17 @@
           }
         ]
       ]
+    },
+    "formata_dados3": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_funis3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-07-10T11:48:06.503Z",
@@ -1734,49 +1745,41 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/a64d2446-5c0a-4b98-9621-4f5667ea9f1b",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/38c5768a-48f8-4cb6-9809-4efdbd472fc0",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
             {
               "name": "nome",
-              "value": "={{ $node[\"formata_dados3\"].json[\"nome\"] }}"
+              "value": "={{ $node[\"formata_dados3\"].json[\"fullname\"] }}"
             },
             {
               "name": "telefone",
-              "value": "={{ $node[\"formata_dados3\"].json[\"telefone\"] }}"
+              "value": "={{ $node[\"formata_dados3\"].json[\"whatsapp\"] }}"
             },
             {
               "name": "email",
               "value": "={{ $node[\"formata_dados3\"].json[\"email\"] }}"
             },
             {
-              "name": "utm_source",
-              "value": "={{ $node[\"formata_dados3\"].json[\"utm_source\"] }}"
+              "name": "value",
+              "value": "={{ $node[\"formata_dados3\"].json[\"value\"] }}"
             },
             {
-              "name": "utm_campaign",
-              "value": "={{ $node[\"formata_dados3\"].json[\"utm_campaign\"] }}"
+              "name": "payment_method",
+              "value": "={{ $node[\"formata_dados3\"].json[\"payment_method\"] }}"
             },
             {
-              "name": "utm_term",
-              "value": "={{ $node[\"formata_dados3\"].json[\"utm_term\"] }}"
+              "name": "product_name",
+              "value": "={{ $node[\"formata_dados3\"].json[\"product_name\"] }}"
             },
             {
-              "name": "utm_medium",
-              "value": "={{ $node[\"formata_dados3\"].json[\"utm_medium\"] }}"
+              "name": "event_date",
+              "value": "={{ $node[\"formata_dados3\"].json[\"event_date\"] }}"
             },
             {
-              "name": "utm_content",
-              "value": "={{ $node[\"formata_dados3\"].json[\"utm_content\"] }}"
-            },
-            {
-              "name": "funil",
-              "value": "=MANSÃO EMPREENDEDORA"
-            },
-            {
-              "name": "variacao_do_funil",
-              "value": "=INGRESSO SILVER"
+              "name": "cpf",
+              "value": "={{ $node[\"formata_dados3\"].json[\"cpf\"] }}"
             },
             {
               "name": "dono",
@@ -1902,19 +1905,19 @@
           "parameters": [
             {
               "name": "nome",
-              "value": "={{ $node[\"formata_dados3\"].json[\"nome\"].split(' ')[0] || \"\" }}"
+              "value": "={{ $node[\"formata_dados3\"].json[\"fname\"]  || \"\" }}"
             },
             {
               "name": "sobrenome",
-              "value": "={{ $node[\"formata_dados3\"].json[\"nome\"].split(\" \").slice(1).join(\" \")|| \"\" }}."
+              "value": "={{ $node[\"formata_dados3\"].json[\"lname\"] || \"\" }}."
             },
             {
               "name": "email",
-              "value": "={{ $node[\"formata_dados3\"].json[\"email\"] || \"\" }}"
+              "value": "={{ $node[\"formata_dados3\"].json[\"email\"]  || \"\" }}"
             },
             {
               "name": "telefone",
-              "value": "={{ $node[\"formata_dados3\"].json[\"telefone\"] || \"\" }}"
+              "value": "={{ $node[\"formata_dados3\"].json[\"whatsapp\"]  || \"\" }}"
             }
           ]
         },
@@ -1937,7 +1940,7 @@
           "parameters": [
             {
               "name": "id_forms",
-              "value": "={{ $node[\"aguardandopag-mansao\"].json[\"body\"][\"form_id\"] }}"
+              "value": "=checkout-mansao"
             }
           ]
         },
@@ -2866,6 +2869,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 5,
-  "updatedAt": "2025-07-10T22:11:55.778Z",
-  "versionId": "164189a3-f938-440b-b254-5c992d45fc58"
+  "updatedAt": "2025-07-11T14:41:18.143Z",
+  "versionId": "704977b1-676b-47bf-80d0-56c3b676011c"
 }
