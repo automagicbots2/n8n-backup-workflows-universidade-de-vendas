@@ -331,17 +331,6 @@
         ]
       ]
     },
-    "checkout-mansao": {
-      "main": [
-        [
-          {
-            "node": "formata_dados2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "consulta_sdr3": {
       "main": [
         [
@@ -501,6 +490,39 @@
         [
           {
             "node": "pesquisa_variavel_n8n_fluxo_funis3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados4": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_funis4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "checkout-mansao": {
+      "main": [
+        [
+          {
+            "node": "formata_dados2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados2": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_funis2",
             "type": "main",
             "index": 0
           }
@@ -1459,53 +1481,49 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/a64d2446-5c0a-4b98-9621-4f5667ea9f1b",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/e6e9c672-2fdb-43b2-8765-572833d80a90",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
             {
               "name": "nome",
-              "value": "={{ $node[\"formata_dados2\"].json[\"nome\"] }}"
+              "value": "={{ $node[\"formata_dados2\"].json[\"fullname\"] }}"
             },
             {
               "name": "telefone",
-              "value": "={{ $node[\"formata_dados2\"].json[\"telefone\"] }}"
+              "value": "={{ $node[\"formata_dados2\"].json[\"whatsapp\"] }}"
             },
             {
               "name": "email",
               "value": "={{ $node[\"formata_dados2\"].json[\"email\"] }}"
             },
             {
-              "name": "utm_source",
-              "value": "={{ $node[\"formata_dados2\"].json[\"utm_source\"] }}"
+              "name": "cpf",
+              "value": "={{ $node[\"formata_dados2\"].json[\"cpf\"] }}"
             },
             {
-              "name": "utm_campaign",
-              "value": "={{ $node[\"formata_dados2\"].json[\"utm_campaign\"] }}"
+              "name": "value",
+              "value": "={{ $node[\"formata_dados2\"].json[\"value\"] }}"
             },
             {
-              "name": "utm_term",
-              "value": "={{ $node[\"formata_dados2\"].json[\"utm_term\"] }}"
+              "name": "trans_status",
+              "value": "={{ $node[\"formata_dados2\"].json[\"trans_status\"] }}"
             },
             {
-              "name": "utm_medium",
-              "value": "={{ $node[\"formata_dados2\"].json[\"utm_medium\"] }}"
+              "name": "payment_method",
+              "value": "={{ $node[\"formata_dados2\"].json[\"payment_method\"] }}"
             },
             {
-              "name": "utm_content",
-              "value": "={{ $node[\"formata_dados2\"].json[\"utm_content\"] }}"
-            },
-            {
-              "name": "funil",
-              "value": "=MANSÃO EMPREENDEDORA"
-            },
-            {
-              "name": "variacao_do_funil",
-              "value": "=INGRESSO SILVER"
+              "name": "event_date",
+              "value": "={{ $node[\"formata_dados2\"].json[\"event_date\"] }}"
             },
             {
               "name": "dono",
               "value": "={{ $node[\"consulta_sdr2\"].json[\"email\"] }}"
+            },
+            {
+              "name": "product_name",
+              "value": "={{ $node[\"formata_dados2\"].json[\"product_name\"] }}"
             }
           ]
         },
@@ -1662,7 +1680,7 @@
           "parameters": [
             {
               "name": "id_forms",
-              "value": "={{ $node[\"checkout-mansao\"].json[\"body\"][\"form_id\"] }}"
+              "value": "=checkout-mansao"
             }
           ]
         },
@@ -1712,22 +1730,6 @@
           "name": "[MySQL] - Fabricio Nunnes"
         }
       }
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "checkout-mansao",
-        "options": {}
-      },
-      "id": "a8c7245d-d417-4201-a2d7-b9f9dda0735d",
-      "name": "checkout-mansao",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        460,
-        660
-      ],
-      "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
     },
     {
       "parameters": {
@@ -1784,6 +1786,10 @@
             {
               "name": "dono",
               "value": "={{ $node[\"consulta_sdr3\"].json[\"email\"] }}"
+            },
+            {
+              "name": "trans_status",
+              "value": "={{ $node[\"formata_dados3\"].json[\"trans_status\"] }}"
             }
           ]
         },
@@ -2007,53 +2013,49 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/a64d2446-5c0a-4b98-9621-4f5667ea9f1b",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/6d1b3765-dc69-429d-8640-7f6311c9ab8e",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
             {
               "name": "nome",
-              "value": "={{ $node[\"formata_dados4\"].json[\"nome\"] }}"
+              "value": "={{ $node[\"formata_dados4\"].json[\"fullname\"] }}"
             },
             {
               "name": "telefone",
-              "value": "={{ $node[\"formata_dados4\"].json[\"telefone\"] }}"
+              "value": "={{ $node[\"formata_dados4\"].json[\"whatsapp\"] }}"
             },
             {
               "name": "email",
               "value": "={{ $node[\"formata_dados4\"].json[\"email\"] }}"
             },
             {
-              "name": "utm_source",
-              "value": "={{ $node[\"formata_dados4\"].json[\"utm_source\"] }}"
+              "name": "cpf",
+              "value": "={{ $node[\"formata_dados4\"].json[\"cpf\"] }}"
             },
             {
-              "name": "utm_campaign",
-              "value": "={{ $node[\"formata_dados4\"].json[\"utm_campaign\"] }}"
+              "name": "value",
+              "value": "={{ $node[\"formata_dados4\"].json[\"value\"] }}"
             },
             {
-              "name": "utm_term",
-              "value": "={{ $node[\"formata_dados4\"].json[\"utm_term\"] }}"
+              "name": "trans_status",
+              "value": "={{ $node[\"formata_dados4\"].json[\"trans_status\"] }}"
             },
             {
-              "name": "utm_medium",
-              "value": "={{ $node[\"formata_dados4\"].json[\"utm_medium\"] }}"
+              "name": "payment_method",
+              "value": "={{ $node[\"formata_dados4\"].json[\"payment_method\"] }}"
             },
             {
-              "name": "utm_content",
-              "value": "={{ $node[\"formata_dados4\"].json[\"utm_content\"] }}"
-            },
-            {
-              "name": "funil",
-              "value": "=MANSÃO EMPREENDEDORA"
-            },
-            {
-              "name": "variacao_do_funil",
-              "value": "=INGRESSO SILVER"
+              "name": "product_name",
+              "value": "={{ $node[\"formata_dados4\"].json[\"product_name\"] }}"
             },
             {
               "name": "dono",
               "value": "={{ $node[\"consulta_sdr4\"].json[\"email\"] }}"
+            },
+            {
+              "name": "event_date",
+              "value": "={{ $node[\"formata_dados4\"].json[\"event_date\"] }}"
             }
           ]
         },
@@ -2175,11 +2177,11 @@
           "parameters": [
             {
               "name": "nome",
-              "value": "={{ $node[\"formata_dados4\"].json[\"nome\"].split(' ')[0] || \"\" }}"
+              "value": "={{ $node[\"formata_dados4\"].json[\"fname\"] || \"\" }}"
             },
             {
               "name": "sobrenome",
-              "value": "={{ $node[\"formata_dados4\"].json[\"nome\"].split(\" \").slice(1).join(\" \")|| \"\" }}."
+              "value": "={{ $node[\"formata_dados4\"].json[\"lname\"] || \"\" }}."
             },
             {
               "name": "email",
@@ -2210,7 +2212,7 @@
           "parameters": [
             {
               "name": "id_forms",
-              "value": "={{ $node[\"compraaprovada-mansao\"].json[\"body\"][\"form_id\"] }}"
+              "value": "=checkout-mansao"
             }
           ]
         },
@@ -2292,6 +2294,22 @@
         860
       ],
       "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "checkout-mansao",
+        "options": {}
+      },
+      "id": "a8c7245d-d417-4201-a2d7-b9f9dda0735d",
+      "name": "checkout-mansao",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        660
+      ],
+      "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
     }
   ],
   "pinData": {
@@ -2363,195 +2381,6 @@
             "form_name": "Aplicação-PkklTqKj"
           },
           "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/mansao-silver",
-          "executionMode": "production"
-        }
-      }
-    ],
-    "checkout-mansao": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "GuzzleHttp/7",
-            "content-length": "5039",
-            "content-type": "application/json",
-            "traceparent": "00-686fbeb6000000004a6e872885daf86e-3ccfd4af4fb81189-01",
-            "tracestate": "dd=s:2;t.dm:-3",
-            "x-datadog-parent-id": "4381954811876610441",
-            "x-datadog-sampling-priority": "2",
-            "x-datadog-tags": "_dd.p.tid=686fbeb600000000,_dd.p.dm=-3",
-            "x-datadog-trace-id": "5363372814359001198",
-            "x-forwarded-for": "54.208.146.185",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "54.208.146.185",
-            "x-webhook-token": "$2y$10$/8k7L/hFRqGr6eVYx4XDIerpK3oBt9LpG6ZauoFcWFY8Wx7lxY7cC",
-            "accept-encoding": "gzip"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "type": "checkout",
-            "event": "checkoutAbandoned",
-            "oldStatus": "abandoned",
-            "currentStatus": "abandoned",
-            "contract": null,
-            "sale": {
-              "id": 692,
-              "type": "TRANSACTION",
-              "status": "abandoned",
-              "created_at": "2025-07-10T13:23:02.567530Z",
-              "update_at": "2025-07-10T13:23:02.567533Z",
-              "seller_id": 505,
-              "installments": 12,
-              "method": "CREDIT_CARD",
-              "client_id": 698,
-              "amount": 497,
-              "proposal_id": null,
-              "total": 497
-            },
-            "client": {
-              "id": 698,
-              "name": "Prof. Tito Bahringer",
-              "email": "coy.effertz@hotmail.com",
-              "cellphone": "+18025796195",
-              "document": "398.999.439-12",
-              "cpf_cnpj": "398.999.439-12",
-              "zipcode": "94012",
-              "street": "Trisha Mall",
-              "number": "751",
-              "complement": "",
-              "neighborhood": "",
-              "city": "New Lisaside",
-              "uf": "NC",
-              "created_at": "2025-07-10T13:23:02.567500Z",
-              "updated_at": "2025-07-10T13:23:02.567506Z"
-            },
-            "product": {
-              "id": 118096,
-              "name": "Black",
-              "description": "**A imersão Mansão Empreendedora vai impactar o faturamento da sua empresa para escalar o seu negócio SEM DEPENDER DE VOCÊ**\n\n*- Ingresso Black dá direito a um jantar exclusivo com palestrantes e convidados no primeiro dia de evento*\n\n- Aprendizados constantes com os maiores experts do Brasil em gestão empresarial.\n\n- Técnicas especiais com o maior especialista em gestão comercial do Brasil.\n\n- Acesso a metodologia testada e validada no Brasil e no Mundo.\n\n- Acesso a uma ferramenta para que sua empresa funcione sem você na operação.\n\n- Dinâmicas, interações, hotseats e exercícios práticos de implementação de conteúdos.\n\n- Brindes e surpresas exclusivas para uma experiência incrível na imersão.",
-              "category_id": 14,
-              "stock": null,
-              "type": "TRANSACTION",
-              "amount": 497,
-              "period": 30,
-              "thank_you_page": "https://form.typeform.com/to/csrqtdKB",
-              "affiliation": null,
-              "comission": null,
-              "created_at": "2025-05-17T17:33:26.000000Z",
-              "updated_at": "2025-07-07T16:02:08.000000Z",
-              "seller_id": 33571,
-              "slug": "mansao-empreendedora-bh",
-              "method": "CREDIT_CARD,BOLETO,PIX",
-              "warranty": 7,
-              "url_callback": null,
-              "trial": 0,
-              "is_checkout_address": 0,
-              "bump_description": null,
-              "social_prove_id": null,
-              "proposal_minimum": 0,
-              "banner_checkout": null,
-              "allow_proposal": 0,
-              "affiliation_approbation": 1,
-              "affiliation_public": 1,
-              "pending_motive": null,
-              "is_active": 1,
-              "deleted_at": null,
-              "affiliation_proposal": 1,
-              "max_boleto_installments": 0,
-              "status": "APPROVED",
-              "max_subscription_installments": null,
-              "max_installments": 12,
-              "max_comission": null,
-              "category_fiscal": "SERVICE",
-              "fiscal_code": null,
-              "allowed_coupon": 1,
-              "format": "EVENT",
-              "instructions": null,
-              "smart_sale": 0,
-              "fixed_installments": null,
-              "smart_sale_installments": null,
-              "has_stock": 0,
-              "can_be_gifted": 0,
-              "has_shipping_fee": 0,
-              "has_custom_shipping_address": 0,
-              "height": null,
-              "width": null,
-              "length": null,
-              "weight": null,
-              "address_product_id": 4889,
-              "co_seller_display_id": null,
-              "is_public_allowed": true,
-              "charges": null,
-              "no_interest_installments": 0,
-              "seller_fee": null,
-              "affiliate_fee": null,
-              "warranty_checkout": 1,
-              "smart_sale_dynamic_installments": 0,
-              "pre_selected_installment": 12,
-              "is_heaven": 0,
-              "type_shipping_fee": "DYNAMIC",
-              "amount_fixed_shipping_fee": null,
-              "shipping_fee_is_recurring": 1,
-              "affiliation_lead": 0,
-              "high_ticket_fee": null,
-              "mentoring_period": null,
-              "mentoring_duration": null,
-              "start_date": "2025-08-09",
-              "end_date": "2025-08-10",
-              "start_time": "09:00:00",
-              "end_time": "19:00:00",
-              "location": "WO Business Center",
-              "product_type_id": 3,
-              "status_changed_at": "2025-05-17 17:33:26",
-              "enable_invoice_items": false,
-              "items_for_invoice": "[{\"ncm\": null, \"title\": null, \"percent\": null, \"quantity\": null}]",
-              "has_cashback": 0,
-              "is_ia_approval": 1,
-              "recommendation": "APPROVE",
-              "negative_reasons": null,
-              "positive_reasons": "O nome do produto é significativo e não deixa dúvidas sobre o que está sendo comprado. O nome do produto está de acordo com todas as Diretrizes de Aprovação de Produto. A descrição do produto está relacionada ao nome do produto. A descrição do produto provê detalhes sobre o produto. A descrição do produto está de acordo com todas as Diretrizes de Aprovação de Produto. O tipo de entrega condiz com a categoria do produto (evento). O conteúdo da entrega está de acordo com todas as Diretrizes de Aprovação de Produto. Produto da categoria evento tem data e local para a realização do evento. O local e data do evento condizem com o produto.",
-              "are_non_transferable": 1,
-              "in_stock": true,
-              "status_product": "APPROVED",
-              "product_id": 118096,
-              "hash": "o5iSo6",
-              "default": 1,
-              "reason": "",
-              "analised": 0,
-              "currency_id": 1,
-              "allow_offer_link": 0,
-              "offer_redirect_id": null,
-              "offer_group_id": 6500,
-              "batch_order": null,
-              "ticket_release_quantity": null,
-              "can_use_as_recovery": 1,
-              "status_offer": "APPROVED",
-              "custom_charges": [],
-              "offer_redirect": null
-            },
-            "oferta": "Black",
-            "offer": {
-              "hash": "o5iSo6",
-              "amount": 497,
-              "method": "CREDIT_CARD,BOLETO,PIX",
-              "name": "Black",
-              "created_at": "2025-05-17T17:33:26.000000Z"
-            },
-            "seller": {
-              "id": 505,
-              "name": "Pink Reynolds III",
-              "email": "gayle84@medhurst.org",
-              "cellphone": "+13315497716"
-            },
-            "affiliate": null,
-            "productMetas": [],
-            "proposalMetas": []
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/checkout-mansao",
           "executionMode": "production"
         }
       }
@@ -2861,6 +2690,195 @@
           "executionMode": "production"
         }
       }
+    ],
+    "checkout-mansao": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "5039",
+            "content-type": "application/json",
+            "traceparent": "00-686fbeb6000000004a6e872885daf86e-3ccfd4af4fb81189-01",
+            "tracestate": "dd=s:2;t.dm:-3",
+            "x-datadog-parent-id": "4381954811876610441",
+            "x-datadog-sampling-priority": "2",
+            "x-datadog-tags": "_dd.p.tid=686fbeb600000000,_dd.p.dm=-3",
+            "x-datadog-trace-id": "5363372814359001198",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$/8k7L/hFRqGr6eVYx4XDIerpK3oBt9LpG6ZauoFcWFY8Wx7lxY7cC",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "checkout",
+            "event": "checkoutAbandoned",
+            "oldStatus": "abandoned",
+            "currentStatus": "abandoned",
+            "contract": null,
+            "sale": {
+              "id": 692,
+              "type": "TRANSACTION",
+              "status": "abandoned",
+              "created_at": "2025-07-10T13:23:02.567530Z",
+              "update_at": "2025-07-10T13:23:02.567533Z",
+              "seller_id": 505,
+              "installments": 12,
+              "method": "CREDIT_CARD",
+              "client_id": 698,
+              "amount": 497,
+              "proposal_id": null,
+              "total": 497
+            },
+            "client": {
+              "id": 698,
+              "name": "Prof. Tito Bahringer",
+              "email": "coy.effertz@hotmail.com",
+              "cellphone": "+18025796195",
+              "document": "398.999.439-12",
+              "cpf_cnpj": "398.999.439-12",
+              "zipcode": "94012",
+              "street": "Trisha Mall",
+              "number": "751",
+              "complement": "",
+              "neighborhood": "",
+              "city": "New Lisaside",
+              "uf": "NC",
+              "created_at": "2025-07-10T13:23:02.567500Z",
+              "updated_at": "2025-07-10T13:23:02.567506Z"
+            },
+            "product": {
+              "id": 118096,
+              "name": "Black",
+              "description": "**A imersão Mansão Empreendedora vai impactar o faturamento da sua empresa para escalar o seu negócio SEM DEPENDER DE VOCÊ**\n\n*- Ingresso Black dá direito a um jantar exclusivo com palestrantes e convidados no primeiro dia de evento*\n\n- Aprendizados constantes com os maiores experts do Brasil em gestão empresarial.\n\n- Técnicas especiais com o maior especialista em gestão comercial do Brasil.\n\n- Acesso a metodologia testada e validada no Brasil e no Mundo.\n\n- Acesso a uma ferramenta para que sua empresa funcione sem você na operação.\n\n- Dinâmicas, interações, hotseats e exercícios práticos de implementação de conteúdos.\n\n- Brindes e surpresas exclusivas para uma experiência incrível na imersão.",
+              "category_id": 14,
+              "stock": null,
+              "type": "TRANSACTION",
+              "amount": 497,
+              "period": 30,
+              "thank_you_page": "https://form.typeform.com/to/csrqtdKB",
+              "affiliation": null,
+              "comission": null,
+              "created_at": "2025-05-17T17:33:26.000000Z",
+              "updated_at": "2025-07-07T16:02:08.000000Z",
+              "seller_id": 33571,
+              "slug": "mansao-empreendedora-bh",
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "warranty": 7,
+              "url_callback": null,
+              "trial": 0,
+              "is_checkout_address": 0,
+              "bump_description": null,
+              "social_prove_id": null,
+              "proposal_minimum": 0,
+              "banner_checkout": null,
+              "allow_proposal": 0,
+              "affiliation_approbation": 1,
+              "affiliation_public": 1,
+              "pending_motive": null,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 1,
+              "max_boleto_installments": 0,
+              "status": "APPROVED",
+              "max_subscription_installments": null,
+              "max_installments": 12,
+              "max_comission": null,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null,
+              "allowed_coupon": 1,
+              "format": "EVENT",
+              "instructions": null,
+              "smart_sale": 0,
+              "fixed_installments": null,
+              "smart_sale_installments": null,
+              "has_stock": 0,
+              "can_be_gifted": 0,
+              "has_shipping_fee": 0,
+              "has_custom_shipping_address": 0,
+              "height": null,
+              "width": null,
+              "length": null,
+              "weight": null,
+              "address_product_id": 4889,
+              "co_seller_display_id": null,
+              "is_public_allowed": true,
+              "charges": null,
+              "no_interest_installments": 0,
+              "seller_fee": null,
+              "affiliate_fee": null,
+              "warranty_checkout": 1,
+              "smart_sale_dynamic_installments": 0,
+              "pre_selected_installment": 12,
+              "is_heaven": 0,
+              "type_shipping_fee": "DYNAMIC",
+              "amount_fixed_shipping_fee": null,
+              "shipping_fee_is_recurring": 1,
+              "affiliation_lead": 0,
+              "high_ticket_fee": null,
+              "mentoring_period": null,
+              "mentoring_duration": null,
+              "start_date": "2025-08-09",
+              "end_date": "2025-08-10",
+              "start_time": "09:00:00",
+              "end_time": "19:00:00",
+              "location": "WO Business Center",
+              "product_type_id": 3,
+              "status_changed_at": "2025-05-17 17:33:26",
+              "enable_invoice_items": false,
+              "items_for_invoice": "[{\"ncm\": null, \"title\": null, \"percent\": null, \"quantity\": null}]",
+              "has_cashback": 0,
+              "is_ia_approval": 1,
+              "recommendation": "APPROVE",
+              "negative_reasons": null,
+              "positive_reasons": "O nome do produto é significativo e não deixa dúvidas sobre o que está sendo comprado. O nome do produto está de acordo com todas as Diretrizes de Aprovação de Produto. A descrição do produto está relacionada ao nome do produto. A descrição do produto provê detalhes sobre o produto. A descrição do produto está de acordo com todas as Diretrizes de Aprovação de Produto. O tipo de entrega condiz com a categoria do produto (evento). O conteúdo da entrega está de acordo com todas as Diretrizes de Aprovação de Produto. Produto da categoria evento tem data e local para a realização do evento. O local e data do evento condizem com o produto.",
+              "are_non_transferable": 1,
+              "in_stock": true,
+              "status_product": "APPROVED",
+              "product_id": 118096,
+              "hash": "o5iSo6",
+              "default": 1,
+              "reason": "",
+              "analised": 0,
+              "currency_id": 1,
+              "allow_offer_link": 0,
+              "offer_redirect_id": null,
+              "offer_group_id": 6500,
+              "batch_order": null,
+              "ticket_release_quantity": null,
+              "can_use_as_recovery": 1,
+              "status_offer": "APPROVED",
+              "custom_charges": [],
+              "offer_redirect": null
+            },
+            "oferta": "Black",
+            "offer": {
+              "hash": "o5iSo6",
+              "amount": 497,
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "name": "Black",
+              "created_at": "2025-05-17T17:33:26.000000Z"
+            },
+            "seller": {
+              "id": 505,
+              "name": "Pink Reynolds III",
+              "email": "gayle84@medhurst.org",
+              "cellphone": "+13315497716"
+            },
+            "affiliate": null,
+            "productMetas": [],
+            "proposalMetas": []
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/checkout-mansao",
+          "executionMode": "production"
+        }
+      }
     ]
   },
   "settings": {
@@ -2869,6 +2887,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 5,
-  "updatedAt": "2025-07-11T14:41:18.143Z",
-  "versionId": "704977b1-676b-47bf-80d0-56c3b676011c"
+  "updatedAt": "2025-07-11T15:23:33.375Z",
+  "versionId": "8c6bc843-9d07-40ee-802f-18506e32cfbd"
 }
