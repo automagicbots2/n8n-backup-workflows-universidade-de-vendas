@@ -113,13 +113,7 @@
     },
     "avisa_Natalia": {
       "main": [
-        [
-          {
-            "node": "avisa_Felipe",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "create/update clint4": {
@@ -580,42 +574,6 @@
       ],
       "id": "738266b7-6532-4c40-857c-12d81996c1a6",
       "continueOnFail": true
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Felipe  BC\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DE PALESTRA 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"fname\"] }} {{ $node[\"formata_dados1\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados1\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados1\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados1\"].json[\"desafio_comercial\"] }}"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Felipe",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        3020,
-        280
-      ],
-      "id": "31a1741d-3b3a-48da-82c5-57c8a7bafa9a",
-      "continueOnFail": true
     }
   ],
   "pinData": {
@@ -863,6 +821,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-07-02T22:07:54.289Z",
-  "versionId": "f1da2ebe-c641-4d95-bf1d-4e933a7d2315"
+  "updatedAt": "2025-07-14T14:28:17.291Z",
+  "versionId": "5a46b8eb-8f8a-4823-bf5c-3c436cda3356"
 }
