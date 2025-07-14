@@ -102,13 +102,7 @@
     },
     "avisa_Natalia": {
       "main": [
-        [
-          {
-            "node": "avisa_Felipe",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "create/update clint": {
@@ -212,13 +206,7 @@
     },
     "avisa_Natalia1": {
       "main": [
-        [
-          {
-            "node": "avisa_Felipe1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "formata_dados1": {
@@ -951,42 +939,6 @@
     },
     {
       "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Felipe  BC\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DE MANSÃO EMPREENDEDORA 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"nome\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"telefone\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"telefone\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Ingresso*: Silver"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Felipe",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        2940,
-        460
-      ],
-      "id": "db914136-d949-4045-9343-8b77c5a1d655",
-      "continueOnFail": true
-    },
-    {
-      "parameters": {
         "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"precheckout-black\"].json.body[\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"precheckout-black\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"precheckout-black\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"precheckout-black\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"precheckout-black\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"precheckout-black\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"precheckout-black\"].json.body[\"utm_content\"];\nconst nome = $node[\"precheckout-black\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
       },
       "id": "3ddea06c-6507-40d3-9523-7d0e239a0a4a",
@@ -1395,42 +1347,6 @@
         240
       ],
       "id": "98643c8a-8539-4333-a36f-beb0bf326ab4",
-      "continueOnFail": true
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc1\"].json[\"ID Felipe  BC\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DE MANSÃO EMPREENDEDORA 🔔\n\n*Nome*: {{ $node[\"formata_dados\"].json[\"nome\"] }}\n*E-mail*: {{ $node[\"formata_dados\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados\"].json[\"telefone\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados\"].json[\"telefone\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Ingresso*: Black"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Felipe1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        2940,
-        240
-      ],
-      "id": "c02ce0b5-8906-4b81-ba51-ad0a64d9149b",
       "continueOnFail": true
     },
     {
@@ -2887,6 +2803,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 5,
-  "updatedAt": "2025-07-11T15:23:33.375Z",
-  "versionId": "8c6bc843-9d07-40ee-802f-18506e32cfbd"
+  "updatedAt": "2025-07-14T14:27:33.630Z",
+  "versionId": "3706eed7-2b94-4396-8609-e5f9bc768e55"
 }
