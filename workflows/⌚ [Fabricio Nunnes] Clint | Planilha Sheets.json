@@ -156,6 +156,17 @@
           }
         ]
       ]
+    },
+    "MensagemGrupoSoftware1": {
+      "main": [
+        [
+          {
+            "node": "Asana1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-14T14:43:48.505Z",
@@ -1437,10 +1448,36 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1.1,
       "position": [
-        720,
+        700,
         300
       ],
       "webhookId": "1d6d6bb5-a432-4b97-b31e-a27dd5bb44e5"
+    },
+    {
+      "parameters": {
+        "workspace": "1202692939354145",
+        "name": "=Iniciar Onboarding - {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }} / {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}",
+        "otherProperties": {
+          "assignee": "1210898485359550",
+          "due_on": "={{ $now.toFormat('yyyy-MM-dd HH:mm:ss') }}",
+          "notes": "=🎉 *NOVA VENDA - Ganho na Clint* 🎉\n\n*Data:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_won_at\"]).slice(0,10) }}\n*SDR*: {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_sdr\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*Qual mentoria?* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_produto\"] }} {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}\n*Nome da empresa: (Jurídico/Fantasia):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }} / {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cnpj\"] }}\n*Segmento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_segment\"] }}\n*Plano:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_plano\"] }}\n*Entrada:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Faturamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_faturamento\"] }}\n*Quantidade de Parcelas (Entrada + Parcelas):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Valor das Parcelas:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_valor_das_parcelas_e\"] }}{{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_valor_das_parcelas\"] }}\n*Data de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}{{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_vencimento_da_parcel\"] }}\n*Forma de pagamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_forma_de_pagamento_1\"] }}\n*Contatos (Nome e telefone):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }} - {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Cidade:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_city\"] }}\n*Estado:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_state\"] }}\n*CEP:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_cep\"] }}{{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cep\"] }}\n*Briefing:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_briefing\"].replaceAll('<p>', '').replaceAll('<br>','\\n').replaceAll('</p>', '').replaceAll('&nbsp;','').replaceAll('#;', '').replaceAll('**;', '')).replace(/, /g, ',').replaceAll(/ ,/g, ', ') }}",
+          "projects": "={{ 1211085333440981 }}"
+        }
+      },
+      "id": "6ae146a9-3a65-431d-807f-3643f88c686b",
+      "name": "Asana1",
+      "type": "n8n-nodes-base.asana",
+      "typeVersion": 1,
+      "position": [
+        2340,
+        300
+      ],
+      "credentials": {
+        "asanaApi": {
+          "id": "IaFCWYfj7ybADROA",
+          "name": "[Asana] - Fabricio Nunes"
+        }
+      }
     }
   ],
   "pinData": {
@@ -1655,6 +1692,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2025-08-13T13:40:43.743Z",
-  "versionId": "56389f36-9943-4c18-bc77-130eb77f266e"
+  "updatedAt": "2025-08-18T20:41:28.868Z",
+  "versionId": "3b02d379-d638-44fc-ac91-92fc513f6833"
 }
