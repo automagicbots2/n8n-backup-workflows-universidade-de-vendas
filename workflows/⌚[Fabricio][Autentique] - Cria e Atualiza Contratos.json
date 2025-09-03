@@ -1,0 +1,1198 @@
+{
+  "active": true,
+  "connections": {
+    "get_deal": {
+      "main": [
+        [
+          {
+            "node": "get_contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_contact": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados": {
+      "main": [
+        [
+          {
+            "node": "duplica_contrato_DOC",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "duplica_contrato_DOC": {
+      "main": [
+        [
+          {
+            "node": "formata_contrato_DOC",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_contrato_DOC": {
+      "main": [
+        [
+          {
+            "node": "converte_to_PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "converte_to_PDF": {
+      "main": [
+        [
+          {
+            "node": "upa_no_autentique",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EnviaMensagemTexto3": {
+      "main": [
+        [
+          {
+            "node": "update_field_link_contrato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "upa_no_autentique": {
+      "main": [
+        [
+          {
+            "node": "busca_id_da_assinatura",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_field_link_contrato": {
+      "main": [
+        [
+          {
+            "node": "busca_contrato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "gera_link_assinatura": {
+      "main": [
+        [
+          {
+            "node": "EnviaMensagemTexto3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_id_da_assinatura": {
+      "main": [
+        [
+          {
+            "node": "gera_link_assinatura",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "get_deal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-02T17:05:55.220Z",
+  "id": "zs1wFmFcfGPK7Lgh",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚[Fabricio][Autentique] - Cria e Atualiza Contratos",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "=https://pastoreturismo.kommo.com/api/v4/leads/{{ $node[\"Webhook\"].json[\"body\"][\"leads[status][0][id]\"] }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "with",
+              "value": "contacts"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "d4103e97-538d-4e5f-b232-59714c599f73",
+      "name": "get_deal",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -1220,
+        500
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "rPMcxfmZaXUiOcP8",
+          "name": "[Conta Azul] - Universidade de Vendas"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://pastoreturismo.kommo.com/api/v4/contacts/{{ $node[\"get_deal\"].json[\"_embedded\"][\"contacts\"][\"0\"][\"id\"] }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "1f38bf19-0600-4e4a-a6a4-5e36e1f4e724",
+      "name": "get_contact",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -1000,
+        500
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "rPMcxfmZaXUiOcP8",
+          "name": "[Conta Azul] - Universidade de Vendas"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const customFields = $node[\"get_contact\"].json[\"custom_fields_values\"] || [];\nconst emailAnswer = customFields.find(field => field.field_code === \"EMAIL\")?.values?.[0]?.value || \"\";\nconst telefoneClienteOriginal = customFields.find(field => field.field_code === \"PHONE\")?.values?.[0]?.value || \"\";\nconst rg = customFields.find(field => field.field_name === \"RG\")?.values?.[0]?.value || \"\";\nconst cpfAnswer = customFields.find(field => field.field_name === \"CPF\")?.values?.[0]?.value.name || \"\";\nconst cnpjAnswer = $node[\"get_contact\"].json[\"cnpj\"] || \"\";\n\nfunction capitalizeName(fullName) {\n    if (typeof fullName === 'undefined') {\n        return { fname: '', lname: '', fullname: '' };\n    }\n\n    const lowerCaseWords = ['da', 'de', 'do', 'di', 'du'];\n    let words = fullName.toLowerCase().split(' ').map((word, index) => {\n        if (lowerCaseWords.includes(word) && index !== 0) {\n            return word;\n        }\n        return word.charAt(0).toUpperCase() + word.slice(1);\n    });\n\n    let fname = words.shift();\n    let lname = words.join(' ');\n\n    let fullname = lname ? `${fname} ${lname}` : fname;\n\n    return { fname, lname, fullname };\n}\n\nfunction formatEmail(email) {\n    return email.toLowerCase().trim();\n}\n\nfunction formatCPF(cpf) {\n    const cpfLimpo = cpf.replace(/\\D/g, \"\");\n    if (cpfLimpo.length === 11) {\n        return `${cpfLimpo.slice(0, 3)}.${cpfLimpo.slice(3, 6)}.${cpfLimpo.slice(6, 9)}-${cpfLimpo.slice(9, 11)}`;\n    }\n    return cpf;\n}\n\nfunction formatCNPJ(cnpj) {\n    const cnpjLimpo = cnpj.replace(/\\D/g, \"\");\n    if (cnpjLimpo.length === 14) {\n        return `${cnpjLimpo.slice(0, 2)}.${cnpjLimpo.slice(2, 5)}.${cnpjLimpo.slice(5, 8)}/${cnpjLimpo.slice(8, 12)}-${cnpjLimpo.slice(12, 14)}`;\n    }\n    return cnpj;\n}\n\nlet telefoneFinal = \"\";\n\nif (telefoneClienteOriginal) {\n    const telefoneLimpo = telefoneClienteOriginal.replace(/\\D/g, \"\");\n\n    let DDI = '';\n    let DDD = '';\n    let numero = '';\n\n    if (telefoneLimpo.length > 11) {\n        DDI = telefoneLimpo.slice(0, 2);\n        DDD = telefoneLimpo.slice(2, 4);\n        numero = telefoneLimpo.slice(4);\n    } else if (telefoneLimpo.length === 11) {\n        DDI = '55';\n        DDD = telefoneLimpo.slice(0, 2);\n        numero = telefoneLimpo.slice(2);\n    } else if (telefoneLimpo.length === 10) {\n        DDI = '55';\n        DDD = telefoneLimpo.slice(0, 2);\n        numero = telefoneLimpo.slice(2);\n    } else {\n        telefoneFinal = telefoneLimpo;\n    }\n\n    if (DDD && numero) {\n        if (parseInt(DDD) > 28) {\n            if (numero.length === 9 && numero.startsWith(\"9\")) {\n                numero = numero.slice(1);\n            }\n        } else {\n            if (numero.length === 8) {\n                numero = `9${numero}`;\n            }\n        }\n    }\n\n    if (DDI && DDD && numero) {\n        telefoneFinal = `${DDI}${DDD}${numero}`;\n    }\n}\n\nfunction formatUnixDateToBR(timestamp) {\n  // Ignora undefined, null, vazio ou 0\n  if (!timestamp || timestamp === 0) return \"\";\n\n  const date = new Date(timestamp * 1000);\n  const day = String(date.getDate()).padStart(2, '0');\n  const month = String(date.getMonth() + 1).padStart(2, '0');\n  const year = date.getFullYear();\n  return `${day}/${month}/${year}`;\n}\n\nfunction formatTelefone(telefoneClienteOriginal) {\n    let telefoneFinal = \"\";\n\n    if (telefoneClienteOriginal) {\n        const telefoneLimpo = String(telefoneClienteOriginal).replace(/\\D/g, \"\");\n\n        let DDI = '';\n        let DDD = '';\n        let numero = '';\n\n        if (telefoneLimpo.length > 11) {\n            DDI = telefoneLimpo.slice(0, 2);\n            DDD = telefoneLimpo.slice(2, 4);\n            numero = telefoneLimpo.slice(4);\n        } else if (telefoneLimpo.length === 11) {\n            DDI = '55';\n            DDD = telefoneLimpo.slice(0, 2);\n            numero = telefoneLimpo.slice(2);\n        } else if (telefoneLimpo.length === 10) {\n            DDI = '55';\n            DDD = telefoneLimpo.slice(0, 2);\n            numero = telefoneLimpo.slice(2);\n        } else {\n            return telefoneLimpo;\n        }\n\n        if (DDD && numero) {\n            if (parseInt(DDD) > 28) {\n                if (numero.length === 9 && numero.startsWith(\"9\")) {\n                    numero = numero.slice(1);\n                }\n            } else {\n                if (numero.length === 8) {\n                    numero = `9${numero}`;\n                }\n            }\n        }\n\n        if (DDI && DDD && numero) {\n            telefoneFinal = `${DDI}${DDD}${numero}`;\n        }\n    }\n\n    return telefoneFinal;\n}\n\nconst dealFields = $node[\"get_deal\"].json[\"custom_fields_values\"] || [];\nconst pacote = dealFields.find(field => field.field_id === 1126442)?.values?.[0]?.value || \"\";\nconst apartamento = dealFields.find(field => field.field_id === 1199488)?.values?.[0]?.value || \"\";\nconst forma_de_pagamento = dealFields.find(field => field.field_id === 868500)?.values?.[0]?.value || \"\";\nconst termos_de_pagamento = dealFields.find(field => field.field_id === 1199534)?.values?.[0]?.value || \"\";\nconst fullNameAnswer = dealFields.find(field => field.field_id === 1199530)?.values?.[0]?.value || \"\";\nconst value = parseFloat(dealFields.find(field => field.field_id === 1199532)?.values?.[0]?.value) || \"\";\n\n// Dados dos passageiros\nconst passenger1_name = dealFields.find(field => field.field_id === 1199416)?.values?.[0]?.value || \"\";\nconst passenger1_cpf = dealFields.find(field => field.field_id === 1199422)?.values?.[0]?.value.name || \"\";\nconst passenger1_birthdate = dealFields.find(field => field.field_id === 1199424)?.values?.[0]?.value || \"\";\nconst passenger1_rg = dealFields.find(field => field.field_id === 1199426)?.values?.[0]?.value || \"\";\nconst passenger1_telefone = dealFields.find(field => field.field_id === 1199428)?.values?.[0]?.value || \"\";\nconst passenger2_name = dealFields.find(field => field.field_id === 1199442)?.values?.[0]?.value || \"\";\nconst passenger2_cpf = dealFields.find(field => field.field_id === 1199434)?.values?.[0]?.value.name || \"\";\nconst passenger2_birthdate = dealFields.find(field => field.field_id === 1199436)?.values?.[0]?.value || \"\";\nconst passenger2_rg = dealFields.find(field => field.field_id === 1199438)?.values?.[0]?.value || \"\";\nconst passenger2_telefone = dealFields.find(field => field.field_id === 1199440)?.values?.[0]?.value || \"\";\nconst passenger3_name = dealFields.find(field => field.field_id === 1199444)?.values?.[0]?.value || \"\";\nconst passenger3_cpf = dealFields.find(field => field.field_id === 1199446)?.values?.[0]?.value.name || \"\";\nconst passenger3_birthdate = dealFields.find(field => field.field_id === 1199448)?.values?.[0]?.value || \"\";\nconst passenger3_rg = dealFields.find(field => field.field_id === 1199450)?.values?.[0]?.value || \"\";\nconst passenger3_telefone = dealFields.find(field => field.field_id === 1199452)?.values?.[0]?.value || \"\";\nconst passenger4_name = dealFields.find(field => field.field_id === 1199454)?.values?.[0]?.value || \"\";\nconst passenger4_cpf = dealFields.find(field => field.field_id === 1199458)?.values?.[0]?.value.name || \"\";\nconst passenger4_birthdate = dealFields.find(field => field.field_id === 1199460)?.values?.[0]?.value || \"\";\nconst passenger4_rg = dealFields.find(field => field.field_id === 1199462)?.values?.[0]?.value || \"\";\nconst passenger4_telefone = dealFields.find(field => field.field_id === 1199464)?.values?.[0]?.value || \"\";\nconst passenger5_name = dealFields.find(field => field.field_id === 1199466)?.values?.[0]?.value || \"\";\nconst passenger5_cpf = dealFields.find(field => field.field_id === 1199468)?.values?.[0]?.value.name || \"\";\nconst passenger5_birthdate = dealFields.find(field => field.field_id === 1199470)?.values?.[0]?.value || \"\";\nconst passenger5_rg = dealFields.find(field => field.field_id === 1199472)?.values?.[0]?.value || \"\";\nconst passenger5_telefone = dealFields.find(field => field.field_id === 1199474)?.values?.[0]?.value || \"\";\n\n// Dados da testemunha\nconst testemunha_nome = dealFields.find(field => field.field_id === 1199476)?.values?.[0]?.value || \"\";\nconst testemunha_rg = dealFields.find(field => field.field_id === 1199478)?.values?.[0]?.value || \"\";\nconst testemunha_cpf = dealFields.find(field => field.field_id === 1199480)?.values?.[0]?.value.name || \"\";\n\nconst dataAtual = new Date().toLocaleDateString('pt-BR', {\n  day: '2-digit',\n  month: 'long',\n  year: 'numeric'\n});\n\nconst formattedNames = capitalizeName(fullNameAnswer);\nconst formattedEmail = formatEmail(emailAnswer);\nconst formattedCPF = formatCPF(cpfAnswer);\nconst formattedValue = value.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})\n\nconst result = {\n    ...formattedNames,\n    email: formattedEmail,\n    whatsapp: telefoneFinal,\n    cpf: formattedCPF,\n    rg: rg,\n    value: formattedValue,\n    pacote: pacote,\n    apartamento: apartamento,\n    forma_de_pagamento: forma_de_pagamento,\n    termos_de_pagamento: termos_de_pagamento,\n    testemunha_nome: testemunha_nome,\n    testemunha_rg: testemunha_rg,\n    testemunha_cpf: formatCPF(testemunha_cpf),\n    dataAtual: dataAtual,\n    passenger1_name: passenger1_name,\n    passenger1_cpf: formatCPF(passenger1_cpf),\n    passenger1_birthdate: formatUnixDateToBR(passenger1_birthdate) || \"\",\n    passenger1_rg: passenger1_rg,\n    passenger1_telefone: formatTelefone(passenger1_telefone),\n    passenger2_name: passenger2_name,\n    passenger2_cpf: formatCPF(passenger2_cpf),\n    passenger2_birthdate: formatUnixDateToBR(passenger2_birthdate) || \"\",\n    passenger2_rg: passenger2_rg,\n    passenger2_telefone: formatTelefone(passenger2_telefone),\n    passenger3_name: passenger3_name,\n    passenger3_cpf: formatCPF(passenger3_cpf),\n    passenger3_birthdate: formatUnixDateToBR(passenger3_birthdate) || \"\",\n    passenger3_rg: passenger3_rg,\n    passenger3_telefone: formatTelefone(passenger3_telefone),\n    passenger4_name: passenger4_name,\n    passenger4_cpf: formatCPF(passenger4_cpf),\n    passenger4_birthdate: formatUnixDateToBR(passenger4_birthdate) || \"\",\n    passenger4_rg: passenger4_rg,\n    passenger4_telefone: formatTelefone(passenger4_telefone),\n    passenger5_name: passenger5_name,\n    passenger5_cpf: formatCPF(passenger5_cpf),\n    passenger5_birthdate: formatUnixDateToBR(passenger5_birthdate) || \"\",\n    passenger5_rg: passenger5_rg,\n    passenger5_telefone: formatTelefone(passenger5_telefone)\n};\n\nreturn [{ json: result }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -800,
+        500
+      ],
+      "id": "9353fdb1-fd99-492e-b75f-9ca6d0074d2e",
+      "name": "formata_dados"
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "fname",
+              "value": "={{ $node[\"formata_dados\"].json[\"fname\"] }}"
+            },
+            {
+              "name": "lname",
+              "value": "={{ $node[\"formata_dados\"].json[\"lname\"] }}"
+            },
+            {
+              "name": "fullname",
+              "value": "={{ $node[\"formata_dados\"].json[\"fullname\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] }}"
+            },
+            {
+              "name": "whatsapp",
+              "value": "={{ $node[\"formata_dados\"].json[\"whatsapp\"] }}"
+            },
+            {
+              "name": "cpf",
+              "value": "={{ $node[\"formata_dados\"].json[\"cpf\"] }}"
+            },
+            {
+              "name": "rg",
+              "value": "={{ $node[\"formata_dados\"].json[\"rg\"] }}"
+            },
+            {
+              "name": "pacote",
+              "value": "={{ $node[\"formata_dados\"].json[\"pacote\"] }}"
+            },
+            {
+              "name": "apartamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"apartamento\"] }}"
+            },
+            {
+              "name": "passenger1_name",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger1_name\"] }}"
+            },
+            {
+              "name": "passenger1_cpf",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger1_cpf\"] }}"
+            },
+            {
+              "name": "passenger1_birthdate",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger1_birthdate\"] }}"
+            },
+            {
+              "name": "passenger1_rg",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger1_rg\"] }}"
+            },
+            {
+              "name": "passenger1_telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger1_telefone\"] }}"
+            },
+            {
+              "name": "passenger2_name",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger2_name\"] }}"
+            },
+            {
+              "name": "passenger2_cpf",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger2_cpf\"] }}"
+            },
+            {
+              "name": "passenger2_birthdate",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger2_birthdate\"] }}"
+            },
+            {
+              "name": "passenger2_rg",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger2_rg\"] }}"
+            },
+            {
+              "name": "passenger2_telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger2_telefone\"] }}"
+            },
+            {
+              "name": "passenger3_name",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger3_name\"] }}"
+            },
+            {
+              "name": "passenger3_cpf",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger3_cpf\"] }}"
+            },
+            {
+              "name": "passenger3_birthdate",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger3_birthdate\"] }}"
+            },
+            {
+              "name": "passenger3_rg",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger3_rg\"] }}"
+            },
+            {
+              "name": "passenger3_telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger3_telefone\"] }}"
+            },
+            {
+              "name": "passenger4_name",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger4_name\"] }}"
+            },
+            {
+              "name": "passenger4_cpf",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger4_cpf\"] }}"
+            },
+            {
+              "name": "passenger4_birthdate",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger4_birthdate\"] }}"
+            },
+            {
+              "name": "passenger4_rg",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger4_rg\"] }}"
+            },
+            {
+              "name": "passenger4_telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger4_telefone\"] }}"
+            },
+            {
+              "name": "passenger5_name",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger5_name\"] }}"
+            },
+            {
+              "name": "passenger5_cpf",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger5_cpf\"] }}"
+            },
+            {
+              "name": "passenger5_birthdate",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger5_birthdate\"] }}"
+            },
+            {
+              "name": "passenger5_rg",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger5_rg\"] }}"
+            },
+            {
+              "name": "passenger5_telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"passenger5_telefone\"] }}"
+            },
+            {
+              "name": "dataAtual",
+              "value": "={{ $node[\"formata_dados\"].json[\"dataAtual\"] || \"\" }}"
+            },
+            {
+              "name": "forma_de_pagamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"forma_de_pagamento\"] || \"\" }}"
+            },
+            {
+              "name": "termos_de_pagamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"termos_de_pagamento\"] || \"\" }}"
+            }
+          ],
+          "number": [
+            {
+              "name": "value",
+              "value": "={{ $node[\"formata_dados\"].json[\"value\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "dados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -580,
+        500
+      ],
+      "id": "eeed19d5-561b-4105-b02d-565a0902c84b"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "=13y_To9hOnZn6Qa_N7Uev-gpDHLXHDlibSnHBWjQbndQ",
+          "mode": "id"
+        },
+        "options": {
+          "name": "=Contrato - {{ $node[\"dados\"].json[\"fullname\"] }}",
+          "parents": [
+            "=1ahtCh4pMk1Flqrpld_5uyc6X1QDKQIav"
+          ]
+        }
+      },
+      "name": "duplica_contrato_DOC",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        -360,
+        500
+      ],
+      "id": "8e3012d4-f0b5-41ab-8f67-f05678bcffa5",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dVIE5cPXbra2r4AL",
+          "name": "[Google Drive] - Auth2 Automagic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "update",
+        "documentURL": "={{ $json[\"id\"] }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{NOME COMPLETO}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"fullname\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RG}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"rg\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CPF}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"cpf\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NOME DO PACOTE}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"pacote\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{VALOR DA VENDA INTEIRA}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"value\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{APARTAMENTO}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"apartamento\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NOME PASSAGEIRO 1}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger1_name\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CPF1}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger1_cpf\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NASC1}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger1_birthdate\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RG1}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger1_rg\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{Local}}",
+              "replaceText": "São Paulo/SP",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{Data Atual}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"dataAtual\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{FORMA DE PAGAMENTO}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"forma_de_pagamento\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{TELEFONE1}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger1_telefone\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NOME PASSAGEIRO 2}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger2_name\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CPF2}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger2_cpf\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NASC2}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger2_birthdate\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RG2}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger2_rg\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{TELEFONE2}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger2_telefone\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NOME PASSAGEIRO 3}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger3_name\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CPF3}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger3_cpf\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NASC3}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger3_birthdate\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RG3}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger3_rg\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{TELEFONE3}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger3_telefone\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NOME PASSAGEIRO 4}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger4_name\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CPF4}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger4_cpf\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NASC4}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger4_birthdate\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RG4}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger4_rg\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{TELEFONE4}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger4_telefone\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NOME PASSAGEIRO 5}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger5_name\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CPF5}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger5_cpf\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NASC5}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger5_birthdate\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RG5}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger5_rg\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{TELEFONE5}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"passenger5_telefone\"] || \"\" }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{TERMOS DE PAGAMENTO}}",
+              "replaceText": "={{ $node[\"dados\"].json[\"termos_de_pagamento\"] || \"\" }}",
+              "matchCase": true
+            }
+          ]
+        }
+      },
+      "name": "formata_contrato_DOC",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        500
+      ],
+      "id": "8567efda-073e-467e-9e1a-5d1ed4e768f7",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "yBmHn0l9vU6LQnx0",
+          "name": " [Google Docs] - Automagic Bots Auth2"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $node[\"duplica_contrato_DOC\"].json[\"id\"] }}",
+          "mode": "id"
+        },
+        "options": {
+          "googleFileConversion": {
+            "conversion": {
+              "docsToFormat": "application/pdf",
+              "drawingsToFormat": "application/pdf",
+              "slidesToFormat": "application/pdf",
+              "sheetsToFormat": "application/pdf"
+            }
+          },
+          "fileName": "={{ $node[\"duplica_contrato_DOC\"].json[\"name\"] }}.pdf"
+        }
+      },
+      "name": "converte_to_PDF",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        160,
+        500
+      ],
+      "id": "8c6b7903-8080-46ee-845f-2ea472761c19",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dVIE5cPXbra2r4AL",
+          "name": "[Google Drive] - Auth2 Automagic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://evolutionapi.automagicbots.com.br/message/sendText/PastoreTurismo",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "=b1hhve1v2r8ckhtijegjc"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "=120363400789991026@g.us"
+            },
+            {
+              "name": "textMessage.text",
+              "value": "=🚨 *NOVO CONTRATO A SER VALIDADO*\n\n- Nome do Cliente: {{ $node[\"dados\"].json[\"fullname\"] }}\n- Email do Cliente: {{ $node[\"dados\"].json[\"email\"] }}\n- WhatsApp do Cliente: https://wa.me/{{ $node[\"dados\"].json[\"whatsapp\"] }}\n- CPF do Cliente: {{ $node[\"dados\"].json[\"cpf\"] }}\n- Link do Contrato: https://painel.autentique.com.br/documentos/{{ $node[\"upa_no_autentique\"].json[\"data\"][\"createDocument\"][\"id\"] }}\n- Link da Assinatura do Cliente: {{ $node[\"gera_link_assinatura\"].json[\"data\"][\"createLinkToSignature\"][\"short_link\"] }}"
+            },
+            {
+              "name": "options.delay",
+              "value": "={{ 1200 }}"
+            },
+            {
+              "name": "presence",
+              "value": "composing"
+            },
+            {
+              "name": "linkPreview",
+              "value": "={{ false }}"
+            },
+            {
+              "name": "=mentionsEveryOne",
+              "value": "={{ true }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "4e11e6da-8e7b-40ca-9d23-a86811282b31",
+      "name": "EnviaMensagemTexto3",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1100,
+        500
+      ],
+      "typeVersion": 4
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.zapsign.com.br/api/v1/docs",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer 76972195-a27d-40a5-a3b0-babcf3c375d8350631c0-be17-4559-aa2b-ac01a6b07b44"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "operations",
+              "value": "={\n  \"query\": \"mutation CreateDocumentMutation($document: DocumentInput!, $signers: [SignerInput!]!, $file: Upload!) { createDocument(sandbox: false, document: $document, signers: $signers, file: $file) { id name refusable sortable created_at signatures { public_id name email created_at action { name } link { short_link } user { id name email } } } }\",\n  \"variables\": {\n    \"document\": {\n      \"name\": \"{{ $node[\"duplica_contrato_DOC\"].json[\"name\"] }}\"\n    },\n    \"signers\": [\n      {\n        \"email\": \"{{ $node[\"dados\"].json[\"email\"] }}\",\n        \"action\": \"SIGN\"\n      },\n      {\n        \"email\": \"rodrigo@pastoreturismo.com.br\",\n        \"action\": \"SIGN\"\n      },\n      {\n        \"email\": \"marcelo@pastoreturismo.com.br\",\n        \"action\": \"SIGN\"\n      },\n      {\n        \"email\": \"felipe@pastoreturismo.com.br\",\n        \"action\": \"SIGN\"\n      }\n    ],\n    \"file\": \"https://drive.google.com/file/d/{{ $node[\"converte_to_PDF\"].json[\"documentId\"] }}/\"\n  }\n}"
+            },
+            {
+              "name": "map",
+              "value": "{\"file\": [\"variables.file\"]}"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "2de606fa-7723-4fe4-994a-b01a9a8256d2",
+      "name": "upa_no_autentique",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        400,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://pastoreturismo.kommo.com/api/v4/leads",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n    {\n                \"id\": {{ $node[\"get_deal\"].json[\"id\"] }},\n                \"custom_fields_values\": [{\"values\":[{\"value\":\"{{ $node[\"gera_link_assinatura\"].json[\"data\"][\"createLinkToSignature\"][\"short_link\"] }}\"}],\"field_id\":1199604,\"field_name\":\"Link do Contrato\"}]\n    }\n]",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "5e0735eb-56c8-455a-bb20-8cb67610a576",
+      "name": "update_field_link_contrato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1320,
+        500
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "rPMcxfmZaXUiOcP8",
+          "name": "[Conta Azul] - Universidade de Vendas"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "https://api.autentique.com.br/v2/graphql",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "query",
+              "value": "=mutation {\n  createLinkToSignature(public_id: \"{{ $node[\"busca_id_da_assinatura\"].json[\"public_id\"] }}\") {\n    short_link\n  }\n}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 5fccfca210d1b50312e01f637fcb94467edb9644759cc717b2aa3d74b9d2e4df"
+            }
+          ]
+        }
+      },
+      "name": "gera_link_assinatura",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        860,
+        500
+      ],
+      "id": "ac51bab9-b6da-43a5-95e3-e72fd0d52768"
+    },
+    {
+      "parameters": {
+        "jsCode": "const signatures = $json.data.createDocument.signatures;\n\n// Lista de e-mails que queremos ignorar\nconst ignorarEmails = [\n  \"financeiro@pastoreturismo.com.br\",\n  \"amaral@automagicbots.com.br\"\n];\n\n// Encontra a assinatura que não está na lista de exclusão\nconst assinaturaSelecionada = signatures.find(sig => !ignorarEmails.includes(sig.email));\n\nif (!assinaturaSelecionada) {\n  throw new Error(\"Nenhuma assinatura válida encontrada.\");\n}\n\nconst publicId = assinaturaSelecionada.public_id;\n\nreturn [{ json: { public_id: publicId } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        620,
+        500
+      ],
+      "id": "ce0c593c-cbf6-432c-8dbc-fc6943659f5a",
+      "name": "busca_id_da_assinatura"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "contratos",
+          "mode": "list",
+          "cachedResultName": "contratos"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id_contrato",
+              "value": "={{ $node[\"upa_no_autentique\"].json[\"data\"][\"createDocument\"][\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1560,
+        500
+      ],
+      "id": "7c2c0b34-7fca-44a4-b6db-40681b373eb2",
+      "name": "busca_contrato",
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "contratos",
+          "mode": "list",
+          "cachedResultName": "contratos"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id_contrato",
+        "valueToMatchOn": "={{ $node[\"upa_no_autentique\"].json[\"data\"][\"createDocument\"][\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_deal_crm",
+              "value": "={{ $node[\"get_deal\"].json[\"id\"] }}"
+            },
+            {
+              "column": "status",
+              "value": "Pendente"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2020,
+        340
+      ],
+      "id": "bbf39e45-ecf5-41af-af57-eebeaa630e5e",
+      "name": "atualiza_contrato",
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "contratos",
+          "mode": "list",
+          "cachedResultName": "contratos"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "id_contrato",
+              "value": "={{ $node[\"upa_no_autentique\"].json[\"data\"][\"createDocument\"][\"id\"] }}"
+            },
+            {
+              "column": "id_deal_crm",
+              "value": "={{ $node[\"get_deal\"].json[\"id\"] }}"
+            },
+            {
+              "column": "status",
+              "value": "Pendente"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2020,
+        560
+      ],
+      "id": "495109d9-b7c1-43a6-9f3f-3777d8227217",
+      "name": "insere_contrato",
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://pastoreturismo.kommo.com/api/v4/leads",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n    {\n                \"id\": 14331196,\n                \"custom_fields_values\": [{\"values\":[{\"value\": false}],\"field_id\":1199760,\"field_name\":\"Contrato Assinado\"}]\n    }\n]",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "f1d486c8-ce50-4341-ba7a-c578c19ec3d1",
+      "name": "update_deal7",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -780,
+        780
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "rPMcxfmZaXUiOcP8",
+          "name": "[Conta Azul] - Universidade de Vendas"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://evolutionapi.automagicbots.com.br/message/sendText/PastoreTurismo",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "=b1hhve1v2r8ckhtijegjc"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "=120363400789991026@g.us"
+            },
+            {
+              "name": "textMessage.text",
+              "value": "=🚨 *NOVO CONTRATO A SER VALIDADO*\n\nTeste de mensagem no grupo"
+            },
+            {
+              "name": "options.delay",
+              "value": "={{ 1200 }}"
+            },
+            {
+              "name": "presence",
+              "value": "composing"
+            },
+            {
+              "name": "linkPreview",
+              "value": "={{ false }}"
+            },
+            {
+              "name": "=mentionsEveryOne",
+              "value": "={{ true }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "6ef4affc-96d8-4247-8676-e91466f4ebcc",
+      "name": "EnviaMensagemTexto",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1120,
+        860
+      ],
+      "typeVersion": 4
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "cria-atualiza-contrato",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1420,
+        500
+      ],
+      "id": "bae2c343-7ac0-471e-8b2d-83bf11538cf8",
+      "name": "Webhook",
+      "webhookId": "0c1a002c-d99c-4cb4-8859-8bb1666789f7"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhook.henrysako.automagicbots.com.br",
+            "user-agent": "amoCRM-Webhooks/3.0",
+            "content-length": "312",
+            "accept-encoding": "gzip",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-amocrm-requestid": "5a70812b-25fa-406a-9a09-81284545e9f7",
+            "x-forwarded-for": "204.74.253.164",
+            "x-forwarded-host": "n8nwebhook.henrysako.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "a965d5f7e0d7",
+            "x-real-ip": "204.74.253.164"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "leads[status][0][id]": "16632106",
+            "leads[status][0][status_id]": "85474427",
+            "leads[status][0][pipeline_id]": "10111699",
+            "leads[status][0][old_status_id]": "77601903",
+            "leads[status][0][old_pipeline_id]": "10111699",
+            "account[id]": "33867107",
+            "account[subdomain]": "pastoreturismo"
+          },
+          "webhookUrl": "https://n8nwebhook.henrysako.automagicbots.com.br/webhook/0c1a002c-d99c-4cb4-8859-8bb1666789f7",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-02T22:27:05.514Z",
+  "versionId": "3d4782f1-2805-421a-9848-c03f4a98cf1c"
+}
