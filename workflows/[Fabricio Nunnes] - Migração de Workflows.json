@@ -1,0 +1,141 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "get-n8n",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get-n8n": {
+      "main": [
+        [
+          {
+            "node": "config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "config": {
+      "main": [
+        [
+          {
+            "node": "create-n8n",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-16T13:05:55.915Z",
+  "id": "8WSLE3ClLYN7gImU",
+  "meta": null,
+  "name": "[Fabricio Nunnes] - Migração de Workflows",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "d0e0a447-87e3-4fa3-b348-58fad2c60d06",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "filters": {}
+      },
+      "id": "9b5f529a-e300-451c-8cc3-ef62624e7cd7",
+      "name": "get-n8n",
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        660,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "workflowObject": "={ \"name\": \"{{ JSON.stringify($json[\"name\"]).replaceAll('\"','') }}\", \"nodes\": {{ JSON.stringify($json[\"nodes\"]) }}, \"connections\": {{ JSON.stringify($json[\"connections\"]) }}, \"settings\": {{ JSON.stringify($json[\"settings\"]) }}}"
+      },
+      "id": "d5db121b-29b1-4679-aae8-a3e3ec9eb3e9",
+      "name": "create-n8n",
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "name",
+              "value": "={{ $json.name }}"
+            },
+            {
+              "name": "=nodes",
+              "value": "={{ $json.nodes }}"
+            },
+            {
+              "name": "connections",
+              "value": "={{ $json.connections }}"
+            },
+            {
+              "name": "settings.saveDataErrorExecution",
+              "value": "={{ $json[\"settings\"][\"saveDataErrorExecution\"] }}"
+            },
+            {
+              "name": "staticData.lastId",
+              "value": "1"
+            },
+            {
+              "name": "settings.saveDataSuccessExecution",
+              "value": "={{ $json[\"settings\"][\"saveDataSuccessExecution\"] }}"
+            },
+            {
+              "name": "settings.saveExecutionProgress",
+              "value": "={{ $json[\"settings\"][\"saveExecutionProgress\"] }}"
+            },
+            {
+              "name": "settings.saveManualExecutions",
+              "value": "={{ $json[\"settings\"][\"saveManualExecutions\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "62e30674-8b64-4682-92a3-1b19bde2a1f6",
+      "name": "config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        860,
+        460
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-16T13:14:31.150Z",
+  "versionId": "c452d152-726e-4685-888a-fac33c667291"
+}
