@@ -177,22 +177,22 @@
         ]
       ]
     },
-    "Popup-InCompany": {
+    "typeform-InCompany1": {
       "main": [
         [
           {
-            "node": "formata_dados1",
+            "node": "formata_dados",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "typeform-InCompany1": {
+    "Popup-InCompany": {
       "main": [
         [
           {
-            "node": "formata_dados",
+            "node": "formata_dados1",
             "type": "main",
             "index": 0
           }
@@ -633,7 +633,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// 📌 Capturar os dados de entrada\nconst inputData = items[0].json;\nconst formResponse = inputData.body.form_response;\nconst respostas = formResponse.answers || [];\n\n// 📌 Mapear campos pelo ref correto\nconst perguntasMap = {\n    \"name\": \"fullName\", // Nome completo\n    \"phone\": \"telefone\", // WhatsApp com DDD\n    \"email\": \"email\", // E-mail\n    \"07efbeb9-c1a5-4212-b99d-16c3db23c126\": \"qtd_vendedores\", // Quantos vendedores\n    \"8331ae93-31f1-4960-b44d-abdb746e996d\": \"faturamento\", // Faturamento\n    \"c709e7ca-83e2-48a9-a4e7-ce294107dc82\": \"desafio_comercial\", // Desafio\n    \"5bd2513a-a94d-442a-badf-edd8600769f5\": \"endereço\", // Endereço\n    \"15c73fe6-a626-4ed5-9dca-fa02f3101375\": \"pergunta_aberta\", // Pergunta aberta\n    \"5e17bd16-ab60-45d7-9fa1-2bab5f7f2a76\": \"busca_diretor\", // Busca Diretor\n    \"c699ad58-3a85-47bd-a05b-89d1e8401f54\": \"link_agendamento\" // Calendly agendamento\n};\n\n// 📌 Criar objeto para armazenar as respostas\nlet respostasMapeadas = {};\n\n// 📌 Iterar sobre as respostas para montar o objeto\nrespostas.forEach(answer => {\n    const refPergunta = answer.field.ref;\n    const chaveMapeada = perguntasMap[refPergunta] || refPergunta;\n    let resposta = \"\";\n\n    if (answer.type === \"choice\") {\n        resposta = answer.choice.label || \"\";\n    } else if (answer.type === \"text\" || answer.type === \"email\" || answer.type === \"phone_number\" || answer.type === \"url\") {\n        resposta = answer[answer.type] || \"\";\n    } else if (answer.type === \"number\") {\n        resposta = answer.number;\n    }\n\n    respostasMapeadas[chaveMapeada] = resposta;\n});\n\n// 📌 Funções auxiliares\nfunction capitalizeName(fullName) {\n    if (!fullName) return { fname: \"\", lname: \"\", fullname: \"\" };\n\n    const lowerCaseWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n    let words = fullName.toLowerCase().split(\" \").map((word, index) =>\n        lowerCaseWords.includes(word) && index !== 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)\n    );\n\n    let fname = words.shift();\n    let lname = words.join(\" \");\n    let fullname = lname ? `${fname} ${lname}` : fname;\n\n    return { fname, lname, fullname };\n}\n\nfunction formatEmail(email) {\n    return email ? email.toLowerCase().trim() : \"\";\n}\n\nfunction formatPhone(phone) {\n    if (!phone) return \"\";\n    const telefoneLimpo = phone.replace(/\\D/g, \"\");\n    let DDI = \"55\";\n    let DDD = telefoneLimpo.slice(2, 4);\n    let numero = telefoneLimpo.slice(4);\n\n    if (numero.length === 8) {\n        numero = `9${numero}`;\n    }\n\n    return `${DDI}${DDD}${numero}`;\n}\n\nfunction formatInstagram(instagram) {\n    return instagram ? instagram.toLowerCase().replace(/^@/, \"\") : \"\";\n}\n\n// 📌 Organizar as informações\nconst formattedNames = capitalizeName(respostasMapeadas.fullName);\nconst formattedEmail = formatEmail(respostasMapeadas.email);\nconst telefoneFormatado = formatPhone(respostasMapeadas.telefone);\nconst instagramFormatado = formatInstagram(respostasMapeadas.instagram);\n\n// 📌 Formatar data de aplicação\nfunction formatDate(isoDate) {\n    if (!isoDate) return \"\";\n    const date = new Date(isoDate);\n    const year = date.getFullYear();\n    const month = String(date.getMonth() + 1).padStart(2, \"0\");\n    const day = String(date.getDate()).padStart(2, \"0\");\n    const hours = String(date.getHours()).padStart(2, \"0\");\n    const minutes = String(date.getMinutes()).padStart(2, \"0\");\n    return `${year}-${month}-${day} ${hours}:${minutes}`;\n}\n\nconst dataAplicacaoFormatada = formatDate(formResponse.submitted_at);\n\n// 📌 Montar o resultado final\nconst result = {\n    ...formattedNames,\n    email: formattedEmail,\n    whatsapp: telefoneFormatado,\n    instagram: instagramFormatado,\n    qtd_vendedores: respostasMapeadas.qtd_vendedores || \"\",\n    faturamento: respostasMapeadas.faturamento || \"\",\n    busca_diretor: respostasMapeadas.busca_diretor || \"\",\n    desafio_comercial: respostasMapeadas.desafio_comercial || \"\",\n    endereço: respostasMapeadas.endereço || \"\",\n    pergunta_aberta: respostasMapeadas.pergunta_aberta || \"\",\n    link_agendamento: respostasMapeadas.link_agendamento || \"\",\n    form_id: formResponse.form_id || \"\",\n    form_name: formResponse.definition.title || \"\",\n    data_aplicacao: dataAplicacaoFormatada\n};\n\n// 📌 Retornar para o n8n\nreturn [{ json: result }];\n"
+        "jsCode": "// 📌 Capturar os dados de entrada\nconst inputData = items[0].json;\nconst formResponse = inputData.body.form_response;\nconst respostas = formResponse.answers || [];\n\n// 📌 Mapear campos pelo ref correto\nconst perguntasMap = {\n    \"name\": \"fullName\", // Nome completo\n    \"phone\": \"telefone\", // WhatsApp com DDD\n    \"email\": \"email\", // E-mail\n    \"07efbeb9-c1a5-4212-b99d-16c3db23c126\": \"qtd_vendedores\", // Quantos vendedores\n    \"8331ae93-31f1-4960-b44d-abdb746e996d\": \"faturamento\", // Faturamento\n    \"c709e7ca-83e2-48a9-a4e7-ce294107dc82\": \"desafio_comercial\", // Desafio\n    \"5bd2513a-a94d-442a-badf-edd8600769f5\": \"endereço\", // Endereço\n    \"15c73fe6-a626-4ed5-9dca-fa02f3101375\": \"pergunta_aberta\", // Pergunta aberta\n    \"5e17bd16-ab60-45d7-9fa1-2bab5f7f2a76\": \"busca_diretor\", // Busca Diretor\n    \"c699ad58-3a85-47bd-a05b-89d1e8401f54\": \"link_agendamento\" // Calendly agendamento\n};\n\n// 📌 Criar objeto para armazenar as respostas\nlet respostasMapeadas = {};\n\n// 📌 Iterar sobre as respostas para montar o objeto\nrespostas.forEach(answer => {\n    const refPergunta = answer.field.ref;\n    const chaveMapeada = perguntasMap[refPergunta] || refPergunta;\n    let resposta = \"\";\n\n    if (answer.type === \"choice\") {\n        resposta = answer.choice.label || \"\";\n    } else if (answer.type === \"text\" || answer.type === \"email\" || answer.type === \"phone_number\" || answer.type === \"url\") {\n        resposta = answer[answer.type] || \"\";\n    } else if (answer.type === \"number\") {\n        resposta = answer.number;\n    }\n\n    respostasMapeadas[chaveMapeada] = resposta;\n});\n\n// ➕ Acrescentar nome/telefone/email/UTMs vindos de form_response.hidden (sem alterar o restante)\nconst hidden = (formResponse && formResponse.hidden) || {};\nif (!respostasMapeadas.fullName)  respostasMapeadas.fullName  = hidden.name  || \"\";\nif (!respostasMapeadas.telefone)  respostasMapeadas.telefone  = hidden.phone || \"\";\nif (!respostasMapeadas.email)     respostasMapeadas.email     = hidden.email || \"\";\n\n// 📌 Funções auxiliares\nfunction capitalizeName(fullName) {\n    if (!fullName) return { fname: \"\", lname: \"\", fullname: \"\" };\n\n    const lowerCaseWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n    let words = fullName.toLowerCase().split(\" \").map((word, index) =>\n        lowerCaseWords.includes(word) && index !== 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)\n    );\n\n    let fname = words.shift();\n    let lname = words.join(\" \");\n    let fullname = lname ? `${fname} ${lname}` : fname;\n\n    return { fname, lname, fullname };\n}\n\nfunction formatEmail(email) {\n    return email ? email.toLowerCase().trim() : \"\";\n}\n\nfunction formatPhone(phone) {\n    if (!phone) return \"\";\n    const telefoneLimpo = phone.replace(/\\D/g, \"\");\n    let DDI = \"55\";\n    let DDD = telefoneLimpo.slice(2, 4);\n    let numero = telefoneLimpo.slice(4);\n\n    if (numero.length === 8) {\n        numero = `9${numero}`;\n    }\n\n    return `${DDI}${DDD}${numero}`;\n}\n\nfunction formatInstagram(instagram) {\n    return instagram ? instagram.toLowerCase().replace(/^@/, \"\") : \"\";\n}\n\n// 📌 Organizar as informações\nconst formattedNames = capitalizeName(respostasMapeadas.fullName);\nconst formattedEmail = formatEmail(respostasMapeadas.email);\nconst telefoneFormatado = formatPhone(respostasMapeadas.telefone);\nconst instagramFormatado = formatInstagram(respostasMapeadas.instagram);\n\n// 📌 Formatar data de aplicação\nfunction formatDate(isoDate) {\n    if (!isoDate) return \"\";\n    const date = new Date(isoDate);\n    const year = date.getFullYear();\n    const month = String(date.getMonth() + 1).padStart(2, \"0\");\n    const day = String(date.getDate()).padStart(2, \"0\");\n    const hours = String(date.getHours()).padStart(2, \"0\");\n    const minutes = String(date.getMinutes()).padStart(2, \"0\");\n    return `${year}-${month}-${day} ${hours}:${minutes}`;\n}\n\nconst dataAplicacaoFormatada = formatDate(formResponse.submitted_at);\n\n// 📌 Montar o resultado final (estrutura preservada) + UTMs do hidden\nconst result = {\n    ...formattedNames,\n    email: formattedEmail,\n    whatsapp: telefoneFormatado,\n    instagram: instagramFormatado,\n    qtd_vendedores: respostasMapeadas.qtd_vendedores || \"\",\n    faturamento: respostasMapeadas.faturamento || \"\",\n    busca_diretor: respostasMapeadas.busca_diretor || \"\",\n    desafio_comercial: respostasMapeadas.desafio_comercial || \"\",\n    endereço: respostasMapeadas.endereço || \"\",\n    pergunta_aberta: respostasMapeadas.pergunta_aberta || \"\",\n    link_agendamento: respostasMapeadas.link_agendamento || \"\",\n    form_id: formResponse.form_id || \"\",\n    form_name: formResponse.definition.title || \"\",\n    data_aplicacao: dataAplicacaoFormatada,\n\n    // ➕ UTMs adicionadas aqui\n    utm_source:  hidden.utm_source  || \"\",\n    utm_medium:  hidden.utm_medium  || \"\",\n    utm_campaign:hidden.utm_campaign|| \"\",\n    utm_content: hidden.utm_content || \"\",\n    utm_term:    hidden.utm_term    || \"\"\n};\n\n// 📌 Retornar para o n8n\nreturn [{ json: result }];\n"
       },
       "id": "0f05feda-93f4-4a43-af72-eb493b60243b",
       "name": "formata_dados",
@@ -647,7 +647,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/60637b72-8f93-4644-a92e-fc5416ce917c",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/b2874b50-8a85-43bc-8dae-ef13bfde385f",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -924,22 +924,6 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "popup-incompany",
-        "options": {}
-      },
-      "id": "1039227a-51b6-41e1-baf8-9e0d6add2993",
-      "name": "Popup-InCompany",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        540,
-        280
-      ],
-      "webhookId": "122d2c58-1833-49bf-b517-127013bd4c6c"
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
         "path": "typeform-incompany",
         "options": {}
       },
@@ -952,82 +936,62 @@
         540
       ],
       "webhookId": "122d2c58-1833-49bf-b517-127013bd4c6c"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "popup-incompany",
+        "options": {}
+      },
+      "id": "1039227a-51b6-41e1-baf8-9e0d6add2993",
+      "name": "Popup-InCompany",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        280
+      ],
+      "webhookId": "122d2c58-1833-49bf-b517-127013bd4c6c"
     }
   ],
   "pinData": {
-    "Popup-InCompany": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
-            "content-length": "313",
-            "accept": "*/*",
-            "accept-encoding": "gzip, deflate, br, zstd",
-            "accept-language": "pt-PT,pt;q=0.9,en-US;q=0.8,en;q=0.7",
-            "content-type": "application/json",
-            "origin": "https://incompany.universidadevendas.com.br",
-            "priority": "u=1, i",
-            "referer": "https://incompany.universidadevendas.com.br/",
-            "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": "\"Windows\"",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "cross-site",
-            "x-forwarded-for": "201.17.208.252",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "201.17.208.252"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "name": "Mateus Automagic",
-            "phone": "(31) 99279-6934",
-            "email": "contato.mportob@gmail.com",
-            "timestamp": "2025-09-13T15:12:16.996Z",
-            "source": "landing_page_popup",
-            "popup_id": "prequalification-popup",
-            "utm_source": "landing_page",
-            "utm_medium": "popup",
-            "utm_campaign": "sessao_estrategica",
-            "utm_content": "pre_qualification"
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/popup-incompany",
-          "executionMode": "production"
-        }
-      }
-    ],
     "typeform-InCompany1": [
       {
         "json": {
           "headers": {
             "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "user-agent": "Typeform Webhooks",
-            "content-length": "5092",
+            "content-length": "5005",
             "accept-encoding": "gzip",
             "content-type": "application/json",
-            "traceparent": "00-941f416d795519362938318936de6bcc-f3db8d90e9da954e-01",
-            "x-forwarded-for": "18.204.78.134",
+            "traceparent": "00-74501da973c9f997c0f8c9a4831e4868-0f6c7166ff2a6571-01",
+            "x-forwarded-for": "34.230.177.131",
             "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "x-forwarded-port": "443",
             "x-forwarded-proto": "https",
             "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "18.204.78.134"
+            "x-real-ip": "34.230.177.131"
           },
           "params": {},
           "query": {},
           "body": {
-            "event_id": "01K523G8EHAD69B3RTBBER0J6G",
+            "event_id": "01K59EXZMRPH05ZQGPY9BP0JT7",
             "event_type": "form_response",
             "form_response": {
               "form_id": "YGh7DR7s",
-              "token": "815sj7y4rqc4plt53815sj8ld92dx322",
-              "landed_at": "2025-09-13T17:55:06Z",
-              "submitted_at": "2025-09-13T17:55:53Z",
+              "token": "kl0fu88zgzpbb7nfskl0fu28yd2klmgq",
+              "landed_at": "2025-09-16T14:27:39Z",
+              "submitted_at": "2025-09-16T14:30:18Z",
+              "hidden": {
+                "email": "contato.mportob@gmail.com",
+                "name": "Mateus Automagic",
+                "phone": "(31) 99279-6934",
+                "utm_campaign": "",
+                "utm_content": "",
+                "utm_medium": "",
+                "utm_source": "",
+                "utm_term": ""
+              },
               "definition": {
                 "id": "YGh7DR7s",
                 "title": "Incompany",
@@ -1163,13 +1127,6 @@
                     "properties": {}
                   },
                   {
-                    "id": "AD5YvietDzPx",
-                    "ref": "8f286d4f-c5f3-4921-8438-f0559eabb162",
-                    "type": "short_text",
-                    "title": "Zip/Post Code",
-                    "properties": {}
-                  },
-                  {
                     "id": "nBZ0wy9Z1D4b",
                     "ref": "29ed8935-0439-4ff5-a460-3dac31ffde2e",
                     "type": "short_text",
@@ -1203,9 +1160,9 @@
                 {
                   "type": "choice",
                   "choice": {
-                    "id": "E70wyKqkGdpl",
-                    "label": "Até R$ 100 mil reais por mês",
-                    "ref": "846a61ad-1d86-4cb7-9c27-5fbafa7ebcb6"
+                    "id": "EGqkd9FcKRW3",
+                    "label": "Entre R$ 100 e 300 mil reais por mês",
+                    "ref": "1720d043-265f-483b-9075-ed7375740372"
                   },
                   "field": {
                     "id": "0FHNmTvRtyP1",
@@ -1215,7 +1172,7 @@
                 },
                 {
                   "type": "number",
-                  "number": 2,
+                  "number": 4,
                   "field": {
                     "id": "fLT7MzijDMih",
                     "type": "number",
@@ -1225,9 +1182,9 @@
                 {
                   "type": "choice",
                   "choice": {
-                    "id": "5RUEQea8MiZV",
-                    "label": "SIM",
-                    "ref": "9d567d56-68b2-4bf3-a9e8-19db4757b898"
+                    "id": "p5EalJS5LyDX",
+                    "label": "NÃO",
+                    "ref": "44841840-4f26-4628-b1d0-95cd252b665f"
                   },
                   "field": {
                     "id": "crlgfi7wNty9",
@@ -1238,9 +1195,9 @@
                 {
                   "type": "choice",
                   "choice": {
-                    "id": "m5aOSXfONPs1",
-                    "label": "Taxa de fechamento (Conversão)",
-                    "ref": "a78b351b-2ad8-4265-85a8-a1485c6ca7b0"
+                    "id": "XJbdYGReboKz",
+                    "label": "CRM",
+                    "ref": "35bf2f04-1d65-45e1-b839-ea0e613e8464"
                   },
                   "field": {
                     "id": "JsM1jgMaue4k",
@@ -1250,7 +1207,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "RUA FARIA",
+                  "text": "rua",
                   "field": {
                     "id": "AEx6MxhOtF74",
                     "type": "short_text",
@@ -1259,7 +1216,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "BH",
+                  "text": "cidade",
                   "field": {
                     "id": "VN6a3aAAufM1",
                     "type": "short_text",
@@ -1268,7 +1225,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "MG",
+                  "text": "estado",
                   "field": {
                     "id": "TGSYMVgZm3Qt",
                     "type": "short_text",
@@ -1277,16 +1234,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "5555555",
-                  "field": {
-                    "id": "AD5YvietDzPx",
-                    "type": "short_text",
-                    "ref": "8f286d4f-c5f3-4921-8438-f0559eabb162"
-                  }
-                },
-                {
-                  "type": "text",
-                  "text": "BR",
+                  "text": "br",
                   "field": {
                     "id": "nBZ0wy9Z1D4b",
                     "type": "short_text",
@@ -1295,7 +1243,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "TESTE",
+                  "text": "teste teste",
                   "field": {
                     "id": "GKdbXlJiwomj",
                     "type": "long_text",
@@ -1313,6 +1261,52 @@
           "executionMode": "production"
         }
       }
+    ],
+    "Popup-InCompany": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+            "content-length": "261",
+            "accept": "*/*",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "accept-language": "pt-PT,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+            "content-type": "application/json",
+            "origin": "https://incompany.universidadevendas.com.br",
+            "priority": "u=1, i",
+            "referer": "https://incompany.universidadevendas.com.br/",
+            "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site",
+            "x-forwarded-for": "201.17.208.252",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "201.17.208.252"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "name": "Mateus Automagic",
+            "phone": "(31) 99279-6934",
+            "email": "contato.mportob@gmail.com",
+            "timestamp": "2025-09-16T14:27:29.567Z",
+            "source": "landing_page_popup",
+            "popup_id": "prequalification-popup",
+            "utm_source": "",
+            "utm_medium": "",
+            "utm_campaign": "",
+            "utm_content": ""
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/popup-incompany",
+          "executionMode": "production"
+        }
+      }
     ]
   },
   "settings": {
@@ -1327,6 +1321,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-09-16T14:29:03.524Z",
-  "versionId": "e5ca6aa9-ad23-4d90-948e-1c6de37c4396"
+  "updatedAt": "2025-09-16T15:48:26.782Z",
+  "versionId": "efb09d8e-ee46-47d9-9034-f43289204d89"
 }
