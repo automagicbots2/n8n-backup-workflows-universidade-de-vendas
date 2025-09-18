@@ -198,6 +198,22 @@
           }
         ]
       ]
+    },
+    "create/update clint4": {
+      "main": [
+        []
+      ]
+    },
+    "create/update clint": {
+      "main": [
+        [
+          {
+            "node": "infos_bc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-09-13T12:41:17.526Z",
@@ -556,7 +572,7 @@
       "typeVersion": 2,
       "position": [
         2400,
-        280
+        540
       ]
     },
     {
@@ -572,7 +588,7 @@
             },
             {
               "name": "value",
-              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DE PALESTRA 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"fname\"] }} {{ $node[\"formata_dados1\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados1\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados1\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados1\"].json[\"desafio_comercial\"] }}"
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL INCOMPANY 🔔\n\n*Nome*: {{ $node[\"formata_dados\"].json[\"fname\"] }} {{ $node[\"formata_dados\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados\"].json[\"desafio_comercial\"] }}"
             }
           ]
         },
@@ -590,7 +606,7 @@
       "typeVersion": 2,
       "position": [
         2600,
-        280
+        540
       ],
       "id": "24236243-37e8-4e3a-a731-927ecfedea8b",
       "continueOnFail": true
@@ -608,7 +624,7 @@
             },
             {
               "name": "value",
-              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DE PALESTRA 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"fname\"] }} {{ $node[\"formata_dados1\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados1\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados1\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados1\"].json[\"desafio_comercial\"] }}"
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL INCOMPANY 🔔\n\n*Nome*: {{ $node[\"formata_dados\"].json[\"fname\"] }} {{ $node[\"formata_dados\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados\"].json[\"desafio_comercial\"] }}"
             }
           ]
         },
@@ -626,7 +642,7 @@
       "typeVersion": 2,
       "position": [
         2800,
-        280
+        540
       ],
       "id": "603376cf-4109-490c-b9ee-5aa0dc232ba6",
       "continueOnFail": true
@@ -1321,6 +1337,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-09-16T15:48:26.782Z",
-  "versionId": "efb09d8e-ee46-47d9-9034-f43289204d89"
+  "updatedAt": "2025-09-18T12:35:49.471Z",
+  "versionId": "416b44f8-a013-4279-b25d-b85c74c9aed6"
 }
