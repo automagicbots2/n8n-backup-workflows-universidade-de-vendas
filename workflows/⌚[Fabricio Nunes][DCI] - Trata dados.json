@@ -1,0 +1,1337 @@
+{
+  "active": true,
+  "connections": {
+    "consulta_sdr": {
+      "main": [
+        [
+          {
+            "node": "create/update clint4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_url_rotacionamento_colaboradores": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_users": {
+      "main": [
+        [
+          {
+            "node": "cria_atualiza_user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_atualiza_user": {
+      "main": [
+        [
+          {
+            "node": "consulta_sdr",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_funil": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_url_rotacionamento_colaboradores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_funis": {
+      "main": [
+        [
+          {
+            "node": "busca_funil",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos_bc": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer1_Jonatã",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Closer1_Jonatã": {
+      "main": [
+        [
+          {
+            "node": "avisa_Natalia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_funis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_funis1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_sdr1": {
+      "main": [
+        [
+          {
+            "node": "create/update clint",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_url_rotacionamento_colaboradores1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_users1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_users1": {
+      "main": [
+        [
+          {
+            "node": "cria_atualiza_user1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_atualiza_user1": {
+      "main": [
+        [
+          {
+            "node": "consulta_sdr1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_funil1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_url_rotacionamento_colaboradores1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_funis1": {
+      "main": [
+        [
+          {
+            "node": "busca_funil1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create/update clint": {
+      "main": [
+        [
+          {
+            "node": "infos_bc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "typeform-DCI": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Popup-DCI": {
+      "main": [
+        [
+          {
+            "node": "formata_dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-19T17:26:29.684Z",
+  "id": "GyvKchz2dPa3OTac",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚[Fabricio Nunes][DCI] - Trata dados",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// Capturar os dados do input\nconst inputData = items[0].json.body;\n\n// Função para capitalizar o nome\nfunction capitalizeName(fullName) {\n    if (!fullName) {\n        return { fname: '', lname: '', fullname: '' };\n    }\n\n    const lowerCaseWords = ['da', 'de', 'do', 'di', 'du'];\n    let words = fullName.toLowerCase().split(' ').map((word, index) => {\n        if (lowerCaseWords.includes(word) && index !== 0) {\n            return word;\n        }\n        return word.charAt(0).toUpperCase() + word.slice(1);\n    });\n\n    let fname = words.shift();\n    let lname = words.join(' ');\n\n    return { fname, lname, fullname: `${fname} ${lname}` };\n}\n\n// Função para formatar email\nfunction formatEmail(email) {\n    return email ? email.toLowerCase().trim() : \"\";\n}\n\n// Função para processar e formatar o telefone\nfunction processTelefone(telefoneOriginal) {\n    if (!telefoneOriginal) return \"\";\n    const telefoneLimpo = telefoneOriginal.replace(/\\D/g, \"\"); // Remove caracteres não numéricos\n    const DDI = '55';\n    const DDD = telefoneLimpo.slice(0, 2);\n    let numero;\n\n    if (parseInt(DDD) > 28) {\n        numero = telefoneLimpo.slice(-8);\n    } else {\n        numero = telefoneLimpo.slice(-9);\n    }\n\n    return `${DDI}${DDD}${numero}`;\n}\n\n// Extrair e formatar os dados\nconst fullNameAnswer = inputData[\"name\"] || \"\";\nconst emailAnswer = inputData[\"email\"] || \"\";\nconst telefoneClienteOriginal = inputData[\"phone\"] || \"\";\nconst telefoneFinal = processTelefone(telefoneClienteOriginal);\n\nconst formattedNames = capitalizeName(fullNameAnswer);\nconst formattedEmail = formatEmail(emailAnswer);\n\n// Capturar UTMs e outros campos\nconst utm_source = inputData[\"utm_source\"] || \"\";\nconst utm_campaign = inputData[\"utm_campaign\"] || \"\";\nconst utm_medium = inputData[\"utm_medium\"] || \"\";\nconst utm_term = inputData[\"utm_term\"] || \"\";\nconst utm_content = inputData[\"utm_content\"] || \"\";\nconst form_id = inputData[\"popup_id\"] || \"\";\nconst form_name = inputData[\"form_name\"] || \"\";\nconst data_envio = inputData[\"timestamp\"] || \"\";\nconst horario_envio = inputData[\"Horário\"] || \"\";\nconst url_pagina = inputData[\"origin\"] || \"\";\n\n// Montar o objeto de resultado\nconst result = {\n    ...formattedNames, // Nome formatado\n    email: formattedEmail, // Email formatado\n    whatsapp: telefoneFinal, // WhatsApp formatado\n    utm_source: utm_source,\n    utm_campaign: utm_campaign,\n    utm_term: utm_term,\n    utm_medium: utm_medium,\n    utm_content: utm_content,\n    form_id: form_id,\n    form_name: form_name,\n    data_envio: data_envio,\n    horario_envio: horario_envio,\n    url_pagina: url_pagina\n};\n\n// Retorna o resultado como esperado pelo n8n\nreturn [{ json: result }];\n"
+      },
+      "id": "5de7779d-fa75-48e5-9a40-cf783026c08b",
+      "name": "formata_dados1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        740,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/60637b72-8f93-4644-a92e-fc5416ce917c",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados1\"].json[\"fname\"] }} {{ $node[\"formata_dados1\"].json[\"lname\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados1\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "=InCompany"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "=V1"
+            },
+            {
+              "name": "dono",
+              "value": "={{ $node[\"consulta_sdr\"].json[\"email\"] }}"
+            },
+            {
+              "name": "qtd_vendedores",
+              "value": "={{ $node[\"formata_dados1\"].json[\"qtd_vendedores\"] }}"
+            },
+            {
+              "name": "faturamento",
+              "value": "={{ $node[\"formata_dados1\"].json[\"faturamento\"] }}"
+            },
+            {
+              "name": "desafio_comercial",
+              "value": "={{ $node[\"formata_dados1\"].json[\"desafio_comercial\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "48bd9861-272c-4a3e-beff-e05e9fef9c39",
+      "name": "create/update clint4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2200,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_url_rotacionamento_colaboradores\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "=SDR"
+            },
+            {
+              "name": "id_user",
+              "value": "={{ $node[\"cria_atualiza_user\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        280
+      ],
+      "id": "04e41a72-9a9e-40f9-bf06-993599c1a73b",
+      "name": "consulta_sdr"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Rotacionamento de Colaboradores"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "e323257a-f000-4e29-ae66-6d11c8ff237a",
+      "name": "pesquisa_url_rotacionamento_colaboradores",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1340,
+        280
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Users"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "e0090f28-acc0-4683-b7a8-9453831cfbf6",
+      "name": "pesquisa_variavel_n8n_fluxo_users",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1580,
+        280
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados1\"].json[\"fname\"] || \"\" }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados1\"].json[\"lname\"] || \"\" }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados1\"].json[\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados1\"].json[\"whatsapp\"] || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1800,
+        280
+      ],
+      "id": "9bcb2cfc-2433-4cd9-9da4-649a21cb5aa7",
+      "name": "cria_atualiza_user"
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_forms",
+              "value": "={{ $node[\"formata_dados1\"].json[\"form_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1140,
+        280
+      ],
+      "id": "a19e7ce9-23c0-4169-8cdd-5a3ca34e44c7",
+      "name": "busca_funil"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Funis"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "ead1997d-fdbb-481c-888c-eed6bf9cd2a3",
+      "name": "pesquisa_variavel_n8n_fluxo_funis",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        940,
+        280
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID Jonatã BC Closer 1",
+              "value": "342800505"
+            },
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "ID Natalia BC",
+              "value": "768179930"
+            },
+            {
+              "name": "ID Felipe  BC",
+              "value": "747203618"
+            },
+            {
+              "name": "ID Isabella BC Closer 3",
+              "value": "695498921"
+            },
+            {
+              "name": "ID Laiane BC Closer 4",
+              "value": "445512667"
+            },
+            {
+              "name": "ID Winicius BC",
+              "value": "563485579"
+            },
+            {
+              "name": "ID_grupo_novos_clientes",
+              "value": "120363219650907550@g.us"
+            },
+            {
+              "name": "url_base_evolution",
+              "value": "https://apievolution.automagicbots.com.br/"
+            },
+            {
+              "name": "instancia_nome",
+              "value": "Fabricio-Nunnes"
+            },
+            {
+              "name": "APIKEY_Evolution",
+              "value": "D2977F0B8F6C-4B1F-A11C-D78FBA4D10A0"
+            },
+            {
+              "name": "ID Rafael BC",
+              "value": "269199328"
+            },
+            {
+              "name": "ID Thiago BC",
+              "value": "387179683"
+            },
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "id": "5f6dd6f9-5ceb-4732-91bc-8cdc237a97a8",
+      "name": "infos_bc",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL INCOMPANY 🔔\n\n*Nome*: {{ $node[\"formata_dados\"].json[\"fname\"] }} {{ $node[\"formata_dados\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados\"].json[\"desafio_comercial\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer1_Jonatã",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2600,
+        540
+      ],
+      "id": "0c058180-8059-49f2-b26c-2c0e56e64ffe",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Natalia BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL INCOMPANY 🔔\n\n*Nome*: {{ $node[\"formata_dados\"].json[\"fname\"] }} {{ $node[\"formata_dados\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados\"].json[\"desafio_comercial\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Natalia",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2800,
+        540
+      ],
+      "id": "337444e5-9961-480d-a51e-1b12fd29468b",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// 📌 Capturar os dados de entrada\nconst inputData = items[0].json;\nconst formResponse = inputData.body.form_response;\nconst respostas = formResponse.answers || [];\n\n// 📌 Mapear campos pelo ref correto\nconst perguntasMap = {\n    \"name\": \"fullName\", // Nome completo\n    \"phone\": \"telefone\", // WhatsApp com DDD\n    \"email\": \"email\", // E-mail\n    \"07efbeb9-c1a5-4212-b99d-16c3db23c126\": \"qtd_vendedores\", // Quantos vendedores\n    \"8331ae93-31f1-4960-b44d-abdb746e996d\": \"faturamento\", // Faturamento\n    \"c709e7ca-83e2-48a9-a4e7-ce294107dc82\": \"desafio_comercial\", // Desafio\n    \"5bd2513a-a94d-442a-badf-edd8600769f5\": \"endereço\", // Endereço\n    \"15c73fe6-a626-4ed5-9dca-fa02f3101375\": \"pergunta_aberta\", // Pergunta aberta\n    \"5e17bd16-ab60-45d7-9fa1-2bab5f7f2a76\": \"busca_diretor\", // Busca Diretor\n    \"c699ad58-3a85-47bd-a05b-89d1e8401f54\": \"link_agendamento\" // Calendly agendamento\n};\n\n// 📌 Criar objeto para armazenar as respostas\nlet respostasMapeadas = {};\n\n// 📌 Iterar sobre as respostas para montar o objeto\nrespostas.forEach(answer => {\n    const refPergunta = answer.field.ref;\n    const chaveMapeada = perguntasMap[refPergunta] || refPergunta;\n    let resposta = \"\";\n\n    if (answer.type === \"choice\") {\n        resposta = answer.choice.label || \"\";\n    } else if (answer.type === \"text\" || answer.type === \"email\" || answer.type === \"phone_number\" || answer.type === \"url\") {\n        resposta = answer[answer.type] || \"\";\n    } else if (answer.type === \"number\") {\n        resposta = answer.number;\n    }\n\n    respostasMapeadas[chaveMapeada] = resposta;\n});\n\n// ➕ Acrescentar nome/telefone/email/UTMs vindos de form_response.hidden (sem alterar o restante)\nconst hidden = (formResponse && formResponse.hidden) || {};\nif (!respostasMapeadas.fullName)  respostasMapeadas.fullName  = hidden.name  || \"\";\nif (!respostasMapeadas.telefone)  respostasMapeadas.telefone  = hidden.phone || \"\";\nif (!respostasMapeadas.email)     respostasMapeadas.email     = hidden.email || \"\";\n\n// 📌 Funções auxiliares\nfunction capitalizeName(fullName) {\n    if (!fullName) return { fname: \"\", lname: \"\", fullname: \"\" };\n\n    const lowerCaseWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n    let words = fullName.toLowerCase().split(\" \").map((word, index) =>\n        lowerCaseWords.includes(word) && index !== 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)\n    );\n\n    let fname = words.shift();\n    let lname = words.join(\" \");\n    let fullname = lname ? `${fname} ${lname}` : fname;\n\n    return { fname, lname, fullname };\n}\n\nfunction formatEmail(email) {\n    return email ? email.toLowerCase().trim() : \"\";\n}\n\nfunction formatPhone(phone) {\n    if (!phone) return \"\";\n    const telefoneLimpo = phone.replace(/\\D/g, \"\");\n    let DDI = \"55\";\n    let DDD = telefoneLimpo.slice(2, 4);\n    let numero = telefoneLimpo.slice(4);\n\n    if (numero.length === 8) {\n        numero = `9${numero}`;\n    }\n\n    return `${DDI}${DDD}${numero}`;\n}\n\nfunction formatInstagram(instagram) {\n    return instagram ? instagram.toLowerCase().replace(/^@/, \"\") : \"\";\n}\n\n// 📌 Organizar as informações\nconst formattedNames = capitalizeName(respostasMapeadas.fullName);\nconst formattedEmail = formatEmail(respostasMapeadas.email);\nconst telefoneFormatado = formatPhone(respostasMapeadas.telefone);\nconst instagramFormatado = formatInstagram(respostasMapeadas.instagram);\n\n// 📌 Formatar data de aplicação\nfunction formatDate(isoDate) {\n    if (!isoDate) return \"\";\n    const date = new Date(isoDate);\n    const year = date.getFullYear();\n    const month = String(date.getMonth() + 1).padStart(2, \"0\");\n    const day = String(date.getDate()).padStart(2, \"0\");\n    const hours = String(date.getHours()).padStart(2, \"0\");\n    const minutes = String(date.getMinutes()).padStart(2, \"0\");\n    return `${year}-${month}-${day} ${hours}:${minutes}`;\n}\n\nconst dataAplicacaoFormatada = formatDate(formResponse.submitted_at);\n\n// 📌 Montar o resultado final (estrutura preservada) + UTMs do hidden\nconst result = {\n    ...formattedNames,\n    email: formattedEmail,\n    whatsapp: telefoneFormatado,\n    instagram: instagramFormatado,\n    qtd_vendedores: respostasMapeadas.qtd_vendedores || \"\",\n    faturamento: respostasMapeadas.faturamento || \"\",\n    busca_diretor: respostasMapeadas.busca_diretor || \"\",\n    desafio_comercial: respostasMapeadas.desafio_comercial || \"\",\n    endereço: respostasMapeadas.endereço || \"\",\n    pergunta_aberta: respostasMapeadas.pergunta_aberta || \"\",\n    link_agendamento: respostasMapeadas.link_agendamento || \"\",\n    form_id: formResponse.form_id || \"\",\n    form_name: formResponse.definition.title || \"\",\n    data_aplicacao: dataAplicacaoFormatada,\n\n    // ➕ UTMs adicionadas aqui\n    utm_source:  hidden.utm_source  || \"\",\n    utm_medium:  hidden.utm_medium  || \"\",\n    utm_campaign:hidden.utm_campaign|| \"\",\n    utm_content: hidden.utm_content || \"\",\n    utm_term:    hidden.utm_term    || \"\"\n};\n\n// 📌 Retornar para o n8n\nreturn [{ json: result }];\n"
+      },
+      "id": "91df3dd6-9d28-48d8-80a2-7c4d3b4fe768",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        740,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/b2874b50-8a85-43bc-8dae-ef13bfde385f",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados\"].json[\"fname\"] }} {{ $node[\"formata_dados\"].json[\"lname\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"whatsapp\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "=InCompany"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "=V1"
+            },
+            {
+              "name": "dono",
+              "value": "={{ $node[\"consulta_sdr1\"].json[\"email\"] }}"
+            },
+            {
+              "name": "qtd_vendedores",
+              "value": "={{ $node[\"formata_dados\"].json[\"qtd_vendedores\"] }}"
+            },
+            {
+              "name": "faturamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+            },
+            {
+              "name": "desafio_comercial",
+              "value": "={{ $node[\"formata_dados\"].json[\"desafio_comercial\"] }}"
+            },
+            {
+              "name": "busca_diretor",
+              "value": "={{ $node[\"formata_dados\"].json[\"busca_diretor\"] }}"
+            },
+            {
+              "name": "pergunta_aberta",
+              "value": "={{ $node[\"formata_dados\"].json[\"pergunta_aberta\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "34984f5f-b9b8-445a-8a21-c2d3b535e509",
+      "name": "create/update clint",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2200,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_url_rotacionamento_colaboradores1\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "=SDR"
+            },
+            {
+              "name": "id_user",
+              "value": "={{ $node[\"cria_atualiza_user1\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        540
+      ],
+      "id": "38d62f39-4dd3-49eb-8611-081b82b31c23",
+      "name": "consulta_sdr1"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Rotacionamento de Colaboradores"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "5e9c2dd8-f5f0-46ff-afa0-a9923ee411ef",
+      "name": "pesquisa_url_rotacionamento_colaboradores1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1340,
+        540
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Users"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "baa0c947-27d1-45fe-8b93-ad5b52832284",
+      "name": "pesquisa_variavel_n8n_fluxo_users1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1580,
+        540
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users1\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados\"].json[\"fname\"] || \"\" }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados\"].json[\"lname\"] || \"\" }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"whatsapp\"] || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1800,
+        540
+      ],
+      "id": "31fbe006-91b8-4928-bde6-4aa383ecc410",
+      "name": "cria_atualiza_user1"
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis1\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_forms",
+              "value": "={{ $node[\"formata_dados\"].json[\"form_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1140,
+        540
+      ],
+      "id": "dd1a1077-670a-40be-bca0-31c322b7b936",
+      "name": "busca_funil1"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Funis"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "e9b8077e-c056-4f2c-aa64-fcd5547678d0",
+      "name": "pesquisa_variavel_n8n_fluxo_funis1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        940,
+        540
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "typeform-dci",
+        "options": {}
+      },
+      "id": "4c4fa7fe-0d17-4a31-89d8-e23ec9798a79",
+      "name": "typeform-DCI",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        540
+      ],
+      "webhookId": "6ef69ea9-5aaa-4d23-bbad-94a20e74a36a"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "popup-dci",
+        "options": {}
+      },
+      "id": "38c0692f-8254-4be2-b04b-0d217b611911",
+      "name": "Popup-DCI",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        280
+      ],
+      "webhookId": "e1da26b9-1518-4ee2-b60a-a96ddcd630a8"
+    }
+  ],
+  "pinData": {
+    "typeform-DCI": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "Typeform Webhooks",
+            "content-length": "5005",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "traceparent": "00-74501da973c9f997c0f8c9a4831e4868-0f6c7166ff2a6571-01",
+            "x-forwarded-for": "34.230.177.131",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "34.230.177.131"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event_id": "01K59EXZMRPH05ZQGPY9BP0JT7",
+            "event_type": "form_response",
+            "form_response": {
+              "form_id": "YGh7DR7s",
+              "token": "kl0fu88zgzpbb7nfskl0fu28yd2klmgq",
+              "landed_at": "2025-09-16T14:27:39Z",
+              "submitted_at": "2025-09-16T14:30:18Z",
+              "hidden": {
+                "email": "contato.mportob@gmail.com",
+                "name": "Mateus Automagic",
+                "phone": "(31) 99279-6934",
+                "utm_campaign": "",
+                "utm_content": "",
+                "utm_medium": "",
+                "utm_source": "",
+                "utm_term": ""
+              },
+              "definition": {
+                "id": "YGh7DR7s",
+                "title": "Incompany",
+                "fields": [
+                  {
+                    "id": "0FHNmTvRtyP1",
+                    "ref": "8331ae93-31f1-4960-b44d-abdb746e996d",
+                    "type": "dropdown",
+                    "title": "Qual é o seu faturamento mensal atual?\n",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "E70wyKqkGdpl",
+                        "ref": "846a61ad-1d86-4cb7-9c27-5fbafa7ebcb6",
+                        "label": "Até R$ 100 mil reais por mês"
+                      },
+                      {
+                        "id": "EGqkd9FcKRW3",
+                        "ref": "1720d043-265f-483b-9075-ed7375740372",
+                        "label": "Entre R$ 100 e 300 mil reais por mês"
+                      },
+                      {
+                        "id": "gMc0TW9C2z57",
+                        "ref": "5fa981fb-cb14-4130-973c-605d9e26b6c4",
+                        "label": "Entre R$ 300 e 1 milhão de reais por mês"
+                      },
+                      {
+                        "id": "iVH6AfRzlOx8",
+                        "ref": "38b7a2fc-44c6-47e6-aae6-5d915c43fa23",
+                        "label": "Acima de R$ 1 milhão de reais por mês"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "fLT7MzijDMih",
+                    "ref": "07efbeb9-c1a5-4212-b99d-16c3db23c126",
+                    "type": "number",
+                    "title": "Quantos vendedores ativos você tem hoje?\n",
+                    "properties": {}
+                  },
+                  {
+                    "id": "crlgfi7wNty9",
+                    "ref": "5e17bd16-ab60-45d7-9fa1-2bab5f7f2a76",
+                    "type": "multiple_choice",
+                    "title": "Você busca um Diretor Comercial presencial (in loco)?\n",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "5RUEQea8MiZV",
+                        "ref": "9d567d56-68b2-4bf3-a9e8-19db4757b898",
+                        "label": "SIM"
+                      },
+                      {
+                        "id": "p5EalJS5LyDX",
+                        "ref": "44841840-4f26-4628-b1d0-95cd252b665f",
+                        "label": "NÃO"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "JsM1jgMaue4k",
+                    "ref": "c709e7ca-83e2-48a9-a4e7-ce294107dc82",
+                    "type": "multiple_choice",
+                    "title": "Principais desafios comerciais agora?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "mCXKcoPTylN4",
+                        "ref": "b5f71a9b-caae-4ca7-a899-9a08b56d546d",
+                        "label": "Funil"
+                      },
+                      {
+                        "id": "7VnO99CrNZM0",
+                        "ref": "c21af4a0-f749-4ac2-9e37-50f0d4f59ff2",
+                        "label": "Script"
+                      },
+                      {
+                        "id": "sXbN3frDBY2G",
+                        "ref": "11d3ec44-cfe5-4401-b9ea-e0eaaac3e0cc",
+                        "label": "Liderança"
+                      },
+                      {
+                        "id": "j7mc6WXMB6TR",
+                        "ref": "862576e6-64e4-4b38-b1de-35b424feda90",
+                        "label": "Treinamento"
+                      },
+                      {
+                        "id": "4p6NCiTnwKck",
+                        "ref": "765bfd33-db04-4fd4-be94-b6dcec047a3a",
+                        "label": "Forecast"
+                      },
+                      {
+                        "id": "XJbdYGReboKz",
+                        "ref": "35bf2f04-1d65-45e1-b839-ea0e613e8464",
+                        "label": "CRM"
+                      },
+                      {
+                        "id": "m5aOSXfONPs1",
+                        "ref": "a78b351b-2ad8-4265-85a8-a1485c6ca7b0",
+                        "label": "Taxa de fechamento (Conversão)"
+                      },
+                      {
+                        "id": "zIKXPMKyFbiV",
+                        "ref": "17799a61-29be-4746-871e-083bb61df285",
+                        "label": "Churn"
+                      },
+                      {
+                        "id": "mt8YwSMOrA5m",
+                        "ref": "26189a36-8ed4-4fbe-95ca-6b905d81edf9",
+                        "label": "Outros"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "AEx6MxhOtF74",
+                    "ref": "b4aa7e09-b9be-44b1-8740-4803073d0079",
+                    "type": "short_text",
+                    "title": "Address",
+                    "properties": {}
+                  },
+                  {
+                    "id": "VN6a3aAAufM1",
+                    "ref": "2cd042e2-b846-4f7b-ba01-0b8c990ff809",
+                    "type": "short_text",
+                    "title": "City/Town",
+                    "properties": {}
+                  },
+                  {
+                    "id": "TGSYMVgZm3Qt",
+                    "ref": "5618c07c-0fb9-4389-baf1-3e6707bf7442",
+                    "type": "short_text",
+                    "title": "State/Region/Province",
+                    "properties": {}
+                  },
+                  {
+                    "id": "nBZ0wy9Z1D4b",
+                    "ref": "29ed8935-0439-4ff5-a460-3dac31ffde2e",
+                    "type": "short_text",
+                    "title": "Country",
+                    "properties": {}
+                  },
+                  {
+                    "id": "GKdbXlJiwomj",
+                    "ref": "15c73fe6-a626-4ed5-9dca-fa02f3101375",
+                    "type": "long_text",
+                    "title": "Algo que devemos saber antes da sessão?\n",
+                    "properties": {}
+                  }
+                ],
+                "endings": [
+                  {
+                    "id": "qyPhZvv6b2XO",
+                    "ref": "12bc282b-32c7-4295-be9c-ed65bfef5265",
+                    "title": "https://incompany.universidadevendas.com.br/obrigado",
+                    "type": "url_redirect",
+                    "properties": {
+                      "redirect_url": "https://incompany.universidadevendas.com.br/obrigado"
+                    }
+                  }
+                ],
+                "settings": {
+                  "partial_responses_to_all_integrations": true
+                }
+              },
+              "answers": [
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "EGqkd9FcKRW3",
+                    "label": "Entre R$ 100 e 300 mil reais por mês",
+                    "ref": "1720d043-265f-483b-9075-ed7375740372"
+                  },
+                  "field": {
+                    "id": "0FHNmTvRtyP1",
+                    "type": "dropdown",
+                    "ref": "8331ae93-31f1-4960-b44d-abdb746e996d"
+                  }
+                },
+                {
+                  "type": "number",
+                  "number": 4,
+                  "field": {
+                    "id": "fLT7MzijDMih",
+                    "type": "number",
+                    "ref": "07efbeb9-c1a5-4212-b99d-16c3db23c126"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "p5EalJS5LyDX",
+                    "label": "NÃO",
+                    "ref": "44841840-4f26-4628-b1d0-95cd252b665f"
+                  },
+                  "field": {
+                    "id": "crlgfi7wNty9",
+                    "type": "multiple_choice",
+                    "ref": "5e17bd16-ab60-45d7-9fa1-2bab5f7f2a76"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "XJbdYGReboKz",
+                    "label": "CRM",
+                    "ref": "35bf2f04-1d65-45e1-b839-ea0e613e8464"
+                  },
+                  "field": {
+                    "id": "JsM1jgMaue4k",
+                    "type": "multiple_choice",
+                    "ref": "c709e7ca-83e2-48a9-a4e7-ce294107dc82"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "rua",
+                  "field": {
+                    "id": "AEx6MxhOtF74",
+                    "type": "short_text",
+                    "ref": "b4aa7e09-b9be-44b1-8740-4803073d0079"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "cidade",
+                  "field": {
+                    "id": "VN6a3aAAufM1",
+                    "type": "short_text",
+                    "ref": "2cd042e2-b846-4f7b-ba01-0b8c990ff809"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "estado",
+                  "field": {
+                    "id": "TGSYMVgZm3Qt",
+                    "type": "short_text",
+                    "ref": "5618c07c-0fb9-4389-baf1-3e6707bf7442"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "br",
+                  "field": {
+                    "id": "nBZ0wy9Z1D4b",
+                    "type": "short_text",
+                    "ref": "29ed8935-0439-4ff5-a460-3dac31ffde2e"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "teste teste",
+                  "field": {
+                    "id": "GKdbXlJiwomj",
+                    "type": "long_text",
+                    "ref": "15c73fe6-a626-4ed5-9dca-fa02f3101375"
+                  }
+                }
+              ],
+              "ending": {
+                "id": "qyPhZvv6b2XO",
+                "ref": "12bc282b-32c7-4295-be9c-ed65bfef5265"
+              }
+            }
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/typeform-incompany",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "Popup-DCI": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+            "content-length": "261",
+            "accept": "*/*",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "accept-language": "pt-PT,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+            "content-type": "application/json",
+            "origin": "https://incompany.universidadevendas.com.br",
+            "priority": "u=1, i",
+            "referer": "https://incompany.universidadevendas.com.br/",
+            "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site",
+            "x-forwarded-for": "201.17.208.252",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "201.17.208.252"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "name": "Mateus Automagic",
+            "phone": "(31) 99279-6934",
+            "email": "contato.mportob@gmail.com",
+            "timestamp": "2025-09-16T14:27:29.567Z",
+            "source": "landing_page_popup",
+            "popup_id": "prequalification-popup",
+            "utm_source": "",
+            "utm_medium": "",
+            "utm_campaign": "",
+            "utm_content": ""
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/popup-incompany",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2025-09-19T18:11:45.670Z",
+  "versionId": "83f16b71-967a-422b-a3a1-6688b8664876"
+}
