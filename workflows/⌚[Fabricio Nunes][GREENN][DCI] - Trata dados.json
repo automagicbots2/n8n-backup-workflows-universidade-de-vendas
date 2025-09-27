@@ -203,18 +203,7 @@
       "main": [
         [
           {
-            "node": "cria_ou_atualiza_contato_na_clint1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "dados_da_compra7": {
-      "main": [
-        [
-          {
-            "node": "cria_ou_atualiza_contato_na_clint5",
+            "node": "executa_procedure1",
             "type": "main",
             "index": 0
           }
@@ -243,11 +232,66 @@
         ]
       ]
     },
+    "executa_procedure": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_ou_atualiza_contato_na_clint5": {
+      "main": [
+        [
+          {
+            "node": "executa_procedure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "compra_aprovada": {
       "main": [
         [
           {
-            "node": "dados_da_compra7",
+            "node": "dados_da_compra",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_da_compra": {
+      "main": [
+        [
+          {
+            "node": "cria_ou_atualiza_contato_na_clint5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_ou_atualiza_contato_na_clint1": {
+      "main": [
+        [
+          {
+            "node": "executa_procedure1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "executa_procedure1": {
+      "main": [
+        [
+          {
+            "node": "Limit1",
             "type": "main",
             "index": 0
           }
@@ -1045,8 +1089,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        960,
-        0
+        940,
+        20
       ]
     },
     {
@@ -1075,39 +1119,39 @@
               "value": "={{ $json[\"body\"][\"product\"][\"name\"] }}"
             },
             {
-              "name": "transaction_id",
+              "name": "id_transacao_checkout",
               "value": "={{ $json[\"body\"][\"sale\"][\"id\"] }}"
             },
             {
-              "name": "product_id",
+              "name": "id_produto",
               "value": "={{ $json[\"body\"][\"product\"][\"id\"] }}"
             },
             {
-              "name": "value",
+              "name": "valor",
               "value": "={{ $json[\"body\"][\"product\"][\"amount\"] }}"
             },
             {
-              "name": "offer_code",
+              "name": "oferta",
               "value": "={{ $json[\"body\"][\"offer\"][\"hash\"] }}"
             },
             {
-              "name": "payment_method",
+              "name": "forma_de_pagamento",
               "value": "={{ $json[\"body\"][\"sale\"][\"method\"] }}"
             },
             {
-              "name": "trans_status",
+              "name": "status_da_compra",
               "value": "={{ $json[\"body\"][\"sale\"][\"status\"] }}"
             },
             {
-              "name": "conversion_date",
+              "name": "data_conversao",
               "value": "={{ $json[\"body\"][\"sale\"][\"created_at\"].slice (0,10) }}"
             },
             {
-              "name": "warranty_date",
+              "name": "period",
               "value": "={{ $json[\"body\"][\"product\"][\"period\"] }}"
             },
             {
-              "name": "installments",
+              "name": "parcelas",
               "value": "={{ $json[\"body\"][\"sale\"][\"installments\"] }}"
             },
             {
@@ -1139,11 +1183,11 @@
               "value": "="
             },
             {
-              "name": "gateway_comission",
+              "name": "comissao_gateway",
               "value": "={{ $json[\"body\"][\"sale\"][\"fee\"] }}"
             },
             {
-              "name": "conversion_date",
+              "name": "data_conversao",
               "value": "={{ $json[\"body\"][\"sale\"][\"updated_at\"] ? $json[\"body\"][\"sale\"][\"updated_at\"].slice(8,10) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(5,7) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(0,4) + ' ' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(11,16) : ''}}"
             },
             {
@@ -1155,7 +1199,7 @@
               "value": "={{ $json[\"body\"][\"sale\"][\"seller_balance\"] }}"
             },
             {
-              "name": "warrant_date",
+              "name": "data_garantia",
               "value": "={{ \n  (() => {\n    const updatedAt = $json[\"body\"][\"sale\"][\"updated_at\"];\n    if (!updatedAt) {\n      return '';\n    }\n    \n    const dateObj = new Date(updatedAt);\n    const daysToAdd = 7; // ou -7 para subtrair\n    const newDate = new Date(dateObj);\n    newDate.setDate(newDate.getDate() + daysToAdd);\n    return newDate.toLocaleDateString('pt-BR');\n  })() \n}}"
             },
             {
@@ -1295,7 +1339,7 @@
       "typeVersion": 2,
       "position": [
         760,
-        0
+        20
       ]
     },
     {
@@ -1353,6 +1397,89 @@
         960,
         -300
       ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "greenn-dci",
+        "options": {}
+      },
+      "id": "2c1baa7a-53c1-401f-b993-88beaf9e4bea",
+      "name": "Popup-DCI",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        520,
+        280
+      ],
+      "webhookId": "19153897-684d-4eec-8f0f-58f8b32404aa",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aguardando_pagamento-dci",
+        "options": {}
+      },
+      "id": "5387b80a-583a-4f1d-80d3-78f89eb2db8f",
+      "name": "aguardando_pagamento",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        580,
+        20
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "CALL busca_conversao(\n    {{ $node[\"dados_da_compra\"].json[\"body\"][\"transaction_id\"] ? `'` + $node[\"dados_da_compra\"].json[\"body\"][\"transaction_id\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"id_user\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"id_user\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"id_cliente\"] ? $node[\"compra_aprovada\"].json[\"body\"][\"id_cliente\"] : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"id_funil\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"id_funil\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"id_produto\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"id_produto\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"valor\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"valor\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"parcelas\"] ? $node[\"compra_aprovada\"].json[\"body\"][\"parcelas\"] : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"oferta\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"oferta\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"comissao_gateway\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"comissao_gateway\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"id_vendedor\"] ? $node[\"compra_aprovada\"].json[\"body\"][\"id_vendedor\"] : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"moeda\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"moeda\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"forma_de_pagamento\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"forma_de_pagamento\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"status_da_compra\"] ? `'` + $node[\"fluxo_chamado\"].json[\"body\"][\"status_da_compra\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"data_garantia\"] ? `'` + $node[\"fluxo_chamado\"].json[\"body\"][\"data_garantia\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"data_conversao\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"data_conversao\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"utm_source\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"utm_source\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"utm_campaign\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"utm_campaign\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"utm_term\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"utm_term\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"utm_medium\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"utm_medium\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"utm_content\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"utm_content\"] + `'` : 'NULL' }}\n);\n",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1160,
+        -300
+      ],
+      "id": "0179999f-5ecc-4db5-8242-249ab2e4082f",
+      "name": "executa_procedure",
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        -300
+      ],
+      "id": "a3760fbf-03cb-4ac7-9c3a-ce541f5b8f15",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "compra-aprovada-dci",
+        "options": {}
+      },
+      "id": "c3628ab9-2e0b-473c-ab2f-dbdb475d51fd",
+      "name": "compra_aprovada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        -300
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
     },
     {
       "parameters": {
@@ -1595,63 +1722,47 @@
         "options": {}
       },
       "id": "987e19de-202f-49cd-87ce-cd25614c1a33",
-      "name": "dados_da_compra7",
+      "name": "dados_da_compra",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        740,
+        760,
         -300
       ]
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "greenn-dci",
-        "options": {}
+        "operation": "executeQuery",
+        "query": "CALL busca_conversao(\n  {{ $node[\"dados_da_compra2\"].json[\"transaction_id\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"transaction_id\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"id_user\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"id_user\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"client_id\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"client_id\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"id_funil\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"id_funil\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"product_id\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"product_id\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"value\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"value\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"installments\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"installments\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"offer_code\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"offer_code\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"gateway_comission\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"gateway_comission\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"id_vendedor\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"id_vendedor\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"currency\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"currency\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"payment_method\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"payment_method\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"trans_status\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"trans_status\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"warrant_date\"] ? \"'\" + $node[\"dados_da_compra2\"].json[\"warrant_date\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"conversion_date\"] ? \"'\" + $node[\"dados_da_compra2\"].json[\"conversion_date\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"utm_source\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"utm_source\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"utm_campaign\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"utm_campaign\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"utm_term\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"utm_term\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"utm_medium\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"utm_medium\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"utm_content\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"utm_content\"] + \"'\" : 'NULL' }}\n);\n",
+        "options": {
+          "detailedOutput": false
+        }
       },
-      "id": "2c1baa7a-53c1-401f-b993-88beaf9e4bea",
-      "name": "Popup-DCI",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
       "position": [
-        540,
-        280
+        1100,
+        20
       ],
-      "webhookId": "19153897-684d-4eec-8f0f-58f8b32404aa",
-      "disabled": true
+      "id": "4e62f3d2-cb1e-4aeb-a02a-2a1a967973d3",
+      "name": "executa_procedure1",
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
     },
     {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "aguardando_pagamento-dci",
-        "options": {}
-      },
-      "id": "5387b80a-583a-4f1d-80d3-78f89eb2db8f",
-      "name": "aguardando_pagamento",
-      "type": "n8n-nodes-base.webhook",
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        540,
-        0
+        1260,
+        20
       ],
-      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423",
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "compra-aprovada-dci",
-        "options": {}
-      },
-      "id": "c3628ab9-2e0b-473c-ab2f-dbdb475d51fd",
-      "name": "compra_aprovada",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        540,
-        -300
-      ],
-      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+      "id": "346d6073-5f1f-4e77-ac9e-16750b72c85a",
+      "name": "Limit1"
     }
   ],
   "pinData": {
@@ -2338,7 +2449,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 1,
-  "updatedAt": "2025-09-26T23:17:39.060Z",
-  "versionId": "6155d97a-e42f-425c-b885-a1dcd0d6f3a4"
+  "triggerCount": 2,
+  "updatedAt": "2025-09-27T14:25:00.576Z",
+  "versionId": "89842584-c9a6-4e46-aca9-bd25b7adaa48"
 }
