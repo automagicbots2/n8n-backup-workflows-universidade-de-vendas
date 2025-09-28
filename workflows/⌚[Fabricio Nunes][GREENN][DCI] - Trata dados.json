@@ -1,17 +1,6 @@
 {
   "active": true,
   "connections": {
-    "consulta_sdr": {
-      "main": [
-        [
-          {
-            "node": "create/update clint4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "pesquisa_url_rotacionamento_colaboradores": {
       "main": [
         [
@@ -38,7 +27,7 @@
       "main": [
         [
           {
-            "node": "consulta_sdr",
+            "node": "executa_procedure1",
             "type": "main",
             "index": 0
           }
@@ -203,84 +192,7 @@
       "main": [
         [
           {
-            "node": "executa_procedure1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Popup-DCI": {
-      "main": [
-        [
-          {
             "node": "formata_dados1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "aguardando_pagamento": {
-      "main": [
-        [
-          {
-            "node": "dados_da_compra2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "executa_procedure": {
-      "main": [
-        [
-          {
-            "node": "Limit",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "cria_ou_atualiza_contato_na_clint5": {
-      "main": [
-        [
-          {
-            "node": "executa_procedure",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "compra_aprovada": {
-      "main": [
-        [
-          {
-            "node": "dados_da_compra",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "dados_da_compra": {
-      "main": [
-        [
-          {
-            "node": "cria_ou_atualiza_contato_na_clint5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "cria_ou_atualiza_contato_na_clint1": {
-      "main": [
-        [
-          {
-            "node": "executa_procedure1",
             "type": "main",
             "index": 0
           }
@@ -297,6 +209,138 @@
           }
         ]
       ]
+    },
+    "Limit1": {
+      "main": [
+        [
+          {
+            "node": "cria_ou_atualiza_contato_na_clint1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados2": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_funis2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_url_rotacionamento_colaboradores2": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_users2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_users2": {
+      "main": [
+        [
+          {
+            "node": "cria_atualiza_user2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_atualiza_user2": {
+      "main": [
+        [
+          {
+            "node": "executa_procedure2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_funil2": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_url_rotacionamento_colaboradores2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_funis2": {
+      "main": [
+        [
+          {
+            "node": "busca_funil2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_da_compra3": {
+      "main": [
+        [
+          {
+            "node": "formata_dados2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "executa_procedure2": {
+      "main": [
+        [
+          {
+            "node": "Limit2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit2": {
+      "main": [
+        [
+          {
+            "node": "cria_ou_atualiza_contato_na_clint",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "compra_aprovada": {
+      "main": [
+        [
+          {
+            "node": "dados_da_compra3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "aguardando_pagamento": {
+      "main": [
+        [
+          {
+            "node": "dados_da_compra2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-09-26T21:22:20.599Z",
@@ -308,119 +352,16 @@
   "nodes": [
     {
       "parameters": {
-        "jsCode": "// Capturar os dados do input\nconst inputData = items[0].json.body;\n\n// Função para capitalizar o nome\nfunction capitalizeName(fullName) {\n    if (!fullName) {\n        return { fname: '', lname: '', fullname: '' };\n    }\n\n    const lowerCaseWords = ['da', 'de', 'do', 'di', 'du'];\n    let words = fullName.toLowerCase().split(' ').map((word, index) => {\n        if (lowerCaseWords.includes(word) && index !== 0) {\n            return word;\n        }\n        return word.charAt(0).toUpperCase() + word.slice(1);\n    });\n\n    let fname = words.shift();\n    let lname = words.join(' ');\n\n    return { fname, lname, fullname: `${fname} ${lname}` };\n}\n\n// Função para formatar email\nfunction formatEmail(email) {\n    return email ? email.toLowerCase().trim() : \"\";\n}\n\n// Função para processar e formatar o telefone\nfunction processTelefone(telefoneOriginal) {\n    if (!telefoneOriginal) return \"\";\n    const telefoneLimpo = telefoneOriginal.replace(/\\D/g, \"\"); // Remove caracteres não numéricos\n    const DDI = '55';\n    const DDD = telefoneLimpo.slice(0, 2);\n    let numero;\n\n    if (parseInt(DDD) > 28) {\n        numero = telefoneLimpo.slice(-8);\n    } else {\n        numero = telefoneLimpo.slice(-9);\n    }\n\n    return `${DDI}${DDD}${numero}`;\n}\n\n// Extrair e formatar os dados\nconst fullNameAnswer = inputData[\"Nome\"] || \"\";\nconst emailAnswer = inputData[\"E-mail\"] || \"\";\nconst telefoneClienteOriginal = inputData[\"Telefone\"] || \"\";\nconst telefoneFinal = processTelefone(telefoneClienteOriginal);\n\nconst formattedNames = capitalizeName(fullNameAnswer);\nconst formattedEmail = formatEmail(emailAnswer);\n\n// Capturar UTMs e outros campos\nconst utm_source = inputData[\"utm_source\"] || \"\";\nconst utm_campaign = inputData[\"utm_campaign\"] || \"\";\nconst utm_medium = inputData[\"utm_medium\"] || \"\";\nconst utm_term = inputData[\"utm_term\"] || \"\";\nconst utm_content = inputData[\"utm_content\"] || \"\";\nconst form_id = inputData[\"form_id\"] || \"\";\nconst form_name = inputData[\"form_name\"] || \"\";\nconst data_envio = inputData[\"Data\"] || \"\";\nconst horario_envio = inputData[\"Horário\"] || \"\";\nconst url_pagina = inputData[\"URL da página\"] || \"\";\n\n// Montar o objeto de resultado\nconst result = {\n    ...formattedNames, // Nome formatado\n    email: formattedEmail, // Email formatado\n    whatsapp: telefoneFinal, // WhatsApp formatado\n    utm_source: utm_source,\n    utm_campaign: utm_campaign,\n    utm_term: utm_term,\n    utm_medium: utm_medium,\n    utm_content: utm_content,\n    form_id: form_id,\n    form_name: form_name,\n    data_envio: data_envio,\n    horario_envio: horario_envio,\n    url_pagina: url_pagina\n};\n\n// Retorna o resultado como esperado pelo n8n\nreturn [{ json: result }];\n"
+        "jsCode": "// ===== FORMATA DADOS — igual ao anterior, mas \"data_garantia\" agora é DATE (yyyy-MM-dd) =====\n\nconst root = items[0]?.json ?? {};\nconst payload = Array.isArray(root) ? (root[0] ?? {}) : (root.body ?? root);\n\nfunction capitalizeName(fullName) {\n  if (!fullName) return { fname: '', lname: '', fullname: '' };\n  const lowers = ['da','de','do','di','du'];\n  const parts = String(fullName).toLowerCase().split(/\\s+/).filter(Boolean)\n    .map((w,i) => (lowers.includes(w) && i !== 0) ? w : w.charAt(0).toUpperCase() + w.slice(1));\n  const fname = parts.shift() || '';\n  const lname = parts.join(' ');\n  return { fname, lname, fullname: `${fname}${lname ? ' ' + lname : ''}`.trim() };\n}\nfunction toZapiPhone(v){\n  if (!v) return '';\n  const raw = String(v).replace(/\\D/g,'');\n  const noDDI = raw.startsWith('55') ? raw.slice(2) : raw;\n  const ddd = noDDI.slice(0,2);\n  let num = noDDI.slice(2);\n  if (num.length >= 9) num = num.slice(-9);\n  else if (num.length === 8) num = num.slice(-8);\n  return `55${ddd}${num}`;\n}\nfunction fmtEmail(e){ return e ? String(e).toLowerCase().trim() : ''; }\nfunction fmtDateBRToISO(dt) {\n  if (!dt) return '';\n  const s = String(dt).trim();\n  let m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})\\s+(\\d{2}):(\\d{2})(?::(\\d{2}))?$/);\n  if (m) {\n    const [, d, mo, y, h, mi, ss] = m;\n    return `${y}-${mo}-${d} ${h}:${mi}:${ss ?? '00'}`;\n  }\n  m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})$/);\n  if (m) {\n    const [, d, mo, y] = m;\n    return `${y}-${mo}-${d} 00:00:00`;\n  }\n  return '';\n}\n// ➜ NOVA: formata apenas para DATE (yyyy-MM-dd)\nfunction fmtDateBRToISODate(dt) {\n  if (!dt) return '';\n  const s = String(dt).trim();\n  const m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})(?:\\s+\\d{2}:\\d{2}(?::\\d{2})?)?$/);\n  if (!m) return '';\n  const [, d, mo, y] = m;\n  return `${y}-${mo}-${d}`;\n}\nfunction mapStatus(s){ return s === 'waiting_payment' ? 'Aguardando Pagamento' : (s || ''); }\nfunction numOrNull(v){ const n = Number(v); return Number.isFinite(n) ? n : null; }\nfunction strOrEmpty(v){ return v == null ? '' : String(v); }\n\nconst nomeCliente   = payload['Nome do Cliente'] ?? '';\nconst emailCliente  = payload['E-mail do Cliente'] ?? '';\nconst telCliente    = payload['Telefone do Cliente'] ?? '';\nconst cpfcnpj       = payload['cpf/cnpj'] ?? '';\nconst nomeProduto   = payload['nome_produto'] ?? '';\n\nconst idTransacao   = payload['id_transacao_checkout'];\nconst idProduto     = payload['id_produto'];\nconst valor         = payload['valor'];\nconst oferta        = payload['oferta'] ?? '';\nconst formaPgto     = payload['forma_de_pagamento'] ?? '';\nconst statusCompra  = payload['status_da_compra'] ?? '';\nconst dataConvBR    = payload['data_conversao'] ?? '';\nconst period        = payload['period'];\nconst parcelas      = payload['parcelas'];\nconst ddd           = payload['ddd'] ?? '';\nconst cep           = payload['cep'];\n\nconst utm_source    = payload['utm_source'] ?? '';\nconst utm_campaign  = payload['utm_campaign'] ?? '';\nconst utm_medium    = payload['utm_medium'] ?? '';\nconst utm_content   = payload['utm_content'] ?? '';\nconst utm_term      = payload['utm_term'] ?? '';\n\nconst comissaoGw    = payload['comissao_gateway'];\nconst clientId      = payload['client_id'];\nconst sellerBalance = payload['seller_balance'];\nconst dataGarantiaBR= payload['data_garantia'] ?? '';\nconst codePix       = payload['code_pix'] ?? '';\nconst qrcodePix     = payload['qrcode_pix'] ?? '';\nconst moeda         = payload['moeda'] ?? '';\n\nconst { fname, lname, fullname } = capitalizeName(nomeCliente);\nconst emailFmt      = fmtEmail(emailCliente);\nconst whatsappZapi  = toZapiPhone(telCliente);\nconst dataConversao = fmtDateBRToISO(dataConvBR);      // TIMESTAMP (yyyy-MM-dd HH:mm:ss)\nconst dataGarantia  = fmtDateBRToISODate(dataGarantiaBR); // ➜ DATE (yyyy-MM-dd)\nconst statusFmt     = mapStatus(statusCompra);\n\nconst out = {\n  fname, lname, fullname,\n  email: emailFmt,\n  whatsapp: whatsappZapi,\n\n  \"Nome do Cliente\": fullname || strOrEmpty(nomeCliente),\n  \"E-mail do Cliente\": emailFmt,\n  \"Telefone do Cliente\": strOrEmpty(telCliente),\n  \"cpf/cnpj\": strOrEmpty(cpfcnpj),\n  \"nome_produto\": strOrEmpty(nomeProduto),\n\n  \"id_transacao_checkout\": numOrNull(idTransacao),\n  \"id_produto\": numOrNull(idProduto),\n  \"valor\": numOrNull(valor),\n  \"oferta\": strOrEmpty(oferta),\n  \"forma_de_pagamento\": strOrEmpty(formaPgto),\n  \"status_da_compra\": statusFmt,\n  \"data_conversao\": dataConversao,\n  \"period\": numOrNull(period),\n  \"parcelas\": numOrNull(parcelas),\n  \"ddd\": strOrEmpty(ddd),\n  \"cep\": (cep === null ? null : strOrEmpty(cep)),\n\n  \"utm_source\": strOrEmpty(utm_source),\n  \"utm_campaign\": strOrEmpty(utm_campaign),\n  \"utm_medium\": strOrEmpty(utm_medium),\n  \"utm_content\": strOrEmpty(utm_content),\n  \"utm_term\": strOrEmpty(utm_term),\n\n  \"comissao_gateway\": numOrNull(comissaoGw),\n  \"client_id\": numOrNull(clientId),\n  \"seller_balance\": numOrNull(sellerBalance),\n  \"data_garantia\": dataGarantia, // ➜ apenas DATE\n  \"code_pix\": strOrEmpty(codePix),\n  \"qrcode_pix\": strOrEmpty(qrcodePix),\n  \"moeda\": strOrEmpty(moeda)\n};\n\nreturn [{ json: out }];\n"
       },
       "id": "1a91bc72-65d4-47b9-adf2-62537e1cf85e",
       "name": "formata_dados1",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        740,
+        980,
         280
       ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/a4866f91-5853-4cbf-88cd-b8f1561ac7e6",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "nome",
-              "value": "={{ $node[\"formata_dados1\"].json[\"fname\"] }} {{ $node[\"formata_dados1\"].json[\"lname\"] }}"
-            },
-            {
-              "name": "telefone",
-              "value": "={{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}"
-            },
-            {
-              "name": "email",
-              "value": "={{ $node[\"formata_dados1\"].json[\"email\"] }}"
-            },
-            {
-              "name": "utm_source",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_source\"] }}"
-            },
-            {
-              "name": "utm_campaign",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_campaign\"] }}"
-            },
-            {
-              "name": "utm_term",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_term\"] }}"
-            },
-            {
-              "name": "utm_medium",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_medium\"] }}"
-            },
-            {
-              "name": "utm_content",
-              "value": "={{ $node[\"formata_dados1\"].json[\"utm_content\"] }}"
-            },
-            {
-              "name": "funil",
-              "value": "=DCI - Diretor Comercial Inteligente"
-            },
-            {
-              "name": "variacao_do_funil",
-              "value": "=V1"
-            },
-            {
-              "name": "dono",
-              "value": "={{ $node[\"consulta_sdr\"].json[\"email\"] }}"
-            },
-            {
-              "name": "qtd_vendedores",
-              "value": "={{ $node[\"formata_dados1\"].json[\"qtd_vendedores\"] }}"
-            },
-            {
-              "name": "faturamento",
-              "value": "={{ $node[\"formata_dados1\"].json[\"faturamento\"] }}"
-            },
-            {
-              "name": "desafio_comercial",
-              "value": "={{ $node[\"formata_dados1\"].json[\"desafio_comercial\"] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "444fd3ae-eeeb-4558-a5a0-7d0d2ec86db9",
-      "name": "create/update clint4",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        2200,
-        280
-      ]
-    },
-    {
-      "parameters": {
-        "url": "={{ $node[\"pesquisa_url_rotacionamento_colaboradores\"].json[\"valor_variavel\"] }}",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "time",
-              "value": "=SDR"
-            },
-            {
-              "name": "id_user",
-              "value": "={{ $node[\"cria_atualiza_user\"].json[\"id\"] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2000,
-        280
-      ],
-      "id": "b43ac81e-8f5d-4462-ab93-65d2f7a9d0ac",
-      "name": "consulta_sdr"
     },
     {
       "parameters": {
@@ -447,7 +388,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        1340,
+        1580,
         280
       ],
       "alwaysOutputData": true,
@@ -483,7 +424,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        1580,
+        1800,
         280
       ],
       "alwaysOutputData": true,
@@ -523,7 +464,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1800,
+        2000,
         280
       ],
       "id": "e4151a81-2d1c-42fc-88f6-be2db3b87786",
@@ -537,7 +478,7 @@
           "parameters": [
             {
               "name": "id_forms",
-              "value": "={{ $node[\"formata_dados1\"].json[\"form_id\"] }}"
+              "value": "ec7849e"
             }
           ]
         },
@@ -546,7 +487,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1140,
+        1380,
         280
       ],
       "id": "92559cda-b7a5-4963-92e5-9a674af922a0",
@@ -577,7 +518,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        940,
+        1200,
         280
       ],
       "alwaysOutputData": true,
@@ -655,7 +596,7 @@
       "typeVersion": 2,
       "position": [
         2400,
-        540
+        920
       ]
     },
     {
@@ -689,7 +630,7 @@
       "typeVersion": 2,
       "position": [
         2600,
-        540
+        920
       ],
       "id": "4b8d6271-d5ff-4569-bf2c-5efdcde4bc52",
       "continueOnFail": true
@@ -725,7 +666,7 @@
       "typeVersion": 2,
       "position": [
         2800,
-        540
+        920
       ],
       "id": "0c00fdd2-1101-4b46-8346-c11c3a47f574",
       "continueOnFail": true
@@ -740,7 +681,7 @@
       "typeVersion": 1,
       "position": [
         740,
-        540
+        920
       ]
     },
     {
@@ -824,7 +765,7 @@
       "typeVersion": 4.1,
       "position": [
         2200,
-        540
+        920
       ]
     },
     {
@@ -849,7 +790,7 @@
       "typeVersion": 4.2,
       "position": [
         2000,
-        540
+        920
       ],
       "id": "81dd3d62-f233-42fa-b2e2-3d58dabff66c",
       "name": "consulta_sdr1"
@@ -880,7 +821,7 @@
       "typeVersion": 2.4,
       "position": [
         1340,
-        540
+        920
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -916,7 +857,7 @@
       "typeVersion": 2.4,
       "position": [
         1580,
-        540
+        920
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -956,7 +897,7 @@
       "typeVersion": 4.2,
       "position": [
         1800,
-        540
+        920
       ],
       "id": "f5d3af40-0d22-4b62-960a-43b8c83f4a96",
       "name": "cria_atualiza_user1"
@@ -979,7 +920,7 @@
       "typeVersion": 4.2,
       "position": [
         1140,
-        540
+        920
       ],
       "id": "f2ae5ca9-aeef-45cf-b16b-c1e4cc723094",
       "name": "busca_funil1"
@@ -1010,7 +951,7 @@
       "typeVersion": 2.4,
       "position": [
         940,
-        540
+        920
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1032,7 +973,7 @@
       "typeVersion": 1,
       "position": [
         540,
-        540
+        920
       ],
       "webhookId": "6326d5f7-f76c-4dcc-a6c2-10aa35f2311a",
       "disabled": true
@@ -1046,39 +987,43 @@
           "parameters": [
             {
               "name": "email",
-              "value": "={{ $json[\"E-mail do Cliente\"] }}"
+              "value": "={{ $node[\"formata_dados1\"].json[\"E-mail do Cliente\"] }}"
             },
             {
               "name": "nome",
-              "value": "={{ $json[\"Nome do Cliente\"] }}"
+              "value": "={{ $node[\"formata_dados1\"].json[\"Nome do Cliente\"] }}"
             },
             {
               "name": "telefone",
-              "value": "={{ $json[\"Telefone do Cliente\"] }}"
+              "value": "={{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}"
             },
             {
               "name": "cpf/cnpj",
-              "value": "={{ $json[\"cpf/cnpj\"] }}"
+              "value": "={{ $node[\"formata_dados1\"].json[\"cpf/cnpj\"] }}"
             },
             {
               "name": "produto",
-              "value": "={{ $json[\"nome_produto\"] }}"
+              "value": "={{ $node[\"formata_dados1\"].json[\"nome_produto\"] }}"
             },
             {
               "name": "metodo_pagamento",
-              "value": "={{ $json[\"payment_method\"] }}"
+              "value": "={{ $node[\"formata_dados1\"].json[\"forma_de_pagamento\"] }}"
             },
             {
               "name": "parcelas",
-              "value": "={{ $json[\"installments\"] }}"
+              "value": "={{ $node[\"formata_dados1\"].json[\"parcelas\"] }}"
             },
             {
               "name": "valor",
-              "value": "={{ $json[\"value\"] }}"
+              "value": "={{ $node[\"formata_dados1\"].json[\"valor\"] }}"
             },
             {
               "name": "Plataforma",
               "value": "Green"
+            },
+            {
+              "name": "status_da_compra",
+              "value": "={{ $node[\"formata_dados1\"].json[\"status_da_compra\"] }}"
             }
           ]
         },
@@ -1089,8 +1034,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        940,
-        20
+        2620,
+        280
       ]
     },
     {
@@ -1211,6 +1156,10 @@
               "value": "={{ $json[\"body\"][\"sale\"][\"imgQrcode\"] }}"
             },
             {
+              "name": "form_id",
+              "value": "ec7849e"
+            },
+            {
               "name": "zipcode",
               "value": "={{ $json[\"body\"][\"client\"][\"zipcode\"] }}"
             },
@@ -1282,7 +1231,7 @@
               "value": "976441"
             },
             {
-              "name": "currency",
+              "name": "moeda",
               "value": "BRL"
             },
             {
@@ -1338,103 +1287,14 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        760,
-        20
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/3353fe0c-b7cd-4b73-83aa-7709536c609b",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "email",
-              "value": "={{ $json[\"E-mail do Cliente\"] }}"
-            },
-            {
-              "name": "nome",
-              "value": "={{ $json[\"Nome do Cliente\"] }}"
-            },
-            {
-              "name": "telefone",
-              "value": "={{ $json[\"Telefone do Cliente - Formato BC\"] }}"
-            },
-            {
-              "name": "cpf/cnpj",
-              "value": "={{ $json[\"cpf/cnpj\"] }}"
-            },
-            {
-              "name": "produto",
-              "value": "={{ $json[\"nome_produto\"] }}"
-            },
-            {
-              "name": "metodo_pagamento",
-              "value": "={{ $json[\"payment_method\"] }}"
-            },
-            {
-              "name": "parcelas",
-              "value": "={{ $json[\"installments\"] }}"
-            },
-            {
-              "name": "valor",
-              "value": "={{ $json[\"value\"] }}"
-            },
-            {
-              "name": "Plataforma",
-              "value": "Green"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "ef36cebe-f3c4-48a1-b494-b6e3fe5bfa33",
-      "name": "cria_ou_atualiza_contato_na_clint5",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        960,
-        -300
-      ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "greenn-dci",
-        "options": {}
-      },
-      "id": "2c1baa7a-53c1-401f-b993-88beaf9e4bea",
-      "name": "Popup-DCI",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        520,
+        780,
         280
-      ],
-      "webhookId": "19153897-684d-4eec-8f0f-58f8b32404aa",
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "aguardando_pagamento-dci",
-        "options": {}
-      },
-      "id": "5387b80a-583a-4f1d-80d3-78f89eb2db8f",
-      "name": "aguardando_pagamento",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        580,
-        20
-      ],
-      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+      ]
     },
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "CALL busca_conversao(\n    {{ $node[\"dados_da_compra\"].json[\"body\"][\"transaction_id\"] ? `'` + $node[\"dados_da_compra\"].json[\"body\"][\"transaction_id\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"id_user\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"id_user\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"id_cliente\"] ? $node[\"compra_aprovada\"].json[\"body\"][\"id_cliente\"] : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"id_funil\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"id_funil\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"id_produto\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"id_produto\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"valor\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"valor\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"parcelas\"] ? $node[\"compra_aprovada\"].json[\"body\"][\"parcelas\"] : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"oferta\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"oferta\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"comissao_gateway\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"comissao_gateway\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"id_vendedor\"] ? $node[\"compra_aprovada\"].json[\"body\"][\"id_vendedor\"] : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"moeda\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"moeda\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"forma_de_pagamento\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"forma_de_pagamento\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"status_da_compra\"] ? `'` + $node[\"fluxo_chamado\"].json[\"body\"][\"status_da_compra\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"data_garantia\"] ? `'` + $node[\"fluxo_chamado\"].json[\"body\"][\"data_garantia\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"data_conversao\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"data_conversao\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"utm_source\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"utm_source\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"utm_campaign\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"utm_campaign\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"utm_term\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"utm_term\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"utm_medium\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"utm_medium\"] + `'` : 'NULL' }},\n    {{ $node[\"compra_aprovada\"].json[\"body\"][\"utm_content\"] ? `'` + $node[\"compra_aprovada\"].json[\"body\"][\"utm_content\"] + `'` : 'NULL' }}\n);\n",
+        "query": "CALL busca_conversao(\n  '{{ $node[\"formata_dados1\"].json[\"id_transacao_checkout\"] }}',\n  '{{ $node[\"cria_atualiza_user\"].json[\"id\"] }}',\n  '{{ $node[\"formata_dados1\"].json[\"client_id\"] }}',\n  '{{ $node[\"busca_funil\"].json[\"id_funil\"] }}',\n  '{{ $node[\"formata_dados1\"].json[\"id_produto\"] }}',\n  '{{ $node[\"formata_dados1\"].json[\"valor\"] }}',\n  {{ $node[\"formata_dados1\"].json[\"parcelas\"] ? $node[\"formata_dados1\"].json[\"parcelas\"] : null }},\n  '{{ $node[\"formata_dados1\"].json[\"oferta\"] ? $node[\"formata_dados1\"].json[\"oferta\"] : null }}',\n  '{{ $node[\"formata_dados1\"].json[\"comissao_gateway\"] }}',\n  {{ $node[\"formata_dados1\"].json[\"id_vendedor\"] ? $node[\"formata_dados1\"].json[\"id_vendedor\"] : null }},\n  '{{ $node[\"formata_dados1\"].json[\"moeda\"] }}',\n  '{{ $node[\"formata_dados1\"].json[\"forma_de_pagamento\"] }}',\n  '{{ $node[\"formata_dados1\"].json[\"status_da_compra\"] }}',\n  '{{ $node[\"formata_dados1\"].json[\"data_conversao\"] }}',\n  '{{ $node[\"formata_dados1\"].json[\"utm_source\"] }}',\n  '{{ $node[\"formata_dados1\"].json[\"utm_campaign\"] }}',\n  '{{ $node[\"formata_dados1\"].json[\"utm_term\"] }}',\n  '{{ $node[\"formata_dados1\"].json[\"utm_medium\"] }}',\n  '{{ $node[\"formata_dados1\"].json[\"utm_content\"] }}'\n);\n",
         "options": {
           "detailedOutput": false
         }
@@ -1442,11 +1302,11 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        1160,
-        -300
+        2220,
+        280
       ],
-      "id": "0179999f-5ecc-4db5-8242-249ab2e4082f",
-      "name": "executa_procedure",
+      "id": "4e62f3d2-cb1e-4aeb-a02a-2a1a967973d3",
+      "name": "executa_procedure1",
       "credentials": {
         "mySql": {
           "id": "PfzfhyuSKTUfroef",
@@ -1459,27 +1319,254 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        1340,
-        -300
+        2400,
+        280
       ],
-      "id": "a3760fbf-03cb-4ac7-9c3a-ce541f5b8f15",
-      "name": "Limit"
+      "id": "346d6073-5f1f-4e77-ac9e-16750b72c85a",
+      "name": "Limit1"
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "compra-aprovada-dci",
-        "options": {}
+        "jsCode": "// ===== FORMATA DADOS — igual ao anterior, mas \"data_garantia\" agora é DATE (yyyy-MM-dd) =====\n\nconst root = items[0]?.json ?? {};\nconst payload = Array.isArray(root) ? (root[0] ?? {}) : (root.body ?? root);\n\nfunction capitalizeName(fullName) {\n  if (!fullName) return { fname: '', lname: '', fullname: '' };\n  const lowers = ['da','de','do','di','du'];\n  const parts = String(fullName).toLowerCase().split(/\\s+/).filter(Boolean)\n    .map((w,i) => (lowers.includes(w) && i !== 0) ? w : w.charAt(0).toUpperCase() + w.slice(1));\n  const fname = parts.shift() || '';\n  const lname = parts.join(' ');\n  return { fname, lname, fullname: `${fname}${lname ? ' ' + lname : ''}`.trim() };\n}\nfunction toZapiPhone(v){\n  if (!v) return '';\n  const raw = String(v).replace(/\\D/g,'');\n  const noDDI = raw.startsWith('55') ? raw.slice(2) : raw;\n  const ddd = noDDI.slice(0,2);\n  let num = noDDI.slice(2);\n  if (num.length >= 9) num = num.slice(-9);\n  else if (num.length === 8) num = num.slice(-8);\n  return `55${ddd}${num}`;\n}\nfunction fmtEmail(e){ return e ? String(e).toLowerCase().trim() : ''; }\nfunction fmtDateBRToISO(dt) {\n  if (!dt) return '';\n  const s = String(dt).trim();\n  let m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})\\s+(\\d{2}):(\\d{2})(?::(\\d{2}))?$/);\n  if (m) {\n    const [, d, mo, y, h, mi, ss] = m;\n    return `${y}-${mo}-${d} ${h}:${mi}:${ss ?? '00'}`;\n  }\n  m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})$/);\n  if (m) {\n    const [, d, mo, y] = m;\n    return `${y}-${mo}-${d} 00:00:00`;\n  }\n  return '';\n}\n// ➜ NOVA: formata apenas para DATE (yyyy-MM-dd)\nfunction fmtDateBRToISODate(dt) {\n  if (!dt) return '';\n  const s = String(dt).trim();\n  const m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})(?:\\s+\\d{2}:\\d{2}(?::\\d{2})?)?$/);\n  if (!m) return '';\n  const [, d, mo, y] = m;\n  return `${y}-${mo}-${d}`;\n}\nfunction mapStatus(s){ return s === 'waiting_payment' ? 'Aguardando Pagamento' : (s || ''); }\nfunction numOrNull(v){ const n = Number(v); return Number.isFinite(n) ? n : null; }\nfunction strOrEmpty(v){ return v == null ? '' : String(v); }\n\nconst nomeCliente   = payload['Nome do Cliente'] ?? '';\nconst emailCliente  = payload['E-mail do Cliente'] ?? '';\nconst telCliente    = payload['Telefone do Cliente'] ?? '';\nconst cpfcnpj       = payload['cpf/cnpj'] ?? '';\nconst nomeProduto   = payload['nome_produto'] ?? '';\n\nconst idTransacao   = payload['id_transacao_checkout'];\nconst idProduto     = payload['id_produto'];\nconst valor         = payload['valor'];\nconst oferta        = payload['oferta'] ?? '';\nconst formaPgto     = payload['forma_de_pagamento'] ?? '';\nconst statusCompra  = payload['status_da_compra'] ?? '';\nconst dataConvBR    = payload['data_conversao'] ?? '';\nconst period        = payload['period'];\nconst parcelas      = payload['parcelas'];\nconst ddd           = payload['ddd'] ?? '';\nconst cep           = payload['cep'];\n\nconst utm_source    = payload['utm_source'] ?? '';\nconst utm_campaign  = payload['utm_campaign'] ?? '';\nconst utm_medium    = payload['utm_medium'] ?? '';\nconst utm_content   = payload['utm_content'] ?? '';\nconst utm_term      = payload['utm_term'] ?? '';\n\nconst comissaoGw    = payload['comissao_gateway'];\nconst clientId      = payload['client_id'];\nconst sellerBalance = payload['seller_balance'];\nconst dataGarantiaBR= payload['data_garantia'] ?? '';\nconst codePix       = payload['code_pix'] ?? '';\nconst qrcodePix     = payload['qrcode_pix'] ?? '';\nconst moeda         = payload['moeda'] ?? '';\n\nconst { fname, lname, fullname } = capitalizeName(nomeCliente);\nconst emailFmt      = fmtEmail(emailCliente);\nconst whatsappZapi  = toZapiPhone(telCliente);\nconst dataConversao = fmtDateBRToISO(dataConvBR);      // TIMESTAMP (yyyy-MM-dd HH:mm:ss)\nconst dataGarantia  = fmtDateBRToISODate(dataGarantiaBR); // ➜ DATE (yyyy-MM-dd)\nconst statusFmt     = mapStatus(statusCompra);\n\nconst out = {\n  fname, lname, fullname,\n  email: emailFmt,\n  whatsapp: whatsappZapi,\n\n  \"Nome do Cliente\": fullname || strOrEmpty(nomeCliente),\n  \"E-mail do Cliente\": emailFmt,\n  \"Telefone do Cliente\": strOrEmpty(telCliente),\n  \"cpf/cnpj\": strOrEmpty(cpfcnpj),\n  \"nome_produto\": strOrEmpty(nomeProduto),\n\n  \"id_transacao_checkout\": numOrNull(idTransacao),\n  \"id_produto\": numOrNull(idProduto),\n  \"valor\": numOrNull(valor),\n  \"oferta\": strOrEmpty(oferta),\n  \"forma_de_pagamento\": strOrEmpty(formaPgto),\n  \"status_da_compra\": statusFmt,\n  \"data_conversao\": dataConversao,\n  \"period\": numOrNull(period),\n  \"parcelas\": numOrNull(parcelas),\n  \"ddd\": strOrEmpty(ddd),\n  \"cep\": (cep === null ? null : strOrEmpty(cep)),\n\n  \"utm_source\": strOrEmpty(utm_source),\n  \"utm_campaign\": strOrEmpty(utm_campaign),\n  \"utm_medium\": strOrEmpty(utm_medium),\n  \"utm_content\": strOrEmpty(utm_content),\n  \"utm_term\": strOrEmpty(utm_term),\n\n  \"comissao_gateway\": numOrNull(comissaoGw),\n  \"client_id\": numOrNull(clientId),\n  \"seller_balance\": numOrNull(sellerBalance),\n  \"data_garantia\": dataGarantia, // ➜ apenas DATE\n  \"code_pix\": strOrEmpty(codePix),\n  \"qrcode_pix\": strOrEmpty(qrcodePix),\n  \"moeda\": strOrEmpty(moeda)\n};\n\nreturn [{ json: out }];\n"
       },
-      "id": "c3628ab9-2e0b-473c-ab2f-dbdb475d51fd",
-      "name": "compra_aprovada",
-      "type": "n8n-nodes-base.webhook",
+      "id": "2ba99600-697e-421a-9fb9-26b67c578e1c",
+      "name": "formata_dados2",
+      "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        540,
-        -300
+        980,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Rotacionamento de Colaboradores"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "7d5d72a7-7455-4484-9145-9cc0f9c167bf",
+      "name": "pesquisa_url_rotacionamento_colaboradores2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1580,
+        40
       ],
-      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Users"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "5f671fa9-7c1a-4ecc-8543-1112f800ef6d",
+      "name": "pesquisa_variavel_n8n_fluxo_users2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1800,
+        40
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users2\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados2\"].json[\"fname\"] || \"\" }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados2\"].json[\"lname\"] || \"\" }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados2\"].json[\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados2\"].json[\"whatsapp\"] || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        40
+      ],
+      "id": "ea3012b9-f95d-4f8b-b6d6-bff6a1790c56",
+      "name": "cria_atualiza_user2"
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis2\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_forms",
+              "value": "ec7849e"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1380,
+        40
+      ],
+      "id": "5ca4c177-5d05-42d5-a391-0e12f8cb362c",
+      "name": "busca_funil2"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Funis"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "1563a62d-e5e0-461c-bd7c-ade2138d3c35",
+      "name": "pesquisa_variavel_n8n_fluxo_funis2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1200,
+        40
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/3353fe0c-b7cd-4b73-83aa-7709536c609b",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados2\"].json[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados2\"].json[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados2\"].json[\"whatsapp\"] }}"
+            },
+            {
+              "name": "cpf/cnpj",
+              "value": "={{ $node[\"formata_dados2\"].json[\"cpf/cnpj\"] }}"
+            },
+            {
+              "name": "produto",
+              "value": "={{ $node[\"formata_dados2\"].json[\"nome_produto\"] }}"
+            },
+            {
+              "name": "metodo_pagamento",
+              "value": "={{ $node[\"formata_dados2\"].json[\"forma_de_pagamento\"] }}"
+            },
+            {
+              "name": "parcelas",
+              "value": "={{ $node[\"formata_dados2\"].json[\"parcelas\"] }}"
+            },
+            {
+              "name": "valor",
+              "value": "={{ $node[\"formata_dados2\"].json[\"valor\"] }}"
+            },
+            {
+              "name": "Plataforma",
+              "value": "Green"
+            },
+            {
+              "name": "status_da_compra",
+              "value": "={{ $node[\"formata_dados2\"].json[\"status_da_compra\"] }}"
+            },
+            {
+              "name": "data_conversao",
+              "value": "={{ $node[\"formata_dados2\"].json[\"data_conversao\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e4f69adb-8cc4-4908-8f5b-4c187bdd89ec",
+      "name": "cria_ou_atualiza_contato_na_clint",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2620,
+        40
+      ]
     },
     {
       "parameters": {
@@ -1495,7 +1582,7 @@
               "value": "={{ $json[\"body\"][\"client\"][\"email\"] }}"
             },
             {
-              "name": "Telefone do Cliente - Formato BC",
+              "name": "Telefone do Cliente",
               "value": "={{ \n  (() => {\n    const telefone = $json[\"body\"][\"client\"][\"cellphone\"];\n    if (!telefone) {\n      return '';\n    }\n    \n    const telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n  \n    let ddi;\n    let ddd;\n    let telefoneFormatado;\n  \n    // Verificar se o telefone começa com \"55\" antes de formatá-lo\n    if (telefoneLimpo.startsWith('55')) {\n      ddi = telefoneLimpo.slice(0, 2);\n      ddd = telefoneLimpo.slice(2, 4);\n      if (parseInt(ddd, 10) > 28) {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n      } else {\n        telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n      }\n    } else {\n      // Se o DDI for diferente de 55, manter o número como está\n      telefoneFormatado = telefoneLimpo;\n    }\n  \n    return '+' + telefoneFormatado;\n  })() \n}}"
             },
             {
@@ -1507,39 +1594,39 @@
               "value": "={{ $json[\"body\"][\"product\"][\"name\"] }}"
             },
             {
-              "name": "transaction_id",
+              "name": "id_transacao_checkout",
               "value": "={{ $json[\"body\"][\"sale\"][\"id\"] }}"
             },
             {
-              "name": "product_id",
+              "name": "id_produto",
               "value": "={{ $json[\"body\"][\"product\"][\"id\"] }}"
             },
             {
-              "name": "value",
+              "name": "valor",
               "value": "={{ $json[\"body\"][\"product\"][\"amount\"] }}"
             },
             {
-              "name": "offer_code",
+              "name": "oferta",
               "value": "={{ $json[\"body\"][\"offer\"][\"hash\"] }}"
             },
             {
-              "name": "payment_method",
+              "name": "forma_de_pagamento",
               "value": "={{ $json[\"body\"][\"sale\"][\"method\"] }}"
             },
             {
-              "name": "trans_status",
+              "name": "status_da_compra",
               "value": "={{ $json[\"body\"][\"sale\"][\"status\"] }}"
             },
             {
-              "name": "conversion_date",
+              "name": "data_conversao",
               "value": "={{ $json[\"body\"][\"sale\"][\"created_at\"].slice (0,10) }}"
             },
             {
-              "name": "warranty_date",
+              "name": "period",
               "value": "={{ $json[\"body\"][\"product\"][\"period\"] }}"
             },
             {
-              "name": "installments",
+              "name": "parcelas",
               "value": "={{ $json[\"body\"][\"sale\"][\"installments\"] }}"
             },
             {
@@ -1571,11 +1658,11 @@
               "value": "="
             },
             {
-              "name": "gateway_comission",
+              "name": "comissao_gateway",
               "value": "={{ $json[\"body\"][\"sale\"][\"fee\"] }}"
             },
             {
-              "name": "conversion_date",
+              "name": "data_conversao",
               "value": "={{ $json[\"body\"][\"sale\"][\"updated_at\"] ? $json[\"body\"][\"sale\"][\"updated_at\"].slice(8,10) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(5,7) + '/' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(0,4) + ' ' + $json[\"body\"][\"sale\"][\"updated_at\"].slice(11,16) : ''}}"
             },
             {
@@ -1587,7 +1674,7 @@
               "value": "={{ $json[\"body\"][\"sale\"][\"seller_balance\"] }}"
             },
             {
-              "name": "warrant_date",
+              "name": "data_garantia",
               "value": "={{ \n  (() => {\n    const updatedAt = $json[\"body\"][\"sale\"][\"updated_at\"];\n    if (!updatedAt) {\n      return '';\n    }\n    \n    const dateObj = new Date(updatedAt);\n    const daysToAdd = 7; // ou -7 para subtrair\n    const newDate = new Date(dateObj);\n    newDate.setDate(newDate.getDate() + daysToAdd);\n    return newDate.toLocaleDateString('pt-BR');\n  })() \n}}"
             },
             {
@@ -1597,6 +1684,10 @@
             {
               "name": "qrcode_pix",
               "value": "={{ $json[\"body\"][\"sale\"][\"imgQrcode\"] }}"
+            },
+            {
+              "name": "form_id",
+              "value": "ec7849e"
             },
             {
               "name": "zipcode",
@@ -1670,7 +1761,7 @@
               "value": "976441"
             },
             {
-              "name": "currency",
+              "name": "moeda",
               "value": "BRL"
             },
             {
@@ -1721,19 +1812,19 @@
         },
         "options": {}
       },
-      "id": "987e19de-202f-49cd-87ce-cd25614c1a33",
-      "name": "dados_da_compra",
+      "id": "5a81ec36-909b-4e8b-8c40-f2200df70a29",
+      "name": "dados_da_compra3",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        760,
-        -300
+        780,
+        40
       ]
     },
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "CALL busca_conversao(\n  {{ $node[\"dados_da_compra2\"].json[\"transaction_id\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"transaction_id\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"id_user\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"id_user\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"client_id\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"client_id\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"id_funil\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"id_funil\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"product_id\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"product_id\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"value\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"value\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"installments\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"installments\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"offer_code\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"offer_code\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"gateway_comission\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"gateway_comission\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"id_vendedor\"] !== undefined ? $node[\"dados_da_compra2\"].json[\"id_vendedor\"] : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"currency\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"currency\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"payment_method\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"payment_method\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"trans_status\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"trans_status\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"warrant_date\"] ? \"'\" + $node[\"dados_da_compra2\"].json[\"warrant_date\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"conversion_date\"] ? \"'\" + $node[\"dados_da_compra2\"].json[\"conversion_date\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"utm_source\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"utm_source\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"utm_campaign\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"utm_campaign\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"utm_term\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"utm_term\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"utm_medium\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"utm_medium\"] + \"'\" : 'NULL' }},\n  {{ $node[\"dados_da_compra2\"].json[\"utm_content\"] !== undefined ? \"'\" + $node[\"dados_da_compra2\"].json[\"utm_content\"] + \"'\" : 'NULL' }}\n);\n",
+        "query": "CALL busca_conversao(\n  '{{ $node[\"formata_dados2\"].json[\"id_transacao_checkout\"] }}',\n  '{{ $node[\"cria_atualiza_user2\"].json[\"id\"] }}',\n  '{{ $node[\"formata_dados2\"].json[\"client_id\"] }}',\n  '{{ $node[\"busca_funil2\"].json[\"id_funil\"] }}',\n  '{{ $node[\"formata_dados2\"].json[\"id_produto\"] }}',\n  '{{ $node[\"formata_dados2\"].json[\"valor\"] }}',\n  {{ $node[\"formata_dados2\"].json[\"parcelas\"] ? $node[\"formata_dados2\"].json[\"parcelas\"] : null }},\n  '{{ $node[\"formata_dados2\"].json[\"oferta\"] ? $node[\"formata_dados2\"].json[\"oferta\"] : null }}',\n  '{{ $node[\"formata_dados2\"].json[\"comissao_gateway\"] }}',\n  {{ $node[\"formata_dados2\"].json[\"id_vendedor\"] ? $node[\"formata_dados1\"].json[\"id_vendedor\"] : null }},\n  '{{ $node[\"formata_dados2\"].json[\"moeda\"] }}',\n  '{{ $node[\"formata_dados2\"].json[\"forma_de_pagamento\"] }}',\n  '{{ $node[\"formata_dados2\"].json[\"status_da_compra\"] }}',\n  '{{ $node[\"formata_dados2\"].json[\"data_conversao\"] }}',\n  '{{ $node[\"formata_dados2\"].json[\"utm_source\"] }}',\n  '{{ $node[\"formata_dados2\"].json[\"utm_campaign\"] }}',\n  '{{ $node[\"formata_dados2\"].json[\"utm_term\"] }}',\n  '{{ $node[\"formata_dados2\"].json[\"utm_medium\"] }}',\n  '{{ $node[\"formata_dados2\"].json[\"utm_content\"] }}'\n);\n",
         "options": {
           "detailedOutput": false
         }
@@ -1741,11 +1832,11 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        1100,
-        20
+        2220,
+        40
       ],
-      "id": "4e62f3d2-cb1e-4aeb-a02a-2a1a967973d3",
-      "name": "executa_procedure1",
+      "id": "72d21ef8-3124-4500-a53e-2506af847fa3",
+      "name": "executa_procedure2",
       "credentials": {
         "mySql": {
           "id": "PfzfhyuSKTUfroef",
@@ -1758,11 +1849,43 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        1260,
-        20
+        2400,
+        40
       ],
-      "id": "346d6073-5f1f-4e77-ac9e-16750b72c85a",
-      "name": "Limit1"
+      "id": "cc2df237-afea-4ae3-8991-005a4d88c39f",
+      "name": "Limit2"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "compra-aprovada-dci",
+        "options": {}
+      },
+      "id": "c3628ab9-2e0b-473c-ab2f-dbdb475d51fd",
+      "name": "compra_aprovada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        580,
+        40
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aguardando_pagamento-dci",
+        "options": {}
+      },
+      "id": "5387b80a-583a-4f1d-80d3-78f89eb2db8f",
+      "name": "aguardando_pagamento",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        580,
+        280
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
     }
   ],
   "pinData": {
@@ -2073,209 +2196,6 @@
         }
       }
     ],
-    "Popup-DCI": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "WordPress/6.8.2; https://dci.universidadevendas.com.br",
-            "content-length": "546",
-            "accept": "*/*",
-            "accept-encoding": "deflate, gzip",
-            "content-type": "application/x-www-form-urlencoded",
-            "x-forwarded-for": "45.148.96.7",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "45.148.96.7"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "Nome": "Mateus automagic",
-            "Telefone": "31992796934",
-            "E-mail": "mateusteste2@gmail.com",
-            "utm_source": "",
-            "utm_campaing": "",
-            "utm_term": "",
-            "utm_medium": "",
-            "utm_content": "",
-            "Data": "26/09/2025",
-            "Horário": "14:51",
-            "URL da página": "https://dci.universidadevendas.com.br/#valores",
-            "Agente de usuário": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
-            "IP remoto": "2804:14c:5bc4:86fb:d9db:6934:e907:c843",
-            "Desenvolvido por": "Elementor",
-            "form_id": "ec7849e",
-            "form_name": "Novo formulário"
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/popup-dci",
-          "executionMode": "production"
-        }
-      }
-    ],
-    "aguardando_pagamento": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "GuzzleHttp/7",
-            "content-length": "3500",
-            "content-type": "application/json",
-            "x-forwarded-for": "54.208.146.185",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "54.208.146.185",
-            "x-webhook-token": "$2y$10$/8k7L/hFRqGr6eVYx4XDIerpK3oBt9LpG6ZauoFcWFY8Wx7lxY7cC",
-            "accept-encoding": "gzip"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "type": "sale",
-            "event": "saleUpdated",
-            "oldStatus": "waiting_payment",
-            "currentStatus": "waiting_payment",
-            "sale": {
-              "id": 6634652,
-              "type": "SUBSCRIPTION",
-              "status": "waiting_payment",
-              "created_at": "2025-09-26T22:04:16.000000Z",
-              "updated_at": "2025-09-26T22:04:19.000000Z",
-              "seller_id": 33571,
-              "installments": 1,
-              "method": "PIX",
-              "client_id": 4221911,
-              "fee": 0,
-              "seller_balance": 0,
-              "total": 0,
-              "amount": 197,
-              "proposal_id": null,
-              "subscription_id": "sub_68d70de11a190pXurTtOSFY9",
-              "boleto_url": null,
-              "boleto_barcode": null,
-              "boleto_expiration_date": null,
-              "qrcode": "00020101021226820014br.gov.bcb.pix2560pix.stone.com.br/pix/v2/1451f36f-1b09-40f4-93d6-0f0738aadf9f5204000053039865406197.005802BR5925Pagar Me Instituicao De P6014RIO DE JANEIRO622905253f2a36290503ebcbb570152a663044B5D",
-              "imgQrcode": "https://api.pagar.me/core/v5/transactions/tran_qYvmW8Zf0f2eRO8P/qrcode?payment_method=pix",
-              "paid_at": null,
-              "bump_id": null,
-              "is_smart_sale": 0,
-              "shipping_amount": null,
-              "shipping_selected": null,
-              "coupon": null
-            },
-            "client": {
-              "id": 4221911,
-              "name": "Automagic Teste",
-              "email": "mateusteste@gmail.com",
-              "cellphone": "+5531992796934",
-              "document": "111.087.066-30",
-              "zipcode": null,
-              "street": "",
-              "number": "",
-              "complement": "",
-              "neighborhood": "",
-              "city": "",
-              "uf": "",
-              "created_at": "2025-09-26T22:04:16.000000Z",
-              "updated_at": "2025-09-26T22:04:16.000000Z",
-              "document_type": "cpf",
-              "cpf_cnpj": "111.087.066-30"
-            },
-            "product": {
-              "id": 137612,
-              "name": "Diretor Comercial Inteligente - 5 usuários",
-              "description": "Sistema completo com 4 IAs especializadas: Comercial, Marketing, Social Media e Financeiro trabalhando 24/7 pela sua empresa.\nEnquanto seus concorrentes ainda fazem planilhas, você terá 4 IAs especializadas trabalhando 24/7 para otimizar seus resultados.",
-              "type": "SUBSCRIPTION",
-              "amount": 197,
-              "period": 30,
-              "thank_you_page": "https://dci.universidadevendas.com.br/pagina-de-obrigado/",
-              "created_at": "2025-09-24T18:02:05.000000Z",
-              "updated_at": "2025-09-26T17:00:15.000000Z",
-              "method": "CREDIT_CARD,BOLETO,PIX",
-              "url_callback": null,
-              "trial": 0,
-              "proposal_minimum": 0,
-              "allow_proposal": 0,
-              "affiliation_approbation": 1,
-              "affiliation_public": 1,
-              "is_active": 1,
-              "deleted_at": null,
-              "affiliation_proposal": 1,
-              "category_fiscal": "SERVICE",
-              "fiscal_code": null
-            },
-            "oferta": "Diretor Comercial Inteligente - 5 usuários",
-            "offer": {
-              "hash": "jvVLMM",
-              "amount": 197,
-              "method": "CREDIT_CARD,BOLETO,PIX",
-              "name": "Diretor Comercial Inteligente - 5 usuários",
-              "created_at": "2025-09-24T18:02:05.000000Z"
-            },
-            "seller": {
-              "id": 33571,
-              "name": "Fabricio Augusto Nunes Oliveira",
-              "email": "fabricioaugustonoliveira@gmail.com",
-              "cellphone": "+5531989840003"
-            },
-            "affiliate": null,
-            "productMetas": [],
-            "proposalMetas": [],
-            "saleMetas": [
-              {
-                "id": 36771372,
-                "sale_id": 6634652,
-                "meta_key": "reuse_credit_card",
-                "meta_value": "1",
-                "created_at": "2025-09-26T22:04:16.000000Z",
-                "updated_at": "2025-09-26T22:04:16.000000Z"
-              },
-              {
-                "id": 36771373,
-                "sale_id": 6634652,
-                "meta_key": "assoc_ticket",
-                "meta_value": "0",
-                "created_at": "2025-09-26T22:04:16.000000Z",
-                "updated_at": "2025-09-26T22:04:16.000000Z"
-              },
-              {
-                "id": 36771374,
-                "sale_id": 6634652,
-                "meta_key": "fn",
-                "meta_value": "Automagic Teste",
-                "created_at": "2025-09-26T22:04:16.000000Z",
-                "updated_at": "2025-09-26T22:04:16.000000Z"
-              },
-              {
-                "id": 36771375,
-                "sale_id": 6634652,
-                "meta_key": "em",
-                "meta_value": "mateusteste@gmail.com",
-                "created_at": "2025-09-26T22:04:16.000000Z",
-                "updated_at": "2025-09-26T22:04:16.000000Z"
-              },
-              {
-                "id": 36771376,
-                "sale_id": 6634652,
-                "meta_key": "ph",
-                "meta_value": "31992796934",
-                "created_at": "2025-09-26T22:04:16.000000Z",
-                "updated_at": "2025-09-26T22:04:16.000000Z"
-              }
-            ],
-            "sf_trk": null,
-            "client_has_contract_id": 426923,
-            "charge": 0
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aguardando_pagamento-dci",
-          "executionMode": "production"
-        }
-      }
-    ],
     "compra_aprovada": [
       {
         "json": {
@@ -2436,6 +2356,167 @@
           "executionMode": "production"
         }
       }
+    ],
+    "aguardando_pagamento": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "3273",
+            "content-type": "application/json",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$/8k7L/hFRqGr6eVYx4XDIerpK3oBt9LpG6ZauoFcWFY8Wx7lxY7cC",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "sale",
+            "event": "saleUpdated",
+            "oldStatus": "waiting_payment",
+            "currentStatus": "waiting_payment",
+            "sale": {
+              "id": 6641014,
+              "type": "SUBSCRIPTION",
+              "status": "waiting_payment",
+              "created_at": "2025-09-27T19:47:09.000000Z",
+              "updated_at": "2025-09-27T19:47:11.000000Z",
+              "seller_id": 33571,
+              "installments": 1,
+              "method": "BOLETO",
+              "client_id": 4225488,
+              "fee": 0,
+              "seller_balance": 0,
+              "total": 0,
+              "amount": 297,
+              "proposal_id": null,
+              "subscription_id": "sub_68d83f3d9c8dazxmSfMEkInL",
+              "boleto_url": "https://adm.greenn.com.br/redirect/oa7MtanSye",
+              "boleto_barcode": "19790000054606059757540551398536412170000029700",
+              "boleto_expiration_date": "2025-09-27",
+              "qrcode": null,
+              "imgQrcode": null,
+              "paid_at": null,
+              "bump_id": null,
+              "is_smart_sale": 0,
+              "shipping_amount": null,
+              "shipping_selected": null,
+              "coupon": null
+            },
+            "client": {
+              "id": 4225488,
+              "name": "Auto teste",
+              "email": "autoteste@gmail.com",
+              "cellphone": "+5531988776655",
+              "document": "111.087.066-30",
+              "zipcode": null,
+              "street": "",
+              "number": "",
+              "complement": "",
+              "neighborhood": "",
+              "city": "",
+              "uf": "",
+              "created_at": "2025-09-27T19:47:09.000000Z",
+              "updated_at": "2025-09-27T19:47:09.000000Z",
+              "document_type": "cpf",
+              "cpf_cnpj": "111.087.066-30"
+            },
+            "product": {
+              "id": 137613,
+              "name": "Diretor Comercial Inteligente - 10 usuários",
+              "description": "Sistema completo com 4 IAs especializadas: Comercial, Marketing, Social Media e Financeiro trabalhando 24/7 pela sua empresa.\nEnquanto seus concorrentes ainda fazem planilhas, você terá 4 IAs especializadas trabalhando 24/7 para otimizar seus resultados.",
+              "type": "SUBSCRIPTION",
+              "amount": 297,
+              "period": 30,
+              "thank_you_page": "https://dci-universidadevendas.vercel.app/dashboard",
+              "created_at": "2025-09-24T18:04:22.000000Z",
+              "updated_at": "2025-09-26T17:01:09.000000Z",
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "url_callback": null,
+              "trial": 0,
+              "proposal_minimum": 0,
+              "allow_proposal": 0,
+              "affiliation_approbation": 1,
+              "affiliation_public": 1,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 1,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null
+            },
+            "oferta": "Diretor Comercial Inteligente - 10 usuários",
+            "offer": {
+              "hash": "np9b0M",
+              "amount": 297,
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "name": "Diretor Comercial Inteligente - 10 usuários",
+              "created_at": "2025-09-24T18:04:22.000000Z"
+            },
+            "seller": {
+              "id": 33571,
+              "name": "Fabricio Augusto Nunes Oliveira",
+              "email": "fabricioaugustonoliveira@gmail.com",
+              "cellphone": "+5531989840003"
+            },
+            "affiliate": null,
+            "productMetas": [],
+            "proposalMetas": [],
+            "saleMetas": [
+              {
+                "id": 36826141,
+                "sale_id": 6641014,
+                "meta_key": "reuse_credit_card",
+                "meta_value": "1",
+                "created_at": "2025-09-27T19:47:09.000000Z",
+                "updated_at": "2025-09-27T19:47:09.000000Z"
+              },
+              {
+                "id": 36826142,
+                "sale_id": 6641014,
+                "meta_key": "assoc_ticket",
+                "meta_value": "0",
+                "created_at": "2025-09-27T19:47:09.000000Z",
+                "updated_at": "2025-09-27T19:47:09.000000Z"
+              },
+              {
+                "id": 36826143,
+                "sale_id": 6641014,
+                "meta_key": "fn",
+                "meta_value": "Auto teste",
+                "created_at": "2025-09-27T19:47:09.000000Z",
+                "updated_at": "2025-09-27T19:47:09.000000Z"
+              },
+              {
+                "id": 36826144,
+                "sale_id": 6641014,
+                "meta_key": "em",
+                "meta_value": "autoteste@gmail.com",
+                "created_at": "2025-09-27T19:47:09.000000Z",
+                "updated_at": "2025-09-27T19:47:09.000000Z"
+              },
+              {
+                "id": 36826145,
+                "sale_id": 6641014,
+                "meta_key": "ph",
+                "meta_value": "31988776655",
+                "created_at": "2025-09-27T19:47:09.000000Z",
+                "updated_at": "2025-09-27T19:47:09.000000Z"
+              }
+            ],
+            "sf_trk": null,
+            "client_has_contract_id": 427184,
+            "charge": 0
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aguardando_pagamento-dci",
+          "executionMode": "production"
+        }
+      }
     ]
   },
   "settings": {
@@ -2450,6 +2531,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-09-27T14:25:00.576Z",
-  "versionId": "89842584-c9a6-4e46-aca9-bd25b7adaa48"
+  "updatedAt": "2025-09-27T19:58:51.873Z",
+  "versionId": "281ec4a2-23a2-41e3-bf6d-a1ce02c4400d"
 }
