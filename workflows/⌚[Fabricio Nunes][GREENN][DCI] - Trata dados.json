@@ -89,105 +89,6 @@
         ]
       ]
     },
-    "formata_dados": {
-      "main": [
-        [
-          {
-            "node": "pesquisa_variavel_n8n_fluxo_funis1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "consulta_sdr1": {
-      "main": [
-        [
-          {
-            "node": "create/update clint",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "pesquisa_url_rotacionamento_colaboradores1": {
-      "main": [
-        [
-          {
-            "node": "pesquisa_variavel_n8n_fluxo_users1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "pesquisa_variavel_n8n_fluxo_users1": {
-      "main": [
-        [
-          {
-            "node": "cria_atualiza_user1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "cria_atualiza_user1": {
-      "main": [
-        [
-          {
-            "node": "consulta_sdr1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "busca_funil1": {
-      "main": [
-        [
-          {
-            "node": "pesquisa_url_rotacionamento_colaboradores1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "pesquisa_variavel_n8n_fluxo_funis1": {
-      "main": [
-        [
-          {
-            "node": "busca_funil1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "create/update clint": {
-      "main": [
-        [
-          {
-            "node": "infos_bc",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "typeform-DCI": {
-      "main": [
-        [
-          {
-            "node": "formata_dados",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "dados_da_compra2": {
       "main": [
         [
@@ -320,22 +221,22 @@
         ]
       ]
     },
-    "compra_aprovada": {
+    "aguardando_pagamento": {
       "main": [
         [
           {
-            "node": "dados_da_compra3",
+            "node": "dados_da_compra2",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "aguardando_pagamento": {
+    "compra_aprovada": {
       "main": [
         [
           {
-            "node": "dados_da_compra2",
+            "node": "dados_da_compra3",
             "type": "main",
             "index": 0
           }
@@ -352,7 +253,7 @@
   "nodes": [
     {
       "parameters": {
-        "jsCode": "// ===== FORMATA DADOS — igual ao anterior, mas \"data_garantia\" agora é DATE (yyyy-MM-dd) =====\n\nconst root = items[0]?.json ?? {};\nconst payload = Array.isArray(root) ? (root[0] ?? {}) : (root.body ?? root);\n\nfunction capitalizeName(fullName) {\n  if (!fullName) return { fname: '', lname: '', fullname: '' };\n  const lowers = ['da','de','do','di','du'];\n  const parts = String(fullName).toLowerCase().split(/\\s+/).filter(Boolean)\n    .map((w,i) => (lowers.includes(w) && i !== 0) ? w : w.charAt(0).toUpperCase() + w.slice(1));\n  const fname = parts.shift() || '';\n  const lname = parts.join(' ');\n  return { fname, lname, fullname: `${fname}${lname ? ' ' + lname : ''}`.trim() };\n}\nfunction toZapiPhone(v){\n  if (!v) return '';\n  const raw = String(v).replace(/\\D/g,'');\n  const noDDI = raw.startsWith('55') ? raw.slice(2) : raw;\n  const ddd = noDDI.slice(0,2);\n  let num = noDDI.slice(2);\n  if (num.length >= 9) num = num.slice(-9);\n  else if (num.length === 8) num = num.slice(-8);\n  return `55${ddd}${num}`;\n}\nfunction fmtEmail(e){ return e ? String(e).toLowerCase().trim() : ''; }\nfunction fmtDateBRToISO(dt) {\n  if (!dt) return '';\n  const s = String(dt).trim();\n  let m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})\\s+(\\d{2}):(\\d{2})(?::(\\d{2}))?$/);\n  if (m) {\n    const [, d, mo, y, h, mi, ss] = m;\n    return `${y}-${mo}-${d} ${h}:${mi}:${ss ?? '00'}`;\n  }\n  m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})$/);\n  if (m) {\n    const [, d, mo, y] = m;\n    return `${y}-${mo}-${d} 00:00:00`;\n  }\n  return '';\n}\n// ➜ NOVA: formata apenas para DATE (yyyy-MM-dd)\nfunction fmtDateBRToISODate(dt) {\n  if (!dt) return '';\n  const s = String(dt).trim();\n  const m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})(?:\\s+\\d{2}:\\d{2}(?::\\d{2})?)?$/);\n  if (!m) return '';\n  const [, d, mo, y] = m;\n  return `${y}-${mo}-${d}`;\n}\nfunction mapStatus(s){ return s === 'waiting_payment' ? 'Aguardando Pagamento' : (s || ''); }\nfunction numOrNull(v){ const n = Number(v); return Number.isFinite(n) ? n : null; }\nfunction strOrEmpty(v){ return v == null ? '' : String(v); }\n\nconst nomeCliente   = payload['Nome do Cliente'] ?? '';\nconst emailCliente  = payload['E-mail do Cliente'] ?? '';\nconst telCliente    = payload['Telefone do Cliente'] ?? '';\nconst cpfcnpj       = payload['cpf/cnpj'] ?? '';\nconst nomeProduto   = payload['nome_produto'] ?? '';\n\nconst idTransacao   = payload['id_transacao_checkout'];\nconst idProduto     = payload['id_produto'];\nconst valor         = payload['valor'];\nconst oferta        = payload['oferta'] ?? '';\nconst formaPgto     = payload['forma_de_pagamento'] ?? '';\nconst statusCompra  = payload['status_da_compra'] ?? '';\nconst dataConvBR    = payload['data_conversao'] ?? '';\nconst period        = payload['period'];\nconst parcelas      = payload['parcelas'];\nconst ddd           = payload['ddd'] ?? '';\nconst cep           = payload['cep'];\n\nconst utm_source    = payload['utm_source'] ?? '';\nconst utm_campaign  = payload['utm_campaign'] ?? '';\nconst utm_medium    = payload['utm_medium'] ?? '';\nconst utm_content   = payload['utm_content'] ?? '';\nconst utm_term      = payload['utm_term'] ?? '';\n\nconst comissaoGw    = payload['comissao_gateway'];\nconst clientId      = payload['client_id'];\nconst sellerBalance = payload['seller_balance'];\nconst dataGarantiaBR= payload['data_garantia'] ?? '';\nconst codePix       = payload['code_pix'] ?? '';\nconst qrcodePix     = payload['qrcode_pix'] ?? '';\nconst moeda         = payload['moeda'] ?? '';\n\nconst { fname, lname, fullname } = capitalizeName(nomeCliente);\nconst emailFmt      = fmtEmail(emailCliente);\nconst whatsappZapi  = toZapiPhone(telCliente);\nconst dataConversao = fmtDateBRToISO(dataConvBR);      // TIMESTAMP (yyyy-MM-dd HH:mm:ss)\nconst dataGarantia  = fmtDateBRToISODate(dataGarantiaBR); // ➜ DATE (yyyy-MM-dd)\nconst statusFmt     = mapStatus(statusCompra);\n\nconst out = {\n  fname, lname, fullname,\n  email: emailFmt,\n  whatsapp: whatsappZapi,\n\n  \"Nome do Cliente\": fullname || strOrEmpty(nomeCliente),\n  \"E-mail do Cliente\": emailFmt,\n  \"Telefone do Cliente\": strOrEmpty(telCliente),\n  \"cpf/cnpj\": strOrEmpty(cpfcnpj),\n  \"nome_produto\": strOrEmpty(nomeProduto),\n\n  \"id_transacao_checkout\": numOrNull(idTransacao),\n  \"id_produto\": numOrNull(idProduto),\n  \"valor\": numOrNull(valor),\n  \"oferta\": strOrEmpty(oferta),\n  \"forma_de_pagamento\": strOrEmpty(formaPgto),\n  \"status_da_compra\": statusFmt,\n  \"data_conversao\": dataConversao,\n  \"period\": numOrNull(period),\n  \"parcelas\": numOrNull(parcelas),\n  \"ddd\": strOrEmpty(ddd),\n  \"cep\": (cep === null ? null : strOrEmpty(cep)),\n\n  \"utm_source\": strOrEmpty(utm_source),\n  \"utm_campaign\": strOrEmpty(utm_campaign),\n  \"utm_medium\": strOrEmpty(utm_medium),\n  \"utm_content\": strOrEmpty(utm_content),\n  \"utm_term\": strOrEmpty(utm_term),\n\n  \"comissao_gateway\": numOrNull(comissaoGw),\n  \"client_id\": numOrNull(clientId),\n  \"seller_balance\": numOrNull(sellerBalance),\n  \"data_garantia\": dataGarantia, // ➜ apenas DATE\n  \"code_pix\": strOrEmpty(codePix),\n  \"qrcode_pix\": strOrEmpty(qrcodePix),\n  \"moeda\": strOrEmpty(moeda)\n};\n\nreturn [{ json: out }];\n"
+        "jsCode": "// ===== FORMATA DADOS — igual ao anterior, mas \"data_garantia\" agora é DATE (yyyy-MM-dd) =====\n\nconst root = items[0]?.json ?? {};\nconst payload = Array.isArray(root) ? (root[0] ?? {}) : (root.body ?? root);\n\nfunction capitalizeName(fullName) {\n  if (!fullName) return { fname: '', lname: '', fullname: '' };\n  const lowers = ['da','de','do','di','du'];\n  const parts = String(fullName).toLowerCase().split(/\\s+/).filter(Boolean)\n    .map((w,i) => (lowers.includes(w) && i !== 0) ? w : w.charAt(0).toUpperCase() + w.slice(1));\n  const fname = parts.shift() || '';\n  const lname = parts.join(' ');\n  return { fname, lname, fullname: `${fname}${lname ? ' ' + lname : ''}`.trim() };\n}\nfunction toZapiPhone(v){\n  if (!v) return '';\n  const raw = String(v).replace(/\\D/g,'');\n  const noDDI = raw.startsWith('55') ? raw.slice(2) : raw;\n  const ddd = noDDI.slice(0,2);\n  let num = noDDI.slice(2);\n  if (num.length >= 9) num = num.slice(-9);\n  else if (num.length === 8) num = num.slice(-8);\n  return `55${ddd}${num}`;\n}\nfunction fmtEmail(e){ return e ? String(e).toLowerCase().trim() : ''; }\n\n// ➜ Formata data/hora BR para TIMESTAMP ISO (com -3h)\nfunction fmtDateBRToISO(dt) {\n  if (!dt) return '';\n  const s = String(dt).trim();\n  let m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})\\s+(\\d{2}):(\\d{2})(?::(\\d{2}))?$/);\n  if (m) {\n    const [, d, mo, y, h, mi, ss] = m;\n    const date = new Date(`${y}-${mo}-${d}T${h}:${mi}:${ss ?? '00'}Z`);\n    // aplica -3h\n    date.setHours(date.getHours() - 0);\n    const yyyy = date.getFullYear();\n    const mm = String(date.getMonth() + 1).padStart(2, \"0\");\n    const dd = String(date.getDate()).padStart(2, \"0\");\n    const HH = String(date.getHours()).padStart(2, \"0\");\n    const II = String(date.getMinutes()).padStart(2, \"0\");\n    const SS = String(date.getSeconds()).padStart(2, \"0\");\n    return `${yyyy}-${mm}-${dd} ${HH}:${II}:${SS}`;\n  }\n  m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})$/);\n  if (m) {\n    const [, d, mo, y] = m;\n    return `${y}-${mo}-${d} 00:00:00`;\n  }\n  return '';\n}\n\n// ➜ Apenas DATE (yyyy-MM-dd)\nfunction fmtDateBRToISODate(dt) {\n  if (!dt) return '';\n  const s = String(dt).trim();\n  const m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})(?:\\s+\\d{2}:\\d{2}(?::\\d{2})?)?$/);\n  if (!m) return '';\n  const [, d, mo, y] = m;\n  return `${y}-${mo}-${d}`;\n}\nfunction mapStatus(s){ return s === 'waiting_payment' ? 'Aguardando Pagamento' : (s || ''); }\nfunction numOrNull(v){ const n = Number(v); return Number.isFinite(n) ? n : null; }\nfunction strOrEmpty(v){ return v == null ? '' : String(v); }\n\nconst nomeCliente   = payload['Nome do Cliente'] ?? '';\nconst emailCliente  = payload['E-mail do Cliente'] ?? '';\nconst telCliente    = payload['Telefone do Cliente'] ?? '';\nconst cpfcnpj       = payload['cpf/cnpj'] ?? '';\nconst nomeProduto   = payload['nome_produto'] ?? '';\n\nconst idTransacao   = payload['id_transacao_checkout'];\nconst idProduto     = payload['id_produto'];\nconst valor         = payload['valor'];\nconst oferta        = payload['oferta'] ?? '';\nconst formaPgto     = payload['forma_de_pagamento'] ?? '';\nconst statusCompra  = payload['status_da_compra'] ?? '';\nconst dataConvBR    = payload['data_conversao'] ?? '';\nconst period        = payload['period'];\nconst parcelas      = payload['parcelas'];\nconst ddd           = payload['ddd'] ?? '';\nconst cep           = payload['cep'];\n\nconst utm_source    = payload['utm_source'] ?? '';\nconst utm_campaign  = payload['utm_campaign'] ?? '';\nconst utm_medium    = payload['utm_medium'] ?? '';\nconst utm_content   = payload['utm_content'] ?? '';\nconst utm_term      = payload['utm_term'] ?? '';\n\nconst comissaoGw    = payload['comissao_gateway'];\nconst clientId      = payload['client_id'];\nconst sellerBalance = payload['seller_balance'];\nconst dataGarantiaBR= payload['data_garantia'] ?? '';\nconst codePix       = payload['code_pix'] ?? '';\nconst qrcodePix     = payload['qrcode_pix'] ?? '';\nconst moeda         = payload['moeda'] ?? '';\nconst linkPagamentoBoleto = payload['link_pagamento_boleto'] ?? '';\n\nconst { fname, lname, fullname } = capitalizeName(nomeCliente);\nconst emailFmt      = fmtEmail(emailCliente);\nconst whatsappZapi  = toZapiPhone(telCliente);\nconst dataConversao = fmtDateBRToISO(dataConvBR); // agora com -3h\nconst dataGarantia  = fmtDateBRToISODate(dataGarantiaBR); \nconst statusFmt     = mapStatus(statusCompra);\n\nconst out = {\n  fname, lname, fullname,\n  email: emailFmt,\n  whatsapp: whatsappZapi,\n\n  \"Nome do Cliente\": fullname || strOrEmpty(nomeCliente),\n  \"E-mail do Cliente\": emailFmt,\n  \"Telefone do Cliente\": strOrEmpty(telCliente),\n  \"cpf/cnpj\": strOrEmpty(cpfcnpj),\n  \"nome_produto\": strOrEmpty(nomeProduto),\n\n  \"id_transacao_checkout\": numOrNull(idTransacao),\n  \"id_produto\": numOrNull(idProduto),\n  \"valor\": numOrNull(valor),\n  \"oferta\": strOrEmpty(oferta),\n  \"forma_de_pagamento\": strOrEmpty(formaPgto),\n  \"status_da_compra\": statusFmt,\n  \"data_conversao\": dataConversao, // ✅ ajustado com -3h\n  \"period\": numOrNull(period),\n  \"parcelas\": numOrNull(parcelas),\n  \"ddd\": strOrEmpty(ddd),\n  \"cep\": (cep === null ? null : strOrEmpty(cep)),\n\n  \"utm_source\": strOrEmpty(utm_source),\n  \"utm_campaign\": strOrEmpty(utm_campaign),\n  \"utm_medium\": strOrEmpty(utm_medium),\n  \"utm_content\": strOrEmpty(utm_content),\n  \"utm_term\": strOrEmpty(utm_term),\n\n  \"comissao_gateway\": numOrNull(comissaoGw),\n  \"client_id\": numOrNull(clientId),\n  \"seller_balance\": numOrNull(sellerBalance),\n  \"data_garantia\": dataGarantia, \n  \"code_pix\": strOrEmpty(codePix),\n  \"qrcode_pix\": strOrEmpty(qrcodePix),\n  \"moeda\": strOrEmpty(moeda),\n  \"link_pagamento_boleto\": strOrEmpty(linkPagamentoBoleto)\n};\n\nreturn [{ json: out }];\n"
       },
       "id": "1a91bc72-65d4-47b9-adf2-62537e1cf85e",
       "name": "formata_dados1",
@@ -478,7 +379,7 @@
           "parameters": [
             {
               "name": "id_forms",
-              "value": "ec7849e"
+              "value": "={{ $node[\"dados_da_compra2\"].json[\"form_id\"] }}"
             }
           ]
         },
@@ -595,8 +496,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        2400,
-        920
+        2020,
+        580
       ]
     },
     {
@@ -629,8 +530,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        2600,
-        920
+        2180,
+        580
       ],
       "id": "4b8d6271-d5ff-4569-bf2c-5efdcde4bc52",
       "continueOnFail": true
@@ -665,318 +566,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        2800,
-        920
+        2380,
+        580
       ],
       "id": "0c00fdd2-1101-4b46-8346-c11c3a47f574",
       "continueOnFail": true
-    },
-    {
-      "parameters": {
-        "jsCode": "// 📌 Capturar os dados de entrada\nconst inputData = items[0].json;\nconst formResponse = inputData.body.form_response;\nconst respostas = formResponse.answers || [];\n\n// 📌 Mapear campos pelo ref correto\nconst perguntasMap = {\n    \"name\": \"fullName\", // Nome completo\n    \"phone\": \"telefone\", // WhatsApp com DDD\n    \"email\": \"email\", // E-mail\n    \"07efbeb9-c1a5-4212-b99d-16c3db23c126\": \"qtd_vendedores\", // Quantos vendedores\n    \"8331ae93-31f1-4960-b44d-abdb746e996d\": \"faturamento\", // Faturamento\n    \"c709e7ca-83e2-48a9-a4e7-ce294107dc82\": \"desafio_comercial\", // Desafio\n    \"5bd2513a-a94d-442a-badf-edd8600769f5\": \"endereço\", // Endereço\n    \"15c73fe6-a626-4ed5-9dca-fa02f3101375\": \"pergunta_aberta\", // Pergunta aberta\n    \"5e17bd16-ab60-45d7-9fa1-2bab5f7f2a76\": \"busca_diretor\", // Busca Diretor\n    \"c699ad58-3a85-47bd-a05b-89d1e8401f54\": \"link_agendamento\" // Calendly agendamento\n};\n\n// 📌 Criar objeto para armazenar as respostas\nlet respostasMapeadas = {};\n\n// 📌 Iterar sobre as respostas para montar o objeto\nrespostas.forEach(answer => {\n    const refPergunta = answer.field.ref;\n    const chaveMapeada = perguntasMap[refPergunta] || refPergunta;\n    let resposta = \"\";\n\n    if (answer.type === \"choice\") {\n        resposta = answer.choice.label || \"\";\n    } else if (answer.type === \"text\" || answer.type === \"email\" || answer.type === \"phone_number\" || answer.type === \"url\") {\n        resposta = answer[answer.type] || \"\";\n    } else if (answer.type === \"number\") {\n        resposta = answer.number;\n    }\n\n    respostasMapeadas[chaveMapeada] = resposta;\n});\n\n// ➕ Acrescentar nome/telefone/email/UTMs vindos de form_response.hidden (sem alterar o restante)\nconst hidden = (formResponse && formResponse.hidden) || {};\nif (!respostasMapeadas.fullName)  respostasMapeadas.fullName  = hidden.name  || \"\";\nif (!respostasMapeadas.telefone)  respostasMapeadas.telefone  = hidden.phone || \"\";\nif (!respostasMapeadas.email)     respostasMapeadas.email     = hidden.email || \"\";\n\n// 📌 Funções auxiliares\nfunction capitalizeName(fullName) {\n    if (!fullName) return { fname: \"\", lname: \"\", fullname: \"\" };\n\n    const lowerCaseWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n    let words = fullName.toLowerCase().split(\" \").map((word, index) =>\n        lowerCaseWords.includes(word) && index !== 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)\n    );\n\n    let fname = words.shift();\n    let lname = words.join(\" \");\n    let fullname = lname ? `${fname} ${lname}` : fname;\n\n    return { fname, lname, fullname };\n}\n\nfunction formatEmail(email) {\n    return email ? email.toLowerCase().trim() : \"\";\n}\n\nfunction formatPhone(phone) {\n    if (!phone) return \"\";\n    const telefoneLimpo = phone.replace(/\\D/g, \"\");\n    let DDI = \"55\";\n    let DDD = telefoneLimpo.slice(2, 4);\n    let numero = telefoneLimpo.slice(4);\n\n    if (numero.length === 8) {\n        numero = `9${numero}`;\n    }\n\n    return `${DDI}${DDD}${numero}`;\n}\n\nfunction formatInstagram(instagram) {\n    return instagram ? instagram.toLowerCase().replace(/^@/, \"\") : \"\";\n}\n\n// 📌 Organizar as informações\nconst formattedNames = capitalizeName(respostasMapeadas.fullName);\nconst formattedEmail = formatEmail(respostasMapeadas.email);\nconst telefoneFormatado = formatPhone(respostasMapeadas.telefone);\nconst instagramFormatado = formatInstagram(respostasMapeadas.instagram);\n\n// 📌 Formatar data de aplicação\nfunction formatDate(isoDate) {\n    if (!isoDate) return \"\";\n    const date = new Date(isoDate);\n    const year = date.getFullYear();\n    const month = String(date.getMonth() + 1).padStart(2, \"0\");\n    const day = String(date.getDate()).padStart(2, \"0\");\n    const hours = String(date.getHours()).padStart(2, \"0\");\n    const minutes = String(date.getMinutes()).padStart(2, \"0\");\n    return `${year}-${month}-${day} ${hours}:${minutes}`;\n}\n\nconst dataAplicacaoFormatada = formatDate(formResponse.submitted_at);\n\n// 📌 Montar o resultado final (estrutura preservada) + UTMs do hidden\nconst result = {\n    ...formattedNames,\n    email: formattedEmail,\n    whatsapp: telefoneFormatado,\n    instagram: instagramFormatado,\n    qtd_vendedores: respostasMapeadas.qtd_vendedores || \"\",\n    faturamento: respostasMapeadas.faturamento || \"\",\n    busca_diretor: respostasMapeadas.busca_diretor || \"\",\n    desafio_comercial: respostasMapeadas.desafio_comercial || \"\",\n    endereço: respostasMapeadas.endereço || \"\",\n    pergunta_aberta: respostasMapeadas.pergunta_aberta || \"\",\n    link_agendamento: respostasMapeadas.link_agendamento || \"\",\n    form_id: formResponse.form_id || \"\",\n    form_name: formResponse.definition.title || \"\",\n    data_aplicacao: dataAplicacaoFormatada,\n\n    // ➕ UTMs adicionadas aqui\n    utm_source:  hidden.utm_source  || \"\",\n    utm_medium:  hidden.utm_medium  || \"\",\n    utm_campaign:hidden.utm_campaign|| \"\",\n    utm_content: hidden.utm_content || \"\",\n    utm_term:    hidden.utm_term    || \"\"\n};\n\n// 📌 Retornar para o n8n\nreturn [{ json: result }];\n"
-      },
-      "id": "f094184d-21f7-4b32-9a91-87e81605890f",
-      "name": "formata_dados",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        740,
-        920
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/b2874b50-8a85-43bc-8dae-ef13bfde385f",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "nome",
-              "value": "={{ $node[\"formata_dados\"].json[\"fname\"] }} {{ $node[\"formata_dados\"].json[\"lname\"] }}"
-            },
-            {
-              "name": "telefone",
-              "value": "={{ $node[\"formata_dados\"].json[\"whatsapp\"] }}"
-            },
-            {
-              "name": "email",
-              "value": "={{ $node[\"formata_dados\"].json[\"email\"] }}"
-            },
-            {
-              "name": "utm_source",
-              "value": "={{ $node[\"formata_dados\"].json[\"utm_source\"] }}"
-            },
-            {
-              "name": "utm_campaign",
-              "value": "={{ $node[\"formata_dados\"].json[\"utm_campaign\"] }}"
-            },
-            {
-              "name": "utm_term",
-              "value": "={{ $node[\"formata_dados\"].json[\"utm_term\"] }}"
-            },
-            {
-              "name": "utm_medium",
-              "value": "={{ $node[\"formata_dados\"].json[\"utm_medium\"] }}"
-            },
-            {
-              "name": "utm_content",
-              "value": "={{ $node[\"formata_dados\"].json[\"utm_content\"] }}"
-            },
-            {
-              "name": "funil",
-              "value": "=InCompany"
-            },
-            {
-              "name": "variacao_do_funil",
-              "value": "=V1"
-            },
-            {
-              "name": "dono",
-              "value": "={{ $node[\"consulta_sdr1\"].json[\"email\"] }}"
-            },
-            {
-              "name": "qtd_vendedores",
-              "value": "={{ $node[\"formata_dados\"].json[\"qtd_vendedores\"] }}"
-            },
-            {
-              "name": "faturamento",
-              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
-            },
-            {
-              "name": "desafio_comercial",
-              "value": "={{ $node[\"formata_dados\"].json[\"desafio_comercial\"] }}"
-            },
-            {
-              "name": "busca_diretor",
-              "value": "={{ $node[\"formata_dados\"].json[\"busca_diretor\"] }}"
-            },
-            {
-              "name": "pergunta_aberta",
-              "value": "={{ $node[\"formata_dados\"].json[\"pergunta_aberta\"] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "64d2a0d2-83c1-4bbf-8489-f759a2b0b328",
-      "name": "create/update clint",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        2200,
-        920
-      ]
-    },
-    {
-      "parameters": {
-        "url": "={{ $node[\"pesquisa_url_rotacionamento_colaboradores1\"].json[\"valor_variavel\"] }}",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "time",
-              "value": "=SDR"
-            },
-            {
-              "name": "id_user",
-              "value": "={{ $node[\"cria_atualiza_user1\"].json[\"id\"] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2000,
-        920
-      ],
-      "id": "81dd3d62-f233-42fa-b2e2-3d58dabff66c",
-      "name": "consulta_sdr1"
-    },
-    {
-      "parameters": {
-        "operation": "select",
-        "table": {
-          "__rl": true,
-          "value": "variaveis_globais_n8n",
-          "mode": "list",
-          "cachedResultName": "variaveis_globais_n8n"
-        },
-        "where": {
-          "values": [
-            {
-              "column": "nome_variavel",
-              "value": "URL do Fluxo de Rotacionamento de Colaboradores"
-            }
-          ]
-        },
-        "combineConditions": "OR",
-        "options": {}
-      },
-      "id": "29a60d08-9056-4038-ad48-674ca4f73612",
-      "name": "pesquisa_url_rotacionamento_colaboradores1",
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.4,
-      "position": [
-        1340,
-        920
-      ],
-      "alwaysOutputData": true,
-      "credentials": {
-        "mySql": {
-          "id": "PfzfhyuSKTUfroef",
-          "name": "[MySQL] - Fabricio Nunnes"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "select",
-        "table": {
-          "__rl": true,
-          "value": "variaveis_globais_n8n",
-          "mode": "list",
-          "cachedResultName": "variaveis_globais_n8n"
-        },
-        "where": {
-          "values": [
-            {
-              "column": "nome_variavel",
-              "value": "URL do Fluxo de Verificação de Users"
-            }
-          ]
-        },
-        "combineConditions": "OR",
-        "options": {}
-      },
-      "id": "cb3c540b-db15-4de6-abbf-58c509514a6f",
-      "name": "pesquisa_variavel_n8n_fluxo_users1",
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.4,
-      "position": [
-        1580,
-        920
-      ],
-      "alwaysOutputData": true,
-      "credentials": {
-        "mySql": {
-          "id": "PfzfhyuSKTUfroef",
-          "name": "[MySQL] - Fabricio Nunnes"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users1\"].json[\"valor_variavel\"] }}",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "nome",
-              "value": "={{ $node[\"formata_dados\"].json[\"fname\"] || \"\" }}"
-            },
-            {
-              "name": "sobrenome",
-              "value": "={{ $node[\"formata_dados\"].json[\"lname\"] || \"\" }}"
-            },
-            {
-              "name": "email",
-              "value": "={{ $node[\"formata_dados\"].json[\"email\"] || \"\" }}"
-            },
-            {
-              "name": "telefone",
-              "value": "={{ $node[\"formata_dados\"].json[\"whatsapp\"] || \"\" }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        1800,
-        920
-      ],
-      "id": "f5d3af40-0d22-4b62-960a-43b8c83f4a96",
-      "name": "cria_atualiza_user1"
-    },
-    {
-      "parameters": {
-        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis1\"].json[\"valor_variavel\"] }}",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "id_forms",
-              "value": "={{ $node[\"formata_dados\"].json[\"form_id\"] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        1140,
-        920
-      ],
-      "id": "f2ae5ca9-aeef-45cf-b16b-c1e4cc723094",
-      "name": "busca_funil1"
-    },
-    {
-      "parameters": {
-        "operation": "select",
-        "table": {
-          "__rl": true,
-          "value": "variaveis_globais_n8n",
-          "mode": "list",
-          "cachedResultName": "variaveis_globais_n8n"
-        },
-        "where": {
-          "values": [
-            {
-              "column": "nome_variavel",
-              "value": "URL do Fluxo de Verificação de Funis"
-            }
-          ]
-        },
-        "combineConditions": "OR",
-        "options": {}
-      },
-      "id": "9015dfe8-3ea6-4f39-842b-bf3bdfee7bf7",
-      "name": "pesquisa_variavel_n8n_fluxo_funis1",
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.4,
-      "position": [
-        940,
-        920
-      ],
-      "alwaysOutputData": true,
-      "credentials": {
-        "mySql": {
-          "id": "PfzfhyuSKTUfroef",
-          "name": "[MySQL] - Fabricio Nunnes"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "typeform-dci",
-        "options": {}
-      },
-      "id": "43225a43-1163-4e3e-9c65-f92eef62bb11",
-      "name": "typeform-DCI",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        540,
-        920
-      ],
-      "webhookId": "6326d5f7-f76c-4dcc-a6c2-10aa35f2311a",
-      "disabled": true
     },
     {
       "parameters": {
@@ -1024,6 +618,22 @@
             {
               "name": "status_da_compra",
               "value": "={{ $node[\"formata_dados1\"].json[\"status_da_compra\"] }}"
+            },
+            {
+              "name": "Link do boleto",
+              "value": "={{ $node[\"formata_dados1\"].json[\"link_pagamento_boleto\"] }}"
+            },
+            {
+              "name": "Código Pix",
+              "value": "={{ $node[\"formata_dados1\"].json[\"code_pix\"] }}"
+            },
+            {
+              "name": "Data da Compra",
+              "value": "={{ $node[\"formata_dados1\"].json[\"data_conversao\"] }}"
+            },
+            {
+              "name": "Data da Garantia",
+              "value": "={{ $node[\"formata_dados1\"].json[\"data_garantia\"] }}"
             }
           ]
         },
@@ -1157,7 +767,7 @@
             },
             {
               "name": "form_id",
-              "value": "ec7849e"
+              "value": "register-with-plan-popup"
             },
             {
               "name": "zipcode",
@@ -1327,7 +937,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// ===== FORMATA DADOS — igual ao anterior, mas \"data_garantia\" agora é DATE (yyyy-MM-dd) =====\n\nconst root = items[0]?.json ?? {};\nconst payload = Array.isArray(root) ? (root[0] ?? {}) : (root.body ?? root);\n\nfunction capitalizeName(fullName) {\n  if (!fullName) return { fname: '', lname: '', fullname: '' };\n  const lowers = ['da','de','do','di','du'];\n  const parts = String(fullName).toLowerCase().split(/\\s+/).filter(Boolean)\n    .map((w,i) => (lowers.includes(w) && i !== 0) ? w : w.charAt(0).toUpperCase() + w.slice(1));\n  const fname = parts.shift() || '';\n  const lname = parts.join(' ');\n  return { fname, lname, fullname: `${fname}${lname ? ' ' + lname : ''}`.trim() };\n}\nfunction toZapiPhone(v){\n  if (!v) return '';\n  const raw = String(v).replace(/\\D/g,'');\n  const noDDI = raw.startsWith('55') ? raw.slice(2) : raw;\n  const ddd = noDDI.slice(0,2);\n  let num = noDDI.slice(2);\n  if (num.length >= 9) num = num.slice(-9);\n  else if (num.length === 8) num = num.slice(-8);\n  return `55${ddd}${num}`;\n}\nfunction fmtEmail(e){ return e ? String(e).toLowerCase().trim() : ''; }\nfunction fmtDateBRToISO(dt) {\n  if (!dt) return '';\n  const s = String(dt).trim();\n  let m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})\\s+(\\d{2}):(\\d{2})(?::(\\d{2}))?$/);\n  if (m) {\n    const [, d, mo, y, h, mi, ss] = m;\n    return `${y}-${mo}-${d} ${h}:${mi}:${ss ?? '00'}`;\n  }\n  m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})$/);\n  if (m) {\n    const [, d, mo, y] = m;\n    return `${y}-${mo}-${d} 00:00:00`;\n  }\n  return '';\n}\n// ➜ NOVA: formata apenas para DATE (yyyy-MM-dd)\nfunction fmtDateBRToISODate(dt) {\n  if (!dt) return '';\n  const s = String(dt).trim();\n  const m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})(?:\\s+\\d{2}:\\d{2}(?::\\d{2})?)?$/);\n  if (!m) return '';\n  const [, d, mo, y] = m;\n  return `${y}-${mo}-${d}`;\n}\nfunction mapStatus(s){ return s === 'waiting_payment' ? 'Aguardando Pagamento' : (s || ''); }\nfunction numOrNull(v){ const n = Number(v); return Number.isFinite(n) ? n : null; }\nfunction strOrEmpty(v){ return v == null ? '' : String(v); }\n\nconst nomeCliente   = payload['Nome do Cliente'] ?? '';\nconst emailCliente  = payload['E-mail do Cliente'] ?? '';\nconst telCliente    = payload['Telefone do Cliente'] ?? '';\nconst cpfcnpj       = payload['cpf/cnpj'] ?? '';\nconst nomeProduto   = payload['nome_produto'] ?? '';\n\nconst idTransacao   = payload['id_transacao_checkout'];\nconst idProduto     = payload['id_produto'];\nconst valor         = payload['valor'];\nconst oferta        = payload['oferta'] ?? '';\nconst formaPgto     = payload['forma_de_pagamento'] ?? '';\nconst statusCompra  = payload['status_da_compra'] ?? '';\nconst dataConvBR    = payload['data_conversao'] ?? '';\nconst period        = payload['period'];\nconst parcelas      = payload['parcelas'];\nconst ddd           = payload['ddd'] ?? '';\nconst cep           = payload['cep'];\n\nconst utm_source    = payload['utm_source'] ?? '';\nconst utm_campaign  = payload['utm_campaign'] ?? '';\nconst utm_medium    = payload['utm_medium'] ?? '';\nconst utm_content   = payload['utm_content'] ?? '';\nconst utm_term      = payload['utm_term'] ?? '';\n\nconst comissaoGw    = payload['comissao_gateway'];\nconst clientId      = payload['client_id'];\nconst sellerBalance = payload['seller_balance'];\nconst dataGarantiaBR= payload['data_garantia'] ?? '';\nconst codePix       = payload['code_pix'] ?? '';\nconst qrcodePix     = payload['qrcode_pix'] ?? '';\nconst moeda         = payload['moeda'] ?? '';\n\nconst { fname, lname, fullname } = capitalizeName(nomeCliente);\nconst emailFmt      = fmtEmail(emailCliente);\nconst whatsappZapi  = toZapiPhone(telCliente);\nconst dataConversao = fmtDateBRToISO(dataConvBR);      // TIMESTAMP (yyyy-MM-dd HH:mm:ss)\nconst dataGarantia  = fmtDateBRToISODate(dataGarantiaBR); // ➜ DATE (yyyy-MM-dd)\nconst statusFmt     = mapStatus(statusCompra);\n\nconst out = {\n  fname, lname, fullname,\n  email: emailFmt,\n  whatsapp: whatsappZapi,\n\n  \"Nome do Cliente\": fullname || strOrEmpty(nomeCliente),\n  \"E-mail do Cliente\": emailFmt,\n  \"Telefone do Cliente\": strOrEmpty(telCliente),\n  \"cpf/cnpj\": strOrEmpty(cpfcnpj),\n  \"nome_produto\": strOrEmpty(nomeProduto),\n\n  \"id_transacao_checkout\": numOrNull(idTransacao),\n  \"id_produto\": numOrNull(idProduto),\n  \"valor\": numOrNull(valor),\n  \"oferta\": strOrEmpty(oferta),\n  \"forma_de_pagamento\": strOrEmpty(formaPgto),\n  \"status_da_compra\": statusFmt,\n  \"data_conversao\": dataConversao,\n  \"period\": numOrNull(period),\n  \"parcelas\": numOrNull(parcelas),\n  \"ddd\": strOrEmpty(ddd),\n  \"cep\": (cep === null ? null : strOrEmpty(cep)),\n\n  \"utm_source\": strOrEmpty(utm_source),\n  \"utm_campaign\": strOrEmpty(utm_campaign),\n  \"utm_medium\": strOrEmpty(utm_medium),\n  \"utm_content\": strOrEmpty(utm_content),\n  \"utm_term\": strOrEmpty(utm_term),\n\n  \"comissao_gateway\": numOrNull(comissaoGw),\n  \"client_id\": numOrNull(clientId),\n  \"seller_balance\": numOrNull(sellerBalance),\n  \"data_garantia\": dataGarantia, // ➜ apenas DATE\n  \"code_pix\": strOrEmpty(codePix),\n  \"qrcode_pix\": strOrEmpty(qrcodePix),\n  \"moeda\": strOrEmpty(moeda)\n};\n\nreturn [{ json: out }];\n"
+        "jsCode": "// ===== FORMATA DADOS — igual ao anterior, mas \"data_garantia\" agora é DATE (yyyy-MM-dd) =====\n\nconst root = items[0]?.json ?? {};\nconst payload = Array.isArray(root) ? (root[0] ?? {}) : (root.body ?? root);\n\nfunction capitalizeName(fullName) {\n  if (!fullName) return { fname: '', lname: '', fullname: '' };\n  const lowers = ['da','de','do','di','du'];\n  const parts = String(fullName).toLowerCase().split(/\\s+/).filter(Boolean)\n    .map((w,i) => (lowers.includes(w) && i !== 0) ? w : w.charAt(0).toUpperCase() + w.slice(1));\n  const fname = parts.shift() || '';\n  const lname = parts.join(' ');\n  return { fname, lname, fullname: `${fname}${lname ? ' ' + lname : ''}`.trim() };\n}\nfunction toZapiPhone(v){\n  if (!v) return '';\n  const raw = String(v).replace(/\\D/g,'');\n  const noDDI = raw.startsWith('55') ? raw.slice(2) : raw;\n  const ddd = noDDI.slice(0,2);\n  let num = noDDI.slice(2);\n  if (num.length >= 9) num = num.slice(-9);\n  else if (num.length === 8) num = num.slice(-8);\n  return `55${ddd}${num}`;\n}\nfunction fmtEmail(e){ return e ? String(e).toLowerCase().trim() : ''; }\n\n// ➜ Formata data/hora BR para TIMESTAMP ISO (com -3h)\nfunction fmtDateBRToISO(dt) {\n  if (!dt) return '';\n  const s = String(dt).trim();\n  let m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})\\s+(\\d{2}):(\\d{2})(?::(\\d{2}))?$/);\n  if (m) {\n    const [, d, mo, y, h, mi, ss] = m;\n    const date = new Date(`${y}-${mo}-${d}T${h}:${mi}:${ss ?? '00'}Z`);\n    date.setHours(date.getHours() - 0);\n    const yyyy = date.getFullYear();\n    const mm = String(date.getMonth() + 1).padStart(2, \"0\");\n    const dd = String(date.getDate()).padStart(2, \"0\");\n    const HH = String(date.getHours()).padStart(2, \"0\");\n    const II = String(date.getMinutes()).padStart(2, \"0\");\n    const SS = String(date.getSeconds()).padStart(2, \"0\");\n    return `${yyyy}-${mm}-${dd} ${HH}:${II}:${SS}`;\n  }\n  m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})$/);\n  if (m) {\n    const [, d, mo, y] = m;\n    return `${y}-${mo}-${d} 00:00:00`;\n  }\n  return '';\n}\n\n// ➜ Apenas DATE (yyyy-MM-dd)\nfunction fmtDateBRToISODate(dt) {\n  if (!dt) return '';\n  const s = String(dt).trim();\n  const m = s.match(/^(\\d{2})\\/(\\d{2})\\/(\\d{4})(?:\\s+\\d{2}:\\d{2}(?::\\d{2})?)?$/);\n  if (!m) return '';\n  const [, d, mo, y] = m;\n  return `${y}-${mo}-${d}`;\n}\n\n// ✅ Ajustado: agora \"paid\" = \"Compra Aprovada\"\nfunction mapStatus(s){\n  if (!s) return '';\n  if (s === 'waiting_payment') return 'Aguardando Pagamento';\n  if (s === 'paid') return 'Compra Aprovada';\n  return s;\n}\n\nfunction numOrNull(v){ const n = Number(v); return Number.isFinite(n) ? n : null; }\nfunction strOrEmpty(v){ return v == null ? '' : String(v); }\n\nconst nomeCliente   = payload['Nome do Cliente'] ?? '';\nconst emailCliente  = payload['E-mail do Cliente'] ?? '';\nconst telCliente    = payload['Telefone do Cliente'] ?? '';\nconst cpfcnpj       = payload['cpf/cnpj'] ?? '';\nconst nomeProduto   = payload['nome_produto'] ?? '';\n\nconst idTransacao   = payload['id_transacao_checkout'];\nconst idProduto     = payload['id_produto'];\nconst valor         = payload['valor'];\nconst oferta        = payload['oferta'] ?? '';\nconst formaPgto     = payload['forma_de_pagamento'] ?? '';\nconst statusCompra  = payload['status_da_compra'] ?? '';\nconst dataConvBR    = payload['data_conversao'] ?? '';\nconst period        = payload['period'];\nconst parcelas      = payload['parcelas'];\nconst ddd           = payload['ddd'] ?? '';\nconst cep           = payload['cep'];\n\nconst utm_source    = payload['utm_source'] ?? '';\nconst utm_campaign  = payload['utm_campaign'] ?? '';\nconst utm_medium    = payload['utm_medium'] ?? '';\nconst utm_content   = payload['utm_content'] ?? '';\nconst utm_term      = payload['utm_term'] ?? '';\n\nconst comissaoGw    = payload['comissao_gateway'];\nconst clientId      = payload['client_id'];\nconst sellerBalance = payload['seller_balance'];\nconst dataGarantiaBR= payload['data_garantia'] ?? '';\nconst codePix       = payload['code_pix'] ?? '';\nconst qrcodePix     = payload['qrcode_pix'] ?? '';\nconst moeda         = payload['moeda'] ?? '';\nconst linkPagamentoBoleto = payload['link_pagamento_boleto'] ?? '';\n\nconst { fname, lname, fullname } = capitalizeName(nomeCliente);\nconst emailFmt      = fmtEmail(emailCliente);\nconst whatsappZapi  = toZapiPhone(telCliente);\nconst dataConversao = fmtDateBRToISO(dataConvBR);\nconst dataGarantia  = fmtDateBRToISODate(dataGarantiaBR);\nconst statusFmt     = mapStatus(statusCompra);\n\nconst out = {\n  fname, lname, fullname,\n  email: emailFmt,\n  whatsapp: whatsappZapi,\n\n  \"Nome do Cliente\": fullname || strOrEmpty(nomeCliente),\n  \"E-mail do Cliente\": emailFmt,\n  \"Telefone do Cliente\": strOrEmpty(telCliente),\n  \"cpf/cnpj\": strOrEmpty(cpfcnpj),\n  \"nome_produto\": strOrEmpty(nomeProduto),\n\n  \"id_transacao_checkout\": numOrNull(idTransacao),\n  \"id_produto\": numOrNull(idProduto),\n  \"valor\": numOrNull(valor),\n  \"oferta\": strOrEmpty(oferta),\n  \"forma_de_pagamento\": strOrEmpty(formaPgto),\n  \"status_da_compra\": statusFmt, // ✅ agora retorna \"Compra Aprovada\" se for \"paid\"\n  \"data_conversao\": dataConversao,\n  \"period\": numOrNull(period),\n  \"parcelas\": numOrNull(parcelas),\n  \"ddd\": strOrEmpty(ddd),\n  \"cep\": (cep === null ? null : strOrEmpty(cep)),\n\n  \"utm_source\": strOrEmpty(utm_source),\n  \"utm_campaign\": strOrEmpty(utm_campaign),\n  \"utm_medium\": strOrEmpty(utm_medium),\n  \"utm_content\": strOrEmpty(utm_content),\n  \"utm_term\": strOrEmpty(utm_term),\n\n  \"comissao_gateway\": numOrNull(comissaoGw),\n  \"client_id\": numOrNull(clientId),\n  \"seller_balance\": numOrNull(sellerBalance),\n  \"data_garantia\": dataGarantia, \n  \"code_pix\": strOrEmpty(codePix),\n  \"qrcode_pix\": strOrEmpty(qrcodePix),\n  \"moeda\": strOrEmpty(moeda),\n  \"link_pagamento_boleto\": strOrEmpty(linkPagamentoBoleto)\n};\n\nreturn [{ json: out }];\n"
       },
       "id": "2ba99600-697e-421a-9fb9-26b67c578e1c",
       "name": "formata_dados2",
@@ -1453,7 +1063,7 @@
           "parameters": [
             {
               "name": "id_forms",
-              "value": "ec7849e"
+              "value": "={{ $node[\"dados_da_compra3\"].json[\"form_id\"] }}"
             }
           ]
         },
@@ -1687,7 +1297,7 @@
             },
             {
               "name": "form_id",
-              "value": "ec7849e"
+              "value": "register-with-plan-popup"
             },
             {
               "name": "zipcode",
@@ -1858,22 +1468,6 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "compra-aprovada-dci",
-        "options": {}
-      },
-      "id": "c3628ab9-2e0b-473c-ab2f-dbdb475d51fd",
-      "name": "compra_aprovada",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        580,
-        40
-      ],
-      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
         "path": "aguardando_pagamento-dci",
         "options": {}
       },
@@ -1886,484 +1480,32 @@
         280
       ],
       "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "compra-aprovada-dci",
+        "options": {}
+      },
+      "id": "c3628ab9-2e0b-473c-ab2f-dbdb475d51fd",
+      "name": "compra_aprovada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        580,
+        40
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
     }
   ],
   "pinData": {
-    "typeform-DCI": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "Typeform Webhooks",
-            "content-length": "5005",
-            "accept-encoding": "gzip",
-            "content-type": "application/json",
-            "traceparent": "00-74501da973c9f997c0f8c9a4831e4868-0f6c7166ff2a6571-01",
-            "x-forwarded-for": "34.230.177.131",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "34.230.177.131"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "event_id": "01K59EXZMRPH05ZQGPY9BP0JT7",
-            "event_type": "form_response",
-            "form_response": {
-              "form_id": "YGh7DR7s",
-              "token": "kl0fu88zgzpbb7nfskl0fu28yd2klmgq",
-              "landed_at": "2025-09-16T14:27:39Z",
-              "submitted_at": "2025-09-16T14:30:18Z",
-              "hidden": {
-                "email": "contato.mportob@gmail.com",
-                "name": "Mateus Automagic",
-                "phone": "(31) 99279-6934",
-                "utm_campaign": "",
-                "utm_content": "",
-                "utm_medium": "",
-                "utm_source": "",
-                "utm_term": ""
-              },
-              "definition": {
-                "id": "YGh7DR7s",
-                "title": "Incompany",
-                "fields": [
-                  {
-                    "id": "0FHNmTvRtyP1",
-                    "ref": "8331ae93-31f1-4960-b44d-abdb746e996d",
-                    "type": "dropdown",
-                    "title": "Qual é o seu faturamento mensal atual?\n",
-                    "properties": {},
-                    "choices": [
-                      {
-                        "id": "E70wyKqkGdpl",
-                        "ref": "846a61ad-1d86-4cb7-9c27-5fbafa7ebcb6",
-                        "label": "Até R$ 100 mil reais por mês"
-                      },
-                      {
-                        "id": "EGqkd9FcKRW3",
-                        "ref": "1720d043-265f-483b-9075-ed7375740372",
-                        "label": "Entre R$ 100 e 300 mil reais por mês"
-                      },
-                      {
-                        "id": "gMc0TW9C2z57",
-                        "ref": "5fa981fb-cb14-4130-973c-605d9e26b6c4",
-                        "label": "Entre R$ 300 e 1 milhão de reais por mês"
-                      },
-                      {
-                        "id": "iVH6AfRzlOx8",
-                        "ref": "38b7a2fc-44c6-47e6-aae6-5d915c43fa23",
-                        "label": "Acima de R$ 1 milhão de reais por mês"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "fLT7MzijDMih",
-                    "ref": "07efbeb9-c1a5-4212-b99d-16c3db23c126",
-                    "type": "number",
-                    "title": "Quantos vendedores ativos você tem hoje?\n",
-                    "properties": {}
-                  },
-                  {
-                    "id": "crlgfi7wNty9",
-                    "ref": "5e17bd16-ab60-45d7-9fa1-2bab5f7f2a76",
-                    "type": "multiple_choice",
-                    "title": "Você busca um Diretor Comercial presencial (in loco)?\n",
-                    "properties": {},
-                    "choices": [
-                      {
-                        "id": "5RUEQea8MiZV",
-                        "ref": "9d567d56-68b2-4bf3-a9e8-19db4757b898",
-                        "label": "SIM"
-                      },
-                      {
-                        "id": "p5EalJS5LyDX",
-                        "ref": "44841840-4f26-4628-b1d0-95cd252b665f",
-                        "label": "NÃO"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "JsM1jgMaue4k",
-                    "ref": "c709e7ca-83e2-48a9-a4e7-ce294107dc82",
-                    "type": "multiple_choice",
-                    "title": "Principais desafios comerciais agora?",
-                    "properties": {},
-                    "choices": [
-                      {
-                        "id": "mCXKcoPTylN4",
-                        "ref": "b5f71a9b-caae-4ca7-a899-9a08b56d546d",
-                        "label": "Funil"
-                      },
-                      {
-                        "id": "7VnO99CrNZM0",
-                        "ref": "c21af4a0-f749-4ac2-9e37-50f0d4f59ff2",
-                        "label": "Script"
-                      },
-                      {
-                        "id": "sXbN3frDBY2G",
-                        "ref": "11d3ec44-cfe5-4401-b9ea-e0eaaac3e0cc",
-                        "label": "Liderança"
-                      },
-                      {
-                        "id": "j7mc6WXMB6TR",
-                        "ref": "862576e6-64e4-4b38-b1de-35b424feda90",
-                        "label": "Treinamento"
-                      },
-                      {
-                        "id": "4p6NCiTnwKck",
-                        "ref": "765bfd33-db04-4fd4-be94-b6dcec047a3a",
-                        "label": "Forecast"
-                      },
-                      {
-                        "id": "XJbdYGReboKz",
-                        "ref": "35bf2f04-1d65-45e1-b839-ea0e613e8464",
-                        "label": "CRM"
-                      },
-                      {
-                        "id": "m5aOSXfONPs1",
-                        "ref": "a78b351b-2ad8-4265-85a8-a1485c6ca7b0",
-                        "label": "Taxa de fechamento (Conversão)"
-                      },
-                      {
-                        "id": "zIKXPMKyFbiV",
-                        "ref": "17799a61-29be-4746-871e-083bb61df285",
-                        "label": "Churn"
-                      },
-                      {
-                        "id": "mt8YwSMOrA5m",
-                        "ref": "26189a36-8ed4-4fbe-95ca-6b905d81edf9",
-                        "label": "Outros"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "AEx6MxhOtF74",
-                    "ref": "b4aa7e09-b9be-44b1-8740-4803073d0079",
-                    "type": "short_text",
-                    "title": "Address",
-                    "properties": {}
-                  },
-                  {
-                    "id": "VN6a3aAAufM1",
-                    "ref": "2cd042e2-b846-4f7b-ba01-0b8c990ff809",
-                    "type": "short_text",
-                    "title": "City/Town",
-                    "properties": {}
-                  },
-                  {
-                    "id": "TGSYMVgZm3Qt",
-                    "ref": "5618c07c-0fb9-4389-baf1-3e6707bf7442",
-                    "type": "short_text",
-                    "title": "State/Region/Province",
-                    "properties": {}
-                  },
-                  {
-                    "id": "nBZ0wy9Z1D4b",
-                    "ref": "29ed8935-0439-4ff5-a460-3dac31ffde2e",
-                    "type": "short_text",
-                    "title": "Country",
-                    "properties": {}
-                  },
-                  {
-                    "id": "GKdbXlJiwomj",
-                    "ref": "15c73fe6-a626-4ed5-9dca-fa02f3101375",
-                    "type": "long_text",
-                    "title": "Algo que devemos saber antes da sessão?\n",
-                    "properties": {}
-                  }
-                ],
-                "endings": [
-                  {
-                    "id": "qyPhZvv6b2XO",
-                    "ref": "12bc282b-32c7-4295-be9c-ed65bfef5265",
-                    "title": "https://incompany.universidadevendas.com.br/obrigado",
-                    "type": "url_redirect",
-                    "properties": {
-                      "redirect_url": "https://incompany.universidadevendas.com.br/obrigado"
-                    }
-                  }
-                ],
-                "settings": {
-                  "partial_responses_to_all_integrations": true
-                }
-              },
-              "answers": [
-                {
-                  "type": "choice",
-                  "choice": {
-                    "id": "EGqkd9FcKRW3",
-                    "label": "Entre R$ 100 e 300 mil reais por mês",
-                    "ref": "1720d043-265f-483b-9075-ed7375740372"
-                  },
-                  "field": {
-                    "id": "0FHNmTvRtyP1",
-                    "type": "dropdown",
-                    "ref": "8331ae93-31f1-4960-b44d-abdb746e996d"
-                  }
-                },
-                {
-                  "type": "number",
-                  "number": 4,
-                  "field": {
-                    "id": "fLT7MzijDMih",
-                    "type": "number",
-                    "ref": "07efbeb9-c1a5-4212-b99d-16c3db23c126"
-                  }
-                },
-                {
-                  "type": "choice",
-                  "choice": {
-                    "id": "p5EalJS5LyDX",
-                    "label": "NÃO",
-                    "ref": "44841840-4f26-4628-b1d0-95cd252b665f"
-                  },
-                  "field": {
-                    "id": "crlgfi7wNty9",
-                    "type": "multiple_choice",
-                    "ref": "5e17bd16-ab60-45d7-9fa1-2bab5f7f2a76"
-                  }
-                },
-                {
-                  "type": "choice",
-                  "choice": {
-                    "id": "XJbdYGReboKz",
-                    "label": "CRM",
-                    "ref": "35bf2f04-1d65-45e1-b839-ea0e613e8464"
-                  },
-                  "field": {
-                    "id": "JsM1jgMaue4k",
-                    "type": "multiple_choice",
-                    "ref": "c709e7ca-83e2-48a9-a4e7-ce294107dc82"
-                  }
-                },
-                {
-                  "type": "text",
-                  "text": "rua",
-                  "field": {
-                    "id": "AEx6MxhOtF74",
-                    "type": "short_text",
-                    "ref": "b4aa7e09-b9be-44b1-8740-4803073d0079"
-                  }
-                },
-                {
-                  "type": "text",
-                  "text": "cidade",
-                  "field": {
-                    "id": "VN6a3aAAufM1",
-                    "type": "short_text",
-                    "ref": "2cd042e2-b846-4f7b-ba01-0b8c990ff809"
-                  }
-                },
-                {
-                  "type": "text",
-                  "text": "estado",
-                  "field": {
-                    "id": "TGSYMVgZm3Qt",
-                    "type": "short_text",
-                    "ref": "5618c07c-0fb9-4389-baf1-3e6707bf7442"
-                  }
-                },
-                {
-                  "type": "text",
-                  "text": "br",
-                  "field": {
-                    "id": "nBZ0wy9Z1D4b",
-                    "type": "short_text",
-                    "ref": "29ed8935-0439-4ff5-a460-3dac31ffde2e"
-                  }
-                },
-                {
-                  "type": "text",
-                  "text": "teste teste",
-                  "field": {
-                    "id": "GKdbXlJiwomj",
-                    "type": "long_text",
-                    "ref": "15c73fe6-a626-4ed5-9dca-fa02f3101375"
-                  }
-                }
-              ],
-              "ending": {
-                "id": "qyPhZvv6b2XO",
-                "ref": "12bc282b-32c7-4295-be9c-ed65bfef5265"
-              }
-            }
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/typeform-incompany",
-          "executionMode": "production"
-        }
-      }
-    ],
-    "compra_aprovada": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "GuzzleHttp/7",
-            "content-length": "3500",
-            "content-type": "application/json",
-            "x-forwarded-for": "54.208.146.185",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "54.208.146.185",
-            "x-webhook-token": "$2y$10$/8k7L/hFRqGr6eVYx4XDIerpK3oBt9LpG6ZauoFcWFY8Wx7lxY7cC",
-            "accept-encoding": "gzip"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "type": "sale",
-            "event": "saleUpdated",
-            "oldStatus": "waiting_payment",
-            "currentStatus": "waiting_payment",
-            "sale": {
-              "id": 6634763,
-              "type": "SUBSCRIPTION",
-              "status": "waiting_payment",
-              "created_at": "2025-09-26T22:33:09.000000Z",
-              "updated_at": "2025-09-26T22:33:12.000000Z",
-              "seller_id": 33571,
-              "installments": 1,
-              "method": "PIX",
-              "client_id": 4222009,
-              "fee": 0,
-              "seller_balance": 0,
-              "total": 0,
-              "amount": 197,
-              "proposal_id": null,
-              "subscription_id": "sub_68d714a5af0d4VOOas1in24h",
-              "boleto_url": null,
-              "boleto_barcode": null,
-              "boleto_expiration_date": null,
-              "qrcode": "00020101021226820014br.gov.bcb.pix2560pix.stone.com.br/pix/v2/f5ddc023-ecbb-466a-94a5-66d1aa123f8c5204000053039865406197.005802BR5925Pagar Me Instituicao De P6014RIO DE JANEIRO62290525e3102d017194a86ff761faed66304B24A",
-              "imgQrcode": "https://api.pagar.me/core/v5/transactions/tran_reM2j3KSGSMj7oqg/qrcode?payment_method=pix",
-              "paid_at": null,
-              "bump_id": null,
-              "is_smart_sale": 0,
-              "shipping_amount": null,
-              "shipping_selected": null,
-              "coupon": null
-            },
-            "client": {
-              "id": 4222009,
-              "name": "Automagic Teste",
-              "email": "automagic44@gmail.com",
-              "cellphone": "+5531989179591",
-              "document": "111.087.066-30",
-              "zipcode": null,
-              "street": "",
-              "number": "",
-              "complement": "",
-              "neighborhood": "",
-              "city": "",
-              "uf": "",
-              "created_at": "2025-09-26T22:33:09.000000Z",
-              "updated_at": "2025-09-26T22:33:09.000000Z",
-              "document_type": "cpf",
-              "cpf_cnpj": "111.087.066-30"
-            },
-            "product": {
-              "id": 137612,
-              "name": "Diretor Comercial Inteligente - 5 usuários",
-              "description": "Sistema completo com 4 IAs especializadas: Comercial, Marketing, Social Media e Financeiro trabalhando 24/7 pela sua empresa.\nEnquanto seus concorrentes ainda fazem planilhas, você terá 4 IAs especializadas trabalhando 24/7 para otimizar seus resultados.",
-              "type": "SUBSCRIPTION",
-              "amount": 197,
-              "period": 30,
-              "thank_you_page": "https://dci.universidadevendas.com.br/pagina-de-obrigado/",
-              "created_at": "2025-09-24T18:02:05.000000Z",
-              "updated_at": "2025-09-26T17:00:15.000000Z",
-              "method": "CREDIT_CARD,BOLETO,PIX",
-              "url_callback": null,
-              "trial": 0,
-              "proposal_minimum": 0,
-              "allow_proposal": 0,
-              "affiliation_approbation": 1,
-              "affiliation_public": 1,
-              "is_active": 1,
-              "deleted_at": null,
-              "affiliation_proposal": 1,
-              "category_fiscal": "SERVICE",
-              "fiscal_code": null
-            },
-            "oferta": "Diretor Comercial Inteligente - 5 usuários",
-            "offer": {
-              "hash": "jvVLMM",
-              "amount": 197,
-              "method": "CREDIT_CARD,BOLETO,PIX",
-              "name": "Diretor Comercial Inteligente - 5 usuários",
-              "created_at": "2025-09-24T18:02:05.000000Z"
-            },
-            "seller": {
-              "id": 33571,
-              "name": "Fabricio Augusto Nunes Oliveira",
-              "email": "fabricioaugustonoliveira@gmail.com",
-              "cellphone": "+5531989840003"
-            },
-            "affiliate": null,
-            "productMetas": [],
-            "proposalMetas": [],
-            "saleMetas": [
-              {
-                "id": 36772466,
-                "sale_id": 6634763,
-                "meta_key": "reuse_credit_card",
-                "meta_value": "1",
-                "created_at": "2025-09-26T22:33:09.000000Z",
-                "updated_at": "2025-09-26T22:33:09.000000Z"
-              },
-              {
-                "id": 36772467,
-                "sale_id": 6634763,
-                "meta_key": "assoc_ticket",
-                "meta_value": "0",
-                "created_at": "2025-09-26T22:33:09.000000Z",
-                "updated_at": "2025-09-26T22:33:09.000000Z"
-              },
-              {
-                "id": 36772468,
-                "sale_id": 6634763,
-                "meta_key": "fn",
-                "meta_value": "Automagic Teste",
-                "created_at": "2025-09-26T22:33:09.000000Z",
-                "updated_at": "2025-09-26T22:33:09.000000Z"
-              },
-              {
-                "id": 36772469,
-                "sale_id": 6634763,
-                "meta_key": "em",
-                "meta_value": "automagic44@gmail.com",
-                "created_at": "2025-09-26T22:33:09.000000Z",
-                "updated_at": "2025-09-26T22:33:09.000000Z"
-              },
-              {
-                "id": 36772470,
-                "sale_id": 6634763,
-                "meta_key": "ph",
-                "meta_value": "31989179591",
-                "created_at": "2025-09-26T22:33:09.000000Z",
-                "updated_at": "2025-09-26T22:33:09.000000Z"
-              }
-            ],
-            "sf_trk": null,
-            "client_has_contract_id": 426933,
-            "charge": 0
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aguardando_pagamento-dci",
-          "executionMode": "production"
-        }
-      }
-    ],
     "aguardando_pagamento": [
       {
         "json": {
           "headers": {
             "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "user-agent": "GuzzleHttp/7",
-            "content-length": "3273",
+            "content-length": "3300",
             "content-type": "application/json",
             "x-forwarded-for": "54.208.146.185",
             "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
@@ -2382,24 +1524,24 @@
             "oldStatus": "waiting_payment",
             "currentStatus": "waiting_payment",
             "sale": {
-              "id": 6641014,
+              "id": 6672145,
               "type": "SUBSCRIPTION",
               "status": "waiting_payment",
-              "created_at": "2025-09-27T19:47:09.000000Z",
-              "updated_at": "2025-09-27T19:47:11.000000Z",
+              "created_at": "2025-10-01T19:55:26.000000Z",
+              "updated_at": "2025-10-01T19:55:30.000000Z",
               "seller_id": 33571,
               "installments": 1,
               "method": "BOLETO",
-              "client_id": 4225488,
+              "client_id": 4245172,
               "fee": 0,
               "seller_balance": 0,
               "total": 0,
               "amount": 297,
               "proposal_id": null,
-              "subscription_id": "sub_68d83f3d9c8dazxmSfMEkInL",
-              "boleto_url": "https://adm.greenn.com.br/redirect/oa7MtanSye",
-              "boleto_barcode": "19790000054606059757540551398536412170000029700",
-              "boleto_expiration_date": "2025-09-27",
+              "subscription_id": "sub_68dd872f1f4114blt18el5xp",
+              "boleto_url": "https://adm.greenn.com.br/redirect/s7zGxIfT9j",
+              "boleto_barcode": "19790000056215343156434305377284212210000029700",
+              "boleto_expiration_date": "2025-10-01",
               "qrcode": null,
               "imgQrcode": null,
               "paid_at": null,
@@ -2410,11 +1552,11 @@
               "coupon": null
             },
             "client": {
-              "id": 4225488,
-              "name": "Auto teste",
-              "email": "autoteste@gmail.com",
-              "cellphone": "+5531988776655",
-              "document": "111.087.066-30",
+              "id": 4245172,
+              "name": "Jose Teste Silva",
+              "email": "joseteste@gmail.com",
+              "cellphone": "+5531955443322",
+              "document": "373.208.890-13",
               "zipcode": null,
               "street": "",
               "number": "",
@@ -2422,10 +1564,10 @@
               "neighborhood": "",
               "city": "",
               "uf": "",
-              "created_at": "2025-09-27T19:47:09.000000Z",
-              "updated_at": "2025-09-27T19:47:09.000000Z",
+              "created_at": "2025-10-01T19:55:26.000000Z",
+              "updated_at": "2025-10-01T19:55:26.000000Z",
               "document_type": "cpf",
-              "cpf_cnpj": "111.087.066-30"
+              "cpf_cnpj": "373.208.890-13"
             },
             "product": {
               "id": 137613,
@@ -2434,7 +1576,7 @@
               "type": "SUBSCRIPTION",
               "amount": 297,
               "period": 30,
-              "thank_you_page": "https://dci-universidadevendas.vercel.app/dashboard",
+              "thank_you_page": "http://diretor.universidadevendas.com.br/login",
               "created_at": "2025-09-24T18:04:22.000000Z",
               "updated_at": "2025-09-26T17:01:09.000000Z",
               "method": "CREDIT_CARD,BOLETO,PIX",
@@ -2469,51 +1611,229 @@
             "proposalMetas": [],
             "saleMetas": [
               {
-                "id": 36826141,
-                "sale_id": 6641014,
+                "id": 37106285,
+                "sale_id": 6672145,
                 "meta_key": "reuse_credit_card",
                 "meta_value": "1",
-                "created_at": "2025-09-27T19:47:09.000000Z",
-                "updated_at": "2025-09-27T19:47:09.000000Z"
+                "created_at": "2025-10-01T19:55:26.000000Z",
+                "updated_at": "2025-10-01T19:55:26.000000Z"
               },
               {
-                "id": 36826142,
-                "sale_id": 6641014,
+                "id": 37106286,
+                "sale_id": 6672145,
                 "meta_key": "assoc_ticket",
                 "meta_value": "0",
-                "created_at": "2025-09-27T19:47:09.000000Z",
-                "updated_at": "2025-09-27T19:47:09.000000Z"
+                "created_at": "2025-10-01T19:55:26.000000Z",
+                "updated_at": "2025-10-01T19:55:26.000000Z"
               },
               {
-                "id": 36826143,
-                "sale_id": 6641014,
+                "id": 37106287,
+                "sale_id": 6672145,
+                "meta_key": "utm_source",
+                "meta_value": "typeform?em=joseteste@gmail.com",
+                "created_at": "2025-10-01T19:55:26.000000Z",
+                "updated_at": "2025-10-01T19:55:26.000000Z"
+              },
+              {
+                "id": 37106288,
+                "sale_id": 6672145,
                 "meta_key": "fn",
-                "meta_value": "Auto teste",
-                "created_at": "2025-09-27T19:47:09.000000Z",
-                "updated_at": "2025-09-27T19:47:09.000000Z"
+                "meta_value": "Jose Teste Silva",
+                "created_at": "2025-10-01T19:55:26.000000Z",
+                "updated_at": "2025-10-01T19:55:26.000000Z"
               },
               {
-                "id": 36826144,
-                "sale_id": 6641014,
-                "meta_key": "em",
-                "meta_value": "autoteste@gmail.com",
-                "created_at": "2025-09-27T19:47:09.000000Z",
-                "updated_at": "2025-09-27T19:47:09.000000Z"
-              },
-              {
-                "id": 36826145,
-                "sale_id": 6641014,
+                "id": 37106289,
+                "sale_id": 6672145,
                 "meta_key": "ph",
-                "meta_value": "31988776655",
-                "created_at": "2025-09-27T19:47:09.000000Z",
-                "updated_at": "2025-09-27T19:47:09.000000Z"
+                "meta_value": "31955443322",
+                "created_at": "2025-10-01T19:55:26.000000Z",
+                "updated_at": "2025-10-01T19:55:26.000000Z"
               }
             ],
             "sf_trk": null,
-            "client_has_contract_id": 427184,
+            "client_has_contract_id": 428545,
             "charge": 0
           },
           "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aguardando_pagamento-dci",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "compra_aprovada": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "3786",
+            "content-type": "application/json",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$/8k7L/hFRqGr6eVYx4XDIerpK3oBt9LpG6ZauoFcWFY8Wx7lxY7cC",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "sale",
+            "event": "saleUpdated",
+            "oldStatus": "paid",
+            "currentStatus": "paid",
+            "sale": {
+              "id": 6672849,
+              "type": "SUBSCRIPTION",
+              "status": "paid",
+              "created_at": "2025-10-01T21:53:37.000000Z",
+              "updated_at": "2025-10-01T22:07:01.000000Z",
+              "seller_id": 33571,
+              "installments": 1,
+              "method": "PIX",
+              "client_id": 4245750,
+              "fee": 5.84,
+              "seller_balance": 91.16,
+              "total": 97,
+              "amount": 97,
+              "proposal_id": null,
+              "subscription_id": "sub_68dda2e1847b1oqFkyxkOkrT",
+              "boleto_url": null,
+              "boleto_barcode": null,
+              "boleto_expiration_date": null,
+              "qrcode": "00020101021226820014br.gov.bcb.pix2560pix.stone.com.br/pix/v2/18d6e0e0-163e-4b67-9f8c-64ecec654b1c520400005303986540597.005802BR5925Pagar Me Instituicao De P6014RIO DE JANEIRO6229052512ea876c51033f14da9e169be630478C7",
+              "imgQrcode": "https://api.pagar.me/core/v5/transactions/tran_Xn6WkW1TVT0BrOm2/qrcode?payment_method=pix",
+              "paid_at": "2025-10-01T22:06:41.000000Z",
+              "bump_id": null,
+              "is_smart_sale": 0,
+              "shipping_amount": null,
+              "shipping_selected": null,
+              "coupon": {
+                "id": 51202,
+                "seller_id": 33571,
+                "name": "100OFF",
+                "type": "AMOUNT",
+                "amount": 100,
+                "only_products": 0,
+                "limit": null,
+                "due_date": null,
+                "created_at": "2025-10-01T21:52:21.000000Z",
+                "updated_at": "2025-10-01T21:52:21.000000Z",
+                "is_active": 1,
+                "deleted_at": null,
+                "currency_id": 1,
+                "convert_amount": 0,
+                "used": 1,
+                "status": "active"
+              }
+            },
+            "client": {
+              "id": 4245750,
+              "name": "Yasmim Aguiar",
+              "email": "yasmimaguiarsc@gmail.com",
+              "cellphone": "+5531992372507",
+              "document": "078.102.716-01",
+              "zipcode": null,
+              "street": "",
+              "number": "",
+              "complement": "",
+              "neighborhood": "",
+              "city": "",
+              "uf": "",
+              "created_at": "2025-10-01T21:53:37.000000Z",
+              "updated_at": "2025-10-01T21:53:37.000000Z",
+              "document_type": "cpf",
+              "cpf_cnpj": "078.102.716-01"
+            },
+            "product": {
+              "id": 137612,
+              "name": "Diretor Comercial Inteligente - 5 usuários",
+              "description": "Sistema completo com 4 IAs especializadas: Comercial, Marketing, Social Media e Financeiro trabalhando 24/7 pela sua empresa.\nEnquanto seus concorrentes ainda fazem planilhas, você terá 4 IAs especializadas trabalhando 24/7 para otimizar seus resultados.",
+              "type": "SUBSCRIPTION",
+              "amount": 197,
+              "period": 30,
+              "thank_you_page": "http://diretor.universidadevendas.com.br/login",
+              "created_at": "2025-09-24T18:02:05.000000Z",
+              "updated_at": "2025-09-30T21:07:16.000000Z",
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "url_callback": null,
+              "trial": 0,
+              "proposal_minimum": 0,
+              "allow_proposal": 0,
+              "affiliation_approbation": 1,
+              "affiliation_public": 1,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 1,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null
+            },
+            "oferta": "Diretor Comercial Inteligente - 5 usuários",
+            "offer": {
+              "hash": "jvVLMM",
+              "amount": 197,
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "name": "Diretor Comercial Inteligente - 5 usuários",
+              "created_at": "2025-09-24T18:02:05.000000Z"
+            },
+            "seller": {
+              "id": 33571,
+              "name": "Fabricio Augusto Nunes Oliveira",
+              "email": "fabricioaugustonoliveira@gmail.com",
+              "cellphone": "+5531989840003"
+            },
+            "affiliate": null,
+            "productMetas": [],
+            "proposalMetas": [],
+            "saleMetas": [
+              {
+                "id": 37113295,
+                "sale_id": 6672849,
+                "meta_key": "reuse_credit_card",
+                "meta_value": "1",
+                "created_at": "2025-10-01T21:53:37.000000Z",
+                "updated_at": "2025-10-01T21:53:37.000000Z"
+              },
+              {
+                "id": 37113296,
+                "sale_id": 6672849,
+                "meta_key": "assoc_ticket",
+                "meta_value": "0",
+                "created_at": "2025-10-01T21:53:37.000000Z",
+                "updated_at": "2025-10-01T21:53:37.000000Z"
+              },
+              {
+                "id": 37113297,
+                "sale_id": 6672849,
+                "meta_key": "em",
+                "meta_value": "yasmimaguiarsc@gmail.com",
+                "created_at": "2025-10-01T21:53:37.000000Z",
+                "updated_at": "2025-10-01T21:53:37.000000Z"
+              },
+              {
+                "id": 37113298,
+                "sale_id": 6672849,
+                "meta_key": "fn",
+                "meta_value": "Yasmim Aguiar",
+                "created_at": "2025-10-01T21:53:37.000000Z",
+                "updated_at": "2025-10-01T21:53:37.000000Z"
+              },
+              {
+                "id": 37113299,
+                "sale_id": 6672849,
+                "meta_key": "ph",
+                "meta_value": "31992372507",
+                "created_at": "2025-10-01T21:53:37.000000Z",
+                "updated_at": "2025-10-01T21:53:37.000000Z"
+              }
+            ],
+            "sf_trk": null,
+            "client_has_contract_id": 428595,
+            "charge": 1
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/compra-aprovada-dci",
           "executionMode": "production"
         }
       }
@@ -2531,6 +1851,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-09-27T19:58:51.873Z",
-  "versionId": "281ec4a2-23a2-41e3-bf6d-a1ce02c4400d"
+  "updatedAt": "2025-10-01T22:50:20.858Z",
+  "versionId": "20262a4a-4be1-4af4-a40c-da453cd9fcfa"
 }
