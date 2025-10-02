@@ -71,7 +71,7 @@
       "main": [
         [
           {
-            "node": "avisa_Closer1_Jonatã",
+            "node": "avisa_Natalia",
             "type": "main",
             "index": 0
           }
@@ -80,13 +80,7 @@
     },
     "avisa_Closer1_Jonatã": {
       "main": [
-        [
-          {
-            "node": "avisa_Natalia",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "formata_dados1": {
@@ -193,6 +187,17 @@
         [
           {
             "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create/update clint": {
+      "main": [
+        [
+          {
+            "node": "infos_bc",
             "type": "main",
             "index": 0
           }
@@ -589,8 +594,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        2600,
-        540
+        2780,
+        300
       ],
       "id": "a4c081ff-e803-49c4-ba10-618386e21f9f",
       "continueOnFail": true
@@ -608,7 +613,7 @@
             },
             {
               "name": "value",
-              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL INCOMPANY 🔔\n\n*Nome*: {{ $node[\"formata_dados\"].json[\"fname\"] }} {{ $node[\"formata_dados\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados\"].json[\"desafio_comercial\"] }}"
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL INDICAÇÃO 🔔\n\n*Nome de quem está indicando*: {{ $node[\"formata_dados\"].json[\"fullName\"] }}\n*Empresa de quem está indicando*: {{ $node[\"formata_dados\"].json[\"nome_empresa\"] }}\n*Empresa indicada - Nome*: {{ $node[\"formata_dados\"].json[\"empresa_indicada\"] }}\n*Empresa Indicada - Dono*: {{ $node[\"formata_dados\"].json[\"dono_empresa\"] }}\n*Empresa Indicada - Telefone*: {{ $node[\"formata_dados\"].json[\"telefone_dono\"] }}\n*Empresa Indicada - Instagram*: {{ $node[\"formata_dados\"].json[\"instagram\"] }}\n*Comunicou o Dono sobre a indicação?*: {{ $node[\"formata_dados\"].json[\"comunicou_dono\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}"
             }
           ]
         },
@@ -625,7 +630,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        2800,
+        2620,
         540
       ],
       "id": "70bf0257-6d52-465c-90cf-d3e0697fe60c",
@@ -653,15 +658,15 @@
           "parameters": [
             {
               "name": "nome",
-              "value": "={{ $node[\"formata_dados\"].json[\"fname\"] }} {{ $node[\"formata_dados\"].json[\"lname\"] }}"
+              "value": "={{ $node[\"formata_dados\"].json[\"fullName\"] }}"
             },
             {
-              "name": "telefone",
-              "value": "={{ $node[\"formata_dados\"].json[\"whatsapp\"] }}"
+              "name": "telefone_dono",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefone_dono\"] }}"
             },
             {
-              "name": "email",
-              "value": "={{ $node[\"formata_dados\"].json[\"email\"] }}"
+              "name": "instagram",
+              "value": "={{ $node[\"formata_dados\"].json[\"instagram\"] }}"
             },
             {
               "name": "utm_source",
@@ -685,35 +690,31 @@
             },
             {
               "name": "funil",
-              "value": "=InCompany"
+              "value": "=Formulário de Indicação"
             },
             {
               "name": "variacao_do_funil",
               "value": "=V1"
             },
             {
-              "name": "dono",
-              "value": "={{ $node[\"consulta_sdr1\"].json[\"email\"] }}"
+              "name": "dono_empresa",
+              "value": "={{ $node[\"formata_dados\"].json[\"dono_empresa\"] }}"
             },
             {
-              "name": "qtd_vendedores",
-              "value": "={{ $node[\"formata_dados\"].json[\"qtd_vendedores\"] }}"
+              "name": "nome_empresa",
+              "value": "={{ $node[\"formata_dados\"].json[\"nome_empresa\"] }}"
             },
             {
-              "name": "faturamento",
-              "value": "={{ $node[\"formata_dados\"].json[\"faturamento\"] }}"
+              "name": "empresa_indicada",
+              "value": "={{ $node[\"formata_dados\"].json[\"empresa_indicada\"] }}"
             },
             {
-              "name": "desafio_comercial",
-              "value": "={{ $node[\"formata_dados\"].json[\"desafio_comercial\"] }}"
+              "name": "comunicou_dono",
+              "value": "={{ $node[\"formata_dados\"].json[\"comunicou_dono\"] }}"
             },
             {
-              "name": "busca_diretor",
-              "value": "={{ $node[\"formata_dados\"].json[\"busca_diretor\"] }}"
-            },
-            {
-              "name": "pergunta_aberta",
-              "value": "={{ $node[\"formata_dados\"].json[\"pergunta_aberta\"] }}"
+              "name": "data_envio",
+              "value": "={{ $node[\"formata_dados\"].json[\"data_envio\"] }}"
             }
           ]
         },
@@ -1197,6 +1198,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-01T14:54:30.335Z",
-  "versionId": "cb89625e-6071-4ebe-a1ff-72b3c50787f9"
+  "updatedAt": "2025-10-01T20:46:40.703Z",
+  "versionId": "8f9b85d9-2c4f-429a-9964-a309de40eaaa"
 }
