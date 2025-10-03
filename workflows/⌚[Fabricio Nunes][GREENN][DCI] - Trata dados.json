@@ -265,27 +265,22 @@
         ]
       ]
     },
-    "compra_aprovada": {
+    "aguardando_pagamento": {
       "main": [
         [
           {
-            "node": "dados_da_compra3",
+            "node": "dados_da_compra2",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "cria_ou_atualiza_contato_na_clint1": {
-      "main": [
-        []
-      ]
-    },
-    "aguardando_pagamento": {
+    "compra_aprovada": {
       "main": [
         [
           {
-            "node": "dados_da_compra2",
+            "node": "dados_da_compra3",
             "type": "main",
             "index": 0
           }
@@ -978,7 +973,7 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        2400,
+        2420,
         280
       ],
       "id": "346d6073-5f1f-4e77-ac9e-16750b72c85a",
@@ -1669,22 +1664,6 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "compra-aprovada-dci",
-        "options": {}
-      },
-      "id": "c3628ab9-2e0b-473c-ab2f-dbdb475d51fd",
-      "name": "compra_aprovada",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        580,
-        40
-      ],
-      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
         "path": "aguardando_pagamento-dci",
         "options": {}
       },
@@ -1697,9 +1676,209 @@
         280
       ],
       "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
+    },
+    {
+      "parameters": {
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/custom_fields/",
+        "options": {},
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "=003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            }
+          ]
+        }
+      },
+      "name": "add_tag_contato1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2260,
+        -500
+      ],
+      "id": "e481c030-9026-4b05-a46d-6266c0f46377",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "compra-aprovada-dci",
+        "options": {}
+      },
+      "id": "c3628ab9-2e0b-473c-ab2f-dbdb475d51fd",
+      "name": "compra_aprovada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        580,
+        40
+      ],
+      "webhookId": "1332482d-357e-4030-9e54-291af4ebb423"
     }
   ],
   "pinData": {
+    "aguardando_pagamento": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "GuzzleHttp/7",
+            "content-length": "3300",
+            "content-type": "application/json",
+            "x-forwarded-for": "54.208.146.185",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "54.208.146.185",
+            "x-webhook-token": "$2y$10$/8k7L/hFRqGr6eVYx4XDIerpK3oBt9LpG6ZauoFcWFY8Wx7lxY7cC",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "sale",
+            "event": "saleUpdated",
+            "oldStatus": "waiting_payment",
+            "currentStatus": "waiting_payment",
+            "sale": {
+              "id": 6672145,
+              "type": "SUBSCRIPTION",
+              "status": "waiting_payment",
+              "created_at": "2025-10-01T19:55:26.000000Z",
+              "updated_at": "2025-10-01T19:55:30.000000Z",
+              "seller_id": 33571,
+              "installments": 1,
+              "method": "BOLETO",
+              "client_id": 4245172,
+              "fee": 0,
+              "seller_balance": 0,
+              "total": 0,
+              "amount": 297,
+              "proposal_id": null,
+              "subscription_id": "sub_68dd872f1f4114blt18el5xp",
+              "boleto_url": "https://adm.greenn.com.br/redirect/s7zGxIfT9j",
+              "boleto_barcode": "19790000056215343156434305377284212210000029700",
+              "boleto_expiration_date": "2025-10-01",
+              "qrcode": null,
+              "imgQrcode": null,
+              "paid_at": null,
+              "bump_id": null,
+              "is_smart_sale": 0,
+              "shipping_amount": null,
+              "shipping_selected": null,
+              "coupon": null
+            },
+            "client": {
+              "id": 4245172,
+              "name": "Jose Teste Silva",
+              "email": "joseteste@gmail.com",
+              "cellphone": "+5531955443322",
+              "document": "373.208.890-13",
+              "zipcode": null,
+              "street": "",
+              "number": "",
+              "complement": "",
+              "neighborhood": "",
+              "city": "",
+              "uf": "",
+              "created_at": "2025-10-01T19:55:26.000000Z",
+              "updated_at": "2025-10-01T19:55:26.000000Z",
+              "document_type": "cpf",
+              "cpf_cnpj": "373.208.890-13"
+            },
+            "product": {
+              "id": 137613,
+              "name": "Diretor Comercial Inteligente - 10 usuários",
+              "description": "Sistema completo com 4 IAs especializadas: Comercial, Marketing, Social Media e Financeiro trabalhando 24/7 pela sua empresa.\nEnquanto seus concorrentes ainda fazem planilhas, você terá 4 IAs especializadas trabalhando 24/7 para otimizar seus resultados.",
+              "type": "SUBSCRIPTION",
+              "amount": 297,
+              "period": 30,
+              "thank_you_page": "http://diretor.universidadevendas.com.br/login",
+              "created_at": "2025-09-24T18:04:22.000000Z",
+              "updated_at": "2025-09-26T17:01:09.000000Z",
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "url_callback": null,
+              "trial": 0,
+              "proposal_minimum": 0,
+              "allow_proposal": 0,
+              "affiliation_approbation": 1,
+              "affiliation_public": 1,
+              "is_active": 1,
+              "deleted_at": null,
+              "affiliation_proposal": 1,
+              "category_fiscal": "SERVICE",
+              "fiscal_code": null
+            },
+            "oferta": "Diretor Comercial Inteligente - 10 usuários",
+            "offer": {
+              "hash": "np9b0M",
+              "amount": 297,
+              "method": "CREDIT_CARD,BOLETO,PIX",
+              "name": "Diretor Comercial Inteligente - 10 usuários",
+              "created_at": "2025-09-24T18:04:22.000000Z"
+            },
+            "seller": {
+              "id": 33571,
+              "name": "Fabricio Augusto Nunes Oliveira",
+              "email": "fabricioaugustonoliveira@gmail.com",
+              "cellphone": "+5531989840003"
+            },
+            "affiliate": null,
+            "productMetas": [],
+            "proposalMetas": [],
+            "saleMetas": [
+              {
+                "id": 37106285,
+                "sale_id": 6672145,
+                "meta_key": "reuse_credit_card",
+                "meta_value": "1",
+                "created_at": "2025-10-01T19:55:26.000000Z",
+                "updated_at": "2025-10-01T19:55:26.000000Z"
+              },
+              {
+                "id": 37106286,
+                "sale_id": 6672145,
+                "meta_key": "assoc_ticket",
+                "meta_value": "0",
+                "created_at": "2025-10-01T19:55:26.000000Z",
+                "updated_at": "2025-10-01T19:55:26.000000Z"
+              },
+              {
+                "id": 37106287,
+                "sale_id": 6672145,
+                "meta_key": "utm_source",
+                "meta_value": "typeform?em=joseteste@gmail.com",
+                "created_at": "2025-10-01T19:55:26.000000Z",
+                "updated_at": "2025-10-01T19:55:26.000000Z"
+              },
+              {
+                "id": 37106288,
+                "sale_id": 6672145,
+                "meta_key": "fn",
+                "meta_value": "Jose Teste Silva",
+                "created_at": "2025-10-01T19:55:26.000000Z",
+                "updated_at": "2025-10-01T19:55:26.000000Z"
+              },
+              {
+                "id": 37106289,
+                "sale_id": 6672145,
+                "meta_key": "ph",
+                "meta_value": "31955443322",
+                "created_at": "2025-10-01T19:55:26.000000Z",
+                "updated_at": "2025-10-01T19:55:26.000000Z"
+              }
+            ],
+            "sf_trk": null,
+            "client_has_contract_id": 428545,
+            "charge": 0
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aguardando_pagamento-dci",
+          "executionMode": "production"
+        }
+      }
+    ],
     "compra_aprovada": [
       {
         "json": {
@@ -1877,167 +2056,6 @@
           "executionMode": "production"
         }
       }
-    ],
-    "aguardando_pagamento": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "GuzzleHttp/7",
-            "content-length": "3300",
-            "content-type": "application/json",
-            "x-forwarded-for": "54.208.146.185",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "54.208.146.185",
-            "x-webhook-token": "$2y$10$/8k7L/hFRqGr6eVYx4XDIerpK3oBt9LpG6ZauoFcWFY8Wx7lxY7cC",
-            "accept-encoding": "gzip"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "type": "sale",
-            "event": "saleUpdated",
-            "oldStatus": "waiting_payment",
-            "currentStatus": "waiting_payment",
-            "sale": {
-              "id": 6672145,
-              "type": "SUBSCRIPTION",
-              "status": "waiting_payment",
-              "created_at": "2025-10-01T19:55:26.000000Z",
-              "updated_at": "2025-10-01T19:55:30.000000Z",
-              "seller_id": 33571,
-              "installments": 1,
-              "method": "BOLETO",
-              "client_id": 4245172,
-              "fee": 0,
-              "seller_balance": 0,
-              "total": 0,
-              "amount": 297,
-              "proposal_id": null,
-              "subscription_id": "sub_68dd872f1f4114blt18el5xp",
-              "boleto_url": "https://adm.greenn.com.br/redirect/s7zGxIfT9j",
-              "boleto_barcode": "19790000056215343156434305377284212210000029700",
-              "boleto_expiration_date": "2025-10-01",
-              "qrcode": null,
-              "imgQrcode": null,
-              "paid_at": null,
-              "bump_id": null,
-              "is_smart_sale": 0,
-              "shipping_amount": null,
-              "shipping_selected": null,
-              "coupon": null
-            },
-            "client": {
-              "id": 4245172,
-              "name": "Jose Teste Silva",
-              "email": "joseteste@gmail.com",
-              "cellphone": "+5531955443322",
-              "document": "373.208.890-13",
-              "zipcode": null,
-              "street": "",
-              "number": "",
-              "complement": "",
-              "neighborhood": "",
-              "city": "",
-              "uf": "",
-              "created_at": "2025-10-01T19:55:26.000000Z",
-              "updated_at": "2025-10-01T19:55:26.000000Z",
-              "document_type": "cpf",
-              "cpf_cnpj": "373.208.890-13"
-            },
-            "product": {
-              "id": 137613,
-              "name": "Diretor Comercial Inteligente - 10 usuários",
-              "description": "Sistema completo com 4 IAs especializadas: Comercial, Marketing, Social Media e Financeiro trabalhando 24/7 pela sua empresa.\nEnquanto seus concorrentes ainda fazem planilhas, você terá 4 IAs especializadas trabalhando 24/7 para otimizar seus resultados.",
-              "type": "SUBSCRIPTION",
-              "amount": 297,
-              "period": 30,
-              "thank_you_page": "http://diretor.universidadevendas.com.br/login",
-              "created_at": "2025-09-24T18:04:22.000000Z",
-              "updated_at": "2025-09-26T17:01:09.000000Z",
-              "method": "CREDIT_CARD,BOLETO,PIX",
-              "url_callback": null,
-              "trial": 0,
-              "proposal_minimum": 0,
-              "allow_proposal": 0,
-              "affiliation_approbation": 1,
-              "affiliation_public": 1,
-              "is_active": 1,
-              "deleted_at": null,
-              "affiliation_proposal": 1,
-              "category_fiscal": "SERVICE",
-              "fiscal_code": null
-            },
-            "oferta": "Diretor Comercial Inteligente - 10 usuários",
-            "offer": {
-              "hash": "np9b0M",
-              "amount": 297,
-              "method": "CREDIT_CARD,BOLETO,PIX",
-              "name": "Diretor Comercial Inteligente - 10 usuários",
-              "created_at": "2025-09-24T18:04:22.000000Z"
-            },
-            "seller": {
-              "id": 33571,
-              "name": "Fabricio Augusto Nunes Oliveira",
-              "email": "fabricioaugustonoliveira@gmail.com",
-              "cellphone": "+5531989840003"
-            },
-            "affiliate": null,
-            "productMetas": [],
-            "proposalMetas": [],
-            "saleMetas": [
-              {
-                "id": 37106285,
-                "sale_id": 6672145,
-                "meta_key": "reuse_credit_card",
-                "meta_value": "1",
-                "created_at": "2025-10-01T19:55:26.000000Z",
-                "updated_at": "2025-10-01T19:55:26.000000Z"
-              },
-              {
-                "id": 37106286,
-                "sale_id": 6672145,
-                "meta_key": "assoc_ticket",
-                "meta_value": "0",
-                "created_at": "2025-10-01T19:55:26.000000Z",
-                "updated_at": "2025-10-01T19:55:26.000000Z"
-              },
-              {
-                "id": 37106287,
-                "sale_id": 6672145,
-                "meta_key": "utm_source",
-                "meta_value": "typeform?em=joseteste@gmail.com",
-                "created_at": "2025-10-01T19:55:26.000000Z",
-                "updated_at": "2025-10-01T19:55:26.000000Z"
-              },
-              {
-                "id": 37106288,
-                "sale_id": 6672145,
-                "meta_key": "fn",
-                "meta_value": "Jose Teste Silva",
-                "created_at": "2025-10-01T19:55:26.000000Z",
-                "updated_at": "2025-10-01T19:55:26.000000Z"
-              },
-              {
-                "id": 37106289,
-                "sale_id": 6672145,
-                "meta_key": "ph",
-                "meta_value": "31955443322",
-                "created_at": "2025-10-01T19:55:26.000000Z",
-                "updated_at": "2025-10-01T19:55:26.000000Z"
-              }
-            ],
-            "sf_trk": null,
-            "client_has_contract_id": 428545,
-            "charge": 0
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aguardando_pagamento-dci",
-          "executionMode": "production"
-        }
-      }
     ]
   },
   "settings": {
@@ -2052,6 +2070,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-10-02T14:52:01.172Z",
-  "versionId": "5037f647-4759-4211-af90-05fa63acd7a8"
+  "updatedAt": "2025-10-02T21:44:51.528Z",
+  "versionId": "cbcfc1ac-5068-4521-81a1-12dc66f04f4f"
 }
