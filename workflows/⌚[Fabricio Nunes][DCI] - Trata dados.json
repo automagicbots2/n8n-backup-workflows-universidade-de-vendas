@@ -254,17 +254,6 @@
         ]
       ]
     },
-    "Popup-DCI-25": {
-      "main": [
-        [
-          {
-            "node": "formata_dados3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "create/update clint4": {
       "main": [
         [
@@ -363,6 +352,182 @@
           }
         ]
       ]
+    },
+    "pesquisa_fluxo_funil": {
+      "main": [
+        [
+          {
+            "node": "envia_fluxo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_user1": {
+      "main": [
+        [
+          {
+            "node": "cadastrar_contato1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastrar_contato1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_fluxo_funil",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "puxa_apikey_botconversa1": {
+      "main": [
+        [
+          {
+            "node": "busca_user1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Natalia": {
+      "main": [
+        [
+          {
+            "node": "puxa_apikey_botconversa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_fluxo_funil1": {
+      "main": [
+        [
+          {
+            "node": "envia_fluxo1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_user": {
+      "main": [
+        [
+          {
+            "node": "cadastrar_contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastrar_contato": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_fluxo_funil1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "puxa_apikey_botconversa": {
+      "main": [
+        [
+          {
+            "node": "busca_user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Natalia1": {
+      "main": [
+        [
+          {
+            "node": "puxa_apikey_botconversa1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_fluxo_funil2": {
+      "main": [
+        [
+          {
+            "node": "envia_fluxo2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_user2": {
+      "main": [
+        [
+          {
+            "node": "cadastrar_contato2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastrar_contato2": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_fluxo_funil2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "puxa_apikey_botconversa2": {
+      "main": [
+        [
+          {
+            "node": "busca_user2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Natalia2": {
+      "main": [
+        [
+          {
+            "node": "puxa_apikey_botconversa2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Popup-DCI-25": {
+      "main": [
+        [
+          {
+            "node": "formata_dados3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-09-19T17:26:29.684Z",
@@ -374,7 +539,7 @@
   "nodes": [
     {
       "parameters": {
-        "jsCode": "// 🔹 Capturar os dados do input\nconst inputData = items[0].json.body || {};\n\n// 🔧 Utilidades\nfunction formatEmail(email) {\n  return email ? String(email).toLowerCase().trim() : \"\";\n}\n\nfunction processTelefone(telefoneOriginal) {\n  if (!telefoneOriginal) return \"\";\n  const digits = String(telefoneOriginal).replace(/\\D/g, \"\");\n  const withDDI = digits.startsWith(\"55\") ? digits : `55${digits}`;\n  const DDD = withDDI.slice(2, 4);\n  let numero = withDDI.slice(4);\n  if (numero.length === 8) numero = `9${numero}`;\n  return `55${DDD}${numero}`;\n}\n\nfunction formatDateTimeGMT3(iso) {\n  if (!iso) return \"\";\n  const d = new Date(iso);\n  d.setHours(d.getHours() - 3); // GMT-3 fixo\n  const yyyy = d.getFullYear();\n  const mm   = String(d.getMonth() + 1).padStart(2, \"0\");\n  const dd   = String(d.getDate()).padStart(2, \"0\");\n  const HH   = String(d.getHours()).padStart(2, \"0\");\n  const II   = String(d.getMinutes()).padStart(2, \"0\");\n  const SS   = String(d.getSeconds()).padStart(2, \"0\");\n  return `${yyyy}-${mm}-${dd} ${HH}:${II}:${SS}`;\n}\n\n// 🔧 Função para separar nome e sobrenome\nfunction splitName(fullName) {\n  if (!fullName) return { nome: \"\", sobrenome: \"\", nome_completo: \"\" };\n  const parts = fullName.trim().split(/\\s+/);\n  const nome = parts.shift() || \"\";\n  const sobrenome = parts.join(\" \") || \"\";\n  const nome_completo = [nome, sobrenome].filter(Boolean).join(\" \");\n  return { nome, sobrenome, nome_completo };\n}\n\n// 🔎 Extrair do payload\nconst nomeRaw     = inputData[\"name\"] || \"\";\nconst email       = inputData[\"email\"] || \"\";\nconst companyName = inputData[\"companyName\"] || \"\";\nconst planName    = inputData[\"planName\"] || \"\";\nconst planId      = inputData[\"planId\"] || \"\";\nconst maxUsers    = inputData[\"maxUsers\"] !== undefined ? String(inputData[\"maxUsers\"]) : \"\";\nconst timestamp   = inputData[\"timestamp\"] || \"\";\nconst TelefoneRaw = inputData[\"phone\"] || \"\";\nconst cnpj        = inputData[\"cnpj\"] || \"\";\nconst cpf         = inputData[\"cpf\"] || \"\";\nconst form_id     = inputData[\"pageId\"] || \"\";\nconst dataId      = inputData[\"dataId\"] || \"\";\n// UTMs\nconst utm_source   = inputData[\"utm_source\"]   || \"\";\nconst utm_campaign = inputData[\"utm_campaign\"] || \"\";\nconst utm_medium   = inputData[\"utm_medium\"]   || \"\";\nconst utm_term     = inputData[\"utm_term\"]     || \"\";\nconst utm_content  = inputData[\"utm_content\"]  || \"\";\n\n// 🧱 Montar o objeto final\nconst split = splitName(nomeRaw);\n\nconst result = {\n  nome: split.nome,\n  sobrenome: split.sobrenome,\n  nome_completo: split.nome_completo,\n\n  email: formatEmail(email),\n  Telefone: processTelefone(TelefoneRaw),\n\n  \"Nome da empresa\": companyName,\n  \"Tipo de plano\":   planName,\n  \"ID do plano\":     planId,\n  \"Usuários\":        maxUsers,    // string\n  \"CNPJ\":            cnpj,\n  \"CPF\":             cpf,\n\n  \"Data envio\": formatDateTimeGMT3(timestamp),  // ✅ ajustado aqui\n\n  form_id: form_id,\n  dataId: dataId,\n\n  utm_source,\n  utm_campaign,\n  utm_medium,\n  utm_term,\n  utm_content\n};\n\n// ✅ Retornar para o n8n\nreturn [{ json: result }];\n"
+        "jsCode": "// 🔹 Capturar os dados do input\nconst inputData = items[0].json.body || {};\n\n// 🔧 Utilidades\nfunction formatEmail(email) {\n  return email ? String(email).toLowerCase().trim() : \"\";\n}\n\nfunction processTelefone(telefoneOriginal) {\n  if (!telefoneOriginal) return \"\";\n  const digits = String(telefoneOriginal).replace(/\\D/g, \"\");\n  const withDDI = digits.startsWith(\"55\") ? digits : `55${digits}`;\n  const DDD = withDDI.slice(2, 4);\n  let numero = withDDI.slice(4);\n  if (numero.length === 8) numero = `9${numero}`;\n  return `55${DDD}${numero}`;\n}\n\nfunction formatDateTimeGMT3(iso) {\n  if (!iso) return \"\";\n  const d = new Date(iso);\n  d.setHours(d.getHours() - 3); // GMT-3 fixo\n  const yyyy = d.getFullYear();\n  const mm   = String(d.getMonth() + 1).padStart(2, \"0\");\n  const dd   = String(d.getDate()).padStart(2, \"0\");\n  const HH   = String(d.getHours()).padStart(2, \"0\");\n  const II   = String(d.getMinutes()).padStart(2, \"0\");\n  const SS   = String(d.getSeconds()).padStart(2, \"0\");\n  return `${yyyy}-${mm}-${dd} ${HH}:${II}:${SS}`;\n}\n\n// ➕ NOVA: formato BotConversa %d.%m.%Y %H:%M:%S (GMT-3)\nfunction formatDateTimeBotConversa(iso) {\n  if (!iso) return \"\";\n  const d = new Date(iso);\n  d.setHours(d.getHours() - 3); // GMT-3 fixo\n  const dd = String(d.getDate()).padStart(2, \"0\");\n  const mm = String(d.getMonth() + 1).padStart(2, \"0\");\n  const yyyy = d.getFullYear();\n  const HH = String(d.getHours()).padStart(2, \"0\");\n  const II = String(d.getMinutes()).padStart(2, \"0\");\n  const SS = String(d.getSeconds()).padStart(2, \"0\");\n  return `${dd}.${mm}.${yyyy} ${HH}:${II}:${SS}`;\n}\n\n// 🔧 Função para separar nome e sobrenome\nfunction splitName(fullName) {\n  if (!fullName) return { nome: \"\", sobrenome: \"\", nome_completo: \"\" };\n  const parts = fullName.trim().split(/\\s+/);\n  const nome = parts.shift() || \"\";\n  const sobrenome = parts.join(\" \") || \"\";\n  const nome_completo = [nome, sobrenome].filter(Boolean).join(\" \");\n  return { nome, sobrenome, nome_completo };\n}\n\n// 🔎 Extrair do payload\nconst nomeRaw     = inputData[\"name\"] || \"\";\nconst email       = inputData[\"email\"] || \"\";\nconst companyName = inputData[\"companyName\"] || \"\";\nconst planName    = inputData[\"planName\"] || \"\";\nconst planId      = inputData[\"planId\"] || \"\";\nconst maxUsers    = inputData[\"maxUsers\"] !== undefined ? String(inputData[\"maxUsers\"]) : \"\";\nconst timestamp   = inputData[\"timestamp\"] || \"\";\nconst TelefoneRaw = inputData[\"phone\"] || \"\";\nconst cnpj        = inputData[\"cnpj\"] || \"\";\nconst cpf         = inputData[\"cpf\"] || \"\";\nconst form_id     = inputData[\"pageId\"] || \"\";\nconst dataId      = inputData[\"dataId\"] || \"\";\n// UTMs\nconst utm_source   = inputData[\"utm_source\"]   || \"\";\nconst utm_campaign = inputData[\"utm_campaign\"] || \"\";\nconst utm_medium   = inputData[\"utm_medium\"]   || \"\";\nconst utm_term     = inputData[\"utm_term\"]     || \"\";\nconst utm_content  = inputData[\"utm_content\"]  || \"\";\n\n// 🧱 Montar o objeto final\nconst split = splitName(nomeRaw);\n\nconst result = {\n  nome: split.nome,\n  sobrenome: split.sobrenome,\n  nome_completo: split.nome_completo,\n\n  email: formatEmail(email),\n  Telefone: processTelefone(TelefoneRaw),\n\n  \"Nome da empresa\": companyName,\n  \"Tipo de plano\":   planName,\n  \"ID do plano\":     planId,\n  \"Usuários\":        maxUsers,    // string\n  \"CNPJ\":            cnpj,\n  \"CPF\":             cpf,\n\n  \"Data envio\": formatDateTimeGMT3(timestamp),\n\n  // ✅ Novo campo no formato aceito pelo BotConversa\n  data_botconversa: formatDateTimeBotConversa(timestamp),\n\n  form_id: form_id,\n  dataId: dataId,\n\n  utm_source,\n  utm_campaign,\n  utm_medium,\n  utm_term,\n  utm_content\n};\n\n// ✅ Retornar para o n8n\nreturn [{ json: result }];\n"
       },
       "id": "5de7779d-fa75-48e5-9a40-cf783026c08b",
       "name": "formata_dados1",
@@ -1269,7 +1434,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        2300,
+        2280,
         -140
       ]
     },
@@ -1392,25 +1557,9 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        2300,
+        2280,
         100
       ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "popup-dci-25",
-        "options": {}
-      },
-      "id": "32dbcca4-1f12-4b74-87c9-2d92eda979c9",
-      "name": "Popup-DCI-25",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        620,
-        100
-      ],
-      "webhookId": "e1da26b9-1518-4ee2-b60a-a96ddcd630a8"
     },
     {
       "parameters": {
@@ -1512,7 +1661,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        2720,
+        2700,
         -140
       ],
       "id": "a94775ce-3174-464e-b16a-50680391e681",
@@ -1727,62 +1876,609 @@
         -140
       ],
       "webhookId": "e1da26b9-1518-4ee2-b60a-a96ddcd630a8"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "fluxo_funil_v2",
+          "mode": "list",
+          "cachedResultName": "fluxo_funil_v2"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id_etapa_funil",
+              "value": "3"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ecdbb94e-85a1-4414-8ff2-93ab8c976116",
+      "name": "pesquisa_fluxo_funil",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3740,
+        -140
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato1\"].json[\"id\"] }}/send_flow/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"puxa_apikey_botconversa1\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"pesquisa_fluxo_funil\"].json[\"id_fluxo\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "76f51ad0-bb6e-4e2d-a54f-db7e35fe7e9d",
+      "name": "envia_fluxo",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3920,
+        -140
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $node[\"cria_atualiza_user2\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "e3ae4e6d-745e-4950-9619-0885b0d3fa0c",
+      "name": "busca_user1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3340,
+        -140
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "={{ $node[\"busca_user1\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"busca_user1\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"busca_user1\"].json[\"sobrenome\"] || '.' }}"
+            },
+            {
+              "name": "Email-da-Compra",
+              "value": "={{ $node[\"busca_user1\"].json[\"email\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"puxa_apikey_botconversa1\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "cadastrar_contato1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        3540,
+        -140
+      ],
+      "id": "cbec9b1b-618f-4cae-a539-79620098e503",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "=API-KEY BOT CONVERSA"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bb97f1b5-6fcb-425b-9ba5-c7fdffd0f3ba",
+      "name": "puxa_apikey_botconversa1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3120,
+        -140
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/bot_fields/",
+        "options": {},
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            }
+          ]
+        }
+      },
+      "name": "add_campo_contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        3380,
+        460
+      ],
+      "id": "47150c03-3f75-46cd-9b51-9a86d74f893b",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "fluxo_funil_v2",
+          "mode": "list",
+          "cachedResultName": "fluxo_funil_v2"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id_etapa_funil",
+              "value": "3"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c9265769-2ea2-4711-b0bb-814738f92f49",
+      "name": "pesquisa_fluxo_funil1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3740,
+        -360
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/send_flow/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"puxa_apikey_botconversa\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"pesquisa_fluxo_funil1\"].json[\"id_fluxo\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "172929b9-61bc-47ba-813b-8442a9c78e62",
+      "name": "envia_fluxo1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3920,
+        -360
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $node[\"cria_atualiza_user\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "378ad1fc-44b8-4315-8bad-c8a394a3ff60",
+      "name": "busca_user",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3340,
+        -360
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "={{ $node[\"busca_user\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"busca_user\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"busca_user\"].json[\"sobrenome\"] || '.' }}"
+            },
+            {
+              "name": "Email-da-Compra",
+              "value": "={{ $node[\"busca_user\"].json[\"email\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"puxa_apikey_botconversa\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "cadastrar_contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        3540,
+        -360
+      ],
+      "id": "0efef436-2dc9-4c26-a14c-f50b4ba096f6",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "=API-KEY BOT CONVERSA"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0dc7e609-9bb7-4847-a5dd-8ba922036d46",
+      "name": "puxa_apikey_botconversa",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3120,
+        -360
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "fluxo_funil_v2",
+          "mode": "list",
+          "cachedResultName": "fluxo_funil_v2"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id_etapa_funil",
+              "value": "3"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "81eae77e-3f52-4d9e-b9ad-4302b95e4654",
+      "name": "pesquisa_fluxo_funil2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3720,
+        100
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato2\"].json[\"id\"] }}/send_flow/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"puxa_apikey_botconversa2\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"pesquisa_fluxo_funil2\"].json[\"id_fluxo\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a69eef83-d7b0-4eef-a1ea-0567e7353f11",
+      "name": "envia_fluxo2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3920,
+        100
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $node[\"cria_atualiza_user3\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "a62fb8f6-e416-47f8-b055-7f7e625afb7c",
+      "name": "busca_user2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3320,
+        100
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "={{ $node[\"busca_user2\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"busca_user2\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"busca_user2\"].json[\"sobrenome\"] || '.' }}"
+            },
+            {
+              "name": "Email-da-Compra",
+              "value": "={{ $node[\"busca_user2\"].json[\"email\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"puxa_apikey_botconversa2\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "cadastrar_contato2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        3520,
+        100
+      ],
+      "id": "1cf5d4a2-7303-4667-90f2-e1c04f7c9aa0",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "=API-KEY BOT CONVERSA"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ad08e799-2ed6-4e4d-a5a5-a294febacc63",
+      "name": "puxa_apikey_botconversa2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3100,
+        100
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "popup-dci-25",
+        "options": {}
+      },
+      "id": "32dbcca4-1f12-4b74-87c9-2d92eda979c9",
+      "name": "Popup-DCI-25",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        620,
+        100
+      ],
+      "webhookId": "e1da26b9-1518-4ee2-b60a-a96ddcd630a8"
     }
   ],
   "pinData": {
-    "Popup-DCI-25": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
-            "content-length": "468",
-            "accept": "*/*",
-            "accept-encoding": "gzip, deflate, br, zstd",
-            "accept-language": "pt-PT,pt;q=0.9,en-US;q=0.8,en;q=0.7",
-            "content-type": "application/json",
-            "origin": "https://dci-universidadevendas.vercel.app",
-            "priority": "u=1, i",
-            "referer": "https://dci-universidadevendas.vercel.app/",
-            "sec-ch-ua": "\"Google Chrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": "\"Windows\"",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "cross-site",
-            "x-forwarded-for": "201.17.208.252",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "201.17.208.252"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "name": "Maria Jose Teste",
-            "email": "mariajose@gmail.com",
-            "companyName": "Automação da Maria",
-            "planName": "Anual",
-            "planId": "137614?utm_source=typeform",
-            "maxUsers": 25,
-            "timestamp": "2025-10-01T21:06:19.731Z",
-            "phone": "21988776655",
-            "cnpj": "33.834.219/0001-45",
-            "cpf": "936.958.900-70",
-            "pageId": "register-with-plan-popup",
-            "dataId": "register-with-plan",
-            "utm_source": "",
-            "utm_campaign": "quente",
-            "utm_medium": "botao-typeform",
-            "utm_term": "indicacao",
-            "utm_content": "forms-indicacao"
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/popup-dci-25",
-          "executionMode": "production"
-        }
-      }
-    ],
     "Popup-DCI-5": [
       {
         "json": {
@@ -1888,6 +2584,59 @@
           "executionMode": "production"
         }
       }
+    ],
+    "Popup-DCI-25": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+            "content-length": "468",
+            "accept": "*/*",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "accept-language": "pt-PT,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+            "content-type": "application/json",
+            "origin": "https://dci-universidadevendas.vercel.app",
+            "priority": "u=1, i",
+            "referer": "https://dci-universidadevendas.vercel.app/",
+            "sec-ch-ua": "\"Google Chrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site",
+            "x-forwarded-for": "201.17.208.252",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "201.17.208.252"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "name": "Maria Jose Teste",
+            "email": "mariajose@gmail.com",
+            "companyName": "Automação da Maria",
+            "planName": "Anual",
+            "planId": "137614?utm_source=typeform",
+            "maxUsers": 25,
+            "timestamp": "2025-10-01T21:06:19.731Z",
+            "phone": "21988776655",
+            "cnpj": "33.834.219/0001-45",
+            "cpf": "936.958.900-70",
+            "pageId": "register-with-plan-popup",
+            "dataId": "register-with-plan",
+            "utm_source": "",
+            "utm_campaign": "quente",
+            "utm_medium": "botao-typeform",
+            "utm_term": "indicacao",
+            "utm_content": "forms-indicacao"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/popup-dci-25",
+          "executionMode": "production"
+        }
+      }
     ]
   },
   "settings": {
@@ -1902,6 +2651,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 3,
-  "updatedAt": "2025-10-01T22:02:25.633Z",
-  "versionId": "4c72ca0e-548c-49b7-99a4-776ea6b88f28"
+  "updatedAt": "2025-10-02T21:10:41.616Z",
+  "versionId": "76ae5806-adc8-466b-b7d6-7094b018869e"
 }
