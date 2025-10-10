@@ -78,11 +78,6 @@
         ]
       ]
     },
-    "avisa_Closer1_Jonatã": {
-      "main": [
-        []
-      ]
-    },
     "formata_dados1": {
       "main": [
         [
@@ -182,22 +177,22 @@
         ]
       ]
     },
-    "typeform-InCompany1": {
+    "create/update clint": {
       "main": [
         [
           {
-            "node": "formata_dados",
+            "node": "infos_bc",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "create/update clint": {
+    "typeform-InCompany1": {
       "main": [
         [
           {
-            "node": "infos_bc",
+            "node": "formata_dados",
             "type": "main",
             "index": 0
           }
@@ -658,7 +653,7 @@
           "parameters": [
             {
               "name": "nome",
-              "value": "={{ $node[\"formata_dados\"].json[\"fullName\"] }}"
+              "value": "={{ $node[\"formata_dados\"].json[\"dono_empresa\"] }}"
             },
             {
               "name": "telefone_dono",
@@ -697,11 +692,11 @@
               "value": "=V1"
             },
             {
-              "name": "dono_empresa",
-              "value": "={{ $node[\"formata_dados\"].json[\"dono_empresa\"] }}"
+              "name": "quem_indica",
+              "value": "={{ $node[\"formata_dados\"].json[\"fullName\"] }}"
             },
             {
-              "name": "nome_empresa",
+              "name": "empresa_que_indica",
               "value": "={{ $node[\"formata_dados\"].json[\"nome_empresa\"] }}"
             },
             {
@@ -836,7 +831,7 @@
           "parameters": [
             {
               "name": "nome",
-              "value": "={{ $node[\"formata_dados\"].json[\"fullName\"] || \"\" }}"
+              "value": "={{ $node[\"formata_dados\"].json[\"dono_empresa\"] }}"
             },
             {
               "name": "sobrenome",
@@ -848,7 +843,11 @@
             },
             {
               "name": "telefone",
-              "value": "={{ $node[\"formata_dados\"].json[\"whatsapp\"] || \"\" }}"
+              "value": "={{ $node[\"formata_dados\"].json[\"telefone_dono\"] }}"
+            },
+            {
+              "name": "instagram",
+              "value": "={{ $node[\"formata_dados\"].json[\"instagram\"] }}"
             }
           ]
         },
@@ -1009,10 +1008,10 @@
           "headers": {
             "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "user-agent": "Typeform Webhooks",
-            "content-length": "2881",
+            "content-length": "2825",
             "accept-encoding": "gzip",
             "content-type": "application/json",
-            "traceparent": "00-2b97c495b9510b9a2ef5d2de48b0cfa9-073d81628000b43c-01",
+            "traceparent": "00-5756db84d7c5794920bef49e4bf649f1-879a192756315ee5-01",
             "x-forwarded-for": "34.230.177.131",
             "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "x-forwarded-port": "443",
@@ -1023,13 +1022,13 @@
           "params": {},
           "query": {},
           "body": {
-            "event_id": "01K6G3Q34XZ57G0C3DNKHQ75ZD",
+            "event_id": "01K74Q19C28NRA1KN7JHB87FD5",
             "event_type": "form_response",
             "form_response": {
               "form_id": "roxhiaPX",
-              "token": "defytdgn8ohwu7ah3s2un45defytucrx",
-              "landed_at": "2025-10-01T14:43:41Z",
-              "submitted_at": "2025-10-01T14:44:41Z",
+              "token": "cdqrwv5j4w2f3dalelx7c8cdqrwv7qt6",
+              "landed_at": "2025-10-09T14:44:34Z",
+              "submitted_at": "2025-10-09T14:47:06Z",
               "hidden": {
                 "utm_campaign": "quente",
                 "utm_content": "forms-indicacao",
@@ -1112,7 +1111,7 @@
               "answers": [
                 {
                   "type": "text",
-                  "text": "Porto Automagic Teste",
+                  "text": "Porto Teste",
                   "field": {
                     "id": "GkhJAp4xiqq7",
                     "type": "short_text",
@@ -1121,7 +1120,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "Automagic",
+                  "text": "Teste Automagic",
                   "field": {
                     "id": "Gj7z1vsmtNjs",
                     "type": "short_text",
@@ -1130,7 +1129,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "Bernardes",
+                  "text": "Jose teste",
                   "field": {
                     "id": "AnAGPZoosFn2",
                     "type": "short_text",
@@ -1139,7 +1138,7 @@
                 },
                 {
                   "type": "phone_number",
-                  "phone_number": "+5531988776655",
+                  "phone_number": "+5599988776655",
                   "field": {
                     "id": "jo1DzlGqV1lr",
                     "type": "phone_number",
@@ -1148,7 +1147,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "Auto Bots",
+                  "text": "Bots Test",
                   "field": {
                     "id": "fyUCIPDSqGMO",
                     "type": "short_text",
@@ -1157,7 +1156,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "autobots",
+                  "text": "botstest",
                   "field": {
                     "id": "miBfBpygymqe",
                     "type": "short_text",
@@ -1166,7 +1165,7 @@
                 },
                 {
                   "type": "boolean",
-                  "boolean": false,
+                  "boolean": true,
                   "field": {
                     "id": "lUAEsNYYHd0e",
                     "type": "yes_no",
@@ -1188,16 +1187,13 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "saveDataErrorExecution": "all",
-    "saveDataSuccessExecution": "all",
     "saveExecutionProgress": true,
-    "saveManualExecutions": true,
     "callerPolicy": "workflowsFromSameOwner",
     "errorWorkflow": "Q8rgTKWALfDjS7MZ"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-01T20:46:40.703Z",
-  "versionId": "8f9b85d9-2c4f-429a-9964-a309de40eaaa"
+  "updatedAt": "2025-10-09T15:10:42.134Z",
+  "versionId": "d1f5100a-28be-430d-be2d-af59f0b5e6d2"
 }
