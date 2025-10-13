@@ -1065,6 +1065,7 @@
         300
       ],
       "id": "9610ee9a-8dc9-4cad-8e0b-0ae06b2fd5d9",
+      "disabled": true,
       "continueOnFail": true
     },
     {
@@ -1101,6 +1102,7 @@
         300
       ],
       "id": "1818815f-bd8e-4274-9602-f349e061d4b9",
+      "disabled": true,
       "continueOnFail": true
     },
     {
@@ -1399,6 +1401,7 @@
         300
       ],
       "id": "50d4cdd0-edfd-4f12-80fe-e13388b40ff3",
+      "disabled": true,
       "continueOnFail": true
     },
     {
@@ -1435,6 +1438,7 @@
         300
       ],
       "id": "dd538bc4-fbe8-4b5a-96f3-288281714324",
+      "disabled": true,
       "continueOnFail": true
     },
     {
@@ -1445,9 +1449,7 @@
           "assignee": "1210898485359550",
           "due_on": "={{ $now.toFormat('yyyy-MM-dd HH:mm:ss') }}",
           "notes": "=🎉 *NOVA VENDA - Ganho na Clint* 🎉\n\n*Data:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_won_at\"]).slice(0,10) }}\n*SDR*: {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_sdr\"] }}\n*Closer:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_closer\"] }}\n*Qual mentoria?* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_produto\"] }} {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_produto\"] }}\n*Nome da empresa: (Jurídico/Fantasia):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_name\"] }} / {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_nome_fantasia_da_emp\"] }}\n*CNPJ:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cnpj\"] }}\n*Segmento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_segment\"] }}\n*Plano:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_plano\"] }}\n*Entrada:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_value\"] }}\n*Faturamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_faturamento\"] }}\n*Quantidade de Parcelas (Entrada + Parcelas):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_quantidade_de_parcel\"] }}\n*Valor das Parcelas:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_valor_das_parcelas_e\"] }}{{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_valor_das_parcelas\"] }}\n*Data de vencimento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_dia_do_vencimento\"] }}{{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_vencimento_da_parcel\"] }}\n*Forma de pagamento:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_forma_de_pagamento_1\"] }}\n*Contatos (Nome e telefone):* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_name\"] }} - {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_phone\"] }}\n*E-mail:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"contact_email\"] }}\n*Cidade:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_city\"] }}\n*Estado:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_state\"] }}\n*CEP:* {{ $node[\"Lead_Ganho\"].json[\"body\"][\"deal_cep\"] }}{{ $node[\"Lead_Ganho\"].json[\"body\"][\"organization_cep\"] }}\n*Briefing:* {{ ($node[\"Lead_Ganho\"].json[\"body\"][\"deal_briefing\"].replaceAll('<p>', '').replaceAll('<br>','\\n').replaceAll('</p>', '').replaceAll('&nbsp;','').replaceAll('#;', '').replaceAll('**;', '')).replace(/, /g, ',').replaceAll(/ ,/g, ', ') }}",
-          "projects": [
-            "1211085333440981"
-          ]
+          "projects": []
         }
       },
       "id": "6ae146a9-3a65-431d-807f-3643f88c686b",
@@ -1697,6 +1699,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2025-09-24T19:48:12.666Z",
-  "versionId": "bb808f14-d685-4f5d-a7b7-13bede223ba9"
+  "updatedAt": "2025-10-13T15:00:05.045Z",
+  "versionId": "676612e4-fbf6-4d9c-af2e-28fb5c405c23"
 }
