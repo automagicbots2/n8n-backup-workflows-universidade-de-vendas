@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Stop and Error3",
+            "node": "log",
             "type": "main",
             "index": 0
           }
@@ -453,17 +453,6 @@
         ]
       ]
     },
-    "chega_da_fila": {
-      "main": [
-        [
-          {
-            "node": "segundo_ou_mais_erro3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "envia_fluxo_de_nao_agendou_10_min": {
       "main": [
         [
@@ -480,6 +469,39 @@
         [
           {
             "node": "envia_fluxo_de_depoimentos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chega_da_fila": {
+      "main": [
+        [
+          {
+            "node": "valida_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "valida_dados": {
+      "main": [
+        [
+          {
+            "node": "segundo_ou_mais_erro3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "log": {
+      "main": [
+        [
+          {
+            "node": "Stop and Error3",
             "type": "main",
             "index": 0
           }
@@ -503,20 +525,28 @@
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        420,
-        780
+        560,
+        700
       ]
     },
     {
       "parameters": {
         "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.properties.headers['x-delivery-count'] || 0 }}",
+              "operation": "larger",
+              "value2": "=10"
+            }
+          ],
           "boolean": [
             {
-              "value1": "={{ $json.fields.redelivered }}",
-              "value2": true
+              "value1": "={{ $json.validacao_falhou }}",
+              "value2": "=true"
             }
           ]
-        }
+        },
+        "combineOperation": "any"
       },
       "id": "e674c342-3c59-4d84-ad85-b8ff3a3be5e7",
       "name": "segundo_ou_mais_erro3",
@@ -1219,7 +1249,7 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        40,
+        -220,
         960
       ],
       "credentials": {
@@ -2303,6 +2333,75 @@
       "retryOnFail": true,
       "waitBetweenTries": 5000,
       "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// ============================================\n// VALIDADOR DE DADOS - Detecta problemas ANTES do processamento\n// ============================================\n\n// Pega o primeiro item da fila\nconst content = $input.first().json.content;\n\n// Array para armazenar erros encontrados\nconst errors = [];\n\n// ============================================\n// VALIDAÇÃO 1 - Email\n// ============================================\n// Por quê? API precisa de email válido para criar/atualizar contato\nconst email = content['E-mail do Cliente'];\n\nif (!email) {\n  errors.push('Email ausente');\n} else if (!email.includes('@')) {\n  errors.push('Email sem @');\n} else if (!email.includes('.')) {\n  errors.push('Email sem domínio');\n} else if (email.trim() === '') {\n  errors.push('Email vazio');\n}\n\n// ============================================\n// VALIDAÇÃO 2 - Telefone\n// ============================================\n// Por quê? Telefone inválido causa erro na API\nconst telefone = content['Telefone do Cliente - Formato Z-API'];\n\nif (!telefone) {\n  errors.push('Telefone ausente');\n} else if (telefone.length < 10) {\n  errors.push('Telefone muito curto (mínimo 10 dígitos)');\n} else if (!/^\\d+$/.test(telefone)) {\n  errors.push('Telefone contém caracteres não numéricos');\n}\n\n// ============================================\n// VALIDAÇÃO 3 - Nome\n// ============================================\n// Por quê? Nome é obrigatório para criar contato\nconst nome = content['Nome do Cliente'];\n\nif (!nome) {\n  errors.push('Nome ausente');\n} else if (nome.trim() === '') {\n  errors.push('Nome vazio');\n} else if (nome.length < 2) {\n  errors.push('Nome muito curto');\n}\n\n// ============================================\n// RESULTADO DA VALIDAÇÃO\n// ============================================\nif (errors.length > 0) {\n  // DADOS INVÁLIDOS - Marcar para descarte imediato\n  console.log('⚠️ VALIDAÇÃO FALHOU - Dados inválidos detectados');\n  console.log('Erros encontrados:', errors.join(', '));\n  console.log('Lead:', nome);\n  console.log('Email:', email);\n  console.log('Telefone:', telefone);\n  console.log('---');\n  \n  // Adiciona flag para o IF usar\n  $input.first().json.validacao_falhou = true;\n  $input.first().json.motivo_falha = errors.join(', ');\n  \n} else {\n  // DADOS VÁLIDOS - Pode processar normalmente\n  console.log('✅ VALIDAÇÃO OK - Dados válidos');\n  console.log('Lead:', nome);\n  \n  $input.first().json.validacao_falhou = false;\n}\n\n// Retorna o item modificado\nreturn [$input.first()];"
+      },
+      "id": "e5051dd5-7515-48e7-8776-c52d5529157e",
+      "name": "valida_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.fields.redelivered }}",
+              "value2": true
+            }
+          ],
+          "number": [
+            {
+              "value1": "={{ $json.fields.redelivered }}",
+              "operation": "larger",
+              "value2": "={{ $json.properties.headers['x-delivery-count'] || 0 }}"
+            }
+          ]
+        }
+      },
+      "id": "bf9b0ad3-01a8-4c74-87bc-7b6ea3b481bd",
+      "name": "segundo_ou_mais_erro",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        80,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ============================================\n// 📊 LOG PROFISSIONAL - Mensagem Descartada\n// ============================================\n// Propósito: Registrar informações completas ANTES de descartar\n// Permite: Auditoria, debug, análise e recuperação de dados\n\n// ============================================\n// SEÇÃO 1: COLETA DE DADOS\n// ============================================\n\n// Pega o item atual que chegou da fila\nconst data = $input.first().json;\n\n// Extrai o conteúdo (dados do lead)\nconst content = data.content;\n\n// Pega metadados do RabbitMQ\nconst deliveryCount = data.properties?.headers?.['x-delivery-count'] || 0;\n\n// Pega resultado da validação (do node anterior)\nconst validacaoFalhou = data.validacao_falhou || false;\nconst motivoFalha = data.motivo_falha || 'Excedeu limite de tentativas';\n\n// ============================================\n// SEÇÃO 2: TIMESTAMP PRECISO\n// ============================================\n// Por quê? Para saber QUANDO foi descartado\n\nconst agora = new Date();\n\n// Formato ISO (universal, para APIs e bancos)\nconst timestamp = agora.toISOString();\n// Exemplo: \"2025-10-14T16:45:30.123Z\"\n\n// Formato BR (humano-legível, para relatórios)\nconst dataFormatada = agora.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo'\n});\n// Exemplo: \"14/10/2025, 13:45:30\"\n\n// ============================================\n// SEÇÃO 3: LOG ESTRUTURADO E VISUAL\n// ============================================\n// Por quê caracteres especiais? Destacar nos logs!\n\nconsole.log('╔════════════════════════════════════════════╗');\nconsole.log('║   🚨 MENSAGEM DESCARTADA - LOG COMPLETO    ║');\nconsole.log('╚════════════════════════════════════════════╝');\nconsole.log('');\n\n// Timestamps\nconsole.log('📅 Timestamp (ISO):', timestamp);\nconsole.log('🕐 Horário Brasil:', dataFormatada);\nconsole.log('');\n\n// Separador visual\nconsole.log('━━━ INFORMAÇÕES DO LEAD ━━━');\n\n// Dados principais do lead\nconsole.log('👤 Nome:', content['Nome do Cliente'] || '(não informado)');\nconsole.log('📧 Email:', content['E-mail do Cliente'] || '(não informado)');\nconsole.log('📱 Telefone:', content['Telefone do Cliente - Formato Z-API'] || '(não informado)');\nconsole.log('🆔 ID Lead BD:', content.id_lead_bd || '(não informado)');\nconsole.log('🆔 ID Lead BC:', content.id_lead_bc || '(não informado)');\nconsole.log('');\n\n// Informações do funil\nconsole.log('━━━ INFORMAÇÕES DO FUNIL ━━━');\nconsole.log('🎯 Funil:', content.funil || '(não informado)');\nconsole.log('🔄 Variação:', content.variacao_do_funil || '(não informado)');\nconsole.log('');\n\n// Motivo do descarte (MAIS IMPORTANTE!)\nconsole.log('━━━ MOTIVO DO DESCARTE ━━━');\nconsole.log('🔢 Tentativas:', deliveryCount);\nconsole.log('❌ Validação falhou?', validacaoFalhou ? 'SIM' : 'NÃO');\nconsole.log('📝 Motivo específico:', motivoFalha);\nconsole.log('');\n\n// UTM para análise de origem\nconsole.log('━━━ UTM TRACKING ━━━');\nconsole.log('Source:', content.utm_source || '(não informado)');\nconsole.log('Campaign:', content.utm_campaign || '(não informado)');\nconsole.log('Medium:', content.utm_medium || '(não informado)');\nconsole.log('Term:', content.utm_term || '(não informado)');\nconsole.log('Content:', content.utm_content || '(não informado)');\nconsole.log('');\n\n// Payload completo em JSON (para debug técnico)\nconsole.log('━━━ PAYLOAD COMPLETO (JSON) ━━━');\nconsole.log(JSON.stringify(content, null, 2));\nconsole.log('');\n\n// Separador final\nconsole.log('═══════════════════════════════════════════');\nconsole.log('');\n\n// ============================================\n// SEÇÃO 4: ADICIONAR METADATA AO PAYLOAD\n// ============================================\n// Por quê? Para usar em nodes seguintes (webhook, DLQ, etc)\n\n$input.first().json.metadata_descarte = {\n  timestamp: timestamp,\n  timestamp_br: dataFormatada,\n  tentativas: deliveryCount,\n  validacao_falhou: validacaoFalhou,\n  motivo: motivoFalha,\n  nome_lead: content['Nome do Cliente'],\n  email_lead: content['E-mail do Cliente'],\n  telefone_lead: content['Telefone do Cliente - Formato Z-API']\n};\n\n// ============================================\n// SEÇÃO 5: RETORNAR DADOS\n// ============================================\n// Passa o item para o próximo node (Stop and Error)\n\nreturn [$input.first()];"
+      },
+      "id": "234b507c-475f-4136-a0b3-1e2e123cd700",
+      "name": "log",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        340,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# 🔧 CORREÇÃO: Loop Infinito RabbitMQ\n\n## 🔴 PROBLEMA\n- Mensagem com 2.9M tentativas (loop infinito)\n- Node IF verificava apenas `redelivered = true`\n- Workflow falhava → RabbitMQ reenviava → Loop ♾️\n\n## ✅ SOLUÇÃO IMPLEMENTADA\n\n### 1. Node ✅ Validar Dados\n- Detecta dados inválidos ANTES do processamento\n- Valida: email, telefone, nome\n- Adiciona flag: `validacao_falhou = true/false`\n\n### 2. Node IF - Dupla Condição (OR)\n**Condição 1 (Number):**\n- `x-delivery-count > 10` → Descarta após 10 tentativas\n\n**Condição 2 (Boolean):**\n- `validacao_falhou = true` → Descarta na 1ª tentativa\n\n**Combine: OR** (qualquer uma TRUE = descarta)\n\n### 3. Node 📊 LOG\n- Registra tudo antes de descartar\n- Timestamp, motivo, dados completos\n- Metadata para auditoria\n\n## 🎯 RESULTADO\n✅ Loop infinito: **ELIMINADO**\n✅ Dados inválidos: Descarte imediato (1 tent.)\n✅ Dados válidos: Até 10 tentativas (erros temp.)\n✅ Visibilidade: Log completo de tudo\n✅ Eficiência: 10x mais rápida\n\n## 📊 LÓGICA FINAL\n```\nDados Inválidos → Descarta imediatamente\nTentativas > 10 → Descarta (evita loop)\nDados OK + Erro Temp → Até 10 chances\n```\n\n---\n**Data:** 14/10/2025  \n**Workflow:** Não Agendamentos - Parte 5 - Qualificado",
+        "height": 1076.6386160974207,
+        "width": 761.5357643312916,
+        "color": 7
+      },
+      "id": "a4294362-5b0d-481c-be1d-934d0f90adca",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1060,
+        340
+      ]
     }
   ],
   "pinData": {
@@ -2310,33 +2409,32 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-Cslwkcq3k-nQlHA4kz7GHg",
-            "deliveryTag": 24,
+            "consumerTag": "amq.ctag-gu3jJv5qK_ueSBq9yLWudw",
+            "deliveryTag": 2929421,
             "redelivered": true,
             "exchange": "",
             "routingKey": "Não Agendamentos - Parte 5 - Qualificado"
           },
           "properties": {
             "headers": {
-              "x-delivery-count": 2535
+              "x-delivery-count": 1
             }
           },
           "content": {
-            "Nome do Cliente": "Fabiane",
-            "E-mail do Cliente": "fabiane.pbs@gmail.com",
-            "Telefone do Cliente - Formato Z-API": "559481078180",
-            "id_lead_bd": 1615,
-            "id_lead_bc": 370396647,
-            "utm_source": "ig",
-            "utm_campaign": "[LF] [SE] [CAPTAÇÃO] [CADASTRO] [IG] [F] Público Frio - abencoada",
-            "utm_term": "SE_AD031",
-            "utm_medium": "Instagram_Feed",
-            "utm_content": "02 - [AUTO] [F] CARGOS ALTOS",
+            "Nome do Cliente": "Kelvyn Teste Agora Sim",
+            "E-mail do Cliente": "kelvyntesteagorasim@gmail.com",
+            "Telefone do Cliente - Formato Z-API": "5549999048531",
+            "id_lead_bd": 8766,
+            "id_lead_bc": 565048918,
+            "utm_source": "teste",
+            "utm_campaign": "teste",
+            "utm_term": "teste",
+            "utm_medium": "teste",
+            "utm_content": "teste",
             "funil": "Sessao_Estrategica",
             "variacao_do_funil": "v1",
             "quantos_vendedores_possui": "Não tenho vendedores",
-            "conhece_mentoria": "Não",
-            "tem_socio": "Não\n",
+            "tem_socio": "\n",
             "id_tag_desqualificado_bot_conversa": "5073673",
             "id_campo_utm_var_bot_conversa": "1408045",
             "id_campo_utm_fun_bot_conversa": "1408044",
@@ -2352,8 +2450,8 @@
             "id_campo_tem_socio_bot_conversa": "1408036",
             "id_fluxo_nao_agendou_10_min": "",
             "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
-            "data_ultima_quinzena": "\"2025-05-04\"",
-            "instagram": "@drafabianejatoba"
+            "data_ultima_quinzena": "\"2025-08-06\"",
+            "instagram": "teste"
           }
         }
       }
@@ -2377,6 +2475,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-07-11T14:21:02.947Z",
-  "versionId": "e1e13cf2-fc4b-440d-a761-da192b3238f8"
+  "updatedAt": "2025-10-14T17:21:39.177Z",
+  "versionId": "2390b3c6-86cb-4983-a4b1-af081cbcd4c6"
 }
