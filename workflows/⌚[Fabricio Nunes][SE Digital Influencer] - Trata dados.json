@@ -1,0 +1,1276 @@
+{
+  "active": true,
+  "connections": {
+    "consulta_sdr": {
+      "main": [
+        [
+          {
+            "node": "create/update clint4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_url_rotacionamento_colaboradores": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_users": {
+      "main": [
+        [
+          {
+            "node": "cria_atualiza_user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_atualiza_user": {
+      "main": [
+        [
+          {
+            "node": "consulta_sdr",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_funil": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_url_rotacionamento_colaboradores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_funis": {
+      "main": [
+        [
+          {
+            "node": "busca_funil",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos_bc": {
+      "main": [
+        [
+          {
+            "node": "avisa_Natalia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_funis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_funis1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_sdr1": {
+      "main": [
+        [
+          {
+            "node": "create/update clint",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_url_rotacionamento_colaboradores1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_users1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_users1": {
+      "main": [
+        [
+          {
+            "node": "cria_atualiza_user1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_atualiza_user1": {
+      "main": [
+        [
+          {
+            "node": "consulta_sdr1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_funil1": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_url_rotacionamento_colaboradores1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_funis1": {
+      "main": [
+        [
+          {
+            "node": "busca_funil1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Popup-InCompany": {
+      "main": [
+        [
+          {
+            "node": "formata_dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "typeform-digital influencer": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Natalia": {
+      "main": [
+        [
+          {
+            "node": "avisa_Closer1_Jonatã",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create/update clint": {
+      "main": [
+        [
+          {
+            "node": "infos_bc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-15T17:31:13.768Z",
+  "id": "a1r099em1ddRjTyL",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⌚[Fabricio Nunes][SE Digital Influencer] - Trata dados",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// 📌 Capturar os dados de entrada (suporta payload como array ou objeto)\nconst root = Array.isArray(items[0].json) ? items[0].json[0] : items[0].json;\nconst formResponse = root?.body?.form_response || {};\nconst respostas = formResponse.answers || [];\nconst hidden = formResponse.hidden || {};\n\n// 📌 Mapear SOMENTE os campos solicitados (conforme payload atual)\nconst perguntasMap = {\n  \"c1c7559d-1861-4414-8d09-66d3bf5539a5\": \"fullName\",        // Qual seu nome?\n  \"5ee722e4-bb40-4a2a-a75c-7bb3d9182569\": \"nome_empresa\",     // Nome da empresa\n  \"f091f638-6887-4bab-bb94-ee09bc6c90f0\": \"email\",            // E-mail principal\n  \"9d2550a1-7fc2-4352-93fa-b64a8c6175cf\": \"telefone\",         // Telefone da empresa\n  \"fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed\": \"qtd_vendedores\",   // Quantos vendedores?\n  \"f9be3fc8-d97d-406b-b633-ef44898fff9a\": \"conhece_mentoria\", // Já ouviu falar da mentoria?\n  \"bae8dbfc-3bc4-4b25-b431-4d32910b51eb\": \"instagram\",        // Instagram da empresa\n  \"06045517-dab6-4de5-bc9e-ae1cdde3d0d3\": \"possui_socio\"      // Sócio/decisor junto? (yes_no)\n};\n\n// 🔤 Normalizador \"sim\"/\"não\"\nfunction normalizeSimNao(v) {\n  if (v === undefined || v === null) return \"\";\n  const s = String(v).trim().toLowerCase();\n  if ([\"sim\",\"yes\",\"y\",\"true\",\"1\",\"on\"].includes(s)) return \"sim\";\n  if ([\"não\",\"nao\",\"no\",\"n\",\"false\",\"0\",\"off\"].includes(s)) return \"não\";\n  if (s.includes(\"sim\")) return \"sim\";\n  if (s.includes(\"não\") || s.includes(\"nao\")) return \"não\";\n  return \"\";\n}\n\n// 🧠 Helpers de extração\nfunction toLabel(answer) {\n  if (!answer) return \"\";\n  if (answer.type === \"choice\")  return answer.choice?.label || \"\";\n  if (answer.type === \"choices\") return (answer.choices?.labels || []).join(\", \");\n  if (answer.type === \"boolean\") return String(!!answer.boolean);\n  if ([\"text\",\"email\",\"phone_number\",\"url\",\"number\"].includes(answer.type)) {\n    return answer[answer.type] ?? \"\";\n  }\n  const raw = answer[answer.type] ?? answer.choice?.label ?? (answer.choices?.labels || []).join(\", \") ?? \"\";\n  return raw || \"\";\n}\n\nfunction extractPossuiSocio(answer) {\n  if (!answer) return \"\";\n  if (answer.type === \"boolean\") return normalizeSimNao(answer.boolean);\n  if (answer.type === \"choice\")  return normalizeSimNao(answer.choice?.label);\n  if (answer.type === \"choices\") {\n    const labels = answer.choices?.labels || [];\n    if (labels.some(l => normalizeSimNao(l) === \"sim\")) return \"sim\";\n    if (labels.some(l => normalizeSimNao(l) === \"não\")) return \"não\";\n    return normalizeSimNao(labels.join(\", \"));\n  }\n  const raw = toLabel(answer);\n  return normalizeSimNao(raw);\n}\n\nfunction extractConheceMentoria(answer) {\n  const label = toLabel(answer); // “Sim”/“Não” (multiple_choice)\n  return normalizeSimNao(label);\n}\n\nfunction formatPhone(phone) {\n  if (!phone) return \"\";\n  const digitsOnly = String(phone).replace(/\\D/g, \"\");\n  const withDDI = digitsOnly.startsWith(\"55\") ? digitsOnly : `55${digitsOnly}`;\n  const DDD = withDDI.slice(2, 4);\n  let numero = withDDI.slice(4);\n  if (numero.length === 8) numero = `9${numero}`;\n  return `55${DDD}${numero}`;\n}\n\nfunction formatInstagram(instagram) {\n  return instagram ? String(instagram).toLowerCase().replace(/^@/, \"\") : \"\";\n}\n\n// 🧩 Separar nome em fname/lname\nfunction splitName(name) {\n  const s = String(name || \"\").trim().replace(/\\s+/g, \" \");\n  if (!s) return { fname: \"\", lname: \"\" };\n  const parts = s.split(\" \");\n  if (parts.length === 1) return { fname: parts[0], lname: \"\" };\n  const lname = parts.slice(-1)[0];\n  const fname = parts.slice(0, -1).join(\" \");\n  return { fname, lname };\n}\n\n// 📆 Converter submitted_at → YYYY-MM-DD HH:mm:ss GMT-3\nfunction formatDateTimeGMT3(iso) {\n  if (!iso) return \"\";\n  const d = new Date(iso);\n  d.setHours(d.getHours() - 3); // Ajuste -3h (SP sem DST)\n  const yyyy = d.getFullYear();\n  const mm = String(d.getMonth() + 1).padStart(2, \"0\");\n  const dd = String(d.getDate()).padStart(2, \"0\");\n  const HH = String(d.getHours()).padStart(2, \"0\");\n  const II = String(d.getMinutes()).padStart(2, \"0\");\n  const SS = String(d.getSeconds()).padStart(2, \"0\");\n  return `${yyyy}-${mm}-${dd} ${HH}:${II}:${SS}`;\n}\n\n// 📦 Montagem apenas dos campos solicitados\nconst respostasMapeadas = {};\nrespostas.forEach(answer => {\n  const ref = answer.field?.ref;\n  const key = perguntasMap[ref];\n  if (!key) return;\n\n  if (key === \"possui_socio\") {\n    respostasMapeadas.possui_socio = extractPossuiSocio(answer);\n    return;\n  }\n  if (key === \"conhece_mentoria\") {\n    respostasMapeadas.conhece_mentoria = extractConheceMentoria(answer);\n    return;\n  }\n\n  if (answer.type === \"choice\") {\n    respostasMapeadas[key] = answer.choice?.label || \"\";\n  } else if (answer.type === \"choices\") {\n    respostasMapeadas[key] = (answer.choices?.labels || []).join(\", \");\n  } else if ([\"text\",\"email\",\"phone_number\",\"url\"].includes(answer.type)) {\n    respostasMapeadas[key] = answer[answer.type] || \"\";\n  } else if (answer.type === \"number\") {\n    respostasMapeadas[key] = answer.number ?? \"\";\n  } else if (answer.type === \"boolean\") {\n    respostasMapeadas[key] = String(!!answer.boolean);\n  } else {\n    respostasMapeadas[key] = \"\";\n  }\n});\n\n// ➕ Fallbacks do hidden (considera nomes antigos e novos)\nif (!respostasMapeadas.fullName) respostasMapeadas.fullName = hidden.name || hidden.first_name || \"\";\nif (!respostasMapeadas.email)    respostasMapeadas.email    = hidden.email || \"\";\nif (!respostasMapeadas.telefone) respostasMapeadas.telefone = hidden.phone || hidden.phone_number || \"\";\nif (!respostasMapeadas.conhece_mentoria && hidden.conhece_mentoria) {\n  respostasMapeadas.conhece_mentoria = normalizeSimNao(hidden.conhece_mentoria);\n}\nif (!respostasMapeadas.possui_socio && (hidden.possui_socio || hidden.comunicou_dono)) {\n  respostasMapeadas.possui_socio = normalizeSimNao(hidden.possui_socio ?? hidden.comunicou_dono);\n}\n\n// Normalizações finais\nif (respostasMapeadas.telefone) {\n  respostasMapeadas.telefone = formatPhone(respostasMapeadas.telefone);\n}\nif (respostasMapeadas.instagram) {\n  respostasMapeadas.instagram = formatInstagram(respostasMapeadas.instagram);\n}\n\n// 👤 Derivar fname, lname e fullname\nconst baseName = respostasMapeadas.fullName || hidden.name || hidden.first_name || \"\";\nconst { fname, lname } = splitName(baseName);\nconst fullname = respostasMapeadas.fullName || [fname, lname].filter(Boolean).join(lname ? \" \" : \"\");\n\n// 📌 Capturar UTMs e outros campos\nconst utm_source   = hidden.utm_source   ?? root.utm_source   ?? \"\";\nconst utm_campaign = hidden.utm_campaign ?? root.utm_campaign ?? \"\";\nconst utm_medium   = hidden.utm_medium   ?? root.utm_medium   ?? \"\";\nconst utm_term     = hidden.utm_term     ?? root.utm_term     ?? \"\";\nconst utm_content  = hidden.utm_content  ?? root.utm_content  ?? \"\";\n\nconst form_id   = formResponse.form_id || \"\";\nconst form_name = formResponse.definition?.title || \"\";\nconst data_envio = formatDateTimeGMT3(formResponse.submitted_at);\nconst url_pagina = hidden.origin ?? hidden.url ?? root.origin ?? \"\";\n\n// ✅ Resultado final\nconst result = {\n  // Nome (mantém compat e adiciona breakdown)\n  fullName:         respostasMapeadas.fullName        || \"\",\n  fname,\n  lname,\n  fullname,\n\n  nome_empresa:     respostasMapeadas.nome_empresa    || \"\",\n  email:            respostasMapeadas.email           || \"\",\n  telefone:         respostasMapeadas.telefone        || \"\",\n  qtd_vendedores:   respostasMapeadas.qtd_vendedores  || \"\",\n  conhece_mentoria: respostasMapeadas.conhece_mentoria|| \"\",\n  instagram:        respostasMapeadas.instagram       || \"\",\n  possui_socio:     respostasMapeadas.possui_socio    || \"\",\n\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  form_id,\n  form_name,\n  data_envio,   // YYYY-MM-DD HH:mm:ss GMT-3\n  url_pagina\n};\n\nreturn [{ json: result }];"
+      },
+      "id": "ae8d04ff-d3a4-4830-8b6f-a04cfed81331",
+      "name": "formata_dados1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        740,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/60637b72-8f93-4644-a92e-fc5416ce917c",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados1\"].json[\"fname\"] }} {{ $node[\"formata_dados1\"].json[\"lname\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados1\"].json[\"email\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados1\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "=InCompany"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "=V1"
+            },
+            {
+              "name": "dono",
+              "value": "={{ $node[\"consulta_sdr\"].json[\"email\"] }}"
+            },
+            {
+              "name": "qtd_vendedores",
+              "value": "={{ $node[\"formata_dados1\"].json[\"qtd_vendedores\"] }}"
+            },
+            {
+              "name": "faturamento",
+              "value": "={{ $node[\"formata_dados1\"].json[\"faturamento\"] }}"
+            },
+            {
+              "name": "desafio_comercial",
+              "value": "={{ $node[\"formata_dados1\"].json[\"desafio_comercial\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "57b88aa6-21ba-4fb0-9c3c-4ab3468cf02f",
+      "name": "create/update clint4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2200,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_url_rotacionamento_colaboradores\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "=SDR"
+            },
+            {
+              "name": "id_user",
+              "value": "={{ $node[\"cria_atualiza_user\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        280
+      ],
+      "id": "3b4f32df-821e-43d7-8abf-3fb286e813d8",
+      "name": "consulta_sdr"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Rotacionamento de Colaboradores"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "53efb0f3-c4c2-4108-9ddd-b937754b23ac",
+      "name": "pesquisa_url_rotacionamento_colaboradores",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1340,
+        280
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Users"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "249cc3ca-004e-4546-8c72-e9602429ffa2",
+      "name": "pesquisa_variavel_n8n_fluxo_users",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1580,
+        280
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados1\"].json[\"fname\"] || \"\" }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados1\"].json[\"lname\"] || \"\" }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados1\"].json[\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados1\"].json[\"whatsapp\"] || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1800,
+        280
+      ],
+      "id": "ad07349c-6f3e-41ed-9815-d2f4daa2fda7",
+      "name": "cria_atualiza_user"
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_forms",
+              "value": "={{ $node[\"formata_dados1\"].json[\"form_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1140,
+        280
+      ],
+      "id": "6e8d0f2d-362f-40d6-b021-344d6a9d52c9",
+      "name": "busca_funil"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Funis"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "859dd215-0c94-49af-b57c-d5ffa578a60e",
+      "name": "pesquisa_variavel_n8n_fluxo_funis",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        940,
+        280
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID Jonatã BC Closer 1",
+              "value": "342800505"
+            },
+            {
+              "name": "API-KEY",
+              "value": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3"
+            },
+            {
+              "name": "ID Natalia BC",
+              "value": "768179930"
+            },
+            {
+              "name": "ID Felipe  BC",
+              "value": "747203618"
+            },
+            {
+              "name": "ID Isabella BC Closer 3",
+              "value": "695498921"
+            },
+            {
+              "name": "ID Laiane BC Closer 4",
+              "value": "445512667"
+            },
+            {
+              "name": "ID Winicius BC",
+              "value": "563485579"
+            },
+            {
+              "name": "ID_grupo_novos_clientes",
+              "value": "120363219650907550@g.us"
+            },
+            {
+              "name": "url_base_evolution",
+              "value": "https://apievolution.automagicbots.com.br/"
+            },
+            {
+              "name": "instancia_nome",
+              "value": "Fabricio-Nunnes"
+            },
+            {
+              "name": "APIKEY_Evolution",
+              "value": "D2977F0B8F6C-4B1F-A11C-D78FBA4D10A0"
+            },
+            {
+              "name": "ID Rafael BC",
+              "value": "269199328"
+            },
+            {
+              "name": "ID Thiago BC",
+              "value": "387179683"
+            },
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "id": "218042d9-6ce5-4722-a37d-7fd390d8b3db",
+      "name": "infos_bc",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL - [SE Digital Influencer] 🔔\n\n*Nome:* {{ $node[\"formata_dados\"].json[\"fullName\"] }}\n*Telefone:* {{ $node[\"formata_dados\"].json[\"telefone\"] }}\n*E-mail:* {{ $node[\"formata_dados\"].json[\"email\"] }}\n*Instagram:* {{ $node[\"formata_dados\"].json[\"instagram\"] }}\n*Nome da Empresa:* {{ $node[\"formata_dados\"].json[\"nome_empresa\"] }}\n*Qtd de Vendedores:* {{ $node[\"formata_dados\"].json[\"qtd_vendedores\"] }}\n*Possui Socio?:* {{ $node[\"formata_dados\"].json[\"possui_socio\"] }}\n*Conhece a Mentoria?:* {{ $node[\"formata_dados\"].json[\"conhece_mentoria\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Closer1_Jonatã",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2820,
+        540
+      ],
+      "id": "5976c259-f87d-4a5a-8069-c99d92de8706",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Natalia BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL - [SE Digital Influencer] 🔔\n\n*Nome:* {{ $node[\"formata_dados\"].json[\"fullName\"] }}\n\n*Telefone:* {{ $node[\"formata_dados\"].json[\"telefone\"] }}\n\n*E-mail:* {{ $node[\"formata_dados\"].json[\"email\"] }}\n\n*Instagram:* {{ $node[\"formata_dados\"].json[\"instagram\"] }}\n\n*Nome da Empresa:* {{ $node[\"formata_dados\"].json[\"nome_empresa\"] }}\n\n*Qtd de Vendedores:* {{ $node[\"formata_dados\"].json[\"qtd_vendedores\"] }}\n\n*Possui Socio?:* {{ $node[\"formata_dados\"].json[\"possui_socio\"] }}\n\n*Conhece a Mentoria?:* {{ $node[\"formata_dados\"].json[\"conhece_mentoria\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Natalia",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2620,
+        540
+      ],
+      "id": "37af6bee-8229-4652-abb9-f7cecd9575b5",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// 📌 Capturar os dados de entrada (suporta payload como array ou objeto)\nconst root = Array.isArray(items[0].json) ? items[0].json[0] : items[0].json;\nconst formResponse = root?.body?.form_response || {};\nconst respostas = formResponse.answers || [];\nconst hidden = formResponse.hidden || {};\n\n// 📌 Mapear SOMENTE os campos solicitados (conforme payload atual)\nconst perguntasMap = {\n  \"c1c7559d-1861-4414-8d09-66d3bf5539a5\": \"fullName\",        // Qual seu nome?\n  \"5ee722e4-bb40-4a2a-a75c-7bb3d9182569\": \"nome_empresa\",     // Nome da empresa\n  \"f091f638-6887-4bab-bb94-ee09bc6c90f0\": \"email\",            // E-mail principal\n  \"9d2550a1-7fc2-4352-93fa-b64a8c6175cf\": \"telefone\",         // Telefone da empresa\n  \"fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed\": \"qtd_vendedores\",   // Quantos vendedores?\n  \"f9be3fc8-d97d-406b-b633-ef44898fff9a\": \"conhece_mentoria\", // Já ouviu falar da mentoria? (Sim/Não)\n  \"bae8dbfc-3bc4-4b25-b431-4d32910b51eb\": \"instagram\",        // Instagram da empresa\n  \"06045517-dab6-4de5-bc9e-ae1cdde3d0d3\": \"possui_socio\"      // Sócio/decisor junto? (Sim/Não)\n};\n\n// 🔤 Normalizador \"sim\"/\"não\"\nfunction normalizeSimNao(v) {\n  if (v === undefined || v === null) return \"\";\n  const s = String(v).trim().toLowerCase();\n  if ([\"sim\",\"yes\",\"y\",\"true\",\"1\",\"on\"].includes(s)) return \"sim\";\n  if ([\"não\",\"nao\",\"no\",\"n\",\"false\",\"0\",\"off\"].includes(s)) return \"não\";\n  if (s.includes(\"sim\")) return \"sim\";\n  if (s.includes(\"não\") || s.includes(\"nao\")) return \"não\";\n  return \"\";\n}\n\n// 🧠 Helpers de extração\nfunction toLabel(answer) {\n  if (!answer) return \"\";\n  if (answer.type === \"choice\")  return answer.choice?.label || \"\";\n  if (answer.type === \"choices\") return (answer.choices?.labels || []).join(\", \");\n  if (answer.type === \"boolean\") return String(!!answer.boolean);\n  if ([\"text\",\"email\",\"phone_number\",\"url\",\"number\"].includes(answer.type)) {\n    return answer[answer.type] ?? \"\";\n  }\n  const raw = answer[answer.type] ?? answer.choice?.label ?? (answer.choices?.labels || []).join(\", \") ?? \"\";\n  return raw || \"\";\n}\n\nfunction extractYesNoLikePossuiSocio(answer) {\n  if (!answer) return \"\";\n  if (answer.type === \"boolean\") return normalizeSimNao(answer.boolean);\n  if (answer.type === \"choice\")  return normalizeSimNao(answer.choice?.label);\n  if (answer.type === \"choices\") {\n    const labels = answer.choices?.labels || [];\n    if (labels.some(l => normalizeSimNao(l) === \"sim\")) return \"sim\";\n    if (labels.some(l => normalizeSimNao(l) === \"não\")) return \"não\";\n    return normalizeSimNao(labels.join(\", \"));\n  }\n  const raw = toLabel(answer);\n  return normalizeSimNao(raw);\n}\n\nfunction formatPhone(phone) {\n  if (!phone) return \"\";\n  const digitsOnly = String(phone).replace(/\\D/g, \"\");\n  const withDDI = digitsOnly.startsWith(\"55\") ? digitsOnly : `55${digitsOnly}`;\n  const DDD = withDDI.slice(2, 4);\n  let numero = withDDI.slice(4);\n  if (numero.length === 8) numero = `9${numero}`;\n  return `55${DDD}${numero}`;\n}\n\nfunction formatInstagram(instagram) {\n  return instagram ? String(instagram).toLowerCase().replace(/^@/, \"\") : \"\";\n}\n\n// 🧩 Separar nome em fname/lname\nfunction splitName(name) {\n  const s = String(name || \"\").trim().replace(/\\s+/g, \" \");\n  if (!s) return { fname: \"\", lname: \"\" };\n  const parts = s.split(\" \");\n  if (parts.length === 1) return { fname: parts[0], lname: \"\" };\n  const lname = parts.slice(-1)[0];\n  const fname = parts.slice(0, -1).join(\" \");\n  return { fname, lname };\n}\n\n// 📆 Converter submitted_at → YYYY-MM-DD HH:mm:ss GMT-3\nfunction formatDateTimeGMT3(iso) {\n  if (!iso) return \"\";\n  const d = new Date(iso);\n  d.setHours(d.getHours() - 3); // Ajuste -3h (SP sem DST)\n  const yyyy = d.getFullYear();\n  const mm = String(d.getMonth() + 1).padStart(2, \"0\");\n  const dd = String(d.getDate()).padStart(2, \"0\");\n  const HH = String(d.getHours()).padStart(2, \"0\");\n  const II = String(d.getMinutes()).padStart(2, \"0\");\n  const SS = String(d.getSeconds()).padStart(2, \"0\");\n  return `${yyyy}-${mm}-${dd} ${HH}:${II}:${SS}`;\n}\n\n// 📦 Montagem apenas dos campos solicitados\nconst respostasMapeadas = {};\nrespostas.forEach(answer => {\n  const ref = answer.field?.ref;\n  const key = perguntasMap[ref];\n  if (!key) return;\n\n  if (key === \"possui_socio\") {\n    respostasMapeadas.possui_socio = extractYesNoLikePossuiSocio(answer);\n    return;\n  }\n  if (key === \"conhece_mentoria\") {\n    respostasMapeadas.conhece_mentoria = extractYesNoLikePossuiSocio(answer); // ⬅️ mesmo tratamento\n    return;\n  }\n\n  if (answer.type === \"choice\") {\n    respostasMapeadas[key] = answer.choice?.label || \"\";\n  } else if (answer.type === \"choices\") {\n    respostasMapeadas[key] = (answer.choices?.labels || []).join(\", \");\n  } else if ([\"text\",\"email\",\"phone_number\",\"url\"].includes(answer.type)) {\n    respostasMapeadas[key] = answer[answer.type] || \"\";\n  } else if (answer.type === \"number\") {\n    respostasMapeadas[key] = answer.number ?? \"\";\n  } else if (answer.type === \"boolean\") {\n    respostasMapeadas[key] = String(!!answer.boolean);\n  } else {\n    respostasMapeadas[key] = \"\";\n  }\n});\n\n// ➕ Fallbacks do hidden\nif (!respostasMapeadas.fullName)        respostasMapeadas.fullName   = hidden.name || hidden.first_name || \"\";\nif (!respostasMapeadas.email)           respostasMapeadas.email      = hidden.email || \"\";\nif (!respostasMapeadas.telefone)        respostasMapeadas.telefone   = hidden.phone || hidden.phone_number || \"\";\nif (!respostasMapeadas.conhece_mentoria && hidden.conhece_mentoria) {\n  respostasMapeadas.conhece_mentoria = normalizeSimNao(hidden.conhece_mentoria);\n}\nif (!respostasMapeadas.possui_socio && (hidden.possui_socio || hidden.comunicou_dono)) {\n  respostasMapeadas.possui_socio = normalizeSimNao(hidden.possui_socio ?? hidden.comunicou_dono);\n}\n\n// Normalizações finais\nif (respostasMapeadas.telefone) {\n  respostasMapeadas.telefone = formatPhone(respostasMapeadas.telefone);\n}\nif (respostasMapeadas.instagram) {\n  respostasMapeadas.instagram = formatInstagram(respostasMapeadas.instagram);\n}\n\n// 👤 Derivar fname, lname e fullname\nconst baseName = respostasMapeadas.fullName || hidden.name || hidden.first_name || \"\";\nconst { fname, lname } = splitName(baseName);\nconst fullname = respostasMapeadas.fullName || [fname, lname].filter(Boolean).join(lname ? \" \" : \"\");\n\n// 📌 Capturar UTMs e outros campos\nconst utm_source   = hidden.utm_source   ?? root.utm_source   ?? \"\";\nconst utm_campaign = hidden.utm_campaign ?? root.utm_campaign ?? \"\";\nconst utm_medium   = hidden.utm_medium   ?? root.utm_medium   ?? \"\";\nconst utm_term     = hidden.utm_term     ?? root.utm_term     ?? \"\";\nconst utm_content  = hidden.utm_content  ?? root.utm_content  ?? \"\";\n\nconst form_id   = formResponse.form_id || \"\";\nconst form_name = formResponse.definition?.title || \"\";\nconst data_envio = formatDateTimeGMT3(formResponse.submitted_at);\nconst url_pagina = hidden.origin ?? hidden.url ?? root.origin ?? \"\";\n\n// ✅ Resultado final\nconst result = {\n  // Nome (mantém compat e adiciona breakdown)\n  fullName:         respostasMapeadas.fullName        || \"\",\n  fname,\n  lname,\n  fullname,\n\n  nome_empresa:     respostasMapeadas.nome_empresa    || \"\",\n  email:            respostasMapeadas.email           || \"\",\n  telefone:         respostasMapeadas.telefone        || \"\",\n  qtd_vendedores:   respostasMapeadas.qtd_vendedores  || \"\",\n  conhece_mentoria: respostasMapeadas.conhece_mentoria|| \"\", // agora igual ao possui_socio\n  instagram:        respostasMapeadas.instagram       || \"\",\n  possui_socio:     respostasMapeadas.possui_socio    || \"\",\n\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  form_id,\n  form_name,\n  data_envio,   // YYYY-MM-DD HH:mm:ss GMT-3\n  url_pagina\n};\n\nreturn [{ json: result }];"
+      },
+      "id": "65946349-0b41-45ce-b04a-f573fa12b219",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        740,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/b8a03b23-b991-4853-85f6-c241505aa1d4",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados\"].json[\"fullName\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "instagram",
+              "value": "={{ $node[\"formata_dados\"].json[\"instagram\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"formata_dados\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "funil",
+              "value": "=Sessão Estratégica Digital Influencer"
+            },
+            {
+              "name": "variacao_do_funil",
+              "value": "=V1"
+            },
+            {
+              "name": "nome_empresa",
+              "value": "={{ $node[\"formata_dados\"].json[\"nome_empresa\"] }}"
+            },
+            {
+              "name": "qtd_vendedores",
+              "value": "={{ $node[\"formata_dados\"].json[\"qtd_vendedores\"] }}"
+            },
+            {
+              "name": "data_envio",
+              "value": "={{ $node[\"formata_dados\"].json[\"data_envio\"] }}"
+            },
+            {
+              "name": "conhece_mentoria",
+              "value": "={{ $node[\"formata_dados\"].json[\"conhece_mentoria\"] }}"
+            },
+            {
+              "name": "possui_socio",
+              "value": "={{ $node[\"formata_dados\"].json[\"possui_socio\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "17ed38e3-ee71-4c99-b40e-d50d41f92e9d",
+      "name": "create/update clint",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2200,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_url_rotacionamento_colaboradores1\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "time",
+              "value": "=SDR"
+            },
+            {
+              "name": "id_user",
+              "value": "={{ $node[\"cria_atualiza_user1\"].json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        540
+      ],
+      "id": "ac5e99c5-dd52-4450-a2b5-aae66122e4c9",
+      "name": "consulta_sdr1"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Rotacionamento de Colaboradores"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "dbd1d93a-2164-46e3-99f9-65b166a84178",
+      "name": "pesquisa_url_rotacionamento_colaboradores1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1340,
+        540
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Users"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "a2ef1438-d3bb-4d4f-96af-e7cb21118dbc",
+      "name": "pesquisa_variavel_n8n_fluxo_users1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1580,
+        540
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users1\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"formata_dados\"].json[\"fname\"] }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{ $node[\"formata_dados\"].json[\"lname\"] || \"\" }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "instagram",
+              "value": "={{ $node[\"formata_dados\"].json[\"instagram\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1800,
+        540
+      ],
+      "id": "fd8ff4a6-a887-4cea-8ce0-d4c10b8e7b81",
+      "name": "cria_atualiza_user1"
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_funis1\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_forms",
+              "value": "={{ $node[\"formata_dados\"].json[\"form_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1140,
+        540
+      ],
+      "id": "72e6934e-afa7-48f0-9e6b-4c85e79be5eb",
+      "name": "busca_funil1"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Funis"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "3e05475f-09a5-451e-85e4-2c7619d66e4c",
+      "name": "pesquisa_variavel_n8n_fluxo_funis1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        940,
+        540
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "popup-incompany",
+        "options": {}
+      },
+      "id": "f804bdcd-4108-495e-980f-44355429d805",
+      "name": "Popup-InCompany",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        280
+      ],
+      "webhookId": "ceaa926f-1282-40d0-854f-20a1a6193ba5",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "typeform-digital-influencer",
+        "options": {}
+      },
+      "id": "66bc3ad4-2aaf-46d9-867f-561fca4e8f31",
+      "name": "typeform-digital influencer",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        540
+      ],
+      "webhookId": "37a4ac18-960f-4298-9453-1371e825fc60"
+    }
+  ],
+  "pinData": {
+    "Popup-InCompany": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+            "content-length": "261",
+            "accept": "*/*",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "accept-language": "pt-PT,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+            "content-type": "application/json",
+            "origin": "https://incompany.universidadevendas.com.br",
+            "priority": "u=1, i",
+            "referer": "https://incompany.universidadevendas.com.br/",
+            "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site",
+            "x-forwarded-for": "201.17.208.252",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "201.17.208.252"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "name": "Mateus Automagic",
+            "phone": "(31) 99279-6934",
+            "email": "contato.mportob@gmail.com",
+            "timestamp": "2025-09-16T14:27:29.567Z",
+            "source": "landing_page_popup",
+            "popup_id": "prequalification-popup",
+            "utm_source": "",
+            "utm_medium": "",
+            "utm_campaign": "",
+            "utm_content": ""
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/popup-incompany",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "typeform-digital influencer": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "Typeform Webhooks",
+            "content-length": "4467",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "traceparent": "00-a2c624de5bc29417639df0a681d0e1b1-344f27d04dbf243b-01",
+            "x-forwarded-for": "34.230.177.131",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "34.230.177.131"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event_id": "01K7MK3TWVJH4KE98D7P831D9R",
+            "event_type": "form_response",
+            "form_response": {
+              "form_id": "f3EhURgv",
+              "token": "h6m4g0pqem3tv0cvlh6mpd56391lyg3k",
+              "landed_at": "2025-10-15T18:44:27Z",
+              "submitted_at": "2025-10-15T18:46:26Z",
+              "hidden": {
+                "email": "xxxxx",
+                "first_name": "xxxxx",
+                "name": "xxxxx",
+                "phone": "xxxxx",
+                "phone_number": "xxxxx",
+                "utm_campaign": "xxxxx",
+                "utm_content": "xxxxx",
+                "utm_id": "xxxxx",
+                "utm_medium": "xxxxx",
+                "utm_source": "xxxxx",
+                "utm_term": "xxxxx"
+              },
+              "definition": {
+                "id": "f3EhURgv",
+                "title": "Sessão Estratégica Digital Influencer",
+                "fields": [
+                  {
+                    "id": "3gnH1l2LbQnp",
+                    "ref": "c1c7559d-1861-4414-8d09-66d3bf5539a5",
+                    "type": "short_text",
+                    "title": "Qual seu nome?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "SAZXW5spZMwC",
+                    "ref": "5ee722e4-bb40-4a2a-a75c-7bb3d9182569",
+                    "type": "short_text",
+                    "title": "Qual nome da sua empresa?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "C3SUyILHXWHQ",
+                    "ref": "f091f638-6887-4bab-bb94-ee09bc6c90f0",
+                    "type": "short_text",
+                    "title": "Qual seu principal e-mail?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "cslfb8k9O44T",
+                    "ref": "9d2550a1-7fc2-4352-93fa-b64a8c6175cf",
+                    "type": "phone_number",
+                    "title": "Qual telefone da sua empresa?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "MpjWHlv4PFOg",
+                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed",
+                    "type": "multiple_choice",
+                    "title": "{{hidden:name}} quantos vendedores você tem na sua empresa hoje?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "IzzlyzHRb9qT",
+                        "ref": "699fb225-0c8f-4b12-9e00-904c1634f953",
+                        "label": "Não tenho vendedores"
+                      },
+                      {
+                        "id": "Nde7ZhZbSWob",
+                        "ref": "7e019f18-8e58-495d-b48e-6bddb50979e9",
+                        "label": "De 1 a 5 vendedores"
+                      },
+                      {
+                        "id": "vqbgEsYMDOZY",
+                        "ref": "10298628-0d53-496b-8cb7-9ea9904e8e59",
+                        "label": "De 6 a 8 vendedores"
+                      },
+                      {
+                        "id": "DrFGtfCfUbhO",
+                        "ref": "f272caf5-c0b8-4f15-adb5-70e6cb8a1421",
+                        "label": "De 9 a 15 vendedores"
+                      },
+                      {
+                        "id": "5h0IQcLpOw4m",
+                        "ref": "9ada87ee-4773-4496-a28c-fb1235fdeca7",
+                        "label": "Acima de 15 vendedores"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "8WJSrGlSUbF6",
+                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a",
+                    "type": "multiple_choice",
+                    "title": "Você já ouviu falar do programa de Mentoria do Fabrício Nunnes?",
+                    "properties": {},
+                    "choices": [
+                      {
+                        "id": "VTm703sMvaEU",
+                        "ref": "0935e89e-f63f-4371-be68-67f935aadb55",
+                        "label": "Sim"
+                      },
+                      {
+                        "id": "mc7gnpwwJGhR",
+                        "ref": "e361a83c-609b-48c9-b2fb-73b04a855081",
+                        "label": "Não"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "bn93BW1sE55V",
+                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3",
+                    "type": "yes_no",
+                    "title": "Você tem algum sócio ou parceiro de negócios que toma decisão junto com você?",
+                    "properties": {}
+                  },
+                  {
+                    "id": "lpZhJOZPMJoV",
+                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb",
+                    "type": "short_text",
+                    "title": "Qual o Instagram da sua empresa?",
+                    "properties": {}
+                  }
+                ],
+                "endings": [
+                  {
+                    "id": "VaztiNBlijy2",
+                    "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90",
+                    "title": "https://universidadevendas.com.br/parabens_sessao_estrategica/?{{hidden:name}}{{hidden:email}}{{hidden:phone}}{{hidden:utm_source}}{{hidden:utm_campaign}}{{hidden:utm_term}}{{hidden:utm_medium}}{{hidden:utm_content}}",
+                    "type": "url_redirect",
+                    "properties": {
+                      "redirect_url": "https://universidadevendas.com.br/parabens_sessao_estrategica/?{{hidden:name}}{{hidden:email}}{{hidden:phone}}{{hidden:utm_source}}{{hidden:utm_campaign}}{{hidden:utm_term}}{{hidden:utm_medium}}{{hidden:utm_content}}"
+                    }
+                  }
+                ],
+                "settings": {
+                  "partial_responses_to_all_integrations": false
+                }
+              },
+              "answers": [
+                {
+                  "type": "text",
+                  "text": "Bernardes Porto",
+                  "field": {
+                    "id": "3gnH1l2LbQnp",
+                    "type": "short_text",
+                    "ref": "c1c7559d-1861-4414-8d09-66d3bf5539a5"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Automagic Teste",
+                  "field": {
+                    "id": "SAZXW5spZMwC",
+                    "type": "short_text",
+                    "ref": "5ee722e4-bb40-4a2a-a75c-7bb3d9182569"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "portotesteautomagic@teste.com",
+                  "field": {
+                    "id": "C3SUyILHXWHQ",
+                    "type": "short_text",
+                    "ref": "f091f638-6887-4bab-bb94-ee09bc6c90f0"
+                  }
+                },
+                {
+                  "type": "phone_number",
+                  "phone_number": "+5511977889910",
+                  "field": {
+                    "id": "cslfb8k9O44T",
+                    "type": "phone_number",
+                    "ref": "9d2550a1-7fc2-4352-93fa-b64a8c6175cf"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "Nde7ZhZbSWob",
+                    "label": "De 1 a 5 vendedores",
+                    "ref": "7e019f18-8e58-495d-b48e-6bddb50979e9"
+                  },
+                  "field": {
+                    "id": "MpjWHlv4PFOg",
+                    "type": "multiple_choice",
+                    "ref": "fd1a27b7-fb73-40a8-bd42-a2d1c27a01ed"
+                  }
+                },
+                {
+                  "type": "choice",
+                  "choice": {
+                    "id": "VTm703sMvaEU",
+                    "label": "Sim",
+                    "ref": "0935e89e-f63f-4371-be68-67f935aadb55"
+                  },
+                  "field": {
+                    "id": "8WJSrGlSUbF6",
+                    "type": "multiple_choice",
+                    "ref": "f9be3fc8-d97d-406b-b633-ef44898fff9a"
+                  }
+                },
+                {
+                  "type": "boolean",
+                  "boolean": true,
+                  "field": {
+                    "id": "bn93BW1sE55V",
+                    "type": "yes_no",
+                    "ref": "06045517-dab6-4de5-bc9e-ae1cdde3d0d3"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "instateste",
+                  "field": {
+                    "id": "lpZhJOZPMJoV",
+                    "type": "short_text",
+                    "ref": "bae8dbfc-3bc4-4b25-b431-4d32910b51eb"
+                  }
+                }
+              ],
+              "ending": {
+                "id": "VaztiNBlijy2",
+                "ref": "838043bc-fbbc-400e-9d1c-8f686b5c0c90"
+              }
+            }
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/typeform-digital-influencer",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "Q8rgTKWALfDjS7MZ"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-15T19:17:56.618Z",
+  "versionId": "536bac37-2b82-4782-82f6-f2e1978a21ca"
+}
