@@ -71,18 +71,7 @@
       "main": [
         [
           {
-            "node": "avisa_Closer1_Jonatã",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "avisa_Closer1_Jonatã": {
-      "main": [
-        [
-          {
-            "node": "avisa_Natalia",
+            "node": "avisa_Fabricio",
             "type": "main",
             "index": 0
           }
@@ -111,16 +100,22 @@
         ]
       ]
     },
-    "avisa_Natalia": {
-      "main": [
-        []
-      ]
-    },
     "create/update clint4": {
       "main": [
         [
           {
             "node": "infos_bc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Fabricio": {
+      "main": [
+        [
+          {
+            "node": "avisa_Natalia",
             "type": "main",
             "index": 0
           }
@@ -473,7 +468,10 @@
               "name": "ID Thiago BC",
               "value": "387179683"
             },
-            {}
+            {
+              "name": "ID Fabricio BC",
+              "value": "214311872"
+            }
           ]
         },
         "options": {}
@@ -486,42 +484,6 @@
         2400,
         280
       ]
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DE PALESTRA 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"fname\"] }} {{ $node[\"formata_dados1\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados1\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados1\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados1\"].json[\"desafio_comercial\"] }}"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Closer1_Jonatã",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        2600,
-        280
-      ],
-      "id": "056244c1-5624-4323-b51b-bdaa696c2eda",
-      "continueOnFail": true
     },
     {
       "parameters": {
@@ -573,6 +535,42 @@
         280
       ],
       "id": "738266b7-6532-4c40-857c-12d81996c1a6",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Fabricio BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DE PALESTRA 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"fname\"] }} {{ $node[\"formata_dados1\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados1\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados1\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados1\"].json[\"desafio_comercial\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Fabricio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2600,
+        280
+      ],
+      "id": "056244c1-5624-4323-b51b-bdaa696c2eda",
       "continueOnFail": true
     }
   ],
@@ -821,6 +819,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-07-14T14:28:17.291Z",
-  "versionId": "5a46b8eb-8f8a-4823-bf5c-3c436cda3356"
+  "updatedAt": "2025-10-17T21:53:38.647Z",
+  "versionId": "fda68e2f-ed50-418b-ba62-3354df6485ac"
 }
