@@ -82,18 +82,7 @@
       "main": [
         [
           {
-            "node": "avisa_Closer1_Jonatã1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "avisa_Closer1_Jonatã1": {
-      "main": [
-        [
-          {
-            "node": "avisa_Natalia1",
+            "node": "avisa_Fabricio",
             "type": "main",
             "index": 0
           }
@@ -116,6 +105,17 @@
         [
           {
             "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Fabricio": {
+      "main": [
+        [
+          {
+            "node": "avisa_Natalia1",
             "type": "main",
             "index": 0
           }
@@ -512,7 +512,10 @@
               "name": "ID Thiago BC",
               "value": "387179683"
             },
-            {}
+            {
+              "name": "ID Fabricio BC",
+              "value": "214311872"
+            }
           ]
         },
         "options": {}
@@ -525,42 +528,6 @@
         2360,
         320
       ]
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc1\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD RESPONDEU FORMS DA MANSÃO EMPREENDEDORA 🔔\n\n*Nome*: {{ $node[\"formata_dados\"].json[\"fullname\"] }}\n*E-mail*: {{ $node[\"formata_dados\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*nome_empresa*: {{ $node[\"formata_dados\"].json[\"nome_empresa\"] }}\n*instagram:* {{ $node[\"formata_dados\"].json[\"instagram\"] }}\n*metricas_claras:* {{ $node[\"formata_dados\"].json[\"metricas_claras\"] }}\n*tem_conselho*: {{ $node[\"formata_dados\"].json[\"tem_conselho\"] }}\n*participa_mastermind*: {{ $node[\"formata_dados\"].json[\"participa_mastermind\"] }}\n*evento_valioso:* {{ $node[\"formata_dados\"].json[\"evento_valioso\"] }}\n*necessidade_especial*: {{ $node[\"formata_dados\"].json[\"necessidade_especial\"] }}\n*restricao_alimentar:* {{ $node[\"formata_dados\"].json[\"restricao_alimentar\"] }}\n*disposto_investir:* {{ $node[\"formata_dados\"].json[\"disposto_investir\"] }}"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Closer1_Jonatã1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        2560,
-        320
-      ],
-      "id": "35811ee8-ebdb-4486-930d-b3f22e1e8fc5",
-      "continueOnFail": true
     },
     {
       "parameters": {
@@ -613,6 +580,42 @@
         320
       ],
       "webhookId": "2331c766-ed93-4015-85e4-92afc56c08e1"
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc1\"].json[\"ID Fabricio BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD RESPONDEU FORMS DA MANSÃO EMPREENDEDORA 🔔\n\n*Nome*: {{ $node[\"formata_dados\"].json[\"fullname\"] }}\n*E-mail*: {{ $node[\"formata_dados\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*nome_empresa*: {{ $node[\"formata_dados\"].json[\"nome_empresa\"] }}\n*instagram:* {{ $node[\"formata_dados\"].json[\"instagram\"] }}\n*metricas_claras:* {{ $node[\"formata_dados\"].json[\"metricas_claras\"] }}\n*tem_conselho*: {{ $node[\"formata_dados\"].json[\"tem_conselho\"] }}\n*participa_mastermind*: {{ $node[\"formata_dados\"].json[\"participa_mastermind\"] }}\n*evento_valioso:* {{ $node[\"formata_dados\"].json[\"evento_valioso\"] }}\n*necessidade_especial*: {{ $node[\"formata_dados\"].json[\"necessidade_especial\"] }}\n*restricao_alimentar:* {{ $node[\"formata_dados\"].json[\"restricao_alimentar\"] }}\n*disposto_investir:* {{ $node[\"formata_dados\"].json[\"disposto_investir\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Fabricio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2560,
+        320
+      ],
+      "id": "35811ee8-ebdb-4486-930d-b3f22e1e8fc5",
+      "continueOnFail": true
     }
   ],
   "pinData": {
@@ -955,6 +958,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-07-31T11:49:03.490Z",
-  "versionId": "23765731-6348-4f0e-8b4b-c2022a606b50"
+  "updatedAt": "2025-10-17T21:42:01.257Z",
+  "versionId": "13933adf-8db6-43fc-8a74-9be9e68fabb1"
 }
