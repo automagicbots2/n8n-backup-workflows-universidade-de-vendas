@@ -71,18 +71,7 @@
       "main": [
         [
           {
-            "node": "avisa_Closer1_Jonatã",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "avisa_Closer1_Jonatã": {
-      "main": [
-        [
-          {
-            "node": "avisa_Natalia",
+            "node": "avisa_Fabricio",
             "type": "main",
             "index": 0
           }
@@ -269,18 +258,7 @@
       "main": [
         [
           {
-            "node": "avisa_Closer1_Jonatã1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "avisa_Closer1_Jonatã1": {
-      "main": [
-        [
-          {
-            "node": "avisa_Natalia1",
+            "node": "avisa_Fabricio1",
             "type": "main",
             "index": 0
           }
@@ -302,18 +280,7 @@
       "main": [
         [
           {
-            "node": "avisa_Closer1_Jonatã2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "avisa_Closer1_Jonatã2": {
-      "main": [
-        [
-          {
-            "node": "avisa_Natalia2",
+            "node": "avisa_Fabricio2",
             "type": "main",
             "index": 0
           }
@@ -523,6 +490,39 @@
         [
           {
             "node": "formata_dados3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Fabricio": {
+      "main": [
+        [
+          {
+            "node": "avisa_Natalia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Fabricio1": {
+      "main": [
+        [
+          {
+            "node": "avisa_Natalia1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avisa_Fabricio2": {
+      "main": [
+        [
+          {
+            "node": "avisa_Natalia2",
             "type": "main",
             "index": 0
           }
@@ -887,7 +887,10 @@
               "name": "ID Thiago BC",
               "value": "387179683"
             },
-            {}
+            {
+              "name": "ID Fabricio BC",
+              "value": "214311872"
+            }
           ]
         },
         "options": {}
@@ -900,42 +903,6 @@
         2500,
         -360
       ]
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DCI 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"nome\"] }} {{ $node[\"formata_dados1\"].json[\"sobrenome\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"Telefone\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"Telefone\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Plano*: DCI - {{ $node[\"formata_dados1\"].json[\"Usuários\"] }} usuários"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Closer1_Jonatã",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        2700,
-        -360
-      ],
-      "id": "0c058180-8059-49f2-b26c-2c0e56e64ffe",
-      "continueOnFail": true
     },
     {
       "parameters": {
@@ -1617,7 +1584,10 @@
               "name": "ID Thiago BC",
               "value": "387179683"
             },
-            {}
+            {
+              "name": "ID Fabricio BC",
+              "value": "214311872"
+            }
           ]
         },
         "options": {}
@@ -1630,42 +1600,6 @@
         2500,
         -140
       ]
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc1\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DCI 🔔\n\n*Nome*: {{ $node[\"formata_dados2\"].json[\"nome\"] }} {{ $node[\"formata_dados2\"].json[\"sobrenome\"] }}\n*E-mail*: {{ $node[\"formata_dados2\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados2\"].json[\"Telefone\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados2\"].json[\"Telefone\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Plano*: DCI - {{ $node[\"formata_dados2\"].json[\"Usuários\"] }} usuários"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Closer1_Jonatã1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        2700,
-        -140
-      ],
-      "id": "a94775ce-3174-464e-b16a-50680391e681",
-      "continueOnFail": true
     },
     {
       "parameters": {
@@ -1759,7 +1693,10 @@
               "name": "ID Thiago BC",
               "value": "387179683"
             },
-            {}
+            {
+              "name": "ID Fabricio BC",
+              "value": "214311872"
+            }
           ]
         },
         "options": {}
@@ -1772,42 +1709,6 @@
         2500,
         100
       ]
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc2\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DCI 🔔\n\n*Nome*: {{ $node[\"formata_dados3\"].json[\"nome\"] }} {{ $node[\"formata_dados3\"].json[\"sobrenome\"] }}\n*E-mail*: {{ $node[\"formata_dados3\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados3\"].json[\"Telefone\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados3\"].json[\"Telefone\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Plano*: DCI - {{ $node[\"formata_dados3\"].json[\"Usuários\"] }} usuários"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc2\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Closer1_Jonatã2",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        2700,
-        100
-      ],
-      "id": "0af382e7-1408-4f76-8b0a-98d8cd25799e",
-      "continueOnFail": true
     },
     {
       "parameters": {
@@ -2476,6 +2377,114 @@
         100
       ],
       "webhookId": "e1da26b9-1518-4ee2-b60a-a96ddcd630a8"
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Fabricio BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DCI 🔔\n\n*Nome*: {{ $node[\"formata_dados1\"].json[\"nome\"] }} {{ $node[\"formata_dados1\"].json[\"sobrenome\"] }}\n*E-mail*: {{ $node[\"formata_dados1\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados1\"].json[\"Telefone\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados1\"].json[\"Telefone\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Plano*: DCI - {{ $node[\"formata_dados1\"].json[\"Usuários\"] }} usuários"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Fabricio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2700,
+        -360
+      ],
+      "id": "0c058180-8059-49f2-b26c-2c0e56e64ffe",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc1\"].json[\"ID Fabricio BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DCI 🔔\n\n*Nome*: {{ $node[\"formata_dados2\"].json[\"nome\"] }} {{ $node[\"formata_dados2\"].json[\"sobrenome\"] }}\n*E-mail*: {{ $node[\"formata_dados2\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados2\"].json[\"Telefone\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados2\"].json[\"Telefone\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Plano*: DCI - {{ $node[\"formata_dados2\"].json[\"Usuários\"] }} usuários"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc1\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Fabricio1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2700,
+        -140
+      ],
+      "id": "a94775ce-3174-464e-b16a-50680391e681",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc2\"].json[\"ID Fabricio BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL DCI 🔔\n\n*Nome*: {{ $node[\"formata_dados3\"].json[\"nome\"] }} {{ $node[\"formata_dados3\"].json[\"sobrenome\"] }}\n*E-mail*: {{ $node[\"formata_dados3\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados3\"].json[\"Telefone\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados3\"].json[\"Telefone\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Plano*: DCI - {{ $node[\"formata_dados3\"].json[\"Usuários\"] }} usuários"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc2\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Fabricio2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2700,
+        100
+      ],
+      "id": "0af382e7-1408-4f76-8b0a-98d8cd25799e",
+      "continueOnFail": true
     }
   ],
   "pinData": {
@@ -2651,6 +2660,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 3,
-  "updatedAt": "2025-10-02T21:10:41.616Z",
-  "versionId": "76ae5806-adc8-466b-b7d6-7094b018869e"
+  "updatedAt": "2025-10-17T21:47:04.606Z",
+  "versionId": "4d008aa5-a480-4a74-883d-3c68dd9bdb88"
 }
