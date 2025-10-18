@@ -192,7 +192,7 @@
       "main": [
         [
           {
-            "node": "avisa_Closer1_Jonatã",
+            "node": "avisa_Fabricio",
             "type": "main",
             "index": 0
           }
@@ -556,7 +556,10 @@
               "name": "ID Thiago BC",
               "value": "387179683"
             },
-            {}
+            {
+              "name": "ID Fabricio BC",
+              "value": "214311872"
+            }
           ]
         },
         "options": {}
@@ -569,42 +572,6 @@
         2400,
         540
       ]
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL - [SE Digital Influencer] 🔔\n\n*Nome:* {{ $node[\"formata_dados\"].json[\"fullName\"] }}\n\n*Telefone:* {{ $node[\"formata_dados\"].json[\"telefone\"] }}\n\n*E-mail:* {{ $node[\"formata_dados\"].json[\"email\"] }}\n\n*Instagram:* {{ $node[\"formata_dados\"].json[\"instagram\"] }}\n\n*Nome da Empresa:* {{ $node[\"formata_dados\"].json[\"nome_empresa\"] }}\n\n*Qtd de Vendedores:* {{ $node[\"formata_dados\"].json[\"qtd_vendedores\"] }}\n\n*Possui Socio?:* {{ $node[\"formata_dados\"].json[\"possui_socio\"] }}\n\n*Conhece a Mentoria?:* {{ $node[\"formata_dados\"].json[\"conhece_mentoria\"] }}"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Closer1_Jonatã",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        2820,
-        540
-      ],
-      "id": "5976c259-f87d-4a5a-8069-c99d92de8706",
-      "continueOnFail": true
     },
     {
       "parameters": {
@@ -964,6 +931,42 @@
         540
       ],
       "webhookId": "37a4ac18-960f-4298-9453-1371e825fc60"
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Fabricio BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL - [SE Digital Influencer] 🔔\n\n*Nome:* {{ $node[\"formata_dados\"].json[\"fullName\"] }}\n\n*Telefone:* {{ $node[\"formata_dados\"].json[\"telefone\"] }}\n\n*E-mail:* {{ $node[\"formata_dados\"].json[\"email\"] }}\n\n*Instagram:* {{ $node[\"formata_dados\"].json[\"instagram\"] }}\n\n*Nome da Empresa:* {{ $node[\"formata_dados\"].json[\"nome_empresa\"] }}\n\n*Qtd de Vendedores:* {{ $node[\"formata_dados\"].json[\"qtd_vendedores\"] }}\n\n*Possui Socio?:* {{ $node[\"formata_dados\"].json[\"possui_socio\"] }}\n\n*Conhece a Mentoria?:* {{ $node[\"formata_dados\"].json[\"conhece_mentoria\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Fabricio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2820,
+        540
+      ],
+      "id": "5976c259-f87d-4a5a-8069-c99d92de8706",
+      "continueOnFail": true
     }
   ],
   "pinData": {
@@ -1271,6 +1274,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-16T21:04:07.645Z",
-  "versionId": "4537d2d7-d511-4306-b794-1e4aced4c1a3"
+  "updatedAt": "2025-10-17T21:38:33.173Z",
+  "versionId": "9df00ac0-e471-4f45-92d6-ab083ab5a956"
 }
