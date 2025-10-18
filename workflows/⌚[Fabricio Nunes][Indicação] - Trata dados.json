@@ -198,6 +198,17 @@
           }
         ]
       ]
+    },
+    "avisa_Natalia": {
+      "main": [
+        [
+          {
+            "node": "avisa_Fabricio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-10-01T13:22:27.919Z",
@@ -545,7 +556,10 @@
               "name": "ID Thiago BC",
               "value": "387179683"
             },
-            {}
+            {
+              "name": "ID Fabricio BC",
+              "value": "214311872"
+            }
           ]
         },
         "options": {}
@@ -558,42 +572,6 @@
         2400,
         540
       ]
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "type",
-              "value": "text"
-            },
-            {
-              "name": "value",
-              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL INCOMPANY 🔔\n\n*Nome*: {{ $node[\"formata_dados\"].json[\"fname\"] }} {{ $node[\"formata_dados\"].json[\"lname\"] }}\n*E-mail*: {{ $node[\"formata_dados\"].json[\"email\"] }}\n*Telefone*: {{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*WhatsApp*: wa.me/{{ $node[\"formata_dados\"].json[\"whatsapp\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}\n*Qtd Vendedores*: {{ $node[\"formata_dados\"].json[\"qtd_vendedores\"] }}\n*Faturamento*: {{ $node[\"formata_dados\"].json[\"faturamento\"] }}\n*Desafio Comercial*: {{ $node[\"formata_dados\"].json[\"desafio_comercial\"] }}"
-            }
-          ]
-        },
-        "headerParametersUi": {
-          "parameter": [
-            {
-              "name": "API-KEY",
-              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "avisa_Closer1_Jonatã",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        2780,
-        300
-      ],
-      "id": "a4c081ff-e803-49c4-ba10-618386e21f9f",
-      "continueOnFail": true
     },
     {
       "parameters": {
@@ -953,6 +931,42 @@
         540
       ],
       "webhookId": "25a38346-fd9e-4066-9f81-f7c28e79e346"
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc\"].json[\"ID Fabricio BC\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🔔 NOTIFICAÇÃO 🔔\n\n🔔 NOVO LEAD NO FUNIL INDICAÇÃO 🔔\n\n*Nome de quem está indicando*: {{ $node[\"formata_dados\"].json[\"fullName\"] }}\n*Empresa de quem está indicando*: {{ $node[\"formata_dados\"].json[\"nome_empresa\"] }}\n*Empresa indicada - Nome*: {{ $node[\"formata_dados\"].json[\"empresa_indicada\"] }}\n*Empresa Indicada - Dono*: {{ $node[\"formata_dados\"].json[\"dono_empresa\"] }}\n*Empresa Indicada - Telefone*: {{ $node[\"formata_dados\"].json[\"telefone_dono\"] }}\n*Empresa Indicada - Instagram*: {{ $node[\"formata_dados\"].json[\"instagram\"] }}\n*Comunicou o Dono sobre a indicação?*: {{ $node[\"formata_dados\"].json[\"comunicou_dono\"] }}\n*Data de Entrada no Funil*: {{ $now.toFormat('dd/MM/yyyy HH:mm') }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "avisa_Fabricio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2800,
+        540
+      ],
+      "id": "d0cf3eee-08a9-4d34-9142-f75d1b5da8e0",
+      "continueOnFail": true
     }
   ],
   "pinData": {
@@ -1194,6 +1208,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-15T17:32:16.620Z",
-  "versionId": "28830a39-8c8e-40d4-86be-99031794c29f"
+  "updatedAt": "2025-10-17T21:40:59.663Z",
+  "versionId": "2a9c9a01-093f-4107-ac5f-6fe10d8d2a90"
 }
