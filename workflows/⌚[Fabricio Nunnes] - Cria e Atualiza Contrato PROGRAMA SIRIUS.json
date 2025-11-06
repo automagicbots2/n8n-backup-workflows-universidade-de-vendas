@@ -156,22 +156,22 @@
         ]
       ]
     },
-    "PROGRAMA_SIRIUS": {
+    "avisa_Closer1_wagner": {
       "main": [
         [
           {
-            "node": "tratar_dados5",
+            "node": "avisa_Closer_Luana",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "avisa_Closer1_wagner": {
+    "PROGRAMA_SIRIUS": {
       "main": [
         [
           {
-            "node": "avisa_Closer_Luana",
+            "node": "tratar_dados5",
             "type": "main",
             "index": 0
           }
@@ -997,22 +997,6 @@
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "preencher-contrato-sirius",
-        "options": {}
-      },
-      "id": "d96332ef-a500-4755-a498-28a00c386e39",
-      "name": "PROGRAMA_SIRIUS",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        -1200,
-        580
-      ],
-      "webhookId": "80b5fc1d-c93e-489a-8817-5027d8ac0361"
-    },
-    {
-      "parameters": {
         "requestMethod": "POST",
         "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"infos_bc5\"].json[\"ID Jonatã BC Closer 1\"] }}/send_message/",
         "options": {},
@@ -1046,6 +1030,22 @@
       ],
       "id": "3e05b168-8cfb-444f-a811-6ba0f7f7047d",
       "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "preencher-contrato-sirius",
+        "options": {}
+      },
+      "id": "d96332ef-a500-4755-a498-28a00c386e39",
+      "name": "PROGRAMA_SIRIUS",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -1200,
+        580
+      ],
+      "webhookId": "80b5fc1d-c93e-489a-8817-5027d8ac0361"
     }
   ],
   "pinData": {
@@ -1381,6 +1381,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-05T14:58:40.425Z",
-  "versionId": "b5569577-419b-41bd-b0b8-d48efdcb3cdd"
+  "updatedAt": "2025-11-05T15:01:19.842Z",
+  "versionId": "f18bcc16-b819-48a6-bd12-5041f4039f65"
 }
