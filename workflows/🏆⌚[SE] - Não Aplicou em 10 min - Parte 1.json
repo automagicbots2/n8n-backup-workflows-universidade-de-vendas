@@ -118,6 +118,11 @@
             "node": "entra_na_fila",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "cria/atualiza_deal",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -138,28 +143,6 @@
         [
           {
             "node": "entra_na_fila1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "preencheu_pre_forms3": {
-      "main": [
-        [
-          {
-            "node": "formata_dados1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "preencheu_pre_forms": {
-      "main": [
-        [
-          {
-            "node": "formata_dados",
             "type": "main",
             "index": 0
           }
@@ -198,6 +181,28 @@
           }
         ]
       ]
+    },
+    "preencheu_pre_forms3": {
+      "main": [
+        [
+          {
+            "node": "formata_dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "preencheu_pre_forms": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-13T19:27:32.781Z",
@@ -209,7 +214,7 @@
   "nodes": [
     {
       "parameters": {
-        "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"preencheu_pre_forms\"].json.body[\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"preencheu_pre_forms\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"preencheu_pre_forms\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"preencheu_pre_forms\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"preencheu_pre_forms\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"preencheu_pre_forms\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"preencheu_pre_forms\"].json.body[\"utm_content\"];\nconst nome = $node[\"preencheu_pre_forms\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
+        "jsCode": "// Atalho pros dados do webhook\nconst webhookData = $node[\"preencheu_pre_forms\"].json || {};\nconst body = webhookData.body || {};\nconst headers = webhookData.headers || {};\n\n// Formatar o número de telefone\nconst telefone = body[\"WhatsApp com DDD\"] || '';\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = (body[\"E-mail\"] || \"\").toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = body[\"utm_source\"] || \"\";\nconst utm_campaign = body[\"utm_campaign\"] || \"\";\nconst utm_term = body[\"utm_term\"] || \"\";\nconst utm_medium = body[\"utm_medium\"] || \"\";\nconst utm_content = body[\"utm_content\"] || \"\";\nconst nome = body[\"Nome\"] || \"\";\n\n// Quebrar nome em primeiro nome e sobrenome (pra usar nos hashes)\nlet primeiroNome = \"\";\nlet sobrenome = \"\";\nif (nome) {\n  const partesNome = String(nome).trim().split(/\\s+/);\n  primeiroNome = partesNome[0] || \"\";\n  sobrenome = partesNome.slice(1).join(\" \") || \"\";\n}\n\n// Campos adicionais do payload\nconst fbclid = body[\"fbclid\"] || \"\";\nconst full_url = body[\"full_url\"] || \"\";\nconst cidade = body[\"Cidade\"] || \"\";\nconst estado = body[\"Estado\"] || \"\";\nconst cep = body[\"CEP\"] || \"\";\n\n// País “normal” – se não vier nada, considera BR\nconst pais = body[\"País\"] || \"Brasil\";\n\n// Hash País vem do campo específico ou cai pro país padrão\nconst hash_pais = body[\"Hash País\"] || pais;\n\n// FBC / FBP\nconst fbc = body[\"FBC\"] || \"\";\nconst fbp = body[\"FBP\"] || \"\";\n\n// 👉 Agora preenchemos usando headers como fallback\nconst ip_usuario =\n  body[\"IP do usuário\"] ||\n  headers[\"x-real-ip\"] ||\n  headers[\"x-forwarded-for\"] ||\n  \"\";\n\nconst user_agent =\n  body[\"User Agent\"] ||\n  headers[\"user-agent\"] ||\n  \"\";\n\n// URL da página: prioriza campo específico, senão usa full_url\nconst url_pagina =\n  body[\"URL da página\"] ||\n  full_url ||\n  \"\";\n\n// Hashes preenchidos com os dados comuns\nconst hash_primeiro_nome = body[\"Hash Primeiro Nome\"] || primeiroNome || \"\";\nconst hash_sobrenome     = body[\"Hash Sobrenome\"]     || sobrenome     || \"\";\nconst hash_email         = body[\"Hash Email\"]         || email         || \"\";\nconst hash_telefone      = body[\"Hash Telefone\"]      || telefoneFormatado || \"\";\nconst hash_cidade        = body[\"Hash Cidade\"]        || cidade        || \"\";\nconst hash_estado        = body[\"Hash Estado\"]        || estado        || \"\";\nconst hash_cep           = body[\"Hash CEP\"]           || cep           || \"\";\n\nconst form_id = body[\"form_id\"] || \"\";\nconst form_name = body[\"form_name\"] || \"\";\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada,\n\n  fbclid,\n  full_url,\n  cidade,\n  estado,\n  cep,\n  hash_pais,\n  fbc,\n  fbp,\n  ip_usuario,\n  user_agent,\n  url_pagina,\n  hash_primeiro_nome,\n  hash_sobrenome,\n  hash_email,\n  hash_telefone,\n  hash_cidade,\n  hash_estado,\n  hash_cep,\n  form_id,\n  form_name\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;"
       },
       "id": "cc471095-46af-4b77-ab47-43f0fc7fb505",
       "name": "formata_dados",
@@ -403,6 +408,70 @@
             {
               "name": "funil_lead_loves",
               "value": "com agendamento"
+            },
+            {
+              "name": "cidade",
+              "value": "={{ $node[\"formata_dados\"].json[\"cidade\"] }}"
+            },
+            {
+              "name": "estado",
+              "value": "={{ $node[\"formata_dados\"].json[\"estado\"] }}"
+            },
+            {
+              "name": "cep",
+              "value": "={{ $node[\"formata_dados\"].json[\"cep\"] }}"
+            },
+            {
+              "name": "hash_pais",
+              "value": "={{ $node[\"formata_dados\"].json[\"hash_pais\"] }}"
+            },
+            {
+              "name": "fbc",
+              "value": "={{ $node[\"formata_dados\"].json[\"fbc\"] }}"
+            },
+            {
+              "name": "fpb",
+              "value": "={{ $node[\"formata_dados\"].json[\"fbp\"] }}"
+            },
+            {
+              "name": "ip_usuario",
+              "value": "={{ $node[\"formata_dados\"].json[\"ip_usuario\"] }}"
+            },
+            {
+              "name": "user_agent",
+              "value": "={{ $node[\"formata_dados\"].json[\"user_agent\"] }}"
+            },
+            {
+              "name": "url_pagina",
+              "value": "={{ $node[\"formata_dados\"].json[\"url_pagina\"] }}"
+            },
+            {
+              "name": "hash_primeiro_nome",
+              "value": "={{ $node[\"formata_dados\"].json[\"hash_primeiro_nome\"] }}"
+            },
+            {
+              "name": "hash_sobrenome",
+              "value": "={{ $node[\"formata_dados\"].json[\"hash_sobrenome\"] }}"
+            },
+            {
+              "name": "hash_email",
+              "value": "={{ $node[\"formata_dados\"].json[\"hash_email\"] }}"
+            },
+            {
+              "name": "hash_telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"hash_telefone\"] }}"
+            },
+            {
+              "name": "hash_cidade",
+              "value": "={{ $node[\"formata_dados\"].json[\"hash_cidade\"] }}"
+            },
+            {
+              "name": "hash_estado",
+              "value": "={{ $node[\"formata_dados\"].json[\"hash_estado\"] }}"
+            },
+            {
+              "name": "hash_cep",
+              "value": "={{ $node[\"formata_dados\"].json[\"hash_cep\"] }}"
             }
           ]
         },
@@ -1197,38 +1266,6 @@
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "pop-up-head-comercial",
-        "options": {}
-      },
-      "id": "052abd30-819f-4d08-974c-d00b9512c165",
-      "name": "preencheu_pre_forms3",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        1220,
-        860
-      ],
-      "webhookId": "b9467ba7-123c-4619-84a8-95c3e6c5808f"
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "aplicacao-preenchida-elementor-hatzner",
-        "options": {}
-      },
-      "id": "39e8f79e-d753-48cd-8ca4-2621c5041fae",
-      "name": "preencheu_pre_forms",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        1220,
-        1040
-      ],
-      "webhookId": "b9467ba7-123c-4619-84a8-95c3e6c5808f"
-    },
-    {
-      "parameters": {
         "jsCode": "// Formatar o número de telefone\nconst telefone = $node[\"preencheu_pre_forms_v7\"].json.body[\"WhatsApp com DDD\"] || '';\n\nconst telefoneLimpo = telefone.replace(/[^\\d]/g, '');\n\nlet ddi;\nlet ddd;\nlet telefoneFormatado;\n\n// Obter a data atual\nconst dataAtual = new Date();\n\n// Subtrair 15 dias\ndataAtual.setDate(dataAtual.getDate() - 15);\n\n// Formatar a data para YYYY-MM-DD\nconst ano = dataAtual.getFullYear();\nconst mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0\nconst dia = String(dataAtual.getDate()).padStart(2, '0');\n\nconst dataFormatada = `${ano}-${mes}-${dia}`;\n\nconsole.log(dataFormatada); // Saída no formato YYYY-MM-DD\n\n\n// Verificar se o telefone começa com \"55\" antes de formatá-lo\nif (telefoneLimpo.startsWith('55')) {\n  ddi = telefoneLimpo.slice(0, 2);\n  ddd = telefoneLimpo.slice(2, 4);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n} else {\n  ddi = '55';\n  ddd = telefoneLimpo.slice(0, 2);\n  if (parseInt(ddd, 10) > 28) {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-8);\n  } else {\n    telefoneFormatado = ddi + ddd + telefoneLimpo.slice(-9);\n  }\n}\n\n// Pegar o email em minúsculas e sem espaços no final\nconst email = $node[\"preencheu_pre_forms_v7\"].json.body[\"E-mail\"].toLowerCase().trim();\n\n// Captar os parâmetros UTM\nconst utm_source = $node[\"preencheu_pre_forms_v7\"].json.body[\"utm_source\"];\nconst utm_campaign = $node[\"preencheu_pre_forms_v7\"].json.body[\"utm_campaign\"];\nconst utm_term = $node[\"preencheu_pre_forms_v7\"].json.body[\"utm_term\"];\nconst utm_medium = $node[\"preencheu_pre_forms_v7\"].json.body[\"utm_medium\"];\nconst utm_content = $node[\"preencheu_pre_forms_v7\"].json.body[\"utm_content\"];\nconst nome = $node[\"preencheu_pre_forms_v7\"].json.body[\"Nome\"];\n\n// Criar um objeto com os valores formatados\nconst formattedData = {\n  email,\n  telefone: telefoneFormatado,\n  utm_source,\n  utm_campaign,\n  utm_term,\n  utm_medium,\n  utm_content,\n  nome,\n  dataFormatada\n};\n\n// Retorna o objeto formatado como JSON\nreturn formattedData;\n"
       },
       "id": "2f4ff3bc-2b84-4848-a424-fc22de436366",
@@ -1422,6 +1459,154 @@
         1580
       ],
       "webhookId": "b9467ba7-123c-4619-84a8-95c3e6c5808f"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "pop-up-head-comercial",
+        "options": {}
+      },
+      "id": "052abd30-819f-4d08-974c-d00b9512c165",
+      "name": "preencheu_pre_forms3",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        860
+      ],
+      "webhookId": "b9467ba7-123c-4619-84a8-95c3e6c5808f"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://functions-api.clint.digital/endpoints/integration/webhook/035fb8b9-af29-4153-9550-5a3a61bc749d",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nome",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"Nome do Cliente\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"Telefone do Cliente - Formato Z-API\"] }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"utm_source\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"utm_campaign\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"utm_term\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"utm_medium\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"utm_content\"] }}"
+            },
+            {
+              "name": "Cidade",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"cidade\"] }}"
+            },
+            {
+              "name": "Estado",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"estado\"] }}"
+            },
+            {
+              "name": "CEP",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"cep\"] }}"
+            },
+            {
+              "name": "hash_pais",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"hash_pais\"] }}"
+            },
+            {
+              "name": "fbc",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"fbc\"] }}"
+            },
+            {
+              "name": "fbp",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"fpb\"] }}"
+            },
+            {
+              "name": "ip_usuario",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"ip_usuario\"] }}"
+            },
+            {
+              "name": "user_agent",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"user_agent\"] }}"
+            },
+            {
+              "name": "url_pagina",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"url_pagina\"] }}"
+            },
+            {
+              "name": "hash_primeiro_nome",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"hash_primeiro_nome\"] }}"
+            },
+            {
+              "name": "hash_sobrenome",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"hash_sobrenome\"] }}"
+            },
+            {
+              "name": "hash_email",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"hash_email\"] }}"
+            },
+            {
+              "name": "hash_telefone",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"hash_telefone\"] }}"
+            },
+            {
+              "name": "hash_cidade",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"hash_cidade\"] }}"
+            },
+            {
+              "name": "hash_estado",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"hash_estado\"] }}"
+            },
+            {
+              "name": "hash_cep",
+              "value": "={{ $node[\"dados_do_lead\"].json[\"hash_cep\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "10783927-feca-45f1-b314-0bdcf68c4566",
+      "name": "cria/atualiza_deal",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1860,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aplicacao-preenchida-elementor-hatzner",
+        "options": {}
+      },
+      "id": "39e8f79e-d753-48cd-8ca4-2621c5041fae",
+      "name": "preencheu_pre_forms",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        1040
+      ],
+      "webhookId": "b9467ba7-123c-4619-84a8-95c3e6c5808f"
     }
   ],
   "pinData": {
@@ -1497,6 +1682,42 @@
         }
       }
     ],
+    "preencheu_pre_forms_v7": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "WordPress/6.5.5; https://universidadevendas.com.br",
+            "content-length": "221",
+            "accept": "*/*",
+            "accept-encoding": "deflate, gzip, br, zstd",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-forwarded-for": "45.8.227.175",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "45.8.227.175"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Nome": "Vitor Queiroz de Almeida",
+            "WhatsApp com DDD": "(19) 98202-2213",
+            "E-mail": "vitorrqueiroztrafego@gmail.com",
+            "utm_source": "organico",
+            "utm_content": "",
+            "utm_campaign": "",
+            "utm_medium": "",
+            "utm_term": "",
+            "form_id": "88889e3",
+            "form_name": "Aplicação"
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-preenchida-elementor-hatzner",
+          "executionMode": "production"
+        }
+      }
+    ],
     "preencheu_pre_forms3": [
       {
         "json": {
@@ -1538,67 +1759,49 @@
         "json": {
           "headers": {
             "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "WordPress/6.5.5; https://universidadevendas.com.br",
-            "content-length": "221",
+            "user-agent": "WordPress/6.8.3; https://universidadevendas.com.br",
+            "content-length": "490",
             "accept": "*/*",
-            "accept-encoding": "deflate, gzip, br, zstd",
+            "accept-encoding": "deflate, gzip",
             "content-type": "application/x-www-form-urlencoded",
-            "x-forwarded-for": "45.8.227.175",
+            "x-forwarded-for": "45.148.96.7",
             "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "x-forwarded-port": "443",
             "x-forwarded-proto": "https",
             "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "45.8.227.175"
+            "x-real-ip": "45.148.96.7"
           },
           "params": {},
           "query": {},
           "body": {
-            "Nome": "Vitor Queiroz de Almeida",
-            "WhatsApp com DDD": "(19) 98202-2213",
-            "E-mail": "vitorrqueiroztrafego@gmail.com",
-            "utm_source": "organico",
-            "utm_content": "",
-            "utm_campaign": "",
-            "utm_medium": "",
-            "utm_term": "",
-            "form_id": "88889e3",
-            "form_name": "Aplicação"
-          },
-          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-preenchida-elementor-hatzner",
-          "executionMode": "production"
-        }
-      }
-    ],
-    "preencheu_pre_forms_v7": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "user-agent": "WordPress/6.5.5; https://universidadevendas.com.br",
-            "content-length": "221",
-            "accept": "*/*",
-            "accept-encoding": "deflate, gzip, br, zstd",
-            "content-type": "application/x-www-form-urlencoded",
-            "x-forwarded-for": "45.8.227.175",
-            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "45.8.227.175"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "Nome": "Vitor Queiroz de Almeida",
-            "WhatsApp com DDD": "(19) 98202-2213",
-            "E-mail": "vitorrqueiroztrafego@gmail.com",
-            "utm_source": "organico",
-            "utm_content": "",
-            "utm_campaign": "",
-            "utm_medium": "",
-            "utm_term": "",
-            "form_id": "88889e3",
-            "form_name": "Aplicação"
+            "Nome": "Mateus automagic",
+            "WhatsApp com DDD": "31992796934",
+            "E-mail": "mateusteste2@gmail.com",
+            "utm_source": "teste_source",
+            "utm_medium": "teste_medium",
+            "utm_campaign": "teste_campaign",
+            "utm_content": "teste_content",
+            "utm_term": "teste_term",
+            "fbclid": "",
+            "full_url": "https://universidadevendas.com.br/sessaoestrategicav2/",
+            "Cidade": "BH",
+            "Estado": "MG",
+            "CEP": "31555150",
+            "Hash País": "",
+            "FBC": "",
+            "FBP": "",
+            "IP do usuário": "",
+            "User Agent": "",
+            "URL da página": "",
+            "Hash Primeiro Nome": "",
+            "Hash Sobrenome": "",
+            "Hash Email": "",
+            "Hash Telefone": "",
+            "Hash Cidade": "",
+            "Hash Estado": "",
+            "Hash CEP": "",
+            "form_id": "930d9f3",
+            "form_name": "Aplicação-PkklTqKj"
           },
           "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aplicacao-preenchida-elementor-hatzner",
           "executionMode": "production"
@@ -1625,6 +1828,6 @@
     }
   ],
   "triggerCount": 5,
-  "updatedAt": "2024-11-23T01:21:03.903Z",
-  "versionId": "70ff18d4-ecce-4b9b-bb56-93e12c738668"
+  "updatedAt": "2025-11-21T19:43:33.541Z",
+  "versionId": "b289b2ab-027c-46a6-a820-beda24edb3e7"
 }
