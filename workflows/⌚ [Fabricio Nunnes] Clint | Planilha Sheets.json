@@ -27,7 +27,7 @@
       "main": [
         [
           {
-            "node": "avisa_Closer1_Jonatã",
+            "node": "avisa_Fabricio",
             "type": "main",
             "index": 0
           }
@@ -36,13 +36,7 @@
     },
     "avisa_Closer1_Jonatã": {
       "main": [
-        [
-          {
-            "node": "avisa_Fabricio",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "avisa_Fabricio": {
@@ -1062,9 +1056,10 @@
       "typeVersion": 2,
       "position": [
         1320,
-        300
+        40
       ],
       "id": "9610ee9a-8dc9-4cad-8e0b-0ae06b2fd5d9",
+      "disabled": true,
       "continueOnFail": true
     },
     {
@@ -1097,7 +1092,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1520,
+        1300,
         300
       ],
       "id": "1818815f-bd8e-4274-9602-f349e061d4b9",
@@ -1158,7 +1153,7 @@
       "name": "MensagemGrupoSoftware1",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        2120,
+        1900,
         300
       ],
       "typeVersion": 4
@@ -1395,7 +1390,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1700,
+        1480,
         300
       ],
       "id": "50d4cdd0-edfd-4f12-80fe-e13388b40ff3",
@@ -1431,7 +1426,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1900,
+        1680,
         300
       ],
       "id": "dd538bc4-fbe8-4b5a-96f3-288281714324",
@@ -1453,7 +1448,7 @@
       "type": "n8n-nodes-base.asana",
       "typeVersion": 1,
       "position": [
-        2340,
+        2120,
         300
       ],
       "credentials": {
@@ -1684,6 +1679,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2025-11-10T19:23:32.789Z",
-  "versionId": "8226ce34-9621-4249-a02f-9e6920dbc393"
+  "updatedAt": "2025-12-02T18:33:22.519Z",
+  "versionId": "f61a3804-5a53-4a42-8df5-61c79b665035"
 }
