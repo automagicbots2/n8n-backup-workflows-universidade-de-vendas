@@ -769,7 +769,7 @@
         "operation": "copy",
         "fileId": {
           "__rl": true,
-          "value": "1c7fGdrUvP0xlIc1pnNwRS9kM71K0bbYA4UXU9LJWnQI",
+          "value": "1ZoUII9_pj7qnM2YxwPM7SW5Sm3f523Z8nE3gAUU8MPs",
           "mode": "id"
         },
         "options": {
@@ -864,12 +864,14 @@
             {
               "action": "replaceAll",
               "text": "{{RAZAO}}",
-              "replaceText": "={{ $node[\"tratar_dados5\"].json[\"Razão Social\"] }}"
+              "replaceText": "={{ $node[\"tratar_dados5\"].json[\"Razão Social\"] }}",
+              "matchCase": true
             },
             {
               "action": "replaceAll",
               "text": "{{ESTADO_CIVIL}}",
-              "replaceText": "={{ $node[\"tratar_dados5\"].json[\"Estado Civil do(a) Representante Legal\"] }}"
+              "replaceText": "={{ $node[\"tratar_dados5\"].json[\"Estado Civil do(a) Representante Legal\"] }}",
+              "matchCase": true
             },
             {
               "action": "replaceAll",
@@ -879,7 +881,7 @@
             {
               "action": "replaceAll",
               "text": "{{PARCELA}}",
-              "replaceText": "={{ $node[\"tratar_dados5\"].json[\"Valor da mensalidade dos serviços?\"] }}"
+              "replaceText": "={{ $node[\"tratar_dados5\"].json[\"Quantidade de parcelas?\"] }}"
             }
           ]
         }
@@ -985,7 +987,17 @@
             {
               "action": "replaceAll",
               "text": "{{PARCELA}}",
-              "replaceText": "={{ $node[\"tratar_dados5\"].json[\"Valor da mensalidade dos serviços?\"] }}"
+              "replaceText": "={{ $node[\"tratar_dados5\"].json[\"Valor de cada parcela?\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{QTE}}",
+              "replaceText": "={{ $node[\"tratar_dados5\"].json[\"Quantidade de parcelas?\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DURACAO}}",
+              "replaceText": "={{ $node[\"tratar_dados5\"].json[\"Qual a duração da mentoria em meses?\"] }}"
             }
           ]
         }
@@ -1066,27 +1078,28 @@
           "headers": {
             "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "user-agent": "Typeform Webhooks",
-            "content-length": "7340",
+            "content-length": "10422",
             "accept-encoding": "gzip",
             "content-type": "application/json",
-            "traceparent": "00-a243fd4f18232d0721319553fa9e61bf-311db02f9a80e1b5-01",
-            "x-forwarded-for": "34.230.177.131",
+            "traceparent": "00-fc3e15e861b8ae114baa480c57f8e25b-88020f148e2c9218-01",
+            "x-forwarded-for": "18.204.78.134",
             "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
             "x-forwarded-port": "443",
             "x-forwarded-proto": "https",
             "x-forwarded-server": "77400aba3c69",
-            "x-real-ip": "34.230.177.131"
+            "x-real-ip": "18.204.78.134"
           },
           "params": {},
           "query": {},
           "body": {
-            "event_id": "01KB602KNQKQ2SFF4BTK46X2DH",
+            "event_id": "01KC4S12BZWK1889CR5MP7HT1Z",
             "event_type": "form_response",
             "form_response": {
               "form_id": "hnGXutX4",
-              "token": "6dcuinlp0h1jg48egdbo6dcui4vb8f7c",
-              "landed_at": "2025-11-28T19:44:49Z",
-              "submitted_at": "2025-11-28T19:47:09Z",
+              "token": "6q80h7q1ukblbl5oa6q80h7q1t6oojlf",
+              "response_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf#responses",
+              "landed_at": "2025-12-10T18:38:27Z",
+              "submitted_at": "2025-12-10T18:40:25Z",
               "definition": {
                 "id": "hnGXutX4",
                 "title": "Dados de Contrato - SIRIUS",
@@ -1310,7 +1323,8 @@
               "answers": [
                 {
                   "type": "text",
-                  "text": "Automagic",
+                  "text": "Automagic Bots",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=NwHWwVTIU60c#responses",
                   "field": {
                     "id": "NwHWwVTIU60c",
                     "type": "short_text",
@@ -1319,7 +1333,8 @@
                 },
                 {
                   "type": "text",
-                  "text": "52214256000103",
+                  "text": "01005956161651",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=582pPz2Yuqul#responses",
                   "field": {
                     "id": "582pPz2Yuqul",
                     "type": "short_text",
@@ -1328,7 +1343,8 @@
                 },
                 {
                   "type": "text",
-                  "text": "teste",
+                  "text": "rua julio bento cardoso 135, CEP 88817250",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=pjuJArYqyIYl#responses",
                   "field": {
                     "id": "pjuJArYqyIYl",
                     "type": "long_text",
@@ -1337,7 +1353,8 @@
                 },
                 {
                   "type": "email",
-                  "email": "mateusteste@gmail.com",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=SXpCoMYlLHj3#responses",
+                  "email": "mateusdiniz@automagicbots.com.br",
                   "field": {
                     "id": "SXpCoMYlLHj3",
                     "type": "email",
@@ -1346,7 +1363,8 @@
                 },
                 {
                   "type": "text",
-                  "text": "Teste Automagic",
+                  "text": "Mateus Diniz",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=y01Yq8Ia4oI1#responses",
                   "field": {
                     "id": "y01Yq8Ia4oI1",
                     "type": "short_text",
@@ -1355,7 +1373,8 @@
                 },
                 {
                   "type": "phone_number",
-                  "phone_number": "+5531992796934",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=8sJ9aOe7gS7U#responses",
+                  "phone_number": "+5562981196678",
                   "field": {
                     "id": "8sJ9aOe7gS7U",
                     "type": "phone_number",
@@ -1364,7 +1383,8 @@
                 },
                 {
                   "type": "text",
-                  "text": "BR",
+                  "text": "brasileiro(a)",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=RoQJqNnaT2B9#responses",
                   "field": {
                     "id": "RoQJqNnaT2B9",
                     "type": "short_text",
@@ -1373,10 +1393,11 @@
                 },
                 {
                   "type": "choice",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=0Oq8CXOA0tkg#responses",
                   "choice": {
-                    "id": "gCB7b3XIOmWl",
-                    "label": "Solteiro(a)",
-                    "ref": "add5021b-0a23-424d-8392-7848757a3870"
+                    "id": "yvTGsnnh4s1q",
+                    "label": "Casado(a)",
+                    "ref": "a6906318-0081-4e73-a573-d5a17123592b"
                   },
                   "field": {
                     "id": "0Oq8CXOA0tkg",
@@ -1386,7 +1407,8 @@
                 },
                 {
                   "type": "text",
-                  "text": "Gestor",
+                  "text": "Gestor de automações",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=axwckKfDb93W#responses",
                   "field": {
                     "id": "axwckKfDb93W",
                     "type": "short_text",
@@ -1395,7 +1417,8 @@
                 },
                 {
                   "type": "text",
-                  "text": "15784980",
+                  "text": "4192268",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=RXwwmdK1KuTr#responses",
                   "field": {
                     "id": "RXwwmdK1KuTr",
                     "type": "short_text",
@@ -1404,7 +1427,8 @@
                 },
                 {
                   "type": "text",
-                  "text": "11108706630",
+                  "text": "00888766165",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=QGQEzx3MdZW3#responses",
                   "field": {
                     "id": "QGQEzx3MdZW3",
                     "type": "short_text",
@@ -1413,7 +1437,8 @@
                 },
                 {
                   "type": "text",
-                  "text": "3",
+                  "text": "12 (doze)",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=UIuFqUhbJoeP#responses",
                   "field": {
                     "id": "UIuFqUhbJoeP",
                     "type": "short_text",
@@ -1422,7 +1447,8 @@
                 },
                 {
                   "type": "text",
-                  "text": "5000",
+                  "text": "R$ 30.000,00 (trinta mil reais)",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=2YSpIoL42Et0#responses",
                   "field": {
                     "id": "2YSpIoL42Et0",
                     "type": "short_text",
@@ -1431,7 +1457,8 @@
                 },
                 {
                   "type": "text",
-                  "text": "2000",
+                  "text": "R$ 2.500,00 (dois mil e quinhentos reais)",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=G7akvzUxapTY#responses",
                   "field": {
                     "id": "G7akvzUxapTY",
                     "type": "short_text",
@@ -1440,9 +1467,10 @@
                 },
                 {
                   "type": "choice",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=7JNcDY3vhM9w#responses",
                   "choice": {
                     "id": "5WPQFLlHByDH",
-                    "label": "Boleto",
+                    "label": "Cartão",
                     "ref": "27628cb2-07c0-4b7e-b958-3efe35025b7c"
                   },
                   "field": {
@@ -1454,6 +1482,7 @@
                 {
                   "type": "text",
                   "text": "12",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=1Bgs86OHyrnq#responses",
                   "field": {
                     "id": "1Bgs86OHyrnq",
                     "type": "short_text",
@@ -1462,7 +1491,8 @@
                 },
                 {
                   "type": "text",
-                  "text": "2000",
+                  "text": "R$ 2.500,00 (dois mil e quinhentos reais)",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=G0Z96nAVpX0z#responses",
                   "field": {
                     "id": "G0Z96nAVpX0z",
                     "type": "short_text",
@@ -1471,6 +1501,7 @@
                 },
                 {
                   "type": "choice",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=7sUV060ak4mW#responses",
                   "choice": {
                     "id": "3yXBIY78csQK",
                     "label": "Cartão",
@@ -1484,6 +1515,7 @@
                 },
                 {
                   "type": "number",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=1Ygl16jNxnRL#responses",
                   "number": 15,
                   "field": {
                     "id": "1Ygl16jNxnRL",
@@ -1494,6 +1526,7 @@
                 {
                   "type": "text",
                   "text": "Janeiro",
+                  "answer_url": "https://admin.typeform.com/form/hnGXutX4/results?responseId=6q80h7q1ukblbl5oa6q80h7q1t6oojlf&fieldId=ngsubg0b59td#responses",
                   "field": {
                     "id": "ngsubg0b59td",
                     "type": "short_text",
@@ -1525,6 +1558,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-28T20:53:01.995Z",
-  "versionId": "8c607f83-69e7-415f-b76d-a03f709463b8"
+  "updatedAt": "2025-12-10T19:22:58.015Z",
+  "versionId": "fa7912de-7e5e-49b0-aa25-cce72509dca7"
 }
