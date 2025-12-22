@@ -1,0 +1,2345 @@
+{
+  "active": false,
+  "connections": {
+    "consulta_cliente": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verificar na audiência": {
+      "main": [
+        [
+          {
+            "node": "Contato existe?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contato existe?": {
+      "main": [
+        [
+          {
+            "node": "Buscar na audiência",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Cadastrar contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cadastrar contato": {
+      "main": [
+        [
+          {
+            "node": "Buscar na audiência",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar na audiência": {
+      "main": [
+        [
+          {
+            "node": "Envia campo Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "infos_bc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envia campo Email": {
+      "main": [
+        [
+          {
+            "node": "Envia campo Link da Fatura",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envia Fluxo de Cobrança": {
+      "main": [
+        [
+          {
+            "node": "dados_pipefy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envia campo Link da Fatura": {
+      "main": [
+        [
+          {
+            "node": "Envia campo Produto/Serviço",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envia campo Produto/Serviço": {
+      "main": [
+        [
+          {
+            "node": "Envia campo Valor da Fatura",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envia campo Valor da Fatura": {
+      "main": [
+        [
+          {
+            "node": "Envia campo Vencimento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envia campo Vencimento": {
+      "main": [
+        [
+          {
+            "node": "Envia campo CustomerID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos_bc": {
+      "main": [
+        [
+          {
+            "node": "Verificar na audiência",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envia campo CustomerID": {
+      "main": [
+        [
+          {
+            "node": "Envia Fluxo de Cobrança",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "e_referencias_asaas": {
+      "main": [
+        [],
+        [
+          {
+            "node": "consulta_cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_pipefy": {
+      "main": [
+        [
+          {
+            "node": "get_cards_via_cpf2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "move_to_other_level1": {
+      "main": [
+        [
+          {
+            "node": "2_segundos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_cards_via_cpf2": {
+      "main": [
+        [
+          {
+            "node": "existe_no_pipe_base_clientes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe_no_pipe_base_clientes": {
+      "main": [
+        [
+          {
+            "node": "achou_cpf_cnpj",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "get_cards_via_cpf_formato2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe_no_pipe_base_clientes1": {
+      "main": [
+        [
+          {
+            "node": "achou_cpf_cnpj1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "get_cards_via_cpf-cnpj_formato3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_cards_via_cpf_formato2": {
+      "main": [
+        [
+          {
+            "node": "existe_no_pipe_base_clientes1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe_no_pipe_base_clientes2": {
+      "main": [
+        [
+          {
+            "node": "achou_cpf_cnpj2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "get_cards_via_nome_da_loja",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_cards_via_cpf-cnpj_formato3": {
+      "main": [
+        [
+          {
+            "node": "existe_no_pipe_base_clientes2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "achou_cpf_cnpj": {
+      "main": [
+        [
+          {
+            "node": "atualiza_card",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "achou_cpf_cnpj1": {
+      "main": [
+        [
+          {
+            "node": "atualiza_card1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "achou_cpf_cnpj2": {
+      "main": [
+        [
+          {
+            "node": "atualiza_card2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "achou_loja": {
+      "main": [
+        [
+          {
+            "node": "atualiza_card3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_cards_via_nome_da_loja": {
+      "main": [
+        [
+          {
+            "node": "existe_no_pipe_base_clientes3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe_no_pipe_base_clientes3": {
+      "main": [
+        [
+          {
+            "node": "achou_loja",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "get_cards_via_nome_da_loja1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_cards_via_nome_da_loja1": {
+      "main": [
+        [
+          {
+            "node": "existe_no_pipe_base_clientes4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe_no_pipe_base_clientes4": {
+      "main": [
+        [
+          {
+            "node": "achou_loja1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "get_cards_via_email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "achou_loja1": {
+      "main": [
+        [
+          {
+            "node": "atualiza_card4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_card": {
+      "main": [
+        [
+          {
+            "node": "id4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_card1": {
+      "main": [
+        [
+          {
+            "node": "id3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_card2": {
+      "main": [
+        [
+          {
+            "node": "id2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_card3": {
+      "main": [
+        [
+          {
+            "node": "id1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_card4": {
+      "main": [
+        [
+          {
+            "node": "id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id": {
+      "main": [
+        [
+          {
+            "node": "move_to_other_level1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id1": {
+      "main": [
+        [
+          {
+            "node": "move_to_other_level1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id2": {
+      "main": [
+        [
+          {
+            "node": "move_to_other_level1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id3": {
+      "main": [
+        [
+          {
+            "node": "move_to_other_level1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id4": {
+      "main": [
+        [
+          {
+            "node": "move_to_other_level1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe_no_pipe_base_clientes5": {
+      "main": [
+        [
+          {
+            "node": "achou_loja2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "2_segundos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "achou_loja2": {
+      "main": [
+        [
+          {
+            "node": "atualiza_card5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_card5": {
+      "main": [
+        [
+          {
+            "node": "id5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id5": {
+      "main": [
+        [
+          {
+            "node": "move_to_other_level1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_cards_via_email": {
+      "main": [
+        [
+          {
+            "node": "existe_no_pipe_base_clientes5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "entra_na_fila": {
+      "main": [
+        [
+          {
+            "node": "segundo_ou_mais_erro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "segundo_ou_mais_erro": {
+      "main": [
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "e_referencias_asaas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-22T14:20:59.875Z",
+  "id": "QfBGfne5p5cTxDCM",
+  "meta": null,
+  "name": "✅⌚[CONTA AZUL][COBRANÇAS] - NO DIA DO VENCIMENTO | PARTE 2",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "=https://api.nibo.com.br/empresas/v1/customers/{{ $json[\"stakeholder\"][\"id\"] }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "1ca89457-d40d-4d9b-9de5-38979d56696b",
+      "name": "consulta_cliente",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1284,
+        1172
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/+{{ $node[\"formata_dados\"].json[\"telefone\"] }}/",
+        "options": {},
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Verificar na audiência",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1892,
+        1172
+      ],
+      "id": "1fb2e0e3-4eb0-4e58-99af-ca0e53135589",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json[\"id\"]}}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "name": "Contato existe?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2100,
+        1172
+      ],
+      "id": "e8b25c0c-7eed-4179-be61-e3c3908073a3"
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "=+{{ $node[\"formata_dados\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"formata_dados\"].json[\"Nome\"].split(' ')[0] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"formata_dados\"].json[\"Nome\"].split(' ')[1] }}."
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Cadastrar contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2292,
+        1268
+      ],
+      "id": "4ca6f905-7b92-4ff2-9260-d2cbf5f3eb07",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/+{{ $node[\"formata_dados\"].json[\"telefone\"] }}/",
+        "options": {},
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Buscar na audiência",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2484,
+        1172
+      ],
+      "id": "650fc570-9bd9-4201-8d30-b349ea9606df",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Função para formatar o telefone com DDI, DDD e número\nfunction formatarTelefone(telefone) {\n  let telefoneLimpo = telefone.replace(/[^\\d]/g, ''); // Remover caracteres não numéricos (espaços, traços, etc.)\n\n  // Remover \"55\" do início do telefone, se presente\n  if (telefoneLimpo.startsWith('55')) {\n    telefoneLimpo = telefoneLimpo.slice(2);\n  }\n\n  let ddi = '55';\n  let ddd = telefoneLimpo.slice(0, 2);\n  let numeroSemNono = telefoneLimpo.slice(-8);\n  let numeroComNono = telefoneLimpo.slice(-9);\n\n  // Verifica se o DDD é maior que 28 e ajusta o número\n  if (parseInt(ddd) > 28) {\n    return ddi + ddd + numeroSemNono;\n  } else {\n    return ddi + ddd + numeroComNono;\n  }\n}\n\n// Função para validar se o parâmetro \"email\" é um email válido e colocar todas as letras em minúsculo\nfunction validarEmail(email) {\n  return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);\n}\n\n\nfunction formatarCPForCNPJ(valor) {\n  if (!valor) return \"\"; // Retorna string vazia se o valor for vazio\n\n  const numeros = valor.replace(/\\D/g, ''); // Remove caracteres não numéricos\n\n  if (numeros.length === 11) { // Formatação de CPF\n    return numeros.replace(/(\\d{3})(\\d{3})(\\d{3})(\\d{2})/, \"$1.$2.$3-$4\");\n  } else if (numeros.length === 14) { // Formatação de CNPJ\n    return numeros.replace(/(\\d{2})(\\d{3})(\\d{3})(\\d{4})(\\d{2})/, \"$1.$2.$3/$4-$5\");\n  } else {\n    return valor; // Retorna o valor original se não for um CPF ou CNPJ válido\n  }\n}\n// Função para formatação de nomes\nfunction formatarNome(nome) {\n  if (nome) {\n    const palavras = nome.trim().split(/\\s+/);\n\n    const palavrasMinusculas = ['de', 'dos', 'da', 'e', 'do', 'das', 'di', 'du', 'o', 'a', 'u'];\n\n    for (let i = 0; i < palavras.length; i++) {\n      const palavraAtual = palavras[i].toLowerCase();\n      if (i === 0 || i === palavras.length - 1 || !palavrasMinusculas.includes(palavraAtual)) {\n        palavras[i] = palavraAtual.charAt(0).toUpperCase() + palavraAtual.slice(1);\n      } else {\n        palavras[i] = palavraAtual;\n      }\n    }\n\n    return palavras.join(\" \");\n  }\n  return '';\n}\n// Dados de entrada através das variáveis (um único cliente ou uma matriz de clientes)\nconst clientes = Array.isArray($node[\"consulta_cliente\"].json) ? $node[\"consulta_cliente\"].json : [$node[\"consulta_cliente\"].json];\nconst documento = formatarCPForCNPJ($node[\"consulta_cliente\"].json[\"document\"][\"number\"]) || '';\n// Processar cada cliente individualmente\nconst output = clientes.map(cliente => {\n  const { name: NomedoCliente, communication } = cliente;\n  const { email, cellPhone: telefone } = communication;\n\n  // Verificar se o campo \"cellPhone\" está vazio e utilizar o campo \"contactName\" como backup\n  let telefoneFormatado = null;\n  if (telefone) {\n    telefoneFormatado = formatarTelefone(telefone);\n  } else if (communication[\"contactName\"]) {\n    telefoneFormatado = formatarTelefone(communication[\"contactName\"]);\n  }\n\n  // Validar se o parâmetro \"email\" é um email válido e colocar todas as letras em minúsculo\n  const emailValido = validarEmail(email);\n\n  return {\n    Nome: formatarNome(NomedoCliente),\n    telefone: telefoneFormatado,\n    email: emailValido ? email.toLowerCase() : null,\n    cpf_cnpj: documento\n  };\n});\n\nreturn output;\n"
+      },
+      "id": "9a086c90-d205-493b-97dc-d8a8cec2291c",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1460,
+        1172
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/{{ $node[\"infos_bc\"].json[\"ID Campo Email\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "773c5b28-f58e-4523-b879-2f313fe3620d",
+      "name": "Envia campo Email",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2724,
+        1172
+      ],
+      "retryOnFail": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{$node[\"Buscar na audiência\"].json[\"id\"]}}/send_flow/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"infos_bc\"].json[\"Fluxo de Cobrança Automática\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "acf76189-a6ee-4358-8a19-2fc3d9ad20f7",
+      "name": "Envia Fluxo de Cobrança",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        4052,
+        1172
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/{{ $node[\"infos_bc\"].json[\"ID Link da Fatura\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"infos_bc\"].json[\"Link da Fatura\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d8448ef2-cddc-4868-b5fd-0a1f85440f29",
+      "name": "Envia campo Link da Fatura",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2948,
+        1172
+      ],
+      "retryOnFail": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/{{ $node[\"infos_bc\"].json[\"ID Campo Produto\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"infos_bc\"].json[\"Produto/Serviço\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b229d93b-e5f7-4a87-ace9-1c94b1884eca",
+      "name": "Envia campo Produto/Serviço",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3172,
+        1172
+      ],
+      "retryOnFail": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/{{ $node[\"infos_bc\"].json[\"ID Campo Valor da Cobrança\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"infos_bc\"].json[\"Valor da Cobrança\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bba2fa94-f928-4026-b510-369577aef5c4",
+      "name": "Envia campo Valor da Fatura",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3380,
+        1172
+      ],
+      "retryOnFail": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/{{ $node[\"infos_bc\"].json[\"ID Campo Vencimento Fatura\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{$now.toFormat('dd/MM/yyyy')}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6d647899-b208-450b-858f-582f561e02ec",
+      "name": "Envia campo Vencimento",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3604,
+        1172
+      ],
+      "retryOnFail": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "content": "## Chave API DO GABRIEL",
+        "height": 255.36150703514036
+      },
+      "id": "fcfa735e-e11b-4568-b751-2946dad54a41",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        660,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "API-KEY",
+              "value": "2d5f0a60-5a71-4e3e-a08f-999cd455e22c"
+            },
+            {
+              "name": "Fluxo de Cobrança Automática",
+              "value": "1846771"
+            },
+            {
+              "name": "ID Campo Email",
+              "value": "1094284"
+            },
+            {
+              "name": "ID Campo Valor da Cobrança",
+              "value": "1094826"
+            },
+            {
+              "name": "ID Campo Produto",
+              "value": "1094827"
+            },
+            {
+              "name": "ID Link da Fatura",
+              "value": "1094825"
+            },
+            {
+              "name": "Valor da Cobrança",
+              "value": "={{ $node[\"cobrar\"].json[\"categories\"][\"0\"][\"value\"] }}"
+            },
+            {
+              "name": "Link da Fatura",
+              "value": "={{ $node[\"cobrar\"].json[\"lastEntryPromise\"][\"url\"] }}"
+            },
+            {
+              "name": "Produto/Serviço",
+              "value": "={{ $node[\"cobrar\"].json[\"description\"] }}"
+            },
+            {
+              "name": "Data de Vencimento da Fatura",
+              "value": "={{ $node[\"cobrar\"].json.dueDate.slice(8,10) }}/{{ $node[\"cobrar\"].json.dueDate.slice(5,7) }}/{{ $node[\"cobrar\"].json.dueDate.slice(0,4) }}"
+            },
+            {
+              "name": "ID Campo Vencimento Fatura",
+              "value": "1094981"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c124a0b6-83fb-4e01-814e-4fdd63cc34c0",
+      "name": "infos_bc1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1044,
+        692
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Api e IDs Xtrafego (CIA 36744)",
+        "height": 242.8572995443468
+      },
+      "id": "17b46422-0df5-4189-b398-0dee16755051",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        980,
+        596
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Chave API COMPANHIA 2",
+        "height": 255.36150703514036
+      },
+      "id": "cc87b0d2-a74b-4762-9047-4d57a34c2ebd",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1604,
+        1060
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "API-KEY",
+              "value": "dce92a6b-c8e4-4f4f-ae84-194b8cdb2b7e"
+            },
+            {
+              "name": "Fluxo de Cobrança Automática",
+              "value": "1848901"
+            },
+            {
+              "name": "ID Campo Email",
+              "value": "1095414"
+            },
+            {
+              "name": "ID Campo Valor da Cobrança",
+              "value": "1095409"
+            },
+            {
+              "name": "ID Campo Produto",
+              "value": "1095411"
+            },
+            {
+              "name": "ID Link da Fatura",
+              "value": "1095396"
+            },
+            {
+              "name": "Valor da Cobrança",
+              "value": "={{ $node[\"cobrar\"].json[\"categories\"][\"0\"][\"value\"] }}"
+            },
+            {
+              "name": "Link da Fatura",
+              "value": "={{ $node[\"cobrar\"].json[\"lastEntryPromise\"][\"url\"] }}"
+            },
+            {
+              "name": "Produto/Serviço",
+              "value": "={{ $node[\"cobrar\"].json[\"description\"] }}"
+            },
+            {
+              "name": "Data de Vencimento da Fatura",
+              "value": "={{$now.toFormat('dd/MM/yyyy')}}"
+            },
+            {
+              "name": "ID Campo Vencimento Fatura",
+              "value": "1095413"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f3c1a6fe-e0e7-46fa-ab53-bcb11eafc1e1",
+      "name": "infos_bc4",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        724,
+        692
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "API-KEY",
+              "value": "533707e6-f4b1-40b2-b897-fd55ffb12dee"
+            },
+            {
+              "name": "Fluxo de Cobrança Automática",
+              "value": "1868730"
+            },
+            {
+              "name": "ID Campo Email",
+              "value": "1106768"
+            },
+            {
+              "name": "ID Campo Valor da Cobrança",
+              "value": "1106769"
+            },
+            {
+              "name": "ID Campo Produto",
+              "value": "1106786"
+            },
+            {
+              "name": "ID Link da Fatura",
+              "value": "1106765"
+            },
+            {
+              "name": "Valor da Cobrança",
+              "value": "={{ $node[\"cobrar\"].json[\"categories\"][\"0\"][\"value\"] }}"
+            },
+            {
+              "name": "Link da Fatura",
+              "value": "={{ $node[\"cobrar\"].json[\"lastEntryPromise\"][\"url\"] }}"
+            },
+            {
+              "name": "Produto/Serviço",
+              "value": "={{ $node[\"cobrar\"].json[\"lastScheduleInvoiceConfiguration\"][\"serviceName\"] }}"
+            },
+            {
+              "name": "Data de Vencimento da Fatura",
+              "value": "={{$now.toFormat('dd/MM/yyyy')}}"
+            },
+            {
+              "name": "ID Campo Vencimento Fatura",
+              "value": "1106787"
+            },
+            {
+              "name": "ID do Campo CustomerID",
+              "value": "1173895"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c69de39b-4268-4090-936a-210856f5bc01",
+      "name": "infos_bc",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1684,
+        1172
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/{{ $node[\"infos_bc\"].json[\"ID do Campo CustomerID\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"cobrar\"].json[\"stakeholder\"][\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "960686ce-ec58-40aa-888a-dd01aec7d2e5",
+      "name": "Envia campo CustomerID",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3828,
+        1172
+      ],
+      "retryOnFail": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node[\"cobrar\"].json[\"reference\"] }}",
+              "value2": "ASAAS"
+            },
+            {
+              "value1": "={{ $node[\"cobrar\"].json[\"reference\"] }}",
+              "value2": "Asaas"
+            },
+            {
+              "value1": "={{ $node[\"cobrar\"].json[\"reference\"] }}",
+              "value2": "REC Asaas"
+            },
+            {
+              "value1": "={{ $node[\"cobrar\"].json[\"reference\"] }}",
+              "value2": "REC ASAAS"
+            },
+            {
+              "value1": "={{ $node[\"cobrar\"].json[\"reference\"] }}",
+              "value2": "Asaas REC"
+            },
+            {
+              "value1": "={{ $node[\"cobrar\"].json[\"reference\"] }}",
+              "value2": "ASAAS REC"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "70109132-593e-4c92-8f7d-b9821654f723",
+      "name": "e_referencias_asaas",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        372,
+        1188
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "id_pipe_comercial",
+              "stringValue": "304024509"
+            },
+            {
+              "name": "id_tag_agendou",
+              "stringValue": "Agendou"
+            },
+            {
+              "name": "id_tag_aplicou",
+              "stringValue": "310699921"
+            },
+            {
+              "name": "id_tag_cancelou",
+              "stringValue": "310699934"
+            },
+            {
+              "name": "id_tag_reagendou",
+              "stringValue": "310699924"
+            },
+            {
+              "name": "id_tag_pre_aplicou",
+              "stringValue": "310699920"
+            },
+            {
+              "name": "id_tag_qualificado",
+              "stringValue": "310700990"
+            },
+            {
+              "name": "id_tag_desqualificado",
+              "stringValue": "310700994"
+            },
+            {
+              "name": "etapa_venda_realizada",
+              "stringValue": "324439636"
+            },
+            {
+              "name": "id_pipe_base_clientes",
+              "stringValue": "304131361"
+            },
+            {
+              "name": "etapa_novos_pipe_base_clientes",
+              "stringValue": "324365367"
+            },
+            {
+              "name": "Mentoria",
+              "stringValue": "310653915"
+            },
+            {
+              "name": "Drakar",
+              "stringValue": "310653916"
+            },
+            {
+              "name": "Facebook Ads",
+              "stringValue": "310653917"
+            },
+            {
+              "name": "Google Ads",
+              "stringValue": "310653918"
+            },
+            {
+              "name": "CRM",
+              "stringValue": "310653919"
+            },
+            {
+              "name": "fase_mais_de_5_dias",
+              "stringValue": "324637612"
+            },
+            {
+              "name": "fase_mais_de_30_dias",
+              "stringValue": "324653420"
+            },
+            {
+              "name": "fase_mais_de_60_dias",
+              "stringValue": "324653421"
+            },
+            {
+              "name": "fase_cobrança",
+              "stringValue": "325045671"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "02745a1b-3d22-4f36-b14d-b4b29153b8bf",
+      "name": "dados_pipefy",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        4260,
+        1172
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pipefy.com/graphql",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=mutation {\n  moveCardToPhase(input: {\n    card_id: {{$json[\"id\"] }}\n    destination_phase_id: {{$node[\"dados_pipefy\"].json[\"fase_cobrança\"]}}\n}) {\n  clientMutationId\n }\n}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e3911c35-f015-4231-aba4-b305b375bd16",
+      "name": "move_to_other_level1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        7348,
+        1268
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pipefy.com/graphql",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=query {\n  findCards(pipeId: {{ $node[\"dados_pipefy\"].json[\"id_pipe_base_clientes\"] }}, search: {fieldId: \"cpf_cnpj\", fieldValue: \"{{ $node[\"consulta_cliente\"].json[\"document\"][\"number\"] }}\"}) {\n    edges {\n      node {\n        fields {\n          date_value\n          datetime_value\n          filled_at\n          float_value\n          indexName\n          name\n          native_value\n          report_value\n          updated_at\n          value\n        }\n        title\n        done\n        id\n        updated_at\n        assignees {\n          name\n          email\n        }\n        attachments {\n          url\n          path\n        }\n        current_phase {\n          name\n        }\n        pipe {\n          name\n        }\n      }\n    }\n  }\n}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3936f748-32a4-43ca-9a4e-8407abaced1f",
+      "name": "get_cards_via_cpf2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        4468,
+        1172
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "fad7c009-7961-477a-a86c-0e7be8094a0c",
+              "leftValue": "={{ $node[\"get_cards_via_cpf2\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"fields\"][\"0\"][\"filled_at\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "cfbe80b1-6fd8-4fef-ad32-1d31b39e3335",
+      "name": "existe_no_pipe_base_clientes",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        4644,
+        1172
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "fad7c009-7961-477a-a86c-0e7be8094a0c",
+              "leftValue": "={{ $node[\"get_cards_via_cpf_formato2\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"fields\"][\"0\"][\"filled_at\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e3451e6b-6dcf-4fcf-b775-d985ada545ec",
+      "name": "existe_no_pipe_base_clientes1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        5028,
+        1284
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pipefy.com/graphql",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=query {\n  findCards(pipeId: {{ $node[\"dados_pipefy\"].json[\"id_pipe_base_clientes\"] }}, search: {fieldId: \"cpf_cnpj\", fieldValue: \"{{ $node[\"formata_dados\"].json[\"cpf_cnpj\"] }}\"}) {\n    edges {\n      node {\n        fields {\n          date_value\n          datetime_value\n          filled_at\n          float_value\n          indexName\n          name\n          native_value\n          report_value\n          updated_at\n          value\n        }\n        title\n        done\n        id\n        updated_at\n        assignees {\n          name\n          email\n        }\n        attachments {\n          url\n          path\n        }\n        current_phase {\n          name\n        }\n        pipe {\n          name\n        }\n      }\n    }\n  }\n}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a59b2ddd-a064-498f-87d4-00079ed6cdaa",
+      "name": "get_cards_via_cpf_formato2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        4820,
+        1284
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "fad7c009-7961-477a-a86c-0e7be8094a0c",
+              "leftValue": "={{ $node[\"get_cards_via_cpf-cnpj_formato3\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"fields\"][\"0\"][\"filled_at\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c747d8ce-44bb-4716-b3f2-3aab636266be",
+      "name": "existe_no_pipe_base_clientes2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        5412,
+        1412
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pipefy.com/graphql",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=query {\n  findCards(pipeId: {{ $node[\"dados_pipefy\"].json[\"id_pipe_base_clientes\"] }}, search: {fieldId: \"cpf_cnpj\", fieldValue: \"{{$node[\"consulta_cliente\"].json[\"document\"][\"number\"].slice(0,12) }}-{{ $node[\"consulta_cliente\"].json[\"document\"][\"number\"].slice(-2) }}\"}) {\n    edges {\n      node {\n        fields {\n          date_value\n          datetime_value\n          filled_at\n          float_value\n          indexName\n          name\n          native_value\n          report_value\n          updated_at\n          value\n        }\n        title\n        done\n        id\n        updated_at\n        assignees {\n          name\n          email\n        }\n        attachments {\n          url\n          path\n        }\n        current_phase {\n          name\n        }\n        pipe {\n          name\n        }\n      }\n    }\n  }\n}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dfadf9a1-43a8-48b8-b912-65ead280cfe2",
+      "name": "get_cards_via_cpf-cnpj_formato3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        5220,
+        1412
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "a04f2149-2558-4403-a57c-ecaf97093c24",
+      "name": "achou_cpf_cnpj",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4868,
+        1028
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ccab45c4-3fc9-44cc-a317-bf22c1b77991",
+      "name": "achou_cpf_cnpj1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        5252,
+        1172
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "d08518e9-40c6-443f-8425-a4600b0d8044",
+      "name": "achou_cpf_cnpj2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        5668,
+        1316
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "e4011a44-fb0d-4d7b-b59c-38ecf871a08b",
+      "name": "achou_loja",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        6052,
+        1476
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pipefy.com/graphql",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=query {\n  findCards(pipeId: {{ $node[\"dados_pipefy\"].json[\"id_pipe_base_clientes\"] }}, search: {fieldId: \"nome_da_loja\", fieldValue: \"{{ $node[\"formata_dados\"].json[\"Nome\"].split(' ').pop() }}\"}) {\n    edges {\n      node {\n        fields {\n          date_value\n          datetime_value\n          filled_at\n          float_value\n          indexName\n          name\n          native_value\n          report_value\n          updated_at\n          value\n        }\n        title\n        done\n        id\n        updated_at\n        assignees {\n          name\n          email\n        }\n        attachments {\n          url\n          path\n        }\n        current_phase {\n          name\n        }\n        pipe {\n          name\n        }\n      }\n    }\n  }\n}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bb1ad1e3-c95f-4e8a-84f4-08c5fe8a84c2",
+      "name": "get_cards_via_nome_da_loja",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        5652,
+        1556
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "fad7c009-7961-477a-a86c-0e7be8094a0c",
+              "leftValue": "={{ $node[\"get_cards_via_nome_da_loja\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"fields\"][\"0\"][\"filled_at\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "95bbd76f-f120-4e81-b6c7-179795ca2774",
+      "name": "existe_no_pipe_base_clientes3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        5828,
+        1556
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pipefy.com/graphql",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=query {\n  findCards(pipeId: {{ $node[\"dados_pipefy\"].json[\"id_pipe_base_clientes\"] }}, search: {fieldId: \"nome_da_loja\", fieldValue: \"{{ $node[\"consulta_cliente\"].json[\"companyInformation\"][\"companyName\"] }}\"}) {\n    edges {\n      node {\n        fields {\n          date_value\n          datetime_value\n          filled_at\n          float_value\n          indexName\n          name\n          native_value\n          report_value\n          updated_at\n          value\n        }\n        title\n        done\n        id\n        updated_at\n        assignees {\n          name\n          email\n        }\n        attachments {\n          url\n          path\n        }\n        current_phase {\n          name\n        }\n        pipe {\n          name\n        }\n      }\n    }\n  }\n}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "76b545cc-dcd7-4e5d-b07c-568ee6519a3e",
+      "name": "get_cards_via_nome_da_loja1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        6052,
+        1732
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "fad7c009-7961-477a-a86c-0e7be8094a0c",
+              "leftValue": "={{ $node[\"get_cards_via_nome_da_loja1\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"fields\"][\"0\"][\"filled_at\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "2cccc094-4f6f-4904-bd49-a50882e72783",
+      "name": "existe_no_pipe_base_clientes4",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        6244,
+        1732
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "3111ee47-ae02-480a-9e3b-b715c17833f5",
+      "name": "achou_loja1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        6420,
+        1636
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pipefy.com/graphql",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=mutation {\n  updateFieldsValues(input: {\n    nodeId: {{ $node[\"get_cards_via_cpf2\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"id\"] }}\n    values: [\n      {fieldId: \"nome_da_loja\", value: \"{{ $node[\"consulta_cliente\"].json[\"companyInformation\"][\"companyName\"] }}\"},\n      {fieldId: \"cpf_cnpj\", value: \"{{ $node[\"formata_dados\"].json[\"cpf_cnpj\"] }}\"}\"}\n   ]\n }) {\n  clientMutationId\n }\n}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "115adedc-582b-4a83-8dd8-eea57e412f3a",
+      "name": "atualiza_card",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        5028,
+        1028
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pipefy.com/graphql",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=mutation {\n  updateFieldsValues(input: {\n    nodeId: {{ $node[\"get_cards_via_cpf_formato2\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"id\"] }}\n    values: [\n      {fieldId: \"nome_da_loja\", value: \"{{ $node[\"consulta_cliente\"].json[\"companyInformation\"][\"companyName\"] }}\"},\n      {fieldId: \"cpf_cnpj\", value: \"{{ $node[\"formata_dados\"].json[\"cpf_cnpj\"] }}\"}\"}\n   ]\n }) {\n  clientMutationId\n }\n}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "5e7bc06c-1f72-47b4-b162-089e3705d8b7",
+      "name": "atualiza_card1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        5412,
+        1172
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pipefy.com/graphql",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=mutation {\n  updateFieldsValues(input: {\n    nodeId: {{ $node[\"get_cards_via_cpf-cnpj_formato3\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"id\"] }}\n    values: [\n      {fieldId: \"nome_da_loja\", value: \"{{ $node[\"consulta_cliente\"].json[\"companyInformation\"][\"companyName\"] }}\"},\n      {fieldId: \"cpf_cnpj\", value: \"{{ $node[\"formata_dados\"].json[\"cpf_cnpj\"] }}\"}\n   ]\n }) {\n  clientMutationId\n }\n}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "5a057e12-11e5-4966-ad42-808224483adf",
+      "name": "atualiza_card2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        5828,
+        1316
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pipefy.com/graphql",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=mutation {\n  updateFieldsValues(input: {\n    nodeId: {{ $node[\"get_cards_via_nome_da_loja\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"id\"] }}\n    values: [\n      {fieldId: \"nome_da_loja\", value: \"{{ $node[\"consulta_cliente\"].json[\"companyInformation\"][\"companyName\"] }}\"},\n      {fieldId: \"cpf_cnpj\", value: \"{{ $node[\"formata_dados\"].json[\"cpf_cnpj\"] }}\"}\n   ]\n }) {\n  clientMutationId\n }\n}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "281c296e-ea90-4976-9af1-7b558f2552cd",
+      "name": "atualiza_card3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        6212,
+        1476
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pipefy.com/graphql",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=mutation {\n  updateFieldsValues(input: {\n    nodeId: {{ $node[\"get_cards_via_nome_da_loja1\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"id\"] }}\n    values: [\n      {fieldId: \"nome_da_loja\", value: \"{{ $node[\"consulta_cliente\"].json[\"companyInformation\"][\"companyName\"] }}\"},\n      {fieldId: \"cpf_cnpj\", value: \"{{ $node[\"formata_dados\"].json[\"cpf_cnpj\"] }}\"}\n   ]\n }) {\n  clientMutationId\n }\n}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "23beb470-a4e1-4d85-b776-87dcf42a3457",
+      "name": "atualiza_card4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        6580,
+        1636
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "id",
+              "stringValue": "={{ $node[\"get_cards_via_nome_da_loja1\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "068f9fd7-340d-494c-8f6b-94dba0fcd5a1",
+      "name": "id",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        6740,
+        1636
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "id",
+              "stringValue": "={{ $node[\"get_cards_via_nome_da_loja\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "76185a80-f4b6-41b5-9453-5e31e66d7073",
+      "name": "id1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        6372,
+        1476
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "id",
+              "stringValue": "={{ $node[\"get_cards_via_cpf-cnpj_formato3\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1f307d43-7e2c-483e-b3e1-2507910d7448",
+      "name": "id2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        6004,
+        1316
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "id",
+              "stringValue": "={{ $node[\"get_cards_via_cpf_formato2\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cc6eca32-e3c8-4451-a6fe-0283f75c7673",
+      "name": "id3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        5588,
+        1172
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "id",
+              "stringValue": "={{ $node[\"get_cards_via_cpf2\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5633e1d6-ec62-47b1-9a68-dd16bcfa8bad",
+      "name": "id4",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        5188,
+        1028
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "fad7c009-7961-477a-a86c-0e7be8094a0c",
+              "leftValue": "={{ $node[\"get_cards_via_email\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"fields\"][\"0\"][\"filled_at\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9527baee-624e-4cb3-afbc-3bdef2e61445",
+      "name": "existe_no_pipe_base_clientes5",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        6708,
+        1876
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "395648d5-5418-4d16-b8a7-ac2a4d2f1b5a",
+      "name": "achou_loja2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        6884,
+        1764
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pipefy.com/graphql",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=mutation {\n  updateFieldsValues(input: {\n    nodeId: {{ $node[\"get_cards_via_email\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"id\"] }}\n    values: [\n      {fieldId: \"nome_da_loja\", value: \"{{ $node[\"consulta_cliente\"].json[\"companyInformation\"][\"companyName\"] }}\"},\n      {fieldId: \"cpf_cnpj\", value: \"{{ $node[\"formata_dados\"].json[\"cpf_cnpj\"] }}\"}\n   ]\n }) {\n  clientMutationId\n }\n}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "792774e0-5651-4799-b444-2bf9ba8f325c",
+      "name": "atualiza_card5",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        7044,
+        1764
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "id",
+              "stringValue": "={{ $node[\"get_cards_via_email\"].json[\"data\"][\"findCards\"][\"edges\"][\"0\"][\"node\"][\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "10d9a82e-e84c-4f50-96ff-350c9340adf7",
+      "name": "id5",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        7204,
+        1764
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pipefy.com/graphql",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=query {\n  findCards(pipeId: {{ $node[\"dados_pipefy\"].json[\"id_pipe_base_clientes\"] }}, search: {fieldId: \"email_do_cliente\", fieldValue: \"{{ $node[\"formata_dados\"].json[\"email\"] }}\"}) {\n    edges {\n      node {\n        fields {\n          date_value\n          datetime_value\n          filled_at\n          float_value\n          indexName\n          name\n          native_value\n          report_value\n          updated_at\n          value\n        }\n        title\n        done\n        id\n        updated_at\n        assignees {\n          name\n          email\n        }\n        attachments {\n          url\n          path\n        }\n        current_phase {\n          name\n        }\n        pipe {\n          name\n        }\n      }\n    }\n  }\n}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "687c9c5c-6da8-46c3-b41d-26b09968e782",
+      "name": "get_cards_via_email",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        6500,
+        1876
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "seconds"
+      },
+      "id": "45730633-e00f-4f04-94a1-bd89a5207fbd",
+      "name": "2_segundos",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        7780,
+        804
+      ],
+      "webhookId": "f74ee733-3ae5-4adc-8a55-d4a4df29771c"
+    },
+    {
+      "parameters": {
+        "queue": "Cobranças - No dia do vencimento",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "acknowledge": "executionFinishesSuccessfully",
+          "jsonParseBody": true,
+          "parallelMessages": 3
+        }
+      },
+      "id": "ebcbe4d5-a420-4005-af35-2d9510a53197",
+      "name": "entra_na_fila",
+      "type": "n8n-nodes-base.rabbitmqTrigger",
+      "typeVersion": 1,
+      "position": [
+        4,
+        1076
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"fields\"][\"redelivered\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "a67a606b-60c8-48dd-96fd-ddf91fdc0e31",
+      "name": "segundo_ou_mais_erro",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        180,
+        1076
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "An error ocurred!"
+      },
+      "id": "73a4329d-fabf-4ce2-9a6d-e073170488ab",
+      "name": "Stop and Error",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        372,
+        948
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-22T14:21:08.876Z",
+  "versionId": "aba3a4cd-8339-4e17-ba5a-4cbbcb005fc6"
+}
