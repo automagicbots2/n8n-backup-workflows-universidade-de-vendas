@@ -150,17 +150,6 @@
         ]
       ]
     },
-    "update_refresh_token1": {
-      "main": [
-        [
-          {
-            "node": "update_access_token",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "busca_faturas": {
       "main": [
         [
@@ -172,20 +161,143 @@
         ]
       ]
     },
-    "update_access_token": {
+    "busca_variavel_refresh_token_conta_azul": {
       "main": [
         [
           {
-            "node": "busca_faturas",
+            "node": "busca_variavel_auth_conta_Azul",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "busca_cliente1": {
+    "busca_variavel_auth_conta_Azul": {
       "main": [
-        []
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "busca_variavel_access_token_conta_azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_variavel_access_token_conta_azul": {
+      "main": [
+        [
+          {
+            "node": "busca_variavel_refresh_token_conta_azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nao_e_erro_de_token": {
+      "main": [
+        [
+          {
+            "node": "end",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "erro_de_token1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "erro_de_token1": {
+      "main": [
+        [
+          {
+            "node": "new_refresh_token_conta_azul",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "buscar_titulos_a_receber",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "erro_de_token": {
+      "main": [
+        [
+          {
+            "node": "new_refresh_token_conta_azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_refresh_token1": {
+      "main": [
+        [
+          {
+            "node": "update_access_token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_access_token": {
+      "main": [
+        [
+          {
+            "node": "update_id_token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "new_refresh_token_conta_azul": {
+      "main": [
+        [
+          {
+            "node": "update_refresh_token1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar_titulos_a_receber": {
+      "main": [
+        [
+          {
+            "node": "erro_de_token",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -689,8 +801,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        720,
-        880
+        -20,
+        260
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -710,8 +822,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
       "position": [
-        356,
-        780
+        -1196,
+        1320
       ]
     },
     {
@@ -733,8 +845,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1760,
-        780
+        2220,
+        1220
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -748,83 +860,9 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        532,
-        780
+        -1020,
+        1320
       ]
-    },
-    {
-      "parameters": {
-        "operation": "upsert",
-        "table": {
-          "__rl": true,
-          "value": "variaveis_globais_n8n",
-          "mode": "list",
-          "cachedResultName": "variaveis_globais_n8n"
-        },
-        "dataMode": "defineBelow",
-        "columnToMatchOn": "id",
-        "valueToMatchOn": "11",
-        "valuesToSend": {
-          "values": [
-            {
-              "column": "valor_variavel",
-              "value": "={{$node[\"refresh_token1\"].json[\"refresh_token\"] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "f9b94de3-2d90-460a-838a-ce4af085d8fc",
-      "name": "update_refresh_token1",
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.3,
-      "position": [
-        1360,
-        780
-      ],
-      "credentials": {
-        "mySql": {
-          "id": "PfzfhyuSKTUfroef",
-          "name": "[MySQL] - Fabricio Nunnes"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "upsert",
-        "table": {
-          "__rl": true,
-          "value": "variaveis_globais_n8n",
-          "mode": "list",
-          "cachedResultName": "variaveis_globais_n8n"
-        },
-        "dataMode": "defineBelow",
-        "columnToMatchOn": "id",
-        "valueToMatchOn": "9",
-        "valuesToSend": {
-          "values": [
-            {
-              "column": "valor_variavel",
-              "value": "={{$node[\"refresh_token1\"].json[\"access_token\"] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "f4e2e23f-2666-404e-b9dd-7e6fcc0ae5cc",
-      "name": "update_access_token",
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.3,
-      "position": [
-        1560,
-        780
-      ],
-      "credentials": {
-        "mySql": {
-          "id": "PfzfhyuSKTUfroef",
-          "name": "[MySQL] - Fabricio Nunnes"
-        }
-      }
     },
     {
       "parameters": {
@@ -1007,6 +1045,533 @@
         860,
         1700
       ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Refresh Token Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "95d51795-ea70-459c-a1b1-16e4aabeeac0",
+      "name": "busca_variavel_refresh_token_conta_azul",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        -1000,
+        840
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Basic Auth Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "03a867af-3ab7-417b-a1b2-4fa81896cd07",
+      "name": "busca_variavel_auth_conta_Azul",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        -780,
+        840
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "feb57ad5-f4f1-47c7-aedf-0cc633f054ae",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1460,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Access Token Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "85879ea6-bece-4849-9afb-bf101855824f",
+      "name": "busca_variavel_access_token_conta_azul",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        -1240,
+        840
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "6593b6e9-5a2c-4e66-85b7-5cd678e1aebb",
+      "name": "end",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        620,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# 📌 AUTH INICIAL CONTA AZUL\n\n## 1. CRIA APLICAÇÃO EM: \n`` https://developers-portal.contaazul.com/#/``\n## 2. GERA CODE DE AUTORIZAÇÃO COM:\n``\nhttps://auth.contaazul.com/login?response_type=code&client_id={client_id}&redirect_uri={sua-url-de-calback-n8n}&state=ESTADO&scope=openid+profile+aws.cognito.signin.user.admin\n``\n\n## 3. TROQUE O CODE PELO TOKEN COM (MÉTODO POST):\n``\ncurl --location 'https://auth.contaazul.com/oauth2/token' \\\n--header 'Authorization: Basic BASE64(SEU_CLIENT_ID:SEU_CLIENT_SECRET)' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--data-urlencode 'code=CODIGO_AUTORIZACAO' \\\n--data-urlencode 'grant_type=authorization_code' \\\n--data-urlencode 'redirect_uri=SUA_URL_REDIRECIONAMENTO'\n``\n\n## 4. RENOVE O TOKEN COM:\n``\ncurl --location 'https://auth.contaazul.com/oauth2/token' \\\n--header 'Authorization: Basic BASE64(SEU_CLIENT_ID:SEU_CLIENT_SECRET)' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--data-urlencode 'refresh_token=REFRESH_TOKEN_GERADO' \\\n--data-urlencode 'grant_type=refresh_token'\n``",
+        "height": 581.9710482284947,
+        "width": 641.5680723053924,
+        "color": 5
+      },
+      "id": "eb3a9fa7-e73a-4909-ab61-c4ed914bfa1d",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2020,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "id": "e1f6b4b8-10ec-4d85-b309-53cabfc5cc6d",
+      "name": "replace_code_to_token_conta_azul",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -820,
+        1340
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c2ed465e-958e-4d5d-94b3-22521b7c7be0",
+              "leftValue": "={{ $json[\"error\"][\"message\"] }}",
+              "rightValue": "401",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "id": "3282638a-2174-4a85-a68e-adbc8ff1bd17",
+      "name": "nao_e_erro_de_token",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        400,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/pessoas",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "pagina",
+              "value": "1"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "10"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "f6292279-c4d1-422d-8512-2a5688929fb1",
+      "name": "HTTP Request3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -540,
+        840
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c2ed465e-958e-4d5d-94b3-22521b7c7be0",
+              "leftValue": "={{ $json[\"statusCode\"] }}",
+              "rightValue": 401,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "id": "9a68f1dc-c207-4f81-b07f-3b2532dd779b",
+      "name": "erro_de_token1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -340,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c2ed465e-958e-4d5d-94b3-22521b7c7be0",
+              "leftValue": "={{ $json[\"error\"][\"status\"] }}",
+              "rightValue": 401,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "dd9cc9d3-1b2d-4852-8681-75bd23ec80cb",
+      "name": "erro_de_token",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        120,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "15",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "valor_variavel",
+              "value": "={{ $node[\"new_refresh_token_conta_azul\"].json[\"access_token\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f4e2e23f-2666-404e-b9dd-7e6fcc0ae5cc",
+      "name": "update_access_token",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        740,
+        780
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "13",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "valor_variavel",
+              "value": "={{ $node[\"new_refresh_token_conta_azul\"].json[\"refresh_token\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f9b94de3-2d90-460a-838a-ce4af085d8fc",
+      "name": "update_refresh_token1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        540,
+        780
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "16",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "valor_variavel",
+              "value": "={{ $node[\"new_refresh_token_conta_azul\"].json[\"id_token\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0a2d0621-3c53-41a3-8635-08e396849f11",
+      "name": "update_id_token",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        940,
+        780
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "refresh_token",
+              "value": "={{ $node[\"busca_variavel_refresh_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "78cce17d-6ed6-4f00-8739-86233df18315",
+      "name": "new_refresh_token_conta_azul",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        340,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/parcela/filtro",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "2026-12-23"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "2025-12-31"
+            },
+            {
+              "name": "situacao",
+              "value": "EM_ABERTO"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "d23986ae-7e6b-40e6-b12e-7b2176794fcb",
+      "name": "buscar_titulos_a_receber",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -100,
+        920
+      ],
+      "onError": "continueRegularOutput"
     }
   ],
   "pinData": {
@@ -1135,6 +1700,17 @@
           "statusMessage": "OK"
         }
       }
+    ],
+    "replace_code_to_token_conta_azul": [
+      {
+        "json": {
+          "id_token": "eyJraWQiOiJjNFFVMDVNSVhSY0V3d01Dak8xcGtvWW1MRkVYaHZMbHREZk12TUFWQUpFPSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiQVlTNFN2NTU4bzVEN3p0VmlQajdsZyIsInN1YiI6ImMxMjE0N2U1LWZjZTktNGY5NC04NjljLTg2OTU4OTdkYTNmNSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJjb2duaXRvOnVzZXJuYW1lIjoiNDhjN2VhMTktNDcwMC00Yjc2LWJkYjItM2U0ZmJlNTUwMzA4QGRldnBvcnRhbC5jb20iLCJvcmlnaW5fanRpIjoiMzI3OGNkZjctY2QzOC00NzFlLTllYjAtOTViY2U5NmM2Mjg1IiwiYXVkIjoiNjUzcGNrMGVucWd0N2EwaWFmZjQ5Mm1mMTIiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTc2NjQ5Nzc1OSwiZXhwIjoxNzY2NTAxMzU5LCJpYXQiOjE3NjY0OTc3NTksImp0aSI6Ijc5YWU2NzlmLTZlZWEtNDRmZC04N2NmLTM5YWNhOTdmYjRjYiIsImVtYWlsIjoiNDhjN2VhMTktNDcwMC00Yjc2LWJkYjItM2U0ZmJlNTUwMzA4QGRldnBvcnRhbC5jb20ifQ.CpHfZy00j4ovSf4WqKBSG00i_jWRDEdujmr-rCecAeiijtJ3UGJTgrcVuQ2IHvgyO_21HzGETYi18YrCqhBjgnBwb1vNxfWc7mjmyD6N0T8phAgeqZwKZX90f3dzCG1tjJTCsECc9g1MJPgqZJn50OnEco-iPFZZCqEkJfwP18zTcnVtwuCjr8mvkhLrL3kMyVo9-nOt5nnMia4ijdKg4L4tvDdnLCOlIkpcN-vtGIMlcUuXO15PNjNa7gM20Dnq3JqhlpPVh0IlGCosvv4DG5D1CLnFCmIvkNHXsUQsTOZMmcWsawjuMwIYIfZtPlhbSNFptsLnPEc4oSfXI1U2pA",
+          "access_token": "eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjMTIxNDdlNS1mY2U5LTRmOTQtODY5Yy04Njk1ODk3ZGEzZjUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiI2NTNwY2swZW5xZ3Q3YTBpYWZmNDkybWYxMiIsIm9yaWdpbl9qdGkiOiIzMjc4Y2RmNy1jZDM4LTQ3MWUtOWViMC05NWJjZTk2YzYyODUiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIG9wZW5pZCBwcm9maWxlIiwiYXV0aF90aW1lIjoxNzY2NDk3NzU5LCJleHAiOjE3NjY1MDEzNTksImlhdCI6MTc2NjQ5Nzc1OSwianRpIjoiMDBlZjNhN2MtMzY4ZS00MmYwLTk1ZjAtZGNjMjAzZDRkMDRmIiwidXNlcm5hbWUiOiI0OGM3ZWExOS00NzAwLTRiNzYtYmRiMi0zZTRmYmU1NTAzMDhAZGV2cG9ydGFsLmNvbSJ9.w9cwsa_d54jid9gCa2MaE5iKKKtzz0uNP4g-UymH8gTyK7T4QMzF5ve_WyE0o0f468NLTxGGtnpvDX1msgY209ar2ACjNhc61ORk0erHfH9yPLxobYhJXnDl2yE3nPqlO3MqkGhDb6a43ipSaElG0zLR4i1Xq5mvMTbNUutSHYTvW2E5Y4gkZiewcvWOHR5VtiY5kcjHk4BkYsVIVrM10-fQUQft1R7ifwXb_zyxYzp6PmwkmnR82-RMGJTQskifFTlrQtYdsda5b1uhSm9oQP4OyFrXnT2YnxVzzorqjg5CL_2q9B6uNPckdOj--NVHHORYinr4UBuaI7OsngBkJA",
+          "refresh_token": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.x28axRRZ3RPOJcyzKrv0O8OMs8lMTUd25NiG9YoiB20lz92JKLuMe7gHh8qqeakMevLKRmQTFErRVtWLh6qumN8KXC8ARrcSQI9F1xoOiaH1KPiiVZrwU7s7V83EwLy14tueQ6D9qoq8EPUxHmwvny-na2lOqswQXwDUwyTBLnaEb0svISq5nB7xFaOCVzcMA8ggNAJPT53kSLie_2DpM6cBZL-ilqNTx9d0GRaCmCnhaLtAUlNoT6X_80XXT5P8sMUP399X5ZR4yYv1y6ieO1gAm2vJhot3-xBMo4KdSbEc5FhHsYAOVDUferjplaQa16dqDzOL15-j-W-WEn9ifA.grq-4_9a453BP0Il.claHpIl-XdCEO9P1wjSEqLcoQ_vw_DAPRhvm3V8nWhTbR5V3wCUcVOYhdjN9OoWKbdkFSDXhthuBpBYqZ8lZ6Bpcph5kyASWDUAcJ3dolpz0aIg3v7nL803lmpgSVuRFWZRXFkaoKp2kvecEC_04fPbn_IC9AvmU2XXLTH_QSwhKLhYI5e_-LJ5eMl-hThwaVh7qiUBltrBhI5rDhoP4b4GEq3LQgPDiB07WuKQsr5s9L-kwQvD_KHuo2ZshRhWLcyzYpJZqEIZU8WgcZ1PteaQbw5X2eGj2LfbgdgDsPidSsgkI4HwmmfLwjdMUrJAHrc5Dtehb5r6qxnC1qQ8GhGI1ujfxL9ZRPv6qGEVYg8vcHj8MLPFwHUVs7QHS8PrGTzMXkkRiZD3skgsTlAwijQzT4YbrIA5mrFGicwE1ustSdPobqNY3wpVqz7QeT_MWuLpsm4eGIH1quJCP7TtzhpWNsyO01ft8Mau5CJLuhTGlXk8ZD8KKdv1cKXnHHd2MhO7W3Ltyp4Gjtu-LNa6b5hIAbcMtWk7xb5QPwYFJU3cWUQf653Sus5wRsiAUE3HCZbKCIaTQCxCgGSh0ppbeOL5X1s_9-e06GKdZQSFLmOYypVbq_03umeNBDfljc-BWoqfeLk46pGIoCzMgHsZ2FSqPFl23c83wk3BlIAphT5Wrvo2M3P3S2WNHJECSaSMp223GKC20LLCVJHRmR9SymE0tSPovtNsEgF_FZ3MkKkMZi6BONHqN46XO7hDhuoeIMpHAqxjd9kpXPz4yz3X7sF7WB5bdBRn3oDlnota7Pzm7JP_nnTmATvyrtj8dFvIw0YzjW5fT1V8-evO0HSDyDijMAMO7IiQhGC0aLldzUPDv8vrpidEjITGMr8K7hSxxx8mJCoptbj-aYcnO2Qfd1mSVX3iNcmXt90Sjl8r9XV3d7HpOqdFkJPGn8FHQOr9mN2zNzUUgXda-aNsxKbvXe7nR79NA_ezu_aLSOqMduOIrvUq_BWa66SGzoxlAEBT35OKAt73wSvLVyBDMeQaS9kzKM2xnvtVlb2dd4fqHD1tDfDkKhOVkiwAHLl2k8O9bJ7N-Uf8G3sqgoMv2bCci5-8uzJRkHhA3nO6D8t7M48_WPNEuGKMj2Fijs3JIfKMiZjlIzWS1hvLmKk2DOHz_9YvyTW63HQttdyFrD50b5z-y_Gwr7cQUAlPrEJpF4LcZH_vL3FEKyuZXdZumaGrWmpm41y6yCYmYq5ISvLQRS9B3dVp_Zzyh67qCfHan0FtQy8kVwc-dnjKQu7cxfpqxwWUQuDBa_qvTNXYABDi9uV4bzA.XxWzdnPIGQ7mThaCYrk1AA",
+          "expires_in": 3600,
+          "token_type": "Bearer"
+        }
+      }
     ]
   },
   "settings": {
@@ -1145,6 +1721,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-12-22T23:18:42.100Z",
-  "versionId": "8f20b416-9ae7-42d3-8c60-b7efcef4625b"
+  "updatedAt": "2025-12-23T14:54:43.993Z",
+  "versionId": "7acf8544-c3a6-4e78-b8b9-0e1236f8dca6"
 }
