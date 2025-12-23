@@ -1,50 +1,6 @@
 {
   "active": false,
   "connections": {
-    "get_refresh_token": {
-      "main": [
-        [
-          {
-            "node": "refresh_token",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "update_refresh_token": {
-      "main": [
-        [
-          {
-            "node": "busca_faturas",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "refresh_token": {
-      "main": [
-        [
-          {
-            "node": "update_refresh_token",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "9am": {
-      "main": [
-        [
-          {
-            "node": "soma_2dias",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "pagamento_pra_hoje": {
       "main": [
         [
@@ -79,28 +35,6 @@
         [
           {
             "node": "separa_itens",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "busca_faturas": {
-      "main": [
-        [
-          {
-            "node": "separa_itens",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "soma_2dias": {
-      "main": [
-        [
-          {
-            "node": "get_refresh_token",
             "type": "main",
             "index": 0
           }
@@ -176,28 +110,6 @@
         ]
       ]
     },
-    "get_cards": {
-      "main": [
-        [
-          {
-            "node": "separa_itens2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "separa_itens2": {
-      "main": [
-        [
-          {
-            "node": "separa_itens1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "pessoa_juridica": {
       "main": [
         [
@@ -226,6 +138,55 @@
           }
         ]
       ]
+    },
+    "9am": {
+      "main": [
+        [
+          {
+            "node": "soma_2dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_refresh_token1": {
+      "main": [
+        [
+          {
+            "node": "update_access_token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_faturas": {
+      "main": [
+        [
+          {
+            "node": "separa_itens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_access_token": {
+      "main": [
+        [
+          {
+            "node": "busca_faturas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_cliente1": {
+      "main": [
+        []
+      ]
     }
   },
   "createdAt": "2025-12-22T14:20:48.530Z",
@@ -233,111 +194,6 @@
   "meta": null,
   "name": "✅⌚[CONTA AZUL][COBRANÇAS] - PARTE 1",
   "nodes": [
-    {
-      "parameters": {
-        "operation": "select",
-        "table": {
-          "__rl": true,
-          "value": "conta_azul",
-          "mode": "list",
-          "cachedResultName": "conta_azul"
-        },
-        "returnAll": true,
-        "options": {}
-      },
-      "id": "ec99b29c-a860-41fd-9db8-d8bffa45dd27",
-      "name": "get_refresh_token",
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.3,
-      "position": [
-        1164,
-        792
-      ]
-    },
-    {
-      "parameters": {
-        "operation": "upsert",
-        "table": {
-          "__rl": true,
-          "value": "conta_azul",
-          "mode": "list",
-          "cachedResultName": "conta_azul"
-        },
-        "dataMode": "defineBelow",
-        "columnToMatchOn": "id",
-        "valueToMatchOn": "1",
-        "valuesToSend": {
-          "values": [
-            {
-              "column": "token",
-              "value": "={{ $node[\"refresh_token\"].json[\"access_token\"] }}"
-            },
-            {
-              "column": "refresh_token",
-              "value": "={{ $node[\"refresh_token\"].json[\"refresh_token\"] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "e3f418b1-0306-475d-a2bd-2282227fbcd6",
-      "name": "update_refresh_token",
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.3,
-      "position": [
-        1516,
-        792
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.contaazul.com/oauth2/token",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendQuery": true,
-        "queryParameters": {
-          "parameters": [
-            {
-              "name": "grant_type",
-              "value": "refresh_token"
-            },
-            {
-              "name": "refresh_token",
-              "value": "={{ $node[\"get_refresh_token\"].json[\"refresh_token\"] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "86e34a2d-6e21-4445-b42d-d31fe2917ac4",
-      "name": "refresh_token",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        1340,
-        792
-      ]
-    },
-    {
-      "parameters": {
-        "rule": {
-          "interval": [
-            {
-              "triggerAtHour": 9
-            }
-          ]
-        }
-      },
-      "id": "2f017999-8da9-4e0f-94ee-2e1146359464",
-      "name": "9am",
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.1,
-      "position": [
-        780,
-        792
-      ]
-    },
     {
       "parameters": {
         "conditions": {
@@ -429,44 +285,6 @@
     },
     {
       "parameters": {
-        "url": "https://api.contaazul.com/v1/sales?due_date=2024-04-25&status=PENDING",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{ $node[\"refresh_token\"].json[\"access_token\"] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "68485d61-6e5e-45e4-86d6-62b4b34dac0b",
-      "name": "busca_faturas",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        1724,
-        792
-      ],
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "jsCode": "const today = new Date();\ntoday.setDate(today.getDate() + 2);\nconst year = today.getFullYear();\nconst month = String(today.getMonth() + 1).padStart(2, '0');\nconst day = String(today.getDate()).padStart(2, '0');\nconst formattedDate = `${year}-${month}-${day}`;\n\nconst today1 = new Date();\ntoday1.setDate(today1.getDate() - 30); // Aqui corrigimos para usar today1\nconst year1 = today1.getFullYear(); // Aqui corrigimos para usar today1\nconst month1 = String(today1.getMonth() + 1).padStart(2, '0'); // Aqui corrigimos para usar today1\nconst day1 = String(today1.getDate()).padStart(2, '0'); // Aqui corrigimos para usar today1\nconst formattedDate1 = `${year1}-${month1}-${day1}`; // Aqui corrigimos para usar today1\n\nreturn [{ formattedDate, formattedDate1 }];\n"
-      },
-      "id": "52b004f6-2596-4d5f-a40b-cd3bfc2d7c88",
-      "name": "soma_2dias",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        956,
-        792
-      ]
-    },
-    {
-      "parameters": {
         "conditions": {
           "options": {
             "caseSensitive": true,
@@ -504,93 +322,6 @@
       "position": [
         3260,
         1176
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.contaazul.com/oauth2/token",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "Basic dG11Q3A3a0RJTHl4eFowRDlWMjZzcHc5aEpVdlJyUmg6SnhCSGpNdDFSVWJFWld2Nk9wSGo1dWlnNDB6Vjlua0M="
-            }
-          ]
-        },
-        "sendBody": true,
-        "contentType": "form-urlencoded",
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "grant_type",
-              "value": "authorization_code"
-            },
-            {
-              "name": "redirect_uri",
-              "value": "https://n8neditor.xtrafego.com.br/rest/oauth2-credential/callback"
-            },
-            {
-              "name": "code",
-              "value": "i35GSkWPsrPeBL29Y9sm6WVmUjZicRgu"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "e2c46f8a-2dc2-4e69-9116-967ba0541267",
-      "name": "primiero_token",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        812,
-        520
-      ]
-    },
-    {
-      "parameters": {
-        "content": "## Para consulta\n",
-        "height": 254,
-        "width": 915
-      },
-      "id": "58624558-cad0-4588-8edc-8c7f2a5aac1a",
-      "name": "Sticky Note",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        780,
-        440
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.contaazul.com/oauth2/token",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendQuery": true,
-        "queryParameters": {
-          "parameters": [
-            {
-              "name": "grant_type",
-              "value": "refresh_token"
-            },
-            {
-              "name": "refresh_token",
-              "value": "={{ $node[\"get_refresh_token\"].json[\"refresh_token\"] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "3ea08233-d5c5-4ec7-8358-ea1d9a84aabd",
-      "name": "refresh_token1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        1020,
-        520
       ]
     },
     {
@@ -760,104 +491,6 @@
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "https://api.pipefy.com/graphql",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "accept",
-              "value": "application/json"
-            }
-          ]
-        },
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "query",
-              "value": "={  \n  allCards(pipeId:304011589){\n    edges{\n      node{ \n        id\n        title\n \t    age     \n     } \n   }\n }\n}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "ba9d4fe0-bcc7-4105-aa38-21df71172ffe",
-      "name": "get_cards",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        412,
-        1320
-      ]
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "id": "777611ea-5793-469d-a708-01c9866772e6",
-      "name": "separa_itens1",
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 3,
-      "position": [
-        780,
-        1320
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.pipefy.com/graphql",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "accept",
-              "value": "application/json"
-            },
-            {
-              "name": "Authorization",
-              "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJQaXBlZnkiLCJpYXQiOjE3MDc0MDE0MzYsImp0aSI6IjhlNGMwOGYwLTg0MjUtNGM4NC05M2E0LTY5MTY0NDU0OTA5ZiIsInN1YiI6MzAyMTg2NzIwLCJ1c2VyIjp7ImlkIjozMDIxODY3MjAsImVtYWlsIjoiYXRlbmRpbWVudG9AcGF1bG9sYWNlcmRhLmNvbS5iciIsImFwcGxpY2F0aW9uIjozMDAzMjAxMDksInNjb3BlcyI6W119LCJpbnRlcmZhY2VfdXVpZCI6bnVsbH0.lBYXcbW1DX8Szp2dpqqcOJ7Y8foVCvsexHwNF1zpAiuawCBnyO0VD8BvtE9svxY2us4_GTYwZL8uMQStKjtizA"
-            }
-          ]
-        },
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "query",
-              "value": "={\n card(id:871568196){\n    title\n    id\n    uuid\n    updated_at} }"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "40014fdd-1a59-4809-9597-d950c1a36bc5",
-      "name": "get_cards_via_id_unico",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        956,
-        1320
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Supondo que o input seja um array de objetos dentro de um objeto com a chave 'data'\nconst inputData = items[0].json.data;\n\n// Retorne todos os itens como novos objetos para serem processados pelo n8n\nreturn inputData.allCards.edges.map(edge => {\n  return { json: edge.node };\n});\n"
-      },
-      "id": "7311252c-f9bc-4e97-84f1-e005fcbec91f",
-      "name": "separa_itens2",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        588,
-        1320
-      ]
-    },
-    {
-      "parameters": {
         "conditions": {
           "options": {
             "caseSensitive": true,
@@ -913,47 +546,6 @@
           "conditions": [
             {
               "id": "a995bb1e-e8f3-45d2-8e7b-b67146c47cfd",
-              "leftValue": "={{ $json[\"status\"] }}",
-              "rightValue": "PENDING",
-              "operator": {
-                "type": "string",
-                "operation": "contains"
-              }
-            },
-            {
-              "id": "69978a92-ec4c-47e3-b2c1-b46b244d14c6",
-              "leftValue": "={{ $json[\"payment\"][\"installments\"][\"0\"][\"status\"] }}",
-              "rightValue": "PENDING",
-              "operator": {
-                "type": "string",
-                "operation": "contains"
-              }
-            }
-          ],
-          "combinator": "or"
-        },
-        "options": {}
-      },
-      "id": "82b4fb67-54ba-43f9-9892-985a7495efee",
-      "name": "pagamento_pra_hoje1",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
-      "position": [
-        1516,
-        1496
-      ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict"
-          },
-          "conditions": [
-            {
-              "id": "a995bb1e-e8f3-45d2-8e7b-b67146c47cfd",
               "leftValue": "={{ $node[\"dados_validados\"].json[\"status_pagamento\"] }}",
               "rightValue": "PENDING",
               "operator": {
@@ -986,60 +578,71 @@
     },
     {
       "parameters": {
-        "url": "=https://api.contaazul.com/v1/customers",
-        "sendQuery": true,
-        "queryParameters": {
-          "parameters": [
-            {
-              "name": "name",
-              "value": "GABRIEL LIMA DA ROCHA"
-            }
-          ]
-        },
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer h8Oy77tweYZxf2NMNhzxWA1iNU9F99Ex"
+              "value": "Basic N3ZuZmNzbTVzcDVlbTEyNjdicjdyNWp0cmc6YmloZGZra3ZqcDIwM2ZhNGNsNGhsZm0zcGZ2ZmVqMG1xaGdydHI3ODNkYmxvOTc5MjQy"
             }
           ]
         },
-        "options": {}
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            },
+            {
+              "name": "refresh_token",
+              "value": "REFRESH_TOKEN_GERADO"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
       },
       "id": "fbc1cdfa-4467-4ddf-8066-91be9785e67a",
       "name": "busca_cliente1",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        972,
-        1512
+        860,
+        1500
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "url": "=https://api.contaazul.com/v1/customers",
-        "sendQuery": true,
-        "queryParameters": {
-          "parameters": [
-            {
-              "name": "name",
-              "value": "GABRIEL LIMA DA ROCHA"
-            }
-          ]
-        },
+        "url": "https://api-v2.contaazul.com/v1/categorias",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer h8Oy77tweYZxf2NMNhzxWA1iNU9F99Ex"
+              "value": "Bearer eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjMTIxNDdlNS1mY2U5LTRmOTQtODY5Yy04Njk1ODk3ZGEzZjUiLCJkZXZpY2Vfa2V5Ijoic2EtZWFzdC0xXzQ1YmYxNmEwLWVhN2ItNDlmMS05MzVlLTczNWRhZjhlYzUyMSIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5zYS1lYXN0LTEuYW1hem9uYXdzLmNvbVwvc2EtZWFzdC0xX1ZwODNKMTF3QSIsImNsaWVudF9pZCI6Ijd2bmZjc201c3A1ZW0xMjY3YnI3cjVqdHJnIiwib3JpZ2luX2p0aSI6IjgyNDBjZGYxLTYwMTQtNDJlMi04ODE5LTJiZmY3ZmY4ZDY2NCIsImV2ZW50X2lkIjoiYTViZDdhMGMtYzE0ZC00MDgyLTliMjItYTllNjZhZjA1MDI2IiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTc2NjQ0MzQyMiwiZXhwIjoxNzY2NDQ3MDIyLCJpYXQiOjE3NjY0NDM0MjIsImp0aSI6IjVjYzA4ODk3LWQ1ODItNGYzNy05ZDAyLTk2MTljYzkwZWMwYiIsInVzZXJuYW1lIjoiNDhjN2VhMTktNDcwMC00Yjc2LWJkYjItM2U0ZmJlNTUwMzA4QGRldnBvcnRhbC5jb20ifQ.uyDdAUtm3Q6Z82bPFwOcagiQbReiqOdU1eY2UgissOB1uy0Bse3fge8AUcAq_IBwhZ9a-Frp1TECqXqVa40e09EzZYR2QY8GxgZB7jBHnAA78wrb3wd0sPVXMeE4xMuR96S94vaX9JkqgO6LuoeSYn0K-Otu2_6U8A9h2hU8w_AFAdQ-VtACIbbSc7kwksfjQSRC9S4hDIRCKdRWwnpCWdDBwfPU-1SJILcghIMAO9dA_X3RrdMDvJwNH1SWRVpw1n5xX1IGPbWIBwNHDFeVP3OzFUEVG1_R4aM2-HnNp0CYTTeghK7yYXT6xi-w5lpoWSihuqag_7r1yVw-XgVPhw"
             }
           ]
         },
-        "options": {}
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
       },
       "id": "74b6c0ab-755a-4d7d-aa9b-0f24c6396451",
       "name": "busca_cliente2",
@@ -1050,11 +653,17 @@
         1592
       ],
       "alwaysOutputData": true,
+      "credentials": {
+        "oAuth2Api": {
+          "id": "owcSGNzMlb0bbSeC",
+          "name": "[Conta Azul][2] - Universidade de Vendas"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "url": "https://api.contaazul.com/v1/sales",
+        "url": "https://api-v2.contaazul.com/v1/sales",
         "sendQuery": true,
         "queryParameters": {
           "parameters": [
@@ -1080,20 +689,462 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        524,
-        1640
+        720,
+        880
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "id": "1dcea66e-3e92-44fe-9b83-0dad3560608e",
+      "name": "9am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        356,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.contaazul.com/v1/sales?due_date=2024-04-25&status=PENDING",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"refresh_token1\"].json[\"access_token\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5c648b18-9b8f-4c71-90cb-a685f707bfdb",
+      "name": "busca_faturas",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1760,
+        780
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const today = new Date();\ntoday.setDate(today.getDate() + 2);\nconst year = today.getFullYear();\nconst month = String(today.getMonth() + 1).padStart(2, '0');\nconst day = String(today.getDate()).padStart(2, '0');\nconst formattedDate = `${year}-${month}-${day}`;\n\nconst today1 = new Date();\ntoday1.setDate(today1.getDate() - 30); // Aqui corrigimos para usar today1\nconst year1 = today1.getFullYear(); // Aqui corrigimos para usar today1\nconst month1 = String(today1.getMonth() + 1).padStart(2, '0'); // Aqui corrigimos para usar today1\nconst day1 = String(today1.getDate()).padStart(2, '0'); // Aqui corrigimos para usar today1\nconst formattedDate1 = `${year1}-${month1}-${day1}`; // Aqui corrigimos para usar today1\n\nreturn [{ formattedDate, formattedDate1 }];\n"
+      },
+      "id": "80f48cd8-4eb8-42e0-a0e5-2e9f06f2f9cd",
+      "name": "soma_2dias",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        532,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "11",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "valor_variavel",
+              "value": "={{$node[\"refresh_token1\"].json[\"refresh_token\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f9b94de3-2d90-460a-838a-ce4af085d8fc",
+      "name": "update_refresh_token1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        1360,
+        780
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "9",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "valor_variavel",
+              "value": "={{$node[\"refresh_token1\"].json[\"access_token\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f4e2e23f-2666-404e-b9dd-7e6fcc0ae5cc",
+      "name": "update_access_token",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        1560,
+        780
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $node[\"get_client\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "refresh_token",
+              "value": "={{ $node[\"get_refresh_token1\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "15cb43d4-0209-44ad-b00b-b5054fa2cfdf",
+      "name": "refresh_token2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1240,
+        260
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "rPMcxfmZaXUiOcP8",
+          "name": "[Conta Azul] - Universidade de Vendas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/categorias",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "8fde8c73-e012-45bc-b1bd-b33e492f4fb8",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        240
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "owcSGNzMlb0bbSeC",
+          "name": "[Conta Azul][2] - Universidade de Vendas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a995bb1e-e8f3-45d2-8e7b-b67146c47cfd",
+              "leftValue": "={{ $json[\"status\"] }}",
+              "rightValue": "PENDING",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "69978a92-ec4c-47e3-b2c1-b46b244d14c6",
+              "leftValue": "={{ $json[\"payment\"][\"installments\"][\"0\"][\"status\"] }}",
+              "rightValue": "PENDING",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "4b184d1a-b769-43ea-b62a-bbc97c29319c",
+      "name": "pagamento_pra_hoje1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1516,
+        1496
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "163445be-343b-44d9-ba9d-6c6649720324",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1180,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.contaazul.com/oauth2/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Basic BASE64(54es0dort4j7sr5teldrie2kc4:1vr7dqlt76hcfom9c7s9a1lilbvndip4j9gokqnhcf9ip36cj080)"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "code",
+              "value": "c1ad084d-2bce-4437-8cf4-8ee3887ec3c8"
+            },
+            {
+              "name": "grant_type",
+              "value": "authorization_code"
+            },
+            {
+              "name": "redirect_uri",
+              "value": "https://n8neditorhetznerfabricionunnes.automagicbots.com.br/rest/oauth2-credential/callback"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cf57cd4d-7cbe-479a-a9a1-fc0f06c44839",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        860,
+        1700
+      ]
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "busca_faturas": [
+      {
+        "json": {
+          "error": {
+            "message": "401 - \"{\\\"error_description\\\":\\\"The access token is invalid or has expired\\\",\\\"error\\\":\\\"invalid_token\\\"}\\n\"",
+            "name": "AxiosError",
+            "stack": "AxiosError: Request failed with status code 401\n    at settle (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/core/settle.js:19:12)\n    at RedirectableRequest.handleResponse (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/adapters/http.js:537:9)\n    at RedirectableRequest.emit (node:events:529:35)\n    at RedirectableRequest.emit (node:domain:489:12)\n    at RedirectableRequest._processResponse (/usr/local/lib/node_modules/n8n/node_modules/follow-redirects/index.js:398:10)\n    at ClientRequest.RedirectableRequest._onNativeResponse (/usr/local/lib/node_modules/n8n/node_modules/follow-redirects/index.js:91:12)\n    at Object.onceWrapper (node:events:632:26)\n    at ClientRequest.emit (node:events:517:28)\n    at ClientRequest.emit (node:domain:489:12)\n    at HTTPParser.parserOnIncomingClient [as onIncoming] (node:_http_client:700:27)\n    at Axios.request (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/core/Axios.js:45:41)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at requestFn (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:567:33)\n    at proxyRequestToAxios (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:570:26)\n    at Object.request (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:1986:50)",
+            "code": "ERR_BAD_REQUEST",
+            "status": 401
+          }
+        }
+      }
+    ],
+    "HTTP Request1": [
+      {
+        "json": {
+          "body": {
+            "itens_totais": 123,
+            "itens": [
+              {
+                "id": "a263de99-e55f-40b3-a691-96ac2b713f35",
+                "versao": 0,
+                "nome": "13º Salário - 1ª Parcela",
+                "categoria_pai": "54580768-11ae-4d32-a8e4-7cecc4b08d9b",
+                "tipo": "DESPESA",
+                "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
+                "considera_custo_dre": false
+              },
+              {
+                "id": "05d664ba-e2c7-4fa1-bc90-6d8aaf29e55b",
+                "versao": 0,
+                "nome": "13º Salário - 2ª Parcela",
+                "categoria_pai": "54580768-11ae-4d32-a8e4-7cecc4b08d9b",
+                "tipo": "DESPESA",
+                "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
+                "considera_custo_dre": false
+              },
+              {
+                "id": "61ad7511-4b9f-45c9-a89c-b4e5c1aa75c7",
+                "versao": 0,
+                "nome": "Adiantamento Salarial",
+                "categoria_pai": "54580768-11ae-4d32-a8e4-7cecc4b08d9b",
+                "tipo": "DESPESA",
+                "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
+                "considera_custo_dre": false
+              },
+              {
+                "id": "8f011838-aec3-48df-8d05-e1ae62229cb2",
+                "versao": 0,
+                "nome": "Adiantamentos para futuros Aumentos de Capital - AFAC",
+                "categoria_pai": "80fcc5ed-a7d7-4680-b8ef-980c001f7c01",
+                "tipo": "RECEITA",
+                "entrada_dre": null,
+                "considera_custo_dre": false
+              },
+              {
+                "id": "1091cf0d-7453-4b3c-bae3-2a179ae16b44",
+                "versao": 0,
+                "nome": "Água e Saneamento",
+                "categoria_pai": "12b635f8-7d82-42eb-ac21-72b0032101c3",
+                "tipo": "DESPESA",
+                "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
+                "considera_custo_dre": false
+              },
+              {
+                "id": "70957b7f-e260-42e7-a936-d077bf483953",
+                "versao": 0,
+                "nome": "Aluguel",
+                "categoria_pai": "12b635f8-7d82-42eb-ac21-72b0032101c3",
+                "tipo": "DESPESA",
+                "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
+                "considera_custo_dre": false
+              },
+              {
+                "id": "833c6f1e-535c-43e7-9383-069f62453215",
+                "versao": 0,
+                "nome": "Alvará de Funcionamento",
+                "categoria_pai": "12b635f8-7d82-42eb-ac21-72b0032101c3",
+                "tipo": "DESPESA",
+                "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
+                "considera_custo_dre": false
+              },
+              {
+                "id": "6bf48ee7-566a-406b-a093-636c6ce4c067",
+                "versao": 0,
+                "nome": "Antecipação de Lucros",
+                "categoria_pai": "960d9260-cd9d-4282-834b-972e68a29c6f",
+                "tipo": "DESPESA",
+                "entrada_dre": null,
+                "considera_custo_dre": false
+              },
+              {
+                "id": "ecee04a9-5bf9-4ec7-901c-59b49e1e8679",
+                "versao": 0,
+                "nome": "Benfeitorias em Bens de Terceiros",
+                "categoria_pai": "38130995-bdc4-42fd-8f46-5f9649fe384f",
+                "tipo": "DESPESA",
+                "entrada_dre": "INVESTIMENTOS_IMOBILIZADO",
+                "considera_custo_dre": false
+              },
+              {
+                "id": "a46a0ebb-5ca3-4ecf-bf29-61c78152ce9b",
+                "versao": 0,
+                "nome": "Bens de Pequeno Valor",
+                "categoria_pai": "5693b0e4-27ee-43e1-920b-3590b1dfb035",
+                "tipo": "DESPESA",
+                "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
+                "considera_custo_dre": false
+              }
+            ]
+          },
+          "headers": {
+            "content-type": "application/json",
+            "date": "Mon, 22 Dec 2025 21:47:49 GMT",
+            "vary": "Origin,Access-Control-Request-Method,Access-Control-Request-Headers",
+            "x-request-id": "860cc655-4822-4a61-a83f-329d9d2c1bb4",
+            "via": "1.1 google",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "connection": "close",
+            "transfer-encoding": "chunked"
+          },
+          "statusCode": 200,
+          "statusMessage": "OK"
+        }
+      }
+    ]
+  },
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-12-22T14:20:48.530Z",
-  "versionId": "74a21262-e88a-4ee8-a319-d668a3b60f88"
+  "updatedAt": "2025-12-22T23:18:42.100Z",
+  "versionId": "8f20b416-9ae7-42d3-8c60-b7efcef4625b"
 }
