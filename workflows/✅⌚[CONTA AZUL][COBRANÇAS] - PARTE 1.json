@@ -161,28 +161,6 @@
         ]
       ]
     },
-    "busca_variavel_refresh_token_conta_azul": {
-      "main": [
-        [
-          {
-            "node": "busca_variavel_auth_conta_Azul",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "busca_variavel_auth_conta_Azul": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "When clicking \"Test workflow\"": {
       "main": [
         [
@@ -216,40 +194,12 @@
         ]
       ]
     },
-    "HTTP Request3": {
-      "main": [
-        [
-          {
-            "node": "erro_de_token1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "erro_de_token1": {
       "main": [
-        [
-          {
-            "node": "new_refresh_token_conta_azul",
-            "type": "main",
-            "index": 0
-          }
-        ],
+        [],
         [
           {
             "node": "buscar_titulos_a_receber",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "erro_de_token": {
-      "main": [
-        [
-          {
-            "node": "new_refresh_token_conta_azul",
             "type": "main",
             "index": 0
           }
@@ -278,6 +228,66 @@
         ]
       ]
     },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "erro_de_token1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_variavel_refresh_token_conta_azul": {
+      "main": [
+        [
+          {
+            "node": "busca_variavel_auth_conta_Azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_variavel_auth_conta_Azul": {
+      "main": [
+        [
+          {
+            "node": "busca_variavel_client_id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_variavel_client_id": {
+      "main": [
+        [
+          {
+            "node": "busca_variavel_client_secret_Azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_variavel_client_secret_Azul": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "new_refresh_token_conta_azul": {
       "main": [
         [
@@ -294,6 +304,85 @@
         [
           {
             "node": "erro_de_token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request4": {
+      "main": [
+        [
+          {
+            "node": "MySQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL": {
+      "main": [
+        [
+          {
+            "node": "vended",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "vended1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "pesquisa_venda_conta_azul",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "buscar_titulos_a_receber1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "vended1": {
+      "main": [
+        [
+          {
+            "node": "buscar_titulos_a_receber2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request7",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request8",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request9",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "erro_de_token": {
+      "main": [
+        [
+          {
+            "node": "new_refresh_token_conta_azul",
             "type": "main",
             "index": 0
           }
@@ -775,40 +864,6 @@
     },
     {
       "parameters": {
-        "url": "https://api-v2.contaazul.com/v1/sales",
-        "sendQuery": true,
-        "queryParameters": {
-          "parameters": [
-            {
-              "name": "customer_id",
-              "value": "49b5922b-a63e-4a40-b345-42ddd82b4924"
-            }
-          ]
-        },
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer h8Oy77tweYZxf2NMNhzxWA1iNU9F99Ex"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "418bc8e6-d2f9-4574-ae9e-9e88ebeb77f2",
-      "name": "busca_faturas1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -20,
-        260
-      ],
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
         "rule": {
           "interval": [
             {
@@ -822,9 +877,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
       "position": [
-        -1196,
+        -1220,
         1320
-      ]
+      ],
+      "disabled": true
     },
     {
       "parameters": {
@@ -1047,83 +1103,13 @@
       ]
     },
     {
-      "parameters": {
-        "operation": "select",
-        "table": {
-          "__rl": true,
-          "value": "variaveis_globais_n8n",
-          "mode": "list",
-          "cachedResultName": "variaveis_globais_n8n"
-        },
-        "where": {
-          "values": [
-            {
-              "column": "nome_variavel",
-              "value": "Refresh Token Conta Azul"
-            }
-          ]
-        },
-        "combineConditions": "OR",
-        "options": {}
-      },
-      "id": "95d51795-ea70-459c-a1b1-16e4aabeeac0",
-      "name": "busca_variavel_refresh_token_conta_azul",
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.3,
-      "position": [
-        -1000,
-        840
-      ],
-      "credentials": {
-        "mySql": {
-          "id": "PfzfhyuSKTUfroef",
-          "name": "[MySQL] - Fabricio Nunnes"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "select",
-        "table": {
-          "__rl": true,
-          "value": "variaveis_globais_n8n",
-          "mode": "list",
-          "cachedResultName": "variaveis_globais_n8n"
-        },
-        "where": {
-          "values": [
-            {
-              "column": "nome_variavel",
-              "value": "Basic Auth Conta Azul"
-            }
-          ]
-        },
-        "combineConditions": "OR",
-        "options": {}
-      },
-      "id": "03a867af-3ab7-417b-a1b2-4fa81896cd07",
-      "name": "busca_variavel_auth_conta_Azul",
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.3,
-      "position": [
-        -780,
-        840
-      ],
-      "credentials": {
-        "mySql": {
-          "id": "PfzfhyuSKTUfroef",
-          "name": "[MySQL] - Fabricio Nunnes"
-        }
-      }
-    },
-    {
       "parameters": {},
       "id": "feb57ad5-f4f1-47c7-aedf-0cc633f054ae",
       "name": "When clicking \"Test workflow\"",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -1460,
+        -1860,
         840
       ]
     },
@@ -1152,7 +1138,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.3,
       "position": [
-        -1240,
+        -1640,
         840
       ],
       "credentials": {
@@ -1178,7 +1164,7 @@
         "content": "# 📌 AUTH INICIAL CONTA AZUL\n\n## 1. CRIA APLICAÇÃO EM: \n`` https://developers-portal.contaazul.com/#/``\n## 2. GERA CODE DE AUTORIZAÇÃO COM:\n``\nhttps://auth.contaazul.com/login?response_type=code&client_id={client_id}&redirect_uri={sua-url-de-calback-n8n}&state=ESTADO&scope=openid+profile+aws.cognito.signin.user.admin\n``\n\n## 3. TROQUE O CODE PELO TOKEN COM (MÉTODO POST):\n``\ncurl --location 'https://auth.contaazul.com/oauth2/token' \\\n--header 'Authorization: Basic BASE64(SEU_CLIENT_ID:SEU_CLIENT_SECRET)' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--data-urlencode 'code=CODIGO_AUTORIZACAO' \\\n--data-urlencode 'grant_type=authorization_code' \\\n--data-urlencode 'redirect_uri=SUA_URL_REDIRECIONAMENTO'\n``\n\n## 4. RENOVE O TOKEN COM:\n``\ncurl --location 'https://auth.contaazul.com/oauth2/token' \\\n--header 'Authorization: Basic BASE64(SEU_CLIENT_ID:SEU_CLIENT_SECRET)' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--data-urlencode 'refresh_token=REFRESH_TOKEN_GERADO' \\\n--data-urlencode 'grant_type=refresh_token'\n``",
         "height": 581.9710482284947,
         "width": 641.5680723053924,
-        "color": 5
+        "color": 2
       },
       "id": "eb3a9fa7-e73a-4909-ab61-c4ed914bfa1d",
       "name": "Sticky Note",
@@ -1187,41 +1173,6 @@
       "position": [
         -2020,
         1360
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://auth.contaazul.com/oauth2/token",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"] }}"
-            },
-            {
-              "name": "Content-Type",
-              "value": "application/x-www-form-urlencoded"
-            }
-          ]
-        },
-        "sendBody": true,
-        "contentType": "form-urlencoded",
-        "bodyParameters": {
-          "parameters": [
-            {}
-          ]
-        },
-        "options": {}
-      },
-      "id": "e1f6b4b8-10ec-4d85-b309-53cabfc5cc6d",
-      "name": "replace_code_to_token_conta_azul",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -820,
-        1340
       ]
     },
     {
@@ -1260,49 +1211,6 @@
     },
     {
       "parameters": {
-        "url": "https://api-v2.contaazul.com/v1/pessoas",
-        "sendQuery": true,
-        "queryParameters": {
-          "parameters": [
-            {
-              "name": "pagina",
-              "value": "1"
-            },
-            {
-              "name": "tamanho_pagina",
-              "value": "10"
-            }
-          ]
-        },
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
-            }
-          ]
-        },
-        "options": {
-          "response": {
-            "response": {
-              "fullResponse": true
-            }
-          }
-        }
-      },
-      "id": "f6292279-c4d1-422d-8512-2a5688929fb1",
-      "name": "HTTP Request3",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -540,
-        840
-      ],
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
         "conditions": {
           "options": {
             "caseSensitive": false,
@@ -1333,38 +1241,6 @@
       "position": [
         -340,
         840
-      ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict"
-          },
-          "conditions": [
-            {
-              "id": "c2ed465e-958e-4d5d-94b3-22521b7c7be0",
-              "leftValue": "={{ $json[\"error\"][\"status\"] }}",
-              "rightValue": 401,
-              "operator": {
-                "type": "number",
-                "operation": "equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "id": "dd9cc9d3-1b2d-4852-8681-75bd23ec80cb",
-      "name": "erro_de_token",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
-      "position": [
-        120,
-        920
       ]
     },
     {
@@ -1480,6 +1356,49 @@
     },
     {
       "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/pessoas",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "pagina",
+              "value": "1"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "10"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "f6292279-c4d1-422d-8512-2a5688929fb1",
+      "name": "HTTP Request3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -540,
+        840
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
         "method": "POST",
         "url": "https://auth.contaazul.com/oauth2/token",
         "sendHeaders": true,
@@ -1506,6 +1425,253 @@
             {
               "name": "grant_type",
               "value": "refresh_token"
+            },
+            {
+              "name": "client_id",
+              "value": "653pck0enqgt7a0iaff492mf12"
+            },
+            {
+              "name": "client_secret",
+              "value": "vmva7h4qgp9kvjd2hq42pq2bkimp1h0onaubndpl2opo7hr102t"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "0202c352-ee6d-4467-b1fc-166e872d1391",
+      "name": "new_refresh_token_conta_azul1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -800,
+        1320
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Refresh Token Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "95d51795-ea70-459c-a1b1-16e4aabeeac0",
+      "name": "busca_variavel_refresh_token_conta_azul",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        -1400,
+        840
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.contaazul.com/oauth2/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            },
+            {
+              "name": "refresh_token",
+              "value": "={{ $node[\"busca_variavel_refresh_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e9a4ede8-2d39-45ac-bf3c-789b1ece7f47",
+      "name": "refresh_token1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -580,
+        1320
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "1QmOzOM2uRWpT8Xk",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Basic Auth Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "03a867af-3ab7-417b-a1b2-4fa81896cd07",
+      "name": "busca_variavel_auth_conta_Azul",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        -1180,
+        840
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Client ID Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "a1872a6b-a150-4820-95bd-ed221bf3d1df",
+      "name": "busca_variavel_client_id",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        -960,
+        840
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Client Secret Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "4d02dad3-4f90-4c17-b0f4-a640259dbb58",
+      "name": "busca_variavel_client_secret_Azul",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        -740,
+        840
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "refresh_token",
+              "value": "={{ $node[\"busca_variavel_refresh_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            },
+            {
+              "name": "client_id",
+              "value": "={{ $node[\"busca_variavel_client_id\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "client_secret",
+              "value": "={{ $node[\"busca_variavel_client_secret_Azul\"].json[\"valor_variavel\"] }}"
             }
           ]
         },
@@ -1526,13 +1692,103 @@
     },
     {
       "parameters": {
-        "url": "https://api.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/parcela/filtro",
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"].trim() }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "code",
+              "value": "d92c10ef-e215-40f2-a43b-88e8c0760029"
+            },
+            {
+              "name": "grant_type",
+              "value": "authorization_code"
+            },
+            {
+              "name": "redirect_uri",
+              "value": "https://n8neditorhetznerfabricionunnes.automagicbots.com.br/rest/oauth2-credential/callback"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e1f6b4b8-10ec-4d85-b309-53cabfc5cc6d",
+      "name": "replace_code_to_token_conta_azul",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -320,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"].trim() }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "refresh_token",
+              "value": "={{ $node[\"busca_variavel_refresh_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d3e6a26a-0b43-454d-b5b4-814ef1053568",
+      "name": "HTTP Request4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -640,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/parcela/filtro",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjMTIxNDdlNS1mY2U5LTRmOTQtODY5Yy04Njk1ODk3ZGEzZjUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiJxMWNsaDdtaTBlMHZtdThlMDlnbDVpYzBpIiwib3JpZ2luX2p0aSI6IjBhODcxODljLWFjNzYtNGRhNC1hMmQ4LTQyMGM1YzgwZjExOCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4gb3BlbmlkIHByb2ZpbGUiLCJhdXRoX3RpbWUiOjE3NjY1MDQyMzcsImV4cCI6MTc2NjUwNzg2MiwiaWF0IjoxNzY2NTA0MjYyLCJqdGkiOiI3NmEwZDQ2ZS1lMTFiLTQ1ZjQtODQ0OS1lYjk3YTkxM2U0YTMiLCJ1c2VybmFtZSI6IjQ4YzdlYTE5LTQ3MDAtNGI3Ni1iZGIyLTNlNGZiZTU1MDMwOEBkZXZwb3J0YWwuY29tIn0.FA9qr4YWfbOkgO141ggsYci-T0hbBQEfdqMg11ccdXr7SNwJuuBKeA2V6-fmnvP9FCqtTQx7d9c_xVwYn6vC2Oc014bNtFX3Do1GpKE4LGX2aaceXG4FQd9hkYdbbaIWi9wHfQpF7N52IPdYC1J4ifL3xebtcwLRNqCfpckdyF5BttVxyN-OJDCt4s48nZrIw7GPe2ESZte2nPlPP_oj1xMb82kShL1-KD1XyNrMvd3rOSsU4cklxIXv5ZRgMUwMqknywlzUY5pFVO3NOTlEcWNpqrPlf8HnCSGPxaxL_z-dcubm9zvoU4GsSozpELPgI2-2tvxcIm8Wu7NwMqzKbA"
             },
             {
               "name": "Content-Type",
@@ -1571,7 +1827,447 @@
         -100,
         920
       ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "1QmOzOM2uRWpT8Xk",
+          "name": "Header Auth account"
+        }
+      },
       "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/venda/vendedores",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "84d7c23f-a926-473b-b4bb-63673065012c",
+      "name": "vended",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -360,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/parcela/filtro",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "2026-12-23"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "2025-12-31"
+            },
+            {
+              "name": "situacao",
+              "value": "EM_ABERTO"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "0eb8331e-c9ee-44bc-8bef-fb0fba966e70",
+      "name": "buscar_titulos_a_receber1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -300,
+        660
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://api-v2.contaazul.com/v1/vendas",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "36192b7b-1439-492b-ad95-ec62892141e7",
+      "name": "pesquisa_venda_conta_azul",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -300,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"].trim() }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "refresh_token",
+              "value": "={{ $json[\"refresh_token\"] }}"
+            },
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "95377674-e6b6-4a54-8120-3a337954271f",
+      "name": "HTTP Request6",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -660,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE variaveis_globais_n8n\nSET valor_variavel = CASE \n    WHEN id = 16 THEN '{{$node[\"HTTP Request4\"].json[\"id_token\"] }}'\n    WHEN id = 15 THEN '{{ $node[\"HTTP Request4\"].json[\"access_token\"] }}'\n    WHEN id = 13 THEN '{{ $node[\"HTTP Request4\"].json[\"refresh_token\"] }}'\nEND\nWHERE id IN (16, 15, 13);",
+        "options": {}
+      },
+      "id": "4f112727-0e4a-4406-aa27-17f66e0a27a3",
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -480,
+        680
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar\n",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "2025-12-23"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "2026-12-31"
+            },
+            {
+              "name": "status",
+              "value": "EM_ABERTO"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a10ebb95-c221-4502-9b07-9d3ca851b3c1",
+      "name": "buscar_titulos_a_receber2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        20
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/user",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "27d3da82-e31d-4fb0-9aa8-10acbdb46eaf",
+      "name": "HTTP Request7",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -220,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/venda/busca?pagina=1&tamanho_pagina=10",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "8d7a9dbd-36a8-48dc-9a92-5a7611ef606b",
+      "name": "vended1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -380,
+        180
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c2ed465e-958e-4d5d-94b3-22521b7c7be0",
+              "leftValue": "={{ String($json[\"error\"][\"status\"]) }}{{ $json[\"error\"][\"message\"] }}",
+              "rightValue": "401",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "dd9cc9d3-1b2d-4852-8681-75bd23ec80cb",
+      "name": "erro_de_token",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        120,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/dados-da-empresa",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4d478200-4a05-43c1-a819-9b618e1c6316",
+      "name": "HTTP Request8",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -240,
+        -340
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/cobranca/1703731",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "85aa1637-114a-4019-a490-3833716bb143",
+      "name": "HTTP Request9",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        80,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/pessoas",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "pagina",
+              "value": "5"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "10"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
+            },
+            {
+              "name": "X-ContaAzul-Company-UUID",
+              "value": "48c7ea19-4700-4b76-bdb2-3e4fbe550308"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "6288669a-3c3c-4c79-b6bb-ad5a3b7da80f",
+      "name": "HTTP Request5",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        40,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/categorias",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "7fd3f5e2-6223-4f54-9df4-cbbab44431f8",
+      "name": "categorias",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -900,
+        500
+      ]
     }
   ],
   "pinData": {
@@ -1704,23 +2400,132 @@
     "replace_code_to_token_conta_azul": [
       {
         "json": {
-          "id_token": "eyJraWQiOiJjNFFVMDVNSVhSY0V3d01Dak8xcGtvWW1MRkVYaHZMbHREZk12TUFWQUpFPSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiQVlTNFN2NTU4bzVEN3p0VmlQajdsZyIsInN1YiI6ImMxMjE0N2U1LWZjZTktNGY5NC04NjljLTg2OTU4OTdkYTNmNSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJjb2duaXRvOnVzZXJuYW1lIjoiNDhjN2VhMTktNDcwMC00Yjc2LWJkYjItM2U0ZmJlNTUwMzA4QGRldnBvcnRhbC5jb20iLCJvcmlnaW5fanRpIjoiMzI3OGNkZjctY2QzOC00NzFlLTllYjAtOTViY2U5NmM2Mjg1IiwiYXVkIjoiNjUzcGNrMGVucWd0N2EwaWFmZjQ5Mm1mMTIiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTc2NjQ5Nzc1OSwiZXhwIjoxNzY2NTAxMzU5LCJpYXQiOjE3NjY0OTc3NTksImp0aSI6Ijc5YWU2NzlmLTZlZWEtNDRmZC04N2NmLTM5YWNhOTdmYjRjYiIsImVtYWlsIjoiNDhjN2VhMTktNDcwMC00Yjc2LWJkYjItM2U0ZmJlNTUwMzA4QGRldnBvcnRhbC5jb20ifQ.CpHfZy00j4ovSf4WqKBSG00i_jWRDEdujmr-rCecAeiijtJ3UGJTgrcVuQ2IHvgyO_21HzGETYi18YrCqhBjgnBwb1vNxfWc7mjmyD6N0T8phAgeqZwKZX90f3dzCG1tjJTCsECc9g1MJPgqZJn50OnEco-iPFZZCqEkJfwP18zTcnVtwuCjr8mvkhLrL3kMyVo9-nOt5nnMia4ijdKg4L4tvDdnLCOlIkpcN-vtGIMlcUuXO15PNjNa7gM20Dnq3JqhlpPVh0IlGCosvv4DG5D1CLnFCmIvkNHXsUQsTOZMmcWsawjuMwIYIfZtPlhbSNFptsLnPEc4oSfXI1U2pA",
-          "access_token": "eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjMTIxNDdlNS1mY2U5LTRmOTQtODY5Yy04Njk1ODk3ZGEzZjUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiI2NTNwY2swZW5xZ3Q3YTBpYWZmNDkybWYxMiIsIm9yaWdpbl9qdGkiOiIzMjc4Y2RmNy1jZDM4LTQ3MWUtOWViMC05NWJjZTk2YzYyODUiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIG9wZW5pZCBwcm9maWxlIiwiYXV0aF90aW1lIjoxNzY2NDk3NzU5LCJleHAiOjE3NjY1MDEzNTksImlhdCI6MTc2NjQ5Nzc1OSwianRpIjoiMDBlZjNhN2MtMzY4ZS00MmYwLTk1ZjAtZGNjMjAzZDRkMDRmIiwidXNlcm5hbWUiOiI0OGM3ZWExOS00NzAwLTRiNzYtYmRiMi0zZTRmYmU1NTAzMDhAZGV2cG9ydGFsLmNvbSJ9.w9cwsa_d54jid9gCa2MaE5iKKKtzz0uNP4g-UymH8gTyK7T4QMzF5ve_WyE0o0f468NLTxGGtnpvDX1msgY209ar2ACjNhc61ORk0erHfH9yPLxobYhJXnDl2yE3nPqlO3MqkGhDb6a43ipSaElG0zLR4i1Xq5mvMTbNUutSHYTvW2E5Y4gkZiewcvWOHR5VtiY5kcjHk4BkYsVIVrM10-fQUQft1R7ifwXb_zyxYzp6PmwkmnR82-RMGJTQskifFTlrQtYdsda5b1uhSm9oQP4OyFrXnT2YnxVzzorqjg5CL_2q9B6uNPckdOj--NVHHORYinr4UBuaI7OsngBkJA",
-          "refresh_token": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.x28axRRZ3RPOJcyzKrv0O8OMs8lMTUd25NiG9YoiB20lz92JKLuMe7gHh8qqeakMevLKRmQTFErRVtWLh6qumN8KXC8ARrcSQI9F1xoOiaH1KPiiVZrwU7s7V83EwLy14tueQ6D9qoq8EPUxHmwvny-na2lOqswQXwDUwyTBLnaEb0svISq5nB7xFaOCVzcMA8ggNAJPT53kSLie_2DpM6cBZL-ilqNTx9d0GRaCmCnhaLtAUlNoT6X_80XXT5P8sMUP399X5ZR4yYv1y6ieO1gAm2vJhot3-xBMo4KdSbEc5FhHsYAOVDUferjplaQa16dqDzOL15-j-W-WEn9ifA.grq-4_9a453BP0Il.claHpIl-XdCEO9P1wjSEqLcoQ_vw_DAPRhvm3V8nWhTbR5V3wCUcVOYhdjN9OoWKbdkFSDXhthuBpBYqZ8lZ6Bpcph5kyASWDUAcJ3dolpz0aIg3v7nL803lmpgSVuRFWZRXFkaoKp2kvecEC_04fPbn_IC9AvmU2XXLTH_QSwhKLhYI5e_-LJ5eMl-hThwaVh7qiUBltrBhI5rDhoP4b4GEq3LQgPDiB07WuKQsr5s9L-kwQvD_KHuo2ZshRhWLcyzYpJZqEIZU8WgcZ1PteaQbw5X2eGj2LfbgdgDsPidSsgkI4HwmmfLwjdMUrJAHrc5Dtehb5r6qxnC1qQ8GhGI1ujfxL9ZRPv6qGEVYg8vcHj8MLPFwHUVs7QHS8PrGTzMXkkRiZD3skgsTlAwijQzT4YbrIA5mrFGicwE1ustSdPobqNY3wpVqz7QeT_MWuLpsm4eGIH1quJCP7TtzhpWNsyO01ft8Mau5CJLuhTGlXk8ZD8KKdv1cKXnHHd2MhO7W3Ltyp4Gjtu-LNa6b5hIAbcMtWk7xb5QPwYFJU3cWUQf653Sus5wRsiAUE3HCZbKCIaTQCxCgGSh0ppbeOL5X1s_9-e06GKdZQSFLmOYypVbq_03umeNBDfljc-BWoqfeLk46pGIoCzMgHsZ2FSqPFl23c83wk3BlIAphT5Wrvo2M3P3S2WNHJECSaSMp223GKC20LLCVJHRmR9SymE0tSPovtNsEgF_FZ3MkKkMZi6BONHqN46XO7hDhuoeIMpHAqxjd9kpXPz4yz3X7sF7WB5bdBRn3oDlnota7Pzm7JP_nnTmATvyrtj8dFvIw0YzjW5fT1V8-evO0HSDyDijMAMO7IiQhGC0aLldzUPDv8vrpidEjITGMr8K7hSxxx8mJCoptbj-aYcnO2Qfd1mSVX3iNcmXt90Sjl8r9XV3d7HpOqdFkJPGn8FHQOr9mN2zNzUUgXda-aNsxKbvXe7nR79NA_ezu_aLSOqMduOIrvUq_BWa66SGzoxlAEBT35OKAt73wSvLVyBDMeQaS9kzKM2xnvtVlb2dd4fqHD1tDfDkKhOVkiwAHLl2k8O9bJ7N-Uf8G3sqgoMv2bCci5-8uzJRkHhA3nO6D8t7M48_WPNEuGKMj2Fijs3JIfKMiZjlIzWS1hvLmKk2DOHz_9YvyTW63HQttdyFrD50b5z-y_Gwr7cQUAlPrEJpF4LcZH_vL3FEKyuZXdZumaGrWmpm41y6yCYmYq5ISvLQRS9B3dVp_Zzyh67qCfHan0FtQy8kVwc-dnjKQu7cxfpqxwWUQuDBa_qvTNXYABDi9uV4bzA.XxWzdnPIGQ7mThaCYrk1AA",
+          "id_token": "eyJraWQiOiJjNFFVMDVNSVhSY0V3d01Dak8xcGtvWW1MRkVYaHZMbHREZk12TUFWQUpFPSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoidDV3SHh6bXgtLWEtM1dXMkk2S0RodyIsInN1YiI6ImMxMjE0N2U1LWZjZTktNGY5NC04NjljLTg2OTU4OTdkYTNmNSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJjb2duaXRvOnVzZXJuYW1lIjoiNDhjN2VhMTktNDcwMC00Yjc2LWJkYjItM2U0ZmJlNTUwMzA4QGRldnBvcnRhbC5jb20iLCJvcmlnaW5fanRpIjoiMGE4NzE4OWMtYWM3Ni00ZGE0LWEyZDgtNDIwYzVjODBmMTE4IiwiYXVkIjoicTFjbGg3bWkwZTB2bXU4ZTA5Z2w1aWMwaSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzY2NTA0MjM3LCJleHAiOjE3NjY1MDc4MzcsImlhdCI6MTc2NjUwNDIzNywianRpIjoiOTI0NWUwOTAtMjk5Yi00ODg1LTk4ZmUtOWNiN2UwMTMwYzNiIiwiZW1haWwiOiI0OGM3ZWExOS00NzAwLTRiNzYtYmRiMi0zZTRmYmU1NTAzMDhAZGV2cG9ydGFsLmNvbSJ9.N6gS-SpLRYrLmNXI5AeyKSFXThUCMLvKlRi6WbhyT4YcoEl6QiwwXpOYH2fMOGkHxww6GH71--G78s02_Iv44yGSz7qKGNdGjqjgfG_0aJawytg_YTABfiWj5AJDSnLM6aSH_nIJFuBLm8HFkBJgtsppzWigA72-8YF22VNOFuGKn2xlThWdMxAI7ljJTRjEUGHONiAPlUjZmZSRc4CKklGHzmYCSJlgMsdCxaIGIFIpFxBtuucWMBdNc0rasB4d7qYmehISLJ-TIYh3DQStbA1PJ97VzVVivd91lDStCvUbB59ecaiEXKZ669HNH_Y-gX3NQJxZyzVCSDy1xXk0cg",
+          "access_token": "eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjMTIxNDdlNS1mY2U5LTRmOTQtODY5Yy04Njk1ODk3ZGEzZjUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiJxMWNsaDdtaTBlMHZtdThlMDlnbDVpYzBpIiwib3JpZ2luX2p0aSI6IjBhODcxODljLWFjNzYtNGRhNC1hMmQ4LTQyMGM1YzgwZjExOCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4gb3BlbmlkIHByb2ZpbGUiLCJhdXRoX3RpbWUiOjE3NjY1MDQyMzcsImV4cCI6MTc2NjUwNzgzNywiaWF0IjoxNzY2NTA0MjM3LCJqdGkiOiI4MGY3MGFlZi1mZDA3LTQyMzYtOTYyOC1kMGI2NDVhZGNhYmMiLCJ1c2VybmFtZSI6IjQ4YzdlYTE5LTQ3MDAtNGI3Ni1iZGIyLTNlNGZiZTU1MDMwOEBkZXZwb3J0YWwuY29tIn0.yWh6TMmIwQtLgHzFeFZrbn3BNPW_9nHVqwscJObRVRaTqmpPl5tem-WmhInksXqqq96zpF-qocspH2Hiw9X-ZIKt1JNI2TRQt1uIdFzKMIO73dL5PYXyGGE7CeMPRQxUruovRHYidCTFG_xgUCKB-JtAOcY3PvSNf0UYU5VcHlmaeuC1PY6ploLlWuc5dZauKpUKluIDVzkY5Zvr6wwCcKUWXVroZbptTL-S4bv8knscwbJWPrQ0VN4buKaSD-2wG9xyroF9yKKcPdTXsxTj1jRNSAXOwGmqjyf2NeP8wGYDW_2SrrL-1R620TUliDPv3RnxYyxZK6Xfjuor14Nnzw",
+          "refresh_token": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.yVBnD-0PPEUVootsstANY1-EsIL1WjKlEO4RU9cdjsYH9Q7vgBp6y9T4RP3VrPYUU4GqO1fYPG1WrCd96Vr3xqwROQHt7vJpii3bin4q64Zg6h-Ic0KvxJTpEhREc0dvJZHrt8HN2bKZxGVkNoDik1ZjblytGjjTwdnpFLJiUW3FYhhDuitQUITE6Vty76459ISjIvdDDyH3CpOv8olQc19ClDD5RVS5IY9q_RbjOZRaAXdzHWOdMsagb3axyGL7ppijM4kVJJ8ICthlrdEBKvv48YUKdW7b1iScPeHA0dp78C5oA0jSCCedslb4A6OjzwSBJ4ZRyOlabaYriRf8Ew.XPfYwCnxepbd9YiK.8Dj8BN8TXekmy3g7nzXpvAoY0fVIq15zpIRKB-S8IE28B9R_yFt6o0NlbinvVhFwRSUKj8k_yq9A4-f3-fwBaZ2C-nz19IuAciiCuI2baIDK6o4GsoXZT7p3j3xVlqL5ODg4T2pu6uAZ_-W1bCl0lXD4vUB3bYoR3-oPhTcuuVSLIQwBFHZT4CqO-xSB89FduHNUuVfzaRBLTtZRGoza-x9A6Btg8Rte4mKsZuEuDON7asIYuL4160WjMnAfpCsiYGzbK7WpD-QOJKRKnspb2r33wqe9SRcIp848AB3vi_HBrWkPJaiYAZv8Ln9mySIhNUlhyHbLeAorp8e8-Y0JADlNc_DzgCgNNjU23y_qLY-MBv0G2yzGcIMzVgQo9MsArPOe0xb58dxCBAHIoVNByWtCMqUOpod08yvkgY76aCdqI-VmWgukEyopaPYNOhghPyOUZF_N4S_sjs6FRnfrzbni3stO6QWr7yFo17eeiuf2stzxYUH7C0hkcLtVt6a_kPt87olo5uLg9-LIr_XP-4U1Fk1vd_zEJQ1-XlP7kJcNKOnh6O6i21KG4f6M-Hk6NPVnPaY5vOT9x8-NtVcXcK0CNE2Hgab4-Ha-0Ak5WnsmGuMxDoSyzlfzd2mbY7ohbecztlJY2EsU8YKEQx6J-suMcZMoH_h3ZUiuE7TGxr8bSRAob5Rjm59MXipySYX2CU9kGyBOG-ETtN1mE0CTMeaqvxe3pqZmqsctlzM3nb8PNC5pwFb_Ribv7XXijKLN_v_9N1GUGo8htezF7VtaGMQvw5hPSSHuI2gTqWh--MZqlzgptN17NZbvWJvXfIX-xQtCvPZh9rHpsBF3VmC46VgqCEHnSc76KMhR9GbJfiJkmklFPduQ83SqgSploauSbpgZFKi59pBkcea1TY3Sjf0ZD84fgi_Rw1k1f2CmVKP8qVR1NH5uxGKwKIrLmRLVpExLYhBpzVSkIqtSBjR8n8UDlbIGg1e3xJg1C2IN4GJlboTXD1tTPij1GU4O0d2NO8FxYnutrW_fSF0yX0e8-RLDnScsUkWC3YWghifBtPP2vBxFrJBYORy59_yE5HEekKaoFruHatRYrVKmJDtauZw0d-hign4Z8XeBrhVBajW1BIuor2A6dISd5eCz-vGh8K00ds1K7Eakxf69qGhq7BE8_OEhs-ZMKfbzK8XvDMY_0czB39vBjEMFBK4NMO6UUWBStYga97UqkW6Hk8rsugOk8FjJRq-5d46mAyYyQVLcJfBPc-NPvSLusnlH0OwhML_FyiQYHDwDLiZ03nhiuJ6cvZY8LRPNBEQ47fTG_TUB.zHA-A6NHmhp9l-VP1_kMzQ",
           "expires_in": 3600,
           "token_type": "Bearer"
+        }
+      }
+    ],
+    "HTTP Request6": [
+      {
+        "json": {
+          "id_token": "eyJraWQiOiJjNFFVMDVNSVhSY0V3d01Dak8xcGtvWW1MRkVYaHZMbHREZk12TUFWQUpFPSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiMnp4RS1nWk1SekdCYXpLQjRYYVNzdyIsInN1YiI6ImMxMjE0N2U1LWZjZTktNGY5NC04NjljLTg2OTU4OTdkYTNmNSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJjb2duaXRvOnVzZXJuYW1lIjoiNDhjN2VhMTktNDcwMC00Yjc2LWJkYjItM2U0ZmJlNTUwMzA4QGRldnBvcnRhbC5jb20iLCJvcmlnaW5fanRpIjoiMGE4NzE4OWMtYWM3Ni00ZGE0LWEyZDgtNDIwYzVjODBmMTE4IiwiYXVkIjoicTFjbGg3bWkwZTB2bXU4ZTA5Z2w1aWMwaSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzY2NTA0MjM3LCJleHAiOjE3NjY1MDc4NjIsImlhdCI6MTc2NjUwNDI2MiwianRpIjoiZmZlZWJiMzMtMDU0ZC00YjgyLWFkZGQtNTU0M2JmOTI4YmU2IiwiZW1haWwiOiI0OGM3ZWExOS00NzAwLTRiNzYtYmRiMi0zZTRmYmU1NTAzMDhAZGV2cG9ydGFsLmNvbSJ9.rL2JvtRUXGh2anYfGjF-uyU8y3LRnzJFCI0S0R1hmeUfiGBEGl7qzwpyS2pWyNOdEJ0G29G2G1wVFIj8t865MtrwgU4Jm9klhN9bbnMlwabAlI_uRpJKXEPXbrjA7cZG8P1S12hfRA2z3r9ds9_6mIGfYhB6nS2GKVZ4o42AYQUM_uWQCFGxYAQHB_X3CgiKSM42YeLpBXRoL-N6wLqplBRExbfCgqBXppBphAOrowS5EGXZxDrXEO5qzg6YsgagkJmZ0tPS197kk8NTsVU8OhMjQkYsGcVgVyYrHUiXuTYp9ZmoGAUePxEGYZO_C-7tPQLHmvSXeuPTAZN3vTSZsA",
+          "access_token": "eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjMTIxNDdlNS1mY2U5LTRmOTQtODY5Yy04Njk1ODk3ZGEzZjUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiJxMWNsaDdtaTBlMHZtdThlMDlnbDVpYzBpIiwib3JpZ2luX2p0aSI6IjBhODcxODljLWFjNzYtNGRhNC1hMmQ4LTQyMGM1YzgwZjExOCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4gb3BlbmlkIHByb2ZpbGUiLCJhdXRoX3RpbWUiOjE3NjY1MDQyMzcsImV4cCI6MTc2NjUwNzg2MiwiaWF0IjoxNzY2NTA0MjYyLCJqdGkiOiI3NmEwZDQ2ZS1lMTFiLTQ1ZjQtODQ0OS1lYjk3YTkxM2U0YTMiLCJ1c2VybmFtZSI6IjQ4YzdlYTE5LTQ3MDAtNGI3Ni1iZGIyLTNlNGZiZTU1MDMwOEBkZXZwb3J0YWwuY29tIn0.FA9qr4YWfbOkgO141ggsYci-T0hbBQEfdqMg11ccdXr7SNwJuuBKeA2V6-fmnvP9FCqtTQx7d9c_xVwYn6vC2Oc014bNtFX3Do1GpKE4LGX2aaceXG4FQd9hkYdbbaIWi9wHfQpF7N52IPdYC1J4ifL3xebtcwLRNqCfpckdyF5BttVxyN-OJDCt4s48nZrIw7GPe2ESZte2nPlPP_oj1xMb82kShL1-KD1XyNrMvd3rOSsU4cklxIXv5ZRgMUwMqknywlzUY5pFVO3NOTlEcWNpqrPlf8HnCSGPxaxL_z-dcubm9zvoU4GsSozpELPgI2-2tvxcIm8Wu7NwMqzKbA",
+          "refresh_token": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.gf-9lGQXUePj75y3yUYSY5wYwyM46HDvHlWB1xRMDXtQP-UtYUe0w7Pklg4Sw1jqHMboDmuq_GVwFJPoYe38-87LpCu5QpKlpZ7Nlz1Ywl0qrpVBDMH4NTSoDiJRSqojRw-uoTovQHQPfjnd8RPVbHJgZXHHsdAbFhblfsY6mxiNwfLBkh6vWLRNzfnApKKORdb6dnUFZKaf-xHlRDTrOALxaI4JJ6pGc43y8hl-aySLRYWgd5dUwBr5LCOfmrPrw8BNDzL0dc4nVpEqcWLlcsPHiM_QBBlQU4TzoAxx7zZURxPNAmzlF0o8HuhLpUoBH4p901kF3rUwSNUq5NSNMg.F7zOpqSeq_QBYqsD.Fp_ClCUXnl-zNCmznqfOnpQZRAl0C22IS13LFc_HpGrTqnctbVZWzI0h8cnH06Wj_n132oI_IKFTPgoOuoXObU-F3Dk55dOMPrf78MbRVjHz_zxq1mm6JP5rLN_thRWrm549uvRHjyHFkrxllH9TWSgycqUEeBwy8F72VdOSrkvbCKZH5G397eY91h_XFu35akeqcMaFil8MgKuHpuMlGOmixdGgF5ko5fznb3fMdbwHT6NhkxzRXTkEJNqZvTeGDf5iU_MLbgDThNIqhqNYbFyBJcrHf6oVWi6wmj90YlCkB_STPQ2bMozVPDWAmAps4EQMaM8544dQtoRCuYBehLSYNwf8ZrFSupoPKbWiKJOtWh19zxOPZtBKOG2BMOuhwTqk_mI49c2Ixwio2RtTjCrGjEgssl6WpTEjE1Yhwu8-gUEKDVHDbAcVaVfKCyDESHG09fkVCwT0pq33mnDsTJYrCogMY3aSzMQgxH8xmh8bKjzS9lQAJAb5jGcYsRghtyJPXRW3wEmq_evTWKJLjpOfukaUmcuLnzTvsNwRfCRhesYYcZ4Fm_oc2gUm2AOzJzqDLaQS6AoNyeqRWZ_EjsOUS2GAxV6e3bZh-kgq-Lqd6PaJh2tDaZH7joaH9vxgo4tBnIpviYwIxNPeBjxuHHbG8KVlXbOpg-O-tj9cP2m9GsOqAsF2hF0qwaBD96bZFONuUgUcJuthEsotBk2SWF_3tqIlvCoJlNKCq4b0Xl2jr_1qttoCNKGHZAIGJOlSKiycyXLKZ0BveopU3jeh6NYFTyfuKjQnqt8mlp6bohnQOLHM3yQnfdlUorotCij2pN4sijiK1ds3YH_nY1NldTyVz7iBAGgzKxtYYlPL7uO_zmR48qjYwx5dFKK7mDuk3FxHTSDvwmQliTYHUZuRzdWTqqP3YBMLCEXXGQAJSCy7SJMRe6r_144YcBZ-xyTwZAqmmKsStyOPJZS3_TlH5M-pchjfTzGvisG8izwLR-UqQIPB7Ppz9mi3-pdT8PVPZMyH1BqxpoJXINraWMXNWqlplagTdZUTaWiJu1iGAMuAzdNLPDFAcJhdE1cj_Iun_Mp1xqe-37j_FOLSh2nhkmm1YL81ooQ_Y8gWN9YB9CvT66N50Pt74b7gOtG9dWKYafgXvuzdkyihrgLXVHafk-HMUx-hdXiyDoe6UVBQBSOj00JMZ02E7EnSdAqpRidyi3QR1yZscDi4Dq-VzEB4gcyCEpgdOrdkwW4ZG68AW1WDjbjsbqbqBJB7ULzTHD4jH_X7ViEHvLu0YBnddpFGcz3Tnh5UDen5MuOh5U-VQwPiL3DJ_7t-hZ-lWkRCkeNa181xHQkd_kQUED1L4AjaoNqbVJHriVcvnAK87cQEke2g-G5zNoDysXBXdt885UlqUd7nw6zv.hubZIMxY3f8dt-Pfd6Ni2g",
+          "expires_in": 3600,
+          "token_type": "Bearer"
+        }
+      }
+    ],
+    "categorias": [
+      {
+        "json": {
+          "itens_totais": 123,
+          "itens": [
+            {
+              "id": "a263de99-e55f-40b3-a691-96ac2b713f35",
+              "versao": 0,
+              "nome": "13º Salário - 1ª Parcela",
+              "categoria_pai": "54580768-11ae-4d32-a8e4-7cecc4b08d9b",
+              "tipo": "DESPESA",
+              "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
+              "considera_custo_dre": false
+            },
+            {
+              "id": "05d664ba-e2c7-4fa1-bc90-6d8aaf29e55b",
+              "versao": 0,
+              "nome": "13º Salário - 2ª Parcela",
+              "categoria_pai": "54580768-11ae-4d32-a8e4-7cecc4b08d9b",
+              "tipo": "DESPESA",
+              "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
+              "considera_custo_dre": false
+            },
+            {
+              "id": "61ad7511-4b9f-45c9-a89c-b4e5c1aa75c7",
+              "versao": 0,
+              "nome": "Adiantamento Salarial",
+              "categoria_pai": "54580768-11ae-4d32-a8e4-7cecc4b08d9b",
+              "tipo": "DESPESA",
+              "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
+              "considera_custo_dre": false
+            },
+            {
+              "id": "8f011838-aec3-48df-8d05-e1ae62229cb2",
+              "versao": 0,
+              "nome": "Adiantamentos para futuros Aumentos de Capital - AFAC",
+              "categoria_pai": "80fcc5ed-a7d7-4680-b8ef-980c001f7c01",
+              "tipo": "RECEITA",
+              "entrada_dre": null,
+              "considera_custo_dre": false
+            },
+            {
+              "id": "1091cf0d-7453-4b3c-bae3-2a179ae16b44",
+              "versao": 0,
+              "nome": "Água e Saneamento",
+              "categoria_pai": "12b635f8-7d82-42eb-ac21-72b0032101c3",
+              "tipo": "DESPESA",
+              "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
+              "considera_custo_dre": false
+            },
+            {
+              "id": "70957b7f-e260-42e7-a936-d077bf483953",
+              "versao": 0,
+              "nome": "Aluguel",
+              "categoria_pai": "12b635f8-7d82-42eb-ac21-72b0032101c3",
+              "tipo": "DESPESA",
+              "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
+              "considera_custo_dre": false
+            },
+            {
+              "id": "833c6f1e-535c-43e7-9383-069f62453215",
+              "versao": 0,
+              "nome": "Alvará de Funcionamento",
+              "categoria_pai": "12b635f8-7d82-42eb-ac21-72b0032101c3",
+              "tipo": "DESPESA",
+              "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
+              "considera_custo_dre": false
+            },
+            {
+              "id": "6bf48ee7-566a-406b-a093-636c6ce4c067",
+              "versao": 0,
+              "nome": "Antecipação de Lucros",
+              "categoria_pai": "960d9260-cd9d-4282-834b-972e68a29c6f",
+              "tipo": "DESPESA",
+              "entrada_dre": null,
+              "considera_custo_dre": false
+            },
+            {
+              "id": "ecee04a9-5bf9-4ec7-901c-59b49e1e8679",
+              "versao": 0,
+              "nome": "Benfeitorias em Bens de Terceiros",
+              "categoria_pai": "38130995-bdc4-42fd-8f46-5f9649fe384f",
+              "tipo": "DESPESA",
+              "entrada_dre": "INVESTIMENTOS_IMOBILIZADO",
+              "considera_custo_dre": false
+            },
+            {
+              "id": "a46a0ebb-5ca3-4ecf-bf29-61c78152ce9b",
+              "versao": 0,
+              "nome": "Bens de Pequeno Valor",
+              "categoria_pai": "5693b0e4-27ee-43e1-920b-3590b1dfb035",
+              "tipo": "DESPESA",
+              "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
+              "considera_custo_dre": false
+            }
+          ]
         }
       }
     ]
   },
   "settings": {
     "executionOrder": "v1",
-    "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-12-23T14:54:43.993Z",
-  "versionId": "7acf8544-c3a6-4e78-b8b9-0e1236f8dca6"
+  "updatedAt": "2025-12-24T01:34:43.879Z",
+  "versionId": "59586312-389b-4a5e-b1bb-423b5a19213f"
 }
