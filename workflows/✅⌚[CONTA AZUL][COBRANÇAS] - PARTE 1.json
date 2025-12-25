@@ -150,17 +150,6 @@
         ]
       ]
     },
-    "busca_faturas": {
-      "main": [
-        [
-          {
-            "node": "separa_itens",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "When clicking \"Test workflow\"": {
       "main": [
         [
@@ -261,27 +250,61 @@
         ]
       ]
     },
-    "busca_variavel_client_id": {
-      "main": [
-        [
-          {
-            "node": "busca_variavel_client_secret_Azul",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "busca_variavel_client_secret_Azul": {
       "main": [
         [
           {
-            "node": "HTTP Request3",
+            "node": "busca_titulos_a_receber",
             "type": "main",
             "index": 0
           },
           {
-            "node": "HTTP Request4",
+            "node": "buscar_titulos_a_receber3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "pessoas1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "5 dias antes do vencimento",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "2 dias antes do vencimento",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "1 dia antes do vencimento",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "No dia do vencimento",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "1 dia de atraso",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "2 dias de atraso",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "3 dias de atraso",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "5 dias de atraso",
             "type": "main",
             "index": 0
           }
@@ -304,17 +327,6 @@
         [
           {
             "node": "erro_de_token",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "HTTP Request4": {
-      "main": [
-        [
-          {
-            "node": "MySQL",
             "type": "main",
             "index": 0
           }
@@ -356,22 +368,12 @@
             "index": 0
           },
           {
-            "node": "HTTP Request7",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "HTTP Request8",
-            "type": "main",
-            "index": 0
-          },
-          {
             "node": "HTTP Request9",
             "type": "main",
             "index": 0
           },
           {
-            "node": "HTTP Request5",
+            "node": "pessoas",
             "type": "main",
             "index": 0
           }
@@ -383,6 +385,83 @@
         [
           {
             "node": "new_refresh_token_conta_azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "replace_code_to_token_conta_azul": {
+      "main": [
+        [
+          {
+            "node": "categorias1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "erro_de_token2": {
+      "main": [
+        [
+          {
+            "node": "get_new_token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_new_token": {
+      "main": [
+        [
+          {
+            "node": "atualiza_bd",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_faturas": {
+      "main": [
+        [
+          {
+            "node": "separa_itens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request4": {
+      "main": [
+        [
+          {
+            "node": "MySQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_titulos_a_receber": {
+      "main": [
+        [
+          {
+            "node": "erro_de_token2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_variavel_client_id": {
+      "main": [
+        [
+          {
+            "node": "busca_variavel_client_secret_Azul",
             "type": "main",
             "index": 0
           }
@@ -825,45 +904,6 @@
     },
     {
       "parameters": {
-        "url": "https://api-v2.contaazul.com/v1/categorias",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "oAuth2Api",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "Bearer eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjMTIxNDdlNS1mY2U5LTRmOTQtODY5Yy04Njk1ODk3ZGEzZjUiLCJkZXZpY2Vfa2V5Ijoic2EtZWFzdC0xXzQ1YmYxNmEwLWVhN2ItNDlmMS05MzVlLTczNWRhZjhlYzUyMSIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5zYS1lYXN0LTEuYW1hem9uYXdzLmNvbVwvc2EtZWFzdC0xX1ZwODNKMTF3QSIsImNsaWVudF9pZCI6Ijd2bmZjc201c3A1ZW0xMjY3YnI3cjVqdHJnIiwib3JpZ2luX2p0aSI6IjgyNDBjZGYxLTYwMTQtNDJlMi04ODE5LTJiZmY3ZmY4ZDY2NCIsImV2ZW50X2lkIjoiYTViZDdhMGMtYzE0ZC00MDgyLTliMjItYTllNjZhZjA1MDI2IiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTc2NjQ0MzQyMiwiZXhwIjoxNzY2NDQ3MDIyLCJpYXQiOjE3NjY0NDM0MjIsImp0aSI6IjVjYzA4ODk3LWQ1ODItNGYzNy05ZDAyLTk2MTljYzkwZWMwYiIsInVzZXJuYW1lIjoiNDhjN2VhMTktNDcwMC00Yjc2LWJkYjItM2U0ZmJlNTUwMzA4QGRldnBvcnRhbC5jb20ifQ.uyDdAUtm3Q6Z82bPFwOcagiQbReiqOdU1eY2UgissOB1uy0Bse3fge8AUcAq_IBwhZ9a-Frp1TECqXqVa40e09EzZYR2QY8GxgZB7jBHnAA78wrb3wd0sPVXMeE4xMuR96S94vaX9JkqgO6LuoeSYn0K-Otu2_6U8A9h2hU8w_AFAdQ-VtACIbbSc7kwksfjQSRC9S4hDIRCKdRWwnpCWdDBwfPU-1SJILcghIMAO9dA_X3RrdMDvJwNH1SWRVpw1n5xX1IGPbWIBwNHDFeVP3OzFUEVG1_R4aM2-HnNp0CYTTeghK7yYXT6xi-w5lpoWSihuqag_7r1yVw-XgVPhw"
-            }
-          ]
-        },
-        "options": {
-          "response": {
-            "response": {
-              "fullResponse": true
-            }
-          }
-        }
-      },
-      "id": "74b6c0ab-755a-4d7d-aa9b-0f24c6396451",
-      "name": "busca_cliente2",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        1196,
-        1592
-      ],
-      "alwaysOutputData": true,
-      "credentials": {
-        "oAuth2Api": {
-          "id": "owcSGNzMlb0bbSeC",
-          "name": "[Conta Azul][2] - Universidade de Vendas"
-        }
-      },
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
         "rule": {
           "interval": [
             {
@@ -881,31 +921,6 @@
         1320
       ],
       "disabled": true
-    },
-    {
-      "parameters": {
-        "url": "https://api.contaazul.com/v1/sales?due_date=2024-04-25&status=PENDING",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"refresh_token1\"].json[\"access_token\"] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "5c648b18-9b8f-4c71-90cb-a685f707bfdb",
-      "name": "busca_faturas",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2220,
-        1220
-      ],
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -1061,56 +1076,14 @@
       ]
     },
     {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.contaazul.com/oauth2/token",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "Basic BASE64(54es0dort4j7sr5teldrie2kc4:1vr7dqlt76hcfom9c7s9a1lilbvndip4j9gokqnhcf9ip36cj080)"
-            }
-          ]
-        },
-        "sendBody": true,
-        "contentType": "form-urlencoded",
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "code",
-              "value": "c1ad084d-2bce-4437-8cf4-8ee3887ec3c8"
-            },
-            {
-              "name": "grant_type",
-              "value": "authorization_code"
-            },
-            {
-              "name": "redirect_uri",
-              "value": "https://n8neditorhetznerfabricionunnes.automagicbots.com.br/rest/oauth2-credential/callback"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "cf57cd4d-7cbe-479a-a9a1-fc0f06c44839",
-      "name": "HTTP Request2",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        860,
-        1700
-      ]
-    },
-    {
       "parameters": {},
       "id": "feb57ad5-f4f1-47c7-aedf-0cc633f054ae",
       "name": "When clicking \"Test workflow\"",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -1860,
-        840
+        -3960,
+        740
       ]
     },
     {
@@ -1138,8 +1111,8 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.3,
       "position": [
-        -1640,
-        840
+        -3740,
+        740
       ],
       "credentials": {
         "mySql": {
@@ -1476,8 +1449,8 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.3,
       "position": [
-        -1400,
-        840
+        -3500,
+        740
       ],
       "credentials": {
         "mySql": {
@@ -1556,43 +1529,8 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.3,
       "position": [
-        -1180,
-        840
-      ],
-      "credentials": {
-        "mySql": {
-          "id": "PfzfhyuSKTUfroef",
-          "name": "[MySQL] - Fabricio Nunnes"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "select",
-        "table": {
-          "__rl": true,
-          "value": "variaveis_globais_n8n",
-          "mode": "list",
-          "cachedResultName": "variaveis_globais_n8n"
-        },
-        "where": {
-          "values": [
-            {
-              "column": "nome_variavel",
-              "value": "Client ID Conta Azul"
-            }
-          ]
-        },
-        "combineConditions": "OR",
-        "options": {}
-      },
-      "id": "a1872a6b-a150-4820-95bd-ed221bf3d1df",
-      "name": "busca_variavel_client_id",
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.3,
-      "position": [
-        -960,
-        840
+        -3280,
+        740
       ],
       "credentials": {
         "mySql": {
@@ -1626,8 +1564,8 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.3,
       "position": [
-        -740,
-        840
+        -2840,
+        740
       ],
       "credentials": {
         "mySql": {
@@ -1713,7 +1651,7 @@
           "parameters": [
             {
               "name": "code",
-              "value": "d92c10ef-e215-40f2-a43b-88e8c0760029"
+              "value": "f7863434-c18e-442b-9901-aa37a63edfac"
             },
             {
               "name": "grant_type",
@@ -1732,50 +1670,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -320,
-        1300
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://auth.contaazul.com/oauth2/token",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"].trim() }}"
-            },
-            {
-              "name": "Content-Type",
-              "value": "application/x-www-form-urlencoded"
-            }
-          ]
-        },
-        "sendBody": true,
-        "contentType": "form-urlencoded",
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "refresh_token",
-              "value": "={{ $node[\"busca_variavel_refresh_token_conta_azul\"].json[\"valor_variavel\"] }}"
-            },
-            {
-              "name": "grant_type",
-              "value": "refresh_token"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "d3e6a26a-0b43-454d-b5b4-814ef1053568",
-      "name": "HTTP Request4",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -640,
-        680
+        -580,
+        1060
       ]
     },
     {
@@ -1866,56 +1762,6 @@
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "=https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/parcela/filtro",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
-            },
-            {
-              "name": "Content-Type",
-              "value": "application/json"
-            }
-          ]
-        },
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "data_vencimento_de",
-              "value": "2026-12-23"
-            },
-            {
-              "name": "data_vencimento_ate",
-              "value": "2025-12-31"
-            },
-            {
-              "name": "situacao",
-              "value": "EM_ABERTO"
-            }
-          ]
-        },
-        "options": {
-          "redirect": {
-            "redirect": {}
-          }
-        }
-      },
-      "id": "0eb8331e-c9ee-44bc-8bef-fb0fba966e70",
-      "name": "buscar_titulos_a_receber1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -300,
-        660
-      ],
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
         "url": "=https://api-v2.contaazul.com/v1/vendas",
         "sendHeaders": true,
         "headerParameters": {
@@ -1945,48 +1791,6 @@
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "https://auth.contaazul.com/oauth2/token",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"].trim() }}"
-            },
-            {
-              "name": "Content-Type",
-              "value": "application/x-www-form-urlencoded"
-            }
-          ]
-        },
-        "sendBody": true,
-        "contentType": "form-urlencoded",
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "refresh_token",
-              "value": "={{ $json[\"refresh_token\"] }}"
-            },
-            {
-              "name": "grant_type",
-              "value": "refresh_token"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "95377674-e6b6-4a54-8120-3a337954271f",
-      "name": "HTTP Request6",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -660,
-        460
-      ]
-    },
-    {
-      "parameters": {
         "operation": "executeQuery",
         "query": "UPDATE variaveis_globais_n8n\nSET valor_variavel = CASE \n    WHEN id = 16 THEN '{{$node[\"HTTP Request4\"].json[\"id_token\"] }}'\n    WHEN id = 15 THEN '{{ $node[\"HTTP Request4\"].json[\"access_token\"] }}'\n    WHEN id = 13 THEN '{{ $node[\"HTTP Request4\"].json[\"refresh_token\"] }}'\nEND\nWHERE id IN (16, 15, 13);",
         "options": {}
@@ -1996,7 +1800,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        -480,
+        -620,
         680
       ],
       "credentials": {
@@ -2005,78 +1809,6 @@
           "name": "[MySQL] - Fabricio Nunnes"
         }
       }
-    },
-    {
-      "parameters": {
-        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar\n",
-        "sendQuery": true,
-        "queryParameters": {
-          "parameters": [
-            {
-              "name": "data_vencimento_de",
-              "value": "2025-12-23"
-            },
-            {
-              "name": "data_vencimento_ate",
-              "value": "2026-12-31"
-            },
-            {
-              "name": "status",
-              "value": "EM_ABERTO"
-            }
-          ]
-        },
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
-            },
-            {
-              "name": "Content-Type",
-              "value": "application/json"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "a10ebb95-c221-4502-9b07-9d3ca851b3c1",
-      "name": "buscar_titulos_a_receber2",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -200,
-        20
-      ],
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "url": "https://api-v2.contaazul.com/v1/user",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
-            },
-            {
-              "name": "Content-Type",
-              "value": "application/json"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "27d3da82-e31d-4fb0-9aa8-10acbdb46eaf",
-      "name": "HTTP Request7",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -220,
-        -160
-      ]
     },
     {
       "parameters": {
@@ -2142,7 +1874,225 @@
     },
     {
       "parameters": {
-        "url": "https://api-v2.contaazul.com/v1/dados-da-empresa",
+        "operation": "executeQuery",
+        "query": "UPDATE variaveis_globais_n8n\nSET valor_variavel = CASE \n    WHEN id = 16 THEN '{{$json[\"id_token\"] }}'\n    WHEN id = 15 THEN '{{ $json[\"access_token\"] }}'\n    WHEN id = 13 THEN '{{ $json[\"refresh_token\"] }}'\nEND\nWHERE id IN (16, 15, 13);",
+        "options": {}
+      },
+      "id": "9ded053d-b63e-44de-b6d2-63a61080c95a",
+      "name": "MySQL1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -300,
+        1060
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/categorias",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyNTZjMTFjMS04NTMzLTQ5MTAtOGRkMC1kNzJkZmVlMjgyNjQiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiI3dmg2cHIwZWJudHNjcGRxcHVrMzM4aDBqZSIsIm9yaWdpbl9qdGkiOiJjMjIzNjQ1YS0yN2VkLTRhMDgtOTVlOC0yNGZiZmNkNmMwNzgiLCJldmVudF9pZCI6IjBjNzMxNTAzLWYzYWMtNDFjYy04MDhiLTdjMzc3MWQ4NTVkNiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4gb3BlbmlkIHByb2ZpbGUiLCJhdXRoX3RpbWUiOjE3NjY1OTE4MjQsImV4cCI6MTc2NjU5NTQ5MiwiaWF0IjoxNzY2NTkxODkyLCJqdGkiOiI3ZDcxNjI3Yi1jN2Y0LTRjMWUtYjQ4Mi0zMTE3YTU3MTljYjgiLCJ1c2VybmFtZSI6ImZhYnJpY2lvQHVuaXZlcnNpZGFkZXZlbmRhcy5jb20uYnIifQ.cmHrLs9dhph0fizClknvN93r9XdNRvVzbARoa3ORIRv7zBp6s1PIHQDWDxfAeMnC3_SJfIS4XtPeF_cah8TkdbIZo8sK5flupAoJPm1GB2KZp6AQCv7k-1RwQe_KD1Y_PGTQuRRhCZXAr4UVtrlL6aoBJxkO9GkFGNuRBS9kgxU0tTqWPLWR2oW7FQq2n-AUbaCU62Cphr0abq81TQyJB6NfSBAf78SiT8jeguC2m-cpn2jP_1_Ky1KQ_UYqfatbKEiymfzlpRHZBr6Cr2zZ62Dfr7Mv5kw2Z-LNb6Gk_73NJJ-urd7ObLlE0W9_D3u_Z9Xx1C-47lQ_vRmC3mt8Ow"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "37fc90f4-fc5b-4f4a-9aaf-9272e90dacdd",
+      "name": "categorias1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -420,
+        1180
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE variaveis_globais_n8n\nSET valor_variavel = CASE \n    WHEN id = 16 THEN '{{$json[\"id_token\"] }}'\n    WHEN id = 15 THEN '{{ $json[\"access_token\"] }}'\n    WHEN id = 13 THEN '{{ $json[\"refresh_token\"] }}'\nEND\nWHERE id IN (16, 15, 13);",
+        "options": {}
+      },
+      "id": "5cdd659a-cd61-48f2-88bd-ad5006a3a89b",
+      "name": "atualiza_bd",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -2020,
+        600
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c2ed465e-958e-4d5d-94b3-22521b7c7be0",
+              "leftValue": "={{ String($json[\"error\"][\"status\"]) }}{{ $json[\"error\"][\"message\"] }}",
+              "rightValue": "401",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "936929b7-55e4-4738-afb9-e39bb9f68a5f",
+      "name": "erro_de_token2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -2420,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"].trim() }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "refresh_token",
+              "value": "={{ $node[\"busca_variavel_refresh_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ef6bfaf7-1087-45ba-ab56-d3734436293b",
+      "name": "get_new_token",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2200,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/categorias",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "7fd3f5e2-6223-4f54-9df4-cbbab44431f8",
+      "name": "categorias",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2620,
+        920
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"].trim() }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "code",
+              "value": "63bd81c0-8a05-4bf2-b26e-9b3275c9c574"
+            },
+            {
+              "name": "grant_type",
+              "value": "authorization_code"
+            },
+            {
+              "name": "redirect_uri",
+              "value": "https://n8neditorhetznerfabricionunnes.automagicbots.com.br/rest/oauth2-credential/callback"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "aa2bd160-9b09-4edc-b269-d324499eb35f",
+      "name": "replace_code_to_token_conta_azul1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2620,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/parcela/filtro",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -2156,15 +2106,227 @@
             }
           ]
         },
-        "options": {}
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "2026-12-23"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "2025-12-31"
+            },
+            {
+              "name": "situacao",
+              "value": "EM_ABERTO"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
       },
-      "id": "4d478200-4a05-43c1-a819-9b618e1c6316",
-      "name": "HTTP Request8",
+      "id": "0eb8331e-c9ee-44bc-8bef-fb0fba966e70",
+      "name": "buscar_titulos_a_receber1",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -240,
-        -340
+        -300,
+        660
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.contaazul.com/oauth2/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Basic BASE64(54es0dort4j7sr5teldrie2kc4:1vr7dqlt76hcfom9c7s9a1lilbvndip4j9gokqnhcf9ip36cj080)"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "code",
+              "value": "c1ad084d-2bce-4437-8cf4-8ee3887ec3c8"
+            },
+            {
+              "name": "grant_type",
+              "value": "authorization_code"
+            },
+            {
+              "name": "redirect_uri",
+              "value": "https://n8neditorhetznerfabricionunnes.automagicbots.com.br/rest/oauth2-credential/callback"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cf57cd4d-7cbe-479a-a9a1-fc0f06c44839",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        860,
+        1700
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/categorias",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjMTIxNDdlNS1mY2U5LTRmOTQtODY5Yy04Njk1ODk3ZGEzZjUiLCJkZXZpY2Vfa2V5Ijoic2EtZWFzdC0xXzQ1YmYxNmEwLWVhN2ItNDlmMS05MzVlLTczNWRhZjhlYzUyMSIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5zYS1lYXN0LTEuYW1hem9uYXdzLmNvbVwvc2EtZWFzdC0xX1ZwODNKMTF3QSIsImNsaWVudF9pZCI6Ijd2bmZjc201c3A1ZW0xMjY3YnI3cjVqdHJnIiwib3JpZ2luX2p0aSI6IjgyNDBjZGYxLTYwMTQtNDJlMi04ODE5LTJiZmY3ZmY4ZDY2NCIsImV2ZW50X2lkIjoiYTViZDdhMGMtYzE0ZC00MDgyLTliMjItYTllNjZhZjA1MDI2IiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTc2NjQ0MzQyMiwiZXhwIjoxNzY2NDQ3MDIyLCJpYXQiOjE3NjY0NDM0MjIsImp0aSI6IjVjYzA4ODk3LWQ1ODItNGYzNy05ZDAyLTk2MTljYzkwZWMwYiIsInVzZXJuYW1lIjoiNDhjN2VhMTktNDcwMC00Yjc2LWJkYjItM2U0ZmJlNTUwMzA4QGRldnBvcnRhbC5jb20ifQ.uyDdAUtm3Q6Z82bPFwOcagiQbReiqOdU1eY2UgissOB1uy0Bse3fge8AUcAq_IBwhZ9a-Frp1TECqXqVa40e09EzZYR2QY8GxgZB7jBHnAA78wrb3wd0sPVXMeE4xMuR96S94vaX9JkqgO6LuoeSYn0K-Otu2_6U8A9h2hU8w_AFAdQ-VtACIbbSc7kwksfjQSRC9S4hDIRCKdRWwnpCWdDBwfPU-1SJILcghIMAO9dA_X3RrdMDvJwNH1SWRVpw1n5xX1IGPbWIBwNHDFeVP3OzFUEVG1_R4aM2-HnNp0CYTTeghK7yYXT6xi-w5lpoWSihuqag_7r1yVw-XgVPhw"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "74b6c0ab-755a-4d7d-aa9b-0f24c6396451",
+      "name": "busca_cliente2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1196,
+        1592
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "oAuth2Api": {
+          "id": "owcSGNzMlb0bbSeC",
+          "name": "[Conta Azul][2] - Universidade de Vendas"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "https://api.contaazul.com/v1/sales?due_date=2024-04-25&status=PENDING",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"refresh_token1\"].json[\"access_token\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5c648b18-9b8f-4c71-90cb-a685f707bfdb",
+      "name": "busca_faturas",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2220,
+        1220
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"].trim() }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "refresh_token",
+              "value": "={{ $json[\"refresh_token\"] }}"
+            },
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "95377674-e6b6-4a54-8120-3a337954271f",
+      "name": "HTTP Request6",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -660,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"].trim() }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "refresh_token",
+              "value": "={{ $node[\"busca_variavel_refresh_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d3e6a26a-0b43-454d-b5b4-814ef1053568",
+      "name": "HTTP Request4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -840,
+        680
       ]
     },
     {
@@ -2198,6 +2360,51 @@
     },
     {
       "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar\n",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "2025-12-23"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "2026-12-31"
+            },
+            {
+              "name": "status",
+              "value": "EM_ABERTO"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a10ebb95-c221-4502-9b07-9d3ca851b3c1",
+      "name": "buscar_titulos_a_receber2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        20
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
         "url": "https://api-v2.contaazul.com/v1/pessoas",
         "sendQuery": true,
         "queryParameters": {
@@ -2218,10 +2425,6 @@
             {
               "name": "Authorization",
               "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
-            },
-            {
-              "name": "X-ContaAzul-Company-UUID",
-              "value": "48c7ea19-4700-4b76-bdb2-3e4fbe550308"
             }
           ]
         },
@@ -2234,7 +2437,7 @@
         }
       },
       "id": "6288669a-3c3c-4c79-b6bb-ad5a3b7da80f",
-      "name": "HTTP Request5",
+      "name": "pessoas",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -2244,13 +2447,31 @@
     },
     {
       "parameters": {
-        "url": "https://api-v2.contaazul.com/v1/categorias",
+        "method": "POST",
+        "url": "=https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/parcela/filtro",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{ $node[\"HTTP Request4\"].json[\"access_token\"] }}"
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "2025-12-24"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "2025-12-29"
             }
           ]
         },
@@ -2260,30 +2481,573 @@
           }
         }
       },
-      "id": "7fd3f5e2-6223-4f54-9df4-cbbab44431f8",
-      "name": "categorias",
+      "id": "b1de70c3-b590-4d0c-bc9d-f192b3a815ef",
+      "name": "buscar_titulos_a_receber3",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -900,
-        500
+        -2620,
+        520
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/parcela/filtro",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "={{ $now.plus({ days: 5 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "={{ $now.plus({ days: 5 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "situacao",
+              "value": "EM_ABERTO"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "32f22d25-54a2-4051-bc90-8062be7b46d0",
+      "name": "busca_titulos_a_receber",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2620,
+        740
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "={{ $now.minus({ days: 1 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "={{ $now.minus({ days: 1 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "ATRASADO"
+            },
+            {
+              "name": "pagina",
+              "value": "1"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "50"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "36c71b44-5c57-4b5d-8eef-7e0c01a2b00d",
+      "name": "1 dia de atraso",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2000,
+        -260
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "={{ $now.minus({ days: 2 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "={{ $now.minus({ days: 2 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "ATRASADO"
+            },
+            {
+              "name": "pagina",
+              "value": "1"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "50"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c277baea-0ceb-4c48-9826-bc5b560a3ffa",
+      "name": "2 dias de atraso",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1940,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "={{ $now.minus({ days: 3 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "={{ $now.minus({ days: 3 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "ATRASADO"
+            },
+            {
+              "name": "pagina",
+              "value": "1"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "50"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "20d95c54-b22d-4f6d-8526-cb509c36f684",
+      "name": "3 dias de atraso",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2100,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "={{ $now.minus({ days: 5 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "={{ $now.minus({ days: 5 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "ATRASADO"
+            },
+            {
+              "name": "pagina",
+              "value": "1"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "50"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4798bbd8-621b-4c85-960e-5b4d046f3716",
+      "name": "5 dias de atraso",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1860,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "={{ $now.plus({ days: 1 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "={{ $now.plus({ days: 1 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "PENDING"
+            },
+            {
+              "name": "pagina",
+              "value": "1"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "50"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c23bfc7f-dce5-4e9b-a335-02cd82c9256c",
+      "name": "1 dia antes do vencimento",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2300,
+        -240
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "={{ $now.plus({ days: 2 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "={{ $now.plus({ days: 2 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "PENDING"
+            },
+            {
+              "name": "pagina",
+              "value": "1"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "50"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "524b2565-1565-4caf-94be-2b262ff39d8c",
+      "name": "2 dias antes do vencimento",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2460,
+        -240
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "={{ $now.plus({ days: 5 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "={{ $now.plus({ days: 5 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "PENDING"
+            },
+            {
+              "name": "pagina",
+              "value": "1"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "50"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2b8882b6-fb60-4048-8d52-a41d4b22cf41",
+      "name": "5 dias antes do vencimento",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2460,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "={{ $now.toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "={{ $now.toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "PENDING"
+            },
+            {
+              "name": "pagina",
+              "value": "1"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "50"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bbb22874-f3f4-4f63-9d80-c636669553ca",
+      "name": "No dia do vencimento",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2260,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Client ID Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "a1872a6b-a150-4820-95bd-ed221bf3d1df",
+      "name": "busca_variavel_client_id",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        -3060,
+        740
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/pessoas",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "pagina",
+              "value": "5"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "10"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "8f6a97d7-1f29-468c-b9d3-a3cf5a60278d",
+      "name": "pessoas1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2600,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "={{ $now.plus({ days: 1 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "={{ $now.plus({ days: 1 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "EM_ABERTO"
+            },
+            {
+              "name": "pagina",
+              "value": "1"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "50"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "eca31a63-cdf5-4a0a-b22e-ed72b8ad28fc",
+      "name": "1 dia antes do vencimento1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2860,
+        -440
       ]
     }
   ],
   "pinData": {
-    "busca_faturas": [
-      {
-        "json": {
-          "error": {
-            "message": "401 - \"{\\\"error_description\\\":\\\"The access token is invalid or has expired\\\",\\\"error\\\":\\\"invalid_token\\\"}\\n\"",
-            "name": "AxiosError",
-            "stack": "AxiosError: Request failed with status code 401\n    at settle (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/core/settle.js:19:12)\n    at RedirectableRequest.handleResponse (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/adapters/http.js:537:9)\n    at RedirectableRequest.emit (node:events:529:35)\n    at RedirectableRequest.emit (node:domain:489:12)\n    at RedirectableRequest._processResponse (/usr/local/lib/node_modules/n8n/node_modules/follow-redirects/index.js:398:10)\n    at ClientRequest.RedirectableRequest._onNativeResponse (/usr/local/lib/node_modules/n8n/node_modules/follow-redirects/index.js:91:12)\n    at Object.onceWrapper (node:events:632:26)\n    at ClientRequest.emit (node:events:517:28)\n    at ClientRequest.emit (node:domain:489:12)\n    at HTTPParser.parserOnIncomingClient [as onIncoming] (node:_http_client:700:27)\n    at Axios.request (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/core/Axios.js:45:41)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at requestFn (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:567:33)\n    at proxyRequestToAxios (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:570:26)\n    at Object.request (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:1986:50)",
-            "code": "ERR_BAD_REQUEST",
-            "status": 401
-          }
-        }
-      }
-    ],
     "HTTP Request1": [
       {
         "json": {
@@ -2400,11 +3164,46 @@
     "replace_code_to_token_conta_azul": [
       {
         "json": {
-          "id_token": "eyJraWQiOiJjNFFVMDVNSVhSY0V3d01Dak8xcGtvWW1MRkVYaHZMbHREZk12TUFWQUpFPSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoidDV3SHh6bXgtLWEtM1dXMkk2S0RodyIsInN1YiI6ImMxMjE0N2U1LWZjZTktNGY5NC04NjljLTg2OTU4OTdkYTNmNSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJjb2duaXRvOnVzZXJuYW1lIjoiNDhjN2VhMTktNDcwMC00Yjc2LWJkYjItM2U0ZmJlNTUwMzA4QGRldnBvcnRhbC5jb20iLCJvcmlnaW5fanRpIjoiMGE4NzE4OWMtYWM3Ni00ZGE0LWEyZDgtNDIwYzVjODBmMTE4IiwiYXVkIjoicTFjbGg3bWkwZTB2bXU4ZTA5Z2w1aWMwaSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzY2NTA0MjM3LCJleHAiOjE3NjY1MDc4MzcsImlhdCI6MTc2NjUwNDIzNywianRpIjoiOTI0NWUwOTAtMjk5Yi00ODg1LTk4ZmUtOWNiN2UwMTMwYzNiIiwiZW1haWwiOiI0OGM3ZWExOS00NzAwLTRiNzYtYmRiMi0zZTRmYmU1NTAzMDhAZGV2cG9ydGFsLmNvbSJ9.N6gS-SpLRYrLmNXI5AeyKSFXThUCMLvKlRi6WbhyT4YcoEl6QiwwXpOYH2fMOGkHxww6GH71--G78s02_Iv44yGSz7qKGNdGjqjgfG_0aJawytg_YTABfiWj5AJDSnLM6aSH_nIJFuBLm8HFkBJgtsppzWigA72-8YF22VNOFuGKn2xlThWdMxAI7ljJTRjEUGHONiAPlUjZmZSRc4CKklGHzmYCSJlgMsdCxaIGIFIpFxBtuucWMBdNc0rasB4d7qYmehISLJ-TIYh3DQStbA1PJ97VzVVivd91lDStCvUbB59ecaiEXKZ669HNH_Y-gX3NQJxZyzVCSDy1xXk0cg",
-          "access_token": "eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjMTIxNDdlNS1mY2U5LTRmOTQtODY5Yy04Njk1ODk3ZGEzZjUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiJxMWNsaDdtaTBlMHZtdThlMDlnbDVpYzBpIiwib3JpZ2luX2p0aSI6IjBhODcxODljLWFjNzYtNGRhNC1hMmQ4LTQyMGM1YzgwZjExOCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4gb3BlbmlkIHByb2ZpbGUiLCJhdXRoX3RpbWUiOjE3NjY1MDQyMzcsImV4cCI6MTc2NjUwNzgzNywiaWF0IjoxNzY2NTA0MjM3LCJqdGkiOiI4MGY3MGFlZi1mZDA3LTQyMzYtOTYyOC1kMGI2NDVhZGNhYmMiLCJ1c2VybmFtZSI6IjQ4YzdlYTE5LTQ3MDAtNGI3Ni1iZGIyLTNlNGZiZTU1MDMwOEBkZXZwb3J0YWwuY29tIn0.yWh6TMmIwQtLgHzFeFZrbn3BNPW_9nHVqwscJObRVRaTqmpPl5tem-WmhInksXqqq96zpF-qocspH2Hiw9X-ZIKt1JNI2TRQt1uIdFzKMIO73dL5PYXyGGE7CeMPRQxUruovRHYidCTFG_xgUCKB-JtAOcY3PvSNf0UYU5VcHlmaeuC1PY6ploLlWuc5dZauKpUKluIDVzkY5Zvr6wwCcKUWXVroZbptTL-S4bv8knscwbJWPrQ0VN4buKaSD-2wG9xyroF9yKKcPdTXsxTj1jRNSAXOwGmqjyf2NeP8wGYDW_2SrrL-1R620TUliDPv3RnxYyxZK6Xfjuor14Nnzw",
-          "refresh_token": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.yVBnD-0PPEUVootsstANY1-EsIL1WjKlEO4RU9cdjsYH9Q7vgBp6y9T4RP3VrPYUU4GqO1fYPG1WrCd96Vr3xqwROQHt7vJpii3bin4q64Zg6h-Ic0KvxJTpEhREc0dvJZHrt8HN2bKZxGVkNoDik1ZjblytGjjTwdnpFLJiUW3FYhhDuitQUITE6Vty76459ISjIvdDDyH3CpOv8olQc19ClDD5RVS5IY9q_RbjOZRaAXdzHWOdMsagb3axyGL7ppijM4kVJJ8ICthlrdEBKvv48YUKdW7b1iScPeHA0dp78C5oA0jSCCedslb4A6OjzwSBJ4ZRyOlabaYriRf8Ew.XPfYwCnxepbd9YiK.8Dj8BN8TXekmy3g7nzXpvAoY0fVIq15zpIRKB-S8IE28B9R_yFt6o0NlbinvVhFwRSUKj8k_yq9A4-f3-fwBaZ2C-nz19IuAciiCuI2baIDK6o4GsoXZT7p3j3xVlqL5ODg4T2pu6uAZ_-W1bCl0lXD4vUB3bYoR3-oPhTcuuVSLIQwBFHZT4CqO-xSB89FduHNUuVfzaRBLTtZRGoza-x9A6Btg8Rte4mKsZuEuDON7asIYuL4160WjMnAfpCsiYGzbK7WpD-QOJKRKnspb2r33wqe9SRcIp848AB3vi_HBrWkPJaiYAZv8Ln9mySIhNUlhyHbLeAorp8e8-Y0JADlNc_DzgCgNNjU23y_qLY-MBv0G2yzGcIMzVgQo9MsArPOe0xb58dxCBAHIoVNByWtCMqUOpod08yvkgY76aCdqI-VmWgukEyopaPYNOhghPyOUZF_N4S_sjs6FRnfrzbni3stO6QWr7yFo17eeiuf2stzxYUH7C0hkcLtVt6a_kPt87olo5uLg9-LIr_XP-4U1Fk1vd_zEJQ1-XlP7kJcNKOnh6O6i21KG4f6M-Hk6NPVnPaY5vOT9x8-NtVcXcK0CNE2Hgab4-Ha-0Ak5WnsmGuMxDoSyzlfzd2mbY7ohbecztlJY2EsU8YKEQx6J-suMcZMoH_h3ZUiuE7TGxr8bSRAob5Rjm59MXipySYX2CU9kGyBOG-ETtN1mE0CTMeaqvxe3pqZmqsctlzM3nb8PNC5pwFb_Ribv7XXijKLN_v_9N1GUGo8htezF7VtaGMQvw5hPSSHuI2gTqWh--MZqlzgptN17NZbvWJvXfIX-xQtCvPZh9rHpsBF3VmC46VgqCEHnSc76KMhR9GbJfiJkmklFPduQ83SqgSploauSbpgZFKi59pBkcea1TY3Sjf0ZD84fgi_Rw1k1f2CmVKP8qVR1NH5uxGKwKIrLmRLVpExLYhBpzVSkIqtSBjR8n8UDlbIGg1e3xJg1C2IN4GJlboTXD1tTPij1GU4O0d2NO8FxYnutrW_fSF0yX0e8-RLDnScsUkWC3YWghifBtPP2vBxFrJBYORy59_yE5HEekKaoFruHatRYrVKmJDtauZw0d-hign4Z8XeBrhVBajW1BIuor2A6dISd5eCz-vGh8K00ds1K7Eakxf69qGhq7BE8_OEhs-ZMKfbzK8XvDMY_0czB39vBjEMFBK4NMO6UUWBStYga97UqkW6Hk8rsugOk8FjJRq-5d46mAyYyQVLcJfBPc-NPvSLusnlH0OwhML_FyiQYHDwDLiZ03nhiuJ6cvZY8LRPNBEQ47fTG_TUB.zHA-A6NHmhp9l-VP1_kMzQ",
+          "id_token": "eyJraWQiOiJjNFFVMDVNSVhSY0V3d01Dak8xcGtvWW1MRkVYaHZMbHREZk12TUFWQUpFPSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiMFVMbnhaNThZNFRBYVl3UElNbUkxQSIsInN1YiI6IjI1NmMxMWMxLTg1MzMtNDkxMC04ZGQwLWQ3MmRmZWUyODI2NCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJwaG9uZV9udW1iZXJfdmVyaWZpZWQiOnRydWUsImNvZ25pdG86dXNlcm5hbWUiOiJmYWJyaWNpb0B1bml2ZXJzaWRhZGV2ZW5kYXMuY29tLmJyIiwib3JpZ2luX2p0aSI6ImMyMjM2NDVhLTI3ZWQtNGEwOC05NWU4LTI0ZmJmY2Q2YzA3OCIsImF1ZCI6Ijd2aDZwcjBlYm50c2NwZHFwdWszMzhoMGplIiwiZXZlbnRfaWQiOiIwYzczMTUwMy1mM2FjLTQxY2MtODA4Yi03YzM3NzFkODU1ZDYiLCJ0b2tlbl91c2UiOiJpZCIsImN1c3RvbTpmb3JjZV9tZmFfc2V0dXAiOiJBQ1RJVkUiLCJhdXRoX3RpbWUiOjE3NjY1OTE4MjQsInBob25lX251bWJlciI6Iis1NTMxOTg5ODQwMDAzIiwiZXhwIjoxNzY2NTk1NDI0LCJpYXQiOjE3NjY1OTE4MjQsImp0aSI6ImI4NjBmYzNkLWY4NjctNDExMy1iMjZkLWQ1ZmE1MTEwNTlkNiIsImVtYWlsIjoiZmFicmljaW9AdW5pdmVyc2lkYWRldmVuZGFzLmNvbS5iciJ9.WchhAd1fWp4Y_GvFROlzCm-HCIVB__VzJuBMJqYmmE80dfL1h5zMOqGlfSEFQfiV-IGADTXOy9JH-MYKylImQ-NafbocUCZCNeih-bskXCKn1XsdirxnvJKahSZ5JEEIZiZ1jee_v9W5hlItFYyyS0ZisImgCFsKc5aopE1PqUFkCR4VBijFCWBCpizMKieBSo6RlvwWAZI0-k1K4-KaesSG6ebybKcPeEdW-QuIbmrmysIA_rH7QqAzWELHg_oEJHBhcfxix1pWnT3N_xIbZRpR7ho-wr5Si9IyGTRwTYIeS3fvh7nAoiISRyLwW4vOK-k5qij0LBoBQmaUPQNoUg",
+          "access_token": "eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyNTZjMTFjMS04NTMzLTQ5MTAtOGRkMC1kNzJkZmVlMjgyNjQiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiI3dmg2cHIwZWJudHNjcGRxcHVrMzM4aDBqZSIsIm9yaWdpbl9qdGkiOiJjMjIzNjQ1YS0yN2VkLTRhMDgtOTVlOC0yNGZiZmNkNmMwNzgiLCJldmVudF9pZCI6IjBjNzMxNTAzLWYzYWMtNDFjYy04MDhiLTdjMzc3MWQ4NTVkNiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4gb3BlbmlkIHByb2ZpbGUiLCJhdXRoX3RpbWUiOjE3NjY1OTE4MjQsImV4cCI6MTc2NjU5NTQyNCwiaWF0IjoxNzY2NTkxODI0LCJqdGkiOiIzNzE0ZDE1NC0yYjQwLTQyY2EtODc5MC04ZTA1NzY5ZmNiZDMiLCJ1c2VybmFtZSI6ImZhYnJpY2lvQHVuaXZlcnNpZGFkZXZlbmRhcy5jb20uYnIifQ.qMq6nmEtaVDa7i0cYKkmFh9fCp8S-TIUc8NuvDF0ETLxs8Ybg6On6iHdikRds_3QHATLQWANlFHDrB2Dnp5i7_TCTOEtfRcXEfCqnAQk0P4PQ_Yj789rnDYEF2t-EXHKTDKiUHeH8GD_ZVFBG6VpJw5Oa0GwG2yzsNvbanamIPtdMb37-pV64ajNKOBGCsUfO-_bqrBQavfDFXaSXioQMD8JKwbI2Wbv1XH2BDcDh5_3kAfz01xQq6jkJ5CpL4KEpHjPMF1ga2QJALEK16AszbgefJje7hUq1M5IB3ywxpXfyXBkLsnvwCHK-Lvrzzl8Bm2fkEbTiQLfljnZ87vBeA",
+          "refresh_token": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.AvZuYzkexjn5UGKf3A7ANJ6rsc58ISdDaN6JwAmyGTTwR7cTdmxZXMuSm8bssUnMhaynJyNLIIESxltFPPuKxWZLWVoR2Dv6EDZPZAWwZG07RAHX5rjjdDi4cprGZ2rRKYIrqAi1x2uK5R93TX_DHd61K65FqOM1qr0YTLpo4jXg66eQIq0hsykzVS6h-4Jjd2TSqN4R2_xxG7MBCAj3bFos7R-uWcPRMksiLZIvnWf86RLxQGNHwS1qQEQtpEiOkXWzzhUqCAhlntbkSR-2z1aG_2NINfxLgV_4W2i5_w6W6rnzhyu1pARvrPBU_fdWRmvkSTls39HwrFC1A9OS6Q.RjxlsLLjErijBhcI.02tZryGTWcPhtlYT7-UkkkNo5S-XSRiOwWMkrXqSONRPePwcYyb3WOTB71C1P5N_AzJKB34GiLXOMwS16tNWaczMnXtnPjeDW_zGDnjeECvLSz1jp09GnqKSsHL0w4ZWNTgs4SNaVqikjWw-eXeoP2axwBkLjX6GDou8BXoMDsl4dmj0MGl0N9dF4hFep_3CflDclUQnHZOXR-7nWPtDSApm1zpPYzh4Ydl1xI1lqGCSCos8nln3k9C6RUM0GKOmgVtw_E32P7XQ-rw0IKyls_mF5CDUf9WA2f-j4-dU9naoHb2pXtQIcAO0jNjgLn-qmZLWPk_iqahRUZUkaj2ipo7nTDgl8A4W-8dWc5I_j8ju262sBF1pyVUpsT_qLHzjY-xhYK7tA7pLj-047qx1SAYoS7fHzkrrdx8nQdZIWVwGriKkLK3HTHy3Ec8ZV0jPT6Q6YWEKUEN_muDX3pQogGXd3IyaQCNf0dOluU5wakAu1nfneAH_SvSLVEQUaxUa5hnvFzK-qr274UNOyL3jfIQDVhezwj7jSIvgyCfWMy0__ijbNhkUmNw-XY4MuUyMZJhHVyef-q0rFBv0g-6TZQ5AlsUvNXI-4TUdboohrjgvSM5MgxLMMSLBckqRDGhUqUpdkzB9zwOIDJ_FU4-JswMww77oAb2ybnmywxbUEzia83ny64zpHkL1IDq3NHcSrfU8h3H1w3r2rj5ceTG2a_CJAXxSmb9ayTIxHrfUBpMsjPPPhibDOKfxTPsVbhKMbB3Lc9ISclP_SC-WJQf0RggrfmUzHbYOcWHp_8g6Dv-OEDgkleR6nrZg8i37_sb_G2DisOMc1NUpCO1CrH0IDInrraAcs9V9vWF3y9WZFdw0oA0BBInBJwyQzBm0l4YR6vvNB4pbD8HffdqKz2nvMJGl3mzpX6XVLpKQLbtY8_mOacL-QLmMuQxgi_sVJqSHUE64whcFQ0ouqTVeurueQPQchQM18-sv1BrwySfZ2iwnw00ryf4dqyBZ1twVFz6ZqfuxKjY8Cj3bFf_Gf226tXRy3qlY9697pHb4i1zal7RsJvHb52jov6HwoTSlmjyG8O1xD40WFbixVcXQz4t4DRzoOTL0GksO_yup6uUvaCWJWqCAe9ntvtaEQrab_CLKR6xfvFHXX23ub1Ni94YCsF4KCLYJXS28r6BHKGK8wTud6j62La88L34IVarBuzj_i5lIGI5adc8jQ4kHOXQ3PkOV59H_MO1bpKclKBegfrWaR6OyDLuKJWTkkkSH5CXhE-Bsnr7cjmKjyqUTeK2szNUTrbhbXPQKXq8LZhMULCYB6BtrghjL10C40_bl-KE0pzCxzbAfyndBbfEShcKQia4fB6qCvtRpmecXnWr97Kw.wbkNvSBRqi2bfywesUmB1w",
           "expires_in": 3600,
           "token_type": "Bearer"
+        }
+      }
+    ],
+    "get_new_token": [
+      {
+        "json": {
+          "id_token": "eyJraWQiOiJjNFFVMDVNSVhSY0V3d01Dak8xcGtvWW1MRkVYaHZMbHREZk12TUFWQUpFPSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoienRiMWV1SXdrZng4UDNaVzBSMGYtUSIsInN1YiI6IjI1NmMxMWMxLTg1MzMtNDkxMC04ZGQwLWQ3MmRmZWUyODI2NCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJwaG9uZV9udW1iZXJfdmVyaWZpZWQiOnRydWUsImNvZ25pdG86dXNlcm5hbWUiOiJmYWJyaWNpb0B1bml2ZXJzaWRhZGV2ZW5kYXMuY29tLmJyIiwib3JpZ2luX2p0aSI6ImMyMjM2NDVhLTI3ZWQtNGEwOC05NWU4LTI0ZmJmY2Q2YzA3OCIsImF1ZCI6Ijd2aDZwcjBlYm50c2NwZHFwdWszMzhoMGplIiwiZXZlbnRfaWQiOiIwYzczMTUwMy1mM2FjLTQxY2MtODA4Yi03YzM3NzFkODU1ZDYiLCJ0b2tlbl91c2UiOiJpZCIsImN1c3RvbTpmb3JjZV9tZmFfc2V0dXAiOiJBQ1RJVkUiLCJhdXRoX3RpbWUiOjE3NjY1OTE4MjQsInBob25lX251bWJlciI6Iis1NTMxOTg5ODQwMDAzIiwiZXhwIjoxNzY2NTk2OTU5LCJpYXQiOjE3NjY1OTMzNTksImp0aSI6Ijc2MmY3ZGNlLTllOWItNGYxMC1hZTExLTU0YTJjYjYzMWIyMyIsImVtYWlsIjoiZmFicmljaW9AdW5pdmVyc2lkYWRldmVuZGFzLmNvbS5iciJ9.Z4SoB413yhCF9dUdVvGuNGlgdxnb5U22xQocTwH5qzgaRRE29R2zknbeGX3WZjlRfI4xk7Roynu3_vTAQ7jmnos4Bz0uvf5K6EMulbvPNjWD1UMTxF98zEuYchwOV6_tretDdxrpb04_HhjokwUxkIcSrtJ7tMcUVHXjAQ5V062fHImrZS59zBhHQiOgok3nfsRgYqdxK3oM-3WG3ZpPQcaezm8x3PiEW0X2E-JiFw57nqDjhJudTSr52hHjRmj04zctBLzdF0LpwmOay6VyFo3hTr_Kp-lvL8rNnZcvUPyu5MoAX1aFIPLyS7p67VivFyHapDPp6P7PNA7deghl9w",
+          "access_token": "eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyNTZjMTFjMS04NTMzLTQ5MTAtOGRkMC1kNzJkZmVlMjgyNjQiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiI3dmg2cHIwZWJudHNjcGRxcHVrMzM4aDBqZSIsIm9yaWdpbl9qdGkiOiJjMjIzNjQ1YS0yN2VkLTRhMDgtOTVlOC0yNGZiZmNkNmMwNzgiLCJldmVudF9pZCI6IjBjNzMxNTAzLWYzYWMtNDFjYy04MDhiLTdjMzc3MWQ4NTVkNiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4gb3BlbmlkIHByb2ZpbGUiLCJhdXRoX3RpbWUiOjE3NjY1OTE4MjQsImV4cCI6MTc2NjU5Njk1OSwiaWF0IjoxNzY2NTkzMzU5LCJqdGkiOiI0NDJjZWY4YS04YWU0LTQ4OWUtYjMzNy1hY2M0Mzg3NDU4YzEiLCJ1c2VybmFtZSI6ImZhYnJpY2lvQHVuaXZlcnNpZGFkZXZlbmRhcy5jb20uYnIifQ.wdfmsevuSNQoIKhdh2dkhdYDnLqRncP_bVRn6giQTz7ZyqzUsz7Y7DqlJv2knqtOAHPgo4h37aq4sa6Yfowp92hitjyQ8bNWTrtcJZ-80iz5CltrXBNtBJQF5awtLhrayZJlk1dOHR10WoS99l4z9eRxa0fy73U9cyB3f7c5Ir392YFY-MU6mFX6gRDCr2EysRBeq1_CxjVBgy4G6LriXz5rUmJ2wYvzxlCieVERMuqoIlMADcgvK2YrODULPBq3ZpeETIc1z2Zc0bArHKWJmpJJTEVu8lLzBecJYma7IvEz8VZ3wuwz4IntUWfNCDApg6lq70vhUa36bH-HbTpqdg",
+          "refresh_token": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.MW3-qRbQdgxOLdgHLaenkE2DmcaiRLuR-ztrYe69O6Do0Fb00GbUdhOTiiGSqfshEecZfeB_GiXzNKifwzTJQbmNRxaoKbqsz_T9EV4ReZxv6jO8DzFB_dLoZU6XypHyga15RneS4JtQ2-z-mj0VBERG2_KZphwwlmJQJDFPWszf4KYahPyTkRpafzZ4gyIJ22-tl7QtPtm_CzA117w5OkG7FgaSiZa7tLugZfjkQe5w_fMjQvKqiWssJsH6mIpdUGQTje6lK_1KHTbG4gZBTkMIvFg_LEM08ZxgV83QW6gNup1kZn6vvc7sfYa5Jlg7zxY5twCA9pojtAZRoUeGjA.-Rto1apBf5xzxtHi.Jr_3gu3165JFOuJXnbI8jDq5zpiD1YMFm1ehZjHDEn7NPCnOQSmTmfcUWT4NlbJQrPVcpb4DDO-XPZGeVI6iyFrHqpMR032zePU4azSJ7_Ofi9j5WLBKlWr1wP_D1qG-7Ai63XuvwtWAhtutSr0YQMHoxIYG0y_WKCnw9lW8jV43J2wrGGCs2ILamJ9XlZ6oE2OPIRKXdamBjhORFFW_zyLeJgaFVUNp52VGJ-PwgzQ5j7XAcl4ZhH6Fz91tJpRoN7KsrNcj_KugVUhA-kySWw-AwYc4-m2Fd211VFiUKnUYOyVcMWqCkXpAMpXpmng1ecnp0pkoWtON_zPZcUDmGvbYznPeY387O0D7V_tHGTUaWoZhAl5G0evX-_EWHSCYu8s6VfIXqIIKNw6ouEzhManDNOjLlADyexGJyEYU3IoYcJYf-IzhIUJDbJkWbVmA2sF8-XN1vVZCz_fsymUtyuqNTAD91VuFaemIe5ObV2jh3ZjTwMKX71--_otu2FbNYHgwznYLXTgbVCTX26HkCGMtDJC2HgdB0mJ84YOx2yB3T0V6DzmWcMTVFUHAncKdHQPUS1_XZq_qfdQB6G3suK0AlU4_XdneIxvHwcz9-8QpISekNU9aLuzRv3-pgeBswYoRcYk4VBk1baX7jJlzQoFIPaq5YjhgyhMNY69BJrw5E5XFXIws4s3Ta16Tc0ouTrI6oL8wF--9yS66lS8vKYNyVPEirRVDimhPVdnOoly77WdjEU_6eXou4cQsUepgZLB28yzOuGk_QhmV64jJOu5UixBSaodtkaf74UXFQwotyDaZpnToVxxtUj8VK0tH-1BVxiplKDqC0u82g-CSll5_1L0B14CpG9Ph4Y6uHq1tqMH1BpncPeHkbZca8xMJydxTf0MKC5CB6kia1TCuc91l9Bz2I6OuClZzsEg4TZKTQm-Ad2EMEUMzmqnczmVH9FXNGr1nMPIYTts3yDKr2w9xkeMysnLAxDqNk54-BGrh-ZdZXGH4yq-b7YrU-vI8E5HHAaYshI-yxzJ8mZCriMViRL5Ra04UduxLjq_e4nB724YCAX7oBFkAvPV1WR840mj1hk4q0mBn6y8hYeFCYM_qlxKLcBeBPf5NxUA-j93J3bradpV3nVzFsNO1MGp7Wz_KM7jiNsp5P3P9dMWuz740wteugmb8D8f1L0RLgO9pwhUUryihhC38bJLyKMR-Wc6VWApjnwIm4qZH8CG9zktsWqLTDzNB_O8yUwW00_OrDoAq14RunKAR85NfpwILnsAv9P7oV6kPiNTBBMYsv56BDLDF-ARZlZHUaX6oSXbivl4DZtBr5ayvFC5Nu6h_yaQxYTMbnQgWHl7WtDz1zkCJ6YHdZSraNsrka3uop1nsjIIDWb11vQtYQMLlWtOWEwiGnSoSL0Af9RWfStLntvBRUp8bahbFEhZ5lwVv0PSCqJbOIiWE1z2WhOOEXFv964B8QIk.T88QXI0_yPKixpRX_tGofw",
+          "expires_in": 3600,
+          "token_type": "Bearer"
+        }
+      }
+    ],
+    "replace_code_to_token_conta_azul1": [
+      {
+        "json": {
+          "id_token": "eyJraWQiOiJjNFFVMDVNSVhSY0V3d01Dak8xcGtvWW1MRkVYaHZMbHREZk12TUFWQUpFPSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiNktRZ21XT3kyRzJFNlI2eWRObncwUSIsInN1YiI6IjI1NmMxMWMxLTg1MzMtNDkxMC04ZGQwLWQ3MmRmZWUyODI2NCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJwaG9uZV9udW1iZXJfdmVyaWZpZWQiOnRydWUsImNvZ25pdG86dXNlcm5hbWUiOiJmYWJyaWNpb0B1bml2ZXJzaWRhZGV2ZW5kYXMuY29tLmJyIiwib3JpZ2luX2p0aSI6IjQxNDdkYmE4LWVlZjMtNDVhZS1iYTQxLTZmNTJhMGZjMzI1OCIsImF1ZCI6Ijd2aDZwcjBlYm50c2NwZHFwdWszMzhoMGplIiwidG9rZW5fdXNlIjoiaWQiLCJjdXN0b206Zm9yY2VfbWZhX3NldHVwIjoiQUNUSVZFIiwiYXV0aF90aW1lIjoxNzY2NTkzNjU4LCJwaG9uZV9udW1iZXIiOiIrNTUzMTk4OTg0MDAwMyIsImV4cCI6MTc2NjU5NzI1OCwiaWF0IjoxNzY2NTkzNjU4LCJqdGkiOiI4Yzg5NDZjOS1mOWY1LTQ3ODYtODhmMi0yMjZmNjM5ZmJlNTciLCJlbWFpbCI6ImZhYnJpY2lvQHVuaXZlcnNpZGFkZXZlbmRhcy5jb20uYnIifQ.kpCUeZJe7l5IwXeR-1UipKwomCnhIt7GzjWg5Ws5APS4Su6nkJjnfAP39qXUlRFxTU5yBymAoBT7MmcInr38TnW-V8BaPCM7LgrKKyuv9HPSTPUWKCsfS8Rx6bwx-9i6sPDczD5-05IjX9nbez8W6YtM8OcyeQ58j1FZwkAns5NG6uyCLniRJPQF0rtndTbWPkYDB1sjtZ-VmyWMz0euysfnBYPBcHcSYJf4sXWPcSLLWynd-YJIVW7rTHIG_5ZzNRjRvTMT5KnHa6oc1-Z8Oku6pZHLYUq0L_lDKB_76CysEmqJvCXBs2iWEQuHeBUs2n03S4XYDhJvwI2lhLdMsg",
+          "access_token": "eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyNTZjMTFjMS04NTMzLTQ5MTAtOGRkMC1kNzJkZmVlMjgyNjQiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiI3dmg2cHIwZWJudHNjcGRxcHVrMzM4aDBqZSIsIm9yaWdpbl9qdGkiOiI0MTQ3ZGJhOC1lZWYzLTQ1YWUtYmE0MS02ZjUyYTBmYzMyNTgiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIG9wZW5pZCBwcm9maWxlIiwiYXV0aF90aW1lIjoxNzY2NTkzNjU4LCJleHAiOjE3NjY1OTcyNTgsImlhdCI6MTc2NjU5MzY1OCwianRpIjoiYTg5ODVlZDUtZmE4YS00YzMzLTk0MTItZDgzYThhYjg0MWI3IiwidXNlcm5hbWUiOiJmYWJyaWNpb0B1bml2ZXJzaWRhZGV2ZW5kYXMuY29tLmJyIn0.csxjNR_D7tEKjxUV_ytQADv_l7B5bt4zEUSZPOizRDsNyKK1GI2I8Qc_ObZF5iepEkkm-_AhMYjIb6tUXd83Jl5oeuakERQzWl0OluH0a460UzVESHVud_Y2-5IkA9igJn7HT3mUdU25HELQgSi6qMNgV9GsVPCQCLyGPOXKs-6SQGfJOCAk6nujtuKEvo_ArzMmox_XCxYIvt3I0eb7ABhWY43KVq6ma3_pZwlxGNMtvh5cO91BaH0MF6Yhj_Ggi7eZfPnF5eBndwlD6_glEE-c2pxFNtiES-4dgiG7QLuuFz1Dh8PsungEAYvRhNUzQapipE2ppZZoiyE36PaCJw",
+          "refresh_token": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.xkCnFp0GpTaorZsNPcecjW3LrkPX6Oz57lTJlk2r3Y41C8HaXjmhSRkWmABz2-xZ9JTxwyjF2Os2DvxkD4LppXtgvvtF5L8G5GYKwcbOhewYQ9Mahnb8X2udvMaKTdbJboheAmV_xruhCd2q0TKuOEbEnbTHKqxH1ahgplF6Gnl5R5X7EdTHUvahiktsF6iDyGoZtV5znWNNRrbr6wms1K7oTbxUKV_AfmlqT-PriT5TOYP9yAGNs8eT0qErA8-kT1xKbARrOj4U25l4G2oCtED_fTUkvjcxnr5OZTiGTcC1o7zyJDsKX1D82NCcZVRpuOeOEn-rWQfuoFIjiH1Jng.t5vrNCtF-d4qNn2Y.lj3AT41mxLdXkMTZBmsYp6HPm3d2vp3WlLrZnf3RnJG--MdM0cpTXF2KZM65eT2euEhScBKOZpOLDgfbJNGqnlU3ZNCLHfT1QzpZPfj00u2O2duRgE5n-b-VbpacehUyPqad5Wb9Lno5cBNBUEypzxcuOACnPPW3aOEqz4kY6afzAZfuznWd6yesOtQbhxMDnEW0gt-sWViod1H5-uuR4d9YFUKcPuS0xdPrOUMZe8j7kjHTsYbsTKfiw95g3ICl8xhoUXdGBaSkB7usyE1YsynFJ4-iGvvnW5-UxBbMDElGUoARxtNJ3bqRWQITf-uq_Zljxi50pvCR6bfQ-gmemOmA3hQFM2pySTxzJYx2KaWXX7_g3UkSnIUPjqbEZE6dJHQutpWxRbr0kutfKBjcriKtjfk8i0ErWh_6X6LZ0zCsjmXS9qyEnDqI1Bh94VPiGIrqTjmiaevIPWKzUS26ngnaok3Yauw4-DaSKR6W47t0StEokhzYBQC_ttpWtwImWlDHVbewKIdS1Rle_INfC20VktBY-4dNdyFZZaSmf8DjJPXg430bQ9jxiDvd1T0FpHej4XOl5OiI8ZN8VeknNHFjwRy9x3prN1eSt0yF8pzFmJLuVbdcIYvbbOOH4Cdpp6rSqAO2aepPPjnGUMMb9FqEW54YpVs3qhp9jPruCxFf3H0MVxEMqNw7yK2amnUyc-fuqtxxI6UHP_PqBNfV5WS33ls5mGjD2rdu3mvUDVy8Y8Xsi-RNsSMUSYFAXgziPy6Hsd2xkPzPStn0GkWJKTjVD0ACXd_Quy-sCndHPXVowJsw8LsjLLt8TRuz7UUMz1PGEtU2y8fOTDWUC0aFc8NxGVXH1OVHd8yBx8YD8dQp81c2YoS76ueeu61JwCq0lPGEUOfSGfCVBl5519H8_ap3cwCp9sjTRzSIQv7Lsrcqe5ZHD8nr7Gw6TJDzljiVyZ_pogCXsu0er8U3miXdkzrHbX8Pbgxx-E0MhpzfW8tukAZzuCf09s8VvJI99u0mueIxZnrujFxL0lXMCQMQJRRvx3XXehNrlONv7c5aonYCxnWjl2RQAvinmVMlkIUYUfqwQRPp_-lI8g3tKdBw39ZEd5voNp2W21yGhERVpn-gAes9LCHFQcB3uDkba1JNHCZW0xMOTkEi4koS14PI7Aepxe33e-L0zo9trTU9g6MeXE6lDjEvMN2lVoT-EvDl0Z6RpgvZJbcWM4V4JtHLScg0sqVV2akmK5y33qovc1N7tVAkrYt1yzrOJDsK2-3YIMF53kFodN668PVkhQ.tRWbXZKJUkpe_9KhjOu1cQ",
+          "expires_in": 3600,
+          "token_type": "Bearer"
+        }
+      }
+    ],
+    "busca_faturas": [
+      {
+        "json": {
+          "error": {
+            "message": "401 - \"{\\\"error_description\\\":\\\"The access token is invalid or has expired\\\",\\\"error\\\":\\\"invalid_token\\\"}\\n\"",
+            "name": "AxiosError",
+            "stack": "AxiosError: Request failed with status code 401\n    at settle (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/core/settle.js:19:12)\n    at RedirectableRequest.handleResponse (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/adapters/http.js:537:9)\n    at RedirectableRequest.emit (node:events:529:35)\n    at RedirectableRequest.emit (node:domain:489:12)\n    at RedirectableRequest._processResponse (/usr/local/lib/node_modules/n8n/node_modules/follow-redirects/index.js:398:10)\n    at ClientRequest.RedirectableRequest._onNativeResponse (/usr/local/lib/node_modules/n8n/node_modules/follow-redirects/index.js:91:12)\n    at Object.onceWrapper (node:events:632:26)\n    at ClientRequest.emit (node:events:517:28)\n    at ClientRequest.emit (node:domain:489:12)\n    at HTTPParser.parserOnIncomingClient [as onIncoming] (node:_http_client:700:27)\n    at Axios.request (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/core/Axios.js:45:41)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at requestFn (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:567:33)\n    at proxyRequestToAxios (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:570:26)\n    at Object.request (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:1986:50)",
+            "code": "ERR_BAD_REQUEST",
+            "status": 401
+          }
         }
       }
     ],
@@ -2419,102 +3218,513 @@
         }
       }
     ],
-    "categorias": [
+    "HTTP Request4": [
       {
         "json": {
-          "itens_totais": 123,
+          "id_token": "eyJraWQiOiJjNFFVMDVNSVhSY0V3d01Dak8xcGtvWW1MRkVYaHZMbHREZk12TUFWQUpFPSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiM1dVc2xOTnZRNVlIamc1dnVWNVFiZyIsInN1YiI6IjI1NmMxMWMxLTg1MzMtNDkxMC04ZGQwLWQ3MmRmZWUyODI2NCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJwaG9uZV9udW1iZXJfdmVyaWZpZWQiOnRydWUsImNvZ25pdG86dXNlcm5hbWUiOiJmYWJyaWNpb0B1bml2ZXJzaWRhZGV2ZW5kYXMuY29tLmJyIiwib3JpZ2luX2p0aSI6ImMyMjM2NDVhLTI3ZWQtNGEwOC05NWU4LTI0ZmJmY2Q2YzA3OCIsImF1ZCI6Ijd2aDZwcjBlYm50c2NwZHFwdWszMzhoMGplIiwiZXZlbnRfaWQiOiIwYzczMTUwMy1mM2FjLTQxY2MtODA4Yi03YzM3NzFkODU1ZDYiLCJ0b2tlbl91c2UiOiJpZCIsImN1c3RvbTpmb3JjZV9tZmFfc2V0dXAiOiJBQ1RJVkUiLCJhdXRoX3RpbWUiOjE3NjY1OTE4MjQsInBob25lX251bWJlciI6Iis1NTMxOTg5ODQwMDAzIiwiZXhwIjoxNzY2NTk1NDkyLCJpYXQiOjE3NjY1OTE4OTIsImp0aSI6IjMxMTA1YTk4LTE4MDYtNDM1ZC1hMmY5LTcyYjc3ZGE3YmNkYSIsImVtYWlsIjoiZmFicmljaW9AdW5pdmVyc2lkYWRldmVuZGFzLmNvbS5iciJ9.ZwzOLq8MWgsq8UL2yD5eTDkDMzwi0T1ZB1h0SF8pyyKJDz58UvOeuzOBal4B0H4dITvgCvP3XE9ZfVkazBxP2b6MdJenWdlzROz-0Aq792FaewQEsneCmJ2L1-65a7lJbkzOVrcZ0dYBgnayPKobY5tkTvWnIZRe3hVsXmY6NloQMGcKv2kl6muH2Itu31PtcFwxFZlzpjw0w1_HnTGrjGdoATDXBASdDMJl68feLLE55rMFjk-dh-T_7ovme3Rqt2Z-iFDUpBYsMrj2ACpzeiNigEghIWcQ7vi579VmJeEv9bUikbqFFawy6UFx7EXZ6Wh2LrDmhJGH-MDnAd4p8Q",
+          "access_token": "eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyNTZjMTFjMS04NTMzLTQ5MTAtOGRkMC1kNzJkZmVlMjgyNjQiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiI3dmg2cHIwZWJudHNjcGRxcHVrMzM4aDBqZSIsIm9yaWdpbl9qdGkiOiJjMjIzNjQ1YS0yN2VkLTRhMDgtOTVlOC0yNGZiZmNkNmMwNzgiLCJldmVudF9pZCI6IjBjNzMxNTAzLWYzYWMtNDFjYy04MDhiLTdjMzc3MWQ4NTVkNiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4gb3BlbmlkIHByb2ZpbGUiLCJhdXRoX3RpbWUiOjE3NjY1OTE4MjQsImV4cCI6MTc2NjU5NTQ5MiwiaWF0IjoxNzY2NTkxODkyLCJqdGkiOiI3ZDcxNjI3Yi1jN2Y0LTRjMWUtYjQ4Mi0zMTE3YTU3MTljYjgiLCJ1c2VybmFtZSI6ImZhYnJpY2lvQHVuaXZlcnNpZGFkZXZlbmRhcy5jb20uYnIifQ.cmHrLs9dhph0fizClknvN93r9XdNRvVzbARoa3ORIRv7zBp6s1PIHQDWDxfAeMnC3_SJfIS4XtPeF_cah8TkdbIZo8sK5flupAoJPm1GB2KZp6AQCv7k-1RwQe_KD1Y_PGTQuRRhCZXAr4UVtrlL6aoBJxkO9GkFGNuRBS9kgxU0tTqWPLWR2oW7FQq2n-AUbaCU62Cphr0abq81TQyJB6NfSBAf78SiT8jeguC2m-cpn2jP_1_Ky1KQ_UYqfatbKEiymfzlpRHZBr6Cr2zZ62Dfr7Mv5kw2Z-LNb6Gk_73NJJ-urd7ObLlE0W9_D3u_Z9Xx1C-47lQ_vRmC3mt8Ow",
+          "refresh_token": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.PPCuSRTdLVAXzhtRmDlsPLLiwZzF01iKFGPUs2aS8ZmMo6QDh_ydkl7YNHfI_SfNLkFTfaIfabX71l5zfR5aIskalxtSmUYoc3s05qz2H7t7vUtJsupdHQqw2ovoWbZYM5G-0fa6nJU-n0A-8kWCwvbHPmB4v_own3QR1zk59IhFC4crIelHV9LcK2zrIVaXEQV_fhvM7cZojOFWyW-D_lfw-C5RY5SF9vHkJc0yve6rut_tTvEZ4h-6jz4IKY_MsqL3YHm360lYpJGw-DqNl3DOB4CNkZhtnPRd7DAlBVioua6yFnbgiARSPDfkSFq4AF5u7ErahQvAltjO9T-JgA._mhOyAcv9kg6nVE5.3CGy2WHXLe4UZQrF1CKoHN_w_NmORVNyyCT2K1EbfW9BnmuwjZM0uiQ6ZIEoQKYaRYxJ8v4FMCQdz4WAKi-lXTIYSOsd_zvwUuCIx9Hz18B5xzkDz5E2I1OvA6PV_OvH1XbQupHn68wkickUP8gB62OA5lViJLAFWlzS4d19rl6AhxUqnQt19hIkMVipABr4C4hJvKvKFZhy6_Nixd_ea3x88jJLcVpA1vaainshi2LPmykABQVE3mh7R-9nOEiPmsC35kJYRu_4_HA3Plhnu_01WtTYC6j_49IChBtUBU-eZA_r-GOG8EQm-HDOZiefzBRBPhWTtL3099W2xkPwP2vn7_8GKO81BJLRGWzXQ-AWEZiB62VOZwGypNmMelNffKqM82Hu99bjVVNXGFghv9T1y183q1Qv_rYlUBUdJQMs5_07TORQvX8yHR7ci02leqveZo4BY9Oc1GDBPiSr9wvd42K-FbgdZOCsjMN5_HMc5Zb3ShO4RKJsHq-Hm2RStMBgc10y-8M8KnBiIWG6n2ipxDcMJ8Qmj7jN9bKgv73pkAA8gRvLezZwX40JHiIOzS7BOEgMMKvF4J0Z4zr68ih9p6fPS2bck72Fv-XxnShfXsUCYlqD9NmdMrH8_K7Zj-b8mM9IwxxmzU1G1VZEgllNKmpG4s3SW2hIWsIMS7BUsQoilx4L_pFWpXej7tGggHpYPIFd0KCOQu2Vj-r9v7he4n7_pnl-vZKc2qQYtAampK_cqMQOEK_ONcv6pioHTgt2J8Lb79ekbq-Z2gIgOk9jYrgixpbMR8x91NpL29EKdm3Xk7XUuBqUPtyUI3WeibNymJvjm8ty6vBdTGAj-bV1ZWEBAVQBEKl4aYFMO5axcxFbmoEUAD48aM24H153XzUFfDK6ZM4sSpuPEgxuew8xacUoxfAMSC4J-AigWiwOj-QaSBD2crOJmqxvCUXAJIR3_z0Qirp2zUTPQhDhUssVn35CJk_F0LRMsJgp-bXirH9kAnuinYVWcMjqyfnY_ZRT1vwkCgaoURmDkIp55yBjpTtoopu0Lb5E_fB7t4C9hsahJulWnQPiVy_d9aP_OF8w3wHxALcCe7QmMPNZu4fSZOv5EJv3b1bwOaJfdHdUIGw9qb5t4QGv4ytsJVm3-Wd_ZsXDEhtoO3H-z5hHMwJJJLOU4wT9GVS7liRBuIzegUxpY1DrYE0n1Y5z1b2Rq7bTHDWb7C9A0LmuKXypuHLq0dDEmjKldckIaGPIbXjYy5tXGs9kQVUPbSgpIpNEw7whaV5L4KVAw2ym7gxFQa51HhCmrr2PqNU0mKJ1iQyCFhiJ_YI_miFgB1KKfke9HmHMnBOsdeRReOheMPbFhnxVo9fx1UPDrLlS6s-H-Xoun9QlCbDSlk5dIXmRaFuTth-RmEA3X0pmjzctsCqmgcjPisHgl3fRrGTPRNMFEP-AwTURiBd5G7mxx13C55S8qL7Zq9g.CAxioU24yYLmabTcEF1pWA",
+          "expires_in": 3600,
+          "token_type": "Bearer"
+        }
+      }
+    ],
+    "pessoas": [
+      {
+        "json": {
+          "body": {
+            "totalItems": 1117,
+            "items": [
+              {
+                "id": "cd743253-135a-492d-b377-dac84570dadf",
+                "nome": "Amoras Pet Boutique / Amoras Pet Boutique",
+                "documento": "42544440000150",
+                "email": "marisa_saf@yahoo.com.br",
+                "telefone": "3436311981",
+                "ativo": true,
+                "id_legado": 399074860,
+                "uuid_legado": "0a262af2-98d9-4226-9355-4a0d1d5d201f",
+                "perfis": [
+                  "Cliente"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2025-04-07T08:46:11.18",
+                "data_alteracao": "2025-04-07T08:55:17.026323"
+              },
+              {
+                "id": "cb1e2fd4-699d-45bc-bdf9-79bf30ffb80d",
+                "nome": "AmorSaúde Serviços médicos e odontológicos Ltda - CLINCA MÉDICA AMOR SAUDE/ AMOR SAUDE",
+                "documento": "28800710000115",
+                "email": "saojosedospinhais.pr@amorsaude.com",
+                "telefone": "4132578378",
+                "ativo": true,
+                "id_legado": 392523756,
+                "uuid_legado": "34dcfe5e-bb96-49b7-8fb1-7f2b04ed13fe",
+                "perfis": [
+                  "Cliente"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2025-03-05T12:15:36.168",
+                "data_alteracao": "2025-04-15T12:50:31.566739"
+              },
+              {
+                "id": "c663540a-b5b8-4886-a86e-31ebe49ef3a0",
+                "nome": "AMPLA SOLUCAO - EDUARDO - VIVO",
+                "documento": "53816019000177",
+                "email": "RECEPCAO@VALTECC.COM.BR",
+                "telefone": "3433157518",
+                "ativo": true,
+                "id_legado": 332097277,
+                "uuid_legado": "00fb7f10-821a-4a18-bea5-05abd44f0447",
+                "perfis": [
+                  "Cliente"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2024-03-22T16:43:47.12",
+                "data_alteracao": "2024-04-24T16:34:55.256"
+              },
+              {
+                "id": "53e3f642-ac04-4779-92a6-a601fc5b83f6",
+                "nome": "A M SOLUCOES DIGITAIS LTDA - AM SOLUÇÕES DIGITAIS - CASA DA CÓPIA",
+                "documento": "00314809000198",
+                "email": "RODRIGOERIK@CASADACOPIA.COM.BR",
+                "telefone": "7931984004",
+                "ativo": true,
+                "id_legado": 363205947,
+                "uuid_legado": "d83f45c0-f0e1-4122-9772-498825bc7c67",
+                "perfis": [
+                  "Cliente"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2024-10-01T02:02:10.199",
+                "data_alteracao": "2025-04-15T12:33:18.115117"
+              },
+              {
+                "id": "58091f77-cb6f-4957-8c1c-cdb530de3130",
+                "nome": "A&M Soluções Públicas Ltda  / A&M Soluções Publicas",
+                "documento": "23112368000147",
+                "email": "AEMSOLUCOESPUBLICAS@GMAIL.COM",
+                "telefone": "3337532822",
+                "ativo": true,
+                "id_legado": 450050213,
+                "uuid_legado": "573860a6-4040-49cf-8753-624768923728",
+                "perfis": [
+                  "Cliente"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2025-10-01T13:06:44.516",
+                "data_alteracao": "2025-10-01T13:13:19.814195"
+              },
+              {
+                "id": "f2f1ecdf-871e-43ea-8727-0aa188162158",
+                "nome": "Ana Cláudia Carvalho",
+                "documento": "",
+                "email": "",
+                "telefone": "",
+                "ativo": true,
+                "id_legado": 0,
+                "uuid_legado": "00000000-0000-0000-0000-000000000000",
+                "perfis": [
+                  "Fornecedor"
+                ],
+                "tipo_pessoa": "Física",
+                "data_criacao": "2024-01-03T16:12:42.045",
+                "data_alteracao": "2024-01-03T16:12:42.045"
+              },
+              {
+                "id": "8d1ad643-7575-4b75-8a86-ffc64d42012c",
+                "nome": "Ana Cristina",
+                "documento": "",
+                "email": "",
+                "telefone": "",
+                "ativo": true,
+                "id_legado": 0,
+                "uuid_legado": "00000000-0000-0000-0000-000000000000",
+                "perfis": [
+                  "Fornecedor"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2024-03-14T23:13:59.105",
+                "data_alteracao": "2024-03-14T23:13:59.105"
+              },
+              {
+                "id": "e927023f-bd12-41d8-a228-c2eb4b39b1ac",
+                "nome": "Ana Cristina de Jesus Carvalho",
+                "documento": "49023060000119",
+                "email": "ANAJESUS520@HOTMAIL.COM",
+                "telefone": "1168705210",
+                "ativo": true,
+                "id_legado": 0,
+                "uuid_legado": "00000000-0000-0000-0000-000000000000",
+                "perfis": [
+                  "Fornecedor"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2024-03-11T10:24:36.126",
+                "data_alteracao": "2024-03-11T10:26:02.533"
+              },
+              {
+                "id": "2ff01d7e-1c86-47f3-b63d-660710f299fb",
+                "nome": "ANA DULCE WALCACER LEONELI",
+                "documento": "",
+                "email": "",
+                "telefone": "31984417188",
+                "ativo": true,
+                "id_legado": 304143936,
+                "uuid_legado": "8311c414-8fc5-4fcd-8584-3ff9ef61a6f7",
+                "perfis": [
+                  "Cliente"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2023-09-08T00:00:00",
+                "data_alteracao": "2023-09-08T16:26:56.071"
+              },
+              {
+                "id": "8b6c132b-55dc-429e-98ad-9f9474b696be",
+                "nome": "ANAILSA V DE S SILVA/ACCOR COSMETICOS",
+                "documento": "17570305000131",
+                "email": "ANAILSA-SOUSATJ@HOTMAIL.COM",
+                "telefone": "8399065313",
+                "ativo": true,
+                "id_legado": 371680852,
+                "uuid_legado": "a19f0246-c66a-45fc-8f32-e6e8eee3f1aa",
+                "perfis": [
+                  "Cliente"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2024-11-14T14:20:41.278",
+                "data_alteracao": "2024-11-14T14:38:40.031251"
+              }
+            ]
+          },
+          "headers": {
+            "access-control-allow-headers": "*",
+            "access-control-allow-methods": "OPTIONS, GET, POST, PUT, PATCH, DELETE",
+            "access-control-allow-origin": "*",
+            "content-type": "application/json",
+            "date": "Wed, 24 Dec 2025 16:01:33 GMT",
+            "x-request-id": "060fd5de-3565-4298-8c01-e3248776b05a",
+            "via": "1.1 google",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "connection": "close",
+            "transfer-encoding": "chunked"
+          },
+          "statusCode": 200,
+          "statusMessage": "OK"
+        }
+      }
+    ],
+    "pessoas1": [
+      {
+        "json": {
+          "body": {
+            "totalItems": 1117,
+            "items": [
+              {
+                "id": "cd743253-135a-492d-b377-dac84570dadf",
+                "nome": "Amoras Pet Boutique / Amoras Pet Boutique",
+                "documento": "42544440000150",
+                "email": "marisa_saf@yahoo.com.br",
+                "telefone": "3436311981",
+                "ativo": true,
+                "id_legado": 399074860,
+                "uuid_legado": "0a262af2-98d9-4226-9355-4a0d1d5d201f",
+                "perfis": [
+                  "Cliente"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2025-04-07T08:46:11.18",
+                "data_alteracao": "2025-04-07T08:55:17.026323"
+              },
+              {
+                "id": "cb1e2fd4-699d-45bc-bdf9-79bf30ffb80d",
+                "nome": "AmorSaúde Serviços médicos e odontológicos Ltda - CLINCA MÉDICA AMOR SAUDE/ AMOR SAUDE",
+                "documento": "28800710000115",
+                "email": "saojosedospinhais.pr@amorsaude.com",
+                "telefone": "4132578378",
+                "ativo": true,
+                "id_legado": 392523756,
+                "uuid_legado": "34dcfe5e-bb96-49b7-8fb1-7f2b04ed13fe",
+                "perfis": [
+                  "Cliente"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2025-03-05T12:15:36.168",
+                "data_alteracao": "2025-04-15T12:50:31.566739"
+              },
+              {
+                "id": "c663540a-b5b8-4886-a86e-31ebe49ef3a0",
+                "nome": "AMPLA SOLUCAO - EDUARDO - VIVO",
+                "documento": "53816019000177",
+                "email": "RECEPCAO@VALTECC.COM.BR",
+                "telefone": "3433157518",
+                "ativo": true,
+                "id_legado": 332097277,
+                "uuid_legado": "00fb7f10-821a-4a18-bea5-05abd44f0447",
+                "perfis": [
+                  "Cliente"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2024-03-22T16:43:47.12",
+                "data_alteracao": "2024-04-24T16:34:55.256"
+              },
+              {
+                "id": "53e3f642-ac04-4779-92a6-a601fc5b83f6",
+                "nome": "A M SOLUCOES DIGITAIS LTDA - AM SOLUÇÕES DIGITAIS - CASA DA CÓPIA",
+                "documento": "00314809000198",
+                "email": "RODRIGOERIK@CASADACOPIA.COM.BR",
+                "telefone": "7931984004",
+                "ativo": true,
+                "id_legado": 363205947,
+                "uuid_legado": "d83f45c0-f0e1-4122-9772-498825bc7c67",
+                "perfis": [
+                  "Cliente"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2024-10-01T02:02:10.199",
+                "data_alteracao": "2025-04-15T12:33:18.115117"
+              },
+              {
+                "id": "58091f77-cb6f-4957-8c1c-cdb530de3130",
+                "nome": "A&M Soluções Públicas Ltda  / A&M Soluções Publicas",
+                "documento": "23112368000147",
+                "email": "AEMSOLUCOESPUBLICAS@GMAIL.COM",
+                "telefone": "3337532822",
+                "ativo": true,
+                "id_legado": 450050213,
+                "uuid_legado": "573860a6-4040-49cf-8753-624768923728",
+                "perfis": [
+                  "Cliente"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2025-10-01T13:06:44.516",
+                "data_alteracao": "2025-10-01T13:13:19.814195"
+              },
+              {
+                "id": "f2f1ecdf-871e-43ea-8727-0aa188162158",
+                "nome": "Ana Cláudia Carvalho",
+                "documento": "",
+                "email": "",
+                "telefone": "",
+                "ativo": true,
+                "id_legado": 0,
+                "uuid_legado": "00000000-0000-0000-0000-000000000000",
+                "perfis": [
+                  "Fornecedor"
+                ],
+                "tipo_pessoa": "Física",
+                "data_criacao": "2024-01-03T16:12:42.045",
+                "data_alteracao": "2024-01-03T16:12:42.045"
+              },
+              {
+                "id": "8d1ad643-7575-4b75-8a86-ffc64d42012c",
+                "nome": "Ana Cristina",
+                "documento": "",
+                "email": "",
+                "telefone": "",
+                "ativo": true,
+                "id_legado": 0,
+                "uuid_legado": "00000000-0000-0000-0000-000000000000",
+                "perfis": [
+                  "Fornecedor"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2024-03-14T23:13:59.105",
+                "data_alteracao": "2024-03-14T23:13:59.105"
+              },
+              {
+                "id": "e927023f-bd12-41d8-a228-c2eb4b39b1ac",
+                "nome": "Ana Cristina de Jesus Carvalho",
+                "documento": "49023060000119",
+                "email": "ANAJESUS520@HOTMAIL.COM",
+                "telefone": "1168705210",
+                "ativo": true,
+                "id_legado": 0,
+                "uuid_legado": "00000000-0000-0000-0000-000000000000",
+                "perfis": [
+                  "Fornecedor"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2024-03-11T10:24:36.126",
+                "data_alteracao": "2024-03-11T10:26:02.533"
+              },
+              {
+                "id": "2ff01d7e-1c86-47f3-b63d-660710f299fb",
+                "nome": "ANA DULCE WALCACER LEONELI",
+                "documento": "",
+                "email": "",
+                "telefone": "31984417188",
+                "ativo": true,
+                "id_legado": 304143936,
+                "uuid_legado": "8311c414-8fc5-4fcd-8584-3ff9ef61a6f7",
+                "perfis": [
+                  "Cliente"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2023-09-08T00:00:00",
+                "data_alteracao": "2023-09-08T16:26:56.071"
+              },
+              {
+                "id": "8b6c132b-55dc-429e-98ad-9f9474b696be",
+                "nome": "ANAILSA V DE S SILVA/ACCOR COSMETICOS",
+                "documento": "17570305000131",
+                "email": "ANAILSA-SOUSATJ@HOTMAIL.COM",
+                "telefone": "8399065313",
+                "ativo": true,
+                "id_legado": 371680852,
+                "uuid_legado": "a19f0246-c66a-45fc-8f32-e6e8eee3f1aa",
+                "perfis": [
+                  "Cliente"
+                ],
+                "tipo_pessoa": "Jurídica",
+                "data_criacao": "2024-11-14T14:20:41.278",
+                "data_alteracao": "2024-11-14T14:38:40.031251"
+              }
+            ]
+          },
+          "headers": {
+            "access-control-allow-headers": "*",
+            "access-control-allow-methods": "OPTIONS, GET, POST, PUT, PATCH, DELETE",
+            "access-control-allow-origin": "*",
+            "content-type": "application/json",
+            "date": "Wed, 24 Dec 2025 16:51:00 GMT",
+            "x-request-id": "cef05f6c-7fcc-43b3-958b-b24b98b2dcb7",
+            "via": "1.1 google",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "connection": "close",
+            "transfer-encoding": "chunked"
+          },
+          "statusCode": 200,
+          "statusMessage": "OK"
+        }
+      }
+    ],
+    "1 dia antes do vencimento1": [
+      {
+        "json": {
+          "itens_totais": 6,
           "itens": [
             {
-              "id": "a263de99-e55f-40b3-a691-96ac2b713f35",
-              "versao": 0,
-              "nome": "13º Salário - 1ª Parcela",
-              "categoria_pai": "54580768-11ae-4d32-a8e4-7cecc4b08d9b",
-              "tipo": "DESPESA",
-              "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
-              "considera_custo_dre": false
+              "id": "bd86bd9f-b356-4a47-a672-28f62af090e0",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1703998",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-08-18T16:36:12.3633",
+              "data_alteracao": "2025-12-01T04:58:39.854406",
+              "cliente": {
+                "id": "4d7433f1-1af8-40ae-9a26-5fe328678718",
+                "nome": "CACAU SHOW/ Show Regina Assuncao Costa Oliveira LTDA"
+              },
+              "renegociacao": null
             },
             {
-              "id": "05d664ba-e2c7-4fa1-bc90-6d8aaf29e55b",
-              "versao": 0,
-              "nome": "13º Salário - 2ª Parcela",
-              "categoria_pai": "54580768-11ae-4d32-a8e4-7cecc4b08d9b",
-              "tipo": "DESPESA",
-              "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
-              "considera_custo_dre": false
+              "id": "67f8981a-61be-4430-99fd-f4c8543c4aa2",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1703995",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-09-02T10:59:02.228614",
+              "data_alteracao": "2025-12-01T04:11:07.002983",
+              "cliente": {
+                "id": "0db3974c-63a2-427b-8fec-a3c4e408a48d",
+                "nome": "ALINE SANTOS PEREIRA700.098.531-38 / Aline Santos Concept"
+              },
+              "renegociacao": null
             },
             {
-              "id": "61ad7511-4b9f-45c9-a89c-b4e5c1aa75c7",
-              "versao": 0,
-              "nome": "Adiantamento Salarial",
-              "categoria_pai": "54580768-11ae-4d32-a8e4-7cecc4b08d9b",
-              "tipo": "DESPESA",
-              "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
-              "considera_custo_dre": false
+              "id": "75891197-04cb-43e9-be3f-59d0da31364f",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1704050",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-09-17T18:19:19.504009",
+              "data_alteracao": "2025-12-23T11:15:37.489377",
+              "cliente": {
+                "id": "ce53c68f-6b05-43e0-812d-17fce3fd3c37",
+                "nome": "THRIFTY AUDIOVISUAL / THRIFTY AUDIOVISUAL E SOLUÇÕES PARA EVENTOS LTDA / THRIFTY AUDIOVISUAL E SOLUÇÕES PARA EVENTOS LTDA"
+              },
+              "renegociacao": null
             },
             {
-              "id": "8f011838-aec3-48df-8d05-e1ae62229cb2",
-              "versao": 0,
-              "nome": "Adiantamentos para futuros Aumentos de Capital - AFAC",
-              "categoria_pai": "80fcc5ed-a7d7-4680-b8ef-980c001f7c01",
-              "tipo": "RECEITA",
-              "entrada_dre": null,
-              "considera_custo_dre": false
+              "id": "431673b6-4827-4c1e-89ff-ee8ca4c7e77c",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1703975",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-09-24T08:28:49.222467",
+              "data_alteracao": "2025-11-22T02:09:27.017437",
+              "cliente": {
+                "id": "3551ed3e-65fc-47da-9f4a-784c56be2e1f",
+                "nome": "CHARBELL PROFESSIONAL/  WT STUDIO"
+              },
+              "renegociacao": null
             },
             {
-              "id": "1091cf0d-7453-4b3c-bae3-2a179ae16b44",
-              "versao": 0,
-              "nome": "Água e Saneamento",
-              "categoria_pai": "12b635f8-7d82-42eb-ac21-72b0032101c3",
-              "tipo": "DESPESA",
-              "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
-              "considera_custo_dre": false
+              "id": "369d0c4c-236a-42e6-b2cc-731766aedef4",
+              "status": "PENDING",
+              "total": 1500,
+              "descricao": "Venda 1703907",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 1500,
+              "pago": 0,
+              "data_criacao": "2025-10-14T08:58:55.651065",
+              "data_alteracao": "2025-11-01T02:41:09.376268",
+              "cliente": {
+                "id": "67820443-af74-4a2b-be21-9de5322de1be",
+                "nome": "GRABSKI INTERMEDIACOES"
+              },
+              "renegociacao": null
             },
             {
-              "id": "70957b7f-e260-42e7-a936-d077bf483953",
-              "versao": 0,
-              "nome": "Aluguel",
-              "categoria_pai": "12b635f8-7d82-42eb-ac21-72b0032101c3",
-              "tipo": "DESPESA",
-              "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
-              "considera_custo_dre": false
-            },
-            {
-              "id": "833c6f1e-535c-43e7-9383-069f62453215",
-              "versao": 0,
-              "nome": "Alvará de Funcionamento",
-              "categoria_pai": "12b635f8-7d82-42eb-ac21-72b0032101c3",
-              "tipo": "DESPESA",
-              "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
-              "considera_custo_dre": false
-            },
-            {
-              "id": "6bf48ee7-566a-406b-a093-636c6ce4c067",
-              "versao": 0,
-              "nome": "Antecipação de Lucros",
-              "categoria_pai": "960d9260-cd9d-4282-834b-972e68a29c6f",
-              "tipo": "DESPESA",
-              "entrada_dre": null,
-              "considera_custo_dre": false
-            },
-            {
-              "id": "ecee04a9-5bf9-4ec7-901c-59b49e1e8679",
-              "versao": 0,
-              "nome": "Benfeitorias em Bens de Terceiros",
-              "categoria_pai": "38130995-bdc4-42fd-8f46-5f9649fe384f",
-              "tipo": "DESPESA",
-              "entrada_dre": "INVESTIMENTOS_IMOBILIZADO",
-              "considera_custo_dre": false
-            },
-            {
-              "id": "a46a0ebb-5ca3-4ecf-bf29-61c78152ce9b",
-              "versao": 0,
-              "nome": "Bens de Pequeno Valor",
-              "categoria_pai": "5693b0e4-27ee-43e1-920b-3590b1dfb035",
-              "tipo": "DESPESA",
-              "entrada_dre": "DESPESAS_ADMINISTRATIVAS",
-              "considera_custo_dre": false
+              "id": "bfdaf7b4-74f8-4b08-aa68-02e44bfa8713",
+              "status": "PENDING",
+              "total": 3000,
+              "descricao": "Venda",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 3000,
+              "pago": 0,
+              "data_criacao": "2025-11-26T09:52:32.836452",
+              "data_alteracao": "2025-11-26T09:52:32.836452",
+              "cliente": {
+                "id": "566ae969-05af-42a4-b178-f11c02d1b77a",
+                "nome": "Halisson Pereira Michelone Soc. Ind. / H. Michelone Advogados"
+              },
+              "renegociacao": null
             }
-          ]
+          ],
+          "totais": {
+            "pago": {
+              "valor": 0
+            },
+            "vencido": {
+              "valor": 0
+            },
+            "vence_hoje": {
+              "valor": 0
+            },
+            "pendente": {
+              "valor": 12500
+            },
+            "aberto": {
+              "valor": 12500
+            },
+            "todos": 12500
+          }
         }
       }
     ]
@@ -2526,6 +3736,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-12-24T01:34:43.879Z",
-  "versionId": "59586312-389b-4a5e-b1bb-423b5a19213f"
+  "updatedAt": "2025-12-24T21:41:53.482Z",
+  "versionId": "91072b11-a8b7-4f78-94f1-22e3c0bd1186"
 }
