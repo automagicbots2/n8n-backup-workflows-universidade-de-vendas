@@ -1,0 +1,856 @@
+{
+  "active": false,
+  "connections": {
+    "erro_de_token": {
+      "main": [
+        [
+          {
+            "node": "get_new_token1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "busca_cobranca",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_variavel_refresh_token_conta_azul": {
+      "main": [
+        [
+          {
+            "node": "busca_variavel_auth_conta_Azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_variavel_auth_conta_Azul": {
+      "main": [
+        [
+          {
+            "node": "busca_variavel_client_id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_variavel_client_id": {
+      "main": [
+        [
+          {
+            "node": "busca_variavel_client_secret_Azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_variavel_client_secret_Azul": {
+      "main": [
+        [
+          {
+            "node": "busca_pessoa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_bd1": {
+      "main": [
+        [
+          {
+            "node": "5s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_n8n_fluxo_users1": {
+      "main": [
+        [
+          {
+            "node": "cria_atualiza_user1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_variavel_access_token_conta_azul": {
+      "main": [
+        [
+          {
+            "node": "busca_variavel_refresh_token_conta_azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chega_da_fila": {
+      "main": [
+        [
+          {
+            "node": "copies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "copies": {
+      "main": [
+        [
+          {
+            "node": "busca_variavel_access_token_conta_azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "copy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cria_atualiza_user1": {
+      "main": [
+        [
+          {
+            "node": "registra_cobranca",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "copy": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_n8n_fluxo_users1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "erro_de_token1": {
+      "main": [
+        [
+          {
+            "node": "get_new_token1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "5s": {
+      "main": [
+        [
+          {
+            "node": "busca_pessoa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_new_token1": {
+      "main": [
+        [
+          {
+            "node": "atualiza_bd1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_pessoa": {
+      "main": [
+        [
+          {
+            "node": "erro_de_token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_cobranca": {
+      "main": [
+        [
+          {
+            "node": "erro_de_token1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-24T21:47:26.503Z",
+  "id": "GSnjgjfNHdIeJXt4",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "✅⌚[CONTA AZUL][COBRANÇAS][8h] - PARTE 2",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c2ed465e-958e-4d5d-94b3-22521b7c7be0",
+              "leftValue": "={{ String($json[\"error\"][\"status\"]) }}{{ $json[\"error\"][\"message\"] }}",
+              "rightValue": "401",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a279d923-d1f2-41fc-9a60-c314f65fd073",
+      "name": "erro_de_token",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        580,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Refresh Token Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "a5290765-c66a-4393-89f0-0965c2fa5909",
+      "name": "busca_variavel_refresh_token_conta_azul",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        -460,
+        460
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Basic Auth Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "f585c5c8-7758-47e5-ab13-456939d9a3a3",
+      "name": "busca_variavel_auth_conta_Azul",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        -240,
+        460
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Client Secret Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "bd7cb54d-a4d9-4689-ae27-bb940a9e0990",
+      "name": "busca_variavel_client_secret_Azul",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        200,
+        460
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Client ID Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "656e428b-9efc-4590-bec4-b93bb282a7e0",
+      "name": "busca_variavel_client_id",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        -20,
+        460
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE variaveis_globais_n8n\nSET valor_variavel = CASE \n    WHEN id = 16 THEN '{{$json[\"id_token\"] }}'\n    WHEN id = 15 THEN '{{ $json[\"access_token\"] }}'\n    WHEN id = 13 THEN '{{ $json[\"refresh_token\"] }}'\nEND\nWHERE id IN (16, 15, 13);",
+        "options": {}
+      },
+      "id": "46c1c44c-b17f-44cb-9230-53a56b877176",
+      "name": "atualiza_bd1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1460,
+        440
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "9ecac2fa-714d-47e0-b329-b1fd08681741",
+      "name": "5s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1640,
+        240
+      ],
+      "webhookId": "f2918b4e-933c-463d-b838-d160622c38dd"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "URL do Fluxo de Verificação de Users"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "43096393-c9cb-46a8-84ec-c36b0fb9201c",
+      "name": "pesquisa_variavel_n8n_fluxo_users1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1660,
+        640
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "queue": "cobranca_conta_azul",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "acknowledge": "executionFinishesSuccessfully",
+          "jsonParseBody": "={{ true }}",
+          "parallelMessages": 3
+        }
+      },
+      "id": "d0379813-daff-4602-9038-0c942c243218",
+      "name": "chega_da_fila",
+      "type": "n8n-nodes-base.rabbitmqTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1080,
+        460
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Access Token Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "6b4413ff-20bd-45e6-9433-8a355837c54a",
+      "name": "busca_variavel_access_token_conta_azul",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        -700,
+        460
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3cba1cc4-6e7a-4399-b98f-7fc13eaf26fd",
+              "name": "5_antes",
+              "value": "=Oi, %FIRSTNAME%! Passando pra te enviar o link do seu pagamento com vencimento em %VALIDADE%.\n✅ Se você pagar até 1 dia antes do vencimento, ganha 5% de desconto.\nLink: %LINKPAGAMENTO%",
+              "type": "string"
+            },
+            {
+              "id": "a296d365-f34e-4ca3-aba4-dcc9326704d9",
+              "name": "2_antes",
+              "value": "=Oi, %FIRSTNAME%! Lembrete do seu pagamento com vencimento em %VALIDADE%.\n✅ Pagando até 1 dia antes, você garante 5% OFF.\nLink: %LINKPAGAMENTO%",
+              "type": "string"
+            },
+            {
+              "id": "e8c7bba8-35fa-43b0-a6d2-ed0ec9c97385",
+              "name": "1_antes",
+              "value": "=Oi, %FIRSTNAME%! Aviso rápido: amanhã vence (%VALIDADE%) e hoje é o último dia pra garantir 5% de desconto no pagamento.\nLink: %LINKPAGAMENTO%",
+              "type": "string"
+            },
+            {
+              "id": "cb9cd496-2dcc-46cf-950a-1502138566fa",
+              "name": "no_dia",
+              "value": "=Oi, %FIRSTNAME%! Hoje é o vencimento do seu pagamento (%VALIDADE%).\nPra facilitar, segue o link: %LINKPAGAMENTO%\nSe precisar de ajuda, me chama aqui.",
+              "type": "string"
+            },
+            {
+              "id": "f2db9d07-befa-477f-9eed-2e1691d77e09",
+              "name": "1_atraso",
+              "value": "=Oi, %FIRSTNAME%! Notei que o pagamento com vencimento em %VALIDADE% ainda consta em aberto.\n⚠️ A partir de agora o sistema pode aplicar multa e juros por atraso.\nLink pra regularizar: %LINKPAGAMENTO%",
+              "type": "string"
+            },
+            {
+              "id": "af7c91dd-541a-4c0f-81e0-265c4625bdf5",
+              "name": "2_atraso",
+              "value": "=Oi, %FIRSTNAME%! Seu pagamento (vencimento %VALIDADE%) segue pendente.\n⚠️ Para evitar aumento de multa e juros, consegue regularizar hoje?\nLink: %LINKPAGAMENTO%",
+              "type": "string"
+            },
+            {
+              "id": "481b6e0c-06f5-4e23-842f-20bbbb7d9cef",
+              "name": "3_atraso",
+              "value": "=Oi, %FIRSTNAME%! Passando só pra alinhar: o pagamento vencido em %VALIDADE% ainda não foi identificado.\n⚠️ Após o vencimento, há multa e juros.\nLink: %LINKPAGAMENTO% — me avisa se houver qualquer problema.",
+              "type": "string"
+            },
+            {
+              "id": "182cf0ab-1c79-4784-8f5c-6711bbf1995d",
+              "name": "5_atraso",
+              "value": "=Oi, %FIRSTNAME%! Último lembrete por aqui: o pagamento vencido em %VALIDADE% ainda está em aberto.\n⚠️ Com o atraso, o sistema aplica multa e juros.\nConsegue regularizar agora pelo link? %LINKPAGAMENTO%",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f36fb37e-1c6d-4967-85b2-cada6be3d45a",
+      "name": "copies",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -900,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO lembretes_enviados (\n  user_id,\n  cobranca_id,\n  mensagem_tipo,\n  data_envio,\n  mensagem_texto,\n  status_envio,\n  data_vencimento,\n  link_pagamento\n)\nVALUES (\n  {{ $node[\"cria_atualiza_user1\"].json[\"id\"] }},\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"mensagem_tipo\"] }}',\n  NOW(),\n\n  CASE '{{ $node[\"chega_da_fila\"].json[\"content\"][\"mensagem_tipo\"] }}'\n\n    WHEN '5_antes' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Passando pra te enviar o link do seu pagamento com vencimento em ',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        '.\\n✅ Se você pagar até 1 dia antes do vencimento, ganha 5% de desconto.\\nLink: ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n      )\n\n    WHEN '2_antes' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Lembrete do seu pagamento com vencimento em ',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        '.\\n✅ Pagando até 1 dia antes, você garante 5% OFF.\\nLink: ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n      )\n\n    WHEN '1_antes' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Aviso rápido: amanhã vence (',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        ') e hoje é o último dia pra garantir 5% de desconto no pagamento.\\nLink: ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n      )\n\n    WHEN 'no_dia' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Hoje é o vencimento do seu pagamento (',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        ').\\nPra facilitar, segue o link: ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}',\n        '\\nSe precisar de ajuda, me chama aqui.'\n      )\n\n    WHEN '1_atraso' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Notei que o pagamento com vencimento em ',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        ' ainda consta em aberto.\\n⚠️ A partir de agora o sistema pode aplicar multa e juros.\\nLink pra regularizar: ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n      )\n\n    WHEN '2_atraso' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Seu pagamento (vencimento ',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        ') segue pendente.\\n⚠️ Para evitar aumento de multa e juros, consegue regularizar hoje?\\nLink: ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n      )\n\n    WHEN '3_atraso' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Passando só pra alinhar: o pagamento vencido em ',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        ' ainda não foi identificado.\\n⚠️ Após o vencimento, há multa e juros.\\nLink: ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n      )\n\n    WHEN '5_atraso' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Último lembrete por aqui: o pagamento vencido em ',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        ' ainda está em aberto.\\n⚠️ Com o atraso, o sistema aplica multa e juros.\\nConsegue regularizar agora pelo link? ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n      )\n\n    ELSE\n      'Lembrete de pagamento.'\n  END,\n\n  'sucesso',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n);",
+        "options": {}
+      },
+      "id": "f285a88d-7840-4f2a-bca4-8bc1e65f0633",
+      "name": "registra_cobranca",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2040,
+        640
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// ================================\n// 📌 INPUT BASE\n// ================================\nconst body = $node[\"erro_de_token\"].json.body;\n\n// ================================\n// 📌 FUNÇÕES AUXILIARES\n// ================================\nfunction formatPhone(phone) {\n  if (!phone) return \"\";\n  const clean = phone.replace(/\\D/g, \"\");\n  let n = clean.startsWith(\"55\") ? clean.slice(2) : clean;\n  const ddd = n.slice(0, 2);\n  let linha = n.slice(2);\n  if (linha.length === 8) linha = `9${linha}`;\n  return `55${ddd}${linha}`;\n}\n\nfunction formatEmail(email) {\n  return email ? email.toLowerCase().trim() : \"\";\n}\n\n// ---------- PF ----------\nfunction parsePessoaFisica(nome = \"\") {\n  const lowerWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n  const words = nome\n    .toLowerCase()\n    .split(\" \")\n    .filter(Boolean)\n    .map((w, i) =>\n      lowerWords.includes(w) && i !== 0\n        ? w\n        : w.charAt(0).toUpperCase() + w.slice(1)\n    );\n\n  const fname = words[0] || \"\";\n  const lname = words.slice(1).join(\" \");\n  return { fname, lname };\n}\n\n// ---------- PJ ----------\nfunction limparEmpresa(nome = \"\") {\n  return nome\n    .split(\"/\")[0]\n    .replace(/\\b(LTDA|ME|EPP|S\\.A\\.?|EIRELI)\\b/gi, \"\")\n    .replace(/\\s{2,}/g, \" \")\n    .trim();\n}\n\nfunction parsePessoaJuridica(nome = \"\") {\n  const empresa = limparEmpresa(nome);\n  if (!empresa) return { fname: \"\", lname: \"\" };\n\n  const parts = empresa.split(\" \");\n  const fname = parts[0];                // Cacau\n  const lname = parts.slice(1).join(\" \"); // Show\n\n  return {\n    fname: \"equipe\",\n    lname: empresa\n  };\n}\n\n// ================================\n// 📌 DECISÃO SEMÂNTICA\n// ================================\nlet fname = \"\";\nlet lname = \"\";\n\nif (body.tipo_pessoa === \"Física\") {\n  const pf = parsePessoaFisica(body.nome);\n  fname = pf.fname;\n  lname = pf.lname;\n}\n\nif (body.tipo_pessoa === \"Jurídica\") {\n  const pj = parsePessoaJuridica(body.nome);\n  fname = pj.fname;\n  lname = pj.lname;\n}\n\n// ================================\n// 📌 FALLBACK FINAL\n// ================================\nif (!fname || fname.length < 2) fname = \"Olá\";\nif (!lname) lname = \"\";\n\n// ================================\n// 📌 CONTATOS\n// ================================\nconst telefone =\n  formatPhone(body.telefone_celular) ||\n  formatPhone(body.telefone_comercial);\n\nconst email = formatEmail(body.email);\n\n// ================================\n// 📌 OUTPUT FINAL\n// ================================\nreturn {\n  nome: {\n    fname,\n    lname,\n    fullname: lname ? `${fname} ${lname}` : fname\n  },\n  telefone,\n  email,\n  tipo_pessoa: body.tipo_pessoa\n};"
+      },
+      "id": "f482a39c-544f-47f8-884f-62fa77038300",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1260,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $node[\"pesquisa_variavel_n8n_fluxo_users1\"].json[\"valor_variavel\"] }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] || \"\" }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefone\"] || \"\" }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{$node[\"formata_dados\"].json[\"tipo_pessoa\"] == 'Jurídica' ? $node[\"formata_dados\"].json[\"nome\"][\"fullname\"] : $node[\"formata_dados\"].json[\"nome\"][\"fname\"] }}"
+            },
+            {
+              "name": "sobrenome",
+              "value": "={{$node[\"formata_dados\"].json[\"tipo_pessoa\"] == 'Jurídica' ? '' : $node[\"formata_dados\"].json[\"nome\"][\"lname\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1860,
+        640
+      ],
+      "id": "16ffcfce-b340-4214-86b9-d865a5cda610",
+      "name": "cria_atualiza_user1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const tipo = $node[\"chega_da_fila\"].json.content.mensagem_tipo;\nconst copies = $node[\"copies\"].json;\n\n// fontes das variáveis\nconst fname =\n$node[\"formata_dados\"].json[\"tipo_pessoa\"] == 'Jurídica' ? $node[\"formata_dados\"].json[\"nome\"][\"fullname\"] : $node[\"formata_dados\"].json[\"nome\"][\"fname\"];\n\nconst validade =\n  $node[\"chega_da_fila\"].json.content.data_vencimento;\n\nconst linkPagamento =\n  $node[\"chega_da_fila\"].json.content.link_pagamento || \"\";\n\n// pega a copy\nlet mensagem = copies[tipo] || \"Lembrete de pagamento.\";\n\n// substituição explícita\nmensagem = mensagem\n  .replace(/%FIRSTNAME%/g, fname)\n  .replace(/%VALIDADE%/g, validade)\n  .replace(/%LINKPAGAMENTO%/g, linkPagamento);\n\nreturn {\n  json: {\n    mensagem_texto: mensagem\n  }\n};"
+      },
+      "id": "7c26bd27-35a9-4ba9-8877-26698c1f958b",
+      "name": "copy",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1460,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c2ed465e-958e-4d5d-94b3-22521b7c7be0",
+              "leftValue": "={{ String($json[\"error\"][\"status\"]) }}{{ $json[\"error\"][\"message\"] }}",
+              "rightValue": "401",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "ce120a0f-ee87-4a21-bdb6-53bd7c40bc06",
+      "name": "erro_de_token1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        620
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"].trim() }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "refresh_token",
+              "value": "={{ $node[\"busca_variavel_refresh_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b55fcdc6-dee9-4b2e-b4e0-f774ebeaed02",
+      "name": "get_new_token1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1260,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api-v2.contaazul.com/v1/pessoas/{{$node[\"chega_da_fila\"].json[\"content\"][\"cliente\"][\"id\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "2dbdb218-35ce-42b4-8afe-6735e7f7e4b6",
+      "name": "busca_pessoa",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        460
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://api-v2.contaazul.com/v1/financeiro/contas-a-receber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}/links-pagamento",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "3534376a-6409-4bbf-8c7c-57c3f32656d2",
+      "name": "busca_cobranca",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        620
+      ],
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {
+    "chega_da_fila": [
+      {
+        "json": {
+          "fields": {
+            "consumerTag": "amq.ctag-Fp0aKUhQjKHmPUFGlW_FWg",
+            "deliveryTag": 1,
+            "redelivered": false,
+            "exchange": "",
+            "routingKey": "cobranca_conta_azul"
+          },
+          "properties": {
+            "headers": {}
+          },
+          "content": {
+            "nao_pago": "2000",
+            "status_traduzido": "EM_ABERTO",
+            "pago": "0",
+            "data_alteracao": "2025-12-01T04:58:39.854406",
+            "mensagem_tipo": "5_antes",
+            "cliente": {
+              "id": "4d7433f1-1af8-40ae-9a26-5fe328678718",
+              "nome": "CACAU SHOW/ Show Regina Assuncao Costa Oliveira LTDA"
+            },
+            "data_vencimento": "2025-12-25",
+            "descricao": "Venda 1703998",
+            "total": "2000",
+            "status": "PENDING",
+            "id": "bd86bd9f-b356-4a47-a672-28f62af090e0"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-25T00:16:57.190Z",
+  "versionId": "45b25aa3-79f5-4bb6-823c-bcb0505c11d7"
+}
