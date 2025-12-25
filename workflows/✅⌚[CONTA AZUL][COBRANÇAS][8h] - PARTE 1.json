@@ -1,0 +1,2475 @@
+{
+  "active": false,
+  "connections": {
+    "busca_variavel_refresh_token_conta_azul": {
+      "main": [
+        [
+          {
+            "node": "busca_variavel_auth_conta_Azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_variavel_auth_conta_Azul": {
+      "main": [
+        [
+          {
+            "node": "get_new_token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_titulos_a_receber": {
+      "main": [
+        [
+          {
+            "node": "erro_de_token2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "8am": {
+      "main": [
+        [
+          {
+            "node": "tamanho_batching",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "loop": {
+      "main": [
+        [
+          {
+            "node": "end",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "busca_variavel_access_token_conta_azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_variavel_access_token_conta_azul": {
+      "main": [
+        [
+          {
+            "node": "busca_variavel_refresh_token_conta_azul1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_variavel_refresh_token_conta_azul1": {
+      "main": [
+        [
+          {
+            "node": "busca_itens_totais",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_bd1": {
+      "main": [
+        [
+          {
+            "node": "5s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "guia": {
+      "main": [
+        [
+          {
+            "node": "loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_bd": {
+      "main": [
+        [
+          {
+            "node": "define_datas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "erro_de_token": {
+      "main": [
+        [
+          {
+            "node": "get_new_token1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "sem_itens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "5s": {
+      "main": [
+        [
+          {
+            "node": "guia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "init_paginacao": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Tem Mais Páginas?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "loop1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tem Mais Páginas?": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verificar na audiência": {
+      "main": [
+        [
+          {
+            "node": "Contato existe?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contato existe?": {
+      "main": [
+        [
+          {
+            "node": "Buscar na audiência",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Cadastrar contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cadastrar contato": {
+      "main": [
+        [
+          {
+            "node": "Buscar na audiência",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar na audiência": {
+      "main": [
+        [
+          {
+            "node": "Envia campo Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envia campo Email": {
+      "main": [
+        [
+          {
+            "node": "Envia campo Link da Fatura",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envia campo Link da Fatura": {
+      "main": [
+        [
+          {
+            "node": "Envia campo Produto/Serviço",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envia campo Produto/Serviço": {
+      "main": [
+        [
+          {
+            "node": "Envia campo Valor da Fatura",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envia campo Valor da Fatura": {
+      "main": [
+        [
+          {
+            "node": "Envia campo Vencimento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envia campo Vencimento": {
+      "main": [
+        [
+          {
+            "node": "Envia campo CustomerID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos_bc": {
+      "main": [
+        [
+          {
+            "node": "Verificar na audiência",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envia campo CustomerID": {
+      "main": [
+        [
+          {
+            "node": "Envia Fluxo de Cobrança",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tamanho_batching": {
+      "main": [
+        [
+          {
+            "node": "busca_variavel_refresh_token_conta_azul",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sem_itens": {
+      "main": [
+        [
+          {
+            "node": "5s",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "define_batching",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "define_batching": {
+      "main": [
+        [
+          {
+            "node": "loop2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "loop2": {
+      "main": [
+        [
+          {
+            "node": "Limit1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "busca_contas2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_itens_totais": {
+      "main": [
+        [
+          {
+            "node": "erro_de_token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_new_token1": {
+      "main": [
+        [
+          {
+            "node": "atualiza_bd1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "semanal": {
+      "main": [
+        [
+          {
+            "node": "Apaga >90 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "loop3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "loop3": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "loop2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit1": {
+      "main": [
+        [
+          {
+            "node": "loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "entra_na_fila": {
+      "main": [
+        [
+          {
+            "node": "loop3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_contas2": {
+      "main": [
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "define_datas": {
+      "main": [
+        [
+          {
+            "node": "loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_new_token": {
+      "main": [
+        [
+          {
+            "node": "atualiza_bd",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-24T17:37:57.858Z",
+  "id": "OTrHdm5GBVkL1l9C",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "✅⌚[CONTA AZUL][COBRANÇAS][8h] - PARTE 1",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Refresh Token Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "931d3c7e-c6b1-4725-ae6d-b05666544756",
+      "name": "busca_variavel_refresh_token_conta_azul",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        -640,
+        680
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Basic Auth Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "eb16e176-da39-4a64-9c1e-a9102ea291c7",
+      "name": "busca_variavel_auth_conta_Azul",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        -420,
+        680
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c2ed465e-958e-4d5d-94b3-22521b7c7be0",
+              "leftValue": "={{ String($json[\"error\"][\"status\"]) }}{{ $json[\"error\"][\"message\"] }}",
+              "rightValue": "401",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "356becae-5cfb-46e7-81b4-0e0abebb60dd",
+      "name": "erro_de_token2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        4080,
+        2020
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/categorias",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "262767d4-e3f2-4a0b-94b5-6fc5c3143d54",
+      "name": "categorias",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2988,
+        1904
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/parcela/filtro",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "2025-12-24"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "2025-12-29"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "b09529cd-b51b-4747-b41f-a78d9eeacc49",
+      "name": "buscar_titulos_a_receber3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3880,
+        1800
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/parcela/filtro",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "={{ $now.plus({ days: 5 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "={{ $now.plus({ days: 5 }).toISODate().split('T')[0] }}"
+            },
+            {
+              "name": "situacao",
+              "value": "EM_ABERTO"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "372252f4-be0e-4176-836f-22f61fe8014e",
+      "name": "busca_titulos_a_receber",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3880,
+        2020
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * *"
+            }
+          ]
+        }
+      },
+      "id": "b3cd29ea-55f6-4702-beaa-ddda7160c316",
+      "name": "8am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1040,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "b963a0c7-47c0-4ada-a740-4a49a67f7646",
+      "name": "loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        420,
+        680
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "89147cc9-cac5-4f96-a911-a904685d331d",
+      "name": "end",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        620,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Access Token Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "5824e9ea-1e8b-4c02-958e-2e900358142c",
+      "name": "busca_variavel_access_token_conta_azul",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        620,
+        780
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE variaveis_globais_n8n\nSET valor_variavel = CASE \n    WHEN id = 16 THEN '{{$json[\"id_token\"] }}'\n    WHEN id = 15 THEN '{{ $json[\"access_token\"] }}'\n    WHEN id = 13 THEN '{{ $json[\"refresh_token\"] }}'\nEND\nWHERE id IN (16, 15, 13);",
+        "options": {}
+      },
+      "id": "b5575adb-4bca-4dff-8954-23379f16a593",
+      "name": "atualiza_bd1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1840,
+        620
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "Refresh Token Conta Azul"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "349ddcd6-6f7e-4432-a8f3-5acc82d326e9",
+      "name": "busca_variavel_refresh_token_conta_azul1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.3,
+      "position": [
+        820,
+        780
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "ae1b545c-6609-4231-bccd-b6e92e14dd76",
+      "name": "guia",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2280,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE variaveis_globais_n8n\nSET valor_variavel = CASE \n    WHEN id = 16 THEN '{{$json[\"id_token\"] }}'\n    WHEN id = 15 THEN '{{ $json[\"access_token\"] }}'\n    WHEN id = 13 THEN '{{ $json[\"refresh_token\"] }}'\nEND\nWHERE id IN (16, 15, 13);",
+        "options": {}
+      },
+      "id": "02b90f65-5021-40a0-945f-448f6bb7c9dc",
+      "name": "atualiza_bd",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        0,
+        680
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c2ed465e-958e-4d5d-94b3-22521b7c7be0",
+              "leftValue": "={{ String($json[\"error\"][\"status\"]) }}{{ $json[\"error\"][\"message\"] }}",
+              "rightValue": "401",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "d58cf72a-305a-4ac9-9214-ce3ff823ace3",
+      "name": "erro_de_token",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1220,
+        780
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "cdc0f47c-dc6d-406e-b08a-00368361833b",
+      "name": "5s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2020,
+        620
+      ],
+      "webhookId": "c61462fa-a43b-45a9-aa2d-8db69d110c8c"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "504f29f1-8816-4480-9b41-8f3d5fccb1ce",
+              "name": "pagina",
+              "value": 1,
+              "type": "number"
+            },
+            {
+              "id": "2d9221d2-012c-429d-b55a-54e9c4fb1f21",
+              "name": "itens_coletados",
+              "value": "={{ $node[\"busca_itens_totais\"].json[\"itens\"] }}",
+              "type": "array"
+            },
+            {
+              "id": "26f50c6c-9c9c-4f02-8aea-77fdb689e0a7",
+              "name": "itens_totais",
+              "value": "={{$node[\"busca_itens_totais\"].json[\"itens_totais\"]}}",
+              "type": "number"
+            },
+            {
+              "id": "e67efa13-c60f-4c90-9a01-c78fcdadfc52",
+              "name": "mensagem_tipo",
+              "value": "={{$node[\"loop\"].json[\"mensagem_tipo\"]}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3288a515-75eb-4c9b-bc7b-9f60bf64dd9b",
+      "name": "init_paginacao",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2128,
+        2264
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let itens_coletados = $node[\"init_paginacao\"].json[\"itens_coletados\"] || [];\nconst itens_pagina = $node[\"busca_itens_totais\"].json[\"itens\"] || [];\nconst mensagem_tipo = $node[\"init_paginacao\"].json[\"mensagem_tipo\"];\n\n// Adiciona mensagem_tipo a cada item para usar no template depois\nconst itens_formatados = itens_pagina.map(item => ({\n  ...item,\n  mensagem_tipo: mensagem_tipo\n}));\n\nitens_coletados = [...itens_coletados, ...itens_formatados];\n\nreturn [{ json: { \n  pagina: $node[\"init_paginacao\"].json[\"pagina\"] + 1,  // Prepara para page 2\n  itens_coletados,\n  itens_totais: $node[\"init_paginacao\"].json[\"itens_totais\"]\n} }];"
+      },
+      "id": "29169616-4a03-44f1-8ee4-c776953f1e6e",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2308,
+        2264
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "itens_coletados",
+        "options": {}
+      },
+      "id": "6fc542cd-851d-4c70-83f7-ea814c24032c",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2728,
+        2384
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "cf6b4239-d72f-4afa-8dd3-de531740ff8b",
+      "name": "loop1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        2928,
+        2384
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "871a2803-3fcf-495c-81e4-1c315445a9c7",
+              "leftValue": "={{$json[\"pagina\"] * 50}}",
+              "rightValue": "={{$json[\"itens_totais\"]}}",
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9c5273f9-ca7c-4bbd-b5a9-1c1826b3ca41",
+      "name": "Tem Mais Páginas?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2508,
+        2264
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/+{{ $node[\"formata_dados\"].json[\"telefone\"] }}/",
+        "options": {},
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Verificar na audiência",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1520,
+        1980
+      ],
+      "id": "b605cfa0-d890-4421-be82-a895b4ec6e0e",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json[\"id\"]}}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "name": "Contato existe?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1744,
+        1980
+      ],
+      "id": "48b3b50b-6bd2-40dd-ba32-1e26f976d198"
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "=+{{ $node[\"formata_dados\"].json[\"telefone\"] }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"formata_dados\"].json[\"Nome\"].split(' ')[0] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"formata_dados\"].json[\"Nome\"].split(' ')[1] }}."
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Cadastrar contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1920,
+        2092
+      ],
+      "id": "2d7ce008-fed3-40bd-a4ea-014c6ae4ae71",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/+{{ $node[\"formata_dados\"].json[\"telefone\"] }}/",
+        "options": {},
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Buscar na audiência",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2128,
+        1980
+      ],
+      "id": "8d012d8a-29fc-4b70-8883-117a0889d424",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/{{ $node[\"infos_bc\"].json[\"ID Campo Email\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3e2eaecf-5b05-4f3c-a76e-914158fb25c6",
+      "name": "Envia campo Email",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2368,
+        1980
+      ],
+      "retryOnFail": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{$node[\"Buscar na audiência\"].json[\"id\"]}}/send_flow/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"infos_bc\"].json[\"Fluxo de Cobrança Automática\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8bfcd3c7-a2c0-411a-b912-c7629749104f",
+      "name": "Envia Fluxo de Cobrança",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3680,
+        1980
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/{{ $node[\"infos_bc\"].json[\"ID Link da Fatura\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"infos_bc\"].json[\"Link da Fatura\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "69ec3a8a-b8b4-42b0-aed3-c238354527b6",
+      "name": "Envia campo Link da Fatura",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2592,
+        1980
+      ],
+      "retryOnFail": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/{{ $node[\"infos_bc\"].json[\"ID Campo Produto\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"infos_bc\"].json[\"Produto/Serviço\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d87de89a-481f-4514-b415-41be9f2d7ce9",
+      "name": "Envia campo Produto/Serviço",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2800,
+        1980
+      ],
+      "retryOnFail": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/{{ $node[\"infos_bc\"].json[\"ID Campo Valor da Cobrança\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"infos_bc\"].json[\"Valor da Cobrança\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "72443d43-1d6f-45ae-a676-982d9d109586",
+      "name": "Envia campo Valor da Fatura",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3024,
+        1980
+      ],
+      "retryOnFail": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/{{ $node[\"infos_bc\"].json[\"ID Campo Vencimento Fatura\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ (new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000)).toLocaleDateString('pt-BR') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d46c9140-bfd8-4d7a-9f3c-708648a41e88",
+      "name": "Envia campo Vencimento",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3248,
+        1980
+      ],
+      "retryOnFail": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "API-KEY",
+              "value": "533707e6-f4b1-40b2-b897-fd55ffb12dee"
+            },
+            {
+              "name": "Fluxo de Cobrança Automática",
+              "value": "3152567"
+            },
+            {
+              "name": "ID Campo Email",
+              "value": "1106768"
+            },
+            {
+              "name": "ID Campo Valor da Cobrança",
+              "value": "1106769"
+            },
+            {
+              "name": "ID Campo Produto",
+              "value": "1106786"
+            },
+            {
+              "name": "ID Link da Fatura",
+              "value": "1106765"
+            },
+            {
+              "name": "Valor da Cobrança",
+              "value": "={{ $node[\"cobrar\"].json[\"categories\"][\"0\"][\"value\"] }}"
+            },
+            {
+              "name": "Link da Fatura",
+              "value": "={{ $node[\"cobrar\"].json[\"lastEntryPromise\"][\"url\"] }}"
+            },
+            {
+              "name": "Produto/Serviço",
+              "value": "={{ $node[\"cobrar\"].json[\"lastScheduleInvoiceConfiguration\"][\"serviceName\"] }}"
+            },
+            {
+              "name": "Data de Vencimento da Fatura",
+              "value": "={{ (new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000)).toLocaleDateString('pt-BR') }}"
+            },
+            {
+              "name": "ID Campo Vencimento Fatura",
+              "value": "1106787"
+            },
+            {
+              "name": "ID do Campo CustomerID",
+              "value": "1173895"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7d7902a2-807f-41c5-a1fd-70becce12cf4",
+      "name": "infos_bc",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1320,
+        1980
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/{{ $node[\"infos_bc\"].json[\"ID do Campo CustomerID\"] }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"infos_bc\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"cobrar\"].json[\"stakeholder\"][\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7e89a807-d81d-4845-a170-6fc0d39af36b",
+      "name": "Envia campo CustomerID",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3472,
+        1980
+      ],
+      "retryOnFail": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "={{ $node[\"loop\"].json[\"data_de\"] }}"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "={{ $node[\"loop\"].json[\"data_ate\"] }}"
+            },
+            {
+              "name": "status",
+              "value": "={{$node[\"loop\"].json[\"status\"] }}"
+            },
+            {
+              "name": "pagina",
+              "value": "1"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "1"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7d17401d-51c7-4842-b992-6c920a88e4d4",
+      "name": "busca_contas1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1128,
+        1964
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1013c044-9f74-4629-950f-e57ffd82ed5d",
+              "name": "tamanho_batching",
+              "value": "50",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "667674b0-338d-4cb8-a7c1-99b6afef25eb",
+      "name": "tamanho_batching",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -840,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c6d49e8e-59e1-4cdf-abcf-4500c9d5ed15",
+              "leftValue": "={{ $node[\"busca_itens_totais\"].json[\"itens_totais\"] }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "fe48a7e5-067d-4ecc-88f5-a8b19e5c7a98",
+      "name": "sem_itens",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const totalItens = $node[\"busca_itens_totais\"].json[\"itens_totais\"];\nconst pageSize = 50;\n\nconst totalPaginas = Math.ceil(totalItens / pageSize);\n\nconst paginas = [];\nfor (let i = 1; i <= totalPaginas; i++) {\n  paginas.push({ pagina: i });\n}\n\nreturn paginas;"
+      },
+      "id": "8714088e-5998-4932-af9e-921caa87dbdb",
+      "name": "define_batching",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "9e7dcd1a-6916-4256-a246-8716769b4f96",
+      "name": "loop2",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1840,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "={{ $node[\"loop\"].json[\"data_de\"] }}"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "={{ $node[\"loop\"].json[\"data_ate\"] }}"
+            },
+            {
+              "name": "status",
+              "value": "={{$node[\"loop\"].json[\"status\"] }}"
+            },
+            {
+              "name": "pagina",
+              "value": "1"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "={{ $node[\"tamanho_batching\"].json[\"tamanho_batching\"] }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f196b746-3b48-428d-98ba-b98454173d1c",
+      "name": "busca_itens_totais",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1020,
+        780
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"].trim() }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "refresh_token",
+              "value": "={{ $node[\"busca_variavel_refresh_token_conta_azul1\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fc49668e-65ab-4657-ae8a-fb6e07f949bc",
+      "name": "get_new_token1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1660,
+        620
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks"
+            }
+          ]
+        }
+      },
+      "id": "27492fa4-7a77-4bc4-9ab3-79c6b9015f19",
+      "name": "semanal",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1020,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "DELETE FROM lembretes_enviados WHERE data_envio < DATE_SUB(NOW(), INTERVAL 90 DAY);",
+        "options": {}
+      },
+      "id": "60542dc0-a566-4dc7-91bd-5438de2b88bd",
+      "name": "Apaga >90 dias",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -800,
+        1420
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT COUNT(*) AS count FROM lembretes_enviados \nWHERE user_id = '{{ $json.cliente.id }}' \nAND data_envio_date = CURDATE();",
+        "options": {}
+      },
+      "id": "4ed66782-7fb8-4ace-bb62-73db05f54bb8",
+      "name": "Checa Duplicata",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -780,
+        1660
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "itens",
+        "options": {}
+      },
+      "id": "13bb3f45-f96e-464b-a5b8-091c6692d4aa",
+      "name": "Split Out1",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "d0801530-d595-467c-a88e-e2b17892741d",
+      "name": "loop3",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        2460,
+        1100
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "616078aa-d14f-4851-935e-f6c867ed9360",
+      "name": "Limit",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        2720,
+        1000
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "13dc4679-08db-47e7-a1c0-ff5e7d99e9d7",
+      "name": "Limit1",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        2060,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "cobranca_conta_azul",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "d631c418-0898-4a28-b2d6-45555f99a0b0",
+      "name": "entra_na_fila",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        2940,
+        1200
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/buscar",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data_vencimento_de",
+              "value": "={{ $node[\"loop\"].json[\"data_de\"] }}"
+            },
+            {
+              "name": "data_vencimento_ate",
+              "value": "={{ $node[\"loop\"].json[\"data_ate\"] }}"
+            },
+            {
+              "name": "status",
+              "value": "={{$node[\"loop\"].json[\"status\"] }}"
+            },
+            {
+              "name": "pagina",
+              "value": "={{ $node[\"loop2\"].json[\"pagina\"] }}"
+            },
+            {
+              "name": "tamanho_pagina",
+              "value": "={{ $node[\"tamanho_batching\"].json[\"tamanho_batching\"] }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0f1ebb28-7977-4cee-acd7-c388e5f7c138",
+      "name": "busca_contas2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2060,
+        1100
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "36a1c4e5-37d3-4e0e-b8d1-8f7050bad50c",
+              "name": "nao_pago",
+              "value": "={{ $node[\"loop3\"].json[\"nao_pago\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "b8dfa8ba-6772-4be5-bd93-f535df0b844a",
+              "name": "status_traduzido",
+              "value": "={{ $node[\"loop3\"].json[\"status_traduzido\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "1132be05-8293-4374-9d10-4bff75719929",
+              "name": "pago",
+              "value": "={{ $node[\"loop3\"].json[\"pago\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "d1aadbb0-a76c-46d6-9332-d17c4947b265",
+              "name": "data_alteracao",
+              "value": "={{ $node[\"loop3\"].json[\"data_alteracao\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "6e585d6d-6842-4314-9d4b-96fd1e73dcf4",
+              "name": "data_alteracao",
+              "value": "={{ $node[\"loop3\"].json[\"data_alteracao\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "07b19af0-fac3-4cf7-8e53-2531ba7b8718",
+              "name": "mensagem_tipo",
+              "value": "={{ $node[\"loop\"].json[\"mensagem_tipo\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4f633ecb-b249-44b5-83c7-ea247cf97a3c",
+              "name": "cliente.id",
+              "value": "={{  $node[\"loop3\"].json[\"cliente\"][\"id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "ef5d6035-f8df-4117-b9bf-da86f6d2e310",
+              "name": "cliente.nome",
+              "value": "={{  $node[\"loop3\"].json[\"cliente\"][\"nome\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "fd3bbee2-2711-4ff6-b5f6-feff8544c317",
+              "name": "data_vencimento",
+              "value": "={{ $node[\"loop3\"].json[\"data_vencimento\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "fa6a6bc3-8a39-4546-845a-b451b451dfba",
+              "name": "descricao",
+              "value": "={{ $node[\"loop3\"].json[\"descricao\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "e889d6c1-de43-43c8-978c-4d4726009362",
+              "name": "total",
+              "value": "={{ $node[\"loop3\"].json[\"total\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "c236a087-398a-4f2e-aa4e-a83bd31c339b",
+              "name": "status",
+              "value": "={{ $node[\"loop3\"].json[\"status\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "ca46757a-313a-497d-bf44-ac4958e54779",
+              "name": "id",
+              "value": "={{ $node[\"loop3\"].json[\"id\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "include": "selected",
+        "options": {}
+      },
+      "id": "ee8d3eb6-3349-45bf-85b0-bac9fb6fc8de",
+      "name": "dados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2720,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const hoje = $now.toISODate().split('T')[0];\nconst configs = [\n  { nome: '5 dias antes', data_de: $now.plus({ days: 5 }).toISODate().split('T')[0], data_ate: $now.plus({ days: 5 }).toISODate().split('T')[0], status: 'PENDING', mensagem_tipo: '5_antes' },\n  { nome: '2 dias antes', data_de: $now.plus({ days: 2 }).toISODate().split('T')[0], data_ate: $now.plus({ days: 2 }).toISODate().split('T')[0], status: 'PENDING', mensagem_tipo: '2_antes' },\n  { nome: '1 dia antes', data_de: $now.plus({ days: 1 }).toISODate().split('T')[0], data_ate: $now.plus({ days: 1 }).toISODate().split('T')[0], status: 'PENDING', mensagem_tipo: '1_antes' },\n  { nome: 'No dia', data_de: hoje, data_ate: hoje, status: 'PENDING', mensagem_tipo: 'no_dia' },\n  { nome: '1 dia atraso', data_de: $now.minus({ days: 1 }).toISODate().split('T')[0], data_ate: $now.minus({ days: 1 }).toISODate().split('T')[0], status: 'ATRASADO', mensagem_tipo: '1_atraso' },\n  { nome: '2 dias atraso', data_de: $now.minus({ days: 2 }).toISODate().split('T')[0], data_ate: $now.minus({ days: 2 }).toISODate().split('T')[0], status: 'ATRASADO', mensagem_tipo: '2_atraso' },\n  { nome: '3 dias atraso', data_de: $now.minus({ days: 3 }).toISODate().split('T')[0], data_ate: $now.minus({ days: 3 }).toISODate().split('T')[0], status: 'ATRASADO', mensagem_tipo: '3_atraso' },\n  { nome: '5 dias atraso', data_de: $now.minus({ days: 5 }).toISODate().split('T')[0], data_ate: $now.minus({ days: 5 }).toISODate().split('T')[0], status: 'ATRASADO', mensagem_tipo: '5_atraso' }\n];\nreturn configs.map(config => ({ json: config }));"
+      },
+      "id": "54fd20de-6c6e-4d76-b187-9b75be00be4a",
+      "name": "define_datas",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://auth.contaazul.com/oauth2/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $node[\"busca_variavel_auth_conta_Azul\"].json[\"valor_variavel\"].trim() }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "refresh_token",
+              "value": "={{ $node[\"busca_variavel_refresh_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            },
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "66f99d2f-661d-4113-82fc-b19afb45d075",
+      "name": "get_new_token",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        680
+      ]
+    }
+  ],
+  "pinData": {
+    "busca_contas1": [
+      {
+        "json": {
+          "itens_totais": 100,
+          "itens": [
+            {
+              "id": "bd86bd9f-b356-4a47-a672-28f62af090e0",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1703998",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-08-18T16:36:12.3633",
+              "data_alteracao": "2025-12-01T04:58:39.854406",
+              "cliente": {
+                "id": "4d7433f1-1af8-40ae-9a26-5fe328678718",
+                "nome": "CACAU SHOW/ Show Regina Assuncao Costa Oliveira LTDA"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "67f8981a-61be-4430-99fd-f4c8543c4aa2",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1703995",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-09-02T10:59:02.228614",
+              "data_alteracao": "2025-12-01T04:11:07.002983",
+              "cliente": {
+                "id": "0db3974c-63a2-427b-8fec-a3c4e408a48d",
+                "nome": "ALINE SANTOS PEREIRA700.098.531-38 / Aline Santos Concept"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "75891197-04cb-43e9-be3f-59d0da31364f",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1704050",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-09-17T18:19:19.504009",
+              "data_alteracao": "2025-12-23T11:15:37.489377",
+              "cliente": {
+                "id": "ce53c68f-6b05-43e0-812d-17fce3fd3c37",
+                "nome": "THRIFTY AUDIOVISUAL / THRIFTY AUDIOVISUAL E SOLUÇÕES PARA EVENTOS LTDA / THRIFTY AUDIOVISUAL E SOLUÇÕES PARA EVENTOS LTDA"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "431673b6-4827-4c1e-89ff-ee8ca4c7e77c",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1703975",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-09-24T08:28:49.222467",
+              "data_alteracao": "2025-11-22T02:09:27.017437",
+              "cliente": {
+                "id": "3551ed3e-65fc-47da-9f4a-784c56be2e1f",
+                "nome": "CHARBELL PROFESSIONAL/  WT STUDIO"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "369d0c4c-236a-42e6-b2cc-731766aedef4",
+              "status": "PENDING",
+              "total": 1500,
+              "descricao": "Venda 1703907",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 1500,
+              "pago": 0,
+              "data_criacao": "2025-10-14T08:58:55.651065",
+              "data_alteracao": "2025-11-01T02:41:09.376268",
+              "cliente": {
+                "id": "67820443-af74-4a2b-be21-9de5322de1be",
+                "nome": "GRABSKI INTERMEDIACOES"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "bfdaf7b4-74f8-4b08-aa68-02e44bfa8713",
+              "status": "PENDING",
+              "total": 3000,
+              "descricao": "Venda",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 3000,
+              "pago": 0,
+              "data_criacao": "2025-11-26T09:52:32.836452",
+              "data_alteracao": "2025-11-26T09:52:32.836452",
+              "cliente": {
+                "id": "566ae969-05af-42a4-b178-f11c02d1b77a",
+                "nome": "Halisson Pereira Michelone Soc. Ind. / H. Michelone Advogados"
+              },
+              "renegociacao": null
+            }
+          ],
+          "totais": {
+            "pago": {
+              "valor": 0
+            },
+            "vencido": {
+              "valor": 0
+            },
+            "vence_hoje": {
+              "valor": 0
+            },
+            "pendente": {
+              "valor": 12500
+            },
+            "aberto": {
+              "valor": 12500
+            },
+            "todos": 12500
+          }
+        }
+      }
+    ],
+    "busca_itens_totais": [
+      {
+        "json": {
+          "itens_totais": 6,
+          "itens": [
+            {
+              "id": "bd86bd9f-b356-4a47-a672-28f62af090e0",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1703998",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-08-18T16:36:12.3633",
+              "data_alteracao": "2025-12-01T04:58:39.854406",
+              "cliente": {
+                "id": "4d7433f1-1af8-40ae-9a26-5fe328678718",
+                "nome": "CACAU SHOW/ Show Regina Assuncao Costa Oliveira LTDA"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "67f8981a-61be-4430-99fd-f4c8543c4aa2",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1703995",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-09-02T10:59:02.228614",
+              "data_alteracao": "2025-12-01T04:11:07.002983",
+              "cliente": {
+                "id": "0db3974c-63a2-427b-8fec-a3c4e408a48d",
+                "nome": "ALINE SANTOS PEREIRA700.098.531-38 / Aline Santos Concept"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "75891197-04cb-43e9-be3f-59d0da31364f",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1704050",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-09-17T18:19:19.504009",
+              "data_alteracao": "2025-12-23T11:15:37.489377",
+              "cliente": {
+                "id": "ce53c68f-6b05-43e0-812d-17fce3fd3c37",
+                "nome": "THRIFTY AUDIOVISUAL / THRIFTY AUDIOVISUAL E SOLUÇÕES PARA EVENTOS LTDA / THRIFTY AUDIOVISUAL E SOLUÇÕES PARA EVENTOS LTDA"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "431673b6-4827-4c1e-89ff-ee8ca4c7e77c",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1703975",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-09-24T08:28:49.222467",
+              "data_alteracao": "2025-11-22T02:09:27.017437",
+              "cliente": {
+                "id": "3551ed3e-65fc-47da-9f4a-784c56be2e1f",
+                "nome": "CHARBELL PROFESSIONAL/  WT STUDIO"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "369d0c4c-236a-42e6-b2cc-731766aedef4",
+              "status": "PENDING",
+              "total": 1500,
+              "descricao": "Venda 1703907",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 1500,
+              "pago": 0,
+              "data_criacao": "2025-10-14T08:58:55.651065",
+              "data_alteracao": "2025-11-01T02:41:09.376268",
+              "cliente": {
+                "id": "67820443-af74-4a2b-be21-9de5322de1be",
+                "nome": "GRABSKI INTERMEDIACOES"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "bfdaf7b4-74f8-4b08-aa68-02e44bfa8713",
+              "status": "PENDING",
+              "total": 3000,
+              "descricao": "Venda",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 3000,
+              "pago": 0,
+              "data_criacao": "2025-11-26T09:52:32.836452",
+              "data_alteracao": "2025-11-26T09:52:32.836452",
+              "cliente": {
+                "id": "566ae969-05af-42a4-b178-f11c02d1b77a",
+                "nome": "Halisson Pereira Michelone Soc. Ind. / H. Michelone Advogados"
+              },
+              "renegociacao": null
+            }
+          ],
+          "totais": {
+            "pago": {
+              "valor": 0
+            },
+            "vencido": {
+              "valor": 0
+            },
+            "vence_hoje": {
+              "valor": 0
+            },
+            "pendente": {
+              "valor": 12500
+            },
+            "aberto": {
+              "valor": 12500
+            },
+            "todos": 12500
+          }
+        }
+      }
+    ],
+    "busca_contas2": [
+      {
+        "json": {
+          "itens_totais": 100,
+          "itens": [
+            {
+              "id": "bd86bd9f-b356-4a47-a672-28f62af090e0",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1703998",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-08-18T16:36:12.3633",
+              "data_alteracao": "2025-12-01T04:58:39.854406",
+              "cliente": {
+                "id": "4d7433f1-1af8-40ae-9a26-5fe328678718",
+                "nome": "CACAU SHOW/ Show Regina Assuncao Costa Oliveira LTDA"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "67f8981a-61be-4430-99fd-f4c8543c4aa2",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1703995",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-09-02T10:59:02.228614",
+              "data_alteracao": "2025-12-01T04:11:07.002983",
+              "cliente": {
+                "id": "0db3974c-63a2-427b-8fec-a3c4e408a48d",
+                "nome": "ALINE SANTOS PEREIRA700.098.531-38 / Aline Santos Concept"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "75891197-04cb-43e9-be3f-59d0da31364f",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1704050",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-09-17T18:19:19.504009",
+              "data_alteracao": "2025-12-23T11:15:37.489377",
+              "cliente": {
+                "id": "ce53c68f-6b05-43e0-812d-17fce3fd3c37",
+                "nome": "THRIFTY AUDIOVISUAL / THRIFTY AUDIOVISUAL E SOLUÇÕES PARA EVENTOS LTDA / THRIFTY AUDIOVISUAL E SOLUÇÕES PARA EVENTOS LTDA"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "431673b6-4827-4c1e-89ff-ee8ca4c7e77c",
+              "status": "PENDING",
+              "total": 2000,
+              "descricao": "Venda 1703975",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 2000,
+              "pago": 0,
+              "data_criacao": "2025-09-24T08:28:49.222467",
+              "data_alteracao": "2025-11-22T02:09:27.017437",
+              "cliente": {
+                "id": "3551ed3e-65fc-47da-9f4a-784c56be2e1f",
+                "nome": "CHARBELL PROFESSIONAL/  WT STUDIO"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "369d0c4c-236a-42e6-b2cc-731766aedef4",
+              "status": "PENDING",
+              "total": 1500,
+              "descricao": "Venda 1703907",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 1500,
+              "pago": 0,
+              "data_criacao": "2025-10-14T08:58:55.651065",
+              "data_alteracao": "2025-11-01T02:41:09.376268",
+              "cliente": {
+                "id": "67820443-af74-4a2b-be21-9de5322de1be",
+                "nome": "GRABSKI INTERMEDIACOES"
+              },
+              "renegociacao": null
+            },
+            {
+              "id": "bfdaf7b4-74f8-4b08-aa68-02e44bfa8713",
+              "status": "PENDING",
+              "total": 3000,
+              "descricao": "Venda",
+              "data_vencimento": "2025-12-25",
+              "status_traduzido": "EM_ABERTO",
+              "nao_pago": 3000,
+              "pago": 0,
+              "data_criacao": "2025-11-26T09:52:32.836452",
+              "data_alteracao": "2025-11-26T09:52:32.836452",
+              "cliente": {
+                "id": "566ae969-05af-42a4-b178-f11c02d1b77a",
+                "nome": "Halisson Pereira Michelone Soc. Ind. / H. Michelone Advogados"
+              },
+              "renegociacao": null
+            }
+          ],
+          "totais": {
+            "pago": {
+              "valor": 0
+            },
+            "vencido": {
+              "valor": 0
+            },
+            "vence_hoje": {
+              "valor": 0
+            },
+            "pendente": {
+              "valor": 12500
+            },
+            "aberto": {
+              "valor": 12500
+            },
+            "todos": 12500
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-25T00:16:48.855Z",
+  "versionId": "7f18eb60-48d3-4459-9a81-c2f7e5f27fc8"
+}
