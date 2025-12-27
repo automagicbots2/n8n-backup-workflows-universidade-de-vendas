@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "erro_de_token": {
       "main": [
@@ -12,7 +12,7 @@
         ],
         [
           {
-            "node": "busca_cobranca",
+            "node": "busca_payment_link",
             "type": "main",
             "index": 0
           }
@@ -67,7 +67,7 @@
       "main": [
         [
           {
-            "node": "5s",
+            "node": "20s",
             "type": "main",
             "index": 0
           }
@@ -169,17 +169,6 @@
         ]
       ]
     },
-    "5s": {
-      "main": [
-        [
-          {
-            "node": "busca_pessoa",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "get_new_token1": {
       "main": [
         [
@@ -202,7 +191,18 @@
         ]
       ]
     },
-    "busca_cobranca": {
+    "20s": {
+      "main": [
+        [
+          {
+            "node": "busca_pessoa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_payment_link": {
       "main": [
         [
           {
@@ -415,18 +415,6 @@
       }
     },
     {
-      "parameters": {},
-      "id": "9ecac2fa-714d-47e0-b329-b1fd08681741",
-      "name": "5s",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        1640,
-        240
-      ],
-      "webhookId": "f2918b4e-933c-463d-b838-d160622c38dd"
-    },
-    {
       "parameters": {
         "operation": "select",
         "table": {
@@ -451,8 +439,8 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        1660,
-        640
+        1620,
+        660
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -484,7 +472,7 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        -1080,
+        -1100,
         460
       ],
       "credentials": {
@@ -597,8 +585,10 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "INSERT INTO lembretes_enviados (\n  user_id,\n  cobranca_id,\n  mensagem_tipo,\n  data_envio,\n  mensagem_texto,\n  status_envio,\n  data_vencimento,\n  link_pagamento\n)\nVALUES (\n  {{ $node[\"cria_atualiza_user1\"].json[\"id\"] }},\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"mensagem_tipo\"] }}',\n  NOW(),\n\n  CASE '{{ $node[\"chega_da_fila\"].json[\"content\"][\"mensagem_tipo\"] }}'\n\n    WHEN '5_antes' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Passando pra te enviar o link do seu pagamento com vencimento em ',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        '.\\n✅ Se você pagar até 1 dia antes do vencimento, ganha 5% de desconto.\\nLink: ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n      )\n\n    WHEN '2_antes' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Lembrete do seu pagamento com vencimento em ',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        '.\\n✅ Pagando até 1 dia antes, você garante 5% OFF.\\nLink: ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n      )\n\n    WHEN '1_antes' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Aviso rápido: amanhã vence (',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        ') e hoje é o último dia pra garantir 5% de desconto no pagamento.\\nLink: ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n      )\n\n    WHEN 'no_dia' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Hoje é o vencimento do seu pagamento (',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        ').\\nPra facilitar, segue o link: ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}',\n        '\\nSe precisar de ajuda, me chama aqui.'\n      )\n\n    WHEN '1_atraso' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Notei que o pagamento com vencimento em ',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        ' ainda consta em aberto.\\n⚠️ A partir de agora o sistema pode aplicar multa e juros.\\nLink pra regularizar: ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n      )\n\n    WHEN '2_atraso' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Seu pagamento (vencimento ',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        ') segue pendente.\\n⚠️ Para evitar aumento de multa e juros, consegue regularizar hoje?\\nLink: ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n      )\n\n    WHEN '3_atraso' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Passando só pra alinhar: o pagamento vencido em ',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        ' ainda não foi identificado.\\n⚠️ Após o vencimento, há multa e juros.\\nLink: ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n      )\n\n    WHEN '5_atraso' THEN\n      CONCAT(\n        'Oi, ', {{ $json[\"nome\"][\"fname\"] ? \"'\" + $json[\"nome\"][\"fname\"] + \"'\" : \"'Olá'\" }},\n        '! Último lembrete por aqui: o pagamento vencido em ',\n        DATE_FORMAT('{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}', '%d/%m/%Y'),\n        ' ainda está em aberto.\\n⚠️ Com o atraso, o sistema aplica multa e juros.\\nConsegue regularizar agora pelo link? ',\n        '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n      )\n\n    ELSE\n      'Lembrete de pagamento.'\n  END,\n\n  'sucesso',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"link_pagamento\"] }}'\n);",
-        "options": {}
+        "query": "INSERT INTO lembretes_enviados (\n  user_id,\n  cobranca_id,\n  mensagem_tipo,\n  data_envio,\n  mensagem_texto,\n  status_envio,\n  data_vencimento,\n  link_pagamento\n)\nVALUES (\n  {{ $node[\"cria_atualiza_user1\"].json[\"id\"] }},\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"mensagem_tipo\"] }}',\n  NOW(),\n  '{{ $node[\"copy\"].json[\"mensagem_texto\"] }}',\n  '´pendente',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}',\n  '{{ $node[\"busca_payment_link\"].json.body.solicitacoes_cobrancas[0].url }}'\n);",
+        "options": {
+          "queryReplacement": ""
+        }
       },
       "id": "f285a88d-7840-4f2a-bca4-8bc1e65f0633",
       "name": "registra_cobranca",
@@ -606,7 +596,7 @@
       "typeVersion": 2.4,
       "position": [
         2040,
-        640
+        660
       ],
       "credentials": {
         "mySql": {
@@ -624,8 +614,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1260,
-        640
+        1220,
+        660
       ]
     },
     {
@@ -657,23 +647,23 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1860,
-        640
+        1840,
+        660
       ],
       "id": "16ffcfce-b340-4214-86b9-d865a5cda610",
       "name": "cria_atualiza_user1"
     },
     {
       "parameters": {
-        "jsCode": "const tipo = $node[\"chega_da_fila\"].json.content.mensagem_tipo;\nconst copies = $node[\"copies\"].json;\n\n// fontes das variáveis\nconst fname =\n$node[\"formata_dados\"].json[\"tipo_pessoa\"] == 'Jurídica' ? $node[\"formata_dados\"].json[\"nome\"][\"fullname\"] : $node[\"formata_dados\"].json[\"nome\"][\"fname\"];\n\nconst validade =\n  $node[\"chega_da_fila\"].json.content.data_vencimento;\n\nconst linkPagamento =\n  $node[\"chega_da_fila\"].json.content.link_pagamento || \"\";\n\n// pega a copy\nlet mensagem = copies[tipo] || \"Lembrete de pagamento.\";\n\n// substituição explícita\nmensagem = mensagem\n  .replace(/%FIRSTNAME%/g, fname)\n  .replace(/%VALIDADE%/g, validade)\n  .replace(/%LINKPAGAMENTO%/g, linkPagamento);\n\nreturn {\n  json: {\n    mensagem_texto: mensagem\n  }\n};"
+        "jsCode": "const tipo = $node[\"chega_da_fila\"].json.content.mensagem_tipo;\nconst copies = $node[\"copies\"].json;\n\n// fontes das variáveis\nconst fname =\n$node[\"formata_dados\"].json[\"tipo_pessoa\"] == 'Jurídica' ? $node[\"formata_dados\"].json[\"nome\"][\"fullname\"] : $node[\"formata_dados\"].json[\"nome\"][\"fname\"];\n\nconst validade =\n  $node[\"chega_da_fila\"].json.content.data_vencimento;\n\nconst linkPagamento =\n  $node[\"busca_payment_link\"].json?.[\"body\"]?.[\"solicitacoes_cobrancas\"]?.[\"0\"]?.[\"url\"] || \"\";\n\n// pega a copy\nlet mensagem = copies[tipo] || \"Lembrete de pagamento.\";\n\n// substituição explícita\nmensagem = mensagem\n  .replace(/%FIRSTNAME%/g, fname)\n  .replace(/%VALIDADE%/g, validade)\n  .replace(/%LINKPAGAMENTO%/g, linkPagamento);\n\nreturn {\n  json: {\n    mensagem_texto: mensagem\n  }\n};"
       },
       "id": "7c26bd27-35a9-4ba9-8877-26698c1f958b",
       "name": "copy",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1460,
-        640
+        1420,
+        660
       ]
     },
     {
@@ -782,7 +772,52 @@
     },
     {
       "parameters": {
-        "url": "=https://api-v2.contaazul.com/v1/financeiro/contas-a-receber/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}/links-pagamento",
+        "amount": 20
+      },
+      "id": "9ecac2fa-714d-47e0-b329-b1fd08681741",
+      "name": "20s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1640,
+        240
+      ],
+      "webhookId": "f2918b4e-933c-463d-b838-d160622c38dd"
+    },
+    {
+      "parameters": {
+        "url": "=https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/parcelas/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "9622273b-3400-4339-bc59-a640d313d86d",
+      "name": "busca_payment_linkw",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1100,
+        260
+      ],
+      "disabled": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/parcelas/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -801,7 +836,7 @@
         }
       },
       "id": "3534376a-6409-4bbf-8c7c-57c3f32656d2",
-      "name": "busca_cobranca",
+      "name": "busca_payment_link",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -816,8 +851,8 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-Fp0aKUhQjKHmPUFGlW_FWg",
-            "deliveryTag": 1,
+            "consumerTag": "amq.ctag-Iig29O7A74gMD8OUZCva5Q",
+            "deliveryTag": 6,
             "redelivered": false,
             "exchange": "",
             "routingKey": "cobranca_conta_azul"
@@ -826,21 +861,211 @@
             "headers": {}
           },
           "content": {
-            "nao_pago": "2000",
+            "nao_pago": "3000",
             "status_traduzido": "EM_ABERTO",
             "pago": "0",
-            "data_alteracao": "2025-12-01T04:58:39.854406",
+            "data_alteracao": "2025-11-26T09:52:32.836452",
             "mensagem_tipo": "5_antes",
             "cliente": {
-              "id": "4d7433f1-1af8-40ae-9a26-5fe328678718",
-              "nome": "CACAU SHOW/ Show Regina Assuncao Costa Oliveira LTDA"
+              "id": "566ae969-05af-42a4-b178-f11c02d1b77a",
+              "nome": "Halisson Pereira Michelone Soc. Ind. / H. Michelone Advogados"
             },
             "data_vencimento": "2025-12-25",
-            "descricao": "Venda 1703998",
-            "total": "2000",
+            "descricao": "Venda",
+            "total": "3000",
             "status": "PENDING",
-            "id": "bd86bd9f-b356-4a47-a672-28f62af090e0"
+            "id": "bfdaf7b4-74f8-4b08-aa68-02e44bfa8713"
           }
+        }
+      }
+    ],
+    "busca_payment_linkw": [
+      {
+        "json": {
+          "body": {
+            "id": "6c9544ff-3473-4bd7-8e1c-cd7404448c78",
+            "status": "PENDENTE",
+            "nsu": null,
+            "evento": {
+              "id": "387ea56a-5b12-4772-b84f-cd8fed6ecffc",
+              "data_competencia": "2025-11-29",
+              "condicao_pagamento": {
+                "quantidade_parcelas": 1,
+                "montante_fixo": false
+              },
+              "referencia": {
+                "id": "5eb2c63d-a775-4e2d-8ec1-e2c9b77705b0",
+                "revisao": "2",
+                "origem": "VENDA_AGENDADA"
+              },
+              "agendado": false,
+              "tipo": "RECEITA",
+              "rateio": [
+                {
+                  "rateio_centro_custo": [
+                    {
+                      "valor": 0,
+                      "id_centro_custo": "7c66d95a-cba9-11ef-95da-73623ab95d3c",
+                      "nome_centro_custo": "Sirius"
+                    }
+                  ],
+                  "valor": 0,
+                  "valor_bruto": 1000,
+                  "id_categoria": "552bea13-735a-478f-b59d-26cd9c015ce3",
+                  "nome_categoria": "Descontos incondicionais concedidos"
+                },
+                {
+                  "rateio_centro_custo": [
+                    {
+                      "valor": 2000,
+                      "id_centro_custo": "7c66d95a-cba9-11ef-95da-73623ab95d3c",
+                      "nome_centro_custo": "Sirius"
+                    }
+                  ],
+                  "valor": 2000,
+                  "valor_bruto": 3000,
+                  "id_categoria": "8c1233b5-b526-4a77-94ba-cc72c3812c02",
+                  "nome_categoria": "1.1- Sirius Recorrente"
+                }
+              ]
+            },
+            "versao": 2,
+            "referencia": null,
+            "indice": 1,
+            "conciliado": false,
+            "valor_pago": 0,
+            "perda": null,
+            "nao_pago": 2000,
+            "data_vencimento": "2026-01-01",
+            "data_pagamento_previsto": "2026-01-01",
+            "descricao": "Venda 1703987",
+            "nota": null,
+            "conta_financeira": {
+              "id": "c182ff3d-a5f0-44d6-8b92-8c0e2deffdd1",
+              "banco": "CONTAAZUL_IP",
+              "codigo_banco": 775,
+              "nome": "Conta PJ Conta Azul",
+              "ativo": true,
+              "tipo": "CONTA_CORRENTE",
+              "conta_padrao": false,
+              "possui_config_boleto_bancario": false,
+              "agencia": "0001",
+              "numero": "26642"
+            },
+            "id_conta_financeira": null,
+            "valor_composicao": {
+              "multa": 0,
+              "juros": 0,
+              "valor_bruto": 2000,
+              "desconto": 0,
+              "taxa": 0,
+              "valor_liquido": 2000
+            },
+            "metodo_pagamento": "PIX_COBRANCA",
+            "baixa_agendada": false,
+            "baixas": [],
+            "anexos": [],
+            "solicitacoes_cobrancas": [
+              {
+                "id": "017aa10a-cce2-11f0-882a-fb42eb7c2ea2",
+                "url": "https://faturas.contaazul.com/#/fatura/visualizar/cdbbcc3a-cce2-11f0-bd68-7fac8cbd855f",
+                "versao": 1,
+                "status_solicitacao_cobranca": "REGISTRADO",
+                "valor_composicao": {
+                  "multa": 0,
+                  "juros": 0,
+                  "valor_bruto": 2000,
+                  "desconto": 0,
+                  "taxa": 0,
+                  "valor_liquido": 2000
+                },
+                "data_vencimento": "2026-01-01",
+                "data_quitacao": null,
+                "tipo_solicitacao_cobranca": "PIX_COBRANCA",
+                "id_cliente": "e239d646-96a7-430c-b836-3cae20b8f730",
+                "id_referencia": "cdbbcc3a-cce2-11f0-bd68-7fac8cbd855f",
+                "datalhe_erro": null,
+                "conta_financeira": {
+                  "id": "c182ff3d-a5f0-44d6-8b92-8c0e2deffdd1",
+                  "banco": "CONTAAZUL_IP",
+                  "codigo_banco": 775,
+                  "nome": "Conta PJ Conta Azul",
+                  "ativo": true,
+                  "tipo": "CONTA_CORRENTE",
+                  "conta_padrao": false,
+                  "possui_config_boleto_bancario": false,
+                  "agencia": "0001",
+                  "numero": "26642"
+                },
+                "notificao_cobranca": {
+                  "id": "017ab82a-cce2-11f0-882a-b351978151b7",
+                  "solicitacao_cobranca_ids": [
+                    "017aa10a-cce2-11f0-882a-fb42eb7c2ea2"
+                  ],
+                  "versao": 0,
+                  "enviado_em": "2025-11-29",
+                  "aberto_em": null,
+                  "itens_notificacao_cobranca": [
+                    {
+                      "id": "017ac252-cce2-11f0-882a-df4a8a7736d5",
+                      "sms": null,
+                      "whatsapp": null,
+                      "versao": 0,
+                      "email": "brunohenrique@grupob3digital.com",
+                      "status_entrega": "ENVIADO"
+                    },
+                    {
+                      "id": "017af196-cce2-11f0-882a-4fc1eeca46ac",
+                      "sms": "3193878300",
+                      "whatsapp": null,
+                      "versao": 0,
+                      "email": null,
+                      "status_entrega": "ENVIADO"
+                    },
+                    {
+                      "id": "017aff10-cce2-11f0-882a-67179cb4babd",
+                      "sms": null,
+                      "whatsapp": "3193878300",
+                      "versao": 0,
+                      "email": null,
+                      "status_entrega": "ENVIADO"
+                    }
+                  ],
+                  "assunto": null,
+                  "corpo": null,
+                  "respondido_para": null,
+                  "agendado": true,
+                  "auto_notificacao": false,
+                  "envio_instantaneo": false
+                },
+                "confirmado_em": "2025-11-29",
+                "descricao": "Venda 1703987",
+                "referencia_externa": null,
+                "recuperado": false,
+                "combinado": false,
+                "atributos_personalizados": "{\"earlyDiscount\":{\"percent\":5.0,\"days\":1.0},\"scheduleId\":\"c20cd9ec-3620-46d5-b2b3-7176f30414db\"}"
+              }
+            ],
+            "id_ultima_solicitacao_pagamento": null,
+            "id_boleto_bancario_autorizado": null,
+            "fatura": null,
+            "data_alteracao": "2025-11-29T02:12:30",
+            "valor_total_liquido": null,
+            "id_ultimo_solicitacao_cobranca": null,
+            "renegociacao": null
+          },
+          "headers": {
+            "content-type": "application/json",
+            "date": "Sat, 27 Dec 2025 13:50:34 GMT",
+            "vary": "Origin,Access-Control-Request-Method,Access-Control-Request-Headers",
+            "x-request-id": "cd1a64a1-ecf1-4508-b4ae-4b0f492915be",
+            "via": "1.1 google",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "connection": "close",
+            "transfer-encoding": "chunked"
+          },
+          "statusCode": 200,
+          "statusMessage": "OK"
         }
       }
     ]
@@ -851,6 +1076,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-25T00:16:57.190Z",
-  "versionId": "45b25aa3-79f5-4bb6-823c-bcb0505c11d7"
+  "updatedAt": "2025-12-27T14:15:45.248Z",
+  "versionId": "9657162f-6e7e-49f1-97c4-905408c2ebb4"
 }
