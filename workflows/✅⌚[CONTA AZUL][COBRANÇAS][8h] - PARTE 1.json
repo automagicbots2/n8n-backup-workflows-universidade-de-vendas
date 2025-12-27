@@ -89,7 +89,7 @@
       "main": [
         [
           {
-            "node": "5s",
+            "node": "20s",
             "type": "main",
             "index": 0
           }
@@ -400,17 +400,6 @@
         ]
       ]
     },
-    "semanal": {
-      "main": [
-        [
-          {
-            "node": "Apaga >90 dias",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Split Out1": {
       "main": [
         [
@@ -511,6 +500,39 @@
         [
           {
             "node": "atualiza_bd",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "20s": {
+      "main": [
+        [
+          {
+            "node": "guia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "end": {
+      "main": [
+        [
+          {
+            "node": "20s1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "20s1": {
+      "main": [
+        [
+          {
+            "node": "aciona_automacao_envios",
             "type": "main",
             "index": 0
           }
@@ -837,8 +859,8 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        1840,
-        620
+        1800,
+        500
       ],
       "credentials": {
         "mySql": {
@@ -890,7 +912,7 @@
       "typeVersion": 1,
       "position": [
         2280,
-        440
+        500
       ]
     },
     {
@@ -954,7 +976,7 @@
       "typeVersion": 1.1,
       "position": [
         2020,
-        620
+        660
       ],
       "webhookId": "c61462fa-a43b-45a9-aa2d-8db69d110c8c"
     },
@@ -1729,70 +1751,9 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1660,
-        620
+        1580,
+        500
       ]
-    },
-    {
-      "parameters": {
-        "rule": {
-          "interval": [
-            {
-              "field": "weeks"
-            }
-          ]
-        }
-      },
-      "id": "27492fa4-7a77-4bc4-9ab3-79c6b9015f19",
-      "name": "semanal",
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.2,
-      "position": [
-        -1020,
-        1420
-      ]
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "DELETE FROM lembretes_enviados WHERE data_envio < DATE_SUB(NOW(), INTERVAL 90 DAY);",
-        "options": {}
-      },
-      "id": "60542dc0-a566-4dc7-91bd-5438de2b88bd",
-      "name": "Apaga >90 dias",
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.4,
-      "position": [
-        -800,
-        1420
-      ],
-      "credentials": {
-        "mySql": {
-          "id": "PfzfhyuSKTUfroef",
-          "name": "[MySQL] - Fabricio Nunnes"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "SELECT COUNT(*) AS count FROM lembretes_enviados \nWHERE user_id = '{{ $json.cliente.id }}' \nAND data_envio_date = CURDATE();",
-        "options": {}
-      },
-      "id": "4ed66782-7fb8-4ace-bb62-73db05f54bb8",
-      "name": "Checa Duplicata",
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.4,
-      "position": [
-        -780,
-        1660
-      ],
-      "credentials": {
-        "mySql": {
-          "id": "PfzfhyuSKTUfroef",
-          "name": "[MySQL] - Fabricio Nunnes"
-        }
-      }
     },
     {
       "parameters": {
@@ -2073,6 +2034,57 @@
         -200,
         680
       ]
+    },
+    {
+      "parameters": {
+        "amount": 20
+      },
+      "id": "64751f87-5dae-4e8c-b49b-6f6a72cbc1bb",
+      "name": "20s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2020,
+        500
+      ],
+      "webhookId": "f2918b4e-933c-463d-b838-d160622c38dd"
+    },
+    {
+      "parameters": {
+        "amount": 20
+      },
+      "id": "41cee051-792d-4345-b78a-556b1eecc978",
+      "name": "20s1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        820,
+        580
+      ],
+      "webhookId": "f2918b4e-933c-463d-b838-d160622c38dd"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aciona-automacao-envios-lembretes-conta-azul",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "dcae0458-58a7-4511-b3f2-867319c3c44b",
+      "name": "aciona_automacao_envios",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1020,
+        580
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "1QmOzOM2uRWpT8Xk",
+          "name": "Header Auth account"
+        }
+      }
     }
   ],
   "pinData": {
@@ -2470,6 +2482,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-12-25T00:16:48.855Z",
-  "versionId": "7f18eb60-48d3-4459-9a81-c2f7e5f27fc8"
+  "updatedAt": "2025-12-27T14:22:21.633Z",
+  "versionId": "8e4fc3c5-1bd5-4d6b-b72b-16a5b2e6a1d6"
 }
