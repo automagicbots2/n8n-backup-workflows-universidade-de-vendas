@@ -322,22 +322,22 @@
         ]
       ]
     },
-    "end": {
+    "20s1": {
       "main": [
         [
           {
-            "node": "20s1",
+            "node": "aciona_automacao_envios",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "20s1": {
+    "end": {
       "main": [
         [
           {
-            "node": "aciona_automacao_envios",
+            "node": "20s1",
             "type": "main",
             "index": 0
           }
@@ -453,17 +453,6 @@
       "position": [
         420,
         680
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "89147cc9-cac5-4f96-a911-a904685d331d",
-      "name": "end",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        620,
-        580
       ]
     },
     {
@@ -1262,114 +1251,25 @@
         2700,
         1400
       ]
+    },
+    {
+      "parameters": {},
+      "id": "9ae0a579-5163-4484-9c38-da87ffa71ce4",
+      "name": "end",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        640,
+        580
+      ]
     }
   ],
-  "pinData": {
-    "get_new_token": [
-      {
-        "json": {
-          "id_token": "eyJraWQiOiJjNFFVMDVNSVhSY0V3d01Dak8xcGtvWW1MRkVYaHZMbHREZk12TUFWQUpFPSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiQ2NZVGQyS09RdXFGcmJlTlROVFVkdyIsInN1YiI6IjI1NmMxMWMxLTg1MzMtNDkxMC04ZGQwLWQ3MmRmZWUyODI2NCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJwaG9uZV9udW1iZXJfdmVyaWZpZWQiOnRydWUsImNvZ25pdG86dXNlcm5hbWUiOiJmYWJyaWNpb0B1bml2ZXJzaWRhZGV2ZW5kYXMuY29tLmJyIiwib3JpZ2luX2p0aSI6ImMyMjM2NDVhLTI3ZWQtNGEwOC05NWU4LTI0ZmJmY2Q2YzA3OCIsImF1ZCI6Ijd2aDZwcjBlYm50c2NwZHFwdWszMzhoMGplIiwiZXZlbnRfaWQiOiIwYzczMTUwMy1mM2FjLTQxY2MtODA4Yi03YzM3NzFkODU1ZDYiLCJ0b2tlbl91c2UiOiJpZCIsImN1c3RvbTpmb3JjZV9tZmFfc2V0dXAiOiJBQ1RJVkUiLCJhdXRoX3RpbWUiOjE3NjY1OTE4MjQsInBob25lX251bWJlciI6Iis1NTMxOTg5ODQwMDAzIiwiZXhwIjoxNzY2ODY3MTcxLCJpYXQiOjE3NjY4NjM1NzIsImp0aSI6IjQ2MzMzYWEyLWI2NTQtNGI1OS1iOGE2LWM2Mjk2ZjQ2NGFlMyIsImVtYWlsIjoiZmFicmljaW9AdW5pdmVyc2lkYWRldmVuZGFzLmNvbS5iciJ9.rmpnE1DmTniAGEhQMONlU8wszIQnQRI26T18Cl77tgszOlEueJa02Zp0BDLcmbXaWXaVzbpZ0tZ26bCZ_IyF3dMknhv8Zj0GqZeuu6xK6WjALxTndehJyLoCP-5OUEu39qZvkmOHSt36Nomy-_QLLHG8pmIrvQCOei9Ltv0V9ZpklEHY6tsFuC1wGL_smWdwjd2vhY1WvBXg_D1f987dUHeAxa1mdrUHsVIrkPEsK4fvkMrmOkBt579xCp5hmJj0IjvQcN1MZb5Er7b9G9jN11CH7F_K2SFbwQm8mU4gZhWOFdbHjU3dWUSs83Ep_RD7SGe6j6vGLz71Lq3cKxTLpA",
-          "access_token": "eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyNTZjMTFjMS04NTMzLTQ5MTAtOGRkMC1kNzJkZmVlMjgyNjQiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiI3dmg2cHIwZWJudHNjcGRxcHVrMzM4aDBqZSIsIm9yaWdpbl9qdGkiOiJjMjIzNjQ1YS0yN2VkLTRhMDgtOTVlOC0yNGZiZmNkNmMwNzgiLCJldmVudF9pZCI6IjBjNzMxNTAzLWYzYWMtNDFjYy04MDhiLTdjMzc3MWQ4NTVkNiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4gb3BlbmlkIHByb2ZpbGUiLCJhdXRoX3RpbWUiOjE3NjY1OTE4MjQsImV4cCI6MTc2Njg2NzE3MSwiaWF0IjoxNzY2ODYzNTcyLCJqdGkiOiI3ODZjMjgxYS1kNWUxLTRmYmYtYjE1MC1hMzU1MDBiOWZmNzQiLCJ1c2VybmFtZSI6ImZhYnJpY2lvQHVuaXZlcnNpZGFkZXZlbmRhcy5jb20uYnIifQ.UNX4jH7eZOu9PMHPdyWnFNvCi-y3fCDUrUNdZPvuC6FpK6arrv0vOMBWqwicN0qc3wSr_xbMr7JAp05yCJ1MeW9dxeBSj3EqXZAZbJTA9wn0r8WBYToIeWBvqvZ9fZ515KJcp4iZrED4E7135qm0gYnA1TkQtW2OicWijcBJ2NbYWpws9_nN2fssG5aGjxXTyMLcmxJbsaTRbkHBYl0mxE98ROP0GgIqhSI4HkOuURoDaSZ4IdJHZlUs8pQkE8mYeRCcJhIXV6y9ZNxkvZ4w3jpObrffBbkV33MD-OPzT69DISKrEDa0wPSAohGuP0BQ6VHstsNOg78WRUJ0eNnJaw",
-          "refresh_token": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.x32rfBAD3tWwHtMC8RIuaCqUHZEwotPsTZrU3SavT2wBCgaYykyH1JVLfre5HX3p8K57CETImW4aiGv-J1V9BWOjph11zbVnS-RtDIFTWiWbXXxlY9Bf7-UIcDQYC_hVfGL5ylCUd6UDyvaeSSYjiFRS7uzjaOnvfB_z9MWjUUlZAamXc5nGIOTstCCohisU9ywJTJNOjy3SOmAZ0m0nynpDmHMaD36f83W8g_stymBNOLlbX77EvxzgSZ4hjLTPlm-69xpG53oGjvLmiyKky_ko_EUUgnEgCUJWHfzQhRfn_efm3FKWADkqLo2BifmDtkh5YyNqE1PaAArfZjf6Ww.O1QoOv6XKv7G3Jf1.DS7eGV2Enkl2iSbsQsSWqVCumZXRIXDTxzfcUG5zmb7NSB5CcG_QNjWFA1GiScpmBZ0jYqxE3VsY_tkxS2Xu_y9knnG4a-qswEF1U92eGS3Fb6WfzQERXATJCIqug9zxn-M824h9l80LicbIz4ejfvqvO4psM22WgtHHToChc7atB23BkBgnECFP43dqCm6IiQE3lhjXkpauiXu4hhIGclxr5BfVutXr0TtDbGZJP3KLWHMnARGU530wZcLpIFYv_-88XjLrDngJNZfoW6L6_KdMSDe7Igsuv1qgCviJGj2_r0f26UkUDcefMFGkknrxVHOVgCQNGENz4Tzp2HGKHQMQF91A912vy2LfFjcCs6JyMRPbmtFdV78HvJe1pjGCH9GrNKXNbEg9A4NWN2aLJTiH0k92G1d_HebsvVIjFSQytXgfx4BKYTODmuWCeZJ-hkgmceVAps4M6V7v4eeNiZOYjab5JokLoZSR9i_oeD3qFQqiaJvjp1-RF8rcOS7w9-P078nvoXF2sG-ic20otPFoPZdBrVTKW6A2g2__HjJOU5ietvC27ovQ-Z7ltIIDVDGRcSYRuHBAwsupFFNQAYjHNh6fauBiNgUi7xmsqX2ppTYCkFTDbFQfzjzS0EbXbM5ohklUflDDNbpOQU4EbbwLpZhtgH_iyyPO21Awc7wqiD-PadqFne8mx3SvFTlQ1Ro0HzoJqwFpwF75Zi5Yw709znYgZjnUaygSYI6A8_jU4TFVXzNZz7Mkal1lTH_a4NcCqJjmkaB0w20J--4V4mjHTFvbI1c5dZSSwq3Qo3e3RXShYHF-j8NyMM33868KQWcBQsYBYcOTkKllw8bgk1x1EXHf_nAa1eVmyzZ8Y3CGc2LdflOt7sc86TZvWIThU4psqmPTZwFgwIiIiPERAf1P6bWWv1bx1dYTih7bC_sU4zZPwnAYzrgIadKon09oSdNsaRcQiGJyrDTMH0jsO-SVLuRkUTIEVwcvojRKfGvZTbdiyaEL9Fd26MEY-fj7xZ4A7dDRZPecUqetm4D0vR1G93two7Sc39MnCtmCtX6-cHX38i5-lpva-iuYUq7hsemYGfrTJbNkgvo-EjFcEjTTE2zfATGK4aEEpFzRcVhNnShQTfqPJvvLp2HL16CDKkxagZo7zGtD4adeAGvUmu24oHJKHRqjADYdqFoD2ReiwW23UklOlWHymvHk1EZNx5oTj0VBgGCf20a9-iqXW6oz4M3_kYTWIUC38rs1ilragJEi7F2r4As-d4x_pIYUJEf5UJ750CTppxMVBCqpNHn5t7BRx3KexzHpTAFKJgrr1SBBXVTnntm6SjVi32YCEA7rlRC5ORReObKX93M_OTnstKpnbf8dFXgJwdk2y6X7tZci1RvS3-mrL_ZZM0bDPpypN_IhWNYxyWJx0ehMwzzJkGgehtHcH6UewE-5fJiuPMNo_hy7ISd108N90pmLR91BE9s.Q67ONpn8TcIg9qdPNMMhNQ",
-          "expires_in": 3600,
-          "token_type": "Bearer"
-        }
-      }
-    ],
-    "define_datas": [
-      {
-        "json": {
-          "nome": "No dia",
-          "data_de": "2025-12-27",
-          "data_ate": "2025-12-27",
-          "status": "PENDING",
-          "mensagem_tipo": "no_dia"
-        }
-      },
-      {
-        "json": {
-          "nome": "1 dia atraso",
-          "data_de": "2025-12-26",
-          "data_ate": "2025-12-26",
-          "status": "ATRASADO",
-          "mensagem_tipo": "1_atraso"
-        }
-      },
-      {
-        "json": {
-          "nome": "2 dias atraso",
-          "data_de": "2025-12-25",
-          "data_ate": "2025-12-25",
-          "status": "ATRASADO",
-          "mensagem_tipo": "2_atraso"
-        }
-      },
-      {
-        "json": {
-          "nome": "3 dias atraso",
-          "data_de": "2025-12-24",
-          "data_ate": "2025-12-24",
-          "status": "ATRASADO",
-          "mensagem_tipo": "3_atraso"
-        }
-      },
-      {
-        "json": {
-          "nome": "5 dias atraso",
-          "data_de": "2025-12-22",
-          "data_ate": "2025-12-22",
-          "status": "ATRASADO",
-          "mensagem_tipo": "5_atraso"
-        }
-      }
-    ],
-    "busca_itens_totais": [
-      {
-        "json": {
-          "itens_totais": 1,
-          "itens": [
-            {
-              "id": "954c19c2-e535-49fa-98f0-b0e80a8e228d",
-              "status": "PENDING",
-              "total": 800,
-              "descricao": "Venda 1703786",
-              "data_vencimento": "2025-12-27",
-              "status_traduzido": "EM_ABERTO",
-              "nao_pago": 800,
-              "pago": 0,
-              "data_criacao": "2025-05-22T08:17:56.128537",
-              "data_alteracao": "2025-10-27T14:11:37.17713",
-              "cliente": {
-                "id": "ff618acf-fc1b-4fb0-8bc7-dabb4e3a1475",
-                "nome": "LIMPA + DISTRIBUIDORA/  LP DISTRIBUIDORA LTDA / BrasLimp"
-              },
-              "renegociacao": null
-            }
-          ],
-          "totais": {
-            "pago": {
-              "valor": 0
-            },
-            "vencido": {
-              "valor": 0
-            },
-            "vence_hoje": {
-              "valor": 800
-            },
-            "pendente": {
-              "valor": 0
-            },
-            "aberto": {
-              "valor": 800
-            },
-            "todos": 800
-          }
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": {
     "node:8am": {
@@ -1378,6 +1278,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-27T21:04:54.117Z",
-  "versionId": "6169f2e1-c53e-478e-842c-4ebc69d0e8f6"
+  "updatedAt": "2025-12-28T14:57:04.658Z",
+  "versionId": "89ceaddd-1ca9-4e35-807f-5c1ffbefd3e2"
 }
