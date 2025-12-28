@@ -100,7 +100,7 @@
       "main": [
         [
           {
-            "node": "select_cobrancas_do_user",
+            "node": "loop",
             "type": "main",
             "index": 0
           }
@@ -780,7 +780,10 @@
     ]
   },
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": {
     "node:semanal": {
@@ -789,6 +792,6 @@
   },
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-12-27T21:04:47.855Z",
-  "versionId": "ee8fea04-f10a-45ae-aea9-9361260bcf18"
+  "updatedAt": "2025-12-28T14:51:36.838Z",
+  "versionId": "51038f1d-36aa-4b43-83fe-ef5d2b15c015"
 }
