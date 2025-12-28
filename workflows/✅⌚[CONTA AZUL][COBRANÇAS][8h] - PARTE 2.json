@@ -133,7 +133,7 @@
       "main": [
         [
           {
-            "node": "registra_cobranca",
+            "node": "ja_existe?",
             "type": "main",
             "index": 0
           }
@@ -162,7 +162,7 @@
         ],
         [
           {
-            "node": "formata_dados",
+            "node": "link_existe&nao_cancelado1",
             "type": "main",
             "index": 0
           }
@@ -195,7 +195,7 @@
       "main": [
         [
           {
-            "node": "busca_pessoa",
+            "node": "busca_variavel_access_token_conta_azul",
             "type": "main",
             "index": 0
           }
@@ -207,6 +207,47 @@
         [
           {
             "node": "erro_de_token1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "link_existe&nao_cancelado1": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "end",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ja_existe?": {
+      "main": [
+        [
+          {
+            "node": "sim",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sim": {
+      "main": [
+        [],
+        [
+          {
+            "node": "registra_cobranca",
             "type": "main",
             "index": 0
           }
@@ -404,8 +445,8 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        1460,
-        440
+        1700,
+        240
       ],
       "credentials": {
         "mySql": {
@@ -439,8 +480,8 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        1620,
-        660
+        1840,
+        500
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -464,7 +505,7 @@
           },
           "acknowledge": "executionFinishesSuccessfully",
           "jsonParseBody": "={{ true }}",
-          "parallelMessages": 3
+          "parallelMessages": 1
         }
       },
       "id": "d0379813-daff-4602-9038-0c942c243218",
@@ -585,18 +626,16 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "INSERT INTO lembretes_enviados (\n  user_id,\n  cobranca_id,\n  mensagem_tipo,\n  data_envio,\n  mensagem_texto,\n  status_envio,\n  data_vencimento,\n  link_pagamento\n)\nVALUES (\n  {{ $node[\"cria_atualiza_user1\"].json[\"id\"] }},\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"mensagem_tipo\"] }}',\n  NOW(),\n  '{{ $node[\"copy\"].json[\"mensagem_texto\"] }}',\n  '´pendente',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}',\n  '{{ $node[\"busca_payment_link\"].json.body.solicitacoes_cobrancas[0].url }}'\n);",
-        "options": {
-          "queryReplacement": ""
-        }
+        "query": "INSERT INTO lembretes_enviados (\n  user_id,\n  cobranca_id,\n  mensagem_tipo,\n  data_envio,\n  mensagem_texto,\n  status_envio,\n  data_vencimento,\n  valor,\n  link_pagamento\n)\nVALUES (\n  {{ $node[\"cria_atualiza_user1\"].json[\"id\"] }},\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"mensagem_tipo\"] }}',\n  NOW(),\n  '{{ $node[\"copy\"].json[\"mensagem_texto\"] }}',\n  'pendente',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}',\n  '{{ $node[\"busca_payment_link\"].json.body.solicitacoes_cobrancas[0].valor_composicao.valor_liquido }}',\n  '{{ $node[\"busca_payment_link\"].json.body.solicitacoes_cobrancas[0].url }}'\n);",
+        "options": {}
       },
       "id": "f285a88d-7840-4f2a-bca4-8bc1e65f0633",
       "name": "registra_cobranca",
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        2040,
-        660
+        2640,
+        620
       ],
       "credentials": {
         "mySql": {
@@ -614,8 +653,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1220,
-        660
+        1440,
+        500
       ]
     },
     {
@@ -647,8 +686,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1840,
-        660
+        2060,
+        500
       ],
       "id": "16ffcfce-b340-4214-86b9-d865a5cda610",
       "name": "cria_atualiza_user1"
@@ -662,8 +701,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1420,
-        660
+        1640,
+        500
       ]
     },
     {
@@ -677,7 +716,7 @@
           "conditions": [
             {
               "id": "c2ed465e-958e-4d5d-94b3-22521b7c7be0",
-              "leftValue": "={{ String($json[\"error\"][\"status\"]) }}{{ $json[\"error\"][\"message\"] }}",
+              "leftValue": "={{ String($json[\"error\"][\"status\"]) }}{{ String($json[\"error\"][\"message\"]) }}",
               "rightValue": "401",
               "operator": {
                 "type": "string",
@@ -736,8 +775,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1260,
-        440
+        1500,
+        240
       ]
     },
     {
@@ -779,41 +818,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1640,
+        1880,
         240
       ],
       "webhookId": "f2918b4e-933c-463d-b838-d160622c38dd"
-    },
-    {
-      "parameters": {
-        "url": "=https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/parcelas/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
-            }
-          ]
-        },
-        "options": {
-          "response": {
-            "response": {
-              "fullResponse": true
-            }
-          }
-        }
-      },
-      "id": "9622273b-3400-4339-bc59-a640d313d86d",
-      "name": "busca_payment_linkw",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -1100,
-        260
-      ],
-      "disabled": true,
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -844,6 +852,356 @@
         620
       ],
       "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "content": "### 📌 Copies disponíveis por período",
+        "height": 80
+      },
+      "id": "e5573d8d-0f39-4dc8-ba9c-40e233503608",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -960,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### 📌 busca credenciais azul",
+        "height": 80,
+        "width": 1015.7383932761061,
+        "color": 5
+      },
+      "id": "0ab16b2b-6bb7-4eb1-869e-001f7181da6d",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -700,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### 📌 Renova o token se expirado e atualiza o bd pra continuar o processo de onde parou",
+        "height": 84.17000611148853,
+        "width": 339.8896009080356,
+        "color": 5
+      },
+      "id": "7bc5bfb4-93f8-4b45-9e7d-24f46a1dfef0",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### 📌 Só busca a pessoa na Conta Azul",
+        "height": 80,
+        "color": 3
+      },
+      "id": "bfc3940a-afb5-4a72-abc3-8f536066d614",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        340,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### 📌 Só busca link de pagamento na Conta Azul",
+        "height": 80,
+        "color": 4
+      },
+      "id": "77a4e541-0b4f-471f-8b1a-adfd0596249e",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        780,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### 📌 Formata dados, copy conforme período de cobrança, registra/atualiza user no bd e registra cobrança no bd - lembretes_enviados",
+        "height": 80,
+        "width": 939.1710246929118,
+        "color": 5
+      },
+      "id": "4a054a11-6596-4b06-bbd7-87379fcb23ce",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api-v2.contaazul.com/v1/financeiro/contas-receber",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "conta_bancaria",
+              "value": "={{ $node[\"busca_payment_link\"].json[\"body\"][\"conta_financeira\"][\"id\"] }}"
+            },
+            {
+              "name": "descricao_fatura",
+              "value": "=Pagamento {{ $node[\"busca_pessoa\"].json[\"body\"][\"nome\"] }}"
+            },
+            {
+              "name": "id_parcela",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}"
+            },
+            {
+              "name": "data_vencimento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}"
+            },
+            {
+              "name": "tipo",
+              "value": "LINK_PAGAMENTO"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "4296a4c4-734a-4479-a934-c4fbc8629635",
+      "name": "gera_cobranca_parcela",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        920,
+        940
+      ],
+      "disabled": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api-v2.contaazul.com/v1/financeiro/eventos-financeiros/contas-a-receber/gerar-cobranca",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "conta_bancaria",
+              "value": "={{ $node[\"busca_payment_link\"].json[\"body\"][\"conta_financeira\"][\"id\"] }}"
+            },
+            {
+              "name": "descricao_fatura",
+              "value": "=Pagamento {{ $node[\"busca_pessoa\"].json[\"body\"][\"nome\"] }}"
+            },
+            {
+              "name": "id_parcela",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}"
+            },
+            {
+              "name": "data_vencimento",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}"
+            },
+            {
+              "name": "tipo",
+              "value": "LINK_PAGAMENTO"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "8fcf341b-25da-4cf6-b72c-5b3f630ca56a",
+      "name": "gera_cobranca_parcela1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        780,
+        940
+      ],
+      "disabled": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {},
+      "id": "60ca1629-387b-4898-9285-274fd0056f5b",
+      "name": "end",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "af7e9952-dc0d-48f6-881e-05f595e3fa5a",
+              "leftValue": "={{$node[\"busca_payment_link\"].json?.[\"body\"]?.[\"solicitacoes_cobrancas\"]?.[\"0\"]?.[\"url\"]}}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "cc30f76e-7552-45eb-be6f-18c57cd15648",
+              "leftValue": "={{ $node[\"busca_payment_link\"].json[\"body\"][\"solicitacoes_cobrancas\"][\"0\"][\"status_solicitacao_cobranca\"] }}",
+              "rightValue": "CANCELADO",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "id": "d272b018-fae0-474b-8070-8d840b44bf60",
+      "name": "link_existe&nao_cancelado",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        940
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "af7e9952-dc0d-48f6-881e-05f595e3fa5a",
+              "leftValue": "={{ !!(\n  $node[\"busca_payment_link\"].json.body?.solicitacoes_cobrancas?.some(c =>\n    c?.url &&\n    ![\"CANCELADO\",\"CANCELADA\",\"EXCLUIDA\",\"EXPIRADA\"]\n      .includes(String(c?.status_solicitacao_cobranca).toUpperCase())\n  )\n) }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "id": "b34a047c-050b-4751-842b-ff6ef893692c",
+      "name": "link_existe&nao_cancelado1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1180,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT COUNT(*) FROM lembretes_enviados\nWHERE cobranca_id = '{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}'\nAND mensagem_tipo = '{{ $node[\"chega_da_fila\"].json[\"content\"][\"mensagem_tipo\"] }}'\nAND data_envio_date = CURDATE();",
+        "options": {}
+      },
+      "id": "1f1beb65-f7dc-43c9-8b09-88c4eaeca2f8",
+      "name": "ja_existe?",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2260,
+        500
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "74b7e5dd-c4e6-47b2-9d5d-5b62366c66c4",
+              "leftValue": "={{  $node[\"ja_existe?\"].json[\"COUNT(*)\"] }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "883d400b-8ded-4268-b935-f7a6a9a3b393",
+      "name": "sim",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2420,
+        500
+      ]
     }
   ],
   "pinData": {
@@ -851,8 +1209,8 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-Iig29O7A74gMD8OUZCva5Q",
-            "deliveryTag": 6,
+            "consumerTag": "amq.ctag-82tSxqlcnDkqEsevDymF9Q",
+            "deliveryTag": 1,
             "redelivered": false,
             "exchange": "",
             "routingKey": "cobranca_conta_azul"
@@ -861,40 +1219,66 @@
             "headers": {}
           },
           "content": {
-            "nao_pago": "3000",
+            "nao_pago": "800",
             "status_traduzido": "EM_ABERTO",
             "pago": "0",
-            "data_alteracao": "2025-11-26T09:52:32.836452",
-            "mensagem_tipo": "5_antes",
+            "data_alteracao": "2025-10-27T14:11:37.17713",
+            "mensagem_tipo": "no_dia",
             "cliente": {
-              "id": "566ae969-05af-42a4-b178-f11c02d1b77a",
-              "nome": "Halisson Pereira Michelone Soc. Ind. / H. Michelone Advogados"
+              "id": "ff618acf-fc1b-4fb0-8bc7-dabb4e3a1475",
+              "nome": "LIMPA + DISTRIBUIDORA/  LP DISTRIBUIDORA LTDA / BrasLimp"
             },
-            "data_vencimento": "2025-12-25",
-            "descricao": "Venda",
-            "total": "3000",
+            "data_vencimento": "2025-12-27",
+            "descricao": "Venda 1703786",
+            "total": "800",
             "status": "PENDING",
-            "id": "bfdaf7b4-74f8-4b08-aa68-02e44bfa8713"
+            "id": "954c19c2-e535-49fa-98f0-b0e80a8e228d"
           }
         }
       }
     ],
-    "busca_payment_linkw": [
+    "gera_cobranca_parcela": [
+      {
+        "json": {
+          "error": {
+            "message": "400 - \"<html><body><h1>Whitelabel Error Page</h1><p>This application has no explicit mapping for /error, so you are seeing this as a fallback.</p><div id='created'>Sat Dec 27 15:24:33 BRT 2025</div><div>There was an unexpected error (type=Bad Request, status=400).</div><div>N&atilde;o &eacute; poss&iacute;vel adicionar cobran&ccedil;as a eventos financeiros de venda agendada.</div></body></html>\"",
+            "name": "AxiosError",
+            "stack": "AxiosError: Request failed with status code 400\n    at settle (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/core/settle.js:19:12)\n    at RedirectableRequest.handleResponse (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/adapters/http.js:537:9)\n    at RedirectableRequest.emit (node:events:529:35)\n    at RedirectableRequest.emit (node:domain:489:12)\n    at RedirectableRequest._processResponse (/usr/local/lib/node_modules/n8n/node_modules/follow-redirects/index.js:398:10)\n    at ClientRequest.RedirectableRequest._onNativeResponse (/usr/local/lib/node_modules/n8n/node_modules/follow-redirects/index.js:91:12)\n    at Object.onceWrapper (node:events:632:26)\n    at ClientRequest.emit (node:events:517:28)\n    at ClientRequest.emit (node:domain:489:12)\n    at HTTPParser.parserOnIncomingClient (node:_http_client:700:27)\n    at Axios.request (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/core/Axios.js:45:41)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at requestFn (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:567:33)\n    at proxyRequestToAxios (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:570:26)\n    at Object.request (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:1986:50)",
+            "code": "ERR_BAD_REQUEST",
+            "status": 400
+          }
+        }
+      }
+    ],
+    "gera_cobranca_parcela1": [
+      {
+        "json": {
+          "error": {
+            "message": "400 - \"<html><body><h1>Whitelabel Error Page</h1><p>This application has no explicit mapping for /error, so you are seeing this as a fallback.</p><div id='created'>Sat Dec 27 15:24:33 BRT 2025</div><div>There was an unexpected error (type=Bad Request, status=400).</div><div>N&atilde;o &eacute; poss&iacute;vel adicionar cobran&ccedil;as a eventos financeiros de venda agendada.</div></body></html>\"",
+            "name": "AxiosError",
+            "stack": "AxiosError: Request failed with status code 400\n    at settle (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/core/settle.js:19:12)\n    at RedirectableRequest.handleResponse (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/adapters/http.js:537:9)\n    at RedirectableRequest.emit (node:events:529:35)\n    at RedirectableRequest.emit (node:domain:489:12)\n    at RedirectableRequest._processResponse (/usr/local/lib/node_modules/n8n/node_modules/follow-redirects/index.js:398:10)\n    at ClientRequest.RedirectableRequest._onNativeResponse (/usr/local/lib/node_modules/n8n/node_modules/follow-redirects/index.js:91:12)\n    at Object.onceWrapper (node:events:632:26)\n    at ClientRequest.emit (node:events:517:28)\n    at ClientRequest.emit (node:domain:489:12)\n    at HTTPParser.parserOnIncomingClient (node:_http_client:700:27)\n    at Axios.request (/usr/local/lib/node_modules/n8n/node_modules/axios/lib/core/Axios.js:45:41)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at requestFn (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:567:33)\n    at proxyRequestToAxios (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:570:26)\n    at Object.request (/usr/local/lib/node_modules/n8n/node_modules/n8n-core/dist/NodeExecuteFunctions.js:1986:50)",
+            "code": "ERR_BAD_REQUEST",
+            "status": 400
+          }
+        }
+      }
+    ],
+    "busca_payment_link": [
       {
         "json": {
           "body": {
-            "id": "6c9544ff-3473-4bd7-8e1c-cd7404448c78",
+            "id": "954c19c2-e535-49fa-98f0-b0e80a8e228d",
             "status": "PENDENTE",
             "nsu": null,
             "evento": {
-              "id": "387ea56a-5b12-4772-b84f-cd8fed6ecffc",
-              "data_competencia": "2025-11-29",
+              "id": "a1815f20-7783-4367-b069-560eaa4befa6",
+              "data_competencia": "2025-10-01",
               "condicao_pagamento": {
                 "quantidade_parcelas": 1,
                 "montante_fixo": false
               },
               "referencia": {
-                "id": "5eb2c63d-a775-4e2d-8ec1-e2c9b77705b0",
+                "id": "d159ace6-0c6c-4758-a991-4e0dac3c3d3e",
                 "revisao": "2",
                 "origem": "VENDA_AGENDADA"
               },
@@ -904,41 +1288,28 @@
                 {
                   "rateio_centro_custo": [
                     {
-                      "valor": 0,
-                      "id_centro_custo": "7c66d95a-cba9-11ef-95da-73623ab95d3c",
-                      "nome_centro_custo": "Sirius"
+                      "valor": 800,
+                      "id_centro_custo": "ef1080a0-268a-11f0-a620-43a16dde7cf2",
+                      "nome_centro_custo": "Platinum"
                     }
                   ],
-                  "valor": 0,
-                  "valor_bruto": 1000,
-                  "id_categoria": "552bea13-735a-478f-b59d-26cd9c015ce3",
-                  "nome_categoria": "Descontos incondicionais concedidos"
-                },
-                {
-                  "rateio_centro_custo": [
-                    {
-                      "valor": 2000,
-                      "id_centro_custo": "7c66d95a-cba9-11ef-95da-73623ab95d3c",
-                      "nome_centro_custo": "Sirius"
-                    }
-                  ],
-                  "valor": 2000,
-                  "valor_bruto": 3000,
-                  "id_categoria": "8c1233b5-b526-4a77-94ba-cc72c3812c02",
-                  "nome_categoria": "1.1- Sirius Recorrente"
+                  "valor": 800,
+                  "valor_bruto": 800,
+                  "id_categoria": "12ea2cdd-de4b-4329-90e3-fbb00bf406df",
+                  "nome_categoria": "1.3- Taurus Recorrente"
                 }
               ]
             },
-            "versao": 2,
+            "versao": 3,
             "referencia": null,
             "indice": 1,
             "conciliado": false,
             "valor_pago": 0,
             "perda": null,
-            "nao_pago": 2000,
-            "data_vencimento": "2026-01-01",
-            "data_pagamento_previsto": "2026-01-01",
-            "descricao": "Venda 1703987",
+            "nao_pago": 800,
+            "data_vencimento": "2025-12-27",
+            "data_pagamento_previsto": "2025-12-27",
+            "descricao": "Venda 1703786",
             "nota": null,
             "conta_financeira": {
               "id": "c182ff3d-a5f0-44d6-8b92-8c0e2deffdd1",
@@ -956,10 +1327,10 @@
             "valor_composicao": {
               "multa": 0,
               "juros": 0,
-              "valor_bruto": 2000,
+              "valor_bruto": 800,
               "desconto": 0,
               "taxa": 0,
-              "valor_liquido": 2000
+              "valor_liquido": 800
             },
             "metodo_pagamento": "PIX_COBRANCA",
             "baixa_agendada": false,
@@ -967,23 +1338,23 @@
             "anexos": [],
             "solicitacoes_cobrancas": [
               {
-                "id": "017aa10a-cce2-11f0-882a-fb42eb7c2ea2",
-                "url": "https://faturas.contaazul.com/#/fatura/visualizar/cdbbcc3a-cce2-11f0-bd68-7fac8cbd855f",
-                "versao": 1,
-                "status_solicitacao_cobranca": "REGISTRADO",
+                "id": "82d87a5a-9e8f-11f0-9a80-4f2c7c649b81",
+                "url": "https://faturas.contaazul.com/#/fatura/visualizar/78cc3aee-9e92-11f0-8973-9b289db3c343",
+                "versao": 3,
+                "status_solicitacao_cobranca": "",
                 "valor_composicao": {
                   "multa": 0,
                   "juros": 0,
-                  "valor_bruto": 2000,
+                  "valor_bruto": 1400,
                   "desconto": 0,
                   "taxa": 0,
-                  "valor_liquido": 2000
+                  "valor_liquido": 1400
                 },
-                "data_vencimento": "2026-01-01",
+                "data_vencimento": "2025-11-05",
                 "data_quitacao": null,
                 "tipo_solicitacao_cobranca": "PIX_COBRANCA",
-                "id_cliente": "e239d646-96a7-430c-b836-3cae20b8f730",
-                "id_referencia": "cdbbcc3a-cce2-11f0-bd68-7fac8cbd855f",
+                "id_cliente": "ff618acf-fc1b-4fb0-8bc7-dabb4e3a1475",
+                "id_referencia": "78cc3aee-9e92-11f0-8973-9b289db3c343",
                 "datalhe_erro": null,
                 "conta_financeira": {
                   "id": "c182ff3d-a5f0-44d6-8b92-8c0e2deffdd1",
@@ -998,34 +1369,34 @@
                   "numero": "26642"
                 },
                 "notificao_cobranca": {
-                  "id": "017ab82a-cce2-11f0-882a-b351978151b7",
+                  "id": "82d90b1e-9e8f-11f0-9a80-cbadd476091a",
                   "solicitacao_cobranca_ids": [
-                    "017aa10a-cce2-11f0-882a-fb42eb7c2ea2"
+                    "82d87a5a-9e8f-11f0-9a80-4f2c7c649b81"
                   ],
                   "versao": 0,
-                  "enviado_em": "2025-11-29",
+                  "enviado_em": "2025-10-01",
                   "aberto_em": null,
                   "itens_notificacao_cobranca": [
                     {
-                      "id": "017ac252-cce2-11f0-882a-df4a8a7736d5",
+                      "id": "82d95434-9e8f-11f0-9a80-87378d74e1aa",
                       "sms": null,
                       "whatsapp": null,
                       "versao": 0,
-                      "email": "brunohenrique@grupob3digital.com",
+                      "email": "cofre.fector@gmail.com",
                       "status_entrega": "ENVIADO"
                     },
                     {
-                      "id": "017af196-cce2-11f0-882a-4fc1eeca46ac",
-                      "sms": "3193878300",
+                      "id": "82d99cbe-9e8f-11f0-9a80-0f24d1b2edfb",
+                      "sms": "37999556961",
                       "whatsapp": null,
                       "versao": 0,
                       "email": null,
                       "status_entrega": "ENVIADO"
                     },
                     {
-                      "id": "017aff10-cce2-11f0-882a-67179cb4babd",
+                      "id": "82d9e50c-9e8f-11f0-9a80-1fac06a3d6f1",
                       "sms": null,
-                      "whatsapp": "3193878300",
+                      "whatsapp": "37999556961",
                       "versao": 0,
                       "email": null,
                       "status_entrega": "ENVIADO"
@@ -1038,27 +1409,27 @@
                   "auto_notificacao": false,
                   "envio_instantaneo": false
                 },
-                "confirmado_em": "2025-11-29",
-                "descricao": "Venda 1703987",
+                "confirmado_em": "2025-10-01",
+                "descricao": "Venda 1703786",
                 "referencia_externa": null,
                 "recuperado": false,
                 "combinado": false,
-                "atributos_personalizados": "{\"earlyDiscount\":{\"percent\":5.0,\"days\":1.0},\"scheduleId\":\"c20cd9ec-3620-46d5-b2b3-7176f30414db\"}"
+                "atributos_personalizados": "{\"scheduleId\":\"e276d724-aeaa-4e24-8e62-d8da03584da8\"}"
               }
             ],
             "id_ultima_solicitacao_pagamento": null,
             "id_boleto_bancario_autorizado": null,
             "fatura": null,
-            "data_alteracao": "2025-11-29T02:12:30",
+            "data_alteracao": "2025-10-27T14:11:37",
             "valor_total_liquido": null,
             "id_ultimo_solicitacao_cobranca": null,
             "renegociacao": null
           },
           "headers": {
             "content-type": "application/json",
-            "date": "Sat, 27 Dec 2025 13:50:34 GMT",
+            "date": "Sat, 27 Dec 2025 20:27:44 GMT",
             "vary": "Origin,Access-Control-Request-Method,Access-Control-Request-Headers",
-            "x-request-id": "cd1a64a1-ecf1-4508-b4ae-4b0f492915be",
+            "x-request-id": "cf91cb01-5bb9-45f6-b872-24abe90b19c3",
             "via": "1.1 google",
             "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
             "connection": "close",
@@ -1076,6 +1447,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-27T14:15:45.248Z",
-  "versionId": "9657162f-6e7e-49f1-97c4-905408c2ebb4"
+  "updatedAt": "2025-12-27T21:01:39.375Z",
+  "versionId": "31a25f37-c352-4d70-b727-4868121d6ac2"
 }
