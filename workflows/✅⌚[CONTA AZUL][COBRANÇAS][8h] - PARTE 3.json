@@ -16,7 +16,146 @@
       "main": [
         [
           {
-            "node": "select_cobrancas",
+            "node": "select_cobrancas2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "loop": {
+      "main": [
+        [
+          {
+            "node": "end",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "select_cobrancas_do_user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "select_cobrancas2": {
+      "main": [
+        [
+          {
+            "node": "loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "select_cobrancas_do_user": {
+      "main": [
+        [
+          {
+            "node": "agrupa_cobrancas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "agrupa_cobrancas": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_api_bot_conversa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_api_bot_conversa": {
+      "main": [
+        [
+          {
+            "node": "busca_user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_user": {
+      "main": [
+        [
+          {
+            "node": "cadastrar_contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "15s": {
+      "main": [
+        [
+          {
+            "node": "select_cobrancas_do_user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_fluxo": {
+      "main": [
+        [
+          {
+            "node": "update_status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastrar_contato": {
+      "main": [
+        [
+          {
+            "node": "zera_campo_msg_cobranca",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "zera_campo_msg_cobranca": {
+      "main": [
+        [
+          {
+            "node": "envia_campo_msg_cobranca",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "envia_campo_msg_cobranca": {
+      "main": [
+        [
+          {
+            "node": "envia_fluxo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_status": {
+      "main": [
+        [
+          {
+            "node": "15s",
             "type": "main",
             "index": 0
           }
@@ -46,8 +185,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        560,
-        760
+        280,
+        880
       ]
     },
     {
@@ -61,64 +200,8 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        780,
-        760
-      ],
-      "credentials": {
-        "mySql": {
-          "id": "PfzfhyuSKTUfroef",
-          "name": "[MySQL] - Fabricio Nunnes"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "SELECT COUNT(*) AS count FROM lembretes_enviados \nWHERE user_id = '{{ $json.cliente.id }}' \nAND data_envio_date = CURDATE();",
-        "options": {}
-      },
-      "id": "0340cbeb-ef06-4204-9dae-84a347fe9874",
-      "name": "Checa Duplicata",
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.4,
-      "position": [
-        2200,
-        720
-      ],
-      "credentials": {
-        "mySql": {
-          "id": "PfzfhyuSKTUfroef",
-          "name": "[MySQL] - Fabricio Nunnes"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "select",
-        "table": {
-          "__rl": true,
-          "value": "lembretes_enviados",
-          "mode": "list",
-          "cachedResultName": "lembretes_enviados"
-        },
-        "returnAll": true,
-        "where": {
-          "values": [
-            {
-              "column": "data_envio_date",
-              "value": "={{$now.toFormat('yyyy-MM-dd')}}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "64d5d611-975d-41de-8d9b-84afc05fb67f",
-      "name": "select_cobrancas",
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.4,
-      "position": [
-        760,
-        300
+        500,
+        880
       ],
       "credentials": {
         "mySql": {
@@ -139,8 +222,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        540,
-        300
+        280,
+        420
       ],
       "webhookId": "a26d9840-34c6-41b3-be8d-1e197b06c245",
       "credentials": {
@@ -149,6 +232,524 @@
           "name": "Header Auth account"
         }
       }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "f99362c9-988e-4191-8c69-d7b667b664a2",
+      "name": "loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        700,
+        420
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "6a657401-3da2-4c67-8a4d-438276e4624e",
+      "name": "end",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        920,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 📌 NÍVEIS DE PRIORIDADE \n_(Para quando um mesmo cliente tiver várias no mesmo dia)_\n\n- 5_atraso = 1\n- 3_atraso = 2\n- 2_atraso = 3\n- 1_atraso = 4\n- no_dia = 5\n- 1_antes = 6\n- 2_antes = 7\n- 5_antes = 8\n",
+        "height": 326.16471423449707,
+        "width": 406.1647142344969
+      },
+      "id": "c5e6454a-1b0e-412a-a62a-2face3f1c131",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        940,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT DISTINCT user_id\nFROM lembretes_enviados\nWHERE data_envio_date = CURDATE()\n  AND status_envio = 'pendente';",
+        "options": {}
+      },
+      "id": "5cc716ae-ed4e-497c-85eb-0c6c64fd2330",
+      "name": "select_cobrancas2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        500,
+        420
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = items.map(i => i.json);\n\n// Agrupa por user_id\nconst users = {};\nfor (const r of data) {\n  if (!users[r.user_id]) users[r.user_id] = [];\n  users[r.user_id].push(r);\n}\n\nconst result = [];\n\nfor (const userId in users) {\n  const cobrancas = users[userId];\n\n    // LIMITE DE 10 POR USUÁRIO\n  if (cobrancas.length > 10) {\n    cobrancas = cobrancas.slice(0, 10);\n  }\n\n  // Nome no texto\n  const nomeMatch = cobrancas[0].mensagem_texto.match(/Oi, (.*?)!/);\n  const nome = nomeMatch ? nomeMatch[1] : 'cliente';\n\n  // Se só tem uma cobrança → manda normal\n  if (cobrancas.length === 1) {\n    result.push({\n      json: {\n        type: \"single\",\n        user_id: parseInt(userId),\n        mensagem: cobrancas[0].mensagem_texto\n      }\n    });\n    continue;\n  }\n\n  // Flags\n  const hasAtraso = cobrancas.some(c => c.mensagem_tipo.includes('_atraso'));\n  const hasDia = cobrancas.some(c => c.mensagem_tipo.includes('no_dia'));\n  const hasAntes = cobrancas.some(c => c.mensagem_tipo.includes('_antes'));\n\n  // Prioridades\n  const prioridade = {\n    '5_atraso': 1,\n    '3_atraso': 2,\n    '2_atraso': 3,\n    '1_atraso': 4,\n    'no_dia': 5,\n    '1_antes': 6,\n    '2_antes': 7,\n    '5_antes': 8\n  };\n\n  cobrancas.sort(\n    (a, b) =>\n      (prioridade[a.mensagem_tipo] || 99) -\n      (prioridade[b.mensagem_tipo] || 99)\n  );\n\n  // Monta lista\n  let listaCobrancas = '';\n  cobrancas.forEach(c => {\n    const dataVencBr = c.data_vencimento.split('-').reverse().join('/');\n    let tipoFriendly = c.mensagem_tipo\n      .replace('_antes', ' dias antes')\n      .replace('_atraso', ' dias de atraso')\n      .replace('no_dia', 'no dia do vencimento');\n\n    listaCobrancas += `\\n- ${tipoFriendly} (vencimento ${dataVencBr} - valor ${c.valor}): ${c.link_pagamento}`;\n  });\n\n  let headerExtra = '';\n  if (hasAtraso) headerExtra += `\\n⚠️ Atenção para pagamentos em atraso!`;\n  if (hasDia) headerExtra += `\\nHoje vence uma cobrança!`;\n  if (hasAntes) headerExtra += `\\n✅ Existem cobranças com chance de desconto!`;\n\n  const mensagem = `Oi, ${nome}! Tudo bem?\nEstou passando para te enviar o resumo das suas cobranças para te ajudar a organizar melhor:${headerExtra}\n\n${listaCobrancas}\n\n⚠️ Pagamentos feitos até 1 dia antes do vencimento garantem 5% de desconto.\nSe já pagou alguma delas, só mandar o comprovante aqui pra gente.`;\n\n  result.push({\n    json: {\n      type: \"multiple\",\n      user_id: parseInt(userId),\n      quantidade: cobrancas.length,\n      mensagem\n    }\n  });\n}\n\nreturn result;"
+      },
+      "id": "e6fe3232-b394-45c2-a21b-c055d5cd5571",
+      "name": "agrupa_cobrancas",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "lembretes_enviados",
+          "mode": "list",
+          "cachedResultName": "lembretes_enviados"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "user_id",
+              "value": "={{ $node[\"loop\"].json[\"user_id\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "7857ae8e-4c1f-4e17-ad07-9ad74659c157",
+      "name": "select_cobrancas_do_user",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        920,
+        500
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "API-KEY BOT CONVERSA"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "01c679b7-c56f-439a-9a83-07bec8a986f3",
+      "name": "pesquisa_variavel_api_bot_conversa",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1360,
+        500
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $node[\"loop\"].json[\"user_id\"] }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "b42a75a1-6378-4e79-a26f-ba7f7d50670a",
+      "name": "busca_user",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1560,
+        500
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"dados\"].json[\"id_notificado_bc2\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=🚨 NOTIFICAÇÃO: NOVO LEAD NO CRM"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"dados\"].json[\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "send_message",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        780,
+        700
+      ],
+      "id": "80455e20-30e9-4338-b171-3c2d9168499d",
+      "disabled": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "content": "## Apaga registros na table:\n\n👉  lembretes_enviados\n\n## com mais de 90 dias de criação",
+        "height": 367.42848892842915,
+        "width": 502.74275264267726,
+        "color": 3
+      },
+      "id": "398c5df4-5f33-4268-89e3-ff7be2c67830",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        248,
+        702
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 15
+      },
+      "id": "31f93953-6598-4084-a908-72443a475078",
+      "name": "15s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2860,
+        500
+      ],
+      "webhookId": "d753b6a5-9974-41ba-b780-a193f0def744"
+    },
+    {
+      "parameters": {
+        "content": "## 📌 Regra de cobranças:\n\n- Quando um mesmo cliente tem mais de uma cobrança pra o dia de hoje, o código do node \n\n'agrupa_cobrancas' \n\napenas unifica em uma única mensagem, incluíndo nela os detalhes de todas as faturas pendentes",
+        "height": 460.7713089462227,
+        "width": 760.2997930621441,
+        "color": 4
+      },
+      "id": "d1453f59-7edd-4770-b341-524533dbfa63",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        940,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 📌 Envio do Fluxo no Botconversa\n\n- O campo {MensagemCobrança} id 4685809 é zerado pra null via node\nzera_campo_msg_cobranca \ndepois é preenchido com a mensagem já idealmente formatada conforme o contexto do cliente via node\n\nenvia_campo_msg_cobranca\n\ne a mensagem é enviada via fluxo 8421242 que notifica a SDR quando o cliente reponder a cobrança",
+        "height": 351.87135225879706,
+        "width": 870.928320490639,
+        "color": 3
+      },
+      "id": "e142b5d3-ea27-42f2-b1ff-6a915eb8e141",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1720,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "8421242"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"pesquisa_variavel_api_bot_conversa\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "envia_fluxo",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2440,
+        500
+      ],
+      "id": "f91f8070-9ef7-411d-94ca-7b23d634657d",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "={{ $node[\"busca_user\"].json[\"telefone\"] ? '+' + $node[\"busca_user\"].json[\"telefone\"] : '' }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"busca_user\"].json[\"nome\"] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"busca_user\"].json[\"sobrenome\"] ? $node[\"busca_user\"].json[\"sobrenome\"] : '.'}}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"pesquisa_variavel_api_bot_conversa\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "cadastrar_contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        500
+      ],
+      "id": "1bcce7c5-9264-4aff-9966-dbbf839d0eda",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/custom_fields/4685809/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"pesquisa_variavel_api_bot_conversa\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "null"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "be5d4b3d-57e7-43d7-9f40-49d291e1e489",
+      "name": "zera_campo_msg_cobranca",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2000,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/custom_fields/4685809/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"pesquisa_variavel_api_bot_conversa\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"agrupa_cobrancas\"].json[\"mensagem\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "99951650-c4a8-4db6-89f8-9a0d2ef1ccde",
+      "name": "envia_campo_msg_cobranca",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2220,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "content": "## 📌 status_envio no BD é atualizado para que o cliente não receba a mensgaem mais de uma vez",
+        "height": 343.22849855344566,
+        "width": 390.38565447311134
+      },
+      "id": "7228d39e-1230-4f33-afb3-6d37855d6b4a",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2600,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE lembretes_enviados\nSET status_envio = 'sucesso'\nWHERE data_envio_date = CURDATE()\n  AND status_envio = 'pendente'\n  AND user_id = {{ $node[\"loop\"].json[\"user_id\"] }};",
+        "options": {}
+      },
+      "id": "556c03bd-bcd1-4292-8813-9b04e86fe1af",
+      "name": "update_status",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2660,
+        500
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## 📌 Seleciona todos os users com cobranças pra hoje",
+        "height": 194.57141482140503,
+        "width": 194.30470358551327,
+        "color": 5
+      },
+      "id": "aafeca73-fd4b-495f-9f0f-58a633f0c66b",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        480,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 📌Webhook acionado [NESTE WORKFLOW P1](https://n8neditorhetznerfabricionunnes.automagicbots.com.br/workflow/OTrHdm5GBVkL1l9C) \nvia node aciona_automacao_envios, assim que o processo de busca de devedores na Conta Azul é finalizado",
+        "height": 194.57141482140503,
+        "width": 219.20723317733382
+      },
+      "id": "d4401395-eddf-40c3-8d44-6b9724a3def5",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        260,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = items.map(i => i.json);\n\n// Agrupa por user_id\nconst users = {};\nfor (const r of data) {\n  if (!users[r.user_id]) users[r.user_id] = [];\n  users[r.user_id].push(r);\n}\n\nconst result = [];\n\nfor (const userId in users) {\n  const cobrancas = users[userId];\n  \n  // Parse nome do primeiro mensagem_texto (ex.: \"Oi, Halisson!\" → \"Halisson\")\n  const nomeMatch = cobrancas[0].mensagem_texto.match(/Oi, (.*?)!/);\n  const nome = nomeMatch ? nomeMatch[1] : 'Cliente';\n\n  let mensagem;\n  if (cobrancas.length === 1) {\n    mensagem = cobrancas[0].mensagem_texto;\n    result.push({\n      json: {\n        type: \"single\",\n        user_id: parseInt(userId),\n        mensagem\n      }\n    });\n  } else {\n    // Flags\n    const hasAtraso = cobrancas.some(c => c.mensagem_tipo.includes('_atraso'));\n    const hasDia = cobrancas.some(c => c.mensagem_tipo.includes('no_dia'));\n    const hasAntes = cobrancas.some(c => c.mensagem_tipo.includes('_antes'));\n\n    // Prioridade map\n    const prioridade = {\n      '5_atraso': 1,\n      '3_atraso': 2,\n      '2_atraso': 3,\n      '1_atraso': 4,\n      'no_dia': 5,\n      '1_antes': 6,\n      '2_antes': 7,\n      '5_antes': 8\n    };\n\n    // Ordena cobrancas por prioridade (menor número = mais prioritário)\n    cobrancas.sort((a, b) => (prioridade[a.mensagem_tipo] || 99) - (prioridade[b.mensagem_tipo] || 99));\n\n    // Lista de cobranças com links\n    let listaCobrancas = '';\n    cobrancas.forEach(c => {\n      const dataVenc = c.data_vencimento;\n      const Valor = c.valor;\n      const dataVencBr = dataVenc.split('-').reverse().join('/');\n      let tipoFriendly = c.mensagem_tipo\n        .replace('_antes', ' dias antes')\n        .replace('_atraso', ' dias de atraso')\n        .replace('no_dia', 'no dia do vencimento')\n        .replace(/_/g, ' ');  // Ajusta pra friendly como \"5 dias antes\"\n      listaCobrancas += `\\n- ${tipoFriendly} (vencimento ${dataVencBr} - valor ${Valor}): ${c.link_pagamento}`;\n    });\n\n    // Extras no header baseado em flags\n    let headerExtra = '';\n    if (hasAtraso) headerExtra += '\\n⚠️ Atenção especial pros pagamentos em atraso!';\n    if (hasDia) headerExtra += '\\nHoje vence algum!';\n    if (hasAntes) headerExtra += '\\n✅ Chance de desconto em alguns!';\n\n    // Mensagem combinada\n    mensagem = `Oi, ${nome}! Tudo bem? Estou passando para te enviar o resumo das suas próximas cobranças, assim você consegue se organizar melhor:${headerExtra}${listaCobrancas}\\n\\n⚠️ Lembrete: Pagamentos realizados até 1 dia antes do vencimento garantem 5% de desconto. Se tiver qualquer dúvida ou se já efetuou algum desses pagamentos, é só me enviar o comprovante por aqui. Seguem os links acima.`;\n\n    result.push({\n      json: {\n        type: \"multiple\",\n        user_id: parseInt(userId),\n        quantidade: cobrancas.length,\n        mensagem\n      }\n    });\n  }\n}\n\nreturn result;"
+      },
+      "id": "d58db2e9-1d0f-488c-8b96-0cf75db915e7",
+      "name": "agrupa_cobrancas1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        780,
+        880
+      ],
+      "disabled": true
     }
   ],
   "pinData": {
@@ -188,6 +789,6 @@
   },
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-12-27T14:23:05.551Z",
-  "versionId": "53becdda-181c-439f-a931-8ae48a36c243"
+  "updatedAt": "2025-12-27T21:04:47.855Z",
+  "versionId": "ee8fea04-f10a-45ae-aea9-9361260bcf18"
 }
