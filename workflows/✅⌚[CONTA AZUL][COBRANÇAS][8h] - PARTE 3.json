@@ -161,6 +161,75 @@
           }
         ]
       ]
+    },
+    "todos_os_dias_7:30am": {
+      "main": [
+        [
+          {
+            "node": "pesquisa_variavel_api_bot_conversa1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "loop1": {
+      "main": [
+        [
+          {
+            "node": "end1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "remove_tag_do_contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_variavel_api_bot_conversa1": {
+      "main": [
+        [
+          {
+            "node": "busca_registros_de_ontem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "remove_tag_do_contato": {
+      "main": [
+        [
+          {
+            "node": "loop1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "loop1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_registros_de_ontem": {
+      "main": [
+        [
+          {
+            "node": "loop1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-27T14:19:14.169Z",
@@ -456,7 +525,7 @@
       "parameters": {
         "content": "## Apaga registros na table:\n\n👉  lembretes_enviados\n\n## com mais de 90 dias de criação",
         "height": 367.42848892842915,
-        "width": 502.74275264267726,
+        "width": 501.0011191439983,
         "color": 3
       },
       "id": "398c5df4-5f33-4268-89e3-ff7be2c67830",
@@ -688,7 +757,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "UPDATE lembretes_enviados\nSET status_envio = 'sucesso'\nWHERE data_envio_date = CURDATE()\n  AND status_envio = 'pendente'\n  AND user_id = {{ $node[\"loop\"].json[\"user_id\"] }};",
+        "query": "UPDATE lembretes_enviados\nSET status_envio = 'sucesso',\n    id_botconversa = '{{ $node[\"cadastrar_contato\"].json[\"id\"] }}'\nWHERE data_envio_date = CURDATE()\n  AND status_envio = 'pendente'\n  AND user_id = {{ $node[\"loop\"].json[\"user_id\"] }};",
         "options": {}
       },
       "id": "556c03bd-bcd1-4292-8813-9b04e86fe1af",
@@ -750,6 +819,170 @@
         880
       ],
       "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Remove tag de segurança bot_conversa cobranças de ontem\n\nOBS: Desconsiderar o ⚠️ do node http, ainda que apresente esse comportamento ele remove a tag do contato\n",
+        "height": 448.7408940037442,
+        "width": 1048.1658449633053,
+        "color": 3
+      },
+      "id": "c10e0104-c5aa-4517-a2be-51a5c9828fb6",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        240,
+        1380
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7,
+              "triggerAtMinute": 30
+            }
+          ]
+        }
+      },
+      "id": "18c68933-4554-4244-9550-e4ed01d755d9",
+      "name": "todos_os_dias_7:30am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        272,
+        1558
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "6bcfc14e-0916-4b7f-9ea5-3b88dcde05a6",
+      "name": "loop1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        880,
+        1560
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "93ced401-c148-483f-ba3b-3b379c213a50",
+      "name": "end1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        1480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "variaveis_globais_n8n",
+          "mode": "list",
+          "cachedResultName": "variaveis_globais_n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "nome_variavel",
+              "value": "API-KEY BOT CONVERSA"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "7e817d48-4c04-43be-87da-a8d21a89ab52",
+      "name": "pesquisa_variavel_api_bot_conversa1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        460,
+        1560
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "DELETE",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"loop1\"].json[\"id_botconversa\"] }}/tags/16387012",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"pesquisa_variavel_api_bot_conversa1\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "66f3c4be-32d2-4fd3-a8bb-c1ba7e748c0b",
+      "name": "remove_tag_do_contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1060,
+        1620
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "lembretes_enviados",
+          "mode": "list",
+          "cachedResultName": "lembretes_enviados"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "remover_tag_seguranca_botconversa",
+              "value": "={{$now.toFormat('yyyy-MM-dd')}}"
+            },
+            {
+              "column": "data_envio_date",
+              "value": "={{ $now.minus({ days: 1 }).toFormat(\"yyyy-MM-dd\") }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e7e3d756-cf95-4e7f-809d-e2dd70d03a56",
+      "name": "busca_registros_de_ontem",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        660,
+        1560
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
     }
   ],
   "pinData": {
@@ -777,6 +1010,28 @@
           "executionMode": "production"
         }
       }
+    ],
+    "busca_registros_de_ontem": [
+      {
+        "json": {
+          "id": 10,
+          "user_id": 436,
+          "cobranca_id": "704e0ddb-d8ad-414b-ab09-d4db49322b77",
+          "mensagem_tipo": "2_antes",
+          "data_envio": "2025-12-28 12:32:25",
+          "data_envio_date": "2025-12-28",
+          "mensagem_texto": "Oi, equipe GRUPO MERITUS! Lembrete do seu pagamento com vencimento em 2025-12-30.\n✅ Pagando até 1 dia antes, você garante 5% OFF.\nLink: https://faturas.contaazul.com/#/fatura/visualizar/aeeec13e-9e59-11f0-8578-371c94cd0360",
+          "status_envio": "sucesso",
+          "erro_detalhe": null,
+          "data_vencimento": "2025-12-30",
+          "link_pagamento": "https://faturas.contaazul.com/#/fatura/visualizar/aeeec13e-9e59-11f0-8578-371c94cd0360",
+          "valor": "2000.00",
+          "conta_receber_id": null,
+          "payment_link_id": null,
+          "remover_tag_seguranca_botconversa": "2025-12-29",
+          "id_botconversa": 809747528
+        }
+      }
     ]
   },
   "settings": {
@@ -788,10 +1043,13 @@
   "staticData": {
     "node:semanal": {
       "recurrencyRules": []
+    },
+    "node:todos_os_dias_7:30am": {
+      "recurrencyRules": []
     }
   },
   "tags": [],
-  "triggerCount": 2,
-  "updatedAt": "2025-12-28T14:51:36.838Z",
-  "versionId": "51038f1d-36aa-4b43-83fe-ef5d2b15c015"
+  "triggerCount": 3,
+  "updatedAt": "2025-12-28T16:47:43.305Z",
+  "versionId": "d3779e4d-b918-4a8b-b58a-88aab54d759b"
 }
