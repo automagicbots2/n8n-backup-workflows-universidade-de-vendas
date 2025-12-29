@@ -322,22 +322,22 @@
         ]
       ]
     },
-    "20s1": {
+    "end": {
       "main": [
         [
           {
-            "node": "aciona_automacao_envios",
+            "node": "59s",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "end": {
+    "59s": {
       "main": [
         [
           {
-            "node": "20s1",
+            "node": "aciona_automacao_envios",
             "type": "main",
             "index": 0
           }
@@ -1079,20 +1079,6 @@
     },
     {
       "parameters": {
-        "amount": 20
-      },
-      "id": "41cee051-792d-4345-b78a-556b1eecc978",
-      "name": "20s1",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        820,
-        580
-      ],
-      "webhookId": "f2918b4e-933c-463d-b838-d160622c38dd"
-    },
-    {
-      "parameters": {
         "method": "POST",
         "url": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/aciona-automacao-envios-lembretes-conta-azul",
         "authentication": "genericCredentialType",
@@ -1262,6 +1248,20 @@
         640,
         580
       ]
+    },
+    {
+      "parameters": {
+        "amount": 59
+      },
+      "id": "41cee051-792d-4345-b78a-556b1eecc978",
+      "name": "59s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        820,
+        580
+      ],
+      "webhookId": "f2918b4e-933c-463d-b838-d160622c38dd"
     }
   ],
   "pinData": {},
@@ -1278,6 +1278,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-28T14:57:04.658Z",
-  "versionId": "89ceaddd-1ca9-4e35-807f-5c1ffbefd3e2"
+  "updatedAt": "2025-12-28T15:00:20.934Z",
+  "versionId": "337a95f1-d5fa-4353-88d9-af3cad057fe7"
 }
