@@ -626,7 +626,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "INSERT INTO lembretes_enviados (\n  user_id,\n  cobranca_id,\n  mensagem_tipo,\n  data_envio,\n  mensagem_texto,\n  status_envio,\n  data_vencimento,\n  valor,\n  link_pagamento\n)\nVALUES (\n  {{ $node[\"cria_atualiza_user1\"].json[\"id\"] }},\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"mensagem_tipo\"] }}',\n  NOW(),\n  '{{ $node[\"copy\"].json[\"mensagem_texto\"] }}',\n  'pendente',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}',\n  '{{ $node[\"busca_payment_link\"].json.body.solicitacoes_cobrancas[0].valor_composicao.valor_liquido }}',\n  '{{ $node[\"busca_payment_link\"].json.body.solicitacoes_cobrancas[0].url }}'\n);",
+        "query": "INSERT INTO lembretes_enviados (\n  user_id,\n  cobranca_id,\n  mensagem_tipo,\n  data_envio,\n  mensagem_texto,\n  status_envio,\n  data_vencimento,\n  valor,\n  link_pagamento,\n  remover_tag_seguranca_botconversa\n)\nVALUES (\n  {{ $node[\"cria_atualiza_user1\"].json[\"id\"] }},\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"mensagem_tipo\"] }}',\n  NOW(),\n  '{{ $node[\"copy\"].json[\"mensagem_texto\"] }}',\n  'pendente',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}',\n  '{{ $node[\"busca_payment_link\"].json.body.solicitacoes_cobrancas[0].valor_composicao.valor_liquido }}',\n  '{{ $node[\"busca_payment_link\"].json.body.solicitacoes_cobrancas[0].url }}',\n  '{{ $now.plus({ days: 1 }).toFormat(\"yyyy-MM-dd\") }}'\n);",
         "options": {}
       },
       "id": "f285a88d-7840-4f2a-bca4-8bc1e65f0633",
@@ -646,7 +646,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// ================================\n// 📌 INPUT BASE\n// ================================\nconst body = $node[\"erro_de_token\"].json.body;\n\n// ================================\n// 📌 FUNÇÕES AUXILIARES\n// ================================\nfunction formatPhone(phone) {\n  if (!phone) return \"\";\n  const clean = phone.replace(/\\D/g, \"\");\n  let n = clean.startsWith(\"55\") ? clean.slice(2) : clean;\n  const ddd = n.slice(0, 2);\n  let linha = n.slice(2);\n  if (linha.length === 8) linha = `9${linha}`;\n  return `55${ddd}${linha}`;\n}\n\nfunction formatEmail(email) {\n  return email ? email.toLowerCase().trim() : \"\";\n}\n\n// ---------- PF ----------\nfunction parsePessoaFisica(nome = \"\") {\n  const lowerWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n  const words = nome\n    .toLowerCase()\n    .split(\" \")\n    .filter(Boolean)\n    .map((w, i) =>\n      lowerWords.includes(w) && i !== 0\n        ? w\n        : w.charAt(0).toUpperCase() + w.slice(1)\n    );\n\n  const fname = words[0] || \"\";\n  const lname = words.slice(1).join(\" \");\n  return { fname, lname };\n}\n\n// ---------- PJ ----------\nfunction limparEmpresa(nome = \"\") {\n  return nome\n    .split(\"/\")[0]\n    .replace(/\\b(LTDA|ME|EPP|S\\.A\\.?|EIRELI)\\b/gi, \"\")\n    .replace(/\\s{2,}/g, \" \")\n    .trim();\n}\n\nfunction parsePessoaJuridica(nome = \"\") {\n  const empresa = limparEmpresa(nome);\n  if (!empresa) return { fname: \"\", lname: \"\" };\n\n  const parts = empresa.split(\" \");\n  const fname = parts[0];                // Cacau\n  const lname = parts.slice(1).join(\" \"); // Show\n\n  return {\n    fname: \"equipe\",\n    lname: empresa\n  };\n}\n\n// ================================\n// 📌 DECISÃO SEMÂNTICA\n// ================================\nlet fname = \"\";\nlet lname = \"\";\n\nif (body.tipo_pessoa === \"Física\") {\n  const pf = parsePessoaFisica(body.nome);\n  fname = pf.fname;\n  lname = pf.lname;\n}\n\nif (body.tipo_pessoa === \"Jurídica\") {\n  const pj = parsePessoaJuridica(body.nome);\n  fname = pj.fname;\n  lname = pj.lname;\n}\n\n// ================================\n// 📌 FALLBACK FINAL\n// ================================\nif (!fname || fname.length < 2) fname = \"Olá\";\nif (!lname) lname = \"\";\n\n// ================================\n// 📌 CONTATOS\n// ================================\nconst telefone =\n  formatPhone(body.telefone_celular) ||\n  formatPhone(body.telefone_comercial);\n\nconst email = formatEmail(body.email);\n\n// ================================\n// 📌 OUTPUT FINAL\n// ================================\nreturn {\n  nome: {\n    fname,\n    lname,\n    fullname: lname ? `${fname} ${lname}` : fname\n  },\n  telefone,\n  email,\n  tipo_pessoa: body.tipo_pessoa\n};"
+        "jsCode": "// ================================\n// 📌 INPUT BASE\n// ================================\nconst body = $node[\"erro_de_token\"].json.body;\nconst telefoneClienteOriginal =  $node[\"busca_pessoa\"].json[\"body\"][\"telefone_celular\"] || $node[\"busca_pessoa\"].json[\"body\"][\"telefone_comercial\"] || '';\n// ================================\n// 📌 FUNÇÕES AUXILIARES\n// ================================\n// Formatação de telefone\nlet telefoneFinal = \"\";\nif (telefoneClienteOriginal) {\n  const telefoneLimpo = telefoneClienteOriginal.replace(/\\D/g, \"\");\n\n  let DDI = '', DDD = '', numero = '';\n  if (telefoneLimpo.length > 11) {\n    DDI = telefoneLimpo.slice(0, 2);\n    DDD = telefoneLimpo.slice(2, 4);\n    numero = telefoneLimpo.slice(4);\n  } else if (telefoneLimpo.length === 11 || telefoneLimpo.length === 10) {\n    DDI = '55';\n    DDD = telefoneLimpo.slice(0, 2);\n    numero = telefoneLimpo.slice(2);\n  } else {\n    telefoneFinal = telefoneLimpo;\n  }\n\n  if (DDD && numero) {\n    if (parseInt(DDD) > 28 && numero.length === 9 && numero.startsWith(\"9\")) {\n      numero = numero.slice(1);\n    } else if (numero.length === 8) {\n      numero = `9${numero}`;\n    }\n  }\n\n  if (DDI && DDD && numero) {\n    telefoneFinal = `${DDI}${DDD}${numero}`;\n  }\n}\n\nfunction formatEmail(email) {\n  return email ? email.toLowerCase().trim() : \"\";\n}\n\n// ---------- PF ----------\nfunction parsePessoaFisica(nome = \"\") {\n  const lowerWords = [\"da\", \"de\", \"do\", \"di\", \"du\"];\n  const words = nome\n    .toLowerCase()\n    .split(\" \")\n    .filter(Boolean)\n    .map((w, i) =>\n      lowerWords.includes(w) && i !== 0\n        ? w\n        : w.charAt(0).toUpperCase() + w.slice(1)\n    );\n\n  const fname = words[0] || \"\";\n  const lname = words.slice(1).join(\" \");\n  return { fname, lname };\n}\n\n// ---------- PJ ----------\nfunction limparEmpresa(nome = \"\") {\n  return nome\n    .split(\"/\")[0]\n    .replace(/\\b(LTDA|ME|EPP|S\\.A\\.?|EIRELI)\\b/gi, \"\")\n    .replace(/\\s{2,}/g, \" \")\n    .trim();\n}\n\nfunction parsePessoaJuridica(nome = \"\") {\n  const empresa = limparEmpresa(nome);\n  if (!empresa) return { fname: \"\", lname: \"\" };\n\n  const parts = empresa.split(\" \");\n  const fname = parts[0];                // Cacau\n  const lname = parts.slice(1).join(\" \"); // Show\n\n  return {\n    fname: \"equipe\",\n    lname: empresa\n  };\n}\n\n// ================================\n// 📌 DECISÃO SEMÂNTICA\n// ================================\nlet fname = \"\";\nlet lname = \"\";\n\nif (body.tipo_pessoa === \"Física\") {\n  const pf = parsePessoaFisica(body.nome);\n  fname = pf.fname;\n  lname = pf.lname;\n}\n\nif (body.tipo_pessoa === \"Jurídica\") {\n  const pj = parsePessoaJuridica(body.nome);\n  fname = pj.fname;\n  lname = pj.lname;\n}\n\n// ================================\n// 📌 FALLBACK FINAL\n// ================================\nif (!fname || fname.length < 2) fname = \"Olá\";\nif (!lname) lname = \"\";\n\n// ================================\n// 📌 CONTATOS\n// ================================\nconst email = formatEmail(body.email);\n\n// ================================\n// 📌 OUTPUT FINAL\n// ================================\nreturn {\n  nome: {\n    fname,\n    lname,\n    fullname: lname ? `${fname} ${lname}` : fname\n  },\n  telefone: telefoneFinal,\n  email,\n  tipo_pessoa: body.tipo_pessoa\n};"
       },
       "id": "f482a39c-544f-47f8-884f-62fa77038300",
       "name": "formata_dados",
@@ -1199,7 +1199,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        2420,
+        2440,
         500
       ]
     }
@@ -1209,7 +1209,7 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-82tSxqlcnDkqEsevDymF9Q",
+            "consumerTag": "amq.ctag-14FS5kao2DStp-afvIVJWA",
             "deliveryTag": 1,
             "redelivered": false,
             "exchange": "",
@@ -1219,20 +1219,20 @@
             "headers": {}
           },
           "content": {
-            "nao_pago": "800",
+            "nao_pago": "2000",
             "status_traduzido": "EM_ABERTO",
             "pago": "0",
-            "data_alteracao": "2025-10-27T14:11:37.17713",
-            "mensagem_tipo": "no_dia",
+            "data_alteracao": "2025-09-30T21:00:46.722726",
+            "mensagem_tipo": "2_antes",
             "cliente": {
-              "id": "ff618acf-fc1b-4fb0-8bc7-dabb4e3a1475",
-              "nome": "LIMPA + DISTRIBUIDORA/  LP DISTRIBUIDORA LTDA / BrasLimp"
+              "id": "a4aca154-960e-4be0-9356-0d597b169555",
+              "nome": "GRUPO MERITUS"
             },
-            "data_vencimento": "2025-12-27",
-            "descricao": "Venda 1703786",
-            "total": "800",
+            "data_vencimento": "2025-12-30",
+            "descricao": "Venda 1703773",
+            "total": "2000",
             "status": "PENDING",
-            "id": "954c19c2-e535-49fa-98f0-b0e80a8e228d"
+            "id": "704e0ddb-d8ad-414b-ab09-d4db49322b77"
           }
         }
       }
@@ -1273,6 +1273,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-28T14:58:42.624Z",
-  "versionId": "27375398-9357-4719-8a65-9448194df523"
+  "updatedAt": "2025-12-28T15:32:32.206Z",
+  "versionId": "f3570a78-fe71-4214-9347-f893cf9aa96f"
 }
