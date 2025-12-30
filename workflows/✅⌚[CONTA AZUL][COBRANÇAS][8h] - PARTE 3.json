@@ -12,17 +12,6 @@
         ]
       ]
     },
-    "acionamento_automacao_envios": {
-      "main": [
-        [
-          {
-            "node": "select_cobrancas2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "loop": {
       "main": [
         [
@@ -230,6 +219,17 @@
           }
         ]
       ]
+    },
+    "acionamento_automacao_envios": {
+      "main": [
+        [
+          {
+            "node": "select_cobrancas2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-27T14:19:14.169Z",
@@ -276,29 +276,6 @@
         "mySql": {
           "id": "PfzfhyuSKTUfroef",
           "name": "[MySQL] - Fabricio Nunnes"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "aciona-automacao-envios-lembretes-conta-azul",
-        "authentication": "headerAuth",
-        "options": {}
-      },
-      "id": "0b56dd08-ed36-4ee6-a859-94a8d869ecec",
-      "name": "acionamento_automacao_envios",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        280,
-        420
-      ],
-      "webhookId": "a26d9840-34c6-41b3-be8d-1e197b06c245",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "1QmOzOM2uRWpT8Xk",
-          "name": "Header Auth account"
         }
       }
     },
@@ -983,6 +960,29 @@
           "name": "[MySQL] - Fabricio Nunnes"
         }
       }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aciona-automacao-envios-lembretes-conta-azul",
+        "authentication": "headerAuth",
+        "options": {}
+      },
+      "id": "0b56dd08-ed36-4ee6-a859-94a8d869ecec",
+      "name": "acionamento_automacao_envios",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        280,
+        420
+      ],
+      "webhookId": "a26d9840-34c6-41b3-be8d-1e197b06c245",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "1QmOzOM2uRWpT8Xk",
+          "name": "Header Auth account"
+        }
+      }
     }
   ],
   "pinData": {
@@ -1028,6 +1028,6 @@
   },
   "tags": [],
   "triggerCount": 3,
-  "updatedAt": "2025-12-29T19:56:24.806Z",
-  "versionId": "75f25568-d4fe-4011-af8b-5458d0c9c98b"
+  "updatedAt": "2025-12-30T12:32:16.711Z",
+  "versionId": "b890d55c-a590-4ec9-89e2-0d2186e23629"
 }
