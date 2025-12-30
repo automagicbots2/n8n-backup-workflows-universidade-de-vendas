@@ -133,7 +133,7 @@
       "main": [
         [
           {
-            "node": "ja_existe?",
+            "node": "registra_cobranca",
             "type": "main",
             "index": 0
           }
@@ -493,7 +493,7 @@
     },
     {
       "parameters": {
-        "queue": "cobranca_conta_azul",
+        "queue": "cobranca_conta_azul_p2",
         "options": {
           "arguments": {
             "argument": [
@@ -513,7 +513,7 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        -1100,
+        -1140,
         460
       ],
       "credentials": {
@@ -619,7 +619,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        -900,
+        -940,
         460
       ]
     },
@@ -1209,30 +1209,30 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-14FS5kao2DStp-afvIVJWA",
-            "deliveryTag": 1,
+            "consumerTag": "amq.ctag-VXipWpii5-tgHvv5PaOHJA",
+            "deliveryTag": 6,
             "redelivered": false,
             "exchange": "",
-            "routingKey": "cobranca_conta_azul"
+            "routingKey": "cobranca_conta_azul_p2"
           },
           "properties": {
             "headers": {}
           },
           "content": {
-            "nao_pago": "2000",
+            "nao_pago": "1000",
             "status_traduzido": "EM_ABERTO",
             "pago": "0",
-            "data_alteracao": "2025-09-30T21:00:46.722726",
-            "mensagem_tipo": "2_antes",
+            "data_alteracao": "2025-12-29T11:57:44.002703",
+            "mensagem_tipo": "no_dia",
             "cliente": {
-              "id": "a4aca154-960e-4be0-9356-0d597b169555",
-              "nome": "GRUPO MERITUS"
+              "id": "9c9512d6-6702-4ed1-88c1-9f8345170489",
+              "nome": "W S TRINDADE FARMA"
             },
-            "data_vencimento": "2025-12-30",
-            "descricao": "Venda 1703773",
-            "total": "2000",
+            "data_vencimento": "2025-12-29",
+            "descricao": "Venda 1703894",
+            "total": "1000",
             "status": "PENDING",
-            "id": "704e0ddb-d8ad-414b-ab09-d4db49322b77"
+            "id": "df1dd902-e40a-4f3f-87bb-9fbe91c0963d"
           }
         }
       }
@@ -1268,11 +1268,13 @@
     "executionOrder": "v1",
     "saveExecutionProgress": true,
     "saveManualExecutions": true,
-    "callerPolicy": "workflowsFromSameOwner"
+    "callerPolicy": "workflowsFromSameOwner",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-28T15:32:32.206Z",
-  "versionId": "f3570a78-fe71-4214-9347-f893cf9aa96f"
+  "updatedAt": "2025-12-29T19:51:22.282Z",
+  "versionId": "5eed4021-cbc2-4dd1-9af9-59b42c41f11f"
 }
