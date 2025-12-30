@@ -34,24 +34,6 @@
         ]
       ]
     },
-    "loop": {
-      "main": [
-        [
-          {
-            "node": "end",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "busca_variavel_access_token_conta_azul",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "busca_variavel_access_token_conta_azul": {
       "main": [
         [
@@ -154,35 +136,6 @@
         ]
       ]
     },
-    "define_batching": {
-      "main": [
-        [
-          {
-            "node": "loop2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "loop2": {
-      "main": [
-        [
-          {
-            "node": "Limit1",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "busca_contas2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "busca_itens_totais": {
       "main": [
         [
@@ -220,7 +173,7 @@
       "main": [
         [
           {
-            "node": "Limit",
+            "node": "fim",
             "type": "main",
             "index": 0
           }
@@ -228,28 +181,6 @@
         [
           {
             "node": "dados",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Limit": {
-      "main": [
-        [
-          {
-            "node": "loop2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Limit1": {
-      "main": [
-        [
-          {
-            "node": "loop",
             "type": "main",
             "index": 0
           }
@@ -322,18 +253,80 @@
         ]
       ]
     },
-    "end": {
+    "loop": {
       "main": [
         [
           {
-            "node": "59s",
+            "node": "end",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "busca_variavel_access_token_conta_azul",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "59s": {
+    "define_batching": {
+      "main": [
+        [
+          {
+            "node": "dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados1": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "entra_na_fila1": {
+      "main": [
+        [
+          {
+            "node": "loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chega_da_fila": {
+      "main": [
+        [
+          {
+            "node": "busca_contas2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "end": {
+      "main": [
+        [
+          {
+            "node": "120s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "120s": {
       "main": [
         [
           {
@@ -439,19 +432,6 @@
       "typeVersion": 1.2,
       "position": [
         -1040,
-        680
-      ]
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "id": "b963a0c7-47c0-4ada-a740-4a49a67f7646",
-      "name": "loop",
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 3,
-      "position": [
-        420,
         680
       ]
     },
@@ -606,8 +586,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1640,
-        840
+        1660,
+        780
       ],
       "webhookId": "c61462fa-a43b-45a9-aa2d-8db69d110c8c"
     },
@@ -676,19 +656,6 @@
       "typeVersion": 2,
       "position": [
         1640,
-        980
-      ]
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "id": "9e7dcd1a-6916-4256-a246-8716769b4f96",
-      "name": "loop2",
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 3,
-      "position": [
-        1840,
         980
       ]
     },
@@ -793,8 +760,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2260,
-        1100
+        2760,
+        280
       ]
     },
     {
@@ -806,35 +773,13 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        2460,
-        1100
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "616078aa-d14f-4851-935e-f6c867ed9360",
-      "name": "Limit",
-      "type": "n8n-nodes-base.limit",
-      "typeVersion": 1,
-      "position": [
-        2720,
-        1000
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "13dc4679-08db-47e7-a1c0-ff5e7d99e9d7",
-      "name": "Limit1",
-      "type": "n8n-nodes-base.limit",
-      "typeVersion": 1,
-      "position": [
-        2060,
-        920
+        3020,
+        280
       ]
     },
     {
       "parameters": {
-        "queue": "cobranca_conta_azul",
+        "queue": "cobranca_conta_azul_p2",
         "options": {
           "arguments": {
             "argument": [
@@ -852,8 +797,8 @@
       "type": "n8n-nodes-base.rabbitmq",
       "typeVersion": 1,
       "position": [
-        2940,
-        1200
+        3500,
+        380
       ],
       "credentials": {
         "rabbitmq": {
@@ -870,23 +815,23 @@
           "parameters": [
             {
               "name": "data_vencimento_de",
-              "value": "={{ $node[\"loop\"].json[\"data_de\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento_de\"]}}"
             },
             {
               "name": "data_vencimento_ate",
-              "value": "={{ $node[\"loop\"].json[\"data_ate\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento_ate\"] }}"
             },
             {
               "name": "status",
-              "value": "={{$node[\"loop\"].json[\"status\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"status\"] }}"
             },
             {
               "name": "pagina",
-              "value": "={{ $node[\"loop2\"].json[\"pagina\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"pagina\"] }}"
             },
             {
               "name": "tamanho_pagina",
-              "value": "={{ $node[\"tamanho_batching\"].json[\"tamanho_batching\"] }}"
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"tamanho_pagina\"] }}"
             }
           ]
         },
@@ -895,7 +840,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}"
+              "value": "=Bearer {{ $node[\"chega_da_fila\"].json[\"content\"][\"access_token\"] }}"
             }
           ]
         },
@@ -906,8 +851,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2060,
-        1100
+        2560,
+        280
       ],
       "onError": "continueRegularOutput"
     },
@@ -948,7 +893,7 @@
             {
               "id": "07b19af0-fac3-4cf7-8e53-2531ba7b8718",
               "name": "mensagem_tipo",
-              "value": "={{ $node[\"loop\"].json[\"mensagem_tipo\"] }}",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"mensagem_tipo\"] }}",
               "type": "string"
             },
             {
@@ -1004,8 +949,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        2720,
-        1200
+        3280,
+        380
       ]
     },
     {
@@ -1209,8 +1154,8 @@
     {
       "parameters": {
         "content": "### 📌 Puxa o conjunto de contas a receber por conjunto de períodos definidos no node \ndefine_datas \n### e divide em itens únicos pra processamento por loop3",
-        "height": 165.96064140285566,
-        "width": 335.370262445688,
+        "height": 167.51296112767795,
+        "width": 433.1664051094924,
         "color": 5
       },
       "id": "10356ac5-e607-4977-8d42-ffc31f0879cc",
@@ -1218,8 +1163,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2040,
-        1260
+        2480,
+        460
       ]
     },
     {
@@ -1234,8 +1179,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2700,
-        1400
+        3260,
+        580
       ]
     },
     {
@@ -1245,16 +1190,195 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        640,
+        620,
         580
       ]
     },
     {
       "parameters": {
-        "amount": 59
+        "options": {}
+      },
+      "id": "419fad62-d6e0-4b8e-9bcb-fe612272dbc6",
+      "name": "loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        420,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "97724f88-3d96-4e60-a6d6-b40284747e69",
+              "name": "data_vencimento_de",
+              "value": "={{ $node[\"loop\"].json[\"data_de\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "8373b00e-4700-4807-8a22-ac594e54a849",
+              "name": "data_vencimento_ate",
+              "value": "={{ $node[\"loop\"].json[\"data_ate\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "3e2bf1f0-0293-4995-8ace-bc1a17146c4f",
+              "name": "status",
+              "value": "={{$node[\"loop\"].json[\"status\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "83e2dfaf-be00-4d80-b593-ecec01c099b6",
+              "name": "tamanho_pagina",
+              "value": "={{ $node[\"tamanho_batching\"].json[\"tamanho_batching\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "6d39e7ce-8725-4e1d-a70c-5a8eed4499a8",
+              "name": "access_token",
+              "value": "={{ $node[\"busca_variavel_access_token_conta_azul\"].json[\"valor_variavel\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4e47405e-02b7-4bb5-bc9a-f1c5dad8f4a6",
+              "name": "mensagem_tipo",
+              "value": "={{ $node[\"loop\"].json[\"mensagem_tipo\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "1173477d-c0fd-4b8a-b96e-0413bc45b075",
+              "name": "pagina",
+              "value": "={{ $node[\"define_batching\"].json[\"pagina\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "include": "selected",
+        "options": {}
+      },
+      "id": "c06e68e4-b80b-4440-b8e4-cda693e1e133",
+      "name": "dados1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1840,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "cobranca_conta_azul",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "1986d98d-4a31-4bad-ba3a-9a3a64b90a02",
+      "name": "entra_na_fila1",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        980
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "queue": "cobranca_conta_azul",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "acknowledge": "executionFinishesSuccessfully",
+          "jsonParseBody": "={{ true }}",
+          "parallelMessages": 1
+        }
+      },
+      "id": "c2148146-fc9d-457d-88e3-ae94bd5c8656",
+      "name": "chega_da_fila",
+      "type": "n8n-nodes-base.rabbitmqTrigger",
+      "typeVersion": 1,
+      "position": [
+        2360,
+        280
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "gEWuEJrN8BnSAPqF",
+          "name": "[RabbitMQ] - Fabrício Nunnes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## 📌 PARTE 1",
+        "height": 1641.2720893858477,
+        "width": 3359.8962812446925,
+        "color": 7
+      },
+      "id": "aa4f1876-b8c7-4af0-b12f-df98b00557b0",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1100,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 📌 PARTE 2",
+        "height": 636.7979972966464,
+        "width": 1401.9775518681151,
+        "color": 7
+      },
+      "id": "6ba9e431-8279-4994-b51a-b7eb781fdc2e",
+      "name": "Sticky Note10",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2300,
+        140
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "8d3b3326-3fb9-4f34-864b-d8d98b68409b",
+      "name": "fim",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3280,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 120
       },
       "id": "41cee051-792d-4345-b78a-556b1eecc978",
-      "name": "59s",
+      "name": "120s",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
@@ -1264,12 +1388,40 @@
       "webhookId": "f2918b4e-933c-463d-b838-d160622c38dd"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "chega_da_fila": [
+      {
+        "json": {
+          "fields": {
+            "consumerTag": "amq.ctag-DnHvwu06eyDfRvHSin_I6A",
+            "deliveryTag": 1,
+            "redelivered": false,
+            "exchange": "",
+            "routingKey": "cobranca_conta_azul"
+          },
+          "properties": {
+            "headers": {}
+          },
+          "content": {
+            "data_vencimento_de": "2026-01-03",
+            "data_vencimento_ate": "2026-01-03",
+            "status": "PENDING",
+            "tamanho_pagina": "50",
+            "access_token": "eyJraWQiOiJUa1BRbWs0UlR3M3RuWlZXcDdEanBURFhcL2RTajNvMU5SckI0R3I3ZzFTMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyNTZjMTFjMS04NTMzLTQ5MTAtOGRkMC1kNzJkZmVlMjgyNjQiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuc2EtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3NhLWVhc3QtMV9WcDgzSjExd0EiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiI3dmg2cHIwZWJudHNjcGRxcHVrMzM4aDBqZSIsIm9yaWdpbl9qdGkiOiJjMjIzNjQ1YS0yN2VkLTRhMDgtOTVlOC0yNGZiZmNkNmMwNzgiLCJldmVudF9pZCI6IjBjNzMxNTAzLWYzYWMtNDFjYy04MDhiLTdjMzc3MWQ4NTVkNiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4gb3BlbmlkIHByb2ZpbGUiLCJhdXRoX3RpbWUiOjE3NjY1OTE4MjQsImV4cCI6MTc2NzAzNTQwNSwiaWF0IjoxNzY3MDMxODA1LCJqdGkiOiJiMjYzMzA0Zi04OWViLTQwYTUtYjAyNC0zMjY5ZmU4OTNjZWEiLCJ1c2VybmFtZSI6ImZhYnJpY2lvQHVuaXZlcnNpZGFkZXZlbmRhcy5jb20uYnIifQ.e_9FNUECveSFDAS-zQ9nQPA8gIExtuRUpxMCecTAaiHtdd3z0YEcZdvjq8oCzsXWeuPSBa3e6LOygS02iRee75WwuSwZh1poGHIYRFX-yZZqCqHphaXpsPG5YY2s4uEjXcIEQpdm9PomwwbcUGNix_f82fyP6iScmleSPlJTWnQjO-hZ3JY_E7gLE-tWyn2sfhU4ra4Jl3GDXXvQz7UBI7sevJl0JBhFRQ2sUXG2m-ZIoEujcKhR8u1wgo0iWeo1OFPosy5ocCkRScQ2WceQ9SXhNgsNJYWtFnheUBNHcqZPfefhp_Gi4kZ-_5VPpieCn6L9YCZ1yyIA6s0igJFx4Q",
+            "mensagem_tipo": "5_antes",
+            "pagina": "1"
+          }
+        }
+      }
+    ]
+  },
   "settings": {
     "executionOrder": "v1",
     "saveExecutionProgress": true,
-    "saveManualExecutions": true,
-    "callerPolicy": "workflowsFromSameOwner"
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all"
   },
   "staticData": {
     "node:8am": {
@@ -1277,7 +1429,7 @@
     }
   },
   "tags": [],
-  "triggerCount": 1,
-  "updatedAt": "2025-12-28T15:00:20.934Z",
-  "versionId": "337a95f1-d5fa-4353-88d9-af3cad057fe7"
+  "triggerCount": 2,
+  "updatedAt": "2025-12-29T19:15:55.613Z",
+  "versionId": "c66d345e-b6f9-423e-9721-13ca72d33955"
 }
