@@ -84,22 +84,6 @@
   "nodes": [
     {
       "parameters": {
-        "path": "cria-atualiza-user",
-        "responseMode": "lastNode",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        -420,
-        580
-      ],
-      "id": "e5c37427-aefb-4dd9-b3b4-2510c9cedd26",
-      "name": "fluxo_chamado",
-      "webhookId": "480e1e30-05c3-4aba-9470-4421b90f0da2"
-    },
-    {
-      "parameters": {
         "conditions": {
           "options": {
             "caseSensitive": true,
@@ -167,7 +151,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "CALL busca_usuario('{{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"] || '------'}}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] || '------' }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] || '------' }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] || '------' }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] || '------' }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"] || '------' }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] || '------' }}');",
+        "query": "CALL busca_usuario('{{ $node[\"fluxo_chamado\"].json[\"body\"][\"email\"]}}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"instagram\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"telefone\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"cnpj\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"cpf\"] }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"nome\"]  }}', '{{ $node[\"fluxo_chamado\"].json[\"body\"][\"sobrenome\"] }}');",
         "options": {}
       },
       "type": "n8n-nodes-base.mySql",
@@ -279,9 +263,56 @@
           "name": "[MySQL] - Fabricio Nunnes"
         }
       }
+    },
+    {
+      "parameters": {
+        "path": "cria-atualiza-user",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -420,
+        580
+      ],
+      "id": "e5c37427-aefb-4dd9-b3b4-2510c9cedd26",
+      "name": "fluxo_chamado",
+      "webhookId": "480e1e30-05c3-4aba-9470-4421b90f0da2"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "fluxo_chamado": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "user-agent": "axios/1.6.7",
+            "content-length": "115",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "172.18.0.1",
+            "x-forwarded-host": "webhookeditorhetznerfabricionunnes.automagicbots.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "77400aba3c69",
+            "x-real-ip": "172.18.0.1"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "email": "jailson.neves@automagicbots.com.br",
+            "telefone": "5511917951523",
+            "nome": "equipe Teste",
+            "sobrenome": ""
+          },
+          "webhookUrl": "https://webhookeditorhetznerfabricionunnes.automagicbots.com.br/webhook/cria-atualiza-user",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
   "settings": {
     "executionOrder": "v1",
     "saveManualExecutions": true,
@@ -291,6 +322,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-24T23:15:11.360Z",
-  "versionId": "c04fc991-9c95-4ccf-b4f2-d5a6ff279f43"
+  "updatedAt": "2025-12-30T11:56:08.411Z",
+  "versionId": "88887935-b8a8-4dc4-96c9-e07aecb05ac9"
 }
