@@ -133,7 +133,7 @@
       "main": [
         [
           {
-            "node": "registra_cobranca",
+            "node": "pesquisa_user",
             "type": "main",
             "index": 0
           }
@@ -248,6 +248,17 @@
         [
           {
             "node": "registra_cobranca",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pesquisa_user": {
+      "main": [
+        [
+          {
+            "node": "ja_existe?",
             "type": "main",
             "index": 0
           }
@@ -626,7 +637,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "INSERT INTO lembretes_enviados (\n  user_id,\n  cobranca_id,\n  mensagem_tipo,\n  data_envio,\n  mensagem_texto,\n  status_envio,\n  data_vencimento,\n  valor,\n  link_pagamento,\n  remover_tag_seguranca_botconversa\n)\nVALUES (\n  {{ $node[\"cria_atualiza_user1\"].json[\"id\"] }},\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"mensagem_tipo\"] }}',\n  NOW(),\n  '{{ $node[\"copy\"].json[\"mensagem_texto\"] }}',\n  'pendente',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}',\n  '{{ $node[\"busca_payment_link\"].json.body.solicitacoes_cobrancas[0].valor_composicao.valor_liquido }}',\n  '{{ $node[\"busca_payment_link\"].json.body.solicitacoes_cobrancas[0].url }}',\n  '{{ $now.plus({ days: 1 }).toFormat(\"yyyy-MM-dd\") }}'\n);",
+        "query": "INSERT INTO lembretes_enviados (\n  user_id,\n  cobranca_id,\n  mensagem_tipo,\n  data_envio,\n  mensagem_texto,\n  status_envio,\n  data_vencimento,\n  valor,\n  link_pagamento,\n  remover_tag_seguranca_botconversa\n)\nVALUES (\n  {{ $node[\"pesquisa_user\"].json[\"id\"] }},\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"id\"] }}',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"mensagem_tipo\"] }}',\n  NOW(),\n  '{{ $node[\"copy\"].json[\"mensagem_texto\"] }}',\n  'pendente',\n  '{{ $node[\"chega_da_fila\"].json[\"content\"][\"data_vencimento\"] }}',\n  '{{ $node[\"busca_payment_link\"].json.body.solicitacoes_cobrancas[0].valor_composicao.valor_liquido }}',\n  '{{ $node[\"busca_payment_link\"].json.body.solicitacoes_cobrancas[0].url }}',\n  '{{ $now.plus({ days: 1 }).toFormat(\"yyyy-MM-dd\") }}'\n);",
         "options": {}
       },
       "id": "f285a88d-7840-4f2a-bca4-8bc1e65f0633",
@@ -634,7 +645,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        2640,
+        2860,
         620
       ],
       "credentials": {
@@ -1161,7 +1172,7 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        2260,
+        2480,
         500
       ],
       "credentials": {
@@ -1199,9 +1210,50 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        2440,
+        2660,
         500
       ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "email",
+              "value": "={{ $node[\"formata_dados\"].json[\"email\"] || \"+++++++++++++++++++++++++\" }}"
+            },
+            {
+              "column": "telefone",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefone\"] || \"+++++++++++++++++++++++++\" }}"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "id": "d361301c-710d-41be-a823-4b8aac00e615",
+      "name": "pesquisa_user",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2280,
+        500
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "PfzfhyuSKTUfroef",
+          "name": "[MySQL] - Fabricio Nunnes"
+        }
+      }
     }
   ],
   "pinData": {
@@ -1209,8 +1261,8 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-VXipWpii5-tgHvv5PaOHJA",
-            "deliveryTag": 6,
+            "consumerTag": "amq.ctag-jYW9XwvJUNYqS9ljxa8ijQ",
+            "deliveryTag": 10,
             "redelivered": false,
             "exchange": "",
             "routingKey": "cobranca_conta_azul_p2"
@@ -1219,20 +1271,20 @@
             "headers": {}
           },
           "content": {
-            "nao_pago": "1000",
-            "status_traduzido": "EM_ABERTO",
+            "nao_pago": "2000",
+            "status_traduzido": "ATRASADO",
             "pago": "0",
-            "data_alteracao": "2025-12-29T11:57:44.002703",
-            "mensagem_tipo": "no_dia",
+            "data_alteracao": "2025-12-23T11:15:37.489377",
+            "mensagem_tipo": "5_atraso",
             "cliente": {
-              "id": "9c9512d6-6702-4ed1-88c1-9f8345170489",
-              "nome": "W S TRINDADE FARMA"
+              "id": "ce53c68f-6b05-43e0-812d-17fce3fd3c37",
+              "nome": "THRIFTY AUDIOVISUAL / THRIFTY AUDIOVISUAL E SOLUÇÕES PARA EVENTOS LTDA / THRIFTY AUDIOVISUAL E SOLUÇÕES PARA EVENTOS LTDA"
             },
-            "data_vencimento": "2025-12-29",
-            "descricao": "Venda 1703894",
-            "total": "1000",
-            "status": "PENDING",
-            "id": "df1dd902-e40a-4f3f-87bb-9fbe91c0963d"
+            "data_vencimento": "2025-12-25",
+            "descricao": "Venda 1704050",
+            "total": "2000",
+            "status": "OVERDUE",
+            "id": "75891197-04cb-43e9-be3f-59d0da31364f"
           }
         }
       }
@@ -1262,6 +1314,251 @@
           }
         }
       }
+    ],
+    "busca_pessoa": [
+      {
+        "json": {
+          "body": {
+            "id": "ce53c68f-6b05-43e0-812d-17fce3fd3c37",
+            "nome": "THRIFTY AUDIOVISUAL / THRIFTY AUDIOVISUAL E SOLUÇÕES PARA EVENTOS LTDA / THRIFTY AUDIOVISUAL E SOLUÇÕES PARA EVENTOS LTDA",
+            "documento": "17954591000139",
+            "atrasos_recebimentos": 0,
+            "recebimentos_mes_atual": 0,
+            "atrasos_pagamentos": 0,
+            "pagamentos_mes_atual": 0,
+            "email": "tamy_monteiro@hotmail.com",
+            "telefone_comercial": "1128857886",
+            "telefone_celular": "11974496475",
+            "criado_em": "2025-09-17",
+            "data_alteracao": "",
+            "codigo": "",
+            "perfis": [
+              {
+                "tipo_perfil": "Cliente"
+              }
+            ],
+            "pessoas_legado": [
+              {
+                "id": 445377654,
+                "uuid": "541125fa-3150-4dc8-a41a-50f9261bcf3b",
+                "perfil": "Cliente"
+              }
+            ],
+            "enderecos": [
+              {
+                "id": "99916cf8-aeba-4a6a-ba19-7623952b35b6",
+                "cep": "09090050",
+                "logradouro": "DAS CANELEIRAS",
+                "numero": "896",
+                "complemento": "",
+                "bairro": "JARDIM",
+                "id_cidade": 9042,
+                "cidade": "Santo André",
+                "estado": "SP",
+                "pais": "Brasil"
+              }
+            ],
+            "observacao": "",
+            "optante_simples_nacional": false,
+            "orgao_publico": false,
+            "nome_empresa": "THRIFTY AUDIOVISUAL E SOLUCOES PARA EVENTOS LTDA",
+            "tipo_pessoa": "Jurídica",
+            "mensagem_pagamentos_abertos": {
+              "numero": 0,
+              "total": 0
+            },
+            "lembretes_vencimento": null,
+            "rg": null,
+            "data_nascimento": null,
+            "outros_contatos": [],
+            "inscricoes": [
+              {
+                "id": "087d2005-5f71-4b0d-b6d9-5cfb87404ded",
+                "indicador_inscricao_estadual": "",
+                "inscricao_estadual": "",
+                "inscricao_municipal": "",
+                "inscricao_suframa": ""
+              }
+            ],
+            "ativo": true
+          },
+          "headers": {
+            "access-control-allow-headers": "*",
+            "access-control-allow-methods": "OPTIONS, GET, POST, PUT, PATCH, DELETE",
+            "access-control-allow-origin": "*",
+            "content-length": "1313",
+            "content-type": "application/json",
+            "date": "Tue, 30 Dec 2025 11:00:28 GMT",
+            "x-request-id": "67c65082-44b9-43b4-998a-5b9511446756",
+            "via": "1.1 google",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "connection": "close"
+          },
+          "statusCode": 200,
+          "statusMessage": "OK"
+        }
+      }
+    ],
+    "busca_payment_link": [
+      {
+        "json": {
+          "body": {
+            "id": "75891197-04cb-43e9-be3f-59d0da31364f",
+            "status": "ATRASADO",
+            "nsu": null,
+            "evento": {
+              "id": "d35efdea-1839-4085-be2f-924c2e83711d",
+              "data_competencia": "2025-12-17",
+              "condicao_pagamento": {
+                "quantidade_parcelas": 1,
+                "montante_fixo": false
+              },
+              "referencia": {
+                "id": "2d62da75-cac8-4ca8-a3e9-f956e95de4dc",
+                "revisao": "1",
+                "origem": "VENDA_AGENDADA"
+              },
+              "agendado": false,
+              "tipo": "RECEITA",
+              "rateio": [
+                {
+                  "rateio_centro_custo": [
+                    {
+                      "valor": 2000,
+                      "id_centro_custo": "7c66d95a-cba9-11ef-95da-73623ab95d3c",
+                      "nome_centro_custo": "Sirius"
+                    }
+                  ],
+                  "valor": 2000,
+                  "valor_bruto": 2000,
+                  "id_categoria": "8c1233b5-b526-4a77-94ba-cc72c3812c02",
+                  "nome_categoria": "1.1- Sirius Recorrente"
+                }
+              ]
+            },
+            "versao": 2,
+            "referencia": null,
+            "indice": 1,
+            "conciliado": false,
+            "valor_pago": 0,
+            "perda": null,
+            "nao_pago": 2000,
+            "data_vencimento": "2025-12-25",
+            "data_pagamento_previsto": "2025-12-25",
+            "descricao": "Venda 1704050",
+            "nota": null,
+            "conta_financeira": {
+              "id": "c182ff3d-a5f0-44d6-8b92-8c0e2deffdd1",
+              "banco": "CONTAAZUL_IP",
+              "codigo_banco": 775,
+              "nome": "Conta PJ Conta Azul",
+              "ativo": true,
+              "tipo": "CONTA_CORRENTE",
+              "conta_padrao": false,
+              "possui_config_boleto_bancario": false,
+              "agencia": "0001",
+              "numero": "26642"
+            },
+            "id_conta_financeira": null,
+            "valor_composicao": {
+              "multa": 0,
+              "juros": 0,
+              "valor_bruto": 2000,
+              "desconto": 0,
+              "taxa": 0,
+              "valor_liquido": 2000
+            },
+            "metodo_pagamento": "PIX_COBRANCA",
+            "baixa_agendada": false,
+            "baixas": [],
+            "anexos": [],
+            "solicitacoes_cobrancas": [
+              {
+                "id": "da94f6c2-e009-11f0-b27b-0b5e1e7b39f9",
+                "url": "https://faturas.contaazul.com/#/fatura/visualizar/dae9f2da-e009-11f0-a4dd-dbb6e7d3138d",
+                "versao": 3,
+                "status_solicitacao_cobranca": "REGISTRADO",
+                "valor_composicao": {
+                  "multa": 0,
+                  "juros": 0,
+                  "valor_bruto": 2000,
+                  "desconto": 0,
+                  "taxa": 0,
+                  "valor_liquido": 2000
+                },
+                "data_vencimento": "2025-12-25",
+                "data_quitacao": null,
+                "tipo_solicitacao_cobranca": "PIX_COBRANCA",
+                "id_cliente": "ce53c68f-6b05-43e0-812d-17fce3fd3c37",
+                "id_referencia": "dae9f2da-e009-11f0-a4dd-dbb6e7d3138d",
+                "datalhe_erro": null,
+                "conta_financeira": {
+                  "id": "c182ff3d-a5f0-44d6-8b92-8c0e2deffdd1",
+                  "banco": "CONTAAZUL_IP",
+                  "codigo_banco": 775,
+                  "nome": "Conta PJ Conta Azul",
+                  "ativo": true,
+                  "tipo": "CONTA_CORRENTE",
+                  "conta_padrao": false,
+                  "possui_config_boleto_bancario": false,
+                  "agencia": "0001",
+                  "numero": "26642"
+                },
+                "notificao_cobranca": {
+                  "id": "32ad96d6-e247-11f0-9868-a73b6531afef",
+                  "solicitacao_cobranca_ids": [
+                    "da94f6c2-e009-11f0-b27b-0b5e1e7b39f9"
+                  ],
+                  "versao": 1,
+                  "enviado_em": "2025-12-26",
+                  "aberto_em": "2025-12-26",
+                  "itens_notificacao_cobranca": [
+                    {
+                      "id": "32ada8ec-e247-11f0-9868-c7d66771af31",
+                      "sms": null,
+                      "whatsapp": null,
+                      "versao": 0,
+                      "email": "tamy_monteiro@hotmail.com",
+                      "status_entrega": "ENVIADO"
+                    }
+                  ],
+                  "assunto": "[Importante] Aviso de Fatura Vencida",
+                  "corpo": "Olá, THRIFTY AUDIOVISUAL / THRIFTY AUDIOVISUAL E SOLUÇÕES PARA EVENTOS LTDA / THRIFTY AUDIOVISUAL E SOLUÇÕES PARA EVENTOS LTDA.<br><br>Você acaba de receber 1 cobrança vencida no valor total de R$ 2.000,00, emitida por UNIVERSIDADE VENDAS. Confira os detalhes:<br>- R$ 2.000,00 com vencimento em 25/12/2025, referente a: Venda 1704050 - 1/1<br><br>Pedimos que realize o pagamento quanto antes para evitar eventuais encargos adicionais.<br>Se já tiver pago, por favor, desconsidere este aviso.",
+                  "respondido_para": "livian.financeiro@universidadevendas.com.br",
+                  "agendado": false,
+                  "auto_notificacao": false,
+                  "envio_instantaneo": true
+                },
+                "confirmado_em": "2025-12-23",
+                "descricao": "Venda 1704050 - 1/1",
+                "referencia_externa": null,
+                "recuperado": false,
+                "combinado": false,
+                "atributos_personalizados": null
+              }
+            ],
+            "id_ultima_solicitacao_pagamento": null,
+            "id_boleto_bancario_autorizado": null,
+            "fatura": null,
+            "data_alteracao": "2025-12-23T11:15:37",
+            "valor_total_liquido": null,
+            "id_ultimo_solicitacao_cobranca": null,
+            "renegociacao": null
+          },
+          "headers": {
+            "content-type": "application/json",
+            "date": "Tue, 30 Dec 2025 11:00:29 GMT",
+            "vary": "Origin,Access-Control-Request-Method,Access-Control-Request-Headers",
+            "x-request-id": "caba7001-8fd9-4150-9f88-d3ee35deb74a",
+            "via": "1.1 google",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "connection": "close",
+            "transfer-encoding": "chunked"
+          },
+          "statusCode": 200,
+          "statusMessage": "OK"
+        }
+      }
     ]
   },
   "settings": {
@@ -1275,6 +1572,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-29T19:51:22.282Z",
-  "versionId": "5eed4021-cbc2-4dd1-9af9-59b42c41f11f"
+  "updatedAt": "2025-12-30T11:46:39.435Z",
+  "versionId": "bac0e966-c71f-4010-819f-a1871da728be"
 }
