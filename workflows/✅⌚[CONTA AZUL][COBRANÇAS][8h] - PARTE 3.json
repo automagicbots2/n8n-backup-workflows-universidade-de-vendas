@@ -367,10 +367,17 @@
             {
               "column": "user_id",
               "value": "={{ $node[\"loop\"].json[\"user_id\"] }}"
+            },
+            {
+              "column": "status_envio",
+              "value": "pendente"
+            },
+            {
+              "column": "data_envio_date",
+              "value": "={{$now.toFormat('yyyy-MM-dd')}}"
             }
           ]
         },
-        "combineConditions": "OR",
         "options": {}
       },
       "id": "7857ae8e-4c1f-4e17-ad07-9ad74659c157",
@@ -1015,7 +1022,7 @@
   "settings": {
     "executionOrder": "v1",
     "saveExecutionProgress": true,
-    "saveManualExecutions": true,
+    "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": {
@@ -1028,6 +1035,6 @@
   },
   "tags": [],
   "triggerCount": 3,
-  "updatedAt": "2025-12-30T12:32:16.711Z",
-  "versionId": "b890d55c-a590-4ec9-89e2-0d2186e23629"
+  "updatedAt": "2025-12-31T12:21:05.992Z",
+  "versionId": "3f75680b-f88e-4597-bfaf-ad8441a93f51"
 }
