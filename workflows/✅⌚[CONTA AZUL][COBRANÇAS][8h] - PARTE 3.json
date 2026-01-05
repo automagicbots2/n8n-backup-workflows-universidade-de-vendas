@@ -704,7 +704,7 @@
             },
             {
               "name": "value",
-              "value": "={{ $node[\"agrupa_cobrancas\"].json[\"mensagem\"] }}"
+              "value": "={{ $node[\"agrupa_cobrancas\"].json[\"mensagem\"].replaceAll('*','') }}"
             }
           ]
         },
@@ -990,6 +990,43 @@
           "name": "Header Auth account"
         }
       }
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"agrupa_cobrancas\"].json[\"mensagem\"].replaceAll('*','') }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"pesquisa_variavel_api_bot_conversa\"].json[\"valor_variavel\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "send_message1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2440,
+        340
+      ],
+      "id": "19e9b426-2b9b-4eb1-afca-0db75ba8b501",
+      "disabled": true,
+      "continueOnFail": true
     }
   ],
   "pinData": {
@@ -1035,6 +1072,6 @@
   },
   "tags": [],
   "triggerCount": 3,
-  "updatedAt": "2025-12-31T12:21:05.992Z",
-  "versionId": "3f75680b-f88e-4597-bfaf-ad8441a93f51"
+  "updatedAt": "2026-01-05T13:56:48.191Z",
+  "versionId": "40aab26f-369e-4313-b9e5-f24ca98e61c6"
 }
