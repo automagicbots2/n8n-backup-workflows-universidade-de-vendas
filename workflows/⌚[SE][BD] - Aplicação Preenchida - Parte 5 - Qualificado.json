@@ -10,13 +10,7 @@
             "index": 0
           }
         ],
-        [
-          {
-            "node": "cria/atualiza_contato_qualificado1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "agendamento_nao_existe": {
@@ -479,7 +473,7 @@
       "main": [
         [
           {
-            "node": "valida_dados",
+            "node": "segundo_ou_mais_erro",
             "type": "main",
             "index": 0
           }
@@ -499,9 +493,21 @@
     },
     "log": {
       "main": [
+        []
+      ]
+    },
+    "segundo_ou_mais_erro": {
+      "main": [
         [
           {
             "node": "Stop and Error3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "cria/atualiza_contato_qualificado1",
             "type": "main",
             "index": 0
           }
@@ -525,8 +531,8 @@
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        560,
-        700
+        420,
+        780
       ]
     },
     {
@@ -553,8 +559,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        220,
-        960
+        200,
+        660
       ]
     },
     {
@@ -1249,8 +1255,8 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        -220,
-        960
+        0,
+        900
       ],
       "credentials": {
         "rabbitmq": {
@@ -2343,8 +2349,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        0,
-        960
+        20,
+        660
       ]
     },
     {
@@ -2370,8 +2376,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        80,
-        1200
+        200,
+        900
       ]
     },
     {
@@ -2383,8 +2389,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        340,
-        700
+        360,
+        520
       ]
     },
     {
@@ -2409,31 +2415,31 @@
       {
         "json": {
           "fields": {
-            "consumerTag": "amq.ctag-gu3jJv5qK_ueSBq9yLWudw",
-            "deliveryTag": 2929421,
-            "redelivered": true,
+            "consumerTag": "amq.ctag-gugAW2pBoMe5oaoPh_Rb8A",
+            "deliveryTag": 1,
+            "redelivered": false,
             "exchange": "",
             "routingKey": "Não Agendamentos - Parte 5 - Qualificado"
           },
           "properties": {
             "headers": {
-              "x-delivery-count": 1
+              "x-delivery-count": 4525014
             }
           },
           "content": {
-            "Nome do Cliente": "Kelvyn Teste Agora Sim",
-            "E-mail do Cliente": "kelvyntesteagorasim@gmail.com",
-            "Telefone do Cliente - Formato Z-API": "5549999048531",
-            "id_lead_bd": 8766,
-            "id_lead_bc": 565048918,
-            "utm_source": "teste",
-            "utm_campaign": "teste",
-            "utm_term": "teste",
-            "utm_medium": "teste",
-            "utm_content": "teste",
+            "Nome do Cliente": "Danielly",
+            "E-mail do Cliente": "iodseringueirs@gmail.com",
+            "Telefone do Cliente - Formato Z-API": "556984245200",
+            "id_lead_bd": 9235,
+            "id_lead_bc": 827639826,
+            "utm_source": "ig",
+            "utm_campaign": "LF_SELP_LEADS_CAPTACAO_LP_AUTO_F_ORCAMENTOTOTAL",
+            "utm_term": "SE_AD185",
+            "utm_medium": "Instagram_Stories",
+            "utm_content": "02_F_AUTO_CARGOS_ALTOS",
             "funil": "Sessao_Estrategica",
             "variacao_do_funil": "v1",
-            "quantos_vendedores_possui": "Não tenho vendedores",
+            "quantos_vendedores_possui": "De 1 a 5 vendedores",
             "tem_socio": "\n",
             "id_tag_desqualificado_bot_conversa": "5073673",
             "id_campo_utm_var_bot_conversa": "1408045",
@@ -2450,8 +2456,8 @@
             "id_campo_tem_socio_bot_conversa": "1408036",
             "id_fluxo_nao_agendou_10_min": "",
             "API-KEY": "003f9285-2ed2-4d3c-8f84-18e5a8fab5d3",
-            "data_ultima_quinzena": "\"2025-08-06\"",
-            "instagram": "teste"
+            "data_ultima_quinzena": "\"2025-10-15\"",
+            "instagram": "espaco.iod"
           }
         }
       }
@@ -2475,6 +2481,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-10-14T17:21:39.177Z",
-  "versionId": "2390b3c6-86cb-4983-a4b1-af081cbcd4c6"
+  "updatedAt": "2026-01-05T20:36:28.637Z",
+  "versionId": "4956f4c4-0d9b-4be0-8f04-41f5248b31c7"
 }
